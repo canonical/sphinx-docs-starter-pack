@@ -1,4 +1,6 @@
 /*env*/
+.sphinx/venv
+.sphinx/warnings.txt
 _build
 .DS_Store
 __pycache__

@@ -17,7 +17,7 @@ release = '1.0'
 extensions = ['sphinx_design']
 
 templates_path = ['_templates']
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'sphinxenv']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.sphinx']
 
 
 
