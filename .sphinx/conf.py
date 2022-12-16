@@ -1,3 +1,5 @@
+import datetime
+
 # Configuration file for the Sphinx documentation builder.
 #
 # For the full list of built-in configuration values, see the documentation:
@@ -7,8 +9,8 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'Documentation starter pack'
-copyright = '2022, Canonical Group Ltd'
-author = 'Daniele Procida'
+author = 'Canonical Group Ltd'
+copyright = "%s, %s" % (datetime.date.today().year, author)
 release = '1.0'
 
 # -- General configuration ---------------------------------------------------
