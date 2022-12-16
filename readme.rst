@@ -33,11 +33,11 @@ Start the ``sphinx-autobuild`` documentation server::
 
 	make run
 
-The documentation will be available at http://127.0.0.1:8000.
+The documentation will be available at `127.0.0.1:8000 <http://127.0.0.1:8000>`_.
 
 The command:
 
-* activates the virtualenv and start serving the documentation
+* activates the virtual environment and start serving the documentation
 * rebuilds the documentation each time you save a file
 * sends a reload page signal to the browser when the documentation is rebuilt
 
@@ -60,5 +60,3 @@ In ``conf.py``, you will need to check or edit several settings appropriately:
 * ``html_theme`` - change to ``'furo'``
 
 Save ``conf.py``.
-
-

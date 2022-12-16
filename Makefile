@@ -27,9 +27,6 @@ install:
                 "* clean built doc files: make clean-doc \n" \
                 "* clean full environment: make clean \n" \
 		"* check spelling: make spelling \n" \
-		"\n" \
-		"enchant must be installed in order for pyenchant (and therefore \n" \
-		"spelling checks) to work. \n" \
 		"--------------------------------------------------------------- \n"
 run:
 	. $(VENV); sphinx-autobuild -c .sphinx/ "$(SOURCEDIR)" "$(BUILDDIR)"
@@ -46,8 +43,8 @@ clean: clean-doc
 clean-doc:
 	git clean -fx "$(BUILDDIR)"
 
-spelling:
-	. $(VENV); $(SPHINXBUILD) -b spelling "$(SOURCEDIR)" "$(BUILDDIR)"
+spelling: html
+	. $(VENV) ; python3 -m pyspelling -c .sphinx/spellingcheck.yaml
 
 .PHONY: help Makefile
 

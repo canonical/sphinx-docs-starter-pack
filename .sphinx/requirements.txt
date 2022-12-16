@@ -5,3 +5,4 @@ pyenchant
 furo
 sphinx-tabs
 sphinx-reredirects
+pyspelling
