@@ -3,3 +3,5 @@ sphinx-autobuild
 sphinx-design
 pyenchant
 furo
+sphinx-tabs
+sphinx-reredirects

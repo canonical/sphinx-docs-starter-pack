@@ -14,7 +14,10 @@ release = '1.0'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['sphinx_design']
+extensions = [
+    'sphinx_design',
+    'sphinx_tabs.tabs',
+    'sphinx_reredirects']
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.sphinx']
@@ -87,3 +90,7 @@ html_static_path = ['_static']
 html_css_files = [
     'custom.css'
 ]
+
+# Set up redirects (https://documatt.gitlab.io/sphinx-reredirects/usage.html)
+# For example: "explanation/old-name.html": "../how-to/prettify.html",
+redirects = {}
