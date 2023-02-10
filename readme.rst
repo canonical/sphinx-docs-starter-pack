@@ -8,22 +8,22 @@ Download and install
 ~~~~~~~~~~~~~~~~~~~~
 
 * *Incorporate this starter pack into an existing code repository* - copy all
-   the files from this repository into your project's directory structure,
-   and rename this directory to ``docs`` or similar.
+  the files from this repository into your project's directory structure,
+  and rename this directory to ``docs`` or similar.
 
 * *Start a standalone documentation project* - clone this locally and start
-   working.
+  working.
 
 In documentation directory, run::
 
 	make install
 
 This invokes the ``install`` command in the ``Makefile``, and creates a
-virtual environment (``sphinxenv``) and installs dependencies in
-``requirements.txt``.
+virtual environment (``.sphinx/venv``) and installs dependencies in
+``.sphinx/requirements.txt``.
 
 A complete set of pinned, known-working dependencies is included in
-``pinned-requirements.txt``.
+``.sphinx/pinned-requirements.txt``.
 
 
 Build and serve the documentation
@@ -56,7 +56,16 @@ In ``conf.py``, you will need to check or edit several settings appropriately:
 * ``release`` - only required if you're actually using release numbers
   (beyond the scope of this guide, but you can also use Python to pull this
   out of your code itself)
-* ``extensions`` - add ``'sphinx-design'`` to the list
-* ``html_theme`` - change to ``'furo'``
 
 Save ``conf.py``.
+
+Configure the spelling check
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If your documentation uses US English instead of UK English, change this in the
+``.sphinx/spellingcheck.yaml`` file.
+
+After replacing the placeholder "lorem ipsum" text, clean up the ``.wordlist.txt``
+file and remove all words starting from line 10.
+(They are currently included to make the spelling check work on the start pack
+repository.)
