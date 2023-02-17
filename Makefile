@@ -7,7 +7,7 @@ SPHINXOPTS    ?=
 SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = .
 BUILDDIR      = _build
-VENV          = sphinxenv/bin/activate
+VENV          = .sphinx/venv/bin/activate
 
 
 # Put it first so that "make" without argument is like "make help".
@@ -16,22 +16,35 @@ help:
 
 install:
 	@echo "... setting up virtualenv"
-	python3 -m venv sphinxenv
-	. $(VENV); pip install --upgrade -r requirements.txt
+	python3 -m venv .sphinx/venv
+	. $(VENV); pip install --upgrade -r .sphinx/requirements.txt
 
 	@echo "\n" \
 		"--------------------------------------------------------------- \n" \
 		"* watch, build and serve the documentation: make run \n" \
+                "* only build: make html \n" \
+                "* only serve: make serve \n" \
+                "* clean built doc files: make clean-doc \n" \
+                "* clean full environment: make clean \n" \
 		"* check spelling: make spelling \n" \
-		"\n" \
-		"enchant must be installed in order for pyenchant (and therefore \n" \
-		"spelling checks) to work. \n" \
 		"--------------------------------------------------------------- \n"
 run:
-	. $(VENV); sphinx-autobuild "$(SOURCEDIR)" "$(BUILDDIR)"
+	. $(VENV); sphinx-autobuild -c . "$(SOURCEDIR)" "$(BUILDDIR)"
 
-spelling:
-	. $(VENV); $(SPHINXBUILD) -b spelling "$(SOURCEDIR)" "$(BUILDDIR)"
+html:
+	. $(VENV); $(SPHINXBUILD) -c . "$(SOURCEDIR)" "$(BUILDDIR)" -w .sphinx/warnings.txt
+
+serve:
+	cd "$(BUILDDIR)"; python3 -m http.server 8000
+
+clean: clean-doc
+	rm -rf .sphinx/venv
+
+clean-doc:
+	git clean -fx "$(BUILDDIR)"
+
+spelling: html
+	. $(VENV) ; python3 -m pyspelling -c .sphinx/spellingcheck.yaml
 
 .PHONY: help Makefile
 
