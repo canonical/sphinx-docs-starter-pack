@@ -6,3 +6,4 @@ furo
 sphinx-tabs
 sphinx-reredirects
 pyspelling
+sphinx-copybutton
