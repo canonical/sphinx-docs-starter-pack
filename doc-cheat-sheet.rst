@@ -144,7 +144,7 @@ To display a URL as text and prevent it from being linked, add an escaped space 
    * - Input
      - Output
    * - ``https:\ //canonical.com/``
-     - https:\ //canonical.com/
+     - ``https://canonical.com/``
 
 Internal references
 -------------------
@@ -218,15 +218,15 @@ Adhere to the following conventions:
 Navigation
 ==========
 
-Every documentation page must be included as a subpage to another page in the navigation.
+Every documentation page must be included as a sub-page to another page in the navigation.
 
 This is achieved with the `toctree <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree>`_ |x wokeignore:rule=master x| directive in the parent page::
 
   .. toctree::
      :hidden:
 
-     subpage1
-     subpage2
+     sub-page1
+     sub-page2
 
 If a page should not be included in the navigation, you can suppress the resulting build warning by putting ``:orphan:`` at the top of the file.
 Use orphan pages sparingly and only if there is a clear reason for it.
@@ -276,17 +276,17 @@ You can also nest lists:
 
             - Item 1
 
-              * Subitem
+              * Sub-item
             - Item 2
 
-              i. Substep 1
-              #. Substep 2
+              i. Sub-step 1
+              #. Sub-step 2
          #. Step 2
 
-            a. Substep 1
+            a. Sub-step 1
 
                - Item
-            #. Substep 2
+            #. Sub-step 2
    .. group-tab:: Output
 
 
@@ -295,17 +295,17 @@ You can also nest lists:
 
           - Item 1
 
-            * Subitem
+            * Sub-item
           - Item 2
 
-            i. Substep 1
-            #. Substep 2
+            i. Sub-step 1
+            #. Sub-step 2
        #. Step 2
 
-          a. Substep 1
+          a. Sub-step 1
 
              - Item
-          #. Substep 2
+          #. Sub-step 2
 
 
 
@@ -348,7 +348,7 @@ Both markups result in the following output:
      - Header 2
    * - Cell 1
 
-       2nd paragraph cell 1
+       Second paragraph cell 1
      - Cell 2
    * - Cell 3
      - Cell 4
@@ -454,7 +454,7 @@ Images
 Adhere to the following conventions:
 
 - For local pictures, start the path with :file:`/` (for example, :file:`/images/image.png`).
-- Use PNG format for screenshots and SVG format for graphics.
+- Use ``PNG`` format for screenshots and ``SVG`` format for graphics.
 
 Reuse
 =====
@@ -596,5 +596,5 @@ More useful markup
        | Line 3
    * - ``.. This is a comment``
      - .. This is a comment
-   * - ``:abbr:`AAR (Anbox Application Registry)```
-     - :abbr:`AAR (Anbox Application Registry)`
+   * - ``:abbr:`API (Application Programming Interface)```
+     - :abbr:`API (Application Programming Interface)`
