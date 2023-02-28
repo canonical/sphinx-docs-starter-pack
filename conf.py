@@ -19,10 +19,14 @@ release = '1.0'
 extensions = [
     'sphinx_design',
     'sphinx_tabs.tabs',
-    'sphinx_reredirects']
+    'sphinx_reredirects',
+    'sphinx.ext.intersphinx']
 
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.sphinx']
 
+intersphinx_mapping = {
+    'sphinx-rtd': ('https://canonical-documentation-with-sphinx-and-readthedocscom.readthedocs-hosted.com/', None)
+}
 
 
 # -- Options for HTML output -------------------------------------------------
