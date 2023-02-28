@@ -13,6 +13,16 @@ author = 'Canonical Group Ltd'
 copyright = "%s, %s" % (datetime.date.today().year, author)
 release = '1.0'
 
+html_context = {
+    # Change to the discourse instance you want to be able to link to
+    "discourse_prefix": "https://discourse.ubuntu.com/t/",
+    # Change to the GitHub info for your project
+    "github_url": "https://github.com/canonical/starter-pack",
+    "github_version": "main",
+    "github_folder": "/",
+    "github_filetype": "rst"
+}
+
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
@@ -20,20 +30,23 @@ extensions = [
     'sphinx_design',
     'sphinx_tabs.tabs',
     'sphinx_reredirects',
-    'sphinx.ext.intersphinx']
+    'sphinx.ext.intersphinx',
+    'youtube-links',
+    'related-links',
+    'custom-rst-roles']
 
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.sphinx']
 
 intersphinx_mapping = {
     'sphinx-rtd': ('https://canonical-documentation-with-sphinx-and-readthedocscom.readthedocs-hosted.com/', None)
 }
-
 rst_epilog = """
 .. include:: /reuse/substitutions.txt
 """
-
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
+
+templates_path = [".sphinx/_templates"]
 
 html_theme = 'furo'
 html_last_updated_fmt = ""
