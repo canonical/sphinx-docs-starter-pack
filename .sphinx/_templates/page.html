@@ -1,5 +1,9 @@
 {% extends "furo/page.html" %}
 
+{% block footer %}
+   {% include "footer.html" %}
+{% endblock footer %}
+
 {% if meta and ((meta.discourse and discourse_prefix) or meta.relatedlinks) %}
    {% set furo_hide_toc_orig = furo_hide_toc %}
    {% set furo_hide_toc=false %}
