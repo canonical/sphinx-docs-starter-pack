@@ -29,10 +29,10 @@ install:
 		"* check spelling: make spelling \n" \
 		"--------------------------------------------------------------- \n"
 run:
-	. $(VENV); sphinx-autobuild -c . "$(SOURCEDIR)" "$(BUILDDIR)"
+	. $(VENV); sphinx-autobuild -c . -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)"
 
 html:
-	. $(VENV); $(SPHINXBUILD) -c . "$(SOURCEDIR)" "$(BUILDDIR)" -w .sphinx/warnings.txt
+	. $(VENV); $(SPHINXBUILD) -c . -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" -w .sphinx/warnings.txt
 
 serve:
 	cd "$(BUILDDIR)"; python3 -m http.server 8000
