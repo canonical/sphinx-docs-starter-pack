@@ -28,6 +28,9 @@ intersphinx_mapping = {
     'sphinx-rtd': ('https://canonical-documentation-with-sphinx-and-readthedocscom.readthedocs-hosted.com/', None)
 }
 
+rst_epilog = """
+.. include:: /reuse/substitutions.txt
+"""
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
