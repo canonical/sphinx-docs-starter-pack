@@ -4,7 +4,7 @@
 Documentation cheat sheet
 =========================
 
-The documentation files use `reStructuredText (rST) <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_ syntax.
+The documentation files use `reStructuredText (rST) <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_ syntax. |x wokeignore:rule=master x|
 
 See the following sections for syntax help and conventions.
 
@@ -220,7 +220,7 @@ Navigation
 
 Every documentation page must be included as a subpage to another page in the navigation.
 
-This is achieved with the `toctree <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree>`_ directive in the parent page::
+This is achieved with the `toctree <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree>`_ |x wokeignore:rule=master x| directive in the parent page::
 
   .. toctree::
      :hidden:
@@ -337,7 +337,7 @@ Tables
 ======
 
 rST supports different markup for tables. Grid tables are most similar to tables in Markdown, but list tables are usually much easier to use.
-See the `Sphinx documentation <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#table-directives>`_ for all table syntax alternatives.
+See the `Sphinx documentation <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#table-directives>`_ for all table syntax alternatives. |x wokeignore:rule=master x|
 
 Both markups result in the following output:
 
