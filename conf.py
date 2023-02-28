@@ -48,6 +48,9 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.sphinx']
 intersphinx_mapping = {
     'sphinx-rtd': ('https://canonical-documentation-with-sphinx-and-readthedocscom.readthedocs-hosted.com/', None)
 }
+rst_epilog = """
+.. include:: /reuse/substitutions.txt
+"""
 # Links to ignore when checking links
 linkcheck_ignore = [
     'http://127.0.0.1:8000'
