@@ -23,7 +23,11 @@ extensions = [
 
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.sphinx']
 
+# Links to ignore when checking links
 
+linkcheck_ignore = [
+    'http://127.0.0.1:8000'
+    ]
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
