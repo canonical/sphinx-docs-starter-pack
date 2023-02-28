@@ -18,6 +18,16 @@ ogp_site_url = "https://canonical-starter-pack.readthedocs-hosted.com/"
 ogp_site_name = "Documentation starter pack"
 ogp_image = "https://assets.ubuntu.com/v1/253da317-image-document-ubuntudocs.svg"
 
+html_context = {
+    # Change to the discourse instance you want to be able to link to
+    "discourse_prefix": "https://discourse.ubuntu.com/t/",
+    # Change to the GitHub info for your project
+    "github_url": "https://github.com/canonical/starter-pack",
+    "github_version": "main",
+    "github_folder": "/",
+    "github_filetype": "rst"
+}
+
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
@@ -25,20 +35,24 @@ extensions = [
     'sphinx_design',
     'sphinx_tabs.tabs',
     'sphinx_reredirects',
+    'youtube-links',
+    'related-links',
+    'custom-rst-roles',
     'sphinx_copybutton',
     'sphinxext.opengraph'
-]
+    ]
 
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.sphinx']
 
 # Links to ignore when checking links
-
 linkcheck_ignore = [
     'http://127.0.0.1:8000'
     ]
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
+
+templates_path = [".sphinx/_templates"]
 
 html_theme = 'furo'
 html_last_updated_fmt = ""
