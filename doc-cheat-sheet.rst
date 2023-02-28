@@ -1,4 +1,5 @@
 :orphan:
+:relatedlinks: https://github.com/canonical/lxd-sphinx-extensions
 
 =========================
 Documentation cheat sheet
@@ -179,7 +180,7 @@ To display a URL as text and prevent it from being linked, add an escaped space 
    * - Input
      - Output
    * - ``https:\ //canonical.com/``
-     - ``https://canonical.com/``
+     - :spellexception:`https://canonical.com/`
 
 Internal references
 -------------------
@@ -644,3 +645,56 @@ More useful markup
      - .. This is a comment
    * - ``:abbr:`API (Application Programming Interface)```
      - :abbr:`API (Application Programming Interface)`
+
+Custom extensions
+=================
+
+The starter pack includes some custom extensions that you can use.
+
+Related links
+-------------
+
+You can add links to related websites to the sidebar by adding the following field at the top of the page::
+
+  :relatedlinks: https://github.com/canonical/lxd-sphinx-extensions, [RTFM](https://www.google.com)
+
+To override the title, use Markdown syntax. Note that spaces are ignored; if you need spaces in the title, replace them with ``&#32;``, and include the value in quotes if Sphinx complains about the metadata value because it starts with ``[``.
+
+To add a link to a Discourse topic, configure the Discourse instance in the :file:`conf.py` file.
+Then add the following field at the top of the page (where ``12345`` is the ID of the Discourse topic)::
+
+  :discourse: 12345
+
+YouTube links
+-------------
+
+To add a link to a YouTube video, use the following directive:
+
+.. list-table::
+   :header-rows: 1
+
+   * - Input
+     - Output
+   * - .. code::
+
+          .. youtube:: https://www.youtube.com/watch?v=iMLiK1fX4I0
+             :title: Demo
+
+     - .. youtube:: https://www.youtube.com/watch?v=iMLiK1fX4I0
+          :title: Demo
+
+The video title is extracted automatically and displayed when hovering over the link.
+To override the title, add the ``:title:`` option.
+
+Spelling exceptions
+-------------------
+
+If you need to use a word that does not comply to the spelling conventions, but is correct in a certain context, you can exempt it from the spelling checker by surrounding it with ``:spellexception:``.
+
+.. list-table::
+   :header-rows: 1
+
+   * - Input
+     - Output
+   * - ``:spellexception:\`PurposelyWrong\```
+     - :spellexception:`PurposelyWrong`
