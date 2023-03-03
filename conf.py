@@ -15,7 +15,7 @@ release = '1.0'
 
 # Open Graph configuration - defines what is displayed in the website preview
 ogp_site_url = "https://canonical-starter-pack.readthedocs-hosted.com/"
-ogp_site_name = "Documentation starter pack"
+ogp_site_name = project
 ogp_image = "https://assets.ubuntu.com/v1/253da317-image-document-ubuntudocs.svg"
 
 html_context = {
