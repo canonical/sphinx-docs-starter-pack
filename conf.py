@@ -13,6 +13,11 @@ author = 'Canonical Group Ltd'
 copyright = "%s, %s" % (datetime.date.today().year, author)
 release = '1.0'
 
+# Open Graph configuration - defines what is displayed in the website preview
+ogp_site_url = "https://canonical-starter-pack.readthedocs-hosted.com/"
+ogp_site_name = "Documentation starter pack"
+ogp_image = "https://assets.ubuntu.com/v1/253da317-image-document-ubuntudocs.svg"
+
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
@@ -20,7 +25,8 @@ extensions = [
     'sphinx_design',
     'sphinx_tabs.tabs',
     'sphinx_reredirects',
-    'sphinx_copybutton'
+    'sphinx_copybutton',
+    'sphinxext.opengraph'
 ]
 
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.sphinx']
