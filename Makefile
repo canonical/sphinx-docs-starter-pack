@@ -46,6 +46,9 @@ clean-doc:
 spelling: html
 	. $(VENV) ; python3 -m pyspelling -c .sphinx/spellingcheck.yaml
 
+linkcheck:
+	. $(VENV) ; $(SPHINXBUILD) -c . -b linkcheck  "$(SOURCEDIR)" "$(BUILDDIR)"
+
 .PHONY: help Makefile
 
 # Catch-all target: route all unknown targets to Sphinx using the new
