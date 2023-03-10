@@ -4,7 +4,8 @@ window.onload = function() {
     link.classList.add("github-issue-link");
     link.text = "Send feedback";
     link.href = (
-        "https://github.com/canonical/<YOUR_REPO_NAME>/issues/new?"
+        github_url
+        + "/issues/new?"
         + "title=docs%3A+TYPE+YOUR+QUESTION+HERE"
         + "&body=*Please describe the question or issue you're facing with "
         + `"${document.title}"`
