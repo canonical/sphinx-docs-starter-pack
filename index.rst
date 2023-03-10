@@ -1,3 +1,5 @@
+:relatedlinks: [Diátaxis](https://diataxis.fr/)
+
 .. _home:
 
 Starter pack

@@ -7,4 +7,5 @@ sphinx-tabs
 sphinx-reredirects
 pyspelling
 sphinxext-opengraph
+lxd-sphinx-extensions
 sphinx-copybutton
