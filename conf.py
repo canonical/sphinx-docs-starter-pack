@@ -114,7 +114,6 @@ html_theme_options = {
     },
 }
 
-
 html_static_path = ['.sphinx/_static']
 html_css_files = [
     'custom.css'
