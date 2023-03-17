@@ -1,11 +1,12 @@
 Documentation starter pack
 ==========================
 
-How to use this starter pack
-----------------------------
+See the `Sphinx and Read the Docs <https://canonical-documentation-with-sphinx-and-readthedocscom.readthedocs-hosted.com/>`_ guide for instructions on how to get started with Sphinx documentation.
+
+Then go through the following sections to use this starter pack to set up your docs repository.
 
 Download and install
-~~~~~~~~~~~~~~~~~~~~
+--------------------
 
 * *Incorporate this starter pack into an existing code repository* - copy all
   the files from this repository into your project's directory structure,
@@ -27,7 +28,7 @@ A complete set of pinned, known-working dependencies is included in
 
 
 Build and serve the documentation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------------
 
 Start the ``sphinx-autobuild`` documentation server::
 
@@ -46,7 +47,7 @@ the more standard ``make html``.)
 
 
 Configure the documentation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------
 
 In ``conf.py``, you will need to check or edit several settings in the *Project information* section:
 
@@ -71,7 +72,7 @@ In the ``html_context`` variable, update the following settings:
 Save ``conf.py``.
 
 Configure the spelling check
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------
 
 If your documentation uses US English instead of UK English, change this in the
 ``.sphinx/spellingcheck.yaml`` file.
@@ -82,6 +83,6 @@ file and remove all words starting from line 10.
 repository.)
 
 Configure the link check
-~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------
 
 If you have links in the documentation that you don't want to be checked (for example, because they are local links or give random errors even though they work), you can add them to the ``linkcheck_ignore`` variable in the ``conf.py`` file.
