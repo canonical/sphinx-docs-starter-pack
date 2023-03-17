@@ -3,7 +3,7 @@
 .. _home:
 
 Starter pack
-======================================================
+============
 
 **A single sentence that says what the product is, succinctly and memorably.**
 consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et

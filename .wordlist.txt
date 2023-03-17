@@ -3,7 +3,7 @@ Permalink
 ReadMe
 roadmap
 webhook
-rST
+reST
 reStructuredText
 UI
 https

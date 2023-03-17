@@ -1,5 +1,5 @@
 Integrate a gadget
-==================================================================
+==================
 
 Malesuada fames ac turpis egestas sed tempus. Volutpat maecenas volutpat
 blandit aliquam etiam erat. At in tellus integer feugiat scelerisque varius
