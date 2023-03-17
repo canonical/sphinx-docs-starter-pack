@@ -44,6 +44,10 @@ extensions = [
 
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.sphinx']
 
+rst_epilog = """
+.. include:: /reuse/links.txt
+"""
+
 # Links to ignore when checking links
 linkcheck_ignore = [
     'http://127.0.0.1:8000'
