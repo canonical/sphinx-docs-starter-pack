@@ -1,8 +1,8 @@
 Install Example Product using Multipass
-======================================================
+=======================================
 
 Lorem ipsum
-~~~~~~~~~~~~
+~~~~~~~~~~~
 
 Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
 ut labore et dolore magna aliqua. Massa ultricies mi quis hendrerit dolor

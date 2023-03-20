@@ -1,8 +1,8 @@
 How to spawn new instances
-===========================
+==========================
 
 Lorem ipsum
-~~~~~~~~~~~~
+~~~~~~~~~~~
 
 Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
 ut labore et dolore magna aliqua. Massa ultricies mi quis hendrerit dolor

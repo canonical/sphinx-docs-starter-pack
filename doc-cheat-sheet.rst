@@ -2,14 +2,13 @@
 
 .. _cheat-sheet:
 
-============================
 reStructuredText cheat sheet
 ============================
 
-This file contains the syntax for commonly used rST markup.
+This file contains the syntax for commonly used reST markup.
 See the `reStructuredText style guide <https://canonical-documentation-with-sphinx-and-readthedocscom.readthedocs-hosted.com/style-guide/>`_ for detailed information and conventions.
 
-Also see the `Sphinx reStructuredText Primer <https://tinyurl.com/rstprimer>`_ for more details on rST, and the `Canonical Documentation Style Guide <https://docs.ubuntu.com/styleguide/en>`_ for general style conventions.
+Also see the `Sphinx reStructuredText Primer <https://tinyurl.com/rstprimer>`_ for more details on reST, and the `Canonical Documentation Style Guide <https://docs.ubuntu.com/styleguide/en>`_ for general style conventions.
 
 H2 heading
 ----------
@@ -59,6 +58,7 @@ Links
 -----
 
 - `Canonical website <https://canonical.com/>`_
+- `Canonical website`_ (defined in ``reuse/links.txt``)
 - `Link defined at the bottom of the page`_
 - https:\ //canonical.com/
 - :ref:`a_section_target`
