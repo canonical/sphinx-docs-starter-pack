@@ -2,7 +2,7 @@ window.onload = function() {
     const link = document.createElement("a");
     link.classList.add("muted-link");
     link.classList.add("github-issue-link");
-    link.text = "Have a question?";
+    link.text = "Send feedback";
     link.href = (
         "https://github.com/canonical/<YOUR_REPO_NAME>/issues/new?"
         + "title=docs%3A+TYPE+YOUR+QUESTION+HERE"
