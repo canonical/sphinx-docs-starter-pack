@@ -34,6 +34,9 @@ run:
 html:
 	. $(VENV); $(SPHINXBUILD) -c . -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" -w .sphinx/warnings.txt
 
+epub:
+	. $(VENV); $(SPHINXBUILD) -c . -b epub "$(SOURCEDIR)" "$(BUILDDIR)" -w .sphinx/warnings.txt
+
 serve:
 	cd "$(BUILDDIR)"; python3 -m http.server 8000
 

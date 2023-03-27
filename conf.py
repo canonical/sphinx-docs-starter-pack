@@ -1,4 +1,5 @@
 import datetime
+import sys
 
 # Configuration file for the Sphinx documentation builder.
 #
@@ -56,7 +57,14 @@ linkcheck_ignore = [
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-templates_path = [".sphinx/_templates"]
+# Find the current builder
+builder = "dirhtml"
+if '-b' in sys.argv:
+    builder = sys.argv[sys.argv.index('-b')+1]
+
+# Setting templates_path for epub makes the build fail
+if builder == "dirhtml" or builder == "html":
+    templates_path = [".sphinx/_templates"]
 
 html_theme = 'furo'
 html_last_updated_fmt = ""
