@@ -2,7 +2,7 @@ window.onload = function() {
     const link = document.createElement("a");
     link.classList.add("muted-link");
     link.classList.add("github-issue-link");
-    link.text = "Send feedback";
+    link.text = "Give feedback";
     link.href = (
         github_url
         + "/issues/new?"
