@@ -26,8 +26,8 @@ table.docutils td, table.docutils th, table.docutils td:last-child, table.docuti
     border-left: none;
 }
 
-/* center align table cells with ":-:" */
-td.text-center {
+/* Centre text horizontally in table data cells */
+table.docutils td {
     text-align: center;
 }
 
