@@ -85,11 +85,19 @@ repository.)
 Configure the link check
 ------------------------
 
-If you have links in the documentation that you don't want to be checked (for example, because they are local links or give random errors even though they work), you can add them to the ``linkcheck_ignore`` variable in the ``conf.py`` file.
+If you have links in the documentation that you don't want to be checked (for
+example, because they are local links or give random errors even though they
+work), you can add them to the ``linkcheck_ignore`` variable in the ``conf.py``
+file.
 
 Activate/deactivate feedback button
 -----------------------------------
 
-A feedback button is included by default, which appears at the top of each page in the documentation. It redirects users to your GitHub issues page, and pre-populates an issue for them with details of the page they were on when they clicked the button. 
+A feedback button is included by default, which appears at the top of each page
+in the documentation. It redirects users to your GitHub issues page, and
+populates an issue for them with details of the page they were on when they
+clicked the button. 
 
-If your project does not use GitHub issues, or you don't want the feedback button for another reason, you can deactivate the button by removing the ``'github_issue_links.js'`` script from the ``conf.py`` file.
+If your project does not use GitHub issues, or you don't want the feedback
+button for another reason, you can deactivate the button by removing the
+``github_issue_links.js`` script from the ``conf.py`` file.
