@@ -38,7 +38,7 @@ The documentation will be available at `127.0.0.1:8000 <http://127.0.0.1:8000>`_
 
 The command:
 
-* activates the virtual environment and start serving the documentation
+* activates the virtual environment and starts serving the documentation
 * rebuilds the documentation each time you save a file
 * sends a reload page signal to the browser when the documentation is rebuilt
 
@@ -64,7 +64,7 @@ In ``conf.py``, you will need to check or edit several settings in the *Project 
 In the ``html_context`` variable, update the following settings:
 
 * ``discourse_prefix`` - the URL to the Discourse instance your project uses (needed to add links to posts using the ``:discourse:`` metadata at the top of a file)
-* ``github_url`` - the link to your GitHub repository (needed to create the Edit link in the footer)
+* ``github_url`` - the link to your GitHub repository (needed to create the Edit link in the footer and the feedback button)
 * ``github_version`` - the branch that contains this version of the documentation
 * ``github_folder`` - the folder that contains the documentation files
 * ``github_filetype`` - the file type of the documentation files (usually ``rst`` or ``md``)
@@ -86,3 +86,10 @@ Configure the link check
 ------------------------
 
 If you have links in the documentation that you don't want to be checked (for example, because they are local links or give random errors even though they work), you can add them to the ``linkcheck_ignore`` variable in the ``conf.py`` file.
+
+Activate/deactivate feedback button
+-----------------------------------
+
+A feedback button is included by default, which appears at the top of each page in the documentation. It redirects users to your GitHub issues page, and pre-populates an issue for them with details of the page they were on when they clicked the button. 
+
+If your project does not use GitHub issues, or you don't want the feedback button for another reason, you can deactivate the button by removing the ``'github_issue_links.js'`` script from the ``conf.py`` file.
