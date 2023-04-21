@@ -21,13 +21,17 @@ ogp_image = "https://assets.ubuntu.com/v1/253da317-image-document-ubuntudocs.svg
 
 html_context = {
     # Change to the discourse instance you want to be able to link to
-    "discourse_prefix": "https://discourse.ubuntu.com/t/",
+    "discourse": "https://discourse.ubuntu.com",
     # Change to the GitHub info for your project
     "github_url": "https://github.com/canonical/starter-pack",
     "github_version": "main",
     "github_folder": "/",
     "github_filetype": "rst"
 }
+
+# Used for related links - no need to change
+if 'discourse' in html_context:
+    html_context['discourse_prefix'] = html_context['discourse'] + "/t/"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
