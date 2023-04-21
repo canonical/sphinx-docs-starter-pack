@@ -29,6 +29,7 @@ Inline formatting
 - ``code``
 - :file:`file path`
 - :command:`command`
+- :kbd:`Key`
 - *Italic*
 - **Bold**
 
