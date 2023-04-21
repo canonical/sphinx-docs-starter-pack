@@ -209,10 +209,22 @@ Related links at the top of the page::
   :relatedlinks: https://github.com/canonical/lxd-sphinx-extensions, [RTFM](https://www.google.com)
   :discourse: 12345
 
+Terms that should not be checked by the spelling checker: :spellexception:`PurposelyWrong`
+
+A terminal view with input and output:
+
+.. terminal::
+   :input: command
+   :user: root
+   :host: vampyr
+
+   the output
+
+A link to a YouTube video:
+
 .. youtube:: https://www.youtube.com/watch?v=iMLiK1fX4I0
           :title: Demo
 
-:spellexception:`PurposelyWrong`
 
 
 .. LINKS
