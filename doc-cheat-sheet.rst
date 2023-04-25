@@ -6,9 +6,9 @@ reStructuredText cheat sheet
 ============================
 
 This file contains the syntax for commonly used reST markup.
-See the `reStructuredText style guide <https://canonical-documentation-with-sphinx-and-readthedocscom.readthedocs-hosted.com/style-guide/>`_ for detailed information and conventions.
+See the `reStructuredText style guide`_ for detailed information and conventions.
 
-Also see the `Sphinx reStructuredText Primer <https://tinyurl.com/rstprimer>`_ for more details on reST, and the `Canonical Documentation Style Guide <https://docs.ubuntu.com/styleguide/en>`_ for general style conventions.
+Also see the `Sphinx reStructuredText Primer`_ for more details on reST, and the `Canonical Documentation Style Guide`_ for general style conventions.
 
 H2 heading
 ----------
@@ -29,6 +29,7 @@ Inline formatting
 - ``code``
 - :file:`file path`
 - :command:`command`
+- :kbd:`Key`
 - *Italic*
 - **Bold**
 
@@ -209,10 +210,22 @@ Related links at the top of the page::
   :relatedlinks: https://github.com/canonical/lxd-sphinx-extensions, [RTFM](https://www.google.com)
   :discourse: 12345
 
+Terms that should not be checked by the spelling checker: :spellexception:`PurposelyWrong`
+
+A terminal view with input and output:
+
+.. terminal::
+   :input: command
+   :user: root
+   :host: vampyr
+
+   the output
+
+A link to a YouTube video:
+
 .. youtube:: https://www.youtube.com/watch?v=iMLiK1fX4I0
           :title: Demo
 
-:spellexception:`PurposelyWrong`
 
 
 .. LINKS
