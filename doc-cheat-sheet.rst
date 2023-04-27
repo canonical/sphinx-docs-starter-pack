@@ -129,6 +129,31 @@ Tables
    * - Cell 3
      - Cell 4
 
+.. rst-class:: align-center
+
+   +----------------------+------------+
+   | Header 1             | Header 2   |
+   +======================+============+
+   | Cell 1               | Cell 2     |
+   |                      |            |
+   | Second paragraph     |            |
+   +----------------------+------------+
+   | Cell 3               | Cell 4     |
+   +----------------------+------------+
+
+.. list-table::
+   :header-rows: 1
+   :align: center
+
+   * - Header 1
+     - Header 2
+   * - Cell 1
+
+       Second paragraph
+     - Cell 2
+   * - Cell 3
+     - Cell 4
+
 Notes
 -----
 
