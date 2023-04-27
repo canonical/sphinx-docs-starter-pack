@@ -21,3 +21,4 @@ Actual
 
    Manage rate-limiting <rate-limiting>
    Spawn new instance <spawning>
+   Include a Markdown file <markdown>

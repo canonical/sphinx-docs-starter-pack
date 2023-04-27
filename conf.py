@@ -45,14 +45,25 @@ extensions = [
     'custom-rst-roles',
     'terminal-output',
     'sphinx_copybutton',
-    'sphinxext.opengraph'
+    'sphinxext.opengraph',
+    'myst_parser'
     ]
+
+myst_enable_extensions = [
+    "substitution",
+    "deflist"
+]
 
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.sphinx']
 
 rst_epilog = """
 .. include:: /reuse/links.txt
 """
+
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.md': 'markdown',
+}
 
 # Links to ignore when checking links
 linkcheck_ignore = [
