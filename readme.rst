@@ -96,8 +96,10 @@ Activate/deactivate feedback button
 A feedback button is included by default, which appears at the top of each page
 in the documentation. It redirects users to your GitHub issues page, and
 populates an issue for them with details of the page they were on when they
-clicked the button. 
+clicked the button.
 
-If your project does not use GitHub issues, or you don't want the feedback
-button for another reason, you can deactivate the button by removing the
-``github_issue_links.js`` script from the ``conf.py`` file.
+If your project does not use GitHub issues, set the ``github_issues`` variable
+in the ``conf.py`` file to an empty value to disable both the feedback button
+and the issue link in the footer.
+If you want to deactivate only the feedback button, but keep the link in the
+footer, remove the ``github_issue_links.js`` script from the ``conf.py`` file.

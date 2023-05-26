@@ -27,6 +27,8 @@ html_context = {
     "github_version": "main",
     "github_folder": "/",
     "github_filetype": "rst"
+    # Change to an empty value if your GitHub repo doesn't have issues enabled
+    "github_issues": "enabled"
 }
 
 # Used for related links - no need to change
@@ -147,9 +149,11 @@ html_css_files = [
     'custom.css',
     'github_issue_links.css',
 ]
-html_js_files = [
-    'github_issue_links.js',
-]
+
+html_js_files = []
+if "github_issues" in html_context and html_context["github_issues"]:
+    html_js_files.append('github_issue_links.js')
+
 
 
 # Set up redirects (https://documatt.gitlab.io/sphinx-reredirects/usage.html)
