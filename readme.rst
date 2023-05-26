@@ -103,10 +103,7 @@ Configure the spelling check
 If your documentation uses US English instead of UK English, change this in the
 ``.sphinx/spellingcheck.yaml`` file.
 
-After replacing the placeholder "lorem ipsum" text, clean up the ``.wordlist.txt``
-file and remove all words starting from line 10.
-(They are currently included to make the spelling check work on the start pack
-repository.)
+To add exceptions for words the spelling check marks as wrong even though they are correct, edit the ``.wordlist.txt`` file.
 
 Configure the link check
 ~~~~~~~~~~~~~~~~~~~~~~~~

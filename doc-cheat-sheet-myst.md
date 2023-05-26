@@ -58,8 +58,8 @@ code:
 - https:/<span></span>/canonical.com/
 - {ref}`a_section_target`
 - {ref}`Link text <a_section_target>`
-- {doc}`reference/index`
-- {doc}`Link text <reference/index>`
+- {doc}`doc-cheat-sheet`
+- {doc}`Link text <doc-cheat-sheet>`
 
 
 ## Navigation
@@ -180,9 +180,9 @@ Keys can be defined at the top of a file, or in a `myst_substitutions` option in
 
 ### File inclusion
 
-```{include} reference/index.rst
-   :start-after: adipiscing elit.
-   :end-before: Sed tincidunt sagittis orci
+```{include} index.rst
+   :start-after: include_start
+   :end-before: include_end
 ```
 
 ## Tabs

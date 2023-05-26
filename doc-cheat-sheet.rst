@@ -64,8 +64,8 @@ Links
 - https:\ //canonical.com/
 - :ref:`a_section_target`
 - :ref:`Link text <a_section_target>`
-- :doc:`reference/index`
-- :doc:`Link text <reference/index>`
+- :doc:`doc-cheat-sheet-myst`
+- :doc:`Link text <doc-cheat-sheet-myst>`
 
 
 Navigation
@@ -187,9 +187,9 @@ Reuse
 
 |reuse_key|
 
-.. include:: reference/index.rst
-   :start-after: adipiscing elit.
-   :end-before: Sed tincidunt sagittis orci
+.. include:: index.rst
+   :start-after: include_start
+   :end-before: include_end
 
 Tabs
 ----
