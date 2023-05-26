@@ -26,7 +26,6 @@ html_context = {
     "github_url": "https://github.com/canonical/starter-pack",
     "github_version": "main",
     "github_folder": "/",
-    "github_filetype": "rst"
     # Change to an empty value if your GitHub repo doesn't have issues enabled
     "github_issues": "enabled"
 }
