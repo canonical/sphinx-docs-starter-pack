@@ -60,6 +60,7 @@ In ``conf.py``, you will need to check or edit several settings in the *Project 
 * ``ogp_site_url`` - the URL of the documentation output (needed to generate a preview when linking from another website)
 * ``ogp_site_name`` - the title you want to use for the documentation in previews on other websites (by default, this is set to the project name)
 * ``ogp_image`` - an image that will be used in the preview on other websites
+* ``html_favicon`` - the favicon for the documentation (circle of friends by default)
 
 In the ``html_context`` variable, update the following settings:
 
@@ -96,7 +97,7 @@ Activate/deactivate feedback button
 A feedback button is included by default, which appears at the top of each page
 in the documentation. It redirects users to your GitHub issues page, and
 populates an issue for them with details of the page they were on when they
-clicked the button. 
+clicked the button.
 
 If your project does not use GitHub issues, or you don't want the feedback
 button for another reason, you can deactivate the button by removing the

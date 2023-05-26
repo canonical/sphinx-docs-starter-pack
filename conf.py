@@ -19,6 +19,9 @@ ogp_site_url = "https://canonical-starter-pack.readthedocs-hosted.com/"
 ogp_site_name = project
 ogp_image = "https://assets.ubuntu.com/v1/253da317-image-document-ubuntudocs.svg"
 
+# Update with the favicon for your product
+html_favicon = ".sphinx/_static/favicon.png"
+
 html_context = {
     # Change to the discourse instance you want to be able to link to
     "discourse": "https://discourse.ubuntu.com",
