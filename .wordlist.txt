@@ -9,6 +9,8 @@ UI
 https
 MyST
 favicon
+installable
+Makefile
 
 accumsan
 adipiscing
