@@ -60,6 +60,7 @@ In ``conf.py``, you will need to check or edit several settings in the *Project 
 * ``ogp_site_url`` - the URL of the documentation output (needed to generate a preview when linking from another website)
 * ``ogp_site_name`` - the title you want to use for the documentation in previews on other websites (by default, this is set to the project name)
 * ``ogp_image`` - an image that will be used in the preview on other websites
+* ``html_favicon`` - the favicon for the documentation (circle of friends by default)
 
 In the ``html_context`` variable, update the following settings:
 
