@@ -1,4 +1,3 @@
-
 Permalink
 ReadMe
 reST
@@ -9,3 +8,4 @@ MyST
 favicon
 installable
 Makefile
+Diátaxis
