@@ -28,6 +28,7 @@ Copy all the files and folders (with the exception of the ``.git`` folder) from 
 Then do the following changes:
 
 - Move the workflow files from the ``docs/.github`` folder into the ``.github`` folder of the root directory of your code repository, or include the job logic from the files into your existing workflows.
+  Make sure to adapt the working directory for each job by changing the path in the ``working-directory`` or ``workdir`` field.
 - Optionally, integrate the targets from the ``docs/Makefile`` file into the Makefile for your code repository.
   Alternatively, you can run the ``make`` commands for documentation inside the ``docs`` folder.
 - Optionally, move the ``docs/.readthedocs.yaml`` file into the root directory of your repository and adapt the paths for ``sphinx.configuration`` and ``python.install.requirements``.
