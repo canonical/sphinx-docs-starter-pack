@@ -94,7 +94,6 @@ In the ``html_context`` variable, update the following settings:
 * ``github_url`` - the link to your GitHub repository (needed to create the Edit link in the footer and the feedback button)
 * ``github_version`` - the branch that contains this version of the documentation
 * ``github_folder`` - the folder that contains the documentation files
-* ``github_filetype`` - the file type of the documentation files (usually ``rst`` or ``md``)
 
 Save ``conf.py``.
 
