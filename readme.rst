@@ -19,53 +19,69 @@ To create a standalone documentation repository, clone this starter pack reposit
 
 You don't need to move any files, and you don't need to do any special configuration on Read the Docs.
 
-Documentation in the code repository
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Documentation in a code repository
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To add your documentation to your code repository, create a dedicated documentation folder in your repository (for example, ``docs``).
+To add documentation to an existing code repository:
 
-Copy all the files and folders (with the exception of the ``.git`` folder) from this starter pack repository into this ``docs`` folder.
-Then do the following changes:
+#. create a directory called ``docs`` at the root of the code repository
+#. populate the above directory with the contents of the starter pack
+   repository (with the exception of the ``.git`` directory)
+#. copy the file(s) located in the ``docs/.github/workflows`` directory into
+   the code repository's ``.github/workflows`` directory
+#. in the above file(s), change the values of the ``working-directory`` and
+   ``workdir`` fields from "." to "docs"
 
-- Move the workflow files from the ``docs/.github`` folder into the ``.github`` folder of the root directory of your code repository, or include the job logic from the files into your existing workflows.
-  Make sure to adapt the working directory for each job by changing the path in the ``working-directory`` or ``workdir`` field.
-- Optionally, integrate the targets from the ``docs/Makefile`` file into the Makefile for your code repository.
-  Alternatively, you can run the ``make`` commands for documentation inside the ``docs`` folder.
-- Optionally, move the ``docs/.readthedocs.yaml`` file into the root directory of your repository and adapt the paths for ``sphinx.configuration`` and ``python.install.requirements``.
+.. note::
 
-  If you move the file, Read the Docs will detect it automatically.
-  If you leave the file in the ``docs`` folder, you must specify its location in the configuration for your Read the Docs project.
+   When configuring RTD itself for your project, the setting **Path for
+   .readthedocs.yaml** (under **Advanced Settings**) will need to be given the
+   value of "docs/.readthedocs.yaml".
 
-Install the prerequisites
--------------------------
+Getting started
+---------------
 
-To install the prerequisites (in a virtual environment), run the following command::
+There are make targets defined in the ``Makefile`` that do various things. To
+get started, we will:
 
-	make install
+* install prerequisite software
+* view the documentation
 
-This command invokes the ``install`` target in the ``Makefile``, creates a virtual environment (``.sphinx/venv``) and installs the dependencies in ``.sphinx/requirements.txt``.
+Install prerequisite software
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To install the prerequisites:
+
+.. code-block:: none
+
+   make install
+
+This will create a virtual environment (``.sphinx/venv``) and install
+dependency software (``.sphinx/requirements.txt``) within it.
 
 A complete set of pinned, known-working dependencies is included in
 ``.sphinx/pinned-requirements.txt``.
 
+View the documentation
+~~~~~~~~~~~~~~~~~~~~~~
 
-Build and serve the documentation
----------------------------------
+To view the documentation:
 
-Start the ``sphinx-autobuild`` documentation server::
+.. code-block:: none
 
-	make run
+   make run
 
-The documentation will be available at `127.0.0.1:8000 <http://127.0.0.1:8000>`_.
+The will do several things:
 
-The command:
+* activate the virtual environment
+* build the documentation
+* serve the documentation on **127.0.0.1:8000**
+* rebuild the documentation each time a file is saved
+* send a reload page signal to the browser when the documentation is rebuilt
 
-* activates the virtual environment and starts serving the documentation
-* rebuilds the documentation each time you save a file
-* sends a reload page signal to the browser when the documentation is rebuilt
-
-(This is the most convenient way to work on the documentation, but you can still use
-the more standard ``make html``.)
+The ``run`` target is therefore very convenient when preparing to submit a
+change to the documentation. For a more manual approach, to strictly build and
+serve content, explore the ``html`` and ``serve`` make targets, respectively.
 
 Configure the documentation
 ---------------------------
