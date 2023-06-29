@@ -71,7 +71,7 @@ To view the documentation:
 
    make run
 
-The will do several things:
+This will do several things:
 
 * activate the virtual environment
 * build the documentation
