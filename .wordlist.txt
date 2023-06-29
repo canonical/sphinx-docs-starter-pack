@@ -9,3 +9,6 @@ favicon
 installable
 Makefile
 Diátaxis
+RTD
+yaml
+readthedocs
