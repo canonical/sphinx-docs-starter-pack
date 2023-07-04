@@ -31,6 +31,8 @@ To add documentation to an existing code repository:
    the code repository's ``.github/workflows`` directory
 #. in the above file(s), change the values of the ``working-directory`` and
    ``workdir`` fields from "." to "docs"
+#. in file ``docs/.readthedocs.yaml``, set the value of ``requirements`` to
+   "docs/.sphinx/requirements.txt"
 
 .. note::
 
