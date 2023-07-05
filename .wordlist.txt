@@ -12,3 +12,4 @@ Diátaxis
 RTD
 yaml
 readthedocs
+txt
