@@ -8,12 +8,10 @@ Before you start, see the information about `Read the Docs at Canonical`_ and th
 Then, to start setting up your docs, check the :doc:`ReadMe <readme>` for instructions.
 The `Example product documentation`_ shows how to set up a Diátaxis structure in Sphinx.
 
-.. include_start
+For quick help on reST or MyST syntax, see the :file:`doc-cheat-sheet.rst.txt` or :file:`doc-cheat-sheet-myst.md.txt` files in the repository.
+(Open the files in your text editor; the rendered output is not very useful.)
 
-For quick help on reST or MyST syntax, see the :ref:`cheat-sheet` or the :ref:`cheat-sheet-myst`.
 More information is available in the `reStructuredText style guide`_.
-
-.. include_end
 
 .. toctree::
    :hidden:
