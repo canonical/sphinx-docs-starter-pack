@@ -32,8 +32,9 @@ To add documentation to an existing code repository:
 #. in the above workflow file(s), set the values of the ``working-directory``
    and ``workdir`` fields to ``docs``
 #. in file ``docs/.readthedocs.yaml`` set the following:
-    * ``configuration: docs/conf.py``
-    * ``requirements: docs/.sphinx/requirements.txt``
+
+   * ``configuration: docs/conf.py``
+   * ``requirements: docs/.sphinx/requirements.txt``
 
 .. note::
 
