@@ -23,6 +23,11 @@ ogp_image = "https://assets.ubuntu.com/v1/253da317-image-document-ubuntudocs.svg
 html_favicon = ".sphinx/_static/favicon.png"
 
 html_context = {
+    # Change to the link to your product website (without "https://")
+    "product_page": "documentation.ubuntu.com",
+    # Add your product tag to ".sphinx/_static" and change the path
+    # here (start with "/static")
+    "product_tag": "/_static/tag.png",
     # Change to the discourse instance you want to be able to link to
     # (use an empty value if you don't want to link)
     "discourse": "https://discourse.ubuntu.com",
@@ -53,7 +58,8 @@ extensions = [
     'terminal-output',
     'sphinx_copybutton',
     'sphinxext.opengraph',
-    'myst_parser'
+    'myst_parser',
+    'sphinxcontrib.jquery'
     ]
 
 myst_enable_extensions = [
@@ -94,7 +100,6 @@ html_last_updated_fmt = ""
 html_permalinks_icon = "¶"
 html_theme_options = {
     "light_css_variables": {
-        "color-sidebar-background-border": "none",
         "font-stack": "Ubuntu, -apple-system, Segoe UI, Roboto, Oxygen, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
         "font-stack--monospace": "Ubuntu Mono, Consolas, Monaco, Courier, monospace",
         "color-foreground-primary": "#111",
@@ -152,10 +157,11 @@ html_theme_options = {
 html_static_path = ['.sphinx/_static']
 html_css_files = [
     'custom.css',
+    'header.css',
     'github_issue_links.css',
 ]
 
-html_js_files = []
+html_js_files = ['header-nav.js']
 if "github_issues" in html_context and html_context["github_issues"]:
     html_js_files.append('github_issue_links.js')
 

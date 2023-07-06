@@ -109,12 +109,22 @@ In ``conf.py``, check or edit the following settings in the *Project information
 
 In the ``html_context`` variable, update the following settings:
 
-* ``discourse_prefix`` - the URL to the Discourse instance your project uses (needed to add links to posts using the ``:discourse:`` metadata at the top of a file)
+* ``product_page`` - the address of your product website (without ``https://``)
+* ``product_tag`` - the tag image of your product (circle of friends by default)
+* ``discourse`` - the URL to the Discourse instance your project uses (needed to add links to posts using the ``:discourse:`` metadata at the top of a file)
 * ``github_url`` - the link to your GitHub repository (needed to create the Edit link in the footer and the feedback button)
 * ``github_version`` - the branch that contains this version of the documentation
 * ``github_folder`` - the folder that contains the documentation files
 
 Save ``conf.py``.
+
+Configure the header
+~~~~~~~~~~~~~~~~~~~~
+
+By default, the header contains your product tag, product name (taken from the ``project`` setting), a link to your product page, and a drop-down menu for "More resources" that contains links to Discourse and GitHub.
+
+You can change any of those links or add further links to the "More resources" drop-down by editing the ``.sphinx/_templates/header.html`` file.
+For example, you might want to add links to announcements, tutorials, getting started guides, or videos that are not part of the documentation.
 
 Configure the spelling check
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
