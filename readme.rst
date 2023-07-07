@@ -90,38 +90,17 @@ Configure the documentation
 ---------------------------
 
 You must modify some of the default configuration to suit your project.
+To simplify keeping your documentation in sync with the starter pack, all custom configuration is located in the ``custom_conf.py`` file.
+You should never modify the common ``conf.py`` file.
 
-Add your project information
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Go through all settings in the ``Project information`` section of the ``custom_conf.py`` file and update them for your project.
 
-In ``conf.py``, check or edit the following settings in the *Project information* section:
-
-* ``project``
-* ``author``
-* ``copyright`` - in most cases, replace the first ``%s`` with the year the project started
-* ``release`` - only required if you're actually using release numbers
-  (beyond the scope of this guide, but you can also use Python to pull this
-  out of your code itself)
-* ``ogp_site_url`` - the URL of the documentation output (needed to generate a preview when linking from another website)
-* ``ogp_site_name`` - the title you want to use for the documentation in previews on other websites (by default, this is set to the project name)
-* ``ogp_image`` - an image that will be used in the preview on other websites
-* ``html_favicon`` - the favicon for the documentation (circle of friends by default)
-
-In the ``html_context`` variable, update the following settings:
-
-* ``product_page`` - the address of your product website (without ``https://``)
-* ``product_tag`` - the tag image of your product (circle of friends by default)
-* ``discourse`` - the URL to the Discourse instance your project uses (needed to add links to posts using the ``:discourse:`` metadata at the top of a file)
-* ``github_url`` - the link to your GitHub repository (needed to create the Edit link in the footer and the feedback button)
-* ``github_version`` - the branch that contains this version of the documentation
-* ``github_folder`` - the folder that contains the documentation files
-
-Save ``conf.py``.
+See the following sections for further customisation.
 
 Configure the header
 ~~~~~~~~~~~~~~~~~~~~
 
-By default, the header contains your product tag, product name (taken from the ``project`` setting), a link to your product page, and a drop-down menu for "More resources" that contains links to Discourse and GitHub.
+By default, the header contains your product tag, product name (taken from the ``project`` setting in the ``custom_conf.py`` file), a link to your product page, and a drop-down menu for "More resources" that contains links to Discourse and GitHub.
 
 You can change any of those links or add further links to the "More resources" drop-down by editing the ``.sphinx/_templates/header.html`` file.
 For example, you might want to add links to announcements, tutorials, getting started guides, or videos that are not part of the documentation.
@@ -139,8 +118,7 @@ Configure the link check
 
 If you have links in the documentation that you don't want to be checked (for
 example, because they are local links or give random errors even though they
-work), you can add them to the ``linkcheck_ignore`` variable in the ``conf.py``
-file.
+work), you can add them to the ``linkcheck_ignore`` variable in the ``custom_conf.py`` file.
 
 Activate/deactivate feedback button
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -151,7 +129,19 @@ populates an issue for them with details of the page they were on when they
 clicked the button.
 
 If your project does not use GitHub issues, set the ``github_issues`` variable
-in the ``conf.py`` file to an empty value to disable both the feedback button
+in the ``custom_conf.py`` file to an empty value to disable both the feedback button
 and the issue link in the footer.
 If you want to deactivate only the feedback button, but keep the link in the
-footer, remove the ``github_issue_links.js`` script from the ``conf.py`` file.
+footer, set ``disable_feedback_button`` in the ``custom_conf.py`` file to ``True``.
+
+Add redirects
+~~~~~~~~~~~~~
+
+You can add redirects to make sure existing links and bookmarks continue working when you move files around.
+To do so, specify the old and new paths in the ``redirects`` setting of the ``custom_conf.py`` file.
+
+Add custom configuration
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+To add custom configurations for your project, see the ``Additions to default configuration`` and ``Additional configuration`` sections in the ``custom_conf.py`` file.
+These can be used to extend or override the common configuration, or to define additional configuration that is not covered by the common ``conf.py`` file.
