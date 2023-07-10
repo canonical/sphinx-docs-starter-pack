@@ -42,6 +42,11 @@ myst_enable_extensions = [
 if 'discourse' in html_context:
     html_context['discourse_prefix'] = html_context['discourse'] + '/t/'
 
+# Default image for OGP (to prevent font errors, see
+# https://github.com/canonical/sphinx-docs-starter-pack/pull/54 )
+if not 'ogp_image' in locals():
+    ogp_image = 'https://assets.ubuntu.com/v1/253da317-image-document-ubuntudocs.svg'
+
 ############################################################
 ### General configuration
 ############################################################
