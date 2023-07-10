@@ -66,6 +66,10 @@ html_context = {
     'github_issues': 'enabled'
 }
 
+# If your project is on documentation.ubuntu.com, specify the project
+# slug (for example, "lxd") here.
+slug = ""
+
 ############################################################
 ### Redirects
 ############################################################
