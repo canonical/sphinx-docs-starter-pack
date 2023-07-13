@@ -46,7 +46,13 @@ if 'discourse' in html_context:
 ### General configuration
 ############################################################
 
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.sphinx']
+exclude_patterns = [
+    '_build',
+    'Thumbs.db',
+    '.DS_Store',
+    '.sphinx',
+    'doc-cheat-sheet*',
+]
 exclude_patterns.extend(custom_excludes)
 
 rst_epilog = '''
