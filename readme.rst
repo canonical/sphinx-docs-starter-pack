@@ -146,3 +146,8 @@ Add custom configuration
 
 To add custom configurations for your project, see the ``Additions to default configuration`` and ``Additional configuration`` sections in the ``custom_conf.py`` file.
 These can be used to extend or override the common configuration, or to define additional configuration that is not covered by the common ``conf.py`` file.
+
+Change log
+----------
+
+See the `change log <https://github.com/canonical/sphinx-docs-starter-pack/wiki/Change-log>`_ for a list of relevant changes to the starter pack.
