@@ -43,8 +43,8 @@ html_context = {
     'product_page': 'documentation.ubuntu.com',
 
     # Add your product tag to ".sphinx/_static" and change the path
-    # here (start with "/static"), default is the circle of friends
-    'product_tag': '/_static/tag.png',
+    # here (start with "_static"), default is the circle of friends
+    'product_tag': '_static/tag.png',
 
     # Change to the discourse instance you want to be able to link to
     # using the :discourse: metadata at the top of a file
