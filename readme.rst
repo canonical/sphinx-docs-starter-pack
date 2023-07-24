@@ -15,9 +15,28 @@ You can either create a standalone documentation project based on this repositor
 Standalone documentation repository
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To create a standalone documentation repository, clone this starter pack repository, `update the configuration <#configure-the-documentation>`_, and then commit all files to your own documentation repository.
+To create a standalone documentation repository, clone this starter pack
+repository, `update the configuration <#configure-the-documentation>`_, and
+then commit all files to the documentation repository.
 
-You don't need to move any files, and you don't need to do any special configuration on Read the Docs.
+You don't need to move any files, and you don't need to do any special
+configuration on Read the Docs.
+
+Here is one way to do this for newly-created fictional docs repository
+``canonical/alpha-docs``:
+
+.. code-block:: none
+
+   git clone git@github.com:canonical/sphinx-docs-starter-pack alpha-docs
+   cd alpha-docs
+   rm -rf .git
+   git init
+   git branch -m main
+   UPDATE THE CONFIGURATION
+   git add -A
+   git commit -m "Import sphinx-docs-starter-pack"
+   git remote add upstream git@github.com:canonical/alpha-docs
+   git push -f upstream main
 
 Documentation in a code repository
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
