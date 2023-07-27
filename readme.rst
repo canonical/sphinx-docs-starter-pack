@@ -32,7 +32,7 @@ Here is one way to do this for newly-created fictional docs repository
    rm -rf .git
    git init
    git branch -m main
-   UPDATE THE CONFIGURATION
+   UPDATE THE CONFIGURATION AND BUILD THE DOCS
    git add -A
    git commit -m "Import sphinx-docs-starter-pack"
    git remote add upstream git@github.com:canonical/alpha-docs
@@ -55,11 +55,9 @@ To add documentation to an existing code repository:
    * ``configuration: docs/conf.py``
    * ``requirements: docs/.sphinx/requirements.txt``
 
-.. note::
-
-   When configuring RTD itself for your project, the setting **Path for
-   .readthedocs.yaml** (under **Advanced Settings**) will need to be given the
-   value of "docs/.readthedocs.yaml".
+**Note:** When configuring RTD itself for your project, the setting **Path for
+.readthedocs.yaml** (under **Advanced Settings**) will need to be given the
+value of "docs/.readthedocs.yaml".
 
 Getting started
 ---------------
@@ -103,8 +101,18 @@ This will do several things:
 * send a reload page signal to the browser when the documentation is rebuilt
 
 The ``run`` target is therefore very convenient when preparing to submit a
-change to the documentation. For a more manual approach, to strictly build and
-serve content, explore the ``html`` and ``serve`` make targets, respectively.
+change to the documentation.
+
+Submit your change
+~~~~~~~~~~~~~~~~~~
+
+Prior to submitting your change, it is recommended to do a fresh build in order
+to surface any errors that may cause build issues on the RTD side:
+
+.. code-block:: none
+
+   make clean-doc
+   make html
 
 Configure the documentation
 ---------------------------
