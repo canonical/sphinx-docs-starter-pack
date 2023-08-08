@@ -141,6 +141,33 @@ If your documentation uses US English instead of UK English, change this in the
 
 To add exceptions for words the spelling check marks as wrong even though they are correct, edit the ``.wordlist.txt`` file.
 
+Configure the inclusive-language check
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If there are files that you wish to exempt from inclusive-language checks,
+specify them in ``.wokeignore``. (Wildcards are allowed.)
+
+Suppose a file ``how-to/foo.rst`` includes a URL, that references a ``master``
+branch on some site you have no control over. You can't change the URL, and
+"master" is non-inclusive language. To exempt ``foo.rst``, add the following
+line to ``.wokeignore``:
+
+.. code-block:: none
+
+   how-to/foo.rst
+
+.. note::
+
+   For ``.wokeignore`` to take effect, you must also move it into your
+   project's root directory. If you leave it in ``docs/``, the ``woke`` tool
+   won't find it and no files will be exempt.
+
+By default, only reST files are checked for inclusive language --- and only
+those in ``docs/`` and its subdirectories. To check Markdown files for example,
+or to check all directories in your project, edit the ``woke`` target in the
+``Makefile``. For the command syntax, see the `woke User Guide
+<https://docs.getwoke.tech/usage/#file-globs>`_.
+
 Configure the link check
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
