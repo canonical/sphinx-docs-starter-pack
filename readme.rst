@@ -141,6 +141,62 @@ If your documentation uses US English instead of UK English, change this in the
 
 To add exceptions for words the spelling check marks as wrong even though they are correct, edit the ``.wordlist.txt`` file.
 
+Configure the inclusive-language check
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you can't avoid non-inclusive language in some cases, you'll need to
+configure exemptions for them.
+
+In-file exemptions
+^^^^^^^^^^^^^^^^^^
+
+Suppose a reST file has a link to some site you don't control, and the address
+contains "\m\a\s\t\e\r" --- a non-inclusive word. You can't change the link,
+but the remainder of the file must be checked for inclusive language. Here the
+``woke`` tool's `next-line ignore
+<https://docs.getwoke.tech/ignore/#in-line-and-next-line-ignoring>`_ feature is
+useful, as follows.
+
+If the link is in-line, move the definition to a line of its own (e.g. among
+``.. LINKS`` at the bottom of the file). Above the definition, invoke the
+``wokeignore`` rule for the offending word:
+
+.. code-block:: ReST
+
+   .. LINKS
+   .. wokeignore:rule=master
+   .. _link anchor: https://some-external-site.io/master/some-page.html
+
+Exempt an entire file
+^^^^^^^^^^^^^^^^^^^^^
+
+If it's necessary *and safe*, you can exempt a whole file from
+inclusive-language checks. To exempt ``docs/foo/bar.rst`` for example, add the
+following line to ``.wokeignore``:
+
+.. code-block:: none
+
+   foo/bar.rst
+
+.. note::
+
+   For ``.wokeignore`` to take effect, you must also move it into your
+   project's root directory. If you leave it in ``docs/``, the ``woke`` tool
+   won't find it and no files will be exempt.
+
+Change checked file-types and locations
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+By default, only reST files are checked for inclusive language --- and only
+those in ``docs/`` and its subdirectories. To check Markdown files for example,
+or files outside the ``docs/`` subtree, you must change how the ``woke`` tool
+is invoked.
+
+The ``woke`` command appears twice: in the ``docs/Makefile`` and in your
+project's ``.github/workflows/automatic-doc-checks.yml`` file. The command
+syntax is out-of-scope here --- consult the `woke User Guide
+<https://docs.getwoke.tech/usage/#file-globs>`_.
+
 Configure the link check
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
