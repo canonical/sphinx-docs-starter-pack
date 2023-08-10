@@ -174,6 +174,20 @@ Add custom configuration
 To add custom configurations for your project, see the ``Additions to default configuration`` and ``Additional configuration`` sections in the ``custom_conf.py`` file.
 These can be used to extend or override the common configuration, or to define additional configuration that is not covered by the common ``conf.py`` file.
 
+(Optional) Synchronise GitHub issues to Jira
+--------------------------------------------
+
+If you wish to sync issues from your documentation repository on GitHub to your
+Jira board, configure the `gh-jira-sync-bot <https://github.com/canonical/gh-jira-sync-bot>`_
+by editing the ``.github/workflows/.jira_sync_config.yaml`` file appropriately.
+In addition to updating this file, you must also apply server configuration
+for this feature to work. For more information, see `server configuration details <https://github.com/canonical/gh-jira-sync-bot#server-configuration>`_
+for the gh-jira-sync-bot.
+
+By default, this file in the starter pack contains configuration for syncing
+issues from the starter pack repository to its documentation Jira board and
+hence does not work out of the box for other repositories in GitHub.
+
 Change log
 ----------
 

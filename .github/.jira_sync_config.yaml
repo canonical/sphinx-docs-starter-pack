@@ -5,7 +5,7 @@ settings:
   # Dictionary mapping GitHub issue status to Jira issue status
   status_mapping:
     opened: Untriaged
-    closed: done 
+    closed: Done
     
   # (Optional) Jira project components that should be attached to the created issue
   # Component names are case-sensitive
