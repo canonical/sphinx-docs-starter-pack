@@ -37,13 +37,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: woke
-        uses: get-woke/woke-action@v0
-        with:
-          # Cause the check to fail on any broke rules
-          fail-on-error: true
-          workdir: .
-          woke-args: "*.rst **/*.rst -c https://github.com/canonical-web-and-design/Inclusive-naming/raw/main/config.yml"
+      - name: Install the doc framework
+        working-directory: .
+        run: |
+          make install
+
+      - name: Run incluse-language checker
+        working-directory: .
+        run: |
+          make woke
 
   linkcheck:
     name: Link check
