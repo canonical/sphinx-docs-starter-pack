@@ -178,7 +178,7 @@ These can be used to extend or override the common configuration, or to define a
 --------------------------------------------
 
 If you wish to sync issues from your documentation repository on GitHub to your
-Jira board, configure the `gh-jira-sync-bot <https://github.com/canonical/gh-jira-sync-bot>`_
+Jira board, configure the `GitHub/Jira sync bot <https://github.com/canonical/gh-jira-sync-bot>`_
 by editing the ``.github/workflows/.jira_sync_config.yaml`` file appropriately.
 In addition to updating this file, you must also apply server configuration
 for this feature to work. For more information, see `server configuration details <https://github.com/canonical/gh-jira-sync-bot#server-configuration>`_
