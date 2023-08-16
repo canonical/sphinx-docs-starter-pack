@@ -1,65 +1,12 @@
-name: Automatic documentation checks
+name: Main Documentation Checks
 
 on:
   - push
   - pull_request
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  - workflow_dispatch
 
 jobs:
-  spellcheck:
-    name: Spelling check
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Install Aspell
-        run: |
-          sudo apt-get install aspell aspell-en
-
-      - name: Install the doc framework
-        working-directory: .
-        run: |
-          make install
-
-      - name: Build docs and run spelling checker
-        working-directory: .
-        run: |
-          make spelling
-
-  woke:
-    name: Inclusive language check
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Install the doc framework
-        working-directory: .
-        run: |
-          make install
-
-      - name: Run incluse-language checker
-        working-directory: .
-        run: |
-          make woke
-
-  linkcheck:
-    name: Link check
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Install the doc framework
-        working-directory: .
-        run: |
-          make install
-
-      - name: Run linkchecker
-        working-directory: .
-        run: |
-          make linkcheck
+  documentation-checks:
+    uses: canonical/documentation-workflows/.github/workflows/documentation-checks.yaml@main
+    with:
+      working-directory: '.'
