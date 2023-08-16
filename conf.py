@@ -85,6 +85,11 @@ source_suffix = {
 if not 'conf_py_path' in html_context and 'github_folder' in html_context:
     html_context['conf_py_path'] = html_context['github_folder']
 
+# For ignoring specific links
+linkcheck_anchors_ignore_for_url = [
+    r'https://github\.com/.*'
+]
+
 ############################################################
 ### Styling
 ############################################################
