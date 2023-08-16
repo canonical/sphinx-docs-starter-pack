@@ -48,8 +48,7 @@ To add documentation to an existing code repository:
    repository (with the exception of the ``.git`` directory)
 #. copy the file(s) located in the ``docs/.github/workflows`` directory into
    the code repository's ``.github/workflows`` directory
-#. in the above workflow file(s), set the values of the ``working-directory``
-   and ``workdir`` fields to ``docs``
+#. in the above workflow file(s), change the value of the ``working-directory`` field from ``.`` to ``docs``
 #. in file ``docs/.readthedocs.yaml`` set the following:
 
    * ``configuration: docs/conf.py``
