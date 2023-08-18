@@ -46,7 +46,7 @@ run: install
 
 .PHONY: run
 
-
+# Doesn't depend on $(BUILDDIR) to rebuild properly at every run.
 html: install
 	. $(VENV); $(SPHINXBUILD) -c . -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" -w .sphinx/warnings.txt
 
