@@ -40,19 +40,19 @@ install: .sphinx/venv
 .PHONY:  install
 
 
-run:
+run: install
 	. $(VENV); sphinx-autobuild -c . -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)"
 
 .PHONY: run
 
 
-html:
+html: install
 	. $(VENV); $(SPHINXBUILD) -c . -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" -w .sphinx/warnings.txt
 
 .PHONY: html
 
 
-epub:
+epub: install
 	. $(VENV); $(SPHINXBUILD) -c . -b epub "$(SOURCEDIR)" "$(BUILDDIR)" -w .sphinx/warnings.txt
 
 .PHONY: epub
@@ -82,7 +82,7 @@ spelling: html
 .PHONY: spelling
 
 
-linkcheck:
+linkcheck: install
 	. $(VENV) ; $(SPHINXBUILD) -c . -b linkcheck  "$(SOURCEDIR)" "$(BUILDDIR)"
 
 .PHONY: linkcheck
