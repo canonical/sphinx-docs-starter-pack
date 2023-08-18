@@ -7,7 +7,8 @@ SPHINXOPTS    ?=
 SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = .
 BUILDDIR      = _build
-VENV          = .sphinx/venv/bin/activate
+VENVDIR       = .sphinx/venv
+VENV          = $(VENVDIR)/bin/activate
 
 
 # Put it first so that "make" without argument is like "make help".
@@ -17,9 +18,9 @@ help:
 .PHONY: help
 
 
-.sphinx/venv:
+$(VENVDIR):
 	@echo "... setting up virtualenv"
-	python3 -m venv .sphinx/venv
+	python3 -m venv $(VENVDIR)
 	. $(VENV); pip install --upgrade -r .sphinx/requirements.txt
 
 	@echo "\n" \
@@ -35,7 +36,7 @@ help:
 		"--------------------------------------------------------------- \n"
 
 
-install: .sphinx/venv
+install: $(VENVDIR)
 
 .PHONY:  install
 
@@ -65,7 +66,8 @@ serve:
 
 
 clean: clean-doc
-	rm -rf .sphinx/venv
+	@test ! -e "$(VENVDIR)" -o -d "$(VENVDIR)" -a "$(abspath $(VENVDIR))" != "$(VENVDIR)"
+	rm -rf $(VENVDIR)
 
 .PHONY: clean
 
