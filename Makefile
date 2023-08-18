@@ -26,8 +26,9 @@ install:
                 "* only serve: make serve \n" \
                 "* clean built doc files: make clean-doc \n" \
                 "* clean full environment: make clean \n" \
-		"* check spelling: make spelling \n" \
+                "* check spelling: make spelling \n" \
                 "* check inclusive language: make woke \n" \
+                "* other possible targets: make <press TAB twice> \n" \
 		"--------------------------------------------------------------- \n"
 run:
 	. $(VENV); sphinx-autobuild -c . -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)"
