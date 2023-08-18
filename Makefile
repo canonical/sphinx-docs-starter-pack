@@ -14,6 +14,9 @@ VENV          = .sphinx/venv/bin/activate
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
+.PHONY: help
+
+
 install:
 	@echo "... setting up virtualenv"
 	python3 -m venv .sphinx/venv
@@ -30,37 +33,68 @@ install:
                 "* check inclusive language: make woke \n" \
                 "* other possible targets: make <press TAB twice> \n" \
 		"--------------------------------------------------------------- \n"
+
+.PHONY:  install
+
+
 run:
 	. $(VENV); sphinx-autobuild -c . -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)"
+
+.PHONY: run
+
 
 html:
 	. $(VENV); $(SPHINXBUILD) -c . -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" -w .sphinx/warnings.txt
 
+.PHONY: html
+
+
 epub:
 	. $(VENV); $(SPHINXBUILD) -c . -b epub "$(SOURCEDIR)" "$(BUILDDIR)" -w .sphinx/warnings.txt
+
+.PHONY: epub
+
 
 serve:
 	cd "$(BUILDDIR)"; python3 -m http.server 8000
 
+.PHONY: serve
+
+
 clean: clean-doc
 	rm -rf .sphinx/venv
+
+.PHONY: clean
+
 
 clean-doc:
 	git clean -fx "$(BUILDDIR)"
 
+.PHONY: clean-doc
+
+
 spelling: html
 	. $(VENV) ; python3 -m pyspelling -c .sphinx/spellingcheck.yaml
 
+.PHONY: spelling
+
+
 linkcheck:
 	. $(VENV) ; $(SPHINXBUILD) -c . -b linkcheck  "$(SOURCEDIR)" "$(BUILDDIR)"
+
+.PHONY: linkcheck
+
 
 woke:
 	type woke >/dev/null 2>&1 || { sudo snap install woke; }
 	woke *.rst **/*.rst -c https://github.com/canonical-web-and-design/Inclusive-naming/raw/main/config.yml
 
-.PHONY: help Makefile
+.PHONY: woke
+
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
 %: Makefile
 	. $(VENV); $(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+
+.PHONY: Makefile
