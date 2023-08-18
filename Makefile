@@ -17,7 +17,7 @@ help:
 .PHONY: help
 
 
-install:
+.sphinx/venv:
 	@echo "... setting up virtualenv"
 	python3 -m venv .sphinx/venv
 	. $(VENV); pip install --upgrade -r .sphinx/requirements.txt
@@ -33,6 +33,9 @@ install:
                 "* check inclusive language: make woke \n" \
                 "* other possible targets: make <press TAB twice> \n" \
 		"--------------------------------------------------------------- \n"
+
+
+install: .sphinx/venv
 
 .PHONY:  install
 
