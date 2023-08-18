@@ -59,7 +59,7 @@ epub: install
 .PHONY: epub
 
 
-serve:
+serve: html
 	cd "$(BUILDDIR)"; python3 -m http.server 8000
 
 .PHONY: serve
