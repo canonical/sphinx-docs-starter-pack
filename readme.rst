@@ -249,3 +249,5 @@ Change log
 ----------
 
 See the `change log <https://github.com/canonical/sphinx-docs-starter-pack/wiki/Change-log>`_ for a list of relevant changes to the starter pack.
+
+Intentional breaks: sdfsd sdfsdf.brokenlink.asdfs.com
