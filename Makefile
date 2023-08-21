@@ -5,9 +5,10 @@
 # from the environment for the first two.
 SPHINXOPTS    ?=
 SPHINXBUILD   ?= sphinx-build
+SPHINXDIR     = .sphinx
 SOURCEDIR     = .
 BUILDDIR      = _build
-VENVDIR       = .sphinx/venv
+VENVDIR       = $(SPHINXDIR)/venv
 VENV          = $(VENVDIR)/bin/activate
 
 
@@ -17,11 +18,15 @@ help:
 
 .PHONY: help
 
+# Explicit target avoids fall-through to the "Makefile" target.
+$(SPHINXDIR)/requirements.txt:
+	test -f $(SPHINXDIR)/requirements.txt
 
-$(VENVDIR):
+# If requirements are updated, venv should be rebuilt and timestamped.
+$(VENVDIR): $(SPHINXDIR)/requirements.txt
 	@echo "... setting up virtualenv"
 	python3 -m venv $(VENVDIR)
-	. $(VENV); pip install --upgrade -r .sphinx/requirements.txt
+	. $(VENV); pip install --upgrade -r $(SPHINXDIR)/requirements.txt
 
 	@echo "\n" \
 		"--------------------------------------------------------------- \n" \
@@ -34,6 +39,7 @@ $(VENVDIR):
                 "* check inclusive language: make woke \n" \
                 "* other possible targets: make <press TAB twice> \n" \
 		"--------------------------------------------------------------- \n"
+	@touch $(VENVDIR)
 
 
 install: $(VENVDIR)
