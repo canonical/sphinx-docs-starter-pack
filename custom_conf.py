@@ -21,7 +21,20 @@ author = 'Canonical Group Ltd'
 # Uncomment if your product uses release numbers
 # release = '1.0'
 
-# The default value uses the current year as the copyright year
+# The default value uses the current year as the copyright year.
+#
+# For static works, it is common to provide the year of first publication.
+# Another option is to give the first year and the current year
+# for documentation that is often changed, e.g. 2022–2023 (note the en-dash).
+#
+# A way to check a GitHub repo's creation date is to obtain a classic GitHub
+# token with 'repo' permissions here: https://github.com/settings/tokens
+# Next, use 'curl' and 'jq' to extract the date from the GitHub API's output:
+#
+# curl -H 'Authorization: token <TOKEN>' \
+#   -H 'Accept: application/vnd.github.v3.raw' \
+#   https://api.github.com/repos/canonical/<REPO> | jq '.created_at'
+
 copyright = '%s, %s' % (datetime.date.today().year, author)
 
 ## Open Graph configuration - defines what is displayed in the website preview
