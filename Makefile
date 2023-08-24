@@ -98,7 +98,7 @@ linkcheck: install
 
 woke:
 	type woke >/dev/null 2>&1 || { sudo snap install woke; }
-	woke *.rst **/*.rst -c https://github.com/canonical-web-and-design/Inclusive-naming/raw/main/config.yml
+	woke *.rst **/*.rst -c https://github.com/canonical/Inclusive-naming/raw/main/config.yml
 
 .PHONY: woke
 
