@@ -5,61 +5,30 @@ See the `Sphinx and Read the Docs <https://canonical-documentation-with-sphinx-a
 
 Then go through the following sections to use this starter pack to set up your docs repository.
 
-Set up your documentation repository
+Prerequisites
 ------------------------------------
 
-You can either create a standalone documentation project based on this repository or include the files from this repository in a dedicated documentation folder in an existing code repository.
+Before you begin, ensure you have the following:
 
-**Note:** We're planning to provide the contents of this repository as an installable package in the future, but currently, you need to copy and update the required files manually.
+ * A GitHub repository where you want to host your documentation. The recommended approach is to host the documentation alonside your code in a `docs` folder. But a standalone docs repo is also an option.
+ * Git and Bash installed on your system.
 
-Standalone documentation repository
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Bootstrap your documentation repository
+------------------------------------
 
-To create a standalone documentation repository, clone this starter pack
-repository, `update the configuration <#configure-the-documentation>`_, and
-then commit all files to the documentation repository.
+Bootstrap your repository by following these steps:
 
-You don't need to move any files, and you don't need to do any special
-configuration on Read the Docs.
+ * Copy [bootstrap.sh](bootstrap.sh) to your repository's root directory.
+ * Run the script: ``./boostrap.sh``
+ * Enter the installation directory when prompted. For standalone repos, enter ".". For docs alonside code, enter "docs".
 
-Here is one way to do this for newly-created fictional docs repository
-``canonical/alpha-docs``:
-
-.. code-block:: none
-
-   git clone git@github.com:canonical/sphinx-docs-starter-pack alpha-docs
-   cd alpha-docs
-   rm -rf .git
-   git init
-   git branch -m main
-   UPDATE THE CONFIGURATION AND BUILD THE DOCS
-   git add -A
-   git commit -m "Import sphinx-docs-starter-pack"
-   git remote add upstream git@github.com:canonical/alpha-docs
-   git push -f upstream main
-
-Documentation in a code repository
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-To add documentation to an existing code repository:
-
-#. create a directory called ``docs`` at the root of the code repository
-#. populate the above directory with the contents of the starter pack
-   repository (with the exception of the ``.git`` directory)
-#. copy the file(s) located in the ``docs/.github/workflows`` directory into
-   the code repository's ``.github/workflows`` directory
-#. in the above workflow file(s), change the value of the ``working-directory`` field from ``.`` to ``docs``
-#. in file ``docs/.readthedocs.yaml`` set the following:
-
-   * ``configuration: docs/conf.py``
-   * ``requirements: docs/.sphinx/requirements.txt``
+When the script completes, your repository will have the starter sphinx docs files added. Commit your changes.
 
 **Note:** When configuring RTD itself for your project, the setting **Path for
-.readthedocs.yaml** (under **Advanced Settings**) will need to be given the
-value of "docs/.readthedocs.yaml".
+.readthedocs.yaml** (under **Advanced Settings**) will need to be given the relative path to ``.readthedocs.yaml``, including the installation directory e.g. ``docs/.readthedocs.yaml``.
 
-Getting started
----------------
+Local Development
+-----------------
 
 There are make targets defined in the ``Makefile`` that do various things. To
 get started, we will:
