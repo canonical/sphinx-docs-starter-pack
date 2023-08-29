@@ -19,7 +19,7 @@ Bootstrap your documentation repository
 Bootstrap your repository by following these steps:
 
  * Copy [bootstrap.sh](bootstrap.sh) to your repository's root directory.
- * Run the script: ``./boostrap.sh``
+ * Run the script: ``./bootstrap.sh``
  * Enter the installation directory when prompted. For standalone repos, enter ".". For docs alongside code, enter the folder where your docs are e.g. "docs".
 
 When the script completes, your repository will have the starter sphinx docs files added. Commit your changes.
