@@ -27,7 +27,7 @@ When the script completes, your repository will have the starter sphinx docs fil
 **Note:** When configuring RTD itself for your project, the setting **Path for
 .readthedocs.yaml** (under **Advanced Settings**) will need to be given the relative path to ``.readthedocs.yaml``, including the installation directory e.g. ``docs/.readthedocs.yaml``.
 
-Local Development
+Local development
 -----------------
 
 There are make targets defined in the ``Makefile`` that do various things. To
