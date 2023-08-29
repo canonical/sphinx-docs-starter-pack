@@ -6,7 +6,7 @@ See the `Sphinx and Read the Docs <https://canonical-documentation-with-sphinx-a
 Then go through the following sections to use this starter pack to set up your docs repository.
 
 Prerequisites
-------------------------------------
+-------------
 
 Before you begin, ensure you have the following:
 
@@ -14,7 +14,7 @@ Before you begin, ensure you have the following:
  * Git and Bash installed on your system.
 
 Bootstrap your documentation repository
-------------------------------------
+---------------------------------------
 
 Bootstrap your repository by following these steps:
 
