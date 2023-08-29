@@ -29,7 +29,7 @@ sed -i "s|working-directory: .*|working-directory: $install_directory|g" .github
 
 # Update .readthedocs.yaml configuration
 echo "Updating .readthedocs.yaml configuration..."
-sed -i "s|configuration: .*|configuration: $install_directory/conf.py|g" "$install_directory/.readthedocs.yaml"
+sed -i "s|configuration: .*conf\.py|configuration: $install_directory/conf.py|g" "$install_directory/.readthedocs.yaml"
 sed -i "s|requirements: .*|requirements: $install_directory/.sphinx/requirements.txt|g" "$install_directory/.readthedocs.yaml"
 
 # Clean up
