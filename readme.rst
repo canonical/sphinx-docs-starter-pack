@@ -10,7 +10,7 @@ Prerequisites
 
 Before you begin, ensure you have the following:
 
- * A GitHub repository where you want to host your documentation. The recommended approach is to host the documentation alonside your code in a `docs` folder. But a standalone docs repo is also an option.
+ * A GitHub repository where you want to host your documentation. The recommended approach is to host the documentation alongside your code in a `docs` folder. But a standalone docs repo is also an option.
  * Git and Bash installed on your system.
 
 Bootstrap your documentation repository
@@ -20,7 +20,7 @@ Bootstrap your repository by following these steps:
 
  * Copy [bootstrap.sh](bootstrap.sh) to your repository's root directory.
  * Run the script: ``./boostrap.sh``
- * Enter the installation directory when prompted. For standalone repos, enter ".". For docs alonside code, enter "docs".
+ * Enter the installation directory when prompted. For standalone repos, enter ".". For docs alongside code, enter the folder where your docs are e.g. "docs".
 
 When the script completes, your repository will have the starter sphinx docs files added. Commit your changes.
 
