@@ -22,6 +22,14 @@ Bootstrap your repository by following these steps:
  * Run the script: ``./bootstrap.sh``
  * Enter the installation directory when prompted. For standalone repositories, enter ".". For documentation alongside code, enter the folder where your documentation are e.g. "docs".
 
+This Bash script does the following:
+
+ * Clones the starter pack GitHub repository
+ * Creates the specified installation directory if necessary
+ * Copies contents and workflow files from the starter pack to the installation directory
+ * Udates working directory paths in workflow files, and updates configuration paths in the .readthedocs.yaml file
+ * Deletes the cloned repository when it's done
+
 When the script completes, your repository will have the starter sphinx documentation files added. Commit your changes.
 
 **Note:** When configuring RTD itself for your project, the setting **Path for
