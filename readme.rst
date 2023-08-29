@@ -3,14 +3,14 @@ Documentation starter pack
 
 See the `Sphinx and Read the Docs <https://canonical-documentation-with-sphinx-and-readthedocscom.readthedocs-hosted.com/>`_ guide for instructions on how to get started with Sphinx documentation.
 
-Then go through the following sections to use this starter pack to set up your docs repository.
+Then go through the following sections to use this starter pack to set up your documentation repository.
 
 Prerequisites
 -------------
 
 Before you begin, ensure you have the following:
 
- * A GitHub repository where you want to host your documentation. The recommended approach is to host the documentation alongside your code in a `docs` folder. But a standalone docs repo is also an option.
+ * A GitHub repository where you want to host your documentation. The recommended approach is to host the documentation alongside your code in a `docs` folder. But a standalone documentation repo is also an option.
  * Git and Bash installed on your system.
 
 Bootstrap your documentation repository
@@ -20,9 +20,9 @@ Bootstrap your repository by following these steps:
 
  * Copy [bootstrap.sh](bootstrap.sh) to your repository's root directory.
  * Run the script: ``./bootstrap.sh``
- * Enter the installation directory when prompted. For standalone repos, enter ".". For docs alongside code, enter the folder where your docs are e.g. "docs".
+ * Enter the installation directory when prompted. For standalone repositories, enter ".". For documentation alongside code, enter the folder where your documentation are e.g. "docs".
 
-When the script completes, your repository will have the starter sphinx docs files added. Commit your changes.
+When the script completes, your repository will have the starter sphinx documentation files added. Commit your changes.
 
 **Note:** When configuring RTD itself for your project, the setting **Path for
 .readthedocs.yaml** (under **Advanced Settings**) will need to be given the relative path to ``.readthedocs.yaml``, including the installation directory e.g. ``docs/.readthedocs.yaml``.
