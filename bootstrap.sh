@@ -7,7 +7,7 @@ read -p "Enter the installation directory (e.g., '.' or 'docs'): " install_direc
 
 # Clone the starter pack repository to a temporary directory
 echo "Cloning the starter pack repository..."
-git clone git@github.com:canonical/sphinx-docs-starter-pack temp-starter-pack
+git clone --depth 1 git@github.com:canonical/sphinx-docs-starter-pack temp-starter-pack
 rm -rf temp-starter-pack/.git
 
 # Update file contents for install directory
