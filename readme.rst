@@ -26,8 +26,8 @@ This Bash script does the following:
 
  * Clones the starter pack GitHub repository
  * Creates the specified installation directory if necessary
- * Copies contents and workflow files from the starter pack to the installation directory
  * Udates working directory paths in workflow files, and updates configuration paths in the .readthedocs.yaml file
+ * Copies contents and workflow files from the starter pack to the installation directory
  * Deletes the cloned repository when it's done
 
 When the script completes, your repository will have the files added that are needed to get started with Sphinx documentation. Review all changes before commiting, then commit your changes.
