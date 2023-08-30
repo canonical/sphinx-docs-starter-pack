@@ -42,7 +42,14 @@ $(VENVDIR): $(SPHINXDIR)/requirements.txt
 	@touch $(VENVDIR)
 
 
-install: $(VENVDIR)
+woke-install:
+	@type woke >/dev/null 2>&1 || \
+		{ echo "Installing \"woke\" needs sudo \n"; sudo snap install woke; }
+
+.PHONY:  woke-install
+
+
+install: $(VENVDIR) woke-install
 
 .PHONY:  install
 
@@ -96,8 +103,7 @@ linkcheck: install
 .PHONY: linkcheck
 
 
-woke:
-	type woke >/dev/null 2>&1 || { sudo snap install woke; }
+woke: woke-install
 	woke *.rst **/*.rst -c https://github.com/canonical/Inclusive-naming/raw/main/config.yml
 
 .PHONY: woke
