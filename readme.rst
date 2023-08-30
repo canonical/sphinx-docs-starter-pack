@@ -35,8 +35,8 @@ When the script completes, your repository will have the files added that are ne
 **Note:** When configuring RTD itself for your project, the setting **Path for
 .readthedocs.yaml** (under **Advanced Settings**) will need to be given the relative path to ``.readthedocs.yaml``, including the installation directory e.g. ``docs/.readthedocs.yaml``.
 
-Local development
------------------
+Build and view the docs
+-----------------------
 
 There are make targets defined in the ``Makefile`` that do various things. To
 get started, we will:
