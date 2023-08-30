@@ -14,8 +14,8 @@ rm -rf temp-starter-pack/.git
 echo "Updating working directory in workflow files..."
 sed -i "s|working-directory: .*|working-directory: $install_directory|g" "temp-starter-pack/.github/workflows"/*
 echo "Updating .readthedocs.yaml configuration..."
-sed -i "s|configuration: .*conf\.py|configuration: $install_directory/conf.py|g" "temp-starter-pack/.readthedocs.yaml"
-sed -i "s|requirements: .*|requirements: $install_directory/.sphinx/requirements.txt|g" "temp-starter-pack/.readthedocs.yaml"
+sed -i "s|configuration:\s*conf\.py|configuration: $install_directory/conf.py|g" "temp-starter-pack/.readthedocs.yaml"
+sed -i "s|requirements:\s*\.sphinx/requirements\.txt|requirements: $install_directory/.sphinx/requirements.txt|g" "temp-starter-pack/.readthedocs.yaml"
 
 # Create the specified installation directory
 echo "Creating the installation directory: $install_directory"
