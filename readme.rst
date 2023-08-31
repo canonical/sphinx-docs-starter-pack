@@ -11,29 +11,29 @@ Prerequisites
 Before you begin, ensure you have the following:
 
 * A GitHub repository where you want to host your documentation. The recommended approach is to host the documentation alongside your code in a `docs` folder. But a standalone documentation repository is also an option.
- * Git and Bash installed on your system.
+* Git and Bash installed on your system.
 
 Bootstrap your documentation repository
 ---------------------------------------
 
 Bootstrap your repository by following these steps:
 
- * Copy [bootstrap.sh](bootstrap.sh) to your repository's root directory.
- * Run the script: ``./bootstrap.sh``
- * Enter the installation directory when prompted. For standalone repositories, enter ".". For documentation alongside code, enter the folder where your documentation are e.g. "docs".
+* Copy [bootstrap.sh](bootstrap.sh) to your repository's root directory.
+* Run the script: ``./bootstrap.sh``
+* Enter the installation directory when prompted. For standalone repositories, enter ".". For documentation alongside code, enter the folder where your documentation are e.g. "docs".
 
 This Bash script does the following:
 
- * Clones the starter pack GitHub repository
- * Creates the specified installation directory if necessary
- * Udates working directory paths in workflow files, and updates configuration paths in the .readthedocs.yaml file
- * Copies contents and workflow files from the starter pack to the installation directory
- * Deletes the cloned repository when it's done
+* Clones the starter pack GitHub repository
+* Creates the specified installation directory if necessary
+* Udates working directory paths in workflow files, and updates configuration paths in the .readthedocs.yaml file
+* Copies contents and workflow files from the starter pack to the installation directory
+* Deletes the cloned repository when it's done
 
 When the script completes, your repository will have the files added that are needed to get started with Sphinx documentation. Review all changes before committing, then commit your changes.
 
-**Note:** When configuring RTD itself for your project, the setting **Path for
-.readthedocs.yaml** (under **Advanced Settings**) will need to be given the relative path to ``.readthedocs.yaml``, including the installation directory e.g. ``docs/.readthedocs.yaml``.
+**Note:** When configuring RTD itself for your project, the setting**Path for
+.readthedocs.yaml** (under**Advanced Settings**) will need to be given the relative path to ``.readthedocs.yaml``, including the installation directory e.g. ``docs/.readthedocs.yaml``.
 
 Build and view the docs
 -----------------------
@@ -72,7 +72,7 @@ This will do several things:
 
 * activate the virtual environment
 * build the documentation
-* serve the documentation on **127.0.0.1:8000**
+* serve the documentation on**127.0.0.1:8000**
 * rebuild the documentation each time a file is saved
 * send a reload page signal to the browser when the documentation is rebuilt
 
@@ -146,7 +146,7 @@ If the link is in-line, move the definition to a line of its own (e.g. among
 Exempt an entire file
 ^^^^^^^^^^^^^^^^^^^^^
 
-If it's necessary *and safe*, you can exempt a whole file from
+If it's necessary*and safe*, you can exempt a whole file from
 inclusive-language checks. To exempt ``docs/foo/bar.rst`` for example, add the
 following line to ``.wokeignore``:
 
