@@ -30,7 +30,7 @@ This Bash script does the following:
  * Copies contents and workflow files from the starter pack to the installation directory
  * Deletes the cloned repository when it's done
 
-When the script completes, your repository will have the files added that are needed to get started with Sphinx documentation. Review all changes before commiting, then commit your changes.
+When the script completes, your repository will have the files added that are needed to get started with Sphinx documentation. Review all changes before committing, then commit your changes.
 
 **Note:** When configuring RTD itself for your project, the setting **Path for
 .readthedocs.yaml** (under **Advanced Settings**) will need to be given the relative path to ``.readthedocs.yaml``, including the installation directory e.g. ``docs/.readthedocs.yaml``.
