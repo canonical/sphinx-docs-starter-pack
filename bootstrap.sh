@@ -25,11 +25,11 @@ mkdir -p "$install_directory"
 echo "Copying contents to the installation directory..."
 cp -R temp-starter-pack/* temp-starter-pack/.??* "$install_directory"
 
-# Copy workflow files
+# Move workflow files
 if [ "$install_directory" != "." ]; then
-    echo "Copying workflow files..."
+    echo "Moving workflow files..."
     mkdir -p .github/workflows
-    cp -R "$install_directory/.github/workflows"/* .github/workflows
+    mv "$install_directory/.github/workflows"/* .github/workflows
 fi
 
 # Clean up
