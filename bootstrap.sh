@@ -25,11 +25,12 @@ mkdir -p "$install_directory"
 echo "Copying contents to the installation directory..."
 cp -R temp-starter-pack/* temp-starter-pack/.??* "$install_directory"
 
-# Move workflow files
+# Move workflow files and configuration
 if [ "$install_directory" != "." ]; then
-    echo "Moving workflow files..."
+    echo "Moving workflow files and configuration..."
     mkdir -p .github/workflows
     mv "$install_directory/.github/workflows"/* .github/workflows
+    mv "$install_directory/.github/.jira_sync_config.yaml" .github/
 fi
 
 # Clean up
