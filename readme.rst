@@ -18,7 +18,7 @@ Bootstrap your documentation repository
 
 Bootstrap your repository by following these steps:
 
-* Copy [bootstrap.sh](bootstrap.sh) to your repository's root directory.
+* Copy ``bootstrap.sh`` to your repository's root directory.
 * Run the script: ``./bootstrap.sh``
 * Enter the installation directory when prompted. For standalone repositories, enter ".". For documentation alongside code, enter the folder where your documentation are e.g. "docs".
 
