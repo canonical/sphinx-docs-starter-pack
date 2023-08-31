@@ -26,7 +26,7 @@ This Bash script does the following:
 
 * Clones the starter pack GitHub repository
 * Creates the specified installation directory if necessary
-* Udates working directory paths in workflow files, and updates configuration paths in the .readthedocs.yaml file
+* Updates working directory paths in workflow files, and updates configuration paths in the .readthedocs.yaml file
 * Copies contents and workflow files from the starter pack to the installation directory
 * Deletes the cloned repository when it's done
 
