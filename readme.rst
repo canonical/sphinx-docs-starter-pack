@@ -16,7 +16,9 @@ Before you begin, ensure you have the following:
 Initialise your documentation repository
 ---------------------------------------
 
-Initialise your repository by following these steps:
+The ``init.sh`` Bash script is used to initialize your repository with the starter pack content. It adds all the files to your repository that are needed to get started with Sphinx documentation.
+
+To use the script, follow these steps:
 
 * Copy ``init.sh`` to your repository's root directory.
 * Run the script: ``./init.sh``
@@ -30,7 +32,7 @@ This Bash script does the following:
 * Copies and moves contents and ``.github`` files from the starter pack to the installation directory
 * Deletes the cloned repository when it's done
 
-When the script completes, your repository will have the files added that are needed to get started with Sphinx documentation. Review all changes before committing, then commit your changes.
+When the script completes, review all changes before committing, then commit your changes.
 
 **Note:** When configuring RTD itself for your project, the setting **Path for
 .readthedocs.yaml** (under **Advanced Settings**) will need to be given the relative path to ``.readthedocs.yaml``, including the installation directory e.g. ``docs/.readthedocs.yaml``.
