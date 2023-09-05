@@ -10,7 +10,7 @@ Prerequisites
 
 Before you begin, ensure you have the following:
 
-* A GitHub repository where you want to host your documentation. The recommended approach is to host the documentation alongside your code in a `docs` folder. But a standalone documentation repository is also an option.
+* A GitHub repository where you want to host your documentation, cloned to your local machine. The recommended approach is to host the documentation alongside your code in a `docs` folder. But a standalone documentation repository is also an option; in this case, start with an empty repository.
 * Git and Bash installed on your system.
 
 Initialise your documentation repository
