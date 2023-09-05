@@ -13,13 +13,13 @@ Before you begin, ensure you have the following:
 * A GitHub repository where you want to host your documentation. The recommended approach is to host the documentation alongside your code in a `docs` folder. But a standalone documentation repository is also an option.
 * Git and Bash installed on your system.
 
-Bootstrap your documentation repository
+Initialise your documentation repository
 ---------------------------------------
 
-Bootstrap your repository by following these steps:
+Initialise your repository by following these steps:
 
-* Copy ``bootstrap.sh`` to your repository's root directory.
-* Run the script: ``./bootstrap.sh``
+* Copy ``init.sh`` to your repository's root directory.
+* Run the script: ``./init.sh``
 * Enter the installation directory when prompted. For standalone repositories, enter ".". For documentation alongside code, enter the folder where your documentation are e.g. "docs".
 
 This Bash script does the following:
