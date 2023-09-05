@@ -102,16 +102,52 @@ This will do several things:
 The ``run`` target is therefore very convenient when preparing to submit a
 change to the documentation.
 
-Submit your change
-~~~~~~~~~~~~~~~~~~
+Local Checks
+~~~~~~~~~~~~
 
-Prior to submitting your change, it is recommended to do a fresh build in order
-to surface any errors that may cause build issues on the RTD side:
+Before committing and pushing changes, it's a good practice to run various checks locally to catch issues early in the development process.
+
+Local build
+^^^^^^^^^^^
+
+Build the docs as HTML to surface any build errors that would occur in RTD:
 
 .. code-block:: none
 
    make clean-doc
    make html
+
+Spelling Check
+^^^^^^^^^^^^^^
+
+Ensure there are no spelling errors in the documentation:
+
+.. code-block:: shell
+
+   make spelling
+
+Inclusive Language Check
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Ensure the documentation uses inclusive language:
+
+.. code-block:: shell
+
+   make woke
+
+Link Check
+^^^^^^^^^^
+
+Validate links within the documentation:
+
+  .. code-block:: shell
+
+     make linkcheck
+
+Submit your change
+~~~~~~~~~~~~~~~~~~
+
+Submit your change by committing and pushing with Git.
 
 Configure the documentation
 ---------------------------
