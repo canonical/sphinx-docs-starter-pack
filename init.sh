@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set +x
-
 # Generate a unique directory name based on timestamp
 timestamp=$(date +%Y%m%d%H%M%S)
 temp_directory="temp-starter-pack-$timestamp"
