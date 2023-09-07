@@ -140,14 +140,9 @@ Link Check
 
 Validate links within the documentation:
 
-  .. code-block:: shell
+.. code-block:: shell
 
-     make linkcheck
-
-Submit your change
-~~~~~~~~~~~~~~~~~~
-
-Submit your change by committing and pushing with Git.
+   make linkcheck
 
 Configure the documentation
 ---------------------------
