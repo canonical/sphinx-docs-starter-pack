@@ -150,7 +150,7 @@ In-file exemptions
 ^^^^^^^^^^^^^^^^^^
 
 Suppose a reST file has a link to some site you don't control, and the address
-contains "\m\a\s\t\e\r" --- a non-inclusive word. You can't change the link,
+contains "\m\a\s\t\e\r" — a non-inclusive word. You can't change the link,
 but the remainder of the file must be checked for inclusive language. Here the
 ``woke`` tool's `next-line ignore
 <https://docs.getwoke.tech/ignore/#in-line-and-next-line-ignoring>`_ feature is
@@ -186,14 +186,13 @@ following line to ``.wokeignore``:
 Change checked file-types and locations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-By default, only reST files are checked for inclusive language --- and only
+By default, only reST files are checked for inclusive language — and only
 those in ``docs/`` and its subdirectories. To check Markdown files for example,
 or files outside the ``docs/`` subtree, you must change how the ``woke`` tool
 is invoked.
 
-The ``woke`` command appears twice: in the ``docs/Makefile`` and in your
-project's ``.github/workflows/automatic-doc-checks.yml`` file. The command
-syntax is out-of-scope here --- consult the `woke User Guide
+The ``woke`` command is issued from ``docs/Makefile``. The command's syntax
+is out of scope here — consult the `woke User Guide
 <https://docs.getwoke.tech/usage/#file-globs>`_.
 
 Configure the link check
