@@ -110,7 +110,7 @@ Before committing and pushing changes, it's a good practice to run various check
 Local build
 ^^^^^^^^^^^
 
-Build the docs as HTML to surface any build errors that would occur in RTD:
+Run a clean build of the docs to surface any build errors that would occur in RTD:
 
 .. code-block:: none
 
