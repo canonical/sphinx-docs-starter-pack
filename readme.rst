@@ -117,7 +117,7 @@ Run a clean build of the docs to surface any build errors that would occur in RT
    make clean-doc
    make html
 
-Spelling Check
+Spelling check
 ^^^^^^^^^^^^^^
 
 Ensure there are no spelling errors in the documentation:
