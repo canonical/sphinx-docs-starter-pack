@@ -19,9 +19,11 @@ echo "Updating .readthedocs.yaml configuration..."
 sed -i "s|configuration:\s*conf\.py|configuration: $install_directory/conf.py|g" "$temp_directory/.readthedocs.yaml"
 sed -i "s|requirements:\s*\.sphinx/requirements\.txt|requirements: $install_directory/.sphinx/requirements.txt|g" "$temp_directory/.readthedocs.yaml"
 
-# Create the specified installation directory
-echo "Creating the installation directory: $install_directory"
-mkdir -p "$install_directory"
+# Create the specified installation directory if it doesn't exist
+if [ ! -d "$install_directory" ]; then
+    echo "Creating the installation directory: $install_directory"
+    mkdir -p "$install_directory"
+fi
 
 # Copy the contents of the starter pack repository to the installation directory
 echo "Copying contents to the installation directory..."
@@ -29,8 +31,10 @@ cp -R "$temp_directory"/* "$temp_directory"/.??* "$install_directory"
 
 # Move workflow files and configuration
 if [ "$install_directory" != "." ]; then
-    echo "Moving workflow files and configuration..."
-    mkdir -p .github/workflows
+    echo "Moving workflow files and configuration..."       
+    if [ ! -d .github/workflows ]; then
+        mkdir -p .github/workflows
+    fi
     mv "$install_directory/.github/workflows"/* .github/workflows
     mv "$install_directory/.github/.jira_sync_config.yaml" .github/
 fi
