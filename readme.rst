@@ -102,7 +102,7 @@ This will do several things:
 The ``run`` target is therefore very convenient when preparing to submit a
 change to the documentation.
 
-Local Checks
+Local checks
 ~~~~~~~~~~~~
 
 Before committing and pushing changes, it's a good practice to run various checks locally to catch issues early in the development process.
@@ -126,7 +126,7 @@ Ensure there are no spelling errors in the documentation:
 
    make spelling
 
-Inclusive Language Check
+Inclusive language check
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 Ensure the documentation uses inclusive language:
@@ -135,7 +135,7 @@ Ensure the documentation uses inclusive language:
 
    make woke
 
-Link Check
+Link check
 ^^^^^^^^^^
 
 Validate links within the documentation:
