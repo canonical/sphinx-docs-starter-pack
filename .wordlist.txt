@@ -12,6 +12,7 @@ reStructuredText
 RTD
 subdirectories
 subtree
+subfolders
 txt
 UI
 yaml
