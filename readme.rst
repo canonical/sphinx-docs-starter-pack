@@ -186,10 +186,10 @@ following line to ``.wokeignore``:
 Change checked file-types and locations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-By default, only reST files are checked for inclusive language — and only
-those in ``docs/`` and its subdirectories. To check Markdown files for example,
-or files outside the ``docs/`` subtree, you must change how the ``woke`` tool
-is invoked.
+By default, only reST files are checked for inclusive language — and only those
+in the documentation folder (usually ``docs/``) and its subfolders. To check
+Markdown files for example, or files outside the ``docs/`` subtree, you must
+change how the ``woke`` tool is invoked.
 
 The ``woke`` command is issued from ``docs/Makefile``. The command's syntax
 is out of scope here — consult the `woke User Guide
