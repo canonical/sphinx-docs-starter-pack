@@ -9,16 +9,13 @@ Diátaxis
 EBS
 EKS
 favicon
-filesystem
 Grafana
-hostname
 IAM
 installable
 JSON
 Juju
 Kubernetes
 Kubeflow
-lifecycle
 Makefile
 MyST
 namespace
@@ -28,7 +25,6 @@ observability
 OLM
 Permalink
 ReadMe
-reproducibility
 readthedocs
 reST
 reStructuredText
