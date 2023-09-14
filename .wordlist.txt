@@ -31,6 +31,8 @@ reStructuredText
 RTD
 subdirectories
 subtree
+subfolders
+txt
 UI
 Jira
 VM
