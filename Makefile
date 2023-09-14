@@ -26,7 +26,8 @@ $(SPHINXDIR)/requirements.txt:
 $(VENVDIR): $(SPHINXDIR)/requirements.txt
 	@echo "... setting up virtualenv"
 	python3 -m venv $(VENVDIR)
-	. $(VENV); pip install --upgrade -r $(SPHINXDIR)/requirements.txt \
+	. $(VENV); pip install --require-virtualenv \
+        --upgrade -r $(SPHINXDIR)/requirements.txt \
         --log $(VENVDIR)/pip_install.log
 	@test ! -f $(VENVDIR)/pip_list.txt || \
         mv $(VENVDIR)/pip_list.txt $(VENVDIR)/pip_list.txt.bak
