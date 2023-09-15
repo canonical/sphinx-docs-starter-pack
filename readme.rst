@@ -54,9 +54,9 @@ To add documentation to an existing code repository:
    * ``configuration: docs/conf.py``
    * ``requirements: docs/.sphinx/requirements.txt``
 
-**Note:** When configuring RTD itself for your project, the setting **Path for
-.readthedocs.yaml** (under **Advanced Settings**) will need to be given the
-value of "docs/.readthedocs.yaml".
+**Note:** When configuring RTD itself for your project, the setting "Path for
+``.readthedocs.yaml``" (under **Advanced Settings**) will need to be given the
+value of ``docs/.readthedocs.yaml``.
 
 Getting started
 ---------------
