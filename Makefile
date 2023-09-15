@@ -3,7 +3,7 @@
 
 # You can set these variables from the command line, and also
 # from the environment for the first two.
-SPHINXOPTS    ?=
+SPHINXOPTS    ?= -c . -d .sphinx/.doctrees
 SPHINXBUILD   ?= sphinx-build
 SPHINXDIR     = .sphinx
 SOURCEDIR     = .
@@ -59,21 +59,22 @@ install: $(VENVDIR) woke-install
 
 
 run: install
-	. $(VENV); sphinx-autobuild -c . -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)"
+	. $(VENV); sphinx-autobuild -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" \
+	$(SPHINXOPTS)
 
 .PHONY: run
 
 # Doesn't depend on $(BUILDDIR) to rebuild properly at every run.
 html: install
-	. $(VENV); $(SPHINXBUILD) -c . -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" \
-        -w .sphinx/warnings.txt
+	. $(VENV); $(SPHINXBUILD) -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" \
+        -w .sphinx/warnings.txt $(SPHINXOPTS)
 
 .PHONY: html
 
 
 epub: install
-	. $(VENV); $(SPHINXBUILD) -c . -b epub "$(SOURCEDIR)" "$(BUILDDIR)" \
-        -w .sphinx/warnings.txt
+	. $(VENV); $(SPHINXBUILD) -b epub "$(SOURCEDIR)" "$(BUILDDIR)" \
+        -w .sphinx/warnings.txt $(SPHINXOPTS)
 
 .PHONY: epub
 
@@ -88,6 +89,7 @@ clean: clean-doc
 	@test ! -e "$(VENVDIR)" -o \
         -d "$(VENVDIR)" -a "$(abspath $(VENVDIR))" != "$(VENVDIR)"
 	rm -rf $(VENVDIR)
+	rm -rf .sphinx/.doctrees
 
 .PHONY: clean
 
@@ -105,7 +107,8 @@ spelling: html
 
 
 linkcheck: install
-	. $(VENV) ; $(SPHINXBUILD) -c . -b linkcheck  "$(SOURCEDIR)" "$(BUILDDIR)"
+	. $(VENV) ; $(SPHINXBUILD) -b linkcheck "$(SOURCEDIR)" "$(BUILDDIR)" \
+	$(SPHINXOPTS)
 
 .PHONY: linkcheck
 
