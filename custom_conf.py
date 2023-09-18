@@ -102,6 +102,12 @@ linkcheck_ignore = [
     'http://127.0.0.1:8000'
     ]
 
+# Pages on which to ignore anchors
+# (This list will be appended to linkcheck_anchors_ignore_for_url)
+
+custom_linkcheck_anchors_ignore_for_url = [
+    ]
+
 ############################################################
 ### Additions to default configuration
 ############################################################
