@@ -141,6 +141,10 @@ custom_html_js_files = []
 # You can disable it by setting the following configuration to True.
 disable_feedback_button = False
 
+# Add tags that you want to use for conditional inclusion of text
+# (https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#tags)
+custom_tags = []
+
 ############################################################
 ### Additional configuration
 ############################################################

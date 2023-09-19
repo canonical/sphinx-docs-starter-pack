@@ -93,6 +93,10 @@ linkcheck_anchors_ignore_for_url = [
 ]
 linkcheck_anchors_ignore_for_url.extend(custom_linkcheck_anchors_ignore_for_url)
 
+# Tags cannot be added directly in custom_conf.py, so add them here
+for tag in custom_tags:
+    tags.add(tag)
+
 ############################################################
 ### Styling
 ############################################################
