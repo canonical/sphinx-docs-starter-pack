@@ -36,8 +36,10 @@ extensions.extend(custom_extensions)
 # Additional MyST syntax
 myst_enable_extensions = [
     'substitution',
-    'deflist'
+    'deflist',
+    'linkify'
 ]
+myst_enable_extensions.extend(custom_myst_extensions)
 
 # Used for related links
 if 'discourse' in html_context:

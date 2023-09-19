@@ -118,6 +118,9 @@ custom_linkcheck_anchors_ignore_for_url = [
 # Add extensions
 custom_extensions = []
 
+# Add MyST extensions
+custom_myst_extensions = []
+
 # Add files or directories that should be excluded from processing.
 custom_excludes = []
 
