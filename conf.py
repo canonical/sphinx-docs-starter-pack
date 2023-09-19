@@ -42,7 +42,7 @@ myst_enable_extensions = [
 myst_enable_extensions.extend(custom_myst_extensions)
 
 # Used for related links
-if 'discourse' in html_context:
+if not 'discourse_prefix' in html_context and 'discourse' in html_context:
     html_context['discourse_prefix'] = html_context['discourse'] + '/t/'
 
 # The default for notfound_urls_prefix usually works, but not for
