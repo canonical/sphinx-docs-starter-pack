@@ -76,7 +76,11 @@ html_context = {
 
     # Change to an empty value if your GitHub repo doesn't have issues enabled.
     # This will disable the feedback button and the issue link in the footer.
-    'github_issues': 'enabled'
+    'github_issues': 'enabled',
+
+    # Controls the existence of Previous / Next buttons at the bottom of pages
+    # Valid options: none, prev, next, both
+    'sequential_nav': "none"
 }
 
 # If your project is on documentation.ubuntu.com, specify the project
