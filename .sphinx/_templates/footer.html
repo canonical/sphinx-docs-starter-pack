@@ -1,11 +1,13 @@
-{# ru-fu: copied from Furo, with modifications as stated below #}
+{# ru-fu: copied from Furo, with modifications as stated below. Modifications are marked 'mod:'. #}
 
 <div class="related-pages">
+  {# mod: Per-page navigation #}
   {% if meta %}
     {% if 'sequential_nav' in meta %}
       {% set sequential_nav = meta.sequential_nav %}
     {% endif %}  
   {% endif %}
+  {# mod: Conditional wrappers to control page navigation buttons #}
   {% if sequential_nav != "none" -%}
     {% if next and (sequential_nav == "next" or sequential_nav == "both") -%}
       <a class="next-page" href="{{ next.link }}">
@@ -51,7 +53,7 @@
     </div>
     {%- endif %}
 
-    {# ru-fu: removed "Made with" #}
+    {# mod: removed "Made with" #}
 
     {%- if last_updated -%}
     <div class="last-updated">
@@ -70,7 +72,7 @@
   </div>
   <div class="right-details">
 
-    {# ru-fu: replaced RTD icons with our links #}
+    {# mod: replaced RTD icons with our links #}
 
     {% if discourse %}
     <div class="ask-discourse">
