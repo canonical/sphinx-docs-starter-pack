@@ -1,6 +1,11 @@
 {# ru-fu: copied from Furo, with modifications as stated below #}
 
 <div class="related-pages">
+  {% if meta %}
+    {% if 'sequential_nav' in meta %}
+      {% set sequential_nav = meta.sequential_nav %}
+    {% endif %}  
+  {% endif %}
   {% if sequential_nav != "none" -%}
     {% if next and (sequential_nav == "next" or sequential_nav == "both") -%}
       <a class="next-page" href="{{ next.link }}">
