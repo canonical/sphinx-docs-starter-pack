@@ -2,7 +2,7 @@ addons
 API
 APIs
 balancer
-CharmHub
+Charmhub
 CLI
 dropdown
 Diátaxis
@@ -25,14 +25,12 @@ observability
 OLM
 Permalink
 ReadMe
-readthedocs
 reST
 reStructuredText
 RTD
 subdirectories
 subtree
 subfolders
-txt
 UI
 Jira
 VM
