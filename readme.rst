@@ -169,7 +169,7 @@ Configure the spelling check
 If your documentation uses US English instead of UK English, change this in the
 ``.sphinx/spellingcheck.yaml`` file.
 
-To add exceptions for words the spelling check marks as wrong even though they are correct, edit the ``.wordlist.txt`` file.
+To add exceptions for words the spelling check marks as wrong even though they are correct, edit the ``.custom_wordlist.txt`` file. It's recommended not to edit ``.wordlist.txt``, as this is intended to for words that apply across all projects and will be centrally maintained and updated.
 
 Configure the inclusive-language check
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
