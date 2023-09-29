@@ -108,6 +108,11 @@ html_theme = 'furo'
 html_last_updated_fmt = ''
 html_permalinks_icon = '¶'
 
+if html_title == '':
+    html_theme_options = {
+        'sidebar_hide_name': True
+        }
+
 ############################################################
 ### Additional files
 ############################################################
