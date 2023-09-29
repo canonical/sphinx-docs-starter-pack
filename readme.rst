@@ -79,8 +79,10 @@ To install the prerequisites:
 This will create a virtual environment (``.sphinx/venv``) and install
 dependency software (``.sphinx/requirements.txt``) within it.
 
-A complete set of pinned, known-working dependencies is included in
-``.sphinx/pinned-requirements.txt``.
+**Note**:
+By default, the starter pack uses the latest compatible version of all tools and does not pin its requirements.
+This might change temporarily if there is an incompatibility with a new tool version.
+There is therefore no need in using a tool like Renovate to automatically update the requirements.
 
 View the documentation
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -169,7 +171,7 @@ Configure the spelling check
 If your documentation uses US English instead of UK English, change this in the
 ``.sphinx/spellingcheck.yaml`` file.
 
-To add exceptions for words the spelling check marks as wrong even though they are correct, edit the ``.custom_wordlist.txt`` file. 
+To add exceptions for words the spelling check marks as wrong even though they are correct, edit the ``.custom_wordlist.txt`` file.
 You shouldn't edit ``.wordlist.txt``, because this file is maintained and updated centrally and contains words that apply across all projects.
 
 Configure the inclusive-language check
@@ -271,9 +273,9 @@ for this feature to work. For more information, see `server configuration detail
 for the GitHub/Jira sync bot.
 
 The ``.jira_sync_config.yaml`` file that is included in the starter pack
-contains configuration for syncing issues from the starter pack repository to 
+contains configuration for syncing issues from the starter pack repository to
 its documentation Jira board.
-Therefore, it does not work out of the box for other repositories in GitHub, 
+Therefore, it does not work out of the box for other repositories in GitHub,
 and you must update it if you want to use the synchronisation feature.
 
 Change log
