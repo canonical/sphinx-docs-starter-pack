@@ -262,6 +262,12 @@ Add custom configuration
 To add custom configurations for your project, see the ``Additions to default configuration`` and ``Additional configuration`` sections in the ``custom_conf.py`` file.
 These can be used to extend or override the common configuration, or to define additional configuration that is not covered by the common ``conf.py`` file.
 
+The following links can help you with additional configuration:
+
+- `Sphinx configuration`_
+- `Sphinx extensions`_
+- `Furo documentation`_ (Furo is the Sphinx theme we use as our base.)
+
 (Optional) Synchronise GitHub issues to Jira
 --------------------------------------------
 
@@ -282,3 +288,12 @@ Change log
 ----------
 
 See the `change log <https://github.com/canonical/sphinx-docs-starter-pack/wiki/Change-log>`_ for a list of relevant changes to the starter pack.
+
+
+.. LINKS
+
+.. wokeignore:rule=master
+.. _`Sphinx configuration`: https://www.sphinx-doc.org/en/master/usage/configuration.html
+.. wokeignore:rule=master
+.. _`Sphinx extensions`: https://www.sphinx-doc.org/en/master/usage/extensions/index.html
+.. _`Furo documentation`: https://pradyunsg.me/furo/quickstart/
