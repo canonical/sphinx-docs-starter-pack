@@ -115,6 +115,7 @@ linkcheck: install
 
 woke: woke-install
 	woke *.rst **/*.rst \
+		--exit-1-on-failure \
         -c https://github.com/canonical/Inclusive-naming/raw/main/config.yml
 
 .PHONY: woke
