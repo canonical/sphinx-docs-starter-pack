@@ -76,7 +76,11 @@ html_context = {
 
     # Change to an empty value if your GitHub repo doesn't have issues enabled.
     # This will disable the feedback button and the issue link in the footer.
-    'github_issues': 'enabled'
+    'github_issues': 'enabled',
+
+    # Controls the existence of Previous / Next buttons at the bottom of pages
+    # Valid options: none, prev, next, both
+    'sequential_nav': "none"
 }
 
 # If your project is on documentation.ubuntu.com, specify the project
@@ -102,6 +106,12 @@ linkcheck_ignore = [
     'http://127.0.0.1:8000'
     ]
 
+# Pages on which to ignore anchors
+# (This list will be appended to linkcheck_anchors_ignore_for_url)
+
+custom_linkcheck_anchors_ignore_for_url = [
+    ]
+
 ############################################################
 ### Additions to default configuration
 ############################################################
@@ -113,7 +123,9 @@ linkcheck_ignore = [
 custom_extensions = []
 
 # Add files or directories that should be excluded from processing.
-custom_excludes = []
+custom_excludes = [
+    'doc-cheat-sheet*',
+]
 
 # Add CSS files (located in .sphinx/_static/)
 custom_html_css_files = []

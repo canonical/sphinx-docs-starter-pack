@@ -34,8 +34,9 @@ This Bash script does the following:
 
 When the script completes, review all changes before committing, then commit your changes.
 
-**Note:** When configuring RTD itself for your project, the setting **Path for
-.readthedocs.yaml** (under **Advanced Settings**) will need to be given the relative path to ``.readthedocs.yaml``, including the installation directory e.g. ``docs/.readthedocs.yaml``.
+**Note:** When configuring RTD itself for your project, the setting "Path for
+``.readthedocs.yaml``" (under **Advanced Settings**) will need to be given the
+value of ``docs/.readthedocs.yaml``.
 
 Build and view the documentation
 --------------------------------
@@ -58,8 +59,10 @@ To install the prerequisites:
 This will create a virtual environment (``.sphinx/venv``) and install
 dependency software (``.sphinx/requirements.txt``) within it.
 
-A complete set of pinned, known-working dependencies is included in
-``.sphinx/pinned-requirements.txt``.
+**Note**:
+By default, the starter pack uses the latest compatible version of all tools and does not pin its requirements.
+This might change temporarily if there is an incompatibility with a new tool version.
+There is therefore no need in using a tool like Renovate to automatically update the requirements.
 
 View the documentation
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -148,7 +151,8 @@ Configure the spelling check
 If your documentation uses US English instead of UK English, change this in the
 ``.sphinx/spellingcheck.yaml`` file.
 
-To add exceptions for words the spelling check marks as wrong even though they are correct, edit the ``.wordlist.txt`` file.
+To add exceptions for words the spelling check marks as wrong even though they are correct, edit the ``.custom_wordlist.txt`` file.
+You shouldn't edit ``.wordlist.txt``, because this file is maintained and updated centrally and contains words that apply across all projects.
 
 Configure the inclusive-language check
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -160,7 +164,7 @@ In-file exemptions
 ^^^^^^^^^^^^^^^^^^
 
 Suppose a reST file has a link to some site you don't control, and the address
-contains "\m\a\s\t\e\r" --- a non-inclusive word. You can't change the link,
+contains "\m\a\s\t\e\r" — a non-inclusive word. You can't change the link,
 but the remainder of the file must be checked for inclusive language. Here the
 ``woke`` tool's `next-line ignore
 <https://docs.getwoke.tech/ignore/#in-line-and-next-line-ignoring>`_ feature is
@@ -196,14 +200,13 @@ following line to ``.wokeignore``:
 Change checked file-types and locations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-By default, only reST files are checked for inclusive language --- and only
-those in ``docs/`` and its subdirectories. To check Markdown files for example,
-or files outside the ``docs/`` subtree, you must change how the ``woke`` tool
-is invoked.
+By default, only reST files are checked for inclusive language — and only those
+in the documentation folder (usually ``docs/``) and its subfolders. To check
+Markdown files for example, or files outside the ``docs/`` subtree, you must
+change how the ``woke`` tool is invoked.
 
-The ``woke`` command appears twice: in the ``docs/Makefile`` and in your
-project's ``.github/workflows/automatic-doc-checks.yml`` file. The command
-syntax is out-of-scope here --- consult the `woke User Guide
+The ``woke`` command is issued from ``docs/Makefile``. The command's syntax
+is out of scope here — consult the `woke User Guide
 <https://docs.getwoke.tech/usage/#file-globs>`_.
 
 Configure the link check
@@ -250,9 +253,9 @@ for this feature to work. For more information, see `server configuration detail
 for the GitHub/Jira sync bot.
 
 The ``.jira_sync_config.yaml`` file that is included in the starter pack
-contains configuration for syncing issues from the starter pack repository to 
+contains configuration for syncing issues from the starter pack repository to
 its documentation Jira board.
-Therefore, it does not work out of the box for other repositories in GitHub, 
+Therefore, it does not work out of the box for other repositories in GitHub,
 and you must update it if you want to use the synchronisation feature.
 
 Change log

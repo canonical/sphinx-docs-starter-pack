@@ -3,7 +3,7 @@
 
 # You can set these variables from the command line, and also
 # from the environment for the first two.
-SPHINXOPTS    ?=
+SPHINXOPTS    ?= -c . -d .sphinx/.doctrees
 SPHINXBUILD   ?= sphinx-build
 SPHINXDIR     = .sphinx
 SOURCEDIR     = .
@@ -13,8 +13,8 @@ VENV          = $(VENVDIR)/bin/activate
 
 
 # Put it first so that "make" without argument is like "make help".
-help:
-	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+help: $(VENVDIR)
+	@. $(VENV); $(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 .PHONY: help
 
@@ -26,7 +26,12 @@ $(SPHINXDIR)/requirements.txt:
 $(VENVDIR): $(SPHINXDIR)/requirements.txt
 	@echo "... setting up virtualenv"
 	python3 -m venv $(VENVDIR)
-	. $(VENV); pip install --upgrade -r $(SPHINXDIR)/requirements.txt
+	. $(VENV); pip install --require-virtualenv \
+        --upgrade -r $(SPHINXDIR)/requirements.txt \
+        --log $(VENVDIR)/pip_install.log
+	@test ! -f $(VENVDIR)/pip_list.txt || \
+        mv $(VENVDIR)/pip_list.txt $(VENVDIR)/pip_list.txt.bak
+	@. $(VENV); pip list --local --format=freeze > $(VENVDIR)/pip_list.txt
 	@echo "\n" \
         "--------------------------------------------------------------- \n" \
         "* watch, build and serve the documentation: make run \n" \
@@ -54,21 +59,22 @@ install: $(VENVDIR) woke-install
 
 
 run: install
-	. $(VENV); sphinx-autobuild -c . -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)"
+	. $(VENV); sphinx-autobuild -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" \
+	$(SPHINXOPTS)
 
 .PHONY: run
 
 # Doesn't depend on $(BUILDDIR) to rebuild properly at every run.
 html: install
-	. $(VENV); $(SPHINXBUILD) -c . -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" \
-        -w .sphinx/warnings.txt
+	. $(VENV); $(SPHINXBUILD) -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" \
+        -w .sphinx/warnings.txt $(SPHINXOPTS)
 
 .PHONY: html
 
 
 epub: install
-	. $(VENV); $(SPHINXBUILD) -c . -b epub "$(SOURCEDIR)" "$(BUILDDIR)" \
-        -w .sphinx/warnings.txt
+	. $(VENV); $(SPHINXBUILD) -b epub "$(SOURCEDIR)" "$(BUILDDIR)" \
+        -w .sphinx/warnings.txt $(SPHINXOPTS)
 
 .PHONY: epub
 
@@ -83,6 +89,7 @@ clean: clean-doc
 	@test ! -e "$(VENVDIR)" -o \
         -d "$(VENVDIR)" -a "$(abspath $(VENVDIR))" != "$(VENVDIR)"
 	rm -rf $(VENVDIR)
+	rm -rf .sphinx/.doctrees
 
 .PHONY: clean
 
@@ -100,13 +107,15 @@ spelling: html
 
 
 linkcheck: install
-	. $(VENV) ; $(SPHINXBUILD) -c . -b linkcheck  "$(SOURCEDIR)" "$(BUILDDIR)"
+	. $(VENV) ; $(SPHINXBUILD) -b linkcheck "$(SOURCEDIR)" "$(BUILDDIR)" \
+	$(SPHINXOPTS)
 
 .PHONY: linkcheck
 
 
 woke: woke-install
 	woke *.rst **/*.rst \
+		--exit-1-on-failure \
         -c https://github.com/canonical/Inclusive-naming/raw/main/config.yml
 
 .PHONY: woke
