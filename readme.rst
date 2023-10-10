@@ -297,7 +297,7 @@ Before you begin, ensure you have the following:
 * Git and Bash installed on your system.
 
 Initialise your documentation repository
----------------------------------------
+----------------------------------------
 
 The ``init.sh`` Bash script is used to initialise your repository with the starter pack content. It adds all the files to your repository that are needed to get started with Sphinx documentation.
 
