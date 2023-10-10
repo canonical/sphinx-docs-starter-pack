@@ -3,43 +3,63 @@ Documentation starter pack
 
 See the `Sphinx and Read the Docs <https://canonical-documentation-with-sphinx-and-readthedocscom.readthedocs-hosted.com/>`_ guide for instructions on how to get started with Sphinx documentation.
 
-Then go through the following sections to use this starter pack to set up your documentation repository.
+Then go through the following sections to use this starter pack to set up your docs repository.
 
-Prerequisites
--------------
+Set up your documentation repository
+------------------------------------
 
-Before you begin, ensure you have the following:
+You can either create a standalone documentation project based on this repository or include the files from this repository in a dedicated documentation folder in an existing code repository.
 
-* A GitHub repository where you want to host your documentation, cloned to your local machine. The recommended approach is to host the documentation alongside your code in a `docs` folder. But a standalone documentation repository is also an option; in this case, start with an empty repository.
-* Git and Bash installed on your system.
+**Note:** We're planning to provide the contents of this repository as an installable package in the future, but currently, you need to copy and update the required files manually.
 
-Initialise your documentation repository
----------------------------------------
+Standalone documentation repository
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The ``init.sh`` Bash script is used to initialize your repository with the starter pack content. It adds all the files to your repository that are needed to get started with Sphinx documentation.
+To create a standalone documentation repository, clone this starter pack
+repository, `update the configuration <#configure-the-documentation>`_, and
+then commit all files to the documentation repository.
 
-To use the script, follow these steps:
+You don't need to move any files, and you don't need to do any special
+configuration on Read the Docs.
 
-* Copy ``init.sh`` to your repository's root directory.
-* Run the script: ``./init.sh``
-* Enter the installation directory when prompted. For standalone repositories, enter ".". For documentation alongside code, enter the folder where your documentation are e.g. "docs".
+Here is one way to do this for newly-created fictional docs repository
+``canonical/alpha-docs``:
 
-This Bash script does the following:
+.. code-block:: none
 
-* Clones the starter pack GitHub repository
-* Creates the specified installation directory if necessary
-* Updates working directory paths in workflow files, and updates configuration paths in the ``.readthedocs.yaml`` file
-* Copies and moves contents and ``.github`` files from the starter pack to the installation directory
-* Deletes the cloned repository when it's done
+   git clone git@github.com:canonical/sphinx-docs-starter-pack alpha-docs
+   cd alpha-docs
+   rm -rf .git
+   git init
+   git branch -m main
+   UPDATE THE CONFIGURATION AND BUILD THE DOCS
+   git add -A
+   git commit -m "Import sphinx-docs-starter-pack"
+   git remote add upstream git@github.com:canonical/alpha-docs
+   git push -f upstream main
 
-When the script completes, review all changes before committing, then commit your changes.
+Documentation in a code repository
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To add documentation to an existing code repository:
+
+#. create a directory called ``docs`` at the root of the code repository
+#. populate the above directory with the contents of the starter pack
+   repository (with the exception of the ``.git`` directory)
+#. copy the file(s) located in the ``docs/.github/workflows`` directory into
+   the code repository's ``.github/workflows`` directory
+#. in the above workflow file(s), change the value of the ``working-directory`` field from ``.`` to ``docs``
+#. in file ``docs/.readthedocs.yaml`` set the following:
+
+   * ``configuration: docs/conf.py``
+   * ``requirements: docs/.sphinx/requirements.txt``
 
 **Note:** When configuring RTD itself for your project, the setting "Path for
 ``.readthedocs.yaml``" (under **Advanced Settings**) will need to be given the
 value of ``docs/.readthedocs.yaml``.
 
-Build and view the documentation
---------------------------------
+Getting started
+---------------
 
 There are make targets defined in the ``Makefile`` that do various things. To
 get started, we will:
@@ -262,3 +282,41 @@ Change log
 ----------
 
 See the `change log <https://github.com/canonical/sphinx-docs-starter-pack/wiki/Change-log>`_ for a list of relevant changes to the starter pack.
+
+Beta feature: Setup Script
+==========================
+
+An alternative to the manual setup steps is to use a setup script to automatically initialise your repository using the starter pack. This script is provided as a beta feature: use it with care and check all changes manually before committing them to your repository.
+
+Prerequisites
+-------------
+
+Before you begin, ensure you have the following:
+
+* A GitHub repository where you want to host your documentation, cloned to your local machine. The recommended approach is to host the documentation alongside your code in a `docs` folder. But a standalone documentation repository is also an option; in this case, start with an empty repository.
+* Git and Bash installed on your system.
+
+Initialise your documentation repository
+---------------------------------------
+
+The ``init.sh`` Bash script is used to initialize your repository with the starter pack content. It adds all the files to your repository that are needed to get started with Sphinx documentation.
+
+To use the script, follow these steps:
+
+* Copy ``init.sh`` to your repository's root directory.
+* Run the script: ``./init.sh``
+* Enter the installation directory when prompted. For standalone repositories, enter ".". For documentation alongside code, enter the folder where your documentation are e.g. "docs".
+
+This Bash script does the following:
+
+* Clones the starter pack GitHub repository
+* Creates the specified installation directory if necessary
+* Updates working directory paths in workflow files, and updates configuration paths in the ``.readthedocs.yaml`` file
+* Copies and moves contents and ``.github`` files from the starter pack to the installation directory
+* Deletes the cloned repository when it's done
+
+When the script completes, review all changes before committing, then commit your changes.
+
+**Note:** When configuring RTD itself for your project, the setting "Path for
+``.readthedocs.yaml``" (under **Advanced Settings**) will need to be given the
+value of ``docs/.readthedocs.yaml``.
