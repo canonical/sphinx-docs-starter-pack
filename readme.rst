@@ -289,13 +289,13 @@ Change log
 
 See the `change log <https://github.com/canonical/sphinx-docs-starter-pack/wiki/Change-log>`_ for a list of relevant changes to the starter pack.
 
-Beta feature: Setup Script
-==========================
+Beta feature: setup script
+---------------------------
 
 An alternative to the manual setup steps is to use a setup script to automatically initialise your repository using the starter pack. This script is provided as a beta feature: use it with care and check all changes manually before committing them to your repository.
 
 Prerequisites
--------------
+~~~~~~~~~~~~~
 
 Before you begin, ensure you have the following:
 
@@ -303,7 +303,7 @@ Before you begin, ensure you have the following:
 * Git and Bash installed on your system.
 
 Initialise your documentation repository
-----------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The ``init.sh`` Bash script is used to initialise your repository with the starter pack content. It adds all the files to your repository that are needed to get started with Sphinx documentation.
 
@@ -322,10 +322,6 @@ This Bash script does the following:
 * Deletes the cloned repository when it's done
 
 When the script completes, review all changes before committing, then commit your changes.
-
-**Note:** When configuring RTD itself for your project, the setting "Path for
-``.readthedocs.yaml``" (under **Advanced Settings**) will need to be given the
-value of ``docs/.readthedocs.yaml``.
 
 .. LINKS
 
