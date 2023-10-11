@@ -171,7 +171,7 @@ Configure the spelling check
 If your documentation uses US English instead of UK English, change this in the
 ``.sphinx/spellingcheck.yaml`` file.
 
-To add exceptions for words the spelling check marks as wrong even though they are correct, edit the ``.custom_wordlist.txt`` file.
+To add exceptions for words flagged by the spelling check, edit the ``.custom_wordlist.txt`` file.
 You shouldn't edit ``.wordlist.txt``, because this file is maintained and updated centrally and contains words that apply across all projects.
 
 Configure the inclusive-language check
@@ -262,6 +262,12 @@ Add custom configuration
 To add custom configurations for your project, see the ``Additions to default configuration`` and ``Additional configuration`` sections in the ``custom_conf.py`` file.
 These can be used to extend or override the common configuration, or to define additional configuration that is not covered by the common ``conf.py`` file.
 
+The following links can help you with additional configuration:
+
+- `Sphinx configuration`_
+- `Sphinx extensions`_
+- `Furo documentation`_ (Furo is the Sphinx theme we use as our base.)
+
 (Optional) Synchronise GitHub issues to Jira
 --------------------------------------------
 
@@ -320,3 +326,11 @@ When the script completes, review all changes before committing, then commit you
 **Note:** When configuring RTD itself for your project, the setting "Path for
 ``.readthedocs.yaml``" (under **Advanced Settings**) will need to be given the
 value of ``docs/.readthedocs.yaml``.
+
+.. LINKS
+
+.. wokeignore:rule=master
+.. _`Sphinx configuration`: https://www.sphinx-doc.org/en/master/usage/configuration.html
+.. wokeignore:rule=master
+.. _`Sphinx extensions`: https://www.sphinx-doc.org/en/master/usage/extensions/index.html
+.. _`Furo documentation`: https://pradyunsg.me/furo/quickstart/

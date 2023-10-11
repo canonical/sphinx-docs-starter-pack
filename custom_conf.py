@@ -18,8 +18,10 @@ import datetime
 project = 'Documentation starter pack'
 author = 'Canonical Group Ltd'
 
-# Uncomment if your product uses release numbers
-# release = '1.0'
+# The title you want to display for the documentation in the sidebar.
+# You might want to include a version number here.
+# To not display any title, set this option to an empty string.
+html_title = project + ' documentation'
 
 # The default value uses the current year as the copyright year.
 #
@@ -122,6 +124,9 @@ custom_linkcheck_anchors_ignore_for_url = [
 # Add extensions
 custom_extensions = []
 
+# Add MyST extensions
+custom_myst_extensions = []
+
 # Add files or directories that should be excluded from processing.
 custom_excludes = [
     'doc-cheat-sheet*',
@@ -143,6 +148,10 @@ custom_html_js_files = []
 # By default, the documentation includes a feedback button at the top.
 # You can disable it by setting the following configuration to True.
 disable_feedback_button = False
+
+# Add tags that you want to use for conditional inclusion of text
+# (https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#tags)
+custom_tags = []
 
 ############################################################
 ### Additional configuration
