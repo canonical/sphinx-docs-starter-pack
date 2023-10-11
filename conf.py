@@ -36,11 +36,13 @@ extensions.extend(custom_extensions)
 # Additional MyST syntax
 myst_enable_extensions = [
     'substitution',
-    'deflist'
+    'deflist',
+    'linkify'
 ]
+myst_enable_extensions.extend(custom_myst_extensions)
 
 # Used for related links
-if 'discourse' in html_context:
+if not 'discourse_prefix' in html_context and 'discourse' in html_context:
     html_context['discourse_prefix'] = html_context['discourse'] + '/t/'
 
 # The default for notfound_urls_prefix usually works, but not for
@@ -89,6 +91,10 @@ linkcheck_anchors_ignore_for_url = [
     r'https://github\.com/.*'
 ]
 linkcheck_anchors_ignore_for_url.extend(custom_linkcheck_anchors_ignore_for_url)
+
+# Tags cannot be added directly in custom_conf.py, so add them here
+for tag in custom_tags:
+    tags.add(tag)
 
 ############################################################
 ### Styling
