@@ -9,6 +9,7 @@ Diátaxis
 EBS
 EKS
 favicon
+Furo
 Grafana
 IAM
 installable
