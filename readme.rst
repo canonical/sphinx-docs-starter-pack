@@ -12,7 +12,7 @@ You can either create a standalone documentation project based on this repositor
 
 **Note:** We're planning to provide the contents of this repository as an installable package in the future, but currently, you need to copy and update the required files manually.
 
-The next two sections provide manual steps for enabling the starter pack for your repository. See `Setup script <../setup-script/>`_ for an automated method (currently in beta).
+The next two sections provide manual steps for enabling the starter pack for your repository. See `Setup script <https://canonical-starter-pack.readthedocs-hosted.com/setup-script/>`_ for an automated method (currently in beta).
 
 Standalone documentation repository
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
