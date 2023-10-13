@@ -18,3 +18,4 @@ More information is available in the `reStructuredText style guide`_.
    :maxdepth: 2
 
    ReadMe <readme>
+   Setup script <setup-script>

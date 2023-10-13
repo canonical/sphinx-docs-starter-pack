@@ -12,6 +12,8 @@ You can either create a standalone documentation project based on this repositor
 
 **Note:** We're planning to provide the contents of this repository as an installable package in the future, but currently, you need to copy and update the required files manually.
 
+The next two sections provide manual steps for enabling the starter pack for your repository. See `Setup script <https://canonical-starter-pack.readthedocs-hosted.com/setup-script/>`_ for an automated method (currently in beta).
+
 Standalone documentation repository
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -288,7 +290,6 @@ Change log
 ----------
 
 See the `change log <https://github.com/canonical/sphinx-docs-starter-pack/wiki/Change-log>`_ for a list of relevant changes to the starter pack.
-
 
 .. LINKS
 
