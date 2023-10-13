@@ -5,12 +5,14 @@ See the `Sphinx and Read the Docs <https://canonical-documentation-with-sphinx-a
 
 Then go through the following sections to use this starter pack to set up your docs repository.
 
+**Note:** After setting up your repository with the starter pack, you need to track the changes made to it and manually update your repository with the required files.
+The `change log <https://github.com/canonical/sphinx-docs-starter-pack/wiki/Change-log>`_ lists the most relevant (and of course all breaking) changes.
+We're planning to provide the contents of this repository as an installable package in the future to make updates easier.
+
 Set up your documentation repository
 ------------------------------------
 
 You can either create a standalone documentation project based on this repository or include the files from this repository in a dedicated documentation folder in an existing code repository.
-
-**Note:** We're planning to provide the contents of this repository as an installable package in the future, but currently, you need to copy and update the required files manually.
 
 The next two sections provide manual steps for enabling the starter pack for your repository. See `Setup script <https://canonical-starter-pack.readthedocs-hosted.com/setup-script/>`_ for an automated method (currently in beta).
 
