@@ -25,6 +25,7 @@ NodePort
 observability
 OLM
 Permalink
+pre
 ReadMe
 reST
 reStructuredText

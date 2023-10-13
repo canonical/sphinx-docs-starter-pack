@@ -258,6 +258,26 @@ Add redirects
 You can add redirects to make sure existing links and bookmarks continue working when you move files around.
 To do so, specify the old and new paths in the ``redirects`` setting of the ``custom_conf.py`` file.
 
+Configure included extensions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The starter pack includes a set of extensions that are useful for all documentation sets.
+They are pre-configured as needed, but you can customise their configuration in the  ``custom_conf.py`` file.
+
+The following extensions are always included:
+
+- |sphinx-design|_
+- |sphinx_tabs.tabs|_
+- |sphinx_reredirects|_
+- |lxd-sphinx-extensions|_ (``youtube-links``, ``related-links``, ``custom-rst-roles``, and ``terminal-output``)
+- |sphinx_copybutton|_
+- |sphinxext.opengraph|_
+- |myst_parser|_
+- |sphinxcontrib.jquery|_
+- |notfound.extension|_
+
+You can add further extensions in the ``custom_extensions`` variable in ``custom_conf.py``.
+
 Add custom configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -298,3 +318,22 @@ See the `change log <https://github.com/canonical/sphinx-docs-starter-pack/wiki/
 .. wokeignore:rule=master
 .. _`Sphinx extensions`: https://www.sphinx-doc.org/en/master/usage/extensions/index.html
 .. _`Furo documentation`: https://pradyunsg.me/furo/quickstart/
+
+.. |sphinx-design| replace:: ``sphinx-design``
+.. _sphinx-design: https://sphinx-design.readthedocs.io/en/latest/
+.. |sphinx_tabs.tabs| replace:: ``sphinx_tabs.tabs``
+.. _sphinx_tabs.tabs: https://sphinx-tabs.readthedocs.io/en/latest/
+.. |sphinx_reredirects| replace:: ``sphinx_reredirects``
+.. _sphinx_reredirects: https://documatt.gitlab.io/sphinx-reredirects/
+.. |lxd-sphinx-extensions| replace:: ``lxd-sphinx-extensions``
+.. _lxd-sphinx-extensions: https://github.com/canonical/lxd-sphinx-extensions#lxd-sphinx-extensions
+.. |sphinx_copybutton| replace:: ``sphinx_copybutton``
+.. _sphinx_copybutton: https://sphinx-copybutton.readthedocs.io/en/latest/
+.. |sphinxext.opengraph| replace:: ``sphinxext.opengraph``
+.. _sphinxext.opengraph: https://sphinxext-opengraph.readthedocs.io/en/latest/
+.. |myst_parser| replace:: ``myst_parser``
+.. _myst_parser: https://myst-parser.readthedocs.io/en/latest/
+.. |sphinxcontrib.jquery| replace:: ``sphinxcontrib.jquery``
+.. _sphinxcontrib.jquery: https://github.com/sphinx-contrib/jquery/
+.. |notfound.extension| replace:: ``notfound.extension``
+.. _notfound.extension: https://sphinx-notfound-page.readthedocs.io/en/latest/
