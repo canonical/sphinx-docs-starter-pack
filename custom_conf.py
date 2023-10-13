@@ -9,6 +9,10 @@ import datetime
 #
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
+#
+# If you're not familiar with Sphinx and don't want to use advanced
+# features, it is sufficient to update the settings in the "Project
+# information" section.
 
 ############################################################
 ### Project information
@@ -39,26 +43,33 @@ html_title = project + ' documentation'
 
 copyright = '%s, %s' % (datetime.date.today().year, author)
 
-## Open Graph configuration - defines what is displayed in the website preview
-# The URL of the documentation output
+## Open Graph configuration - defines what is displayed as a link preview
+## when linking to the documentation from another website (see https://ogp.me/)
+# The URL where the documentation will be hosted (leave empty if you
+# don't know yet)
 ogp_site_url = 'https://canonical-starter-pack.readthedocs-hosted.com/'
 # The documentation website name (usually the same as the product name)
 ogp_site_name = project
-# An image or logo that is used in the preview
+# The URL of an image or logo that is used in the preview
 ogp_image = 'https://assets.ubuntu.com/v1/253da317-image-document-ubuntudocs.svg'
 
-# Update with the favicon for your product (default is the circle of friends)
+# Update with the local path to the favicon for your product
+# (default is the circle of friends)
 html_favicon = '.sphinx/_static/favicon.png'
 
 # (Some settings must be part of the html_context dictionary, while others
 #  are on root level. Don't move the settings.)
 html_context = {
 
-    # Change to the link to your product website (without "https://")
+    # Change to the link to the website of your product (without "https://")
+    # For example: "ubuntu.com/lxd" or "microcloud.is"
+    # If there is no product website, edit the header template to remove the
+    # link (see the readme for instructions).
     'product_page': 'documentation.ubuntu.com',
 
-    # Add your product tag to ".sphinx/_static" and change the path
-    # here (start with "_static"), default is the circle of friends
+    # Add your product tag (the orange part of your logo, will be used in the
+    # header) to ".sphinx/_static" and change the path here (start with "_static")
+    # (default is the circle of friends)
     'product_tag': '_static/tag.png',
 
     # Change to the discourse instance you want to be able to link to
@@ -66,7 +77,7 @@ html_context = {
     # (use an empty value if you don't want to link)
     'discourse': 'https://discourse.ubuntu.com',
 
-    # Change to the GitHub info for your project
+    # Change to the GitHub URL for your project
     'github_url': 'https://github.com/canonical/starter-pack',
 
     # Change to the branch for this version of the documentation
