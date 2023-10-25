@@ -53,6 +53,7 @@ To add documentation to an existing code repository:
 #. copy the file(s) located in the ``docs/.github/workflows`` directory into
    the code repository's ``.github/workflows`` directory
 #. in the above workflow file(s), change the value of the ``working-directory`` field from ``.`` to ``docs``
+#. create a symbolic link to the ``docs/.wokeignore`` file from the root directory of the code repository
 #. in file ``docs/.readthedocs.yaml`` set the following:
 
    * ``configuration: docs/conf.py``

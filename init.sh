@@ -31,12 +31,17 @@ cp -R "$temp_directory"/* "$temp_directory"/.??* "$install_directory"
 
 # Move workflow files and configuration
 if [ "$install_directory" != "." ]; then
-    echo "Moving workflow files and configuration..."       
+    echo "Moving workflow files and configuration..."
     if [ ! -d .github/workflows ]; then
         mkdir -p .github/workflows
     fi
     mv "$install_directory/.github/workflows"/* .github/workflows
     mv "$install_directory/.github/.jira_sync_config.yaml" .github/
+    if [ ! -f .wokeignore ]; then
+        ln -s "$install_directory/.wokeignore"
+    else
+        echo "ACTION REQUIRED: Found a .wokeignore file in the root directory. Include the contents from $install_directory/.wokeignore in this file!"
+    fi
 fi
 
 # Clean up
