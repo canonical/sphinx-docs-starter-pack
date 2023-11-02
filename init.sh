@@ -36,7 +36,6 @@ if [ "$install_directory" != "." ]; then
         mkdir -p .github/workflows
     fi
     mv "$install_directory/.github/workflows"/* .github/workflows
-    mv "$install_directory/.github/.jira_sync_config.yaml" .github/
     if [ ! -f .wokeignore ]; then
         ln -s "$install_directory/.wokeignore"
     else
