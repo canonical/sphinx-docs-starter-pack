@@ -173,8 +173,8 @@ For example, you might want to add links to announcements, tutorials, getting st
 Configure the spelling check
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If your documentation uses US English instead of UK English, change this in the
-``.sphinx/spellingcheck.yaml`` file.
+The spelling check uses ``aspell``.
+Its configuration is located in the ``.sphinx/spellingcheck.yaml`` file.
 
 To add exceptions for words flagged by the spelling check, edit the ``.custom_wordlist.txt`` file.
 You shouldn't edit ``.wordlist.txt``, because this file is maintained and updated centrally and contains words that apply across all projects.
