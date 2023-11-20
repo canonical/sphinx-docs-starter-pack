@@ -8,6 +8,11 @@ div.page, h1, h2, h3, h4, h5, h6, .sidebar-tree .current-page>.reference, button
     font-weight: 400;
 }
 
+/** Fix for monospace font sizing **/
+.pre{
+    font-size: var(--font-size--small);
+}
+
 /** Table styling **/
 
 th.head {
