@@ -18,6 +18,7 @@ Juju
 Kubernetes
 Kubeflow
 Makefile
+Mattermost
 MyST
 namespace
 namespaces

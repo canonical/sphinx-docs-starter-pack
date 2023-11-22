@@ -77,6 +77,10 @@ html_context = {
     # (use an empty value if you don't want to link)
     'discourse': 'https://discourse.ubuntu.com',
 
+    # Change to the Mattermost channel you want to link to
+    # (use an empty value if you don't want to link)
+    'mattermost': 'https://chat.canonical.com/canonical/channels/documentation',
+
     # Change to the GitHub URL for your project
     'github_url': 'https://github.com/canonical/starter-pack',
 
