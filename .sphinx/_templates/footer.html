@@ -80,6 +80,12 @@
     </div>
     {% endif %}
 
+    {% if mattermost %}
+    <div class="ask-mattermost">
+      <a class="muted-link" href="{{ mattermost }}">Ask a question on Mattermost</a>
+    </div>
+    {% endif %}
+
     {% if github_url and github_version and github_folder %}
 
     {% if github_issues %}
