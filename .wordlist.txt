@@ -10,13 +10,18 @@ EBS
 EKS
 favicon
 Furo
+Git
+GitHub
 Grafana
+hostname
 IAM
 installable
 JSON
 Juju
 Kubernetes
 Kubeflow
+LaunchPad
+LTS
 Makefile
 Mattermost
 MyST
@@ -24,6 +29,7 @@ namespace
 namespaces
 NodePort
 observability
+OEM
 OLM
 Permalink
 pre
@@ -34,6 +40,8 @@ RTD
 subdirectories
 subtree
 subfolders
+Ubuntu
 UI
+UUID
 VM
 YAML
