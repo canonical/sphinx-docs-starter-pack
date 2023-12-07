@@ -300,7 +300,6 @@ Other resources
 
 - `Example product documentation <https://canonical-example-product-documentation.readthedocs-hosted.com/>`_
 - `Example product documentation repository <https://github.com/canonical/example-product-documentation>`_
-- `Starter pack repository <https://github.com/canonical/starter-pack>`_
 
 Change log
 ----------
