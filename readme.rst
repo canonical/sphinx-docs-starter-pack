@@ -1,7 +1,9 @@
 Documentation starter pack
 ==========================
 
-See the `Sphinx and Read the Docs <https://canonical-documentation-with-sphinx-and-readthedocscom.readthedocs-hosted.com/>`_ guide for instructions on how to get started with Sphinx documentation.
+See the `Read the Docs at Canonical <https://library.canonical.com/documentation/read-the-docs>`_ and
+`How to publish documentation on Read the Docs <https://library.canonical.com/documentation/publish-on-read-the-docs>`_ guides for
+instructions on how to get started with Sphinx documentation.
 
 Then go through the following sections to use this starter pack to set up your docs repository.
 
@@ -292,6 +294,12 @@ The following links can help you with additional configuration:
 - `Sphinx configuration`_
 - `Sphinx extensions`_
 - `Furo documentation`_ (Furo is the Sphinx theme we use as our base.)
+
+Other resources
+---------------
+
+- `Example product documentation <https://canonical-example-product-documentation.readthedocs-hosted.com/>`_
+- `Example product documentation repository <https://github.com/canonical/example-product-documentation>`_
 
 Change log
 ----------
