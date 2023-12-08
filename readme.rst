@@ -111,7 +111,7 @@ change to the documentation.
 
 .. note:: 
 
-   If you encounter the error ``locale.Error: unsupported locale setting`` when activating the Python virtual environment, include the environment variable in the command and try again: ``LC_ALL=en_US.UTF-8 make run``.
+   If you encounter the error ``locale.Error: unsupported locale setting`` when activating the Python virtual environment, include the environment variable in the command and try again: ``LC_ALL=en_US.UTF-8 make run``
 
 Local checks
 ~~~~~~~~~~~~
