@@ -13,14 +13,13 @@ Furo
 Git
 GitHub
 Grafana
-hostname
 IAM
 installable
 JSON
 Juju
 Kubernetes
 Kubeflow
-LaunchPad
+Launchpad
 LTS
 Makefile
 Mattermost
