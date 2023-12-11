@@ -19,3 +19,4 @@ More information is available in the `reStructuredText style guide`_.
 
    ReadMe <readme>
    Setup script <setup-script>
+   chip-tool-commission-and-control <docs/how-tos/chip-tool-commission-and-control>
