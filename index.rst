@@ -15,3 +15,4 @@ It is intended to serve developers and maintainers of Linux-based Matter applica
    :hidden:
    :maxdepth: 2
 
+   Commission and Control Matter Devices with Chip Tool <docs/how-tos/Commission and Control Matter Devices with Chip Tool>
