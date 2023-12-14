@@ -19,7 +19,7 @@ syntax ``wokeignore:rule=<SOME_WORD>``. For instance:
    This is your text. The word in question is here: whitelist. More text.
 
 Here is an example of an exemption that acts upon an element (the string
-"master") of a URL. It is recommended to do this by using the standard RST
+"master") of a URL. It is recommended to do this by using the standard reST
 method of placing the link at the bottom of the page (or in a separate file):
 
 .. code-block:: none
