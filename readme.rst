@@ -194,8 +194,8 @@ for example, or to use a location other than the ``docs`` sub-tree, you must
 change how the ``woke`` tool is invoked from within ``docs/Makefile`` (see
 the `woke User Guide <https://docs.getwoke.tech/usage/#file-globs>`_ for help).
 
-Some circumstances may compel you to retain some non-inclusive words. In such
-cases you will need to create check exemptions for them. See file
+Some circumstances may require you to use some non-inclusive words. In such
+cases you will need to create check-exemptions for them. See file
 :doc:`help-woke` for how to do that.
 
 Configure the link check

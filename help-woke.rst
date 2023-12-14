@@ -1,5 +1,3 @@
-:orphan:
-
 ===================================
 Inclusive language check exemptions
 ===================================
@@ -12,16 +10,17 @@ Exempt a word
 -------------
 
 To exempt an individual word, place a comment on a line immediately preceding
-the line containing the word in question. This special comment is to include
-the syntax ``wokeignore:rule=<SOME_WORD>``. For instance:
+the line containing the word in question. This special comment must include the
+syntax ``wokeignore:rule=<SOME_WORD>``. For instance:
 
 .. code-block:: none
 
    .. wokeignore:rule=whitelist
    This is your text. The word in question is here: whitelist. More text.
 
-Here is an example of an exemption that acts upon an element of a URL that is
-expressed using the link definition method (typically at the bottom of a file):
+Here is an example of an exemption that acts upon an element (the string
+"master") of a URL. It is recommended to do this by using the standard RST
+method of placing the link at the bottom of the page (or in a separate file):
 
 .. code-block:: none
 
@@ -29,14 +28,14 @@ expressed using the link definition method (typically at the bottom of a file):
    .. wokeignore:rule=master
    .. _link definition: https://some-external-site.io/master/some-page.html
 
+You can now refer to the label ``link definition_`` in the body of the text.
+
 Exempt an entire file
 ---------------------
 
 A more drastic solution is to make an exemption for the contents of an entire
-file.
-
-Start by placing file ``.wokeignore`` into your project's root directory. Then,
-to exempt file ``docs/foo/bar.rst``, add the following line to it:
+file. For example, to exempt file ``docs/foo/bar.rst`` add the following line
+to file ``.wokeignore``:
 
 .. code-block:: none
 
