@@ -9,6 +9,5 @@ sphinx-copybutton
 sphinx-design
 sphinx-notfound-page
 sphinx-reredirects
-sphinx-tabs
 sphinxcontrib-jquery
 sphinxext-opengraph
