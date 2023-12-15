@@ -33,7 +33,7 @@ table.align-center {
 
 /** No rounded corners **/
 
-.admonition, code.literal, .sphinx-tabs-tab, .sphinx-tabs-panel, .highlight {
+.admonition, code.literal, .highlight {
     border-radius: 0;
 }
 
@@ -61,28 +61,6 @@ a.headerlink {
 
 [role="tablist"] {
     border-bottom: 1px solid var(--color-sidebar-item-background--hover);
-}
-
-.sphinx-tabs-tab[aria-selected="true"] {
-    border: 0;
-    border-bottom: 2px solid var(--color-brand-primary);
-    background-color: var(--color-sidebar-item-background--current);
-    font-weight:300;
-}
-
-.sphinx-tabs-tab{
-    color: var(--color-brand-primary);
-    font-weight:300;
-}
-
-.sphinx-tabs-panel {
-    border: 0;
-    border-bottom: 1px solid var(--color-sidebar-item-background--hover);
-    background: var(--color-background-primary);
-}
-
-button.sphinx-tabs-tab:hover {
-    background-color: var(--color-sidebar-item-background--hover);
 }
 
 /** Custom classes to fix scrolling in tables by decreasing the
