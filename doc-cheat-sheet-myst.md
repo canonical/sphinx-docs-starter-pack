@@ -189,16 +189,21 @@ Keys can be defined at the top of a file, or in a `myst_substitutions` option in
 
 ## Tabs
 
-````{tabs}
-```{group-tab} Tab 1
+::::{tab-set}
 
-Content Tab 1
-```
+:::{tab-item} Label1
+:sync: key1
 
-```{group-tab} Tab 2
-Content Tab 2
-```
-````
+Content 1
+:::
+
+:::{tab-item} Label2
+:sync: key2
+
+Content 2
+:::
+
+::::
 
 ## Glossary
 

@@ -195,16 +195,17 @@ Reuse
 Tabs
 ----
 
-.. tabs::
+.. tab-set::
 
-   .. group-tab:: Tab 1
+    .. tab-item:: Label1
+        :sync: key1
 
-      Content Tab 1
+        Content 1
 
-   .. group-tab:: Tab 2
+    .. tab-item:: Label2
+        :sync: key2
 
-      Content Tab 2
-
+        Content 2
 
 Glossary
 --------

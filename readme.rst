@@ -276,7 +276,6 @@ They are pre-configured as needed, but you can customise their configuration in 
 The following extensions are always included:
 
 - |sphinx-design|_
-- |sphinx_tabs.tabs|_
 - |sphinx_reredirects|_
 - |lxd-sphinx-extensions|_ (``youtube-links``, ``related-links``, ``custom-rst-roles``, and ``terminal-output``)
 - |sphinx_copybutton|_
@@ -320,8 +319,6 @@ See the `change log <https://github.com/canonical/sphinx-docs-starter-pack/wiki/
 
 .. |sphinx-design| replace:: ``sphinx-design``
 .. _sphinx-design: https://sphinx-design.readthedocs.io/en/latest/
-.. |sphinx_tabs.tabs| replace:: ``sphinx_tabs.tabs``
-.. _sphinx_tabs.tabs: https://sphinx-tabs.readthedocs.io/en/latest/
 .. |sphinx_reredirects| replace:: ``sphinx_reredirects``
 .. _sphinx_reredirects: https://documatt.gitlab.io/sphinx-reredirects/
 .. |lxd-sphinx-extensions| replace:: ``lxd-sphinx-extensions``
