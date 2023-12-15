@@ -9,10 +9,11 @@ SPHINXDIR     = .sphinx
 SOURCEDIR     = .
 BUILDDIR      = _build
 VENVDIR       = $(SPHINXDIR)/venv
+PA11Y         = $(SPHINXDIR)/node_modules/pa11y/bin/pa11y.js
 VENV          = $(VENVDIR)/bin/activate
 
-.PHONY: help woke-install install run html epub serve clean clean-doc \
-        spelling linkcheck woke Makefile
+.PHONY: help woke-install pa11y-install install run html epub serve clean \
+        clean-doc spelling linkcheck woke pa11y Makefile
 
 # Put it first so that "make" without argument is like "make help".
 help: $(VENVDIR)
@@ -42,6 +43,7 @@ $(VENVDIR): $(SPHINXDIR)/requirements.txt
         "* check links: make linkcheck \n" \
         "* check spelling: make spelling \n" \
         "* check inclusive language: make woke \n" \
+        "* check accessibility: make pa11y \n" \
         "* other possible targets: make <press TAB twice> \n" \
         "--------------------------------------------------------------- \n"
 	@touch $(VENVDIR)
@@ -49,6 +51,13 @@ $(VENVDIR): $(SPHINXDIR)/requirements.txt
 woke-install:
 	@type woke >/dev/null 2>&1 || \
             { echo "Installing \"woke\" snap... \n"; sudo snap install woke; }
+
+pa11y-install:
+	@type $(PA11Y) >/dev/null 2>&1 || { \
+			echo "Installing \"pa11y\" from npm... \n"; \
+			mkdir -p $(SPHINXDIR)/node_modules/ ; \
+			npm install --prefix $(SPHINXDIR) pa11y; \
+		}
 
 install: $(VENVDIR) woke-install
 
@@ -82,6 +91,9 @@ linkcheck: install
 woke: woke-install
 	woke *.rst **/*.rst --exit-1-on-failure \
 	    -c https://github.com/canonical/Inclusive-naming/raw/main/config.yml
+
+pa11y: pa11y-install html
+	find $(BUILDDIR) -name *.html -exec $(PA11Y) {} \;
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
