@@ -44,3 +44,4 @@ UI
 UUID
 VM
 YAML
+wokeignore
