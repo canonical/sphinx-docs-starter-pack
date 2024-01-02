@@ -169,3 +169,9 @@ custom_tags = []
 ############################################################
 
 ## Add any configuration that is not covered by the common conf.py file.
+
+# Define a :center: role that can be used to center the content of table cells.
+rst_prolog = '''
+.. role:: center
+   :class: align-center
+'''
