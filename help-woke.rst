@@ -21,20 +21,18 @@ For instance:
 
 .. code-block:: none
 
-   This is your text. The word in question is here: whitelist. More text.
-   :none:`wokeignore:rule=whitelist`,
+   This is your text. The word in question is here: whitelist. More text. :none:`wokeignore:rule=whitelist,`
 
-To exempt an element of a URL, it is more convenient to do this by using the
-standard reST method of placing the link at the bottom of the page (or in a
-separate file). In this case, a comment is placed immediately above the URL.
-The comment syntax is:
+To exempt an element of a URL, it is recommended to use the standard reST
+method of placing links at the bottom of the page (or in a separate file). In
+this case, a comment is placed immediately above the URL line. The comment
+syntax is:
 
 .. code-block:: none
 
    .. wokeignore:rule=<SOME_WORD>
 
-Here is an example where a URL element contains the string "master":
-:none:`wokeignore:rule=master,`
+Here is an example where a URL element contains the string "master": :none:`wokeignore:rule=master,`
 
 .. code-block:: none
 
