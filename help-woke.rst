@@ -42,8 +42,6 @@ Here is an example where a URL element contains the string "master": :none:`woke
 
 You can now refer to the label ``link definition_`` in the body of the text.
 
-Here :none:`wokeignore:rule=master,` is an example where a URL element contains the string "master":
-
 Exempt an entire file
 ---------------------
 
