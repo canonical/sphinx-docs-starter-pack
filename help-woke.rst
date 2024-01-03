@@ -10,7 +10,7 @@ Exempt a word
 -------------
 
 To exempt an individual word, place a custom ``none`` role (defined in the
-``canonical-sphinx-extension`` Sphinx extension) at the end of the line
+``canonical-sphinx-extensions`` Sphinx extension) anywhere on the line
 containing the word in question. The role syntax is:
 
 .. code-block:: none
@@ -25,7 +25,7 @@ For instance:
 
 To exempt an element of a URL, it is recommended to use the standard reST
 method of placing links at the bottom of the page (or in a separate file). In
-this case, a comment is placed immediately above the URL line. The comment
+this case, a comment line is placed immediately above the URL line. The comment
 syntax is:
 
 .. code-block:: none
@@ -41,6 +41,8 @@ Here is an example where a URL element contains the string "master": :none:`woke
    .. _link definition: https://some-external-site.io/master/some-page.html
 
 You can now refer to the label ``link definition_`` in the body of the text.
+
+Here :none:`wokeignore:rule=master,` is an example where a URL element contains the string "master":
 
 Exempt an entire file
 ---------------------
