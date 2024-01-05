@@ -80,15 +80,39 @@
 }
 
 
-/** Fix the font weight (300 for normal, 400 for slightly bold) **/
+/** Define font-weights as per Vanilla
+    Based on: https://github.com/canonical/vanilla-framework/blob/main/scss/_base_typography-definitions.scss
 
-div.page, h1, h2, h3, h4, h5, h6, .sidebar-tree .current-page>.reference, button, input, optgroup, select, textarea, th.head {
-    font-weight: 300
-}
+    regular text: 400,
+    bold: 550, 
+    thin: 300, 
 
-.toc-tree li.scroll-current>.reference, dl.glossary dt, dl.simple dt, dl:not([class]) dt {
+    h1: bold,
+    h2: 180;
+    h3: bold,
+    h4: 275,
+    h5: bold,
+    h6: regular
+*/
+
+/* default regular text */
+html {
     font-weight: 400;
 }
+
+/* heading specific definitions */
+h1, h3, h5 { font-weight: 550; }
+h2 { font-weight: 180; }
+h4 { font-weight: 275; }
+
+/* bold */
+.toc-tree li.scroll-current>.reference,
+dl.glossary dt,
+dl.simple dt,
+dl:not([class]) dt {
+    font-weight: 550;
+}
+
 
 /** Table styling **/
 
