@@ -13,6 +13,11 @@ div.page, h1, h2, h3, h4, h5, h6, .sidebar-tree .current-page>.reference, button
 th.head {
     text-transform: uppercase;
     font-size: var(--font-size--small);
+    text-align: initial;
+}
+
+table.align-center th.head {
+    text-align: center
 }
 
 table.docutils {
