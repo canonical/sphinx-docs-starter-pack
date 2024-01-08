@@ -97,6 +97,9 @@ html_context = {
 
     # Controls the existence of Previous / Next buttons at the bottom of pages
     # Valid options: none, prev, next, both
+    # You can override the default setting on a page-by-page basis by specifying
+    # it as file-wide metadata at the top of the file, see
+    # https://www.sphinx-doc.org/en/master/usage/restructuredtext/field-lists.html
     'sequential_nav': "none"
 }
 
