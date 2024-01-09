@@ -18,5 +18,7 @@ More information is available in the `reStructuredText style guide`_.
    :maxdepth: 2
 
    ReadMe <readme>
+   Enable the starter pack <help-enable>
+   Use the starter pack <help-usage>
    Inclusive language check exemptions <help-woke>
    Setup script <setup-script>
