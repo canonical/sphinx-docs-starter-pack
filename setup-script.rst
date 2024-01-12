@@ -1,3 +1,5 @@
+:orphan:
+
 Setup script
 ============
 

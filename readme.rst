@@ -13,11 +13,6 @@ One strong point of the starter pack is its support for customisation that is
 layered on top of a core configuration - this applies to all the above
 features. There are also many other goodies included to enrich your doc set.
 
-.. toctree::
-   :hidden:
-
-   Setup script <setup-script>
-
 Contents
 --------
 
@@ -77,7 +72,7 @@ instructions on how to get started with Sphinx documentation.
 Two supported scenarios
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-You can either create a standalone documentation project based on this repository or include the files from this repository in a dedicated documentation folder in an existing code repository. The next two sections show the steps needed for each scenario. See `Setup script <https://canonical-starter-pack.readthedocs-hosted.com/setup-script/>`_ for an automated method (currently in beta).
+You can either create a standalone documentation project based on this repository or include the files from this repository in a dedicated documentation folder in an existing code repository. The next two sections show the steps needed for each scenario. See :doc:`Setup script <setup-script>` for an automated method (currently in beta).
 
 Standalone documentation repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
