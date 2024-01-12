@@ -18,5 +18,3 @@ More information is available in the `reStructuredText style guide`_.
    :maxdepth: 2
 
    ReadMe <readme>
-   Inclusive language check exemptions <help-woke>
-   Setup script <setup-script>
