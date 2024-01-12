@@ -77,10 +77,10 @@ serve: html
 clean: clean-doc
 	@test ! -e "$(VENVDIR)" -o -d "$(VENVDIR)" -a "$(abspath $(VENVDIR))" != "$(VENVDIR)"
 	rm -rf $(VENVDIR)
-	rm -rf .sphinx/.doctrees
 
 clean-doc:
 	git clean -fx "$(BUILDDIR)"
+	rm -rf .sphinx/.doctrees
 
 spelling: html
 	. $(VENV) ; python3 -m pyspelling -c .sphinx/spellingcheck.yaml
