@@ -22,30 +22,40 @@ Contents
 This README is divided into two main parts: enable the starter pack or work
 with your documentation post-enablement.
 
-* `Enable the starter pack`_
-    + `Two supported scenarios`_
-        + `Standalone documentation repository`_
-        + `Documentation in a code repository`_
-    + `Build the documentation`_
-    + `Configure the documentation`_
-        + `Configure the header`_
-        + `Activate/deactivate feedback button`_
-        + `Configure included extensions`_
-        + `Add custom configuration`_
-    + `Change log`_
-* `Work with your documentation`_
-    + `Install prerequisite software`_
-    + `View the documentation`_
-    + `Local checks`_
-        + `Local build`_
-        + `Spelling check`_
-        + `Inclusive language check`_
-        + `Link check`_
-    + `Configure the spelling check`_
-    + `Customisation of inclusive language checks`_
-    + `Configure the link check`_
-    + `Add redirects`_
-    + `Other resources`_
+- `Enable the starter pack`_
+
+  * `Two supported scenarios`_
+
+    + `Standalone documentation repository`_
+    + `Documentation in a code repository`_
+
+  * `Build the documentation`_
+  * `Configure the documentation`_
+
+    + `Configure the header`_
+    + `Activate/deactivate feedback button`_
+    + `Configure included extensions`_
+    + `Add custom configuration`_
+
+  * `Change log`_
+
+- `Work with your documentation`_
+
+  * `Install prerequisite software`_
+  * `View the documentation`_
+
+  * `Local checks`_
+
+    + `Local build`_
+    + `Spelling check`_
+    + `Inclusive language check`_
+    + `Link check`_
+
+  * `Configure the spelling check`_
+  * `Customisation of inclusive language checks`_
+  * `Configure the link check`_
+  * `Add redirects`_
+  * `Other resources`_
 
 Enable the starter pack
 -----------------------
