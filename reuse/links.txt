@@ -2,3 +2,7 @@
 .. _Read the Docs at Canonical: https://library.canonical.com/documentation/read-the-docs
 .. _How to publish documentation on Read the Docs: https://library.canonical.com/documentation/publish-on-read-the-docs
 .. _Example product documentation: https://canonical-example-product-documentation.readthedocs-hosted.com/
+.. _Snap Channel: https://snapcraft.io/docs/channels
+.. _Snap Configuration Options: https://snapcraft.io/docs/configuration-in-snaps
+.. _OTBR Snap: https://snapcraft.io/openthread-border-router
+.. _OpenThread Border Router: https://openthread.io/guides/border-router

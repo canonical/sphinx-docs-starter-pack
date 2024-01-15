@@ -68,3 +68,4 @@ nRF
 Snapcraft
 snapcraft
 bootable
+

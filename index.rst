@@ -16,4 +16,8 @@ It is intended to serve developers and maintainers of Linux-based Matter applica
    :maxdepth: 2
 
    Commission and Control Matter Devices with Chip Tool <docs/how-tos/Commission and Control Matter Devices with Chip Tool>
+
+   Setup OpenThread Border Router on Ubuntu <docs/how-tos/Setup OpenThread Border Router on Ubuntu>
+
    Creating an OS Image with OpenThread Border Router <docs/tutorials/Creating an OS Image with OpenThread Border Router>
+
