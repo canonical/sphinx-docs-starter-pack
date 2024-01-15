@@ -21,10 +21,11 @@ with your documentation post-enablement.
 
 - `Enable the starter pack`_
 
-  * `Two supported scenarios`_
+  * `Initialise your repository`_
 
     + `Standalone documentation repository`_
     + `Documentation in a code repository`_
+    + `Automation`_
 
   * `Build the documentation`_
   * `Configure the documentation`_
@@ -69,10 +70,12 @@ See the `Read the Docs at Canonical <https://library.canonical.com/documentation
 `How to publish documentation on Read the Docs <https://library.canonical.com/documentation/publish-on-read-the-docs>`_ guides for
 instructions on how to get started with Sphinx documentation.
 
-Two supported scenarios
-~~~~~~~~~~~~~~~~~~~~~~~
+Initialise your repository
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can either create a standalone documentation project based on this repository or include the files from this repository in a dedicated documentation folder in an existing code repository. The next two sections show the steps needed for each scenario. See :doc:`Setup script <setup-script>` for an automated method (currently in beta).
+You can either create a standalone documentation project based on this repository or include the files from this repository in a dedicated documentation folder in an existing code repository. The next two sections show the steps needed for each scenario.
+
+See the `Automation`_ section if you would like to have this done via a shell script.
 
 Standalone documentation repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -120,6 +123,30 @@ To add documentation to an existing code repository:
 **Note:** When configuring RTD itself for your project, the setting "Path for
 ``.readthedocs.yaml``" (under **Advanced Settings**) will need to be given the
 value of ``docs/.readthedocs.yaml``.
+
+Automation
+^^^^^^^^^^
+
+To automate the initialisation for either scenario ensure you have the following:
+
+- A GitHub repository where you want to host your documentation, cloned to your local machine. The recommended approach is to host the documentation alongside your code in a ``docs`` folder. But a standalone documentation repository is also an option; in this case, start with an empty repository.
+- Git and Bash installed on your system.
+
+There is a provided ``init.sh`` Bash script that does the following:
+
+- clones the starter pack GitHub repository
+- creates the specified installation directory if necessary
+- updates working directory paths in workflow files, and updates configuration paths in the ``.readthedocs.yaml`` file
+- copies and moves contents and ``.github`` files from the starter pack to the installation directory
+- deletes the cloned repository when it's done
+
+To use the script:
+
+#. copy ``init.sh`` to your repository's root directory
+#. run the script: ``./init.sh``
+#. enter the installation directory when prompted. For standalone repositories, enter ".". For documentation alongside code, enter the folder where your documentation is (e.g. ``docs``)
+
+When the script completes, review all changes before committing them.
 
 Build the documentation
 ~~~~~~~~~~~~~~~~~~~~~~~
