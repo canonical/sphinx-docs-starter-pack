@@ -1,0 +1,55 @@
+type: model
+series: '16'
+model: ubuntu-core-22-amd64
+architecture: amd64
+base: core22
+
+# Setting grade to dangerous to allow use of an unsigned gadget snap
+grade: dangerous
+
+# Since this is a custom model assertion, set the following to your developer ID
+authority-id: <developer-id>
+brand-id: <developer-id>
+
+# Timestamp should be within your signature's validity period, in RFC3339 format
+timestamp: '<timestamp>'
+
+snaps:
+  - # This is our custom, dev gadget snap
+    # It has no channel and id, because it isn't in the store.
+    # We're going to build it locally and pass it to the image builder. 
+    name: otbr-gadget
+    type: gadget
+    # default-channel:
+    # id:
+
+  - name: pc-kernel
+    type: kernel
+    default-channel: 22/stable
+    id: pYVQrBcKmBa0mZ4CCN7ExT6jH8rY1hza
+
+  - name: snapd
+    type: snapd
+    default-channel: latest/stable
+    id: PMrrV4ml8uWuEUDBT8dSGnKUYbevVhc4
+
+  - name: core22
+    type: base
+    default-channel: latest/stable
+    id: amcUKQILKXHHTlmSa7NMdnXSx02dNeeT
+
+  # Apps
+  - name: avahi
+    type: app
+    default-channel: 22/stable
+    id: dVK2PZeOLKA7vf1WPCap9F8luxTk9Oll
+
+  - name: bluez
+    type: app
+    default-channel: 22/stable
+    id: JmzJi9kQvHUWddZ32PDJpBRXUpGRxvNS
+
+  - name: openthread-border-router
+    type: app
+    default-channel: latest/edge
+    id: AmezHbALZOOhReOPtKyluS5TJmySg15e
