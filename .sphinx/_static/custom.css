@@ -84,8 +84,8 @@
     Based on: https://github.com/canonical/vanilla-framework/blob/main/scss/_base_typography-definitions.scss
 
     regular text: 400,
-    bold: 550, 
-    thin: 300, 
+    bold: 550,
+    thin: 300,
 
     h1: bold,
     h2: 180;
@@ -318,4 +318,10 @@ details summary {
 
 .sidebar-search-container input[type=submit]:hover {
     text-decoration: underline;
+}
+
+/* Make inline code the same size as code blocks */
+p code.literal {
+    border: 0;
+    font-size: var(--code-font-size);
 }
