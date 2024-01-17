@@ -53,7 +53,7 @@ code:
   - example: true
 ```
 
-(_a_section_target)=
+(a_section_target)=
 ## Links
 
 - [Canonical website](https://canonical.com/)
