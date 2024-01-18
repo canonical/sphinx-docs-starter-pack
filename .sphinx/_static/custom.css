@@ -168,32 +168,54 @@ a.headerlink {
     border-left: 2px solid var(--color-brand-primary);
 }
 
-/** Some tweaks for issue #16 **/
+/** Some tweaks for Sphinx tabs **/
 
 [role="tablist"] {
     border-bottom: 1px solid var(--color-sidebar-item-background--hover);
 }
 
-.sphinx-tabs-tab[aria-selected="true"] {
+.sphinx-tabs-tab[aria-selected="true"],  .sd-tab-set>input:checked+label{
     border: 0;
     border-bottom: 2px solid var(--color-brand-primary);
-    background-color: var(--color-sidebar-item-background--current);
-    font-weight:300;
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--color-brand-primary);
 }
 
-.sphinx-tabs-tab{
+body[data-theme="dark"] .sphinx-tabs-tab[aria-selected="true"] {
+    background: var(--color-background-primary);
+    border-bottom: 2px solid var(--color-brand-primary);
+}
+
+button.sphinx-tabs-tab[aria-selected="false"]:hover, .sd-tab-set>input:not(:checked)+label:hover {
+    border-bottom: 2px solid var(--color-foreground-border);
+}
+
+button.sphinx-tabs-tab[aria-selected="false"]{
+    border-bottom: 2px solid var(--color-background-primary);
+}
+
+body[data-theme="dark"] .sphinx-tabs-tab {
+    background: var(--color-background-primary);
+}
+
+.sphinx-tabs-tab, .sd-tab-set>label{
     color: var(--color-brand-primary);
-    font-weight:300;
+    font-family: var(--font-stack);
+    font-weight: 400;
+    font-size: 1rem;
+    padding: 1em 1.25em .5em
 }
 
 .sphinx-tabs-panel {
     border: 0;
     border-bottom: 1px solid var(--color-sidebar-item-background--hover);
     background: var(--color-background-primary);
+    padding: 0.75rem 0 0.75rem 0;
 }
 
-button.sphinx-tabs-tab:hover {
-    background-color: var(--color-sidebar-item-background--hover);
+body[data-theme="dark"] .sphinx-tabs-panel {
+    background: var(--color-background-primary);
 }
 
 /** Custom classes to fix scrolling in tables by decreasing the
