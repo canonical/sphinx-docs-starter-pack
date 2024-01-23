@@ -113,7 +113,6 @@ slug = ""
 
 # Set up redirects (https://documatt.gitlab.io/sphinx-reredirects/usage.html)
 # For example: 'explanation/old-name.html': '../how-to/prettify.html',
-
 redirects = {}
 
 ############################################################
@@ -121,16 +120,13 @@ redirects = {}
 ############################################################
 
 # Links to ignore when checking links
-
 linkcheck_ignore = [
     'http://127.0.0.1:8000'
     ]
 
 # Pages on which to ignore anchors
 # (This list will be appended to linkcheck_anchors_ignore_for_url)
-
-custom_linkcheck_anchors_ignore_for_url = [
-    ]
+custom_linkcheck_anchors_ignore_for_url = []
 
 ############################################################
 ### Additions to default configuration
@@ -148,7 +144,7 @@ custom_myst_extensions = []
 # Add files or directories that should be excluded from processing.
 custom_excludes = [
     'doc-cheat-sheet*',
-]
+    ]
 
 # Add CSS files (located in .sphinx/_static/)
 custom_html_css_files = []
