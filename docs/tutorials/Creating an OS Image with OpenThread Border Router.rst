@@ -188,6 +188,7 @@ You may refer to Ubuntu Core section in
 `this page <https://ubuntu.com/download/iot>`_. For example:
 
 - `Intel NUC <https://ubuntu.com/download/intel-nuc>`_ - applicable to most computers with a secondary storage
+
 .. - [Raspberry Pi](https://ubuntu.com/download/raspberry-pi)
 
 A precondition to continue with some of the instructions is to compress
