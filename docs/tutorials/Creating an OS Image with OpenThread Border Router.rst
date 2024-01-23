@@ -124,7 +124,7 @@ to create a developer account, if you don't already have one.
 Next, we need to sign the model assertion:
 
 Refer to
-`this article <https://ubuntu.com/core/docs/custom-images#heading--signing>`_ for
+`this article <https://ubuntu.com/core/docs/sign-model-assertion>`_ for
 details on how to sign the model assertion. 
 
 Here are the needed steps:
