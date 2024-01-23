@@ -19,9 +19,8 @@ VENV          = $(VENVDIR)/bin/activate
 help: $(VENVDIR)
 	@. $(VENV); $(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-# Explicit target avoids fall-through to the "Makefile" target.
 $(SPHINXDIR)/requirements.txt:
-	test -f $(SPHINXDIR)/requirements.txt
+	python3 build_requirements.py
 
 # If requirements are updated, venv should be rebuilt and timestamped.
 $(VENVDIR): $(SPHINXDIR)/requirements.txt
@@ -77,6 +76,7 @@ serve: html
 clean: clean-doc
 	@test ! -e "$(VENVDIR)" -o -d "$(VENVDIR)" -a "$(abspath $(VENVDIR))" != "$(VENVDIR)"
 	rm -rf $(VENVDIR)
+	rm -f .sphinx/requirements.txt
 
 clean-doc:
 	git clean -fx "$(BUILDDIR)"
