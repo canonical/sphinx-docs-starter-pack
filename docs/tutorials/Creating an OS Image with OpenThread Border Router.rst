@@ -11,7 +11,7 @@ security and bug fixes.
 
 The Ubuntu documentation has an in-depth explanation for Ubuntu Core, covering 
 various concepts. It is recommended to read that documentation, 
-`here <https://ubuntu.com/core/docs/uc20/inside>`_.
+`here <https://ubuntu.com/core/docs/components>`_.
 
 Requirements:
 
