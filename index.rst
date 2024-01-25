@@ -21,3 +21,4 @@ It is intended to serve developers and maintainers of Linux-based Matter applica
 
    Creating an OS Image with OpenThread Border Router <docs/tutorials/Creating an OS Image with OpenThread Border Router>
 
+   Build your first Matter device with a Raspberry Pi <docs/tutorials/pi-gpio-commander>

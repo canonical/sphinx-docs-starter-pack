@@ -68,4 +68,11 @@ nRF
 Snapcraft
 snapcraft
 bootable
-
+GPIO
+gpio
+SDK
+pinout
+passcode
+GND
+avahi
+DBus
