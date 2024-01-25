@@ -83,7 +83,7 @@ clean-doc:
 	rm -rf .sphinx/.doctrees
 
 spelling: html
-	. $(VENV) ; python3 -m pyspelling -c .sphinx/spellingcheck.yaml
+	. $(VENV) ; python3 -m pyspelling -c .sphinx/spellingcheck.yaml -j $(shell nproc)
 
 linkcheck: install
 	. $(VENV) ; $(SPHINXBUILD) -b linkcheck "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
