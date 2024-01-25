@@ -2,6 +2,7 @@ import sys
 
 sys.path.append('./')
 from custom_conf import *
+from build_requirements import *
 
 # Configuration file for the Sphinx documentation builder.
 # You should not do any modifications to this file. Put your custom
@@ -17,29 +18,34 @@ from custom_conf import *
 
 extensions = [
     'sphinx_design',
-    'sphinx_tabs.tabs',
-    'sphinx_reredirects',
-    'canonical.youtube-links',
-    'canonical.related-links',
-    'canonical.custom-rst-roles',
-    'canonical.terminal-output',
     'sphinx_copybutton',
-    'sphinxext.opengraph',
-    'myst_parser',
     'sphinxcontrib.jquery',
-    'notfound.extension'
 ]
+
+# Only add redirects extension if any redirects are specified.
+if AreRedirectsDefined():
+    extensions.append('sphinx_reredirects')
+
+# Only add myst extensions if any configuration is present.
+if IsMyStParserUsed():
+    extensions.append('myst_parser')
+
+    # Additional MyST syntax
+    myst_enable_extensions = [
+        'substitution',
+        'deflist',
+        'linkify'
+    ]
+    myst_enable_extensions.extend(custom_myst_extensions)
+
+# Only add Open Graph extension if any configuration is present.
+if IsOpenGraphConfigured():
+    extensions.append('sphinxext.opengraph')
+    
 extensions.extend(custom_extensions)
+extensions = DeduplicateExtensions(extensions)
 
 ### Configuration for extensions
-
-# Additional MyST syntax
-myst_enable_extensions = [
-    'substitution',
-    'deflist',
-    'linkify'
-]
-myst_enable_extensions.extend(custom_myst_extensions)
 
 # Used for related links
 if not 'discourse_prefix' in html_context and 'discourse' in html_context:

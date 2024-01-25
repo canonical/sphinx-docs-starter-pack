@@ -117,6 +117,7 @@ To add documentation to an existing code repository:
 #. create a symbolic link to the ``docs/.wokeignore`` file from the root directory of the code repository
 #. in file ``docs/.readthedocs.yaml`` set the following:
 
+   * ``post_checkout: cd docs && python3 build_requirements.py``
    * ``configuration: docs/conf.py``
    * ``requirements: docs/.sphinx/requirements.txt``
 
@@ -203,13 +204,16 @@ They are pre-configured as needed, but you can customise their configuration in 
 The following extensions are always included:
 
 - |sphinx-design|_
+- |sphinx_copybutton|_ 
+- |sphinxcontrib.jquery|_
+
+The following extensions will automatically be included based on the configuration in the ``custom_conf.py`` file:
+
 - |sphinx_tabs.tabs|_
 - |sphinx_reredirects|_
-- |lxd-sphinx-extensions|_ (``youtube-links``, ``related-links``, ``custom-rst-roles``, and ``terminal-output``)
-- |sphinx_copybutton|_
 - |sphinxext.opengraph|_
+- |lxd-sphinx-extensions|_ (``youtube-links``, ``related-links``, ``custom-rst-roles``, and ``terminal-output``)
 - |myst_parser|_
-- |sphinxcontrib.jquery|_
 - |notfound.extension|_
 
 You can add further extensions in the ``custom_extensions`` variable in ``custom_conf.py``.
@@ -253,8 +257,13 @@ To install the prerequisites:
 
    make install
 
-This will create a virtual environment (``.sphinx/venv``) and install
-dependency software (``.sphinx/requirements.txt``) within it.
+This will create the required software list (``.sphinx/requirements.txt``)
+which is used to create a virtual environment (``.sphinx/venv``) and install
+dependency software within it.
+
+You can add further Python modules to the required software list
+(``.sphinx/requirements.txt```) in the ``custom_required_modules`` variable
+in the ``custom_conf.py`` file.
 
 **Note**:
 By default, the starter pack uses the latest compatible version of all tools and does not pin its requirements.
