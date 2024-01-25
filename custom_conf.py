@@ -151,8 +151,7 @@ custom_extensions = [
     'canonical.youtube-links',
     'canonical.related-links',
     'canonical.custom-rst-roles',
-    'canonical.terminal-output',
-    'notfound.extension'
+    'canonical.terminal-output'
     ]
 
 # Add custom required Python modules that must be added to the
@@ -160,8 +159,7 @@ custom_extensions = [
 # NOTE: The following modules are handled automatically and do not need to be
 # added here: canonical-sphinx-extensions, furo, linkify-it-py, myst-parser,
 # pyspelling, sphinx, sphinx-autobuild, sphinx-copybutton, sphinx-design,
-# sphinx-notfound-page, sphinx-reredirects, sphinx-tabs, sphinxcontrib-jquery,
-# sphinxext-opengraph
+# sphinx-reredirects, sphinx-tabs, sphinxcontrib-jquery, sphinxext-opengraph
 custom_required_modules = []
 
 # Add files or directories that should be excluded from processing.
