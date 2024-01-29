@@ -16,22 +16,7 @@ VENV          = $(VENVDIR)/bin/activate
         clean-doc spelling linkcheck woke pa11y Makefile
 
 # Put it first so that "make" without argument is like "make help".
-help: $(VENVDIR)
-	@. $(VENV); $(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
-
-$(SPHINXDIR)/requirements.txt:
-	python3 build_requirements.py
-
-# If requirements are updated, venv should be rebuilt and timestamped.
-$(VENVDIR): $(SPHINXDIR)/requirements.txt
-	@echo "... setting up virtualenv"
-	python3 -m venv $(VENVDIR)
-	. $(VENV); pip install --require-virtualenv \
-	    --upgrade -r $(SPHINXDIR)/requirements.txt \
-            --log $(VENVDIR)/pip_install.log
-	@test ! -f $(VENVDIR)/pip_list.txt || \
-            mv $(VENVDIR)/pip_list.txt $(VENVDIR)/pip_list.txt.bak
-	@. $(VENV); pip list --local --format=freeze > $(VENVDIR)/pip_list.txt
+help:
 	@echo "\n" \
         "--------------------------------------------------------------- \n" \
         "* watch, build and serve the documentation: make run \n" \
@@ -45,6 +30,25 @@ $(VENVDIR): $(SPHINXDIR)/requirements.txt
         "* check accessibility: make pa11y \n" \
         "* other possible targets: make <press TAB twice> \n" \
         "--------------------------------------------------------------- \n"
+
+full-help: $(VENVDIR)
+	@. $(VENV); $(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+	@echo "\n\033[1;31mNOTE: This help texts shows unsupported targets!\033[0m"
+	@echo "Run 'make help' to see supported targets."
+	
+$(SPHINXDIR)/requirements.txt:
+	python3 build_requirements.py
+
+# If requirements are updated, venv should be rebuilt and timestamped.
+$(VENVDIR): $(SPHINXDIR)/requirements.txt
+	@echo "... setting up virtualenv"
+	python3 -m venv $(VENVDIR)
+	. $(VENV); pip install --require-virtualenv \
+	    --upgrade -r $(SPHINXDIR)/requirements.txt \
+            --log $(VENVDIR)/pip_install.log
+	@test ! -f $(VENVDIR)/pip_list.txt || \
+            mv $(VENVDIR)/pip_list.txt $(VENVDIR)/pip_list.txt.bak
+	@. $(VENV); pip list --local --format=freeze > $(VENVDIR)/pip_list.txt
 	@touch $(VENVDIR)
 
 woke-install:
