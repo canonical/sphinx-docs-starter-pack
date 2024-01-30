@@ -76,3 +76,11 @@ passcode
 GND
 avahi
 DBus
+connectedhomeip
+posix
+nrf
+ot
+http
+localhost
+br
+
