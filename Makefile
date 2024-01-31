@@ -84,6 +84,7 @@ clean: clean-doc
 	@test ! -e "$(VENVDIR)" -o -d "$(VENVDIR)" -a "$(abspath $(VENVDIR))" != "$(VENVDIR)"
 	rm -rf $(VENVDIR)
 	rm -f $(SPHINXDIR)/requirements.txt
+	rm -rf $(SPHINXDIR)/node_modules/
 
 clean-doc:
 	git clean -fx "$(BUILDDIR)"
