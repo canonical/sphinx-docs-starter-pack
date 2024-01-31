@@ -38,10 +38,10 @@ Machine B must match.
 In this tutorial, we've used the following:
 
 | Component           | Upstream Commit/Version                                                                                                      | API Version                                                                                                              | snap channel |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ | ----------------- |
-| Matter lighting app | connectedhomeip [`6b01cb9`](https://github.com/project-chip/connectedhomeip/commit/6b01cb977127eb8547ce66d5b627061dc2dd6c90) | -                                                                                                                        | -                 |
-| OTBR snap           | ot-br-posix [`thread-reference-20230119`](https://github.com/openthread/ot-br-posix/tree/thread-reference-20230119)          | [6](https://github.com/openthread/openthread/blob/thread-reference-20230119/src/lib/spinel/spinel.h#L380)                | latest/edge       |
-| OTBR RCP firmware   | ot-nrf528xx [`00ac6cd`](https://github.com/openthread/ot-nrf528xx/tree/00ac6cd0137a4f09288b455bf8d7aa72d74062d1)             | [6](https://github.com/openthread/openthread/blob/9af0bfa60e373d81a5576b298d6664045870a375/src/lib/spinel/spinel.h#L420) | -                 |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ | ------------ |
+| Matter lighting app | connectedhomeip [`6b01cb9`](https://github.com/project-chip/connectedhomeip/commit/6b01cb977127eb8547ce66d5b627061dc2dd6c90) | -                                                                                                                        | -            |
+| OTBR snap           | ot-br-posix [`thread-reference-20230119`](https://github.com/openthread/ot-br-posix/tree/thread-reference-20230119)          | [6](https://github.com/openthread/openthread/blob/thread-reference-20230119/src/lib/spinel/spinel.h#L380)                | latest/edge  |
+| OTBR RCP firmware   | ot-nrf528xx [`00ac6cd`](https://github.com/openthread/ot-nrf528xx/tree/00ac6cd0137a4f09288b455bf8d7aa72d74062d1)             | [6](https://github.com/openthread/openthread/blob/9af0bfa60e373d81a5576b298d6664045870a375/src/lib/spinel/spinel.h#L420) | -            |
 
 
 ```
@@ -49,7 +49,7 @@ In this tutorial, we've used the following:
 
 ## 1. Set up Border Router on Machine A
 
-Refer to {doc}`/docs/how-tos/Setup OpenThread Border Router on Ubuntu` to set up and configure OTBR.
+Refer to {doc}`/docs/how-tos/otbr-on-ubuntu` to set up and configure OTBR.
 
 Then form a Thread network, using the following commands:
 ```bash
@@ -75,7 +75,7 @@ The OTBR Agent is required for adding Thread networking capabilities to the
 Matter application. 
 The Matter app communicates with OTBR Agent via the DBus Message Bus.
 
-Similar to Machine A, set up and configure OTBR by following: {doc}`/docs/how-tos/Setup OpenThread Border Router on Ubuntu`. However, this time, we don't form a new Thread network.
+Similar to Machine A, set up and configure OTBR by following: {doc}`/docs/how-tos/otbr-on-ubuntu`. However, this time, we don't form a new Thread network.
 
 
 ## 3. Run Matter Application on Machine B

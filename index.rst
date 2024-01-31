@@ -15,12 +15,12 @@ It is intended to serve developers and maintainers of Linux-based Matter applica
    :hidden:
    :maxdepth: 2
 
-   Commission and Control Matter Devices with Chip Tool <docs/how-tos/Commission and Control Matter Devices with Chip Tool>
+   Commission and Control Matter Devices with Chip Tool <docs/how-tos/chip-tool-commission-and-control>
 
-   Setup OpenThread Border Router on Ubuntu <docs/how-tos/Setup OpenThread Border Router on Ubuntu>
+   Setup OpenThread Border Router on Ubuntu <docs/how-tos/otbr-on-ubuntu>
 
-   Creating an OS Image with OpenThread Border Router <docs/tutorials/Creating an OS Image with OpenThread Border Router>
+   Creating an OS Image with OpenThread Border Router <docs/tutorials/otbr-ubuntu-core-image>
 
    Build your first Matter device with a Raspberry Pi <docs/tutorials/pi-gpio-commander>
    
-   Running Matter applications with Thread networking on Ubuntu <docs/tutorials/matter-thread-ubuntu>
+   Running Matter applications with Thread networking on Ubuntu <docs/tutorials/matter-and-thread-on-ubuntu>
