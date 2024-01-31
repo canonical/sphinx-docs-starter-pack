@@ -12,8 +12,8 @@ VENVDIR       = $(SPHINXDIR)/venv
 PA11Y         = $(SPHINXDIR)/node_modules/pa11y/bin/pa11y.js
 VENV          = $(VENVDIR)/bin/activate
 
-.PHONY: help woke-install pa11y-install install run html epub serve clean \
-        clean-doc spelling linkcheck woke pa11y Makefile
+.PHONY: help full-help woke-install pa11y-install install run html epub serve \
+        clean clean-doc spelling linkcheck woke pa11y Makefile
 
 # Put it first so that "make" without argument is like "make help".
 help:
