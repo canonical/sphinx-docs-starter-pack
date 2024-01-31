@@ -3,9 +3,9 @@
 
 # You can set these variables from the command line, and also
 # from the environment for the first two.
-SPHINXOPTS    ?= -c . -d .sphinx/.doctrees
-SPHINXBUILD   ?= sphinx-build
 SPHINXDIR     = .sphinx
+SPHINXOPTS    ?= -c . -d $(SPHINXDIR)/.doctrees
+SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = .
 BUILDDIR      = _build
 VENVDIR       = $(SPHINXDIR)/venv
@@ -72,10 +72,10 @@ run: install
 
 # Doesn't depend on $(BUILDDIR) to rebuild properly at every run.
 html: install
-	. $(VENV); $(SPHINXBUILD) -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" -w .sphinx/warnings.txt $(SPHINXOPTS)
+	. $(VENV); $(SPHINXBUILD) -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" -w $(SPHINXDIR)/warnings.txt $(SPHINXOPTS)
 
 epub: install
-	. $(VENV); $(SPHINXBUILD) -b epub "$(SOURCEDIR)" "$(BUILDDIR)" -w .sphinx/warnings.txt $(SPHINXOPTS)
+	. $(VENV); $(SPHINXBUILD) -b epub "$(SOURCEDIR)" "$(BUILDDIR)" -w $(SPHINXDIR)/warnings.txt $(SPHINXOPTS)
 
 serve: html
 	cd "$(BUILDDIR)"; python3 -m http.server 8000
@@ -83,14 +83,14 @@ serve: html
 clean: clean-doc
 	@test ! -e "$(VENVDIR)" -o -d "$(VENVDIR)" -a "$(abspath $(VENVDIR))" != "$(VENVDIR)"
 	rm -rf $(VENVDIR)
-	rm -f .sphinx/requirements.txt
+	rm -f $(SPHINXDIR)/requirements.txt
 
 clean-doc:
 	git clean -fx "$(BUILDDIR)"
-	rm -rf .sphinx/.doctrees
+	rm -rf $(SPHINXDIR)/.doctrees
 
 spelling: html
-	. $(VENV) ; python3 -m pyspelling -c .sphinx/spellingcheck.yaml -j $(shell nproc)
+	. $(VENV) ; python3 -m pyspelling -c $(SPHINXDIR)/spellingcheck.yaml -j $(shell nproc)
 
 linkcheck: install
 	. $(VENV) ; $(SPHINXBUILD) -b linkcheck "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
