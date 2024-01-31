@@ -60,14 +60,14 @@ We need to create two files:
 
 Create the :code:`snapcraft.yaml` file with the following content:
 
-.. literalinclude:: snapcraft.yaml
+.. literalinclude:: otbr-ubuntu-core-image/snapcraft.yaml
   :language: YAML
 
 .. TODO: is it possible to append the custom gadget snippets to the staged gadget?
 
 Then, create the :code:`gadget.yaml` file :
 
-.. literalinclude:: gadget.yaml
+.. literalinclude:: otbr-ubuntu-core-image/gadget.yaml
   :language: YAML
 
 Build the gadget snap:
@@ -91,7 +91,7 @@ a digitally signed document that describes the content of the Ubuntu Core image.
 Below is an example model assertion in YAML, describing a :code:`core22` Ubuntu Core
 image:
 
-.. literalinclude:: model.yaml
+.. literalinclude:: otbr-ubuntu-core-image/model.yaml
   :language: YAML
 
 Refer to the model assertion documentation and inline comments for details.
