@@ -62,7 +62,7 @@ pa11y-install:
 			npm install --prefix $(SPHINXDIR) pa11y; \
 		}
 
-install: $(VENVDIR) woke-install
+install: $(VENVDIR)
 
 run: install
 	. $(VENV); sphinx-autobuild -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
