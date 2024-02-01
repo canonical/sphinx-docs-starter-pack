@@ -489,10 +489,10 @@ Other resources
 .. wokeignore:rule=master
 .. _`Sphinx configuration`: https://www.sphinx-doc.org/en/master/usage/configuration.html
 .. wokeignore:rule=master
-
 .. _`Sphinx extensions`: https://www.sphinx-doc.org/en/master/usage/extensions/index.html
 .. _`Furo documentation`: https://pradyunsg.me/furo/quickstart/
 .. _`Sphinx`: https://www.sphinx-doc.org/
+
 
 .. |sphinx-design| replace:: ``sphinx-design``
 .. _sphinx-design: https://sphinx-design.readthedocs.io/en/latest/
