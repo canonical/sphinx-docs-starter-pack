@@ -46,6 +46,3 @@ VM
 YAML
 enablement
 Quickstart
-http
-rst
-toctree
