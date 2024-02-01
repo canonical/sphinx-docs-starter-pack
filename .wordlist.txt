@@ -14,8 +14,6 @@ Furo
 Git
 GitHub
 Grafana
-http
-https
 IAM
 installable
 JSON
