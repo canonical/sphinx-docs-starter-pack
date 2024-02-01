@@ -37,20 +37,22 @@ Keep this session running to rebuild the documentation automatically whenever a
 file is saved, and open http://127.0.0.1:8000 in a web browser to see the
 locally built and hosted HTML.
 
-To add a new page to the documentation, first create a new document:
+To add a new page to the documentation, create a new document called
+``reference.rst`` in a text editor and insert the following reST-formatted
+``Reference``  heading:
 
-.. code-block:: sh
+.. code-block:: rest
 
-   echo "Reference\n=========" > reference.rst
+    Reference
+    =========
 
-Then add the new document to the bottom of index.rst, at the end of the
-*toctree* section:
+Now save ``reference.rst`` and open ``index.rst``.
 
-.. code-block:: sh
+At the bottom of this file, add an indented line containing ``Reference
+<reference>`` to the end of the ``toctree`` section. This is the navigation
+title for the new document and its filename without the ``.rst`` extension.
 
-    echo "   Reference <reference>" >> index.rst 
-
-The toctree section will now look like this:
+The ``toctree`` section will now look like this:
 
 .. code-block:: rest
 
@@ -61,8 +63,10 @@ The toctree section will now look like this:
        ReadMe <readme>
        Reference <reference>
 
-Reloading http://127.0.0.1:8000 will show **Reference** added to the navigation.
-Selecting this will open the new reference.rst document.
+Save ``index.rst`` and reload http://127.0.0.1:8000.
+
+The documentation will now show **Reference** added to the navigation and
+selecting this will open the new ``reference.rst`` document.
 
 Contents
 --------
@@ -488,7 +492,6 @@ Other resources
 .. _`Sphinx extensions`: https://www.sphinx-doc.org/en/master/usage/extensions/index.html
 .. _`Furo documentation`: https://pradyunsg.me/furo/quickstart/
 .. _`Sphinx`: https://www.sphinx-doc.org/
-
 
 .. |sphinx-design| replace:: ``sphinx-design``
 .. _sphinx-design: https://sphinx-design.readthedocs.io/en/latest/
