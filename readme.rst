@@ -25,9 +25,8 @@ First, clone this repository to a local directory:
    git clone git@github.com:canonical/sphinx-docs-starter-pack alpha-docs
    cd alpha-docs
 
-Build the documentation with the following command. This will create a virtual
-environment, install the software dependencies, and then build the
-documentation:
+Now build the documentation with the following command. This will create a virtual
+environment, install the software dependencies, and build the documentation:
 
 .. code-block:: sh
 
