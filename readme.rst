@@ -18,7 +18,8 @@ Quickstart guide
 An initial set of documentation can be built directly from a clone of this
 repository.
 
-First, clone this repository to a local directory:
+First, clone this repository to a local directory, and change to this
+directory:
 
 .. code-block:: sh
 
@@ -66,8 +67,8 @@ Selecting this will open the new reference.rst document.
 Contents
 --------
 
-The remainder of this README is divided into two main parts: enable the starter
-pack or work with your documentation post-enablement.
+The remainder of this README is divided into two main parts: *Enable the starter
+pack* and *Work with your documentation* post-enablement.
 
 - `Enable the starter pack`_
 
