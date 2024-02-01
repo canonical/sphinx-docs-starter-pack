@@ -16,17 +16,26 @@ Quickstart guide
 ----------------
 
 An initial set of documentation can be built directly from a clone of this
-repository:
+repository.
+
+First, clone this repository to a local directory:
 
 .. code-block:: sh
 
    git clone git@github.com:canonical/sphinx-docs-starter-pack alpha-docs
    cd alpha-docs
-   make run 
 
-Open http://127.0.0.1:8000 in a web browser to see the locally hosted HTML.
+Build the documentation with the following command. This will create a virtual
+environment, install the software dependencies, and then build the
+documentation:
+
+.. code-block:: sh
+
+   make run
+
 Keep this session running to rebuild the documentation automatically when a
-file is saved.
+file is saved, and open http://127.0.0.1:8000 in a web browser to see the
+locally built and hosted HTML.
 
 To add a new page to the documentation, first create a new document:
 
@@ -34,13 +43,14 @@ To add a new page to the documentation, first create a new document:
 
    echo "Reference\n=========" > reference.rst
 
-Then add the new document to the bottom of index.rst, at the end of the *toctree* section:
+Then add the new document to the bottom of index.rst, at the end of the
+*toctree* section:
 
 .. code-block:: sh
 
     echo "   Reference <reference>" >> index.rst 
 
-The toctree section should now look like the following:
+The toctree section will now look like this:
 
 .. code-block:: rest
 
