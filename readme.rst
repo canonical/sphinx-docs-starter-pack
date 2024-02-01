@@ -33,7 +33,7 @@ environment, install the software dependencies, and build the documentation:
 
    make run
 
-Keep this session running to rebuild the documentation automatically when a
+Keep this session running to rebuild the documentation automatically whenever a
 file is saved, and open http://127.0.0.1:8000 in a web browser to see the
 locally built and hosted HTML.
 
