@@ -3,21 +3,72 @@
 Documentation starter pack
 ==========================
 
-The Documentation starter pack contains tools and configuration options for
-building a documentation site with Sphinx. Its main features include:
+*A pre-configured repository to build and publish documentation with Sphinx.*
 
-* bundled Sphinx theme, configuration, and extensions
-* build checks: links, spelling, inclusive language
+The Documentation starter pack includes:
 
-One strong point of the starter pack is its support for customisation that is
-layered on top of a core configuration - this applies to all the above
-features. There are also many other goodies included to enrich your doc set.
+* a bundled Sphinx_ theme, configuration, and extensions
+* support for both reStructuredText (reST) and Markdown
+* build checks for links, spelling, and inclusive language
+* customisation support layered above a core configuration
+
+Quickstart guide
+----------------
+
+An initial set of documentation can be built directly from a clone of this
+repository.
+
+First, clone this repository to a local directory, and change to this
+directory:
+
+.. code-block:: sh
+
+   git clone git@github.com:canonical/sphinx-docs-starter-pack alpha-docs
+   cd alpha-docs
+
+Now build the documentation with the following command. This will create a virtual
+environment, install the software dependencies, and build the documentation:
+
+.. code-block:: sh
+
+   make run
+
+Keep this session running to rebuild the documentation automatically whenever a
+file is saved, and open http://127.0.0.1:8000 in a web browser to see the
+locally built and hosted HTML.
+
+To add a new page to the documentation, first create a new document:
+
+.. code-block:: sh
+
+   echo "Reference\n=========" > reference.rst
+
+Then add the new document to the bottom of index.rst, at the end of the
+*toctree* section:
+
+.. code-block:: sh
+
+    echo "   Reference <reference>" >> index.rst 
+
+The toctree section will now look like this:
+
+.. code-block:: rest
+
+    .. toctree::
+       :hidden:
+       :maxdepth: 2
+   
+       ReadMe <readme>
+       Reference <reference>
+
+Reloading http://127.0.0.1:8000 will show **Reference** added to the navigation.
+Selecting this will open the new reference.rst document.
 
 Contents
 --------
 
-This README is divided into two main parts: enable the starter pack or work
-with your documentation post-enablement.
+The remainder of this README is divided into two main parts: *Enable the starter
+pack* and *Work with your documentation* post-enablement.
 
 - `Enable the starter pack`_
 
@@ -436,6 +487,8 @@ Other resources
 .. wokeignore:rule=master
 .. _`Sphinx extensions`: https://www.sphinx-doc.org/en/master/usage/extensions/index.html
 .. _`Furo documentation`: https://pradyunsg.me/furo/quickstart/
+.. _`Sphinx`: https://www.sphinx-doc.org/
+
 
 .. |sphinx-design| replace:: ``sphinx-design``
 .. _sphinx-design: https://sphinx-design.readthedocs.io/en/latest/
