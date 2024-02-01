@@ -34,7 +34,7 @@ environment, install the software dependencies, and build the documentation:
    make run
 
 Keep this session running to rebuild the documentation automatically whenever a
-file is saved, and open http://127.0.0.1:8000 in a web browser to see the
+file is saved, and open |http://127.0.0.1:8000|_ in a web browser to see the
 locally built and hosted HTML.
 
 To add a new page to the documentation, create a new document called
@@ -63,7 +63,7 @@ The ``toctree`` section will now look like this:
        ReadMe <readme>
        Reference <reference>
 
-Save ``index.rst`` and reload http://127.0.0.1:8000.
+Save ``index.rst`` and reload |http://127.0.0.1:8000|_.
 
 The documentation will now show **Reference** added to the navigation and
 selecting this will open the new ``reference.rst`` document.
@@ -493,7 +493,8 @@ Other resources
 .. _`Furo documentation`: https://pradyunsg.me/furo/quickstart/
 .. _`Sphinx`: https://www.sphinx-doc.org/
 
-
+.. |http://127.0.0.1:8000| replace:: ``http://127.0.0.1:8000``
+.. _`http://127.0.0.1:8000`: http://127.0.0.1:8000
 .. |sphinx-design| replace:: ``sphinx-design``
 .. _sphinx-design: https://sphinx-design.readthedocs.io/en/latest/
 .. |sphinx_tabs.tabs| replace:: ``sphinx_tabs.tabs``
