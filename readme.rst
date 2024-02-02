@@ -102,10 +102,12 @@ pack* and *Work with your documentation* post-enablement.
     + `Local build`_
     + `Spelling check`_
     + `Inclusive language check`_
+    + `Accessibility check`_
     + `Link check`_
 
   * `Configure the spelling check`_
-  * `Customisation of inclusive language checks`_
+  * `Configure the inclusive language check`_
+  * `Configure the accessibility check`_
   * `Configure the link check`_
   * `Add redirects`_
   * `Other resources`_
@@ -305,18 +307,39 @@ get started, we will:
 Install prerequisite software
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To install the prerequisites:
+Before you start, make sure you have ``make`` and ``python3`` on your system:
+
+.. code-block:: none
+
+   sudo apt update
+   sudo apt install make python3
+
+Some `validation tools <#local-checks>`_ won't be available by default;
+to install them, you need ``snap`` and ``npm``:
+
+.. code-block:: none
+
+   sudo apt install npm snapd
+
+To install the core prerequisites:
 
 .. code-block:: none
 
    make install
 
-This will create the required software list (``.sphinx/requirements.txt``)
+This will create the required software list (``.sphinx/requirements.txt``),
 which is used to create a virtual environment (``.sphinx/venv``) and install
 dependency software within it.
 
+To install the validation tools:
+
+.. code-block:: none
+
+   make woke-install
+   make pa11y-install
+
 You can add further Python modules to the required software list
-(``.sphinx/requirements.txt```) in the ``custom_required_modules`` variable
+(``.sphinx/requirements.txt``) in the ``custom_required_modules`` variable
 in the ``custom_conf.py`` file.
 
 **Note**:
@@ -381,6 +404,15 @@ Ensure the documentation uses inclusive language:
 
    make woke
 
+Accessibility check
+^^^^^^^^^^^^^^^^^^^
+
+Look for accessibility issues in rendered documentation:
+
+.. code-block:: shell
+
+   make pa11y
+
 Link check
 ^^^^^^^^^^
 
@@ -399,8 +431,8 @@ Its configuration is located in the ``.sphinx/spellingcheck.yaml`` file.
 To add exceptions for words flagged by the spelling check, edit the ``.custom_wordlist.txt`` file.
 You shouldn't edit ``.wordlist.txt``, because this file is maintained and updated centrally and contains words that apply across all projects.
 
-Customisation of inclusive language checks
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Configure the inclusive language check
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 By default, the inclusive language check is applied only to reST files located
 under the documentation directory (usually ``docs``). To check Markdown files,
@@ -464,6 +496,14 @@ to file ``.wokeignore``:
 .. code-block:: none
 
    foo/bar.rst
+
+Configure the accessibility check
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The ``pa11y.json`` file at the starter pack root provides basic defaults; to
+browse the available settings and options, see ``pa11y``'s `README
+<https://github.com/pa11y/pa11y#command-line-configuration>`_ on GitHub.
+
 
 Configure the link check
 ~~~~~~~~~~~~~~~~~~~~~~~~
