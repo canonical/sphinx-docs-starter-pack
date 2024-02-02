@@ -3,9 +3,9 @@
 
 # You can set these variables from the command line, and also
 # from the environment for the first two.
-SPHINXOPTS    ?= -c . -d .sphinx/.doctrees
-SPHINXBUILD   ?= sphinx-build
 SPHINXDIR     = .sphinx
+SPHINXOPTS    ?= -c . -d $(SPHINXDIR)/.doctrees
+SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = .
 BUILDDIR      = _build
 VENVDIR       = $(SPHINXDIR)/venv
@@ -35,9 +35,12 @@ full-help: $(VENVDIR)
 	@. $(VENV); $(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 	@echo "\n\033[1;31mNOTE: This help texts shows unsupported targets!\033[0m"
 	@echo "Run 'make help' to see supported targets."
-	
+
+# Shouldn't assume that venv is available on Ubuntu by default; discussion here:
+# https://bugs.launchpad.net/ubuntu/+source/python3.4/+bug/1290847
 $(SPHINXDIR)/requirements.txt:
 	python3 build_requirements.py
+	python3 -c "import venv" || sudo apt install python3-venv
 
 # If requirements are updated, venv should be rebuilt and timestamped.
 $(VENVDIR): $(SPHINXDIR)/requirements.txt
@@ -62,17 +65,17 @@ pa11y-install:
 			npm install --prefix $(SPHINXDIR) pa11y; \
 		}
 
-install: $(VENVDIR) woke-install
+install: $(VENVDIR)
 
 run: install
 	. $(VENV); sphinx-autobuild -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
 
 # Doesn't depend on $(BUILDDIR) to rebuild properly at every run.
 html: install
-	. $(VENV); $(SPHINXBUILD) -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" -w .sphinx/warnings.txt $(SPHINXOPTS)
+	. $(VENV); $(SPHINXBUILD) -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" -w $(SPHINXDIR)/warnings.txt $(SPHINXOPTS)
 
 epub: install
-	. $(VENV); $(SPHINXBUILD) -b epub "$(SOURCEDIR)" "$(BUILDDIR)" -w .sphinx/warnings.txt $(SPHINXOPTS)
+	. $(VENV); $(SPHINXBUILD) -b epub "$(SOURCEDIR)" "$(BUILDDIR)" -w $(SPHINXDIR)/warnings.txt $(SPHINXOPTS)
 
 serve: html
 	cd "$(BUILDDIR)"; python3 -m http.server 8000
@@ -80,14 +83,15 @@ serve: html
 clean: clean-doc
 	@test ! -e "$(VENVDIR)" -o -d "$(VENVDIR)" -a "$(abspath $(VENVDIR))" != "$(VENVDIR)"
 	rm -rf $(VENVDIR)
-	rm -f .sphinx/requirements.txt
+	rm -f $(SPHINXDIR)/requirements.txt
+	rm -rf $(SPHINXDIR)/node_modules/
 
 clean-doc:
 	git clean -fx "$(BUILDDIR)"
-	rm -rf .sphinx/.doctrees
+	rm -rf $(SPHINXDIR)/.doctrees
 
 spelling: html
-	. $(VENV) ; python3 -m pyspelling -c .sphinx/spellingcheck.yaml -j $(shell nproc)
+	. $(VENV) ; python3 -m pyspelling -c $(SPHINXDIR)/spellingcheck.yaml -j $(shell nproc)
 
 linkcheck: install
 	. $(VENV) ; $(SPHINXBUILD) -b linkcheck "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
