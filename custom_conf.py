@@ -99,9 +99,6 @@ html_context = {
 
     # Controls the existence of Previous / Next buttons at the bottom of pages
     # Valid options: none, prev, next, both
-    # You can override the default setting on a page-by-page basis by specifying
-    # it as file-wide metadata at the top of the file, see
-    # https://www.sphinx-doc.org/en/master/usage/restructuredtext/field-lists.html
     'sequential_nav': "none"
 }
 
@@ -143,9 +140,9 @@ custom_linkcheck_anchors_ignore_for_url = []
 # NOTE: Remove this variable to disable the MyST parser extensions.
 custom_myst_extensions = []
 
-# Add custom Sphinx extensions as needed. 
+# Add custom Sphinx extensions as needed.
 # This array contains recommended extensions that should be used.
-# NOTE: The following extensions are handled automatically and do 
+# NOTE: The following extensions are handled automatically and do
 # not need to be added here: myst_parser, sphinx_copybutton, sphinx_design,
 # sphinx_reredirects, sphinxcontrib.jquery, sphinxext.opengraph
 custom_extensions = [

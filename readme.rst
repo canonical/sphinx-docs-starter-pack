@@ -57,7 +57,7 @@ The ``toctree`` section will now look like this:
     .. toctree::
        :hidden:
        :maxdepth: 2
-   
+
        ReadMe <readme>
        Reference <reference>
 
@@ -257,7 +257,7 @@ They are pre-configured as needed, but you can customise their configuration in 
 The following extensions are always included:
 
 - |sphinx-design|_
-- |sphinx_copybutton|_ 
+- |sphinx_copybutton|_
 - |sphinxcontrib.jquery|_
 
 The following extensions will automatically be included based on the configuration in the ``custom_conf.py`` file:
@@ -281,6 +281,39 @@ The following links can help you with additional configuration:
 - `Sphinx configuration`_
 - `Sphinx extensions`_
 - `Furo documentation`_ (Furo is the Sphinx theme we use as our base.)
+
+Add page-specific configuration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can override some global configuration for specific pages.
+
+For example, you can configure whether to display Previous/Next buttons at the bottom of pages in the ``custom_conf.py`` file.
+You can then override this default setting for a specific page (a common use case for this is to turn off the Previous/Next buttons by default, but display them in a multi-page tutorial).
+
+To do so, add `file-wide metadata`_ at the top of a page.
+See the following examples for how to enable Previous/Next buttons for one page:
+
+reST
+  .. code-block::
+
+     :sequential_nav: both
+
+     [Page contents]
+
+MyST
+  .. code-block::
+
+     ---
+     sequential_nav: both
+     ---
+
+     [Page contents]
+
+Possible values for the ``sequential_nav`` field are ``none``, ``prev``, ``next``, and ``both``.
+See the ``custom_conf.py`` file for more information.
+
+Another example for page-specific configuration is the ``hide-toc`` field (provided by `Furo <Furo documentation_>`_), which can be used to hide the page-internal table of content.
+See `Hiding Contents sidebar`_.
 
 Change log
 ~~~~~~~~~~
@@ -342,7 +375,7 @@ This will do several things:
 The ``run`` target is therefore very convenient when preparing to submit a
 change to the documentation.
 
-.. note:: 
+.. note::
 
    If you encounter the error ``locale.Error: unsupported locale setting`` when activating the Python virtual environment, include the environment variable in the command and try again: ``LC_ALL=en_US.UTF-8 make run``
 
@@ -488,7 +521,10 @@ Other resources
 .. _`Sphinx configuration`: https://www.sphinx-doc.org/en/master/usage/configuration.html
 .. wokeignore:rule=master
 .. _`Sphinx extensions`: https://www.sphinx-doc.org/en/master/usage/extensions/index.html
+.. wokeignore:rule=master
+.. _`file-wide metadata`: https://www.sphinx-doc.org/en/master/usage/restructuredtext/field-lists.html
 .. _`Furo documentation`: https://pradyunsg.me/furo/quickstart/
+.. _`Hiding Contents sidebar`: https://pradyunsg.me/furo/customisation/toc/
 .. _`Sphinx`: https://www.sphinx-doc.org/
 
 .. |http://127.0.0.1:8000| replace:: ``http://127.0.0.1:8000``
