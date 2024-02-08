@@ -8,9 +8,9 @@ We configure the image and bundle the snapped version of OTBR.
 After the deployment, the snaps will continue to receive updates for the latest
 security and bug fixes.
 
-The Ubuntu documentation has an in-depth explanation for Ubuntu Core, covering 
-various concepts. It is recommended to read that documentation, 
-[here](https://ubuntu.com/core/docs/components).
+Before starting, it is recommended to read the documentation on 
+[Ubuntu Core components](https://ubuntu.com/core/docs/components)
+and get familiar with various useful concepts.
 
 Requirements:
 
@@ -231,3 +231,100 @@ is ready for use. The OTBR services should be running and functional.
 TODO: add usb installation steps
 TODO: add sanity check steps
 -->
+
+### Sanity check
+
+Now, let's verify that everything is in place and functional.
+
+Connect to the machine over SSH:
+```console
+$ ssh <ubuntu-one-username>@<device-ip>
+Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 5.15.0-91-generic x86_64)
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+ * Ubuntu Core:     https://www.ubuntu.com/core
+ * Community:       https://forum.snapcraft.io
+ * Snaps:           https://snapcraft.io
+
+This Ubuntu Core 22 machine is a tiny, transactional edition of Ubuntu,
+designed for appliances, firmware and fixed-function VMs.
+
+If all the software you care about is available as snaps, you are in
+the right place. If not, you will be more comfortable with classic
+deb-based Ubuntu Server or Desktop, where you can mix snaps with
+traditional debs. It's a brave new world here in Ubuntu Core!
+
+Please see 'snap --help' for app installation and updates.
+```
+
+List the installed snaps:
+```console
+<user>@ubuntu:~$ snap list
+Name                      Version                         Rev    Tracking       Publisher           Notes
+avahi                     0.8                             327    22/stable      ondra               -
+bluez                     5.64-4                          356    22/stable      canonical✓          -
+core22                    20231123                        1033   latest/stable  canonical✓          base
+openthread-border-router  thread-reference-20230119+snap  37     latest/edge  canonical-iot-labs  -
+otbr-gadget               test                            x1     -              -                   gadget
+pc-kernel                 5.15.0-91.101.1                 1540   22/stable      canonical✓          kernel
+snapd                     2.60.4                          20290  latest/stable  canonical✓          snapd
+```
+
+✅ Avahi, BlueZ, and openthread-border-router are installed.
+
+Check the running snap services:
+```console
+<user>@ubuntu:~$ snap services
+Service                              Startup  Current   Notes
+avahi.daemon                         enabled  active    -
+bluez.bluez                          enabled  active    -
+openthread-border-router.otbr-agent  enabled  active    -
+openthread-border-router.otbr-setup  enabled  inactive  -
+openthread-border-router.otbr-web    enabled  active    -
+```
+
+✅ Avahi and BlueZ's services are enabled and active.  
+✅ The OTBR agent and web server are enabled and active.  
+✅ The OTBR setup oneshot service is enabled, but inactive.
+It is enabled because it needs to run on every boot to setup the firewall and network.
+It is inactive because it has completed its work and exited.
+
+Check the snap connections:
+```console
+<user>@ubuntu:~$ snap connections openthread-border-router 
+Interface          Plug                                        Slot                                 Notes
+avahi-control      openthread-border-router:avahi-control      avahi:avahi-control                  gadget
+bluetooth-control  openthread-border-router:bluetooth-control  :bluetooth-control                   gadget
+bluez              openthread-border-router:bluez              bluez:service                        gadget
+dbus               -                                           openthread-border-router:dbus-wpan0  -
+firewall-control   openthread-border-router:firewall-control   :firewall-control                    gadget
+network            openthread-border-router:network            :network                             -
+network-bind       openthread-border-router:network-bind       :network-bind                        -
+network-control    openthread-border-router:network-control    :network-control                     gadget
+raw-usb            openthread-border-router:raw-usb            :raw-usb                             gadget
+    
+```
+
+✅ The connections with `gadget` in the Note match those defined as
+`connections` in our gadget.
+
+Finally, check the snap configurations:
+```console
+<user>@ubuntu:~$ snap get openthread-border-router 
+Key        Value
+autostart  true
+infra-if   enp88s0
+radio-url  spinel+hdlc+uart:///dev/ttyACM0
+thread-if  wpan0
+```
+
+✅ The values are according to the `defaults` set in our gadget.
+
+You may further continue by checking the logs, for example with `snap logs -n 100 -f openthread-border-router`.
+
