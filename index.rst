@@ -1,26 +1,40 @@
 Matter on Ubuntu
 ================
 
-Matter is an open source connectivity standard for smart home.
-It is a collection of protocols for connecting compatible devices in a secure and reliable way. 
+Matter is an open source connectivity standard for smart home. It is a collection of protocols for connecting compatible devices in a secure and reliable way.
 
-This documentation is for building and running Matter devices on Ubuntu.
-It provides guidance, examples and reference. 
+This documentation is for building and running Matter devices on Ubuntu. It provides guidance, examples and reference.
 
-Matter on Ubuntu simplifies and streamlines the work of building matter applications, 
-by providing rich and established developer tools.
-It is intended to serve developers and maintainers of Linux-based Matter applications.
+Matter on Ubuntu simplifies and streamlines the work of building matter applications, by providing rich and established developer tools. It is intended to serve developers and maintainers of Linux-based Matter applications.
+
+In this documentation
+---------------------
+
+Get started
+~~~~~~~~~~~
+
+For your first experience with Matter on Ubuntu, you can use easily-available hardware to explore and understand its basics. 
 
 .. toctree::
-   :hidden:
-   :maxdepth: 2
+   :maxdepth: 1
 
-   Commission and Control Matter Devices with Chip Tool <docs/how-tos/chip-tool-commission-and-control>
+   Build a Matter device with Raspberry Pi <tutorial/pi-gpio-commander>
 
-   Setup OpenThread Border Router on Ubuntu <docs/how-tos/otbr-on-ubuntu>
+How-to guides
+~~~~~~~~~~~~~
 
-   Creating an OS Image with OpenThread Border Router <docs/tutorials/otbr-ubuntu-core-image>
+Guides for specific real-world problems and tasks.
 
-   Build your first Matter device with a Raspberry Pi <docs/tutorials/pi-gpio-commander>
-   
-   Running Matter applications with Thread networking on Ubuntu <docs/tutorials/matter-and-thread-on-ubuntu>
+.. toctree::
+   :maxdepth: 1
+
+   Manage device with Chip Tool <how-to/chip-tool-commission-and-control>
+   Set up OpenThread Border Router <how-to/otbr-on-ubuntu>
+   Run Matter applications with Thread networking <how-to/matter-and-thread-on-ubuntu>
+   Create an OS image with OTBR <how-to/otbr-ubuntu-core-image>
+
+
+Project and community
+---------------------
+
+<This section needs to be completed>

@@ -1,4 +1,4 @@
-# Creating an OS Image with OpenThread Border Router
+# How to create an OS Image with OpenThread Border Router
 
 This tutorial walks you through creating an OS image that is pre-loaded with
 OpenThread Border Router (OTBR).

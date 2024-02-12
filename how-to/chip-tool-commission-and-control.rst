@@ -1,5 +1,5 @@
-Commission and Control Matter Devices with Chip Tool
-====================================================
+How to commission and control Matter devices with Chip Tool
+===========================================================
 
 Chip Tool is an open source Matter Controller with a command-line
 interface (CLI). It is useful for development and testing of Matter
@@ -20,13 +20,13 @@ First and foremost, make sure to have SnapD installed. It is
 pre-installed on some distributions such as Ubuntu. Refer to
 `installing SnapD <https://snapcraft.io/docs/installing-snapd>`_ for details.
 
-Install Chip Tool snap:
+Install the Chip Tool snap:
 
 .. code:: shell
 
    sudo snap install chip-tool
 
-You may choose another `channel <https://snapcraft.io/docs/channels>`_
+You can choose another `channel <https://snapcraft.io/docs/channels>`_
 to install a development release.
 
 The tool should now be available as ``chip-tool`` on your machine.
@@ -47,6 +47,7 @@ In addition, DNS-SD and Bluetooth access are usually required for commissioning:
 .. TODO: For details on the interfaces, refer to Chip Tool's connections (explanation)
 
 .. note::
+
    On **Ubuntu Core**, the ``avahi-observe`` and ``bluez`` interfaces 
    are not provided by the system.
 
@@ -151,5 +152,5 @@ controlling Matter devices via Chip Tool.
 The project provides a
 `guide <https://github.com/project-chip/connectedhomeip/blob/master/docs/guides/chip_tool_guide.md#using-chip-tool-for-matter-device-testing>`__
 with various usage examples. 
-However, for a complete list of sub-commands and options, it is best to use the tool's usage instructions using the terminal.
 
+However, for a complete list of sub-commands and options, it is best to use the tool's usage instructions using the terminal.

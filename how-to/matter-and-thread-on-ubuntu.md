@@ -1,4 +1,4 @@
-# Running Matter applications with Thread networking on Ubuntu
+# How to Matter applications with Thread networking on Ubuntu
 
 This is a tutorial on setting up and running Matter applications that use Thread
 for networking on Ubuntu.
