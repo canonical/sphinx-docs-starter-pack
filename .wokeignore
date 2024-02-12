@@ -2,3 +2,6 @@
 # cannot avoid for now, ie
 # https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
 doc-cheat-sheet*
+
+# Ignore everywhere because the tool cannot ignore repo URLs containing 'master'!
+*
