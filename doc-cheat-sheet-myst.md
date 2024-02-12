@@ -53,13 +53,13 @@ code:
   - example: true
 ```
 
-(_a_section_target)=
+(a_section_target_myst)=
 ## Links
 
 - [Canonical website](https://canonical.com/)
 - https:/<span></span>/canonical.com/
-- {ref}`a_section_target`
-- {ref}`Link text <a_section_target>`
+- {ref}`a_section_target_myst`
+- {ref}`Link text <a_section_target_myst>`
 - {doc}`index`
 - {doc}`Link text <index>`
 
