@@ -5,4 +5,3 @@
 .. _Snap Channel: https://snapcraft.io/docs/channels
 .. _Snap Configuration Options: https://snapcraft.io/docs/configuration-in-snaps
 .. _OTBR Snap: https://snapcraft.io/openthread-border-router
-.. _OpenThread Border Router: https://openthread.io/guides/border-router
