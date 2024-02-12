@@ -1,4 +1,4 @@
-# How to Matter applications with Thread networking on Ubuntu
+# How to run Matter applications with Thread networking on Ubuntu
 
 This is a tutorial on setting up and running Matter applications that use Thread
 for networking on Ubuntu.
@@ -49,7 +49,7 @@ In this tutorial, we've used the following:
 
 ## 1. Set up Border Router on Machine A
 
-Refer to {doc}`/docs/how-tos/otbr-on-ubuntu` to set up and configure OTBR.
+Refer to {doc}`/how-to/otbr-on-ubuntu` to set up and configure OTBR.
 
 Then form a Thread network, using the following commands:
 ```bash
@@ -75,7 +75,7 @@ The OTBR Agent is required for adding Thread networking capabilities to the
 Matter application. 
 The Matter app communicates with OTBR Agent via the DBus Message Bus.
 
-Similar to Machine A, set up and configure OTBR by following: {doc}`/docs/how-tos/otbr-on-ubuntu`. However, this time, we don't form a new Thread network.
+Similar to Machine A, set up and configure OTBR by following: {doc}`/how-to/otbr-on-ubuntu`. However, this time, we don't form a new Thread network.
 
 
 ## 3. Run Matter Application on Machine B
@@ -99,7 +99,7 @@ There is a separate tutorial on setting up and running that application.
 Make sure to follow the Thread-related instructions to set it up and
 starting the application. Head back here after starting the application to
 continue with Thread commissioning and control.
-You may find the tutorial at: {doc}`/docs/tutorials/pi-gpio-commander`
+You may find the tutorial at: {doc}`/tutorial/pi-gpio-commander`
 
 ## 4. Control the Matter Application from Machine A
 
