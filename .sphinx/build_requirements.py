@@ -42,11 +42,11 @@ def AreRedirectsDefined():
 def IsOpenGraphConfigured():
     if "sphinxext.opengraph" in custom_extensions:
         return True
-    
+
     for global_variable_name in list(globals()):
         if global_variable_name.startswith("ogp_"):
             return True
-    
+
     return False
 
 def IsMyStParserUsed():
@@ -61,7 +61,7 @@ def DeduplicateExtensions(extensionNames: [str]):
     for extensionName in extensionNames:
         if extensionName in legacyCanonicalSphinxExtensionNames:
             extensionName = "canonical." + extensionName
-            
+
         if extensionName.startswith("canonical."):
             if extensionName not in encounteredCanonicalExtensions:
                 encounteredCanonicalExtensions.append(extensionName)
@@ -81,7 +81,7 @@ if __name__ == "__main__":
         "sphinx-design",
         "sphinxcontrib-jquery"
     ]
-    
+
     requirements.extend(custom_required_modules)
 
     if IsAnyCanonicalSphinxExtensionUsed():
@@ -112,7 +112,7 @@ if __name__ == "__main__":
             "# Add custom requirements to the custom_required_modules\n"
             "# array in the custom_conf.py file and run:\n"
             "# make clean && make install\n")
-        
-        for requirement in requirements:    
+
+        for requirement in requirements:
             requirements_file.write(requirement)
             requirements_file.write('\n')
