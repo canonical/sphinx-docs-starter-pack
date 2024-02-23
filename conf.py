@@ -1,4 +1,5 @@
 import sys
+import os
 
 sys.path.append('./')
 from custom_conf import *
@@ -52,10 +53,28 @@ extensions = DeduplicateExtensions(extensions)
 if not 'discourse_prefix' in html_context and 'discourse' in html_context:
     html_context['discourse_prefix'] = html_context['discourse'] + '/t/'
 
-# The default for notfound_urls_prefix usually works, but not for
-# documentation on documentation.ubuntu.com
+# The URL prefix for the notfound extension depends on whether the documentation uses versions.
+# For documentation on documentation.ubuntu.com, we also must add the slug.
+url_version = ''
+url_lang = ''
+
+# Determine if the URL uses versions and language
+if 'READTHEDOCS_CANONICAL_URL' in os.environ and os.environ['READTHEDOCS_CANONICAL_URL']:
+    url_parts = os.environ['READTHEDOCS_CANONICAL_URL'].split('/')
+
+    if len(url_parts) >= 2 and 'READTHEDOCS_VERSION' in os.environ and os.environ['READTHEDOCS_VERSION'] == url_parts[-2]:
+        url_version = url_parts[-2] + '/'
+
+    if len(url_parts) >= 3 and 'READTHEDOCS_LANGUAGE' in os.environ and os.environ['READTHEDOCS_LANGUAGE'] == url_parts[-3]:
+        url_lang = url_parts[-3] + '/'
+
+# Set notfound_urls_prefix to the slug (if defined) and the version/language affix
 if slug:
-    notfound_urls_prefix = '/' + slug + '/en/latest/'
+    notfound_urls_prefix = '/' + slug  + '/' + url_lang + url_version
+elif len(url_lang + url_version) > 0:
+    notfound_urls_prefix = '/' + url_lang + url_version
+else:
+    notfound_urls_prefix = ''
 
 notfound_context = {
     'title': 'Page not found',
