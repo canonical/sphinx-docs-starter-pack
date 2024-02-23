@@ -2,6 +2,7 @@ import sys
 
 sys.path.append('./')
 from custom_conf import *
+sys.path.append('.sphinx/')
 from build_requirements import *
 
 # Configuration file for the Sphinx documentation builder.
@@ -41,7 +42,7 @@ if IsMyStParserUsed():
 # Only add Open Graph extension if any configuration is present.
 if IsOpenGraphConfigured():
     extensions.append('sphinxext.opengraph')
-    
+
 extensions.extend(custom_extensions)
 extensions = DeduplicateExtensions(extensions)
 

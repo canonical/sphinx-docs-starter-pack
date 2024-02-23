@@ -172,7 +172,7 @@ To add documentation to an existing code repository:
 #. create a symbolic link to the ``docs/.wokeignore`` file from the root directory of the code repository
 #. in file ``docs/.readthedocs.yaml`` set the following:
 
-   * ``post_checkout: cd docs && python3 build_requirements.py``
+   * ``post_checkout: cd docs && python3 .sphinx/build_requirements.py``
    * ``configuration: docs/conf.py``
    * ``requirements: docs/.sphinx/requirements.txt``
 
