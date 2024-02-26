@@ -9,7 +9,7 @@ SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = .
 BUILDDIR      = _build
 VENVDIR       = $(SPHINXDIR)/venv
-PA11Y         = $(SPHINXDIR)/node_modules/pa11y/bin/pa11y.js
+PA11Y         = $(SPHINXDIR)/node_modules/pa11y/bin/pa11y.js --config $(SPHINXDIR)/pa11y.json
 VENV          = $(VENVDIR)/bin/activate
 
 .PHONY: help full-help woke-install pa11y-install install run html epub serve \
