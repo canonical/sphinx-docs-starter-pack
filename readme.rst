@@ -269,6 +269,7 @@ The following extensions will automatically be included based on the configurati
 - |sphinxext.opengraph|_
 - |lxd-sphinx-extensions|_ (``youtube-links``, ``related-links``, ``custom-rst-roles``, and ``terminal-output``)
 - |myst_parser|_
+- |notfound.extension|_
 
 You can add further extensions in the ``custom_extensions`` variable in ``custom_conf.py``.
 
@@ -585,5 +586,7 @@ Other resources
 .. _myst_parser: https://myst-parser.readthedocs.io/en/latest/
 .. |sphinxcontrib.jquery| replace:: ``sphinxcontrib.jquery``
 .. _sphinxcontrib.jquery: https://github.com/sphinx-contrib/jquery/
+.. |notfound.extension| replace:: ``notfound.extension``
+.. _notfound.extension: https://sphinx-notfound-page.readthedocs.io/en/latest/
 
 .. _woke documentation: https://docs.getwoke.tech/ignore

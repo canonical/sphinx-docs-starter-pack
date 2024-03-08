@@ -26,6 +26,9 @@ def IsAnyCanonicalSphinxExtensionUsed():
 
     return False
 
+def IsNotFoundExtensionUsed():
+    return "notfound.extension" in custom_extensions
+
 def IsSphinxTabsUsed():
     for extension in custom_extensions:
         if extension.startswith("sphinx_tabs."):
@@ -86,6 +89,9 @@ if __name__ == "__main__":
 
     if IsAnyCanonicalSphinxExtensionUsed():
         requirements.append("canonical-sphinx-extensions")
+
+    if IsNotFoundExtensionUsed():
+        requirements.append("sphinx-notfound-page")
 
     if IsSphinxTabsUsed():
         requirements.append("sphinx-tabs")
