@@ -347,3 +347,8 @@ p code.literal {
     border: 0;
     font-size: var(--code-font-size);
 }
+
+/* Use the general admonition font size for inline code */
+.admonition p code.literal {
+    font-size: var(--admonition-font-size);
+}
