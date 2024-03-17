@@ -11,7 +11,6 @@
           </div>
         </a>
       </li>
-
       <li class="nav-ubuntu-com">
         <a href="https://{{ product_page }}" class="p-navigation__link">{{ product_page }}</a>
       </li>
@@ -28,9 +27,19 @@
             <a href="{{ github_url }}" class="p-navigation__sub-link p-dropdown__link">GitHub</a>
           </li>
 
+        </ul> 
+
+      </li>
+      <li>
+        <a href="#" class="p-navigation__link nav-more-links_cont">{{ contributors|length}} - Contributors</a>
+        <ul class="more-links-dropdown_cont">
+          {% for contributor in contributors %}
+          <li>
+            <a href="{{ contributor['url'] }}" class="p-navigation__sub-link p-dropdown__link">{{ contributor['name'] }}</a>
+          </li>
+          {% endfor %}
         </ul>
       </li>
-
     </ul>
   </div>
 </header>

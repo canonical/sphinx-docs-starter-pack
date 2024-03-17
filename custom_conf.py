@@ -59,6 +59,29 @@ ogp_image = 'https://assets.ubuntu.com/v1/253da317-image-document-ubuntudocs.svg
 # (default is the circle of friends)
 html_favicon = '.sphinx/_static/favicon.png'
 
+
+#############################################################
+# Display the contributor
+import requests
+
+def get_contributors(username, repository):
+    url = f"https://api.github.com/repos/{username}/{repository}/contributors"
+    response = requests.get(url)
+    try:
+        response.raise_for_status()
+        contributors = response.json()
+        contributors_list = [{'name': contributor['login'], 'url': contributor['html_url']} for contributor in contributors]
+        return contributors_list
+    except requests.exceptions.HTTPError as err:
+        print(f"Failed to fetch contributors: {err}")
+        return None
+
+username = 'canonical'
+repository = 'sphinx-docs-starter-pack'
+contributors = get_contributors(username, repository)
+
+#############################################################
+
 # (Some settings must be part of the html_context dictionary, while others
 #  are on root level. Don't move the settings.)
 html_context = {
@@ -99,7 +122,10 @@ html_context = {
 
     # Controls the existence of Previous / Next buttons at the bottom of pages
     # Valid options: none, prev, next, both
-    'sequential_nav': "none"
+    'sequential_nav': "none", 
+
+    #contributors information
+    'contributors': contributors
 }
 
 # If your project is on documentation.ubuntu.com, specify the project
