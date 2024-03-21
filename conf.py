@@ -1,5 +1,7 @@
 import sys
 import os
+import requests
+from urllib.parse import urlparse
 
 sys.path.append('./')
 from custom_conf import *
@@ -17,6 +19,38 @@ from build_requirements import *
 ############################################################
 ### Extensions
 ############################################################
+
+#############################################################
+# Display the contributor
+
+def get_contributors_for_file(github_url, github_folder, pagename, page_source_suffix):
+    edit_url = f"{github_url}/edit/{pagename}{page_source_suffix}"
+    parsed_url = urlparse(edit_url)
+    path_parts = parsed_url.path.split('/')
+    username = path_parts[1]
+    repository = path_parts[2]
+    filename = f"{pagename}{page_source_suffix}"
+    
+    url = f"https://api.github.com/repos/{username}/{repository}/commits?path={filename}"
+    response = requests.get(url)
+    try:
+        response.raise_for_status()
+        contributors = response.json()
+        contributors_dict = {}
+        for contributor in contributors:
+            name = contributor['commit']['author']['name']
+            committer_username = contributor['committer']['login']
+            committer_github_page = f"https://github.com/{committer_username}"
+            if name not in contributors_dict:
+                contributors_dict[name] = committer_github_page
+        contributors_list = [{'name': name, 'github_page': github_page} for name, github_page in contributors_dict.items()]
+        return contributors_list
+    except requests.exceptions.HTTPError as err:
+        print(f"Failed to fetch contributors for file: {err}")
+        return None
+
+html_context['get_contribs'] = get_contributors_for_file
+#############################################################
 
 extensions = [
     'sphinx_design',
