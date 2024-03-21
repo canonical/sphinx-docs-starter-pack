@@ -31,15 +31,21 @@
 
       </li>
       <li>
-        {% set contributors = get_contribs(github_url, github_folder, pagename, page_source_suffix) %}
-        <a href="#" class="p-navigation__link nav-more-links_cont">{{ contributors |length}} - Contributors</a>
-        <ul class="more-links-dropdown_cont">
-          {% for contributor in contributors %}
-          <li>
-            <a href="{{ contributor['github_page'] }}" class="p-navigation__sub-link p-dropdown__link">{{ contributor['name'] }}</a>
-          </li>
-          {% endfor %}
-        </ul>
+       
+        {% if github_url and github_folder and pagename and page_source_suffix %}
+            {% set contributors = get_contribs(github_url, github_folder, pagename, page_source_suffix) %}
+            {% if contributors %}
+              <a href="#" class="p-navigation__link nav-more-links_cont">{{ contributors |length}} - Contributors</a>
+              <ul class="more-links-dropdown_cont">
+                  {% for contributor in contributors %}
+                      <li>
+                          <a href="{{ contributor['github_page'] }}" class="p-navigation__sub-link p-dropdown__link">{{ contributor['name'] }}</a>
+                      </li>
+                  {% endfor %}
+              </ul>
+             {% endif %}
+          {% endif %}
+
       </li>
     </ul>
   </div>

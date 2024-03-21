@@ -84,7 +84,6 @@ html_context = {
     'mattermost': 'https://chat.canonical.com/canonical/channels/documentation',
 
     # Change to the GitHub URL for your project
-    # 'github_url': 'https://github.com/canonical/starter-pack',
     'github_url': 'https://github.com/canonical/sphinx-docs-starter-pack',
 
     # Change to the branch for this version of the documentation
