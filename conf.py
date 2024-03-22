@@ -81,8 +81,6 @@ notfound_context = {
     'body': '<p><strong>Sorry, but the documentation page that you are looking for was not found.</strong></p>\n\n<p>Documentation changes over time, and pages are moved around. We try to redirect you to the updated content where possible, but unfortunately, that didn\'t work this time (maybe because the content you were looking for does not exist in this version of the documentation).</p>\n<p>You can try to use the navigation to locate the content you\'re looking for, or search for a similar page.</p>\n',
 }
 
-notfound_template = '404.html'
-
 # Default image for OGP (to prevent font errors, see
 # https://github.com/canonical/sphinx-docs-starter-pack/pull/54 )
 if not 'ogp_image' in locals():
@@ -136,6 +134,7 @@ if '-b' in sys.argv:
 # Setting templates_path for epub makes the build fail
 if builder == 'dirhtml' or builder == 'html':
     templates_path = ['.sphinx/_templates']
+    notfound_template = '404.html'
 
 # Theme configuration
 html_theme = 'furo'
