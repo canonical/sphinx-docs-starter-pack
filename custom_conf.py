@@ -123,7 +123,8 @@ redirects = {}
 # Links to ignore when checking links
 linkcheck_ignore = [
     'http://127.0.0.1:8000',
-    'http://localhost:80'
+    'http://localhost:80',
+    'http://pi4.local'
     ]
 
 # Pages on which to ignore anchors

@@ -39,6 +39,7 @@ Guides for specific real-world problems and tasks.
    Set up OpenThread Border Router <how-to/otbr-on-ubuntu>
    Run Matter apps with Thread networking <how-to/matter-and-thread-on-ubuntu>
    Create an OS image with OTBR <how-to/otbr-ubuntu-core-image>
+   Install Home Assistant on Ubuntu Core <how-to/home-assistant-ubuntu-core>
 
 
 Project and community
