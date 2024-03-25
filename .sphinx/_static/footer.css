@@ -1,5 +1,6 @@
 .display-contributors {
-  color: #ffffff;
+  color: var(--color-sidebar-link-text);
+  cursor: pointer;
 }
 .all-contributors {
   display: none;
@@ -12,27 +13,19 @@
   right: 0;
   width: 200px;
   height: 200px;
-  overflow-x: scroll;
+  overflow-y: scroll;
   margin: auto;
   padding: 0;
   background: var(--color-background-primary);
 }
-.all-contributors::-webkit-scrollbar {
-  display: none; /* Hide scrollbar for WebKit browsers */
-}
-
-.all-contributors {
-  -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
-  scrollbar-width: none; /* Hide scrollbar for Firefox */
-}
 
 .all-contributors li:hover {
-  background: #333333;
+  background: var(--color-sidebar-item-background--hover);
   width: 100%;
 }
 
 .all-contributors li a{
-  color: #ffffff;
+  color: var(--color-sidebar-link-text);
   padding: 1rem;
   display: inline-block;
 }
