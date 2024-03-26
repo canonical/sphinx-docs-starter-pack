@@ -11,7 +11,8 @@ body {
     --color-background-hover: #f2f2f2;
     --color-brand-primary: #111;
     --color-brand-content: #06C;
-    --color-api-background: #cdcdcd;
+    --color-api-background: #f2f2f2;
+    --color-api-background-hover: #cdcdcd;
     --color-inline-code-background: rgba(0,0,0,.03);
     --color-sidebar-link-text: #111;
     --color-sidebar-item-background--current: #ebebeb;
@@ -26,8 +27,8 @@ body {
     --color-admonition-title--important: #C7162B;
     --color-admonition-title--caution: #F99B11;
     --color-highlighted-background: #EBEBEB;
-    --color-link-underline: var(--color-background-primary);
-    --color-link-underline--hover: var(--color-background-primary);
+    --color-link-underline: var(--color-link);
+    --color-link-underline--hover: var(--color-link);
     --color-version-popup: #772953;
 }
 
@@ -38,9 +39,11 @@ body {
         --color-foreground-secondary: var(--color-foreground-primary);
         --color-foreground-muted: #CDCDCD;
         --color-background-secondary: var(--color-background-primary);
-        --color-background-hover: #666;
+        --color-background-hover: #CDCDCD;
         --color-brand-primary: #fff;
         --color-brand-content: #06C;
+        --color-api-background: #333;
+        --color-api-background-hover: #666;
         --color-sidebar-link-text: #f7f7f7;
         --color-sidebar-item-background--current: #666;
         --color-sidebar-item-background--hover: #333;
@@ -54,8 +57,8 @@ body {
         --color-admonition-title--important: #C7162B;
         --color-admonition-title--caution: #F99B11;
         --color-highlighted-background: #666;
-        --color-link-underline: var(--color-background-primary);
-        --color-link-underline--hover: var(--color-background-primary);
+        --color-link-underline: var(--color-link);
+        --color-link-underline--hover: var(--color-link);
         --color-version-popup: #F29879;
     }
     @media (prefers-color-scheme: dark) {
@@ -65,9 +68,11 @@ body {
             --color-foreground-secondary: var(--color-foreground-primary);
             --color-foreground-muted: #CDCDCD;
             --color-background-secondary: var(--color-background-primary);
-            --color-background-hover: #666;
+            --color-background-hover: #CDCDCD;
             --color-brand-primary: #fff;
             --color-brand-content: #06C;
+            --color-api-background: #333;
+            --color-api-background-hover: #666;
             --color-sidebar-link-text: #f7f7f7;
             --color-sidebar-item-background--current: #666;
             --color-sidebar-item-background--hover: #333;
@@ -81,8 +86,8 @@ body {
             --color-admonition-title--important: #C7162B;
             --color-admonition-title--caution: #F99B11;
             --color-highlighted-background: #666;
-            --color-link-underline: var(--color-background-primary);
-            --color-link-underline--hover: var(--color-background-primary);
+            --color-link-underline: var(--color-link);
+            --color-link-underline--hover: var(--color-link);
             --color-version-popup: #F29879;
         }
     }
