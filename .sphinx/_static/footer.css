@@ -17,6 +17,8 @@
   margin: auto;
   padding: 0;
   background: var(--color-background-primary);
+    scrollbar-color: var(--color-foreground-border) transparent;
+    scrollbar-width: thin;
 }
 
 .all-contributors li:hover {
