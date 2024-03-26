@@ -85,7 +85,7 @@ html_context = {
 
     # Change to the Matrix channel you want to link to
     # (use an empty value if you don't want to link)
-    'matrix': 'https://matrix.to/#/#room-address:ubuntu.com',
+    'matrix': 'https://matrix.to/#/#documentation:ubuntu.com',
 
     # Change to the GitHub URL for your project
     'github_url': 'https://github.com/canonical/starter-pack',
