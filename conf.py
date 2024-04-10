@@ -2,6 +2,8 @@ import sys
 import os
 import requests
 from urllib.parse import urlparse
+from git import Repo
+import time
 
 sys.path.append('./')
 from custom_conf import *
@@ -178,24 +180,20 @@ def get_contributors_for_file(github_url, github_folder, pagename, page_source_s
     username = path_parts[1]
     repository = path_parts[2]
     filename = f"{pagename}{page_source_suffix}"
+    repo = Repo(".") 
+    commits = repo.iter_commits('--all', paths=filename)
     
-    url = f"https://api.github.com/repos/{username}/{repository}/commits?path={filename}"
-    response = requests.get(url)
-    try:
-        response.raise_for_status()
-        contributors = response.json()
-        contributors_dict = {}
-        for contributor in contributors:
-            name = contributor['commit']['author']['name']
-            committer_username = contributor['committer']['login']
-            committer_github_page = f"https://github.com/{committer_username}"
-            if name not in contributors_dict:
-                contributors_dict[name] = committer_github_page
-        contributors_list = [{'name': name, 'github_page': github_page} for name, github_page in contributors_dict.items()]
-        return contributors_list
-    except requests.exceptions.HTTPError as err:
-        print(f"Failed to fetch contributors for file: {err}")
-        return None
+    contributors_dict = {}
+    for commit in commits:
+        contributor = commit.committer.name
+        if contributor not in contributors_dict or commit.committed_date > contributors_dict[contributor]['date']:
+            contributors_dict[contributor] = {
+                'date': commit.committed_date,
+                'sha': commit.hexsha
+            }
+    # THe github_page contain the link to the contributor latest commit. 
+    contributors_list = [{'name': name, 'github_page': f"{github_url}/commit/{data['sha']}"} for name, data in contributors_dict.items()]
+    return contributors_list
 
 html_context['get_contribs'] = get_contributors_for_file
 #############################################################
