@@ -102,8 +102,8 @@
 
     </div>
     <div>
-      {% if github_url and github_folder and pagename and page_source_suffix %}
-          {% set contributors = get_contribs(github_url, github_folder, pagename, page_source_suffix) %}
+      {% if github_url and github_folder and pagename and page_source_suffix and display_contributors %}
+          {% set contributors = get_contribs(github_url, github_folder, pagename, page_source_suffix, display_contributors_since) %}
           {% if contributors %}
             <a class="display-contributors">Thanks to the {{ contributors |length }} contributors!</a>
             <div id="overlay"></div>

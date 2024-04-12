@@ -174,14 +174,13 @@ html_js_files.extend(custom_html_js_files)
 #############################################################
 # Display the contributors
 
-def get_contributors_for_file(github_url, github_folder, pagename, page_source_suffix):
-    parsed_url = urlparse(github_url)
-    path_parts = parsed_url.path.split('/')
-    username = path_parts[1]
-    repository = path_parts[2]
+def get_contributors_for_file(github_url, github_folder, pagename, page_source_suffix, display_contributors_since=None):
     filename = f"{pagename}{page_source_suffix}"
+    paths=html_context['github_folder'][1:] + filename
     repo = Repo(".") 
-    commits = repo.iter_commits('--all', paths=filename, since=display_contributors_since)
+    since = display_contributors_since if display_contributors_since and display_contributors_since.strip() else None
+
+    commits = repo.iter_commits('--all', paths=paths, since=since)
     
     contributors_dict = {}
     for commit in commits:

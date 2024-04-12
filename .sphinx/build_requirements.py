@@ -82,7 +82,8 @@ if __name__ == "__main__":
         "sphinx-autobuild",
         "sphinx-copybutton",
         "sphinx-design",
-        "sphinxcontrib-jquery"
+        "sphinxcontrib-jquery",
+        "GitPython"
     ]
 
     requirements.extend(custom_required_modules)
