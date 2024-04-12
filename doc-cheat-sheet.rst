@@ -266,11 +266,8 @@ A multi-line version of the same:
    :dir: /home/user/directory/
 
    :input: command 1
-
    output 1
-
    :input: command 2
-
    output 2
 
 A link to a YouTube video:
