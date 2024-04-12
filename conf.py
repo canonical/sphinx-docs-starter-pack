@@ -172,7 +172,7 @@ if 'github_issues' in html_context and html_context['github_issues'] and not dis
 html_js_files.extend(custom_html_js_files)
 
 #############################################################
-# Display the contributor
+# Display the contributors
 
 def get_contributors_for_file(github_url, github_folder, pagename, page_source_suffix):
     parsed_url = urlparse(github_url)
