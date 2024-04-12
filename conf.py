@@ -181,17 +181,17 @@ def get_contributors_for_file(github_url, github_folder, pagename, page_source_s
     repository = path_parts[2]
     filename = f"{pagename}{page_source_suffix}"
     repo = Repo(".") 
-    commits = repo.iter_commits('--all', paths=filename)
+    commits = repo.iter_commits('--all', paths=filename, since=display_contributors_since)
     
     contributors_dict = {}
     for commit in commits:
-        contributor = commit.committer.name
+        contributor = commit.author.name
         if contributor not in contributors_dict or commit.committed_date > contributors_dict[contributor]['date']:
             contributors_dict[contributor] = {
                 'date': commit.committed_date,
                 'sha': commit.hexsha
             }
-    # THe github_page contain the link to the contributor latest commit. 
+    # The github_page contains the link to the contributor's latest commit. 
     contributors_list = [{'name': name, 'github_page': f"{github_url}/commit/{data['sha']}"} for name, data in contributors_dict.items()]
     return contributors_list
 
