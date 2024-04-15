@@ -180,7 +180,7 @@ def get_contributors_for_file(github_url, github_folder, pagename, page_source_s
     repo = Repo(".") 
     since = display_contributors_since if display_contributors_since and display_contributors_since.strip() else None
 
-    commits = repo.iter_commits('--all', paths=paths, since=since)
+    commits = repo.iter_commits(paths=paths, since=since)
     
     contributors_dict = {}
     for commit in commits:
