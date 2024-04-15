@@ -192,7 +192,8 @@ def get_contributors_for_file(github_url, github_folder, pagename, page_source_s
             }
     # The github_page contains the link to the contributor's latest commit. 
     contributors_list = [{'name': name, 'github_page': f"{github_url}/commit/{data['sha']}"} for name, data in contributors_dict.items()]
-    return contributors_list
+    sorted_contributors_list = sorted(contributors_list, key=lambda x: x['name'])
+    return sorted_contributors_list
 
 html_context['get_contribs'] = get_contributors_for_file
 #############################################################
