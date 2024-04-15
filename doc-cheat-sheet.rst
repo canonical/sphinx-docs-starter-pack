@@ -248,14 +248,27 @@ Related links at the top of the page::
 
 Terms that should not be checked by the spelling checker: :spellexception:`PurposelyWrong`
 
-A terminal view with input and output:
+A single-line terminal view that separates input from output:
 
 .. terminal::
    :input: command
    :user: root
    :host: vampyr
+   :dir: /home/user/directory/
 
    the output
+
+A multi-line version of the same:
+
+.. terminal::
+   :user: root
+   :host: vampyr
+   :dir: /home/user/directory/
+
+   :input: command 1
+   output 1
+   :input: command 2
+   output 2
 
 A link to a YouTube video:
 
