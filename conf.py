@@ -1,5 +1,9 @@
 import sys
 import os
+import requests
+from urllib.parse import urlparse
+from git import Repo
+import time
 
 sys.path.append('./')
 from custom_conf import *
@@ -156,11 +160,39 @@ html_css_files = [
     'custom.css',
     'header.css',
     'github_issue_links.css',
-    'furo_colors.css'
+    'furo_colors.css',
+    'footer.css'
 ]
 html_css_files.extend(custom_html_css_files)
 
-html_js_files = ['header-nav.js']
+html_js_files = ['header-nav.js', 'footer.js']
 if 'github_issues' in html_context and html_context['github_issues'] and not disable_feedback_button:
     html_js_files.append('github_issue_links.js')
 html_js_files.extend(custom_html_js_files)
+
+#############################################################
+# Display the contributors
+
+def get_contributors_for_file(github_url, github_folder, pagename, page_source_suffix, display_contributors_since=None):
+    filename = f"{pagename}{page_source_suffix}"
+    paths=html_context['github_folder'][1:] + filename
+    repo = Repo(".") 
+    since = display_contributors_since if display_contributors_since and display_contributors_since.strip() else None
+
+    commits = repo.iter_commits(paths=paths, since=since)
+    
+    contributors_dict = {}
+    for commit in commits:
+        contributor = commit.author.name
+        if contributor not in contributors_dict or commit.committed_date > contributors_dict[contributor]['date']:
+            contributors_dict[contributor] = {
+                'date': commit.committed_date,
+                'sha': commit.hexsha
+            }
+    # The github_page contains the link to the contributor's latest commit. 
+    contributors_list = [{'name': name, 'github_page': f"{github_url}/commit/{data['sha']}"} for name, data in contributors_dict.items()]
+    sorted_contributors_list = sorted(contributors_list, key=lambda x: x['name'])
+    return sorted_contributors_list
+
+html_context['get_contribs'] = get_contributors_for_file
+#############################################################
