@@ -126,6 +126,10 @@ linkcheck_anchors_ignore_for_url.extend(custom_linkcheck_anchors_ignore_for_url)
 for tag in custom_tags:
     tags.add(tag)
 
+# html_context['get_contribs'] is a function and cannot be
+# cached (see https://github.com/sphinx-doc/sphinx/issues/12300)
+suppress_warnings = ["config.cache"]
+
 ############################################################
 ### Styling
 ############################################################
@@ -176,11 +180,11 @@ html_js_files.extend(custom_html_js_files)
 def get_contributors_for_file(github_url, github_folder, pagename, page_source_suffix, display_contributors_since=None):
     filename = f"{pagename}{page_source_suffix}"
     paths=html_context['github_folder'][1:] + filename
-    repo = Repo(".") 
+    repo = Repo(".")
     since = display_contributors_since if display_contributors_since and display_contributors_since.strip() else None
 
     commits = repo.iter_commits(paths=paths, since=since)
-    
+
     contributors_dict = {}
     for commit in commits:
         contributor = commit.author.name
@@ -189,7 +193,7 @@ def get_contributors_for_file(github_url, github_folder, pagename, page_source_s
                 'date': commit.committed_date,
                 'sha': commit.hexsha
             }
-    # The github_page contains the link to the contributor's latest commit. 
+    # The github_page contains the link to the contributor's latest commit.
     contributors_list = [{'name': name, 'github_page': f"{github_url}/commit/{data['sha']}"} for name, data in contributors_dict.items()]
     sorted_contributors_list = sorted(contributors_list, key=lambda x: x['name'])
     return sorted_contributors_list
