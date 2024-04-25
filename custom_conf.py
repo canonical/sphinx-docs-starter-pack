@@ -88,6 +88,7 @@ html_context = {
     'matrix': 'https://matrix.to/#/#documentation:ubuntu.com',
 
     # Change to the GitHub URL for your project
+    # This is used, for example, to link to the source files and allow creating GitHub issues directly from the documentation.
     'github_url': 'https://github.com/canonical/sphinx-docs-starter-pack',
 
     # Change to the branch for this version of the documentation
