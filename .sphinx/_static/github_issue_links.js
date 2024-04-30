@@ -8,8 +8,7 @@ window.onload = function() {
     }
 
     const link = document.createElement("a");
-    link.classList.add("muted-link");
-    link.classList.add("github-issue-link");
+    link.classList.add("p-navigation__link");
     link.text = "Give feedback";
     link.href = (
         github_url
@@ -25,10 +24,9 @@ window.onload = function() {
     );
     link.target = "_blank";
 
-    const div = document.createElement("div");
-    div.classList.add("github-issue-link-container");
-    div.append(link)
+    const li = document.createElement("li");
+    li.append(link)
 
-    const container = document.querySelector(".article-container > .content-icon-container");
-    container.prepend(div);
+    const container = document.querySelector(".p-navigation__links");
+    container.append(li);
 };
