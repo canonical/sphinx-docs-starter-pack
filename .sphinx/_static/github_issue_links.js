@@ -26,6 +26,7 @@ window.onload = function() {
 
     const li = document.createElement("li");
     li.append(link)
+    li.classList.add("github-issue-link");
 
     const container = document.querySelector(".p-navigation__links");
     container.append(li);
