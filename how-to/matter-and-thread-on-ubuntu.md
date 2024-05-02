@@ -32,8 +32,7 @@ which complements the Matter application for Thread networking capabilities.
 
 ```{note}
 
-The API versions among the OTBR running on Machine A and OTBR agent running on
-Machine B must match. 
+The API version of OTBR agents running on Machines A and B must match!
 
 In this tutorial, we've used the following:
 
@@ -62,21 +61,24 @@ sudo openthread-border-router.ot-ctl thread start
 <!-- TODO: explain what the commands do -->
 
 These steps could also be performed with the Web GUI, served by default at [http://localhost:80](http://localhost:80).
-Please refer to the instructions [here](https://openthread.io/guides/border-router/web-gui.md) to configure and form, join, or check the status of a Thread network using the GUI.
+Please refer to the instructions [here](https://openthread.io/guides/border-router/web-gui.md) to form, join, or check the status of a Thread network using the GUI.
 
 ---
 
 The Thread network is now ready for new joiners.
-Now, head over to Machine B to setup the Matter application.
+Head over to Machine B to setup the Matter application.
 
-## 2. Run OTBR Agent on Machine B
+## 2. Run OTBR on Machine B
 
 The OTBR Agent is required for adding Thread networking capabilities to the
 Matter application. 
 The Matter app communicates with OTBR Agent via the DBus Message Bus.
 
-Similar to Machine A, set up and configure OTBR by following: {doc}`/how-to/otbr-on-ubuntu`. However, this time, we don't form a new Thread network.
+Similar to Machine A, set up and configure OTBR by following: {doc}`/how-to/otbr-on-ubuntu`.
 
+On Machine B, connecting the `avahi-control` interface isn't required as this OTBR Agent's DNS-SD registration isn't needed.
+
+Note that we do not form a Thread network on Machine B.
 
 ## 3. Run Matter Application on Machine B
 
@@ -97,9 +99,10 @@ The application enables control of a GPIO pin via Matter.
 
 There is a separate tutorial on setting up and running that application. 
 Make sure to follow the Thread-related instructions to set it up and
-starting the application. Head back here after starting the application to
+start the application. Then head back here to
 continue with Thread commissioning and control.
-You may find the tutorial at: {doc}`/tutorial/pi-gpio-commander`
+
+The tutorial for Pi GPIO Commander is available at: {doc}`/tutorial/pi-gpio-commander`
 
 ## 4. Control the Matter Application from Machine A
 
@@ -110,6 +113,7 @@ First, install Chip Tool, a Matter Controller with a command-line interface:
 sudo snap install chip-tool
 ```
 
+Chip Tool depends on third-party services for DNS-SD and BLE discovery.
 If you don't already have them, install Avahi Daemon and BlueZ:
 ```bash
 sudo apt update
