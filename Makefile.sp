@@ -12,25 +12,9 @@ VENVDIR       = $(SPHINXDIR)/venv
 PA11Y         = $(SPHINXDIR)/node_modules/pa11y/bin/pa11y.js --config $(SPHINXDIR)/pa11y.json
 VENV          = $(VENVDIR)/bin/activate
 
-.PHONY: sp-help sp-full-help sp-woke-install sp-pa11y-install sp-install sp-run \
-        sp-html sp-epub sp-serve sp-clean sp-clean-doc sp-spelling sp-linkcheck \
-        sp-woke sp-pa11y Makefile.sp
-
-# Put it first so that "make" without argument is like "make help".
-sp-help:
-	@echo "\n" \
-        "--------------------------------------------------------------- \n" \
-        "* watch, build and serve the documentation: make run \n" \
-        "* only build: make html \n" \
-        "* only serve: make serve \n" \
-        "* clean built doc files: make clean-doc \n" \
-        "* clean full environment: make clean \n" \
-        "* check links: make linkcheck \n" \
-        "* check spelling: make spelling \n" \
-        "* check inclusive language: make woke \n" \
-        "* check accessibility: make pa11y \n" \
-        "* other possible targets: make <press TAB twice> \n" \
-        "--------------------------------------------------------------- \n"
+.PHONY: sp-full-help sp-woke-install sp-pa11y-install sp-install sp-run sp-html \
+        sp-epub sp-serve sp-clean sp-clean-doc sp-spelling sp-linkcheck sp-woke \
+        sp-pa11y Makefile.sp
 
 sp-full-help: $(VENVDIR)
 	@. $(VENV); $(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
