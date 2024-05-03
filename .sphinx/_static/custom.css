@@ -359,3 +359,11 @@ p code.literal {
 .admonition p code.literal {
     font-size: var(--admonition-font-size);
 }
+
+.highlight .s, .highlight .s1, .highlight .s2 {
+    color: #3F8100;
+}
+
+.highlight .o {
+    color: #BB5400;
+}
