@@ -146,6 +146,9 @@ custom_linkcheck_anchors_ignore_for_url = []
 ### Additions to default configuration
 ############################################################
 
+# Uncomment to overwrite Ubuntu manpages URL template for :manpage: directives:
+# custom_manpages_url = "https://customurl/man{section}/{page}.{section}.html"
+
 ## The following settings are appended to the default configuration.
 ## Use them to extend the default functionality.
 # NOTE: Remove this variable to disable the MyST parser extensions.
