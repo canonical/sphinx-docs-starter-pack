@@ -11,10 +11,11 @@ BUILDDIR      = _build
 VENVDIR       = $(SPHINXDIR)/venv
 PA11Y         = $(SPHINXDIR)/node_modules/pa11y/bin/pa11y.js --config $(SPHINXDIR)/pa11y.json
 VENV          = $(VENVDIR)/bin/activate
+TARGET        = index.rst
 
 .PHONY: sp-full-help sp-woke-install sp-pa11y-install sp-install sp-run sp-html \
         sp-epub sp-serve sp-clean sp-clean-doc sp-spelling sp-linkcheck sp-woke \
-        sp-pa11y Makefile.sp
+        sp-pa11y Makefile.sp sp-vale
 
 sp-full-help: $(VENVDIR)
 	@. $(VENV); $(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
@@ -72,6 +73,8 @@ sp-clean: sp-clean-doc
 	rm -rf $(VENVDIR)
 	rm -f $(SPHINXDIR)/requirements.txt
 	rm -rf $(SPHINXDIR)/node_modules/
+	rm -rf $(SPHINXDIR)/styles
+	rm -rf $(SPHINXDIR)/vale.ini
 
 sp-clean-doc:
 	git clean -fx "$(BUILDDIR)"
@@ -89,6 +92,17 @@ sp-woke: sp-woke-install
 
 sp-pa11y: sp-pa11y-install sp-html
 	find $(BUILDDIR) -name *.html -print0 | xargs -n 1 -0 $(PA11Y)
+
+sp-vale: sp-install
+	@. $(VENV); test -d $(SPHINXDIR)/venv/lib/python*/site-packages/vale || pip install vale
+	@. $(VENV); test -f $(SPHINXDIR)/vale.ini || python3 $(SPHINXDIR)/get_vale_conf.py
+	@. $(VENV); find $(SPHINXDIR)/venv/lib/python*/site-packages/vale/vale_bin -size 195c -exec vale --config "$(SPHINXDIR)/vale.ini" $(TARGET) > /dev/null \;
+	@echo ""
+	@echo "Running Vale against $(TARGET). To change target set TARGET= with make command"
+	@echo ""
+	@. $(VENV); vale --config "$(SPHINXDIR)/vale.ini" $(TARGET)
+
+
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
