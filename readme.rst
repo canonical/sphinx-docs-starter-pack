@@ -470,6 +470,10 @@ Vale can run against individual files, directories, or globs. To set a specific 
     make vale TARGET=example.file
     make vale TARGET=example-directory
 
+.. note::
+
+    Running Vale against a directory will also run against subfolders.
+
 To run against all files with a specific extension within a folder:
 
 .. code-block:: shell
