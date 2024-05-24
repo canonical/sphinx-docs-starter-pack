@@ -1,9 +1,13 @@
 :orphan:
 
+.. vale off
+
 .. _cheat-sheet:
 
-reStructuredText cheat sheet
+ReStructuredText cheat sheet
 ============================
+
+.. vale on
 
 This file contains the syntax for commonly used reST markup.
 Open it in your text editor to quickly copy and paste the markup you need.

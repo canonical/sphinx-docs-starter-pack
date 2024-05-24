@@ -11,7 +11,7 @@ BUILDDIR      = _build
 VENVDIR       = $(SPHINXDIR)/venv
 PA11Y         = $(SPHINXDIR)/node_modules/pa11y/bin/pa11y.js --config $(SPHINXDIR)/pa11y.json
 VENV          = $(VENVDIR)/bin/activate
-TARGET        = index.rst
+TARGET        = *
 
 .PHONY: sp-full-help sp-woke-install sp-pa11y-install sp-install sp-run sp-html \
         sp-epub sp-serve sp-clean sp-clean-doc sp-spelling sp-linkcheck sp-woke \
@@ -100,7 +100,7 @@ sp-vale: sp-install
 	@echo ""
 	@echo "Running Vale against $(TARGET). To change target set TARGET= with make command"
 	@echo ""
-	@. $(VENV); vale --config "$(SPHINXDIR)/vale.ini" $(TARGET)
+	@. $(VENV); vale --config "$(SPHINXDIR)/vale.ini" --glob='*.{md,txt,rst}' $(TARGET)
 
 
 

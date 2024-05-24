@@ -207,7 +207,7 @@ When the script completes, review all changes before committing them.
 Build the documentation
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-The documentation needs to be built in order to be published. This is explained
+The documentation needs to be built before publication. This is explained
 in more detail in section `Local checks`_ (for contributors), but at this time
 you should verify a successful build. Run the following commands from where
 your doc files were placed (repository root or the ``docs`` directory):
@@ -291,7 +291,7 @@ Add page-specific configuration
 You can override some global configuration for specific pages.
 
 For example, you can configure whether to display Previous/Next buttons at the bottom of pages in the ``custom_conf.py`` file.
-You can then override this default setting for a specific page (a common use case for this is to turn off the Previous/Next buttons by default, but display them in a multi-page tutorial).
+You can then override this default setting for a specific page (for example, to turn off the Previous/Next buttons by default, but display them in a multi-page tutorial).
 
 To do so, add `file-wide metadata`_ at the top of a page.
 See the following examples for how to enable Previous/Next buttons for one page:
@@ -330,7 +330,7 @@ This section is for documentation contributors. It assumes that the current
 repository has been initialised with the starter pack as described in
 section `Enable the starter pack`_.
 
-There are make targets defined in the ``Makefile`` that do various things. To
+There are make targets defined in the ``Makefile`` that provide different functionality. To
 get started, we will:
 
 * install prerequisite software
@@ -388,7 +388,7 @@ To view the documentation:
 
    make run
 
-This will do several things:
+This will perform several actions:
 
 * activate the virtual environment
 * build the documentation
