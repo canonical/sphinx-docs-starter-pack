@@ -29,6 +29,7 @@ MyST
 namespace
 namespaces
 NodePort
+Numbat
 observability
 OEM
 OLM
