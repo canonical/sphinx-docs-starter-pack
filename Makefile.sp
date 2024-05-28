@@ -25,7 +25,8 @@ sp-full-help: $(VENVDIR)
 # https://bugs.launchpad.net/ubuntu/+source/python3.4/+bug/1290847
 $(SPHINXDIR)/requirements.txt:
 	python3 $(SPHINXDIR)/build_requirements.py
-	python3 -c "import venv" || sudo apt install python3-venv
+	python3 -c "import venv" || \
+        (echo "You must install python3-venv before you can build the documentation."; exit 1)
 
 # If requirements are updated, venv should be rebuilt and timestamped.
 $(VENVDIR): $(SPHINXDIR)/requirements.txt
