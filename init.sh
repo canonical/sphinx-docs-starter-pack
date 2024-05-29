@@ -37,7 +37,7 @@ if [ "$install_directory" != "." ]; then
         mkdir -p .github/workflows
     fi
     mv "$install_directory/.github/workflows"/* .github/workflows
-    rm -rf ".github"
+    rmdir "$install_directory/.github/workflows"
     if [ ! -f .wokeignore ]; then
         ln -s "$install_directory/.wokeignore"
     else
