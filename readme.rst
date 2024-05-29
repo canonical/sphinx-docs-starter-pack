@@ -216,7 +216,7 @@ When the script completes, review all changes before committing them.
 Build the documentation
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-The documentation needs to be built in order to be published. This is explained
+The documentation needs to be built before publication. This is explained
 in more detail in section `Local checks`_ (for contributors), but at this time
 you should verify a successful build. Run the following commands from where
 your doc files were placed (repository root or the ``docs`` directory):
@@ -300,7 +300,7 @@ Add page-specific configuration
 You can override some global configuration for specific pages.
 
 For example, you can configure whether to display Previous/Next buttons at the bottom of pages in the ``custom_conf.py`` file.
-You can then override this default setting for a specific page (a common use case for this is to turn off the Previous/Next buttons by default, but display them in a multi-page tutorial).
+You can then override this default setting for a specific page (for example, to turn off the Previous/Next buttons by default, but display them in a multi-page tutorial).
 
 To do so, add `file-wide metadata`_ at the top of a page.
 See the following examples for how to enable Previous/Next buttons for one page:
@@ -339,8 +339,8 @@ This section is for documentation contributors. It assumes that the current
 repository has been initialised with the starter pack as described in section
 `Enable the starter pack`_.
 
-There are make targets defined in the :file:`Makefile` that do various things.
-To get started, we will:
+There are make targets defined in the :file:`Makefile` that provide different functionality. To
+get started, we will:
 
 * install prerequisite software
 * view the documentation
@@ -398,7 +398,7 @@ To view the documentation:
 
    make run
 
-This will do several things:
+This will perform several actions:
 
 * activate the virtual environment
 * build the documentation
@@ -463,6 +463,59 @@ Validate links within the documentation:
 .. code-block:: shell
 
    make linkcheck
+
+Style guide linting
+^^^^^^^^^^^^^^^^^^^
+
+Check documentation against the `Vale documentation linter configured with the current style guide <https://github.com/canonical/praecepta>`_.
+
+.. code-block:: shell
+
+   make vale
+
+Vale can run against individual files, directories, or globs. To set a specific target:
+
+.. code-block:: shell
+
+    make vale TARGET=example.file
+    make vale TARGET=example-directory
+
+.. note::
+
+    Running Vale against a directory will also run against subfolders.
+
+To run against all files with a specific extension within a folder:
+
+.. code-block:: shell
+
+    make vale TARGET=*.md
+
+.. note::
+    
+    Wildcards can be used to run against all files matching a string, or an extension. The example above will match against all :code:`.md`
+    files, and :code:`TARGET=doc*` will match both :code:`doc_1.md` and :code:`doc_2.md`.
+
+To disable Vale linting within individual files, specific markup can be used.
+
+For Markdown:
+
+.. code-block::
+
+    <!-- vale off -->
+
+    This text will be ignored by Vale.
+
+    <!-- vale on -->
+
+For reStructuredText:
+
+.. code-block::
+
+    .. vale off
+
+    This text will be ignored by Vale.
+
+    .. vale on
 
 Configure the spelling check
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
