@@ -497,7 +497,7 @@ For Markdown:
 
     <!-- vale on -->
 
-For reStructured text:
+For reStructuredText:
 
 .. code-block::
 
