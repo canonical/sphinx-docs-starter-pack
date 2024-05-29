@@ -485,6 +485,28 @@ To run against all files with a specific extension within a folder:
     Wildcards can be used to run against all files matching a string, or an extension. The example above will match against all :code:`.md`
     files, and :code:`TARGET=doc*` will match both :code:`doc_1.md` and :code:`doc_2.md`.
 
+To disable Vale linting within individual files, specific markup can be used.
+
+For Markdown:
+
+.. code-block::
+
+    <!-- vale off -->
+
+    This text will be ignored by Vale.
+
+    <!-- vale on -->
+
+For ReStructured text:
+
+.. code-block::
+
+    .. vale off
+
+    This text will be ignored by Vale.
+
+    .. vale on
+
 Configure the spelling check
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
