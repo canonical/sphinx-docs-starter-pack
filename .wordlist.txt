@@ -21,6 +21,7 @@ Juju
 Kubeflow
 Kubernetes
 Launchpad
+linter
 LTS
 Makefile
 Matrix
