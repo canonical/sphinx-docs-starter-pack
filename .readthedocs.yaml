@@ -11,8 +11,9 @@ build:
   tools:
     python: "3.11"
   jobs:
-    post_checkout:
+    pre_install:
       - python3 .sphinx/build_requirements.py
+      - git fetch --unshallow || true
   apt_packages:
     - distro-info
 
