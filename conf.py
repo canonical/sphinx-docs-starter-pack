@@ -3,7 +3,6 @@ import os
 import requests
 from urllib.parse import urlparse
 from git import Repo, InvalidGitRepositoryError
-import subprocess
 import time
 
 sys.path.append('./')
@@ -108,15 +107,6 @@ rst_epilog = '''
 '''
 if 'custom_rst_epilog' in locals():
     rst_epilog = custom_rst_epilog
-
-if 'custom_manpages_url' in locals():
-    manpages_url = custom_manpages_url
-else:
-    manpages_distribution = subprocess.check_output("distro-info --stable",
-                                                text=True, shell=True).strip()
-    manpages_url = ("https://manpages.ubuntu.com/manpages/"
-                    f"{manpages_distribution}/en/"
-                    "man{section}/{page}.{section}.html")
 
 source_suffix = {
     '.rst': 'restructuredtext',
