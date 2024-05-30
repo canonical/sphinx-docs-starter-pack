@@ -104,11 +104,11 @@ html_context = {
 
     # Controls the existence of Previous / Next buttons at the bottom of pages
     # Valid options: none, prev, next, both
-    'sequential_nav': "none", 
-    
+    'sequential_nav': "none",
+
     # Controls if to display the contributors of a file or not
     "display_contributors": True,
-    
+
     # Controls time frame for showing the contributors
     "display_contributors_since": ""
 }
@@ -146,12 +146,10 @@ custom_linkcheck_anchors_ignore_for_url = []
 ### Additions to default configuration
 ############################################################
 
-# Uncomment to overwrite Ubuntu manpages URL template for :manpage: directives:
-# custom_manpages_url = "https://customurl/man{section}/{page}.{section}.html"
-
 ## The following settings are appended to the default configuration.
 ## Use them to extend the default functionality.
-# NOTE: Remove this variable to disable the MyST parser extensions.
+
+# Remove this variable to disable the MyST parser extensions.
 custom_myst_extensions = []
 
 # Add custom Sphinx extensions as needed.
@@ -202,6 +200,10 @@ disable_feedback_button = False
 # Add tags that you want to use for conditional inclusion of text
 # (https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#tags)
 custom_tags = []
+
+# If you are using the :manpage: role, set this variable to the URL for the version
+# that you want to link to:
+# manpages_url = "https://manpages.ubuntu.com/manpages/noble/en/man{section}/{page}.{section}.html"
 
 ############################################################
 ### Additional configuration
