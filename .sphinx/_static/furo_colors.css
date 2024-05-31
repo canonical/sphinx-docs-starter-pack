@@ -28,6 +28,7 @@ body {
     --color-highlighted-background: #EBEBEB;
     --color-link-underline: var(--color-link);
     --color-link-underline--hover: var(--color-link);
+    --color-link-underline--visited: var(--color-link--visited);
     --color-version-popup: #772953;
 }
 
@@ -91,10 +92,6 @@ a {
     text-decoration: none;
 }
 
-a:hover {
+a:hover, a:visited:hover {
     text-decoration: underline;
-}
-
-a:visited:hover {
-    text-decoration-color: var(--color-link-visited);
 }
