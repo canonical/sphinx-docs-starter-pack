@@ -29,6 +29,7 @@ body {
     --color-link-underline: var(--color-link);
     --color-link-underline--hover: var(--color-link);
     --color-link-underline--visited: var(--color-link--visited);
+    --color-link-underline--visited--hover: var(--color-link--visited);
     --color-version-popup: #772953;
 }
 
