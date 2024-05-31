@@ -17,7 +17,7 @@ VENV          = $(VENVDIR)/bin/activate
 TARGET        = *
 
 .PHONY: sp-full-help sp-woke-install sp-pa11y-install sp-install sp-run sp-html \
-        sp-epub sp-serve sp-clean sp-clean-doc sp-spelling sp-linkcheck sp-woke \
+        sp-epub sp-serve sp-clean sp-clean-doc sp-spelling sp-spellcheck sp-linkcheck sp-woke \
         sp-pa11y Makefile.sp sp-vale
 
 sp-full-help: $(VENVDIR)
@@ -82,8 +82,10 @@ sp-clean-doc:
 	git clean -fx "$(BUILDDIR)"
 	rm -rf $(SPHINXDIR)/.doctrees
 
-sp-spelling: sp-html
+sp-spellcheck:
 	. $(VENV) ; python3 -m pyspelling -c $(SPHINXDIR)/spellingcheck.yaml -j $(shell nproc)
+
+sp-spelling: sp-html sp-spellcheck
 
 sp-linkcheck: sp-install
 	. $(VENV) ; $(SPHINXBUILD) -b linkcheck "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
