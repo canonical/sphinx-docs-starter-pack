@@ -85,3 +85,16 @@ body {
         }
     }
 }
+
+/* suppress link underlines outside on-hover */
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:visited:hover {
+    text-decoration-color: var(--color-link-visited);
+}
