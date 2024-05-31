@@ -68,7 +68,7 @@ sp-epub: sp-install
 	. $(VENV); $(SPHINXBUILD) -b epub "$(SOURCEDIR)" "$(BUILDDIR)" -w $(SPHINXDIR)/warnings.txt $(SPHINXOPTS)
 
 sp-serve: sp-html
-	cd "$(BUILDDIR)"; python3 -m http.server 8000
+	cd "$(BUILDDIR)"; python3 -m http.server --bind 127.0.0.1 8000
 
 sp-clean: sp-clean-doc
 	@test ! -e "$(VENVDIR)" -o -d "$(VENVDIR)" -a "$(abspath $(VENVDIR))" != "$(VENVDIR)"
