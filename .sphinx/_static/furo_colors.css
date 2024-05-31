@@ -86,12 +86,3 @@ body {
         }
     }
 }
-
-/* suppress link underlines outside on-hover */
-a {
-    text-decoration: none;
-}
-
-a:hover, a:visited:hover {
-    text-decoration: underline;
-}
