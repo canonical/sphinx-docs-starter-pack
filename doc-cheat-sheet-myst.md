@@ -19,7 +19,9 @@ myst:
 This file contains the syntax for commonly used Markdown and MyST markup.
 Open it in your text editor to quickly copy and paste the markup you need.
 
-Also see the [MyST documentation](https://myst-parser.readthedocs.io/en/latest/index.html) for detailed information, and the [Canonical Documentation Style Guide](https://docs.ubuntu.com/styleguide/en) for general style conventions.
+See the [MyST style guide](https://canonical-documentation-with-sphinx-and-readthedocscom.readthedocs-hosted.com/style-guide-myst/) for detailed information and conventions.
+
+Also see the [MyST documentation](https://myst-parser.readthedocs.io/en/latest/index.html) for detailed information on MyST, and the [Canonical Documentation Style Guide](https://docs.ubuntu.com/styleguide/en) for general style conventions.
 
 ## H2 heading
 
@@ -61,12 +63,10 @@ code:
 ## Links
 
 - [Canonical website](https://canonical.com/)
-- https:/<span></span>/canonical.com/
 - {ref}`a_section_target_myst`
 - {ref}`Link text <a_section_target_myst>`
 - {doc}`index`
 - {doc}`Link text <index>`
-
 
 ## Navigation
 
@@ -83,7 +83,7 @@ Use the following syntax::
 
 1. Step 1
    - Item 1
-     * Sub-item
+      * Sub-item
    - Item 2
      1. Sub-step 1
      1. Sub-step 2
@@ -186,7 +186,7 @@ Keys can be defined at the top of a file, or in a `myst_substitutions` option in
 
 ### File inclusion
 
-```{include} index.rst
+```{include} index.md
    :start-after: include_start
    :end-before: include_end
 ```
