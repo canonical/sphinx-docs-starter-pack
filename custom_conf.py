@@ -20,14 +20,21 @@ import datetime
 
 # Product name
 project = 'Documentation starter pack'
-author = 'Canonical Group Ltd'
+author = 'Canonical Ltd.'
 
 # The title you want to display for the documentation in the sidebar.
 # You might want to include a version number here.
 # To not display any title, set this option to an empty string.
 html_title = project + ' documentation'
 
-# The default value uses the current year as the copyright year.
+# The default value uses CC-BY-SA as the license and the current year
+# as the copyright year.
+#
+# If your documentation needs a different copyright license, use that
+# instead of 'CC-BY-SA'. Also, if your documentation is included as
+# part of the code repository of your project, it'll inherit the license
+# of the code. So you'll need to specify that license here (instead of
+# 'CC-BY-SA').
 #
 # For static works, it is common to provide the year of first publication.
 # Another option is to give the first year and the current year
@@ -41,7 +48,7 @@ html_title = project + ' documentation'
 #   -H 'Accept: application/vnd.github.v3.raw' \
 #   https://api.github.com/repos/canonical/<REPO> | jq '.created_at'
 
-copyright = '%s, %s' % (datetime.date.today().year, author)
+copyright = '%s CC-BY-SA, %s' % (datetime.date.today().year, author)
 
 ## Open Graph configuration - defines what is displayed as a link preview
 ## when linking to the documentation from another website (see https://ogp.me/)
