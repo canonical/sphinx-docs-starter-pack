@@ -152,6 +152,7 @@ Here is one way to do this for newly-created fictional docs repository
    git clone git@github.com:canonical/sphinx-docs-starter-pack alpha-docs
    cd alpha-docs
    rm -rf .git
+   rm -f .github/workflows/sphinx-python-dependency-build-checks.yml
    git init
    git branch -m main
    UPDATE THE CONFIGURATION AND BUILD THE DOCS
@@ -168,7 +169,7 @@ To add documentation to an existing code repository:
 #. Create a directory called :file:`docs` at the root of the code repository.
 #. Populate the above directory with the contents of the starter pack
    repository (with the exception of the :file:`.git` directory).
-#. Copy the file(s) located in the :file:`docs/.github/workflows` directory into
+#. Copy the :file:`docs/.github/workflows/automatic-doc-checks.yml` file into
    the :file:`.github/workflows` directory in the root of the code repository.
 #. In the above workflow file(s), change the value of the
    :file:`working-directory` field from ``.`` to ``docs``.

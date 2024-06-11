@@ -13,6 +13,8 @@ git clone --depth 1 https://github.com/canonical/sphinx-docs-starter-pack "$temp
 rm -rf "$temp_directory/.git"
 
 # Update file contents for the install directory
+echo "Removing internal workflow files..."
+rm -f $temp_directory/.github/workflows/sphinx-python-dependency-build-checks.yml
 echo "Updating working directory in workflow files..."
 sed -i "s|working-directory:\s*'\.'|working-directory: '$install_directory'|g" "$temp_directory/.github/workflows"/*
 echo "Updating .readthedocs.yaml configuration..."
