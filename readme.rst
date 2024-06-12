@@ -87,6 +87,8 @@ pack* and *Work with your documentation* post-enablement.
     + `Activate/deactivate feedback button`_
     + `Configure included extensions`_
     + `Add custom configuration`_
+    + `Add Python packages`_
+    + `Add page-specific configuration`_
 
   * `Change log`_
 
@@ -281,6 +283,7 @@ The following extensions will automatically be included based on the configurati
 - |notfound.extension|_
 
 You can add further extensions in the ``custom_extensions`` variable in ``custom_conf.py``.
+If the extensions need specific Python packages, add those to the ``custom_required_modules`` variable.
 
 Add custom configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -293,6 +296,29 @@ The following links can help you with additional configuration:
 - `Sphinx configuration`_
 - `Sphinx extensions`_
 - `Furo documentation`_ (Furo is the Sphinx theme we use as our base.)
+
+Add Python packages
+^^^^^^^^^^^^^^^^^^^
+
+If you need additional Python packages for any custom processing you do in your documentation, add them to the ``custom_required_modules`` variable in ``custom_conf.py``.
+
+If you use these packages inside of ``custom_conf.py``, you will encounter a circular dependency (see issue `#197`_).
+To work around this problem, add a step that installs the packages to the ``.readthedocs.yaml`` file:
+
+.. code-block:: yaml
+
+  ...
+  jobs:
+    pre_install:
+      - pip install <packages>
+      - python3 .sphinx/build_requirements.py
+      ...
+
+In addition, override the ``ADDPREREQS`` variable in the Makefile with the names of the packages.
+For example::
+
+  make html ADDPREREQS='<packages>'
+
 
 Add page-specific configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -491,7 +517,7 @@ To run against all files with a specific extension within a folder:
     make vale TARGET=*.md
 
 .. note::
-    
+
     Wildcards can be used to run against all files matching a string, or an extension. The example above will match against all :code:`.md`
     files, and :code:`TARGET=doc*` will match both :code:`doc_1.md` and :code:`doc_2.md`.
 
@@ -653,3 +679,4 @@ Other resources
 .. _notfound.extension: https://sphinx-notfound-page.readthedocs.io/en/latest/
 
 .. _woke documentation: https://docs.getwoke.tech/ignore
+.. _#197: https://github.com/canonical/sphinx-docs-starter-pack/issues/197

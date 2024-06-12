@@ -7,7 +7,7 @@
 # You can set these variables from the command line, and also
 # from the environment for the first two.
 SPHINXDIR     = .sphinx
-SPHINXOPTS    ?= -c . -d $(SPHINXDIR)/.doctrees
+SPHINXOPTS    ?= -c . -d $(SPHINXDIR)/.doctrees -j auto
 SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = .
 BUILDDIR      = _build
@@ -15,9 +15,11 @@ VENVDIR       = $(SPHINXDIR)/venv
 PA11Y         = $(SPHINXDIR)/node_modules/pa11y/bin/pa11y.js --config $(SPHINXDIR)/pa11y.json
 VENV          = $(VENVDIR)/bin/activate
 TARGET        = *
+ALLFILES      =  *.rst **/*.rst
+ADDPREREQS    ?=
 
 .PHONY: sp-full-help sp-woke-install sp-pa11y-install sp-install sp-run sp-html \
-        sp-epub sp-serve sp-clean sp-clean-doc sp-spelling sp-linkcheck sp-woke \
+        sp-epub sp-serve sp-clean sp-clean-doc sp-spelling sp-spellcheck sp-linkcheck sp-woke \
         sp-pa11y Makefile.sp sp-vale
 
 sp-full-help: $(VENVDIR)
@@ -28,9 +30,13 @@ sp-full-help: $(VENVDIR)
 # Shouldn't assume that venv is available on Ubuntu by default; discussion here:
 # https://bugs.launchpad.net/ubuntu/+source/python3.4/+bug/1290847
 $(SPHINXDIR)/requirements.txt:
-	python3 $(SPHINXDIR)/build_requirements.py
-	python3 -c "import venv" || \
+	@python3 -c "import venv" || \
         (echo "You must install python3-venv before you can build the documentation."; exit 1)
+	python3 -m venv $(VENVDIR)
+	@if [ ! -z "$(ADDPREREQS)" ]; then \
+          . $(VENV); pip install --require-virtualenv $(ADDPREREQS); \
+        fi
+	. $(VENV); python3 $(SPHINXDIR)/build_requirements.py
 
 # If requirements are updated, venv should be rebuilt and timestamped.
 $(VENVDIR): $(SPHINXDIR)/requirements.txt
@@ -68,7 +74,7 @@ sp-epub: sp-install
 	. $(VENV); $(SPHINXBUILD) -b epub "$(SOURCEDIR)" "$(BUILDDIR)" -w $(SPHINXDIR)/warnings.txt $(SPHINXOPTS)
 
 sp-serve: sp-html
-	cd "$(BUILDDIR)"; python3 -m http.server 8000
+	cd "$(BUILDDIR)"; python3 -m http.server --bind 127.0.0.1 8000
 
 sp-clean: sp-clean-doc
 	@test ! -e "$(VENVDIR)" -o -d "$(VENVDIR)" -a "$(abspath $(VENVDIR))" != "$(VENVDIR)"
@@ -82,14 +88,17 @@ sp-clean-doc:
 	git clean -fx "$(BUILDDIR)"
 	rm -rf $(SPHINXDIR)/.doctrees
 
-sp-spelling: sp-html
+sp-spellcheck:
 	. $(VENV) ; python3 -m pyspelling -c $(SPHINXDIR)/spellingcheck.yaml -j $(shell nproc)
 
+sp-spelling: sp-html sp-spellcheck
+
 sp-linkcheck: sp-install
-	. $(VENV) ; $(SPHINXBUILD) -b linkcheck "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
+	. $(VENV) ; $(SPHINXBUILD) -b linkcheck "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) || { grep --color -F "[broken]" "$(BUILDDIR)/output.txt"; exit 1; }
+	exit 0
 
 sp-woke: sp-woke-install
-	woke *.rst **/*.rst --exit-1-on-failure \
+	woke $(ALLFILES) --exit-1-on-failure \
 	    -c https://github.com/canonical/Inclusive-naming/raw/main/config.yml
 
 sp-pa11y: sp-pa11y-install sp-html
