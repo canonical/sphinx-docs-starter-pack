@@ -1,0 +1,1 @@
+../sp-files/.wordlist.txt

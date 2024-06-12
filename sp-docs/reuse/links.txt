@@ -1,0 +1,38 @@
+.. _reStructuredText style guide: https://canonical-documentation-with-sphinx-and-readthedocscom.readthedocs-hosted.com/style-guide/
+.. _Read the Docs at Canonical: https://library.canonical.com/documentation/read-the-docs
+.. _How to publish documentation on Read the Docs: https://library.canonical.com/documentation/publish-on-read-the-docs
+.. _Example product documentation: https://canonical-example-product-documentation.readthedocs-hosted.com/
+
+.. wokeignore:rule=master
+.. _`Sphinx configuration`: https://www.sphinx-doc.org/en/master/usage/configuration.html
+.. wokeignore:rule=master
+.. _`Sphinx extensions`: https://www.sphinx-doc.org/en/master/usage/extensions/index.html
+.. wokeignore:rule=master
+.. _`file-wide metadata`: https://www.sphinx-doc.org/en/master/usage/restructuredtext/field-lists.html
+.. _`Furo documentation`: https://pradyunsg.me/furo/quickstart/
+.. _`Hiding Contents sidebar`: https://pradyunsg.me/furo/customisation/toc/
+.. _`Sphinx`: https://www.sphinx-doc.org/
+
+.. |http://127.0.0.1:8000| replace:: ``http://127.0.0.1:8000``
+.. _`http://127.0.0.1:8000`: http://127.0.0.1:8000
+.. |sphinx-design| replace:: ``sphinx-design``
+.. _sphinx-design: https://sphinx-design.readthedocs.io/en/latest/
+.. |sphinx_tabs.tabs| replace:: ``sphinx_tabs.tabs``
+.. _sphinx_tabs.tabs: https://sphinx-tabs.readthedocs.io/en/latest/
+.. |sphinx_reredirects| replace:: ``sphinx_reredirects``
+.. _sphinx_reredirects: https://documatt.gitlab.io/sphinx-reredirects/
+.. |lxd-sphinx-extensions| replace:: ``lxd-sphinx-extensions``
+.. _lxd-sphinx-extensions: https://github.com/canonical/lxd-sphinx-extensions#lxd-sphinx-extensions
+.. |sphinx_copybutton| replace:: ``sphinx_copybutton``
+.. _sphinx_copybutton: https://sphinx-copybutton.readthedocs.io/en/latest/
+.. |sphinxext.opengraph| replace:: ``sphinxext.opengraph``
+.. _sphinxext.opengraph: https://sphinxext-opengraph.readthedocs.io/en/latest/
+.. |myst_parser| replace:: ``myst_parser``
+.. _myst_parser: https://myst-parser.readthedocs.io/en/latest/
+.. |sphinxcontrib.jquery| replace:: ``sphinxcontrib.jquery``
+.. _sphinxcontrib.jquery: https://github.com/sphinx-contrib/jquery/
+.. |notfound.extension| replace:: ``notfound.extension``
+.. _notfound.extension: https://sphinx-notfound-page.readthedocs.io/en/latest/
+
+.. _woke documentation: https://docs.getwoke.tech/ignore
+.. _#197: https://github.com/canonical/sphinx-docs-starter-pack/issues/197
