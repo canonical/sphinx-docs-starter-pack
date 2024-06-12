@@ -14,9 +14,9 @@ rm -rf "$temp_directory/.git"
 
 # Update file contents for the install directory
 echo "Updating working directory in workflow files..."
-sed -i "s|working-directory:\s*'\.'|working-directory: '$install_directory'|g" "$temp_directory/.github/workflows"/*
+sed -i "s|working-directory:\s*'\.'|working-directory: '$install_directory'|g" "$temp_directory/sp-files/.github/workflows"/*
 echo "Updating .readthedocs.yaml configuration..."
-sed -i "s|configuration:\s*conf\.py|configuration: $install_directory/conf.py|g" "$temp_directory/.readthedocs.yaml"
+sed -i "s|configuration:\s*conf\.py|configuration: $install_directory/conf.py|g" "$temp_directory/sp-files/.readthedocs.yaml"
 
 # Create the specified installation directory if it doesn't exist
 if [ ! -d "$install_directory" ]; then
@@ -26,7 +26,7 @@ fi
 
 # Copy the contents of the starter pack repository to the installation directory
 echo "Copying contents to the installation directory..."
-cp -R "$temp_directory"/* "$temp_directory"/.??* "$install_directory"
+cp -R "$temp_directory"/sp-files/* "$temp_directory"/sp-files/.??* "$install_directory"
 
 # Move workflow files and configuration
 if [ "$install_directory" != "." ]; then
