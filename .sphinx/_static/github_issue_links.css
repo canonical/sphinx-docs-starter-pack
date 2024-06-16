@@ -1,0 +1,53 @@
+.github-issue-link {
+  background-color: #D6410D;
+  font-weight: bold;
+}
+
+@media only screen and (min-width: 800px) {
+  .github-issue-link-container {
+    display: none;
+  }
+
+  ul.p-navigation__links .github-issue-link .p-navigation__link:hover,
+  ul.p-navigation__links .github-issue-link:hover {
+    background-color: #D6410D;
+  }
+  
+  ul.p-navigation__links .github-issue-link {
+    background: #D6410D;
+    padding: 1rem;
+  }
+  
+  ul.p-navigation__links .github-issue-link a {
+    font-weight: bold;
+    padding: 0;
+  }
+}
+
+@media only screen and (max-width: 801px) {
+  ul.p-navigation__links .github-issue-link {
+    display: none;
+  }
+
+  .github-issue-link-container {
+    padding-right: 0.5rem;
+  }
+  
+  .github-issue-link {
+    font-size: var(--font-size--small);
+    padding: 13px 23px;
+    text-decoration: none;
+  }
+  
+  .github-issue-link:link,
+  .github-issue-link:visited,
+  .muted-link.github-issue-link:hover,
+  .github-issue-link:active {
+    color: #FFFFFF;
+  }
+  
+  .muted-link.github-issue-link:hover,
+  .github-issue-link:active {
+    text-decoration: underline;
+  }
+}
