@@ -30,7 +30,7 @@ ul.p-navigation__links {
   margin-left: 0;
   margin-top: auto;
   margin-bottom: auto;
-  max-width: 800px;
+  max-width: 1024px;
   width: 100%;
 }
 
@@ -59,6 +59,10 @@ ul.p-navigation__links li a {
   transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   white-space: nowrap;
   width: 100%;
+}
+
+.p-navigation__links .nav-more-links {
+  padding: 1rem 2rem 1rem 0;
 }
 
 ul.p-navigation__links .p-navigation__link {
@@ -126,9 +130,9 @@ ul.more-links-dropdown {
   height: 1rem;
   pointer-events: none;
   position: absolute;
-  right: 1rem;
+  right: 1.25rem;
   text-indent: calc(100% + 10rem);
-  top: calc(1rem + 0.25rem);
+  top: 1.25rem;
   width: 1rem;
 }
 
@@ -156,7 +160,7 @@ ul.more-links-dropdown {
 
 @media only screen and (min-width: 800px) {
   ul.p-navigation__links li {
-    width: 100% !important;
+    width: auto !important;
   }
 }
 
