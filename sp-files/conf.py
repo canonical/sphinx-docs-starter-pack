@@ -109,11 +109,11 @@ html_context = {
     # Valid options: none, prev, next, both
     # 'sequential_nav': "none",
 
-    # Controls whether to display the contributors for each file
-    # "display_contributors": True,
+    # Uncomment to disable displaying the contributors for each file.
+    # (You can also limit the time frame for displaying contributors
+    # by setting a "display_contributors_since" variable.)
+    # "display_contributors": False,
 
-    # Controls the time frame for showing the contributors
-    # "display_contributors_since": ""
 }
 
 # If your project is on documentation.ubuntu.com, specify the project
