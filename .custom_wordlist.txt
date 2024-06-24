@@ -8,6 +8,7 @@ CSA
 Chromecast
 Conf
 Configurator
+Ctrl
 DBus
 DNS
 Dataset

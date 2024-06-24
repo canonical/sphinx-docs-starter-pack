@@ -4,8 +4,6 @@ This tutorial walks you through setting up a Matter Lighting device on a Raspber
 We will use the [matter-pi-gpio-commander] snap which contains a lighting app built on top of the Matter SDK.
 The application supports communication over WiFi/Ethernet as well as Thread.
 
-<!-- the Lighting App and then commission and control it with the [Chip Tool][chip-tool]. -->
-
 ## Hardware
 In this guide, we use the following hardware:
 - A **PC** running Ubuntu 22.04
@@ -25,26 +23,61 @@ SSH to the Raspberry Pi and install the snap:
 sudo snap install matter-pi-gpio-commander
 ```
 
-### Configure the GPIO
+The application uses a
+[custom-device](https://snapcraft.io/docs/custom-device-interface)
+interface to access the GPIO. 
+The interface should automatically connect upon installation. 
+Let's verify that by looking at the snap's connections:
+```console
+$ sudo snap connections matter-pi-gpio-commander 
+Interface      Plug                                      Slot                                      Notes
+...
+custom-device  matter-pi-gpio-commander:custom-gpio      matter-pi-gpio-commander:custom-gpio-dev  -
+...
+```
 
-Set the GPIO to 4:
+````{note}
+On **Ubuntu Core**, the `custom-gpio` interface doesn't auto connect (See issue [#67](https://github.com/canonical/matter-pi-gpio-commander/issues/67#issuecomment-2180433237)).
+
+To connect manually:
+```bash
+sudo snap connect matter-pi-gpio-commander:custom-gpio matter-pi-gpio-commander:custom-gpio-dev
+```
+````
+
+
+### Configure the GPIO
+Set the GPIO pin/line to 4:
 ```bash
 sudo snap set matter-pi-gpio-commander gpio=4
 ```
 
-Grant the snap access to the GPIO memory, needed by this application:
+Apart from the GPIO pin, you may need to configure the GPIO chip.
+The chip number is set to `0` by default which is suitable for us, since we use a Raspberry Pi 4.
+
+The default works for Raspberry Pi 4 and all older arm64 Pis.  
+For Raspberry Pi 5, the chip should be set to `4` to use `/dev/gpiochip4`:
 ```bash
-sudo snap connect matter-pi-gpio-commander:gpio-memory-control
+sudo snap set matter-pi-gpio-commander gpiochip=4
 ```
+
+Any value other than `0` and `4` gets rejected as they aren't expected on Raspberry Pis nor supported by the `custom-gpio` interface. The check can be disabled by setting `gpiochip-validation=false` option.
 
 ### Test the GPIO
 
 The application is almost ready to start and join a Matter network.
 But before doing so, it is better to test it locally to see if we can control the GPIO via the app:
-```bash
-sudo matter-pi-gpio-commander.test-blink
+```console
+$ sudo matter-pi-gpio-commander.test-blink
+GPIO: 4
+GPIOCHIP: 0
+Setting GPIO 4 to Off
+Setting GPIO 4 to On
+Setting GPIO 4 to Off
+^C
 ```
 Take a look at the logs and the LED. If there are no errors and the LED blinks every half second, we are ready to proceed!
+Use Ctrl+C to stop the application.
 
 ### CLI flags
 
@@ -85,7 +118,7 @@ sudo snap set matter-pi-gpio-commander args="--passcode 1234 --ble-device 1"
 ### DNS-SD
 
 The application uses DNS-SD to register itself and be discovered over the local network.
-To allow that we need to manually grant access:
+To allow that, we need to manually grant access:
 ```bash
 sudo snap connect matter-pi-gpio-commander:avahi-control
 ```
@@ -111,15 +144,16 @@ sudo snap set matter-pi-gpio-commander args="--thread"
 ```
 
 Note that Thread communication requires a Thread Radio Co-Processor (RCP) and
-an agent enabling that communication over DBus.
+an OpenThread Border Router (OTBR) agent enabling that communication over DBus.
 
 To allow communication with the [OTBR Snap] for Thread management, connect the following interface:
 
 ```bash
 sudo snap connect matter-pi-gpio-commander:otbr-dbus-wpan0 \
                   openthread-border-router:dbus-wpan0
-```      
+```
 
+You may refer to [this guide](../how-to/otbr-on-ubuntu) for setting up OTBR on Ubuntu.
 
 ### Bluetooth Low Energy (BLE)
 
@@ -173,12 +207,7 @@ sudo snap install chip-tool
 
 Assuming the Pi and PC are connected to the same network, we should be able to commission the device by discovering its IP address via DNS-SD.
 
-First, grant the necessary access to chip-tool to discover services via DNS-SD:
-```bash
-sudo snap connect chip-tool:avahi-observe
-```
-
-We are ready to pair:
+To pair:
 ```bash
 sudo chip-tool pairing onnetwork 110 20202021
 ```
@@ -192,20 +221,13 @@ where:
 Assuming that Chip Tool and the Thread Border Router are on the same network,
 we should be able to discover the Border Router via DNS-SD.
 
-Grant access to discover the Thread Border Router over DNS-SD and 
-the device over BLE:
-```
-sudo snap connect chip-tool:avahi-observe
-sudo snap connect chip-tool:bluez
-```
-
 ```{important}
 The same pre-conditions explained before apply in order to use DNS-SD 
 and BLE:
-the corresponding Debian packages / Snaps need to be installed in advance.
+install the corresponding dependencies and connect the relevant snap interfaces.
 ```
 
-Now, pair the Thread device over Bluetooth LE
+Pair the Thread device over Bluetooth LE
 ```bash
 sudo chip-tool pairing ble-thread 110 hex:<active-dataset> 20202021 3840
 ```
@@ -221,7 +243,7 @@ where:
 
 
 
-If this doesn't work, it may be because it has taken too long to reach this step and the device has stopped listening to commissioning requests. Try restarting it on the application with `sudo snap restart matter-pi-gpio-commander`.
+If this doesn't work, it may be because it has taken too long to reach this step and the device has stopped listening to commissioning requests. Try restarting the application with `sudo snap restart matter-pi-gpio-commander`.
 
 ## Control
 There are a few ways to control the device. The `toggle` command is stateless and simplest. 
