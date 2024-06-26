@@ -32,6 +32,8 @@ Install the latest version from the Snap Store:
 
 Depending on the stability, we may need to pick a different 
 `Snap Channel`_.
+We can list the available releases from the store page or on the command line: ``snap info openthread-border-router``
+
 
 Grant access to resources
 -------------------------
