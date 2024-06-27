@@ -27,7 +27,7 @@ Install the Chip Tool snap:
    sudo snap install chip-tool
 
 You can choose another `channel <https://snapcraft.io/docs/channels>`_ to install a development release.
-Check the available releases from the store page or with: ``snap info chip-tool`` 
+Check the available releases from the store page or with: ``snap info chip-tool``
 
 The tool should now be available as ``chip-tool`` on your machine.
 
