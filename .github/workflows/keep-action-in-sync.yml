@@ -1,0 +1,23 @@
+name: Keep action in sync
+
+on:
+  pull_request:
+    paths:
+      - .github/workflows/automatic-doc-checks.yml
+      - sp-files/.github/workflows/automatic-doc-checks.yml
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'Make sure to keep `.github/workflows/automatic-doc-checks.yml` and `sp-files/.github/workflows/automatic-doc-checks.yml` in sync!'
+            })

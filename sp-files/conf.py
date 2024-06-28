@@ -1,14 +1,12 @@
 import datetime
 
-# Custom configuration for the Sphinx documentation builder.
+# Configuration for the Sphinx documentation builder.
 # All configuration specific to your project should be done in this file.
-#
-# The file is included in the common conf.py configuration file.
-# You can modify any of the settings below or add any configuration that
-# is not covered by the common conf.py file.
 #
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
+# For our custom configuration, see the Canonical Sphinx extension:
+# https://github.com/canonical/canonical-sphinx
 #
 # If you're not familiar with Sphinx and don't want to use advanced
 # features, it is sufficient to update the settings in the "Project
@@ -54,8 +52,6 @@ copyright = '%s CC-BY-SA, %s' % (datetime.date.today().year, author)
 ## when linking to the documentation from another website (see https://ogp.me/)
 # The URL where the documentation will be hosted (leave empty if you
 # don't know yet)
-# NOTE: If no ogp_* variable is defined (e.g. if you remove this section) the
-# sphinxext.opengraph extension will be disabled.
 ogp_site_url = 'https://canonical-starter-pack.readthedocs-hosted.com/'
 # The documentation website name (usually the same as the product name)
 ogp_site_name = project
@@ -64,7 +60,7 @@ ogp_image = 'https://assets.ubuntu.com/v1/253da317-image-document-ubuntudocs.svg
 
 # Update with the local path to the favicon for your product
 # (default is the circle of friends)
-html_favicon = '.sphinx/_static/favicon.png'
+# html_favicon = '.sphinx/_static/favicon.png'
 
 # (Some settings must be part of the html_context dictionary, while others
 #  are on root level. Don't move the settings.)
@@ -79,7 +75,7 @@ html_context = {
     # Add your product tag (the orange part of your logo, will be used in the
     # header) to ".sphinx/_static" and change the path here (start with "_static")
     # (default is the circle of friends)
-    'product_tag': '_static/tag.png',
+    # 'product_tag': '_static/tag.png',
 
     # Change to the discourse instance you want to be able to link to
     # using the :discourse: metadata at the top of a file
@@ -99,7 +95,7 @@ html_context = {
     'github_url': 'https://github.com/canonical/sphinx-docs-starter-pack',
 
     # Change to the branch for this version of the documentation
-    'github_version': 'main',
+    # 'github_version': 'main',
 
     # Change to the folder that contains the documentation
     # (usually "/" or "/docs/")
@@ -107,22 +103,29 @@ html_context = {
 
     # Change to an empty value if your GitHub repo doesn't have issues enabled.
     # This will disable the feedback button and the issue link in the footer.
-    'github_issues': 'enabled',
+    # 'github_issues': 'enabled',
 
     # Controls the existence of Previous / Next buttons at the bottom of pages
     # Valid options: none, prev, next, both
-    'sequential_nav': "none",
+    # 'sequential_nav': "none",
 
-    # Controls if to display the contributors of a file or not
-    "display_contributors": True,
+    # Controls whether to display the contributors for each file
+    # "display_contributors": True,
 
-    # Controls time frame for showing the contributors
-    "display_contributors_since": ""
+    # Controls the time frame for showing the contributors
+    # "display_contributors_since": ""
 }
 
 # If your project is on documentation.ubuntu.com, specify the project
 # slug (for example, "lxd") here.
-slug = ""
+# slug = ""
+
+# These paths are needed if you want to override any default assets.
+# You can comment them out if you don't need this (but you can also just
+# leave them).
+
+html_static_path = ['.sphinx/_static']
+templates_path = ['.sphinx/_templates']
 
 ############################################################
 ### Redirects
@@ -147,7 +150,9 @@ linkcheck_ignore = [
 
 # Pages on which to ignore anchors
 # (This list will be appended to linkcheck_anchors_ignore_for_url)
-custom_linkcheck_anchors_ignore_for_url = []
+linkcheck_anchors_ignore_for_url = [
+    r'https://github\.com/.*'
+]
 
 ############################################################
 ### Additions to default configuration
@@ -156,57 +161,45 @@ custom_linkcheck_anchors_ignore_for_url = []
 ## The following settings are appended to the default configuration.
 ## Use them to extend the default functionality.
 
-# Remove this variable to disable the MyST parser extensions.
-custom_myst_extensions = []
+# By default, the following MyST extensions are enabled:
+# substitution, deflist, linkify
+# If you need more extensions, add them here.
+# myst_enable_extensions = set()
 
-# Add custom Sphinx extensions as needed.
-# This array contains recommended extensions that should be used.
-# NOTE: The following extensions are handled automatically and do
-# not need to be added here: myst_parser, sphinx_copybutton, sphinx_design,
-# sphinx_reredirects, sphinxcontrib.jquery, sphinxext.opengraph
-custom_extensions = [
-    'sphinx_tabs.tabs',
-    'canonical.youtube-links',
-    'canonical.related-links',
-    'canonical.custom-rst-roles',
-    'canonical.terminal-output',
-    'notfound.extension'
+# You must include the canonical_sphinx extension here.
+# This extension automatically enables the following Sphinx extensions:
+# custom-rst-roles, myst_parser, notfound.extension, related-links,
+# sphinx_copybutton, sphinx_design, sphinx_tabs.tabs,
+# sphinx_reredirects, sphinxcontrib.jquery, sphinxext.opengraph,
+# terminal-output, youtube-links
+# If you need more extensions, add them here (in addition to
+# canonical_sphinx).
+extensions = [
+    'canonical_sphinx'
     ]
 
-# Add custom required Python modules that must be added to the
-# .sphinx/requirements.txt file.
-# NOTE: The following modules are handled automatically and do not need to be
-# added here: canonical-sphinx-extensions, furo, linkify-it-py, myst-parser,
-# pyspelling, sphinx, sphinx-autobuild, sphinx-copybutton, sphinx-design,
-# sphinx-notfound-page, sphinx-reredirects, sphinx-tabs, sphinxcontrib-jquery,
-# sphinxext-opengraph
-custom_required_modules = []
-
 # Add files or directories that should be excluded from processing.
-custom_excludes = [
+exclude_patterns = [
     'doc-cheat-sheet*',
     ]
 
-# Add CSS files (located in .sphinx/_static/)
-custom_html_css_files = []
+# Add custom CSS files (located in .sphinx/_static/)
+# html_css_files = []
 
-# Add JavaScript files (located in .sphinx/_static/)
-custom_html_js_files = []
+# Add custom JavaScript files (located in .sphinx/_static/)
+# html_js_files = []
 
 ## The following settings override the default configuration.
 
 # Specify a reST string that is included at the end of each file.
-# If commented out, use the default (which pulls the reuse/links.txt
-# file into each reST file).
-# custom_rst_epilog = ''
+# The suggested value pulls the reuse/links.txt file into each reST file.
+rst_epilog = '''
+.. include:: /reuse/links.txt
+'''
 
 # By default, the documentation includes a feedback button at the top.
 # You can disable it by setting the following configuration to True.
-disable_feedback_button = False
-
-# Add tags that you want to use for conditional inclusion of text
-# (https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#tags)
-custom_tags = []
+# disable_feedback_button = False
 
 # If you are using the :manpage: role, set this variable to the URL for the version
 # that you want to link to:

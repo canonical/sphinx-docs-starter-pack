@@ -8,7 +8,7 @@
 # from the environment for the first two.
 SPHINXDIR     = .sphinx
 SPHINXOPTS    ?= -c . -d $(SPHINXDIR)/.doctrees -j auto
-SPHINXBUILD   ?= sphinx-build
+SPHINXBUILD   ?= $(VENVDIR)/bin/sphinx-build
 SOURCEDIR     = .
 BUILDDIR      = _build
 VENVDIR       = $(SPHINXDIR)/venv
@@ -16,7 +16,6 @@ PA11Y         = $(SPHINXDIR)/node_modules/pa11y/bin/pa11y.js --config $(SPHINXDI
 VENV          = $(VENVDIR)/bin/activate
 TARGET        = *
 ALLFILES      =  *.rst **/*.rst
-ADDPREREQS    ?=
 
 .PHONY: sp-full-help sp-woke-install sp-pa11y-install sp-install sp-run sp-html \
         sp-epub sp-serve sp-clean sp-clean-doc sp-spelling sp-spellcheck sp-linkcheck sp-woke \
@@ -27,19 +26,10 @@ sp-full-help: $(VENVDIR)
 	@echo "\n\033[1;31mNOTE: This help texts shows unsupported targets!\033[0m"
 	@echo "Run 'make help' to see supported targets."
 
-# Shouldn't assume that venv is available on Ubuntu by default; discussion here:
-# https://bugs.launchpad.net/ubuntu/+source/python3.4/+bug/1290847
-$(SPHINXDIR)/requirements.txt:
-	@python3 -c "import venv" || \
-        (echo "You must install python3-venv before you can build the documentation."; exit 1)
-	python3 -m venv $(VENVDIR)
-	@if [ ! -z "$(ADDPREREQS)" ]; then \
-          . $(VENV); pip install --require-virtualenv $(ADDPREREQS); \
-        fi
-	. $(VENV); python3 $(SPHINXDIR)/build_requirements.py
-
 # If requirements are updated, venv should be rebuilt and timestamped.
-$(VENVDIR): $(SPHINXDIR)/requirements.txt
+$(VENVDIR):
+	python3 -c "import venv" || \
+        (echo "You must install python3-venv before you can build the documentation."; exit 1)
 	@echo "... setting up virtualenv"
 	python3 -m venv $(VENVDIR)
 	. $(VENV); pip install --require-virtualenv \
@@ -64,7 +54,7 @@ sp-pa11y-install:
 sp-install: $(VENVDIR)
 
 sp-run: sp-install
-	. $(VENV); sphinx-autobuild -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
+	. $(VENV); $(VENVDIR)/bin/sphinx-autobuild -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
 
 # Doesn't depend on $(BUILDDIR) to rebuild properly at every run.
 sp-html: sp-install
@@ -79,7 +69,6 @@ sp-serve: sp-html
 sp-clean: sp-clean-doc
 	@test ! -e "$(VENVDIR)" -o -d "$(VENVDIR)" -a "$(abspath $(VENVDIR))" != "$(VENVDIR)"
 	rm -rf $(VENVDIR)
-	rm -f $(SPHINXDIR)/requirements.txt
 	rm -rf $(SPHINXDIR)/node_modules/
 	rm -rf $(SPHINXDIR)/styles
 	rm -rf $(SPHINXDIR)/vale.ini
