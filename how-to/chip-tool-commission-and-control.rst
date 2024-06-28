@@ -20,6 +20,24 @@ First and foremost, make sure to have SnapD installed. It is
 pre-installed on some distributions such as Ubuntu. Refer to
 `installing SnapD <https://snapcraft.io/docs/installing-snapd>`_ for details.
 
+Install the dependencies:
+
+.. tabs::
+
+    .. group-tab:: Ubuntu Server / Desktop
+
+        .. code:: bash
+         
+            sudo apt update
+            sudo apt install bluez avahi-daemon
+        
+    .. group-tab:: Ubuntu Core
+        
+        .. code:: bash
+            
+            sudo snap install bluez avahi
+        
+        
 Install the Chip Tool snap:
 
 .. code:: shell
@@ -30,39 +48,19 @@ Install the Chip Tool snap:
    Pre-release versions of Chip Tool are available in different
    `channels <https://snapcraft.io/docs/channels>`_.
 
-The tool should now be available as ``chip-tool`` on your machine.
+Once installed, the application should be available as ``chip-tool`` on your machine.
 
-The snap restricts the tool's access to necessary resources on the host.
-By default, the tool has access to the host network and is allowed to listen
-on a port.
+The snap restricts the app's access to only the necessary resources on the host.
+This access is managed via `snap interface <https://snapcraft.io/docs/interface-management>`_ connections.
 
-In addition, DNS-SD and Bluetooth access are usually required for commissioning:
+By default, the snap auto connects the following interfaces:
 
-.. code:: shell
+- `network <https://snapcraft.io/docs/network-interface>`_ to access the host network
+- `network-bind <https://snapcraft.io/docs/network-bind-interface>`_ to listen on a port (Chip Tool's interactive mode)
+- `avahi-observe <https://snapcraft.io/docs/avahi-observe-interface>`_ to discover devices over DNS-SD
+- `bluez <https://snapcraft.io/docs/bluez-interface>`_ to communicate with devices over Bluetooth Low Energy (BLE)
 
-   # To read DNS-SD registrations
-   sudo snap connect chip-tool:avahi-observe
-   # To discover and communicate over BLE
-   sudo snap connect chip-tool:bluez
-
-.. TODO: For details on the interfaces, refer to Chip Tool's connections (explanation)
-
-.. note::
-
-   On **Ubuntu Core**, the ``avahi-observe`` and ``bluez`` interfaces 
-   are not provided by the system.
-
-   These interfaces are provided by other snaps, such as the
-   `Avahi <https://snapcraft.io/avahi>`_ and
-   `BlueZ <https://snapcraft.io/bluez>`_ snaps. To install the snaps
-   and connect to the interfaces, run:
-
-   .. code:: shell
-
-      sudo snap install avahi bluez
-      sudo snap connect chip-tool:avahi-observe avahi:avahi-observe
-      sudo snap connect chip-tool:bluez bluez:service
-
+To verify the interface connections, run: ``snap connections chip-tool``
 
 
 Commission

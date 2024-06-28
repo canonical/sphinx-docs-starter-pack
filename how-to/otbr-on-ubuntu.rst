@@ -43,6 +43,14 @@ Grant access to resources
 
     .. group-tab:: Ubuntu Server / Desktop
 
+        Install the dependencies:
+
+        .. code:: bash
+            
+            sudo apt update
+            sudo apt install bluez avahi-daemon
+        
+        
         Connect the following interfaces:
 
         .. code:: bash
@@ -62,15 +70,14 @@ Grant access to resources
             sudo snap connect openthread-border-router:avahi-control
 
     .. group-tab:: Ubuntu Core
-        On Ubuntu Core, we first need to install the BlueZ and Avahi snaps
-        the system itself does not provide Bluetooth and DNS-SD interfaces.
         
-        Install Avahi and BlueZ:
+        Install the dependencies:
 
         .. code:: bash
             
             sudo snap install bluez avahi
         
+
         Connect the following interfaces:
 
         .. code:: bash

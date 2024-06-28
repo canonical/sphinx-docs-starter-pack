@@ -2,7 +2,6 @@ AArch
 Avahi
 BLE
 BlueZ
-BlueZ
 BlueZ's
 CSA
 Chromecast
@@ -32,6 +31,7 @@ VSCode
 YQ
 amd
 avahi
+bluez
 bootable
 br
 cURL

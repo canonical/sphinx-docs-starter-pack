@@ -120,12 +120,6 @@ sudo apt update
 sudo apt install avahi-daemon bluez
 ```
 
-Grant access to discover the Border Router over DNS-SD and the device over BLE:
-```bash
-sudo snap connect chip-tool:avahi-observe
-sudo snap connect chip-tool:bluez
-```
-
 ### Pair the device
 
 Get the OTBR operational dataset (OTBR network's credentials), for the network

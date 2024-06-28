@@ -43,10 +43,10 @@ custom-device  matter-pi-gpio-commander:custom-gpio      matter-pi-gpio-commande
 
 ````{note}
 On **Ubuntu Core**, the `custom-gpio` interface doesn't auto connect (See issue [#67](https://github.com/canonical/matter-pi-gpio-commander/issues/67#issuecomment-2180433237)).
-
-To connect manually:
+Connect manually:
 ```bash
-sudo snap connect matter-pi-gpio-commander:custom-gpio matter-pi-gpio-commander:custom-gpio-dev
+sudo snap connect matter-pi-gpio-commander:custom-gpio \
+                  matter-pi-gpio-commander:custom-gpio-dev
 ```
 ````
 
@@ -123,24 +123,29 @@ sudo snap set matter-pi-gpio-commander args="--passcode 1234 --ble-device 1"
 ### DNS-SD
 
 The application uses DNS-SD to register itself and be discovered over the local network.
-To allow that, we need to manually grant access:
+To allow that, we need to install the dependencies and grant access via a
+[snap interface](https://snapcraft.io/docs/interface-management):
+
+`````{tabs}
+
+````{group-tab} Ubuntu Server / Desktop
 ```bash
-sudo snap connect matter-pi-gpio-commander:avahi-control
+sudo apt update
+sudo apt install avahi-daemon
+sudo snap connect matter-pi-gpio-commander:avahi-control :avahi-control
 ```
+The interface connection is between the `matter-pi-gpio-commander` snap and the system.
+````
 
-````{important}
-The above command assumes that the `avahi-control` interface is provided by the system. This isn't always the case.
-
-To make DNS-SD discovery work, the host needs to have a running avahi-daemon
-which can be installed with `sudo apt install avahi-daemon`.
-
-On **Ubuntu Core**, the `avahi-control` interface is not provided by the system. Instead, it depends on the [Avahi snap](https://snapcraft.io/avahi).
-To use the interface from that snap, run:
+````{group-tab} Ubuntu Core
 ```bash
 sudo snap install avahi
 sudo snap connect matter-pi-gpio-commander:avahi-control avahi:avahi-control
 ```
+On Ubuntu Core, the interface connection is between the `matter-pi-gpio-commander` snap and the `avahi` snap.
 ````
+
+`````
 
 ### Thread 
 If using Thread instead of WiFi/Ethernet, set `--thread` as a CLI argument:
@@ -163,24 +168,25 @@ You may refer to [this guide](../how-to/otbr-on-ubuntu) for setting up OTBR on U
 ### Bluetooth Low Energy (BLE)
 
 To allow the device to advertise itself over Bluetooth Low Energy:
+
+`````{tabs}
+
+````{group-tab} Ubuntu Server / Desktop
 ```bash
-sudo snap connect matter-pi-gpio-commander:bluez
+sudo apt update
+sudo apt install bluez
+sudo snap connect matter-pi-gpio-commander:bluez :bluez
 ```
+````
 
-BLE advertisement is required when operating the application in Thread mode.
-
-````{important}
-BLE advertisement depends on BlueZ which can be installed with
-`sudo apt install bluez`.
-
-On **Ubuntu Core**, the `bluez` interface is not provided by the system. 
-The interface can instead be consumed from the [BlueZ snap](https://snapcraft.io/bluez):
+````{group-tab} Ubuntu Core
 ```bash
 sudo snap install bluez
 sudo snap connect matter-pi-gpio-commander:bluez bluez:service
 ```
-
 ````
+
+`````
 
 
 ### Start the application
@@ -199,6 +205,13 @@ Keep it running in a dedicate terminal window. We will commission and control th
 ## Setup Chip Tool
 We need a Matter Controller to commission and control the device. 
 We will use Chip Tool which is a CLI Matter controller. 
+
+Install the dependencies:
+```bash
+sudo apt update
+sudo apt install avahi-daemon # for DNS-SD
+sudo apt install bluez # for bluetooth
+```
 
 Install the [chip-tool] snap on the PC:
 ```bash
@@ -225,12 +238,6 @@ where:
 
 Assuming that Chip Tool and the Thread Border Router are on the same network,
 we should be able to discover the Border Router via DNS-SD.
-
-```{important}
-The same pre-conditions explained before apply in order to use DNS-SD 
-and BLE:
-install the corresponding dependencies and connect the relevant snap interfaces.
-```
 
 Pair the Thread device over Bluetooth LE
 ```bash
