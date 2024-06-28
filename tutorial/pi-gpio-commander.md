@@ -23,6 +23,11 @@ SSH to the Raspberry Pi and install the snap:
 sudo snap install matter-pi-gpio-commander
 ```
 
+```{tip}
+Pre-release versions of this snap are available in different
+[channels](https://snapcraft.io/docs/channels).
+```
+
 The application uses a
 [custom-device](https://snapcraft.io/docs/custom-device-interface)
 interface to access the GPIO. 

@@ -30,8 +30,10 @@ Install the latest version from the Snap Store:
 
     sudo snap install openthread-border-router
 
-Depending on the stability, we may need to pick a different 
-`Snap Channel`_.
+.. tip::
+   Pre-release versions of OpenThread Border Router are available in different
+   `channels <https://snapcraft.io/docs/channels>`_.
+
 
 Grant access to resources
 -------------------------
