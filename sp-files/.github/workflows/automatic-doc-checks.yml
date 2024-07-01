@@ -1,4 +1,4 @@
-name: Main Documentation Checks
+name: Main documentation checks
 
 on:
   - push
