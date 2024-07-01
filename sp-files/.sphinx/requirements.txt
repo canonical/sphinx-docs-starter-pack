@@ -1,2 +1,3 @@
-canonical-sphinx
+git+https://github.com/canonical/canonical-sphinx@refs/pull/25/merge#egg=canonical-sphinx
+git+https://github.com/canonical/canonical-sphinx-extensions@refs/pull/41/merge#egg=canonical-sphinx-extensions
 sphinx-autobuild

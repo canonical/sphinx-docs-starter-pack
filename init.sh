@@ -19,6 +19,12 @@ sed -i "s|working-directory:\s*'\.'|working-directory: '$install_directory'|g" "
 echo "Updating .readthedocs.yaml configuration..."
 sed -i "s|configuration:\s*sp-docs/conf\.py|configuration: $install_directory/conf.py|g" "$temp_directory/sp-files/.readthedocs.yaml"
 sed -i "s|requirements:\s*sp-docs/\.sphinx/requirements\.txt|requirements: $install_directory/.sphinx/requirements.txt|g" "$temp_directory/.readthedocs.yaml"
+echo "Updating conf.py configuration..."
+if [ "$install_directory" == "." ]; then
+    sed -i "s|'github_folder':\s*'/sp-docs/'|'github_folder': '/'|g" "$temp_directory/sp-files/conf.py"
+else
+    sed -i "s|'github_folder':\s*'/sp-docs/'|'github_folder': '/$install_directory/'|g" "$temp_directory/sp-files/conf.py"
+fi
 
 # Create the specified installation directory if it doesn't exist
 if [ ! -d "$install_directory" ]; then
