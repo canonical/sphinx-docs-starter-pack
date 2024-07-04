@@ -130,7 +130,7 @@ sudo openthread-border-router.ot-ctl dataset active -x
 
 Now, pair the Thread device over BLE:
 ```bash
-sudo chip-tool pairing ble-thread 110 hex:<active-dataset> 20202021 3840
+chip-tool pairing ble-thread 110 hex:<active-dataset> 20202021 3840
 ```
 where:
 - `110` is the assigned node ID for the app.
@@ -147,13 +147,13 @@ If it didn't work, it may be because it has taken too long to reach this step an
 
 There are a few ways to control the device. The `toggle` command is stateless and the simplest:
 ```bash
-sudo chip-tool onoff toggle 110 1
+chip-tool onoff toggle 110 1
 ```
 
 To turn on and off:
 ```bash
-sudo chip-tool onoff on 110 1
-sudo chip-tool onoff off 110 1
+chip-tool onoff on 110 1
+chip-tool onoff off 110 1
 ```
 
 
