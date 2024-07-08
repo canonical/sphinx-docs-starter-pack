@@ -1,55 +1,65 @@
+.. _quickstart:
+
 Quickstart guide
 ----------------
 
-An initial set of documentation can be built directly from a clone of this
-repository.
+The following steps will guide you through setting up your documentation using the starter pack and building an initial set of documentation.
 
-First, clone this repository to a local directory, and change to this
-directory:
+For more detailed information, see the other sections of the starter pack documentation.
 
-.. code-block:: sh
+1. Download the :literalref:`init.sh<https://raw.githubusercontent.com/canonical/sphinx-docs-starter-pack/use-canonical-sphinx-extension/init.sh>` file from the starter pack repository and place it into the directory where you want to set up your documentation.
 
-   git clone git@github.com:canonical/sphinx-docs-starter-pack <new-repository-name>
-   cd <new-repository-name>
+#. Run the script and specify where you want the files for the documentation framework to be placed (either in the current directory or in a sub-directory).
+   Your own documentation files will need to be placed in the same directory (or sub-directories of it) later.
 
-Now build the documentation with the following command. This will create a virtual
-environment, install the software dependencies, and build the documentation:
+   See :ref:`enable` for detailed information on what the script does.
 
-.. code-block:: sh
+#. Enter the documentation folder (the folder you specified when running the script) and build the documentation with the following command::
 
-   make run
+     make run
 
-Keep this session running to rebuild the documentation automatically whenever a
-file is saved, and open |http://127.0.0.1:8000|_ in a web browser to see the
-locally built and hosted HTML.
+   This command creates a virtual environment, installs the Python dependencies, builds the documentation, and serves it on :literalref:`http://127.0.0.1:8000/`.
 
-To add a new page to the documentation, create a new document called
-``reference.rst`` in a text editor and insert the following reST-formatted
-``Reference``  heading:
+   See :ref:`build` for detailed information on different commands for building and viewing the documentation.
 
-.. code-block:: rest
+#. Keep this session running to rebuild the documentation automatically whenever a file is saved, and open :literalref:`http://127.0.0.1:8000/` in a web browser to see the locally built and hosted HTML.
 
-    Reference
-    =========
+#. To add a new page to the documentation, create a new document called :file:`reference.rst`, insert the following |RST|-formatted ``Reference`` heading, and then save the file:
 
-Now save ``reference.rst`` and open ``index.rst``.
+   .. code-block:: rest
 
-At the bottom of this file, add an indented line containing ``Reference
-<reference>`` to the end of the ``toctree`` section. This is the navigation
-title for the new document and its filename without the ``.rst`` extension.
+      Reference
+      =========
 
-The ``toctree`` section will now look like this:
+   .. note::
+      This Quickstart guide uses |RST|, but if you prefer to use Markdown, you can create a :file:`reference.md` file with the following content instead:
 
-.. code-block:: rest
+      .. code-block:: Markdown
 
-    .. toctree::
-       :hidden:
-       :maxdepth: 2
+         # Reference
 
-       ReadMe <readme>
-       Reference <reference>
+#. Open :file:`index.rst`.
 
-Save ``index.rst`` and reload |http://127.0.0.1:8000|_.
+   At the bottom of this file, add a 3-space-indented line containing ``Reference <reference>`` to the end of the ``toctree`` section, and then save the file.
+   This is the navigation title for the new document and its filename without the extension.
 
-The documentation will now show **Reference** added to the navigation and
-selecting this will open the new ``reference.rst`` document.
+   The ``toctree`` section will now look like this:
+
+   .. code-block:: rest
+
+      .. toctree::
+         :hidden:
+         :maxdepth: 2
+
+         self
+         Reference <reference>
+
+   .. note::
+      You can leave out the navigation title to use the document title instead.
+      This means that in this example, you could also just type ``reference`` instead of ``Reference <reference>``.
+
+#. Check :literalref:`http://127.0.0.1:8000/`.
+
+   The documentation will now show **Reference** added to the navigation, and selecting the link in the navigation will open the new ``reference.rst`` document.
+
+See :ref:`guidance` for links to more detailed information about |RST| and Markdown/MyST.
