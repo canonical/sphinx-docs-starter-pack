@@ -107,6 +107,12 @@ Ensure there are no spelling errors in the documentation:
 
    make spelling
 
+If you only want to check the existing output and do not want to build the HTML again, run the spelling check separately:
+
+.. code-block:: shell
+
+   make spellcheck 
+
 Inclusive language check
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -194,7 +200,7 @@ The spelling check uses ``aspell``.
 Its configuration is located in the ``.sphinx/spellingcheck.yaml`` file.
 
 To add exceptions for words flagged by the spelling check, edit the ``.custom_wordlist.txt`` file.
-You shouldn't edit ``.wordlist.txt``, because this file is maintained and updated centrally and contains words that apply across all projects.
+You shouldn't edit ``.sphinx/.wordlist.txt``, because this file is maintained and updated centrally and contains words that apply across all projects.
 
 Configure the inclusive language check
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
