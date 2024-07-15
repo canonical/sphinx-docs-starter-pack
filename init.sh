@@ -26,7 +26,21 @@ if [ ! -d "$install_directory" ]; then
     mkdir -p "$install_directory"
 fi
 
-# Copy the contents of the starter pack repository to the installation directory
+# Check if .gitignore exists in the destination directory
+# If exists, append the contents of the source .gitignore to the destination .gitignore
+if [ -f "$install_directory/.gitignore" ]; then
+    cat "$temp_directory/sp-files/.gitignore" >> "$install_directory/.gitignore"
+    rm "$temp_directory/sp-files/.gitignore"
+fi
+
+# Check if Makefile exists in the destination directory
+# If exists, append the contents of the source Makefile to the destination Makefile
+if [ -f "$install_directory/Makefile" ]; then
+    cat "$temp_directory/sp-files/Makefile" >> "$install_directory/Makefile"
+    rm "$temp_directory/sp-files/Makefile"
+fi
+
+# Copy the rest of the starter pack repository to the installation directory
 echo "Copying contents to the installation directory..."
 cp -R "$temp_directory"/sp-files/* "$temp_directory"/sp-files/.??* "$install_directory"
 
