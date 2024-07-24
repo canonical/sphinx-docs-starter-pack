@@ -26,9 +26,14 @@ Kubernetes
 Launchpad
 linter
 LTS
+LXD
 Makefile
+Makefiles
 Matrix
 Mattermost
+MicroCeph
+MicroCloud
+MicroOVN
 MyST
 namespace
 namespaces
@@ -52,4 +57,5 @@ Ubuntu
 UI
 UUID
 VM
+webhook
 YAML
