@@ -17,7 +17,7 @@ VENV          = $(VENVDIR)/bin/activate
 TARGET        = *
 ALLFILES      =  *.rst **/*.rst
 
-.PHONY: sp-full-help sp-woke-install sp-pa11y-install sp-install sp-run sp-html \
+.PHONY: sp-full-help sp-woke-install sp-spellcheck-install sp-pa11y-install sp-install sp-run sp-html \
         sp-epub sp-serve sp-clean sp-clean-doc sp-spelling sp-spellcheck sp-linkcheck sp-woke \
         sp-pa11y Makefile.sp sp-vale
 
@@ -43,6 +43,10 @@ $(VENVDIR):
 sp-woke-install:
 	@type woke >/dev/null 2>&1 || \
             { echo "Installing \"woke\" snap... \n"; sudo snap install woke; }
+
+sp-spellcheck-install:
+	@type aspell >/dev/null 2>&1 || \
+            { echo "Installing aspell... \n"; sudo apt-get install aspell aspell-en; }
 
 sp-pa11y-install:
 	@type $(PA11Y) >/dev/null 2>&1 || { \
@@ -77,7 +81,7 @@ sp-clean-doc:
 	git clean -fx "$(BUILDDIR)"
 	rm -rf $(SPHINXDIR)/.doctrees
 
-sp-spellcheck:
+sp-spellcheck: sp-spellcheck-install
 	. $(VENV) ; python3 -m pyspelling -c $(SPHINXDIR)/spellingcheck.yaml -j $(shell nproc)
 
 sp-spelling: sp-html sp-spellcheck
