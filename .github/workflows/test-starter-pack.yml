@@ -18,6 +18,8 @@ jobs:
         uses: actions/checkout@v4
       - name: Run init and build
         run: sp-tests/run-init-and-build.sh
+      - name: Add some files, build, and test
+        run: sp-tests/add-files-and-build.sh
       - name: Run inclusive language check
         if: success() || failure()
         run: sp-tests/check-inclusive-language.sh
@@ -45,6 +47,8 @@ jobs:
         uses: actions/checkout@v4
       - name: Run init and build
         run: sp-tests/run-init-and-build.sh docs
+      - name: Add some files, build, and test
+        run: sp-tests/add-files-and-build.sh docs
       - name: Run inclusive language check
         if: success() || failure()
         run: sp-tests/check-inclusive-language.sh docs
