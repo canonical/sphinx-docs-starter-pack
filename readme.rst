@@ -232,7 +232,7 @@ your doc files were placed (repository root or the ``docs`` directory):
 Build a PDF
 ^^^^^^^^^^^
 
-The documentation can build PDFs locally with the following command:
+The documentation can build a PDF locally with the following command:
 
 .. code-block:: none
 
@@ -252,8 +252,8 @@ Required packages can be installed with:
 
 .. important::
     
-    When generating a PDF, it is important to not use additional headingsbefore the `toctree` on the index page. Documents referenced by the
-    `toctree` will be nested under any provided headings. 
+    When generating a PDF, it is important to not use additional headings before the ``toctree`` on the index page. Documents referenced by the
+    ``toctree`` will be nested under any provided headings. 
 
 Configure the documentation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
