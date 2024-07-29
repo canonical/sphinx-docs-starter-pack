@@ -232,7 +232,7 @@ your doc files were placed (repository root or the ``docs`` directory):
 Build a PDF
 ^^^^^^^^^^^
 
-The documentation can build a PDF locally with the following command:
+Build a PDF locally with the following command:
 
 .. code-block:: none
 
@@ -240,7 +240,7 @@ The documentation can build a PDF locally with the following command:
 
 PDF generation requires some system files. If these files are not found, a prompt will be presented and the generation will stop.
 
-Required packages can be installed with:
+On Linux, required packages can be installed with:
 
 .. code-block:: none
 
