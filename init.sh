@@ -35,7 +35,7 @@ fi
 # Check if .gitignore exists in the destination directory
 # If exists, append the contents of the source .gitignore to the destination .gitignore
 if [ -f "$install_directory/.gitignore" ]; then
-    echo "ACTION REQUIRED: .gitignore already exists in the destination directory. Check the contents before saving the file!"
+    echo "ACTION REQUIRED: .gitignore already exists in the destination directory."
     read -p "Do you want to append the list of ignored files for Sphinx docs to the existing .gitginore? Enter 'n' to skip. (y/n): " confirm
     if [ "$confirm" = "y" ]; then
         echo "Appending contents to the existing .gitignore..."
