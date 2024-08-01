@@ -41,21 +41,26 @@ if [ -f "$install_directory/.gitignore" ]; then
         echo "Appending contents to the existing .gitignore..."
         cat "$temp_directory/sp-files/.gitignore" >> "$install_directory/.gitignore"
     else
-        echo "Operation skipped by the user. No .gitignore rule is created for Sphinx docs."
+        echo "Operation skipped by the user. Add the .gitignore rules for the Sphinx docs to your .gitignore file manually."
     rm "$temp_directory/sp-files/.gitignore"
 fi
 
 # Check if Makefile exists in the destination directory
 if [ -f "$install_directory/Makefile" ]; then
     echo "ACTION REQUIRED: Makefile already exists in the destination directory. Check the contents before running the targets!"
-    read -p "Do you want to create the Sphinx docs Makefile as a backup file? Enter 'n' to skip. (y/n): " confirm
+    read -p "Do you want to add the Sphinx docs targets into the Makefile? The existing file will be saved a backup file. Enter 'n' to skip. (y/n): " confirm
     if [ "$confirm" = "y" ]; then
-        # Create a copy of Sphinx docs Makefile as backup
+        # Create a copy of the existing Makefile as backup
+        existing_makefile="$install_directory/Makefile"
         backup_makefile="$install_directory/Makefile.backup.$(date +%Y%m%d%H%M%S)"
-        echo "Creating a backup Makefile for Sphinx docs: $backup_makefile"
-        cp "$temp_directory/sp-files/Makefile" "$backup_makefile"
+        echo "Creating a backup: $backup_makefile"
+        cp "$existing_makefile" "$backup_makefile"
+
+        echo "Appending Sphinx docs targets to the existing Makefile..." 
+        echo "" >> "$existing_makefile"    # Add a new line before appending the contents
+        cat "$temp_directory/sp-files/Makefile" >> "$existing_makefile"
     else
-        echo "Operation skipped by the user. No Makefile is created for Sphinx docs."
+        echo "Operation skipped by the user. Add the Makefile targets for Sphinx docs manually."
     rm "$temp_directory/sp-files/Makefile"
 fi
 
