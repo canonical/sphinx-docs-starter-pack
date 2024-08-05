@@ -117,10 +117,10 @@ sp-vale: sp-install
 
 sp-pdf-prep: sp-install
 	@for packageName in $(REQPDFPACKS); do (dpkg-query -W -f='$${Status}' $$packageName 2>/dev/null | \
-      grep -c "ok installed" >/dev/null && echo "Package $$packageName is installed") || \
-      (echo "PDF generation requires the installation of the following packages: $(REQPDFPACKS)" && \
-      echo "" && echo "sudo make pdf-prep-force will install these packages" && echo "" && echo \
-      "Please be aware these packages will be installed to your system" && false) ; done
+        grep -c "ok installed" >/dev/null && echo "Package $$packageName is installed") || \
+        (echo "PDF generation requires the installation of the following packages: $(REQPDFPACKS)" && \
+        echo "" && echo "sudo make pdf-prep-force will install these packages" && echo "" && echo \
+        "Please be aware these packages will be installed to your system" && false) ; done
 
 sp-pdf-prep-force:
 	apt-get update

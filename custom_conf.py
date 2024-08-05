@@ -1,4 +1,5 @@
 import datetime
+import ast
 
 # Custom configuration for the Sphinx documentation builder.
 # All configuration specific to your project should be done in this file.
@@ -231,125 +232,11 @@ latex_additional_files = [
 latex_engine = 'xelatex'
 latex_show_pagerefs = True
 latex_show_urls = 'footnote'
-latex_elements = {
-    'papersize': 'a4paper',
-    'pointsize': '11pt',
-    'fncychap': '',
-    'preamble': r'''
-%\usepackage{charter}
-%\usepackage[defaultsans]{lato}
-%\usepackage{inconsolata}
-\setmainfont[UprightFont = *-R, BoldFont = *-B, ItalicFont=*-RI, Extension = .ttf]{Ubuntu}
-\setmonofont[UprightFont = *-R, BoldFont = *-B, ItalicFont=*-RI, Extension = .ttf]{UbuntuMono}
-\usepackage[most]{tcolorbox}
-\tcbuselibrary{breakable}
-\usepackage{lastpage}
-\usepackage{tabto}
-\usepackage{ifthen}
-\usepackage{etoolbox}
-\usepackage{fancyhdr}
-\usepackage{graphicx}
-\usepackage{titlesec}
-\usepackage{fontspec}
-\usepackage{tikz}
-\usepackage{changepage}
-\usepackage{array}
-\usepackage{tabularx}
-\definecolor{yellowgreen}{RGB}{154, 205, 50}
-\definecolor{title}{RGB}{76, 17, 48}
-\definecolor{subtitle}{RGB}{116, 27, 71}
-\definecolor{label}{RGB}{119, 41, 100}
-\definecolor{copyright}{RGB}{174, 167, 159}
-\makeatletter
-\def\tcb@finalize@environment{%
-  \color{.}% hack for xelatex
-  \tcb@layer@dec%
-}
-\makeatother
-\newenvironment{sphinxclassprompt}{\color{yellowgreen}\setmonofont[Color = 9ACD32, UprightFont = *-R, Extension = .ttf]{UbuntuMono}}{}
-\tcbset{enhanced jigsaw, colback=black, fontupper=\color{white}}
-\newtcolorbox{termbox}{use color stack, breakable, colupper=white, halign=flush left}
-\newenvironment{sphinxclassterminal}{\setmonofont[Color = white, UprightFont = *-R, Extension = .ttf]{UbuntuMono}\sphinxsetup{VerbatimColor={black}}\begin{termbox}}{\end{termbox}}
-\newcommand{\dimtorightedge}{%
-  \dimexpr\paperwidth-1in-\hoffset-\oddsidemargin\relax}
-\newcommand{\dimtotop}{%
-  \dimexpr\height-1in-\voffset-\topmargin-\headheight-\headsep\relax}
-\newtoggle{tpage}
-\AtBeginEnvironment{titlepage}{\global\toggletrue{tpage}}
-\fancypagestyle{plain}{
-    \fancyhf{}
-    \fancyfoot[R]{\thepage\ of \pageref*{LastPage}}
-    \renewcommand{\headrulewidth}{0pt}
-    \renewcommand{\footrulewidth}{0pt}
-}
-\fancypagestyle{normal}{
-    \fancyhf{}
-    \fancyfoot[R]{\thepage\ of \pageref*{LastPage}}
-    \renewcommand{\headrulewidth}{0pt}
-    \renewcommand{\footrulewidth}{0pt}
-}
-\fancypagestyle{titlepage}{%
-    \fancyhf{}
-    \fancyfoot[L]{\footnotesize \textcolor{copyright}{© 2024 Canonical Ltd. All rights reserved.}}
-}
-\newcommand\sphinxbackoftitlepage{\thispagestyle{titlepage}}
-\titleformat{\chapter}[block]{\Huge \color{title} \bfseries\filright}{\thechapter .}{1.5ex}{}
-\titlespacing{\chapter}{0pt}{0pt}{0pt}
-\titleformat{\section}[block]{\huge \bfseries\filright}{\thesection .}{1.5ex}{} 
-\titlespacing{\section}{0pt}{0pt}{0pt}
-\titleformat{\subsection}[block]{\Large \bfseries\filright}{\thesubsection .}{1.5ex}{} 
-\titlespacing{\subsection}{0pt}{0pt}{0pt}
-\setcounter{tocdepth}{1}
-\renewcommand\pagenumbering[1]{}
-''',
-    'sphinxsetup': 'verbatimwithframe=false, pre_border-radius=0pt, verbatimvisiblespace=\\phantom{}, verbatimcontinued=\\phantom{}',
-    'extraclassoptions': 'openany,oneside',
-    'maketitle': r'''
-\begin{titlepage}
-\begin{flushleft}
-    \begin{tikzpicture}[remember picture,overlay]
-    \node[anchor=south east, inner sep=0] at (current page.south east) {
-    \includegraphics[width=\paperwidth, height=\paperheight]{front-page-light}
-    };
-    \end{tikzpicture}
-\end{flushleft}
 
-\vspace*{3cm}
+with open(".sphinx/latex_elements_template.txt", "rt") as file:
+    latex_config = file.read()
 
-\begin{adjustwidth}{8cm}{0pt}
-\begin{flushleft}
-    \huge \textcolor{black}{\textbf{}{\raggedright{''' + project + r'''}}}
-\end{flushleft}
-\end{adjustwidth}
-
-\vfill
-
-\begin{adjustwidth}{8cm}{0pt}
-\begin{tabularx}{0.5\textwidth}{ l l }
-    \textcolor{lightgray}{© 2024 Canonical Ltd.}  & \hspace{3cm} \\
-    \textcolor{lightgray}{All rights reserved.}   & \hspace{3cm} \\
-                                                  & \hspace{3cm} \\
-                                                  & \hspace{3cm} \\
-                                 
-\end{tabularx}
-\end{adjustwidth}
-
-\end{titlepage}
-\RemoveFromHook{shipout/background}
-\AddToHook{shipout/background}{
-      \begin{tikzpicture}[remember picture,overlay]
-      \node[anchor=south west, align=left, inner sep=0] at (current page.south west) {
-        \includegraphics[width=\paperwidth]{normal-page-footer}
-      };
-      \end{tikzpicture}
-      \begin{tikzpicture}[remember picture,overlay]
-      \node[anchor=north east, opacity=0.5, inner sep=35] at (current page.north east) {
-        \includegraphics[width=4cm]{Canonical-logo-4x}
-      };
-      \end{tikzpicture}
-    }
-''',
-}
+latex_elements = ast.literal_eval(latex_config.replace("$PROJECT", project))
 
 
 ############################################################
