@@ -1,47 +1,62 @@
 #!/bin/bash
 
-# Generate a unique directory name based on timestamp
-timestamp=$(date +%Y%m%d%H%M%S)
-temp_directory="temp-starter-pack-$timestamp"
+set -euo pipefail
 
-# Ask the user for the installation directory
-read -p "Enter the installation directory (e.g., '.' or 'docs'): " install_directory
+# Check if the script is running in the expected root directory
+if [ ! -e ".git" ]; then
+    echo "ERROR: This script must be run from the root directory of the repository."
+    exit 1
+fi
 
-# Clone the starter pack repository to the temporary directory
+# Check if an installation directory argument is supplied; if not, prompt for it
+install_directory="${1:-}"
+if [ -z "$install_directory" ]; then
+
+    read -rp "Enter the installation directory (e.g., '.' or 'docs'): " install_directory
+fi
+
+# Normalise the install_directory path
+install_directory=$(realpath -m --relative-to="$(pwd)" "$install_directory")
+echo "Installing at $install_directory..."
+
+# Come up with a unique temporary directory name based on the current timestamp
+temp_directory="temp-starter-pack-$(date +%Y%m%d%H%M%S)"
+
+# Clone the starter pack repository into the temporary directory and de-git it
 echo "Cloning the starter pack repository..."
 git clone --depth 1 -b use-canonical-sphinx-extension --single-branch https://github.com/canonical/starter-pack "$temp_directory"
-#git clone --depth 1 https://github.com/canonical/sphinx-docs-starter-pack "$temp_directory"
 rm -rf "$temp_directory/.git"
 
-# Update file contents for the install directory
+# Update workflow and documentation files based on the installation directory
 echo "Updating working directory in workflow files..."
 sed -i "s|working-directory:\s*'\.'|working-directory: '$install_directory'|g" "$temp_directory/sp-files/.github/workflows"/*
 echo "Updating .readthedocs.yaml configuration..."
 sed -i "s|configuration:\s*sp-docs/conf\.py|configuration: $install_directory/conf.py|g" "$temp_directory/sp-files/.readthedocs.yaml"
 sed -i "s|requirements:\s*sp-docs/\.sphinx/requirements\.txt|requirements: $install_directory/.sphinx/requirements.txt|g" "$temp_directory/sp-files/.readthedocs.yaml"
-echo "Updating conf.py configuration..."
-if [ "$install_directory" == "." ]; then
-    sed -i "s|'github_folder':\s*'/sp-docs/'|'github_folder': '/'|g" "$temp_directory/sp-files/conf.py"
-else
-    sed -i "s|'github_folder':\s*'/sp-docs/'|'github_folder': '/$install_directory/'|g" "$temp_directory/sp-files/conf.py"
-fi
 
-# Create the specified installation directory if it doesn't exist
+# Update the GitHub folder path in the configuration file
+echo "Updating conf.py configuration..."
+github_folder="/$install_directory/"
+[ "$install_directory" == "." ] && github_folder="/"
+sed -i "s|'github_folder':\s*'/sp-docs/'|'github_folder': '$github_folder'|g" "$temp_directory/sp-files/conf.py"
+
+# Tell that the directory's about to be created if it doesn't exist
 if [ ! -d "$install_directory" ]; then
     echo "Creating the installation directory: $install_directory"
     mkdir -p "$install_directory"
 fi
 
 # Check if .gitignore exists in the destination directory
-# If exists, append the contents of the source .gitignore to the destination .gitignore
+# If it does, append the contents of the source .gitignore to the destination
 if [ -f "$install_directory/.gitignore" ]; then
     echo "ACTION REQUIRED: .gitignore already exists in the destination directory."
-    read -p "Do you want to append the list of ignored files for Sphinx docs to the existing .gitginore? Enter 'n' to skip. (y/n): " confirm
+    read -p "Do you want to append the list of ignored files for Sphinx docs to the existing .gitignore? Enter 'n' to skip. (y/n): " confirm
     if [ "$confirm" = "y" ]; then
         echo "Appending contents to the existing .gitignore..."
         cat "$temp_directory/sp-files/.gitignore" >> "$install_directory/.gitignore"
     else
         echo "Operation skipped by the user. Add the .gitignore rules for the Sphinx docs to your .gitignore file manually."
+    fi
     rm "$temp_directory/sp-files/.gitignore"
 fi
 
@@ -61,6 +76,7 @@ if [ -f "$install_directory/Makefile" ]; then
         cat "$temp_directory/sp-files/Makefile" >> "$existing_makefile"
     else
         echo "Operation skipped by the user. Add the Makefile targets for Sphinx docs manually."
+    fi
     rm "$temp_directory/sp-files/Makefile"
 fi
 
@@ -68,23 +84,41 @@ fi
 echo "Copying contents to the installation directory..."
 cp -R "$temp_directory"/sp-files/* "$temp_directory"/sp-files/.??* "$install_directory"
 
-# Move workflow files and configuration
+# Ensure GitHub workflows and woke config are placed in the repo root
+# if installing in a non-root directory
 if [ "$install_directory" != "." ]; then
-    echo "Moving workflow files and configuration..."
-    if [ ! -d .github/workflows ]; then
-        mkdir -p .github/workflows
-    fi
-    mv "$install_directory/.github/workflows"/* .github/workflows
+    echo "Handling GitHub workflow files and .wokeignore configuration..."
+    mkdir -p .github/workflows
+    for file in "$install_directory/.github/workflows/"*; do
+        [ -f "$file" ] || continue
+        basefile=$(basename "$file")
+        if [ ! -f .github/workflows/"$basefile" ]; then
+            mv "$file" .github/workflows/
+        else
+            echo "ACTION REQUIRED: GitHub workflow '$basefile' already exists and was not overwritten."
+        fi
+    done
     rmdir -p --ignore-fail-on-non-empty "$install_directory/.github/workflows"
-    if [ ! -f .wokeignore ]; then
-        ln -s "$install_directory/.wokeignore"
-    else
-        echo "ACTION REQUIRED: Found a .wokeignore file in the root directory. Include the contents from $install_directory/.wokeignore in this file!"
+
+    if [ -f "$install_directory/.wokeignore" ]; then
+        if [ -f .wokeignore ]; then
+            echo "ACTION REQUIRED: A .wokeignore file already exists in the root directory."
+            read -p "Do you want to append the contents of $install_directory/.wokeignore to the existing .wokeignore? Enter 'n' to skip. (y/n): " confirm
+            if [ "$confirm" = "y" ]; then
+                echo "Appending contents to the existing .wokeignore..."
+                cat "$install_directory/.wokeignore" >> .wokeignore
+                rm "$install_directory/.wokeignore"
+            else
+                echo "Operation skipped by the user. Add the rules from $install_directory/.wokeignore to your .wokeignore file manually."
+            fi
+        else
+            ln -s "$install_directory/.wokeignore" .wokeignore
+        fi
     fi
 fi
 
-# Clean up
-echo "Cleaning up..."
+# Clean up the temporary directory
+echo "Cleaning up temporary files..."
 rm -rf "$temp_directory"
 
-echo "Setup completed!"
+echo "Setup successfully completed!"

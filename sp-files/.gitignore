@@ -1,3 +1,5 @@
+
+# Starter pack rules start here
 /*env*/
 .sphinx/venv/
 .sphinx/warnings.txt
