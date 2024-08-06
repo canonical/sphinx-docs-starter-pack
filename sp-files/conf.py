@@ -216,3 +216,7 @@ rst_prolog = '''
 .. role:: center
    :class: align-center
 '''
+
+# Workaround for https://github.com/canonical/canonical-sphinx/issues/34
+if not 'discourse_prefix' in html_context and 'discourse' in html_context:
+    html_context['discourse_prefix'] = html_context['discourse'] + '/t/'
