@@ -17,7 +17,7 @@ VENV          = $(VENVDIR)/bin/activate
 TARGET        = *
 ALLFILES      =  *.rst **/*.rst
 ADDPREREQS    ?=
-REQPDFPACKS   = latexmk fonts-freefont-otf fonts-ibm-plex texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-font-utils texlive-lang-cjk texlive-xetex plantuml xindy tex-gyre dvipng
+REQPDFPACKS   = latexmk fonts-freefont-otf texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-font-utils texlive-lang-cjk texlive-xetex plantuml xindy tex-gyre dvipng
 
 .PHONY: sp-full-help sp-woke-install sp-pa11y-install sp-install sp-run sp-html \
         sp-epub sp-serve sp-clean sp-clean-doc sp-spelling sp-spellcheck sp-linkcheck sp-woke \
@@ -117,10 +117,10 @@ sp-vale: sp-install
 
 sp-pdf-prep: sp-install
 	@for packageName in $(REQPDFPACKS); do (dpkg-query -W -f='$${Status}' $$packageName 2>/dev/null | \
-        grep -c "ok installed" >/dev/null && echo "Package $$packageName is installed") || \
-        (echo "PDF generation requires the installation of the following packages: $(REQPDFPACKS)" && \
-        echo "" && echo "sudo make pdf-prep-force will install these packages" && echo "" && echo \
-        "Please be aware these packages will be installed to your system" && false) ; done
+        grep -c "ok installed" >/dev/null && echo "Package $$packageName is installed") && continue || \
+        (echo "\nPDF generation requires the installation of the following packages: $(REQPDFPACKS)" && \
+        echo "" && echo "Run sudo make pdf-prep-force to install these packages" && echo "" && echo \
+        "Please be aware these packages will be installed to your system") && break ; done
 
 sp-pdf-prep-force:
 	apt-get update
@@ -131,8 +131,8 @@ sp-pdf: sp-pdf-prep
 	@. $(VENV); sphinx-build -M latexpdf "$(SOURCEDIR)" "_build" $(SPHINXOPTS)
 	@. $(VENV); rm ./_build/latex/front-page-light.pdf || true
 	@. $(VENV); rm ./_build/latex/normal-page-footer.pdf || true
-	@. $(VENV); find ./_build/latex -name "*.pdf" -exec mv -t ./ {} +
-	@. $(VENV); rm -r _build
+	@. $(VENV); find ./_build/latex -name "*.pdf" -exec mv -t ./_build {} +
+	@. $(VENV); rm -r _build/latex
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).

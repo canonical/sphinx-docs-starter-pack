@@ -252,10 +252,11 @@ On Linux, required packages can be installed with:
 
 .. important::
     
-    When generating a PDF, it is important to not use additional headings before the ``toctree`` on the index page. Documents referenced by the
+    When generating a PDF, it is important to not use additional headings before a ``toctree``. Documents referenced by the
     ``toctree`` will be nested under any provided headings.
 
     A ``rubric`` directive can be combined with the ``h2`` class to provide a heading styled rubric in the HTML output. See the default ``index.rst`` for an example.
+    Rubric based headings will not be included as an entry in the table of contents or side navigation.
 
 Configure the documentation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
