@@ -1,5 +1,4 @@
 import datetime
-import ast
 
 # Custom configuration for the Sphinx documentation builder.
 # All configuration specific to your project should be done in this file.

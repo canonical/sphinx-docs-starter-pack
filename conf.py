@@ -4,6 +4,7 @@ import requests
 from urllib.parse import urlparse
 from git import Repo, InvalidGitRepositoryError
 import time
+import ast
 
 sys.path.append('./')
 from custom_conf import *
