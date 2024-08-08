@@ -222,4 +222,6 @@ custom_tags = []
 rst_prolog = '''
 .. role:: center
    :class: align-center
+.. role:: h2
+    :class: hclass2
 '''

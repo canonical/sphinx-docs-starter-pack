@@ -19,6 +19,8 @@ Also see the `Sphinx reStructuredText Primer <https://www.sphinx-doc.org/en/mast
 H2 heading
 ----------
 
+.. rubric:: :h2:`H2 heading without TOC entry`
+
 H3 heading
 ~~~~~~~~~~
 
