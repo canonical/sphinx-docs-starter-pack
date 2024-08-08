@@ -120,7 +120,7 @@ sp-pdf-prep: sp-install
         grep -c "ok installed" >/dev/null && echo "Package $$packageName is installed") && continue || \
         (echo "\nPDF generation requires the installation of the following packages: $(REQPDFPACKS)" && \
         echo "" && echo "Run sudo make pdf-prep-force to install these packages" && echo "" && echo \
-        "Please be aware these packages will be installed to your system") && break ; done
+        "Please be aware these packages will be installed to your system") && exit 1 ; done
 
 sp-pdf-prep-force:
 	apt-get update
@@ -128,11 +128,12 @@ sp-pdf-prep-force:
 	apt-get install --no-install-recommends -y $(REQPDFPACKS) \
 
 sp-pdf: sp-pdf-prep
-	@. $(VENV); sphinx-build -M latexpdf "$(SOURCEDIR)" "_build" $(SPHINXOPTS)
-	@. $(VENV); rm ./_build/latex/front-page-light.pdf || true
-	@. $(VENV); rm ./_build/latex/normal-page-footer.pdf || true
-	@. $(VENV); find ./_build/latex -name "*.pdf" -exec mv -t ./_build {} +
-	@. $(VENV); rm -r _build/latex
+	@. $(VENV); sphinx-build -M latexpdf "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
+	@rm ./$(BUILDDIR)/latex/front-page-light.pdf || true
+	@rm ./$(BUILDDIR)/latex/normal-page-footer.pdf || true
+	@find ./$(BUILDDIR)/latex -name "*.pdf" -exec mv -t ./$(BUILDDIR) {} +
+	@rm -r $(BUILDDIR)/latex
+	@echo "\nOutput can be found in ./$(BUILDDIR)\n"
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
