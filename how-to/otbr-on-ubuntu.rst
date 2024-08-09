@@ -139,3 +139,25 @@ Use the following command to query and follow the logs:
 .. code:: bash
 
     snap logs -n 100 -f openthread-border-router
+
+
+Form a Thread network
+---------------------
+
+Use the CTL tool to initialize the Thread network:
+
+.. code:: bash
+
+    sudo openthread-border-router.ot-ctl dataset init new
+    sudo openthread-border-router.ot-ctl dataset commit active
+    sudo openthread-border-router.ot-ctl ifconfig up
+    sudo openthread-border-router.ot-ctl thread start
+
+Alternatively, these steps could be performed with the GUI at `http://localhost:80 <http://localhost:80>`_.
+Please refer to the instructions `here <https://openthread.io/guides/border-router/web-gui.md>`_ to configure and form, join, or check the status of a Thread network using the GUI.
+
+
+Controlling a Thread device
+---------------------------
+
+To commission and control a Matter Thread device, you can use Chip Tool; refer to :doc:`chip-tool-commission-and-control`.
