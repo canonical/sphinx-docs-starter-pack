@@ -170,7 +170,8 @@ custom_extensions = [
     'canonical.related-links',
     'canonical.custom-rst-roles',
     'canonical.terminal-output',
-    'notfound.extension'
+    'notfound.extension',
+    'sphinxcontrib.cairosvgconverter',
     ]
 
 # Add custom required Python modules that must be added to the
@@ -180,7 +181,9 @@ custom_extensions = [
 # pyspelling, sphinx, sphinx-autobuild, sphinx-copybutton, sphinx-design,
 # sphinx-notfound-page, sphinx-reredirects, sphinx-tabs, sphinxcontrib-jquery,
 # sphinxext-opengraph
-custom_required_modules = []
+custom_required_modules = [
+    'sphinxcontrib-svg2pdfconverter'
+]
 
 # Add files or directories that should be excluded from processing.
 custom_excludes = [

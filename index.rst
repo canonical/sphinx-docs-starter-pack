@@ -13,6 +13,8 @@ For quick help on reST or MyST syntax, see the :file:`doc-cheat-sheet.rst.txt` o
 
 More information is available in the `reStructuredText style guide`_.
 
+.. image:: .sphinx/images/test-svg.drawio.svg
+
 .. rubric:: :h2:`In this documentation`
 
 .. toctree::
