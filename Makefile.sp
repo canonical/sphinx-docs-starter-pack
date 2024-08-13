@@ -129,11 +129,11 @@ sp-pdf-prep-force:
 
 sp-pdf: sp-pdf-prep
 	@. $(VENV); sphinx-build -M latexpdf "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
-#	@rm ./$(BUILDDIR)/latex/front-page-light.pdf || true
-#	@rm ./$(BUILDDIR)/latex/normal-page-footer.pdf || true
-#	@find ./$(BUILDDIR)/latex -name "*.pdf" -exec mv -t ./$(BUILDDIR) {} +
-#	@rm -r $(BUILDDIR)/latex
-#	@echo "\nOutput can be found in ./$(BUILDDIR)\n"
+	@rm ./$(BUILDDIR)/latex/front-page-light.pdf || true
+	@rm ./$(BUILDDIR)/latex/normal-page-footer.pdf || true
+	@find ./$(BUILDDIR)/latex -name "*.pdf" -exec mv -t ./$(BUILDDIR) {} +
+	@rm -r $(BUILDDIR)/latex
+	@echo "\nOutput can be found in ./$(BUILDDIR)\n"
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
