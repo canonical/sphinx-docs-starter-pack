@@ -110,13 +110,13 @@ sp-vale: sp-install
 	@. $(VENV); test -d $(SPHINXDIR)/venv/lib/python*/site-packages/vale || pip install vale
 	@. $(VENV); test -f $(SPHINXDIR)/vale.ini || python3 $(SPHINXDIR)/get_vale_conf.py
 	@. $(VENV); find $(SPHINXDIR)/venv/lib/python*/site-packages/vale/vale_bin -size 195c -exec vale --config "$(SPHINXDIR)/vale.ini" $(TARGET) > /dev/null \;
-	@cat .sphinx/styles/config/vocabularies/Canonical/accept.txt > .sphinx/styles/config/vocabularies/Canonical/accept_backup.txt
-	@cat .wordlist.txt .custom_wordlist.txt >> .sphinx/styles/config/vocabularies/Canonical/accept.txt
+	@cat $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept.txt > $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept_backup.txt
+	@cat $(SOURCEDIR).wordlist.txt .custom_wordlist.txt >> $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept.txt
 	@echo ""
 	@echo "Running Vale against $(TARGET). To change target set TARGET= with make command"
 	@echo ""
 	@. $(VENV); vale --config "$(SPHINXDIR)/vale.ini" --glob='*.{md,txt,rst}' $(TARGET) || true
-	@cat .sphinx/styles/config/vocabularies/Canonical/accept_backup.txt > .sphinx/styles/config/vocabularies/Canonical/accept.txt && rm .sphinx/styles/config/vocabularies/Canonical/accept_backup.txt
+	@cat $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept_backup.txt > $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept.txt && rm $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept_backup.txt
 
 sp-pdf-prep: sp-install
 	@for packageName in $(REQPDFPACKS); do (dpkg-query -W -f='$${Status}' $$packageName 2>/dev/null | \
