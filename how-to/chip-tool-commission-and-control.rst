@@ -89,6 +89,9 @@ Commission
 
       Here, we assume the use of OpenThread implementation of the Thread Border Router.
 
+      .. note::
+         You may need to `enable experimental Bluetooth support <https://project-chip.github.io/connectedhomeip-doc/guides/BUILDING.html#enable-experimental-bluetooth-support-and-disable-battery-plugin-in-bluez>`_ to allow BLE advertising and discovery.
+
       1. Obtain the Active Operational Dataset for the existing Thread network:
 
       .. tabs::
@@ -126,7 +129,20 @@ Commission
       -  ``20202021`` is the pin code set on the device
       -  ``3840`` is the discriminator id
 
-      On the OTBR GUI, under the Topology tab, you can now see the two connected Thread nodes:
+      .. note::
+         It is also possible to commission a Thread device using a manual pairing code, without using Bluetooth Low Energy (BLE).
+
+         .. code:: shell
+
+            chip-tool pairing code-thread 110 hex:0e08...f7f8 34970112332
+
+         where:
+
+         - ``34970112332`` is the short manual pairing code
+
+         Details on how to use this can be found in the `Matter documentation <https://project-chip.github.io/connectedhomeip-doc/guides/chip_tool_guide.html#pairing>`_.
+
+      3. (optional) On the OTBR GUI, under the Topology tab, you can now see the two connected Thread nodes:
 
       .. image:: chip-tool-commission-and-control/thread-network-topology.png
 
