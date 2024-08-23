@@ -128,7 +128,8 @@ For example, if the networking interface is :code:`eth0`, change it as follows:
 Start OTBR
 ----------
 
-With everything configured, we can now start and enable the services:
+By default the services are disabled and not started.
+After everything is configured, we can start and enable the services:
 
 .. code:: bash
 
@@ -139,6 +140,9 @@ Use the following command to query and follow the logs:
 .. code:: bash
 
     snap logs -n 100 -f openthread-border-router
+
+.. note:: 
+    To start and enable via a `Gadget snap <https://snapcraft.io/docs/the-gadget-snap>`_, set `autostart` to `true`.
 
 
 Form a Thread network
