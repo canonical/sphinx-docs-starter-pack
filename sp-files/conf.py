@@ -37,7 +37,8 @@ html_title = project + ' documentation'
 
 # Copyright string; shown at the bottom of the page
 #
-# This uses CC-BY-SA as the license and the current year as the copyright year.
+# Now, the starter pack uses CC-BY-SA as the license
+# and the current year as the copyright year.
 #
 # TODO: If your docs need a different license, specify it instead of 'CC-BY-SA'.
 #
@@ -45,8 +46,9 @@ html_title = project + ' documentation'
 #       it inherits the code license instead; specify it instead of 'CC-BY-SA'.
 #
 # NOTE: For static works, it is common to provide the year of first publication.
-#       Another option is to give the first year and the current year for
-#       documentation that is often changed, e.g. 2022–2023 (note the en-dash).
+#       Another option is to provide both the first year of publication
+#       and the current year, especially for docs that frequently change,
+#       e.g. 2022–2023 (note the en-dash).
 #
 #       A way to check a repo's creation date is to get a classic GitHub token
 #       with 'repo' permissions; see https://github.com/settings/tokens
@@ -119,7 +121,7 @@ html_context = {
     # TODO: Change to your Discourse instance URL or leave empty.
     #
     # NOTE: If set, adding ':discourse: 123' to an .rst file
-    #       adds a link to Discourse topic 123 at the bottom of the page.
+    #       will add a link to Discourse topic 123 at the bottom of the page.
 
     'discourse': 'https://discourse.ubuntu.com',
 
@@ -226,7 +228,7 @@ linkcheck_anchors_ignore_for_url = [
 # Custom Sphinx extensions; see
 # https://www.sphinx-doc.org/en/master/usage/extensions/index.html
 
-# NOTE: The canonical_sphinx extension is required for the starte pack.
+# NOTE: The canonical_sphinx extension is required for the starter pack.
 #       It automatically enables the following extensions:
 #       - custom-rst-roles
 #       - myst_parser
