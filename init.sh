@@ -15,6 +15,32 @@ if [ -z "$install_directory" ]; then
     read -rp "Enter the installation directory (e.g., '.' or 'docs'): " install_directory
 fi
 
+# Check if md or rst is preferred for the documentation being built
+promptForFileChoice()
+{
+while true; do
+    read -p "Will you be using the 'rst' or 'md' file format for the documentation (default: 'rst'): " filetype_choice
+
+    filetype_choice=${filetype_choice:-rst}
+
+    if [ "$filetype_choice" = "md" ] || [ "$filetype_choice" = "rst" ]; then
+        file_type="$filetype_choice"
+        echo "Setting filetype to: $file_type"
+        break
+    else
+        echo "Invalid input. Please enter either 'md' or 'rst':"
+    fi
+done
+}
+
+# If variable filetype choice is defined in CI then don't prompt user for choice
+if [ -z "${default_filetype_choice:-}" ]; then
+    promptForFileChoice
+else
+    file_type="$default_filetype_choice"
+    echo "Using predefined filetype choice: $file_type"
+fi
+
 # Normalise the install_directory path
 install_directory=$(realpath -m --relative-to="$(pwd)" "$install_directory")
 echo "Installing at $install_directory..."
@@ -83,6 +109,22 @@ fi
 # Copy the rest of the starter pack repository to the installation directory
 echo "Copying contents to the installation directory..."
 cp -R "$temp_directory"/sp-files/* "$temp_directory"/sp-files/.??* "$install_directory"
+
+# Delete files with unpreferred filetype in the installation directory
+if [ -z "${default_filetype_choice:-}" ]; then
+    echo "Default filetype not defined, so proceed with deleting unpreferred filetype."
+    if [ "$file_type" = 'md' ]; then
+        echo "Deleting rst files..."
+        rm "$install_directory"/doc-cheat-sheet.rst
+        rm "$install_directory"/index.rst
+    else
+        echo "Deleting md files..."
+        rm "$install_directory"/doc-cheat-sheet-myst.md
+        rm "$install_directory"/index.md
+    fi
+else
+    echo "Default filetype is defined, so skip filetype deletion."
+fi
 
 # Ensure GitHub workflows and woke config are placed in the repo root
 # if installing in a non-root directory
