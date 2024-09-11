@@ -17,6 +17,8 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@v4
       - name: Run init and build
+        env:
+          default_filetype_choice: md # don't prompt for user choice
         run: sp-tests/run-init-and-build.sh
       - name: Add some files, build, and test
         run: sp-tests/add-files-and-build.sh
@@ -46,6 +48,8 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@v4
       - name: Run init and build
+        env:
+          default_filetype_choice: md # don't prompt for user choice
         run: sp-tests/run-init-and-build.sh docs
       - name: Add some files, build, and test
         run: sp-tests/add-files-and-build.sh docs

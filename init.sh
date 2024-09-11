@@ -33,7 +33,7 @@ while true; do
 done
 }
 
-# If variable filetype choice is defined in CI then don't prompt user for choice
+# If default variable for filetype choice is defined in CI then don't prompt user for choice
 if [ -z "${default_filetype_choice:-}" ]; then
     promptForFileChoice
 else
