@@ -1,0 +1,7 @@
+metrics:
+  wordcounttotal: 0
+  filecount: 0
+  linkcount: 0
+  imagecount: 0
+tests:
+  readable: true

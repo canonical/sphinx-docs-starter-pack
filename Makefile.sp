@@ -10,6 +10,7 @@ SPHINXDIR     = .sphinx
 SPHINXOPTS    ?= -c . -d $(SPHINXDIR)/.doctrees -j auto
 SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = .
+METRICSDIR    = $(SOURCEDIR)/metrics
 BUILDDIR      = _build
 VENVDIR       = $(SPHINXDIR)/venv
 PA11Y         = $(SPHINXDIR)/node_modules/pa11y/bin/pa11y.js --config $(SPHINXDIR)/pa11y.json
@@ -19,9 +20,11 @@ ALLFILES      =  *.rst **/*.rst
 ADDPREREQS    ?=
 REQPDFPACKS   = latexmk fonts-freefont-otf texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-font-utils texlive-lang-cjk texlive-xetex plantuml xindy tex-gyre dvipng
 
+# include metrics/scripts/simple.sh
+
 .PHONY: sp-full-help sp-woke-install sp-pa11y-install sp-install sp-run sp-html \
         sp-epub sp-serve sp-clean sp-clean-doc sp-spelling sp-spellcheck sp-linkcheck sp-woke \
-        sp-pa11y sp-pdf-prep-force sp-pdf-prep sp-pdf Makefile.sp sp-vale
+        sp-allmetrics sp-pa11y sp-pdf-prep-force sp-pdf-prep sp-pdf Makefile.sp sp-vale sp-bash
 
 sp-full-help: $(VENVDIR)
 	@. $(VENV); $(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
@@ -137,6 +140,13 @@ sp-pdf: sp-pdf-prep
 	@find ./$(BUILDDIR)/latex -name "*.pdf" -exec mv -t ./$(BUILDDIR) {} +
 	@rm -r $(BUILDDIR)/latex
 	@echo "\nOutput can be found in ./$(BUILDDIR)\n"
+
+sp-allmetrics:
+	@echo "Recording metrics..."
+	@if [ ! -f '$(METRICSDIR)/metrics.yaml' ]; then touch $(METRICSDIR)/metrics.yaml; fi
+	@eval '$(METRICSDIR)/scripts/source_metrics.sh $(PWD)'
+	@eval '$(METRICSDIR)/scripts/build_metrics.sh $(PWD) $(METRICSDIR)'
+	
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
