@@ -20,8 +20,6 @@ ALLFILES      =  *.rst **/*.rst
 ADDPREREQS    ?=
 REQPDFPACKS   = latexmk fonts-freefont-otf texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-font-utils texlive-lang-cjk texlive-xetex plantuml xindy tex-gyre dvipng
 
-# include metrics/scripts/simple.sh
-
 .PHONY: sp-full-help sp-woke-install sp-pa11y-install sp-install sp-run sp-html \
         sp-epub sp-serve sp-clean sp-clean-doc sp-spelling sp-spellcheck sp-linkcheck sp-woke \
         sp-allmetrics sp-pa11y sp-pdf-prep-force sp-pdf-prep sp-pdf Makefile.sp sp-vale sp-bash
