@@ -54,7 +54,7 @@ $(VENVDIR): $(SPHINXDIR)/requirements.txt
 
 # sp-run depends on $(BUILDDIR)
 $(BUILDDIR):
-	@echo "... creating buid directory"; \
+	@echo "... creating build directory"; \
     mkdir -p $(BUILDDIR)
 
 # sp-run depends on $(SPHINXDIR)/.doctrees
