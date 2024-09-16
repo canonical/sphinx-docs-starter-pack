@@ -52,6 +52,16 @@ $(VENVDIR): $(SPHINXDIR)/requirements.txt
 	@. $(VENV); pip list --local --format=freeze > $(VENVDIR)/pip_list.txt
 	@touch $(VENVDIR)
 
+# sp-run depends on $(BUILDDIR)
+$(BUILDDIR):
+	@echo "... creating buid directory"; \
+    mkdir -p $(BUILDDIR)
+
+# sp-run depends on $(SPHINXDIR)/.doctrees
+$(SPHINXDIR)/.doctrees:
+	@echo "... creating doctrees directory"; \
+    mkdir -p $(SPHINXDIR)/.doctrees
+
 sp-woke-install:
 	@type woke >/dev/null 2>&1 || \
             { echo "Installing \"woke\" snap... \n"; sudo snap install woke; }
@@ -65,7 +75,7 @@ sp-pa11y-install:
 
 sp-install: $(VENVDIR)
 
-sp-run: sp-install
+sp-run: sp-install $(BUILDDIR) $(SPHINXDIR)/.doctrees
 	. $(VENV); sphinx-autobuild -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
 
 # Doesn't depend on $(BUILDDIR) to rebuild properly at every run.
