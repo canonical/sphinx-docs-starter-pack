@@ -139,8 +139,13 @@ sp-pdf: sp-pdf-prep
 	@rm -r $(BUILDDIR)/latex
 	@echo "\nOutput can be found in ./$(BUILDDIR)\n"
 
-sp-allmetrics:
-	@echo "Recording metrics..."
+sp-allmetrics: sp-install
+	@echo "Recording documentation metrics..."
+	@echo "Checking for existence of vale..."
+	. $(VENV)
+	@. $(VENV); test -d $(SPHINXDIR)/venv/lib/python*/site-packages/vale || pip install vale
+	@. $(VENV); test -f $(SPHINXDIR)/vale.ini || python3 $(SPHINXDIR)/get_vale_conf.py
+	@. $(VENV); find $(SPHINXDIR)/venv/lib/python*/site-packages/vale/vale_bin -size 195c -exec vale --config "$(SPHINXDIR)/vale.ini" $(TARGET) > /dev/null \;
 	@if [ ! -f '$(METRICSDIR)/metrics.yaml' ]; then touch $(METRICSDIR)/metrics.yaml; fi
 	@eval '$(METRICSDIR)/scripts/source_metrics.sh $(PWD)'
 	@eval '$(METRICSDIR)/scripts/build_metrics.sh $(PWD) $(METRICSDIR)'
