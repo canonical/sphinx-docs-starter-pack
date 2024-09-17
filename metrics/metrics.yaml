@@ -1,7 +1,10 @@
 metrics:
-  wordcounttotal: 0
   filecount: 0
   linkcount: 0
   imagecount: 0
+  wordcountraw: 0
+  wordcounttotal: 0
+  wordcountaverage: 0
+  readability: 0.00
 tests:
   readable: true
