@@ -1,7 +1,6 @@
 .. TODO: Replace all mentions of ACME with your project name
-.. TODO: Adjust all URLs (GitHub, etc.) accordingly
-.. TODO: Adjust the guide as needed
-.. TODO: Address all other TODOs below
+.. TODO: Update all sections containing TODOs; make sure no TODOs are left
+
 
 How to contribute
 =================
@@ -35,8 +34,10 @@ When contributing, you must abide by the
 Licence and copyright
 ---------------------
 
+.. TODO: Update with your license details or drop if excessive
+
 By default, all contributions to ACME are made under the AGPLv3 licence.
-See the `licence <https://github.com/canonical/acme/blob/main/COPYING>`_
+See the `licence <https://github.com/canonical/ACME/blob/main/COPYING>`_
 in the ACME GitHub repository for details.
 
 All contributors must sign the `Canonical contributor licence agreement
@@ -46,56 +47,106 @@ The author of a change remains the copyright owner of their code
 (no copyright assignment occurs).
 
 
-Pull requests
--------------
+Releases and versions
+---------------------
 
-Submit your changes as pull requests on `GitHub
-<https://github.com/canonical/acme>`_.
-Before you open a pull request,
-ensure that the build occurs without any warnings or errors;
-this includes documentation and tests.
+.. TODO: Add your release and versioning details or drop if excessive
+
+ACME uses `semantic versioning <https://semver.org/>`_;
+major releases occur once or twice a year.
+
+The release notes can be found `TODO: here <https://example.com>`_.
+
+
+Environment setup
+-----------------
+
+.. TODO: Update with your prerequisites or drop if excessive
+
+To work on the project, you need the following prerequisites:
+
+- `TODO: Prerequisite 1 <http://example.com>`_
+- `TODO: Prerequisite 2 <http://example.com>`_
+
+
+To install and configure these tools:
+
+.. code-block:: console
+
+   TODO: prerequisite command 1
+   TODO: prerequisite command 2
+
+
+Submitting changes
+------------------
+
+.. TODO: Suggest your own PR process or drop if excessive
+
+If you want to address an issue or a bug in ACME,
+notify in advance the people involved to avoid confusion;
+also, reference the issue or bug number when you submit the changes.
+
+- `Fork
+  <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks>`_
+  our `GitHub repository <https://github.com/canonical/ACME>`_
+  and add the changes to your fork,
+  properly structuring your commits,
+  providing detailed commit messages
+  and signing your commits.
+
+- Make sure the updated project builds and runs without warnings or errors;
+  this includes linting, documentation, code and tests.
+
+- Submit the changes as a `pull request (PR)
+  <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork>`_.
+
 
 Your changes will be reviewed in due time;
 if approved, they will be eventually merged.
 
 
-PR description
-~~~~~~~~~~~~~~
+Describing pull requests
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. TODO: Update with your template checklist details or drop if excessive
+.. TODO: Update with your own checklist or drop if excessive
+
+To be properly considered, reviewed and merged,
+your pull request must provide the following details:
 
 - **Title**: Summarise the change in a short, descriptive title.
 
-- **Description**: Provide an explanation of the problem your PR addresses.
-  Highlight any new features, bug fixes or refactoring.
+- **Description**: Explain the problem that your pull request solves.
+  Mention any new features, bug fixes or refactoring.
 
 - **Relevant issues**: Reference any
-  `related issues, PRs and repos <https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls>`_.
+  `related issues, pull requests and repositories <https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls>`_.
 
 - **Testing**: Explain whether new or updated tests are included.
 
 - **Reversibility**: If you propose decisions that may be costly to reverse,
-  outline the reasons and provide the steps to reverse if necessary.
+  list the reasons and suggest steps to reverse the changes if necessary.
 
 
-Commits
-~~~~~~~
+Commit structure and messages
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. TODO: Update with your own guidelines or drop if excessive
 
 Use separate commits for each logical change,
 and for changes to different components.
-Prefix your commits with the component they affect,
+Prefix your commit messages with names of components they affect,
 using the code tree structure,
-e.g. prefix a commit that updates the ACME service with ``acme/service:``.
+e.g. start a commit that updates the ACME service with ``ACME/service:``.
 
 Use `conventional commits <https://www.conventionalcommits.org/>`_
-for your commit messages to ensure consistency across the project:
+to ensure consistency across the project:
 
 .. code-block:: none
 
    Ensure correct permissions and ownership for the content mounts
     
     * Work around an ACME issue regarding empty dirs:
-      https://github.com/canonical/acme/issues/12345
+      https://github.com/canonical/ACME/issues/12345
     
     * Ensure the source directory is owned by the user running a container.
 
@@ -108,13 +159,14 @@ Such structure makes it easier to review contributions
 and simplifies porting fixes to other branches.
 
 
-Developer certificate of origin
--------------------------------
+Signing commits
+~~~~~~~~~~~~~~~
 
-.. TODO: Update with your details or drop if excessive
+.. TODO: Update with your suggestions or drop if excessive
 
 To improve contribution tracking,
-we use the `DCO 1.1 <https://developercertificate.org/>`_
+we use the developer certificate of origin
+(`DCO 1.1 <https://developercertificate.org/>`_)
 and require a "sign-off" for any changes going into each branch.
 
 The sign-off is a simple line at the end of the commit message
@@ -127,21 +179,27 @@ To sign off on a commit, use the ``--signoff`` option in ``git commit``.
 Code
 ----
 
-.. TODO: Update with your details; these are reasonable defaults
+Formatting and linting
+~~~~~~~~~~~~~~~~~~~~~~
 
-The formatting rules for ACME are enforced automatically using
-`flake8 <https://flake8.pycqa.org/en/latest/>`_
-and `Black <https://black.readthedocs.io/en/stable/>`_.
+.. TODO: Update with your linting configuration setup or drop if excessive
 
-To run the checks locally before submitting your changes:
+ACME relies on these formatting and linting tools:
+
+- `TODO: Tool 1 <http://example.com>`_
+- `TODO: Tool 2 <http://example.com>`_
+
+
+To configure and run them:
 
 .. code-block:: console
 
-   make format
+   TODO: lint command 1
+   TODO: lint command 2
 
 
-Code structure
-~~~~~~~~~~~~~~
+Structure
+~~~~~~~~~
 
 - **Check linked code elements**:
   Check that coupled code elements, files and directories are adjacent.
@@ -162,10 +220,6 @@ Code structure
   Insert a blank line between two logically separate sections of code.
   This improves its structure and makes it easier to understand.
 
-
-Coding standards
-~~~~~~~~~~~~~~~~
-
 - **Avoid nested conditions**:
   Avoid nesting conditions to improve readability and maintainability.
 
@@ -178,18 +232,25 @@ Coding standards
   This also improves consistency and readability.
 
 
+Best practices
+~~~~~~~~~~~~~~
+
+.. TODO: Update with your best practices or drop if excessive
+
+
 Tests
 -----
+
+.. TODO: Update with your testing framework details or drop if excessive
 
 All code contributions must include tests.
 
 To run the tests locally before submitting your changes:
 
-.. TODO: Update with your details
-
 .. code-block:: console
 
-    make test
+   TODO: test command 1
+   TODO: test command 2
 
 
 Documentation
