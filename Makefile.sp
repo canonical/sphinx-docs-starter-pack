@@ -139,7 +139,7 @@ sp-pdf: sp-pdf-prep
 	@rm -r $(BUILDDIR)/latex
 	@echo "\nOutput can be found in ./$(BUILDDIR)\n"
 
-sp-allmetrics: sp-install
+sp-allmetrics: sp-html
 	@echo "Recording documentation metrics..."
 	@echo "Checking for existence of vale..."
 	. $(VENV)
