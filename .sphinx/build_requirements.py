@@ -85,7 +85,7 @@ if __name__ == "__main__":
         "sphinxcontrib-jquery",
         "watchfiles",
         "GitPython",
-        "yq"
+        "yq>=3.4.3"
 
     ]
 

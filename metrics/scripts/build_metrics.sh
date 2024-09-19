@@ -16,5 +16,6 @@ echo "images: $images"
 
 # update metrics file
 echo "Updating $METRICSFILE with calculated data..."
-yq eval ".metrics .linkcount = $links" -i  $METRICSFILE
-yq eval ".metrics .imagecount = $images" -i  $METRICSFILE
+
+sed -i "/linkcount/s/[0-9]\+/${links}/g" $METRICSFILE
+sed -i "/imagecount/s/[0-9]\+/${images}/g" $METRICSFILE

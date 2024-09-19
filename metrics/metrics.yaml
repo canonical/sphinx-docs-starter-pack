@@ -1,10 +1,10 @@
 metrics:
-  filecount: 0
+  filecount: 4
   linkcount: 0
   imagecount: 0
-  wordcountraw: 0
-  wordcounttotal: 0
-  wordcountaverage: 0
-  readability: 0.00
+  wordcountraw: 4366
+  wordcounttotal: 2379
+  wordcountaverage: 594
+  readability: 8.60.8.60
 tests:
   readable: true

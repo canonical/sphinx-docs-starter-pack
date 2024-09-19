@@ -91,12 +91,12 @@ else
 
     # update metrics file
     echo "Updating metrics.yaml with calculated data..."
-    yq eval ".metrics .filecount = $files" -i  $METRICSFILE
-    yq eval ".metrics .wordcountraw = $words" -i  $METRICSFILE
-    yq eval ".metrics .wordcounttotal = $readabilityWords" -i  $METRICSFILE
-    yq eval ".metrics .wordcountaverage = $meanval" -i  $METRICSFILE
-    yq eval ".metrics .readability = $readabilityAverage" -i  $METRICSFILE
-    yq eval ".tests .readable = $readable" -i  $METRICSFILE
+    sed -i "/filecount/s/[0-9]\+/${files}/g" $METRICSFILE
+    sed -i "/wordcountraw/s/[0-9]\+/${words}/g" $METRICSFILE
+    sed -i "/wordcounttotal/s/[0-9]\+/${readabilityWords}/g" $METRICSFILE
+    sed -i "/wordcountaverage/s/[0-9]\+/${meanval}/g" $METRICSFILE
+    sed -i "/readability/s/[0-9]\+/${readabilityAverage}/g" $METRICSFILE
+    sed -i "/readable/s/[0-9]\+/${readable}/g" $METRICSFILE
     # FIXME: get pre metrics working
     # if [ -z "$readabilityCode" ]; then
     #     yq eval ".metrics .codeblocks = 0" -i  $METRICSFILE
