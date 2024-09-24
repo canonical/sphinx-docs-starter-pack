@@ -59,6 +59,8 @@ sed -i "s|working-directory:\s*'\.'|working-directory: '$install_directory'|g" "
 echo "Updating .readthedocs.yaml configuration..."
 sed -i "s|configuration:\s*sp-docs/conf\.py|configuration: $install_directory/conf.py|g" "$temp_directory/sp-files/.readthedocs.yaml"
 sed -i "s|requirements:\s*sp-docs/\.sphinx/requirements\.txt|requirements: $install_directory/.sphinx/requirements.txt|g" "$temp_directory/sp-files/.readthedocs.yaml"
+echo "Updating contribution guide..."
+sed -i "s|DOCDIR|$install_directory|g" "$temp_directory/sp-files/contributing.rst"
 
 # Update the GitHub folder path in the configuration file
 echo "Updating conf.py configuration..."
