@@ -112,7 +112,7 @@ fi
 echo "Copying contents to the installation directory..."
 cp -R "$temp_directory"/sp-files/* "$temp_directory"/sp-files/.??* "$install_directory"
 
-# Delete files not of preferred filetype in the installation directory, rst oreferred default
+# Delete files not of preferred filetype in the installation directory, rst preferred default
 # No wildcard delete to avoid data loss if user Git-inits in dir with pre-existing files
 if [ "$file_type" = 'md' ]; then
     echo "Deleting .rst files..."
