@@ -112,21 +112,16 @@ fi
 echo "Copying contents to the installation directory..."
 cp -R "$temp_directory"/sp-files/* "$temp_directory"/sp-files/.??* "$install_directory"
 
-# Delete files with unpreferred filetype in the installation directory
+# Delete files not of preferred filetype in the installation directory, rst preferred default
 # No wildcard delete to avoid data loss if user Git-inits in dir with pre-existing files
-if [ -z "${default_filetype_choice:-}" ]; then
-    echo "Default filetype not defined, so proceed with deleting unpreferred filetype."
-    if [ "$file_type" = 'md' ]; then
-        echo "Deleting .rst files..."
-        rm "$install_directory"/doc-cheat-sheet.rst
-        rm "$install_directory"/index.rst
-    else
-        echo "Deleting .md files..."
-        rm "$install_directory"/doc-cheat-sheet-myst.md
-        rm "$install_directory"/index.md
-    fi
+if [ "$file_type" = 'md' ]; then
+    echo "Deleting .rst files..."
+    rm "$install_directory"/doc-cheat-sheet.rst
+    rm "$install_directory"/index.rst
 else
-    echo "Default filetype is defined, so skip filetype deletion."
+    echo "Deleting .md files..."
+    rm "$install_directory"/doc-cheat-sheet-myst.md
+    rm "$install_directory"/index.md
 fi
 
 # Ensure GitHub workflows and woke config are placed in the repo root
