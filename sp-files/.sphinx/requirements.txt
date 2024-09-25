@@ -1,2 +1,2 @@
-git+https://github.com/canonical/canonical-sphinx@main#egg=canonical-sphinx
+canonical-sphinx[full] @ git+https://github.com/canonical/canonical-sphinx@main
 sphinx-autobuild
