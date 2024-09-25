@@ -116,10 +116,17 @@ cp -R "$temp_directory"/sp-files/* "$temp_directory"/sp-files/.??* "$install_dir
 # No wildcard delete to avoid data loss if user Git-inits in dir with pre-existing files
 if [ "$file_type" = 'md' ]; then
     echo "Deleting .rst files..."
+    rm "$install_directory"/contributing.rst
     rm "$install_directory"/doc-cheat-sheet.rst
     rm "$install_directory"/index.rst
+    for file in "$install_directory"/*-myst.md; do
+        new_name="${file/-myst.md/.md}"
+        mv "$file" "$new_name"
+    done
+
 else
     echo "Deleting .md files..."
+    rm "$install_directory"/contributing-myst.md
     rm "$install_directory"/doc-cheat-sheet-myst.md
     rm "$install_directory"/index.md
 fi
