@@ -70,4 +70,5 @@ Example Project is a member of the Ubuntu family. It’s an open source project 
 :maxdepth: 2
 
 self
+contributing
 ```

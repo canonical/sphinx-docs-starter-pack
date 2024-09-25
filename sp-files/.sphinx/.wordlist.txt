@@ -1,12 +1,17 @@
 # This wordlist is from the Sphinx starter pack and should not be
 # modified. Add any custom terms to .custom_wordlist.txt instead.
 
+
+ACME
+ACME's
 addons
+AGPLv
 API
 APIs
 balancer
 Charmhub
 CLI
+DCO
 Diátaxis
 dropdown
 EBS
@@ -53,6 +58,7 @@ RTD
 subdirectories
 subfolders
 subtree
+TODO
 Ubuntu
 UI
 UUID
