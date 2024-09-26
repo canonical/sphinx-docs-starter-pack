@@ -1,7 +1,6 @@
 #!/bin/bash
 
 VENV=".sphinx/venv/bin/activate"
-METRICSFILE=$PWD/metrics/metrics.yaml
 
 files=0
 words=0
@@ -13,21 +12,6 @@ readabilityAverage=0
 # FIXME: get pre metrics working
 #readabilityCode=0
 readable=true
-
-# initialise metric file each time metrics are calculated
-# FIXME: add codeblocks: 0 when pre metrics working
-cat > "$METRICSFILE" << EOF
-metrics:
-  filecount: 0
-  linkcount: 0
-  imagecount: 0
-  wordcountraw: 0
-  wordcounttotal: 0
-  wordcountaverage: 0
-  readability: 0.00
-tests:
-  readable: true
-EOF
 
 # measure number of files (.rst and .md), excluding those in .sphinx dir
 files=$(find . -type d -path './.sphinx' -prune -o -type f \( -name '*.md' -o -name '*.rst' \) -print | wc -l)
@@ -87,20 +71,4 @@ else
     echo "readable: $readable"
     # FIXME: get pre metrics working
     # echo "code blocks: $readabilityCode"
-
-
-    # update metrics file
-    echo "Updating metrics.yaml with calculated data..."
-    sed -i "/filecount/s/[0-9]\+/${files}/g" $METRICSFILE
-    sed -i "/wordcountraw/s/[0-9]\+/${words}/g" $METRICSFILE
-    sed -i "/wordcounttotal/s/[0-9]\+/${readabilityWords}/g" $METRICSFILE
-    sed -i "/wordcountaverage/s/[0-9]\+/${meanval}/g" $METRICSFILE
-    sed -i "/readability/s/[0-9]\+/${readabilityAverage}/g" $METRICSFILE
-    sed -i "/readable/s/[0-9]\+/${readable}/g" $METRICSFILE
-    # FIXME: get pre metrics working
-    # if [ -z "$readabilityCode" ]; then
-    #     yq eval ".metrics .codeblocks = 0" -i  $METRICSFILE
-    # else
-    #     yq eval ".metrics .codeblocks = $readabilityCode" -i  $METRICSFILE
-    # fi
 fi
