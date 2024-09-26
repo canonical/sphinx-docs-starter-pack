@@ -1,3 +1,5 @@
+:orphan:
+
 .. TODO: Replace all mentions of ACME with your project name
 .. TODO: Update all sections containing TODOs; make sure no TODOs are left
 
@@ -77,8 +79,8 @@ To install and configure these tools:
    TODO: prerequisite command 2
 
 
-Submitting changes
-------------------
+Submissions
+-----------
 
 .. TODO: Suggest your own PR process or drop if excessive
 
