@@ -4,13 +4,10 @@ VENV=".sphinx/venv/bin/activate"
 
 files=0
 words=0
-mean=0
 readabilityWords=0
 readabilitySentences=0
 readabilitySyllables=0
 readabilityAverage=0
-# FIXME: get pre metrics working
-#readabilityCode=0
 readable=true
 
 # measure number of files (.rst and .md), excluding those in .sphinx dir
@@ -27,14 +24,11 @@ else
     echo "Activating virtual environment to run vale..."
     source "${VENV}"
 
-    # NOTE: other Vale metrics to consider: "heading_*", "list", "pre"
     for file in *.md *.rst; do
         if [ -f "$file" ]; then
                 readabilityWords=$(vale ls-metrics $file | grep '"words"' | sed 's/[^0-9]*//g')
                 readabilitySentences=$(vale ls-metrics $file | grep '"sentences"' | sed 's/[^0-9]*//g')
                 readabilitySyllables=$(vale ls-metrics $file | grep '"syllables"' | sed 's/[^0-9]*//g')
-                # FIXME: get pre metrics working
-                # readabilityCode=$(vale ls-metrics $file | grep '"pre"' | sed 's/[^0-9]*//g')
         fi
     done
 
@@ -52,8 +46,6 @@ else
     # cast average to int for comparison
     readabilityAverageInt=$(echo "$readabilityAverage / 1" | bc)
 
-    echo "$readabilityAverageInt"
-
     # value below 8 is considered readable
     if [ "$readabilityAverageInt" -lt 8 ]; then
         readable=true
@@ -69,6 +61,4 @@ else
     echo -e "\taverage word count: $meanval"
     echo -e "\treadability: $readabilityAverage"
     echo -e "\treadable: $readable"
-    # FIXME: get pre metrics working
-    # echo "code blocks: $readabilityCode"
 fi
