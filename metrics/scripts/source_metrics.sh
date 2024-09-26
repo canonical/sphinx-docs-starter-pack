@@ -63,12 +63,12 @@ else
 
     # summarise latest metrics
     echo "Summarising metrics for source files (.md, .rst)..."
-    echo "total files: $files"
-    echo "total words (raw): $words"
-    echo "total words (prose): $readabilityWords"
-    echo "average word count: $meanval"
-    echo "readability: $readabilityAverage"
-    echo "readable: $readable"
+    echo -e "\ttotal files: $files"
+    echo -e "\ttotal words (raw): $words"
+    echo -e "\ttotal words (prose): $readabilityWords"
+    echo -e "\taverage word count: $meanval"
+    echo -e "\treadability: $readabilityAverage"
+    echo -e "\treadable: $readable"
     # FIXME: get pre metrics working
     # echo "code blocks: $readabilityCode"
 fi

@@ -10,5 +10,5 @@ images=$(find . -type d -path './.sphinx' -prune -o -name '*.html' -exec cat {} 
 
 # summarise latest metrics
 echo "Summarising metrics for build files (.html)..."
-echo "links: $links"
-echo "images: $images"
+echo -e "\tlinks: $links"
+echo -e "\timages: $images"
