@@ -120,15 +120,14 @@ if [ "$file_type" = 'md' ]; then
     rm "$install_directory"/doc-cheat-sheet.rst
     rm "$install_directory"/index.rst
     for file in "$install_directory"/*-myst.md; do
-        new_name="${file/-myst.md/.md}"
-        mv "$file" "$new_name"
+        mv "$file" "${file/-myst.md/.md}"
     done
 
 else
     echo "Deleting .md files..."
     rm "$install_directory"/contributing-myst.md
     rm "$install_directory"/doc-cheat-sheet-myst.md
-    rm "$install_directory"/index.md
+    rm "$install_directory"/index-myst.md
 fi
 
 # Ensure GitHub workflows and woke config are placed in the repo root
