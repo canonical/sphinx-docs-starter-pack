@@ -26,9 +26,9 @@ else
 
     for file in *.md *.rst; do
         if [ -f "$file" ]; then
-                readabilityWords=$(vale ls-metrics $file | grep '"words"' | sed 's/[^0-9]*//g')
-                readabilitySentences=$(vale ls-metrics $file | grep '"sentences"' | sed 's/[^0-9]*//g')
-                readabilitySyllables=$(vale ls-metrics $file | grep '"syllables"' | sed 's/[^0-9]*//g')
+                readabilityWords=$(vale ls-metrics "$file" | grep '"words"' | sed 's/[^0-9]*//g')
+                readabilitySentences=$(vale ls-metrics "$file" | grep '"sentences"' | sed 's/[^0-9]*//g')
+                readabilitySyllables=$(vale ls-metrics "$file" | grep '"syllables"' | sed 's/[^0-9]*//g')
         fi
     done
 
