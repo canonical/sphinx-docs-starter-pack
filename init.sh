@@ -54,8 +54,6 @@ git clone --depth 1 -b use-canonical-sphinx-extension --single-branch https://gi
 rm -rf "$temp_directory/.git"
 
 # Update workflow and documentation files based on the installation directory
-echo "Removing internal workflow files..."
-rm -f $temp_directory/.github/workflows/sphinx-python-dependency-build-checks.yml
 echo "Updating working directory in workflow files..."
 sed -i "s|working-directory:\s*'\.'|working-directory: '$install_directory'|g" "$temp_directory/sp-files/.github/workflows"/*
 echo "Updating .readthedocs.yaml configuration..."
