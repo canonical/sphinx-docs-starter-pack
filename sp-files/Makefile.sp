@@ -16,10 +16,12 @@ PA11Y         = $(SPHINXDIR)/node_modules/pa11y/bin/pa11y.js --config $(SPHINXDI
 VENV          = $(VENVDIR)/bin/activate
 TARGET        = *
 ALLFILES      =  *.rst **/*.rst
+METRICSDIR    = $(SOURCEDIR)/.sphinx/metrics
+REQPDFPACKS   = latexmk fonts-freefont-otf texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-font-utils texlive-lang-cjk texlive-xetex plantuml xindy tex-gyre dvipng
 
 .PHONY: sp-full-help sp-woke-install sp-spellcheck-install sp-pa11y-install sp-install sp-run sp-html \
         sp-epub sp-serve sp-clean sp-clean-doc sp-spelling sp-spellcheck sp-linkcheck sp-woke \
-        sp-pa11y Makefile.sp sp-vale
+        sp-allmetrics sp-pa11y sp-pdf-prep-force sp-pdf-prep sp-pdf Makefile.sp sp-vale sp-bash
 
 sp-full-help: $(VENVDIR)
 	@. $(VENV); $(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
@@ -32,7 +34,7 @@ $(VENVDIR):
         (echo "You must install python3-venv before you can build the documentation."; exit 1)
 	@echo "... setting up virtualenv"
 	python3 -m venv $(VENVDIR)
-	. $(VENV); pip install --require-virtualenv \
+	. $(VENV); pip install $(PIPOPTS) --require-virtualenv \
 	    --upgrade -r $(SPHINXDIR)/requirements.txt \
             --log $(VENVDIR)/pip_install.log
 	@test ! -f $(VENVDIR)/pip_list.txt || \
@@ -101,11 +103,43 @@ sp-vale: sp-install
 	@. $(VENV); test -d $(SPHINXDIR)/venv/lib/python*/site-packages/vale || pip install vale
 	@. $(VENV); test -f $(SPHINXDIR)/vale.ini || python3 $(SPHINXDIR)/get_vale_conf.py
 	@. $(VENV); find $(SPHINXDIR)/venv/lib/python*/site-packages/vale/vale_bin -size 195c -exec vale --config "$(SPHINXDIR)/vale.ini" $(TARGET) > /dev/null \;
+	@cat $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept.txt > $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept_backup.txt
+	@cat $(SOURCEDIR)/.wordlist.txt $(SOURCEDIR)/.custom_wordlist.txt >> $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept.txt
 	@echo ""
 	@echo "Running Vale against $(TARGET). To change target set TARGET= with make command"
 	@echo ""
-	@. $(VENV); vale --config "$(SPHINXDIR)/vale.ini" --glob='*.{md,txt,rst}' $(TARGET)
+	@. $(VENV); vale --config "$(SPHINXDIR)/vale.ini" --glob='*.{md,txt,rst}' $(TARGET) || true
+	@cat $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept_backup.txt > $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept.txt && rm $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept_backup.txt
 
+sp-pdf-prep: sp-install
+	@for packageName in $(REQPDFPACKS); do (dpkg-query -W -f='$${Status}' $$packageName 2>/dev/null | \
+        grep -c "ok installed" >/dev/null && echo "Package $$packageName is installed") && continue || \
+        (echo "\nPDF generation requires the installation of the following packages: $(REQPDFPACKS)" && \
+        echo "" && echo "Run sudo make pdf-prep-force to install these packages" && echo "" && echo \
+        "Please be aware these packages will be installed to your system") && exit 1 ; done
+
+sp-pdf-prep-force:
+	apt-get update
+	apt-get upgrade -y
+	apt-get install --no-install-recommends -y $(REQPDFPACKS) \
+
+sp-pdf: sp-pdf-prep
+	@. $(VENV); sphinx-build -M latexpdf "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
+	@rm ./$(BUILDDIR)/latex/front-page-light.pdf || true
+	@rm ./$(BUILDDIR)/latex/normal-page-footer.pdf || true
+	@find ./$(BUILDDIR)/latex -name "*.pdf" -exec mv -t ./$(BUILDDIR) {} +
+	@rm -r $(BUILDDIR)/latex
+	@echo "\nOutput can be found in ./$(BUILDDIR)\n"
+
+sp-allmetrics: sp-html
+	@echo "Recording documentation metrics..."
+	@echo "Checking for existence of vale..."
+	. $(VENV)
+	@. $(VENV); test -d $(SPHINXDIR)/venv/lib/python*/site-packages/vale || pip install vale
+	@. $(VENV); test -f $(SPHINXDIR)/vale.ini || python3 $(SPHINXDIR)/get_vale_conf.py
+	@. $(VENV); find $(SPHINXDIR)/venv/lib/python*/site-packages/vale/vale_bin -size 195c -exec vale --config "$(SPHINXDIR)/vale.ini" $(TARGET) > /dev/null \;
+	@eval '$(METRICSDIR)/scripts/source_metrics.sh $(PWD)'
+	@eval '$(METRICSDIR)/scripts/build_metrics.sh $(PWD) $(METRICSDIR)'
 
 
 # Catch-all target: route all unknown targets to Sphinx using the new

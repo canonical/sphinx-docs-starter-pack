@@ -22,8 +22,7 @@ dolor sit amet consectetur adipiscing elit pellentesque habitant.
 
 ---------
 
-In this documentation
----------------------
+:h2:`In this documentation`
 
 ..  grid:: 1 1 2 2
 

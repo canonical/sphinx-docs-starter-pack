@@ -23,6 +23,7 @@ help:
         "* check accessibility:                       make pa11y \n" \
         "* check style guide compliance:              make vale \n" \
         "* check style guide compliance on target:    make vale TARGET=* \n" \
+        "* check metrics for documentation:           make allmetrics \n" \
         "* other possible targets:                    make <TAB twice> \n" \
         "------------------------------------------------------------- \n"
 

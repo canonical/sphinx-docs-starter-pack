@@ -13,6 +13,7 @@ Charmhub
 CLI
 DCO
 Diátaxis
+Dqlite
 dropdown
 EBS
 EKS
