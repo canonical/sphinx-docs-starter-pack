@@ -72,13 +72,17 @@ Build a PDF
 Build a PDF locally with the following command:
 
 .. code-block:: none
+
     make pdf
+
 PDF generation requires some system files. If these files are not found, a prompt will be presented and the generation will stop.
 
 On Linux, required packages can be installed with:
 
 .. code-block:: none
+
     make pdf-prep-force
+    
 .. note::
 
     When generating a PDF, the index page is considered a 'foreword' and will not be labelled with a chapter.
