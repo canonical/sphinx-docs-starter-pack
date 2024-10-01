@@ -63,6 +63,7 @@ sed -i "s|configuration:\s*sp-docs/conf\.py|configuration: $install_directory/co
 sed -i "s|requirements:\s*sp-docs/\.sphinx/requirements\.txt|requirements: $install_directory/.sphinx/requirements.txt|g" "$temp_directory/sp-files/.readthedocs.yaml"
 echo "Updating contribution guide..."
 sed -i "s|DOCDIR|$install_directory|g" "$temp_directory/sp-files/contributing.rst"
+sed -i "s/Makefile.sp/$install_directory\/Makefile.sp/" "$temp_directory/sp-files/.github/workflows/sphinx-python-dependency-build-checks.yml"
 
 # Update the GitHub folder path in the configuration file
 echo "Updating conf.py configuration..."
