@@ -1,2 +1,14 @@
 # Leave a blank line at the end of this file to support concatenation 
 WCAG
+dvipng
+fonts-freefont-otf
+latexmk
+plantuml
+tex-gyre
+texlive-font-utils
+texlive-fonts-recommended
+texlive-lang-cjk
+texlive-latex-extra
+texlive-latex-recommended
+texlive-xetex
+xindy
