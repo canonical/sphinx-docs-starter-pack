@@ -8,10 +8,10 @@ Description
 
 The Documentation starter pack includes:
 
-* a bundled Sphinx_ theme, configuration, and extensions
-* support for both reStructuredText (reST) and Markdown
-* build checks for links, spelling, and inclusive language
-* customisation support layered above a core configuration
+* A bundled Sphinx_ theme, configuration, and extensions
+* Support for both reStructuredText (reST) and MyST Markdown
+* Build checks for links, spelling, and inclusive language
+* Customisation support layered over a core configuration
 
 See the full documentation: https://canonical-starter-pack.readthedocs-hosted.com/use-canonical-sphinx-extension/
 
@@ -24,18 +24,19 @@ init.sh
 *******
 
 This script is an entrypoint intended to simplify adoption of this starter pack.
-Simply download the script, and run it locally.
+Download and run this file it to install the starter pack in an arbitrary directory of the repo.
 
 sp-files
 ********
 
 This directory contains the files required for the functionality of the starter pack.
-If you do not wish to use the ``init.sh`` script, these are the files you should be using.
+If you don't want to run ``init.sh`` for some reason, use these files.
 
 sp-docs
 *******
 
-This directory contains files in use for the documentation of this project.
+This directory contains the documentation for the starter pack itself.
+To view it in your browser, change to this directory and type `make run`.
 
 sp-tests
 ********
