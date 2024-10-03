@@ -1,4 +1,5 @@
 import datetime
+import ast
 
 # Configuration for the Sphinx documentation builder.
 # All configuration specific to your project should be done in this file.
@@ -247,7 +248,8 @@ linkcheck_anchors_ignore_for_url = [
 #       - youtube-links
 
 extensions = [
-    'canonical_sphinx'
+    'canonical_sphinx',
+    'sphinxcontrib.cairosvgconverter',
 ]
 
 
@@ -259,7 +261,9 @@ exclude_patterns = [
 
 # Adds custom CSS files, located under 'html_static_path'
 
-# html_css_files = []
+html_css_files = [
+    "css/pdf.css",
+]
 
 
 # Adds custom JavaScript files, located under 'html_static_path'
@@ -292,14 +296,41 @@ rst_epilog = '''
 
 # Specifies a reST snippet to be prepended to each .rst file
 # This defines a :center: role that centers table cell content.
+# This defines a :h2: role that styles content for use with PDF generation.
 
 rst_prolog = '''
 .. role:: center
    :class: align-center
+.. role:: h2
+    :class: hclass2
 '''
-
 
 # Workaround for https://github.com/canonical/canonical-sphinx/issues/34
 
 if not 'discourse_prefix' in html_context and 'discourse' in html_context:
     html_context['discourse_prefix'] = html_context['discourse'] + '/t/'
+
+############################################################
+### PDF configuration
+############################################################
+
+latex_additional_files = [
+    "./.sphinx/fonts/Ubuntu-B.ttf",
+    "./.sphinx/fonts/Ubuntu-R.ttf",
+    "./.sphinx/fonts/Ubuntu-RI.ttf",
+    "./.sphinx/fonts/UbuntuMono-R.ttf",
+    "./.sphinx/fonts/UbuntuMono-RI.ttf",
+    "./.sphinx/fonts/UbuntuMono-B.ttf",
+    "./.sphinx/images/Canonical-logo-4x.png",
+    "./.sphinx/images/front-page-light.pdf",
+    "./.sphinx/images/normal-page-footer.pdf",
+]
+
+latex_engine = 'xelatex'
+latex_show_pagerefs = True
+latex_show_urls = 'footnote'
+
+with open(".sphinx/latex_elements_template.txt", "rt") as file:
+    latex_config = file.read()
+
+latex_elements = ast.literal_eval(latex_config.replace("$PROJECT", project))

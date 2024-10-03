@@ -83,21 +83,21 @@ They are pre-configured as needed, but you can customise their configuration in 
 
 The following extensions are always included:
 
-- :literalref:`sphinx-design <https://sphinx-design.readthedocs.io/en/latest/>`
-- :literalref:`sphinx_copybutton <https://sphinx-copybutton.readthedocs.io/en/latest/>`
+- :literalref:`myst_parser <https://myst-parser.readthedocs.io/en/latest/>`
 - :literalref:`sphinxcontrib.jquery <https://github.com/sphinx-contrib/jquery/>`
 
-The following extensions are included unless they are disabled when loading the extension:
+The following extensions are included with the ``[full]`` optional install of canonical-sphinx:
 
+- :literalref:`sphinx-design <https://sphinx-design.readthedocs.io/en/latest/>`
+- :literalref:`sphinx_copybutton <https://sphinx-copybutton.readthedocs.io/en/latest/>`
 - :literalref:`sphinx_tabs.tabs <https://sphinx-tabs.readthedocs.io/en/latest/>`
 - :literalref:`sphinx_reredirects <https://documatt.gitlab.io/sphinx-reredirects/>`
 - :literalref:`sphinxext.opengraph <https://sphinxext-opengraph.readthedocs.io/en/latest/>`
 - :literalref:`canonical-sphinx-extensions <https://github.com/canonical/canonical-sphinx-extensions>` (``youtube-links``, ``related-links``, ``custom-rst-roles``, and ``terminal-output``)
-- :literalref:`myst_parser <https://myst-parser.readthedocs.io/en/latest/>`
 - :literalref:`notfound.extension <https://sphinx-notfound-page.readthedocs.io/en/latest/>`
 
-You can add further extensions in the ``extensions`` variable in :file:`conf.py`.
-If the extensions need specific Python packages, add those to the :file:`requirements.py` file.
+None of the extensions referenced in this section need to be added to the ``extensions`` variable in :file:`conf.py`.
+If the extensions need specific Python packages, add those to the :file:`requirements.txt` file.
 
 Add page-specific configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
