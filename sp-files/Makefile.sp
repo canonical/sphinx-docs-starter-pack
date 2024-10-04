@@ -6,18 +6,19 @@
 
 # You can set these variables from the command line, and also
 # from the environment for the first two.
-SPHINXDIR     = .sphinx
-SPHINXOPTS    ?= -c . -d $(SPHINXDIR)/.doctrees -j auto
-SPHINXBUILD   ?= $(VENVDIR)/bin/sphinx-build
-SOURCEDIR     = .
-BUILDDIR      = _build
-VENVDIR       = $(SPHINXDIR)/venv
-PA11Y         = $(SPHINXDIR)/node_modules/pa11y/bin/pa11y.js --config $(SPHINXDIR)/pa11y.json
-VENV          = $(VENVDIR)/bin/activate
-TARGET        = *
-ALLFILES      =  *.rst **/*.rst
-METRICSDIR    = $(SOURCEDIR)/.sphinx/metrics
-REQPDFPACKS   = latexmk fonts-freefont-otf texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-font-utils texlive-lang-cjk texlive-xetex plantuml xindy tex-gyre dvipng
+SPHINXDIR       = .sphinx
+SPHINXOPTS      ?= -c . -d $(SPHINXDIR)/.doctrees -j auto
+SPHINXBUILD     ?= $(VENVDIR)/bin/sphinx-build
+SOURCEDIR       = .
+BUILDDIR        = _build
+VENVDIR         = $(SPHINXDIR)/venv
+PA11Y           = $(SPHINXDIR)/node_modules/pa11y/bin/pa11y.js --config $(SPHINXDIR)/pa11y.json
+VENV         	   = $(VENVDIR)/bin/activate
+TARGET          = *
+ALLFILES        =  *.rst **/*.rst
+METRICSDIR      = $(SOURCEDIR)/.sphinx/metrics
+REQPDFPACKS     = latexmk fonts-freefont-otf texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-font-utils texlive-lang-cjk texlive-xetex plantuml xindy tex-gyre dvipng
+CONFIRM_SUDO    ?= N
 
 .PHONY: sp-full-help sp-woke-install sp-spellcheck-install sp-pa11y-install sp-install sp-run sp-html \
         sp-epub sp-serve sp-clean sp-clean-doc sp-spelling sp-spellcheck sp-linkcheck sp-woke \
@@ -44,11 +45,33 @@ $(VENVDIR):
 
 sp-woke-install:
 	@type woke >/dev/null 2>&1 || \
-            { echo "Installing \"woke\" snap... \n"; sudo snap install woke; }
+	{ \
+		echo "Installing system-wide \"woke\" snap..."; \
+		confirm_sudo=$(CONFIRM_SUDO); \
+		if [ "$$confirm_sudo" != "y" ] && [ "$$confirm_sudo" != "Y" ]; then \
+			read -p "This requires sudo privileges. Proceed? [y/N]: " confirm_sudo; \
+		fi; \
+		if [ "$$confirm_sudo" = "y" ] || [ "$$confirm_sudo" = "Y" ]; then \
+			sudo snap install woke; \
+		else \
+			echo "Installation cancelled."; \
+		fi \
+	}	
 
 sp-spellcheck-install:
 	@type aspell >/dev/null 2>&1 || \
-            { echo "Installing aspell... \n"; sudo apt-get install aspell aspell-en; }
+	{ \
+		echo "Installing system-wide \"aspell\" packages..."; \
+		confirm_sudo=$(CONFIRM_SUDO); \
+		if [ "$$confirm_sudo" != "y" ] && [ "$$confirm_sudo" != "Y" ]; then \
+			read -p "This requires sudo privileges. Proceed? [y/N]: " confirm_sudo; \
+		fi; \
+		if [ "$$confirm_sudo" = "y" ] || [ "$$confirm_sudo" = "Y" ]; then \
+			sudo apt-get install aspell aspell-en; \
+		else \
+			echo "Installation cancelled."; \
+		fi \
+	}
 
 sp-pa11y-install:
 	@type $(PA11Y) >/dev/null 2>&1 || { \
@@ -94,7 +117,7 @@ sp-linkcheck: sp-install
 
 sp-woke: sp-woke-install
 	woke $(ALLFILES) --exit-1-on-failure \
-	    -c https://github.com/canonical/Inclusive-naming/raw/main/config.yml
+	    -c https://raw.githubusercontent.com/canonical/Inclusive-naming/main/config.yml
 
 sp-pa11y: sp-pa11y-install sp-html
 	find $(BUILDDIR) -name *.html -print0 | xargs -n 1 -0 $(PA11Y)
@@ -115,7 +138,7 @@ sp-pdf-prep: sp-install
 	@for packageName in $(REQPDFPACKS); do (dpkg-query -W -f='$${Status}' $$packageName 2>/dev/null | \
         grep -c "ok installed" >/dev/null && echo "Package $$packageName is installed") && continue || \
         (echo "\nPDF generation requires the installation of the following packages: $(REQPDFPACKS)" && \
-        echo "" && echo "Run sudo make pdf-prep-force to install these packages" && echo "" && echo \
+        echo "" && echo "Run 'sudo make pdf-prep-force' to install these packages" && echo "" && echo \
         "Please be aware these packages will be installed to your system") && exit 1 ; done
 
 sp-pdf-prep-force:
