@@ -119,12 +119,14 @@ html_context = {
 
     # Your Discourse instance URL
     #
-    # TODO: Change to your Discourse instance URL or leave empty.
+    # TODO: Change to your Discourse instance URL and category or leave empty.
+    #       The default setting becomes https://discourse.ubuntu.com/c/desktop/
     #
     # NOTE: If set, adding ':discourse: 123' to an .rst file
     #       will add a link to Discourse topic 123 at the bottom of the page.
 
     'discourse': 'https://discourse.ubuntu.com',
+    'category': 'desktop',
 
 
     # Your Mattermost channel URL
