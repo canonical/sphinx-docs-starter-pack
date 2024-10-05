@@ -285,6 +285,30 @@ Then add the following field at the top of the page (where ``12345`` is the ID o
 
   :discourse: 12345
 
+Man-page links
+^^^^^^^^^^^^^^
+
+When mentioning command line utilities, you may wish to link to the
+corresponding man-page for the command. Ensure that the ``manpages_url``
+setting in your :file:`conf.py` is set appropriately and use the ``:manpage:``
+inline role within your text to create a link.
+
+For example, to link to man-pages from the 24.04 LTS (Noble Numbat) release,
+ensure the following is present in your :file:`conf.py`:
+
+.. code-block:: python
+
+    manpages_url = "https://manpages.ubuntu.com/manpages/noble/en/man{section}/{page}.{section}.html"
+
+Then within your documentation you can use the following reST:
+
+.. code-block:: rst
+
+    You can use the :manpage:`dd(1)` utility to write the disk image to your
+    SD card. If the image is compressed, use :manpage:`aunpack(1)` to extract
+    it first.
+
+
 YouTube links
 ^^^^^^^^^^^^^
 
