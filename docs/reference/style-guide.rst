@@ -571,28 +571,16 @@ Notes
           A note.
    * - .. code::
 
-          .. tip::
-             A tip.
-     - .. tip::
-          A tip.
-   * - .. code::
-
-          .. important::
-             Important information
-     - .. important::
-          Important information
-   * - .. code::
-
-          .. caution::
+          .. warning::
              This might damage your hardware!
-     - .. caution::
+     - .. warning::
           This might damage your hardware!
 
 Adhere to the following conventions:
 
 - Use notes sparingly.
-- Only use the following note types: ``note``, ``tip``, ``important``, ``caution``
-- Only use a caution if there is a clear hazard of hardware damage or data loss.
+- Only use the following note types: ``note``, ``warning``
+- Only use a warning if there is a clear hazard of hardware damage or data loss.
 
 Images
 ------
