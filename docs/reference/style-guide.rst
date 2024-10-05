@@ -633,6 +633,8 @@ Adhere to the following conventions:
 
 - For local pictures, start the path with :file:`/` (for example, :file:`/images/image.png`).
 - Use ``PNG`` format for screenshots and ``SVG`` format for graphics.
+- If producing multiple output formats, use ``*`` as the file extension to have
+  sphinx select the best image format for the output
 - See `Five golden rules for compliant alt text`_ for information about how to word the alt text.
 
 Reuse
