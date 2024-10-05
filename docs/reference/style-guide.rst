@@ -56,7 +56,6 @@ Adhere to the following conventions:
 - Do not use consecutive headings without intervening text.
 - Be consistent with the characters you use for each level.
   Use the ones specified above.
-- Do not skip levels (for example, do not follow an H2 heading with an H4 heading).
 - Use sentence style for headings (capitalise only the first word).
 
 Inline formatting
