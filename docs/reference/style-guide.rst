@@ -49,7 +49,7 @@ Headings
           .......
      - H5 heading
 
-Underlines must be the same length as the title or heading.
+Underlines must be at least as long as the title or heading.
 
 Adhere to the following conventions:
 
