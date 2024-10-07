@@ -13,16 +13,16 @@ SOURCEDIR     = .
 METRICSDIR    = $(SOURCEDIR)/metrics
 BUILDDIR      = _build
 VENVDIR       = $(SPHINXDIR)/venv
-PA11Y         = $(SPHINXDIR)/node_modules/pa11y/bin/pa11y.js --config $(SPHINXDIR)/pa11y.json
+PA11YCI       = $(SPHINXDIR)/node_modules/pa11y-ci/bin/pa11y-ci.js --config $(SPHINXDIR)/pa11y-ci.json
 VENV          = $(VENVDIR)/bin/activate
 TARGET        = *
 ALLFILES      =  *.rst **/*.rst
 ADDPREREQS    ?=
 REQPDFPACKS   = latexmk fonts-freefont-otf texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-font-utils texlive-lang-cjk texlive-xetex plantuml xindy tex-gyre dvipng
 
-.PHONY: sp-full-help sp-woke-install sp-pa11y-install sp-install sp-run sp-html \
+.PHONY: sp-full-help sp-woke-install sp-pa11y-ci-install sp-install sp-run sp-html \
         sp-epub sp-serve sp-clean sp-clean-doc sp-spelling sp-spellcheck sp-linkcheck sp-woke \
-        sp-allmetrics sp-pa11y sp-pdf-prep-force sp-pdf-prep sp-pdf Makefile.sp sp-vale sp-bash
+        sp-allmetrics sp-pa11y-ci sp-pdf-prep-force sp-pdf-prep sp-pdf Makefile.sp sp-vale sp-bash
 
 sp-full-help: $(VENVDIR)
 	@. $(VENV); $(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
@@ -57,11 +57,11 @@ sp-woke-install:
 	@type woke >/dev/null 2>&1 || \
             { echo "Installing \"woke\" snap... \n"; sudo snap install woke; }
 
-sp-pa11y-install:
-	@type $(PA11Y) >/dev/null 2>&1 || { \
-			echo "Installing \"pa11y\" from npm... \n"; \
+sp-pa11y-ci-install:
+	@type $(PA11YCI) >/dev/null 2>&1 || { \
+			echo "Installing \"pa11y-ci\" from npm... \n"; \
 			mkdir -p $(SPHINXDIR)/node_modules/ ; \
-			npm install --prefix $(SPHINXDIR) pa11y; \
+			npm install --prefix $(SPHINXDIR) pa11y-ci; \
 		}
 
 sp-install: $(VENVDIR)
@@ -104,8 +104,8 @@ sp-woke: sp-woke-install
 	woke $(ALLFILES) --exit-1-on-failure \
 	    -c https://github.com/canonical/Inclusive-naming/raw/main/config.yml
 
-sp-pa11y: sp-pa11y-install sp-html
-	find $(BUILDDIR) -name *.html -print0 | xargs -n 1 -0 $(PA11Y)
+sp-pa11y-ci: sp-pa11y-ci-install sp-html
+	$(PA11YCI) $(shell find $(BUILDDIR) -name *.html)
 
 sp-vale: sp-install
 	@. $(VENV); test -d $(SPHINXDIR)/venv/lib/python*/site-packages/vale || pip install vale
