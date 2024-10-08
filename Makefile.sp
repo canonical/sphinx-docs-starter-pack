@@ -57,7 +57,7 @@ sp-woke-install:
 	@type woke >/dev/null 2>&1 || \
             { echo "Installing \"woke\" snap... \n"; sudo snap install woke; }
 
-sp-pa11y-ci-install:
+sp-pa11y-install:
 	@type $(PA11YCI) >/dev/null 2>&1 || { \
 			echo "Installing \"pa11y-ci\" from npm... \n"; \
 			mkdir -p $(SPHINXDIR)/node_modules/ ; \
@@ -104,7 +104,7 @@ sp-woke: sp-woke-install
 	woke $(ALLFILES) --exit-1-on-failure \
 	    -c https://github.com/canonical/Inclusive-naming/raw/main/config.yml
 
-sp-pa11y-ci: sp-pa11y-ci-install sp-html
+sp-pa11y: sp-pa11y-ci-install sp-html
 	$(PA11YCI) $(shell find $(BUILDDIR) -name *.html)
 
 sp-vale: sp-install
