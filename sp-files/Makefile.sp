@@ -109,7 +109,7 @@ sp-clean-doc:
 sp-spellcheck: sp-spellcheck-install
 	. $(VENV) ; python3 -m pyspelling -c $(SPHINXDIR)/spellingcheck.yaml -j $(shell nproc)
 
-sp-spelling: sp-html sp-spellcheck
+sp-spelling: sp-clean-doc sp-html sp-spellcheck
 
 sp-linkcheck: sp-install
 	. $(VENV) ; $(SPHINXBUILD) -b linkcheck "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) || { grep --color -F "[broken]" "$(BUILDDIR)/output.txt"; exit 1; }
