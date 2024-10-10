@@ -263,14 +263,6 @@ It is based on the `Canonical starter pack
 <https://canonical-starter-pack.readthedocs-hosted.com/latest/>`_
 and hosted on `Read the Docs <https://about.readthedocs.com/>`_.
 
-For general guidance,
-refer to the `starter pack guide
-<https://canonical-starter-pack.readthedocs-hosted.com/latest/readme/>`_.
-
-For syntax help and guidelines,
-refer to the `Canonical style guides
-<https://canonical-documentation-with-sphinx-and-readthedocscom.readthedocs-hosted.com/#style-guides>`_.
-
 In structuring,
 the documentation employs the `Diátaxis <https://diataxis.fr/>`_ approach.
 
