@@ -50,7 +50,7 @@ temp_directory="temp-starter-pack-$(date +%Y%m%d%H%M%S)"
 
 # Clone the starter pack repository into the temporary directory and de-git it
 echo "Cloning the starter pack repository..."
-git clone --depth 1 -b extension-main-combined --single-branch https://github.com/canonical/starter-pack "$temp_directory"
+git clone --depth 1 -b main --single-branch https://github.com/canonical/starter-pack "$temp_directory"
 rm -rf "$temp_directory/.git"
 
 # Update workflow and documentation files based on the installation directory
