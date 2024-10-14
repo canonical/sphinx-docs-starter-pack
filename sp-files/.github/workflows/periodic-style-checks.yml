@@ -9,12 +9,11 @@ jobs:
     name: Style checker
     runs-on: ubuntu-22.04
     defaults:
-        run:
-            shell: bash
-            working-directory: 'sp-docs'
+      run:
+        shell: bash
+        working-directory: "sp-docs"
     steps:
       - uses: actions/checkout@v4
       - name: Run vale
         run: |
           make vale
-

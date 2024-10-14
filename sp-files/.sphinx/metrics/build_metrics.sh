@@ -1,4 +1,5 @@
 #!/bin/bash
+# shellcheck disable=all
 
 links=0
 images=0

@@ -1,6 +1,6 @@
 /* Only relevant for specific PDF generation issues */
 
-.rubric > .hclass2 {
+.rubric>.hclass2 {
     display: block;
     font-size: 2em;
     border-radius: .5rem;
