@@ -1,4 +1,5 @@
 #!/bin/bash
+# shellcheck disable=all
 
 VENV=".sphinx/venv/bin/activate"
 
@@ -26,9 +27,9 @@ else
 
     for file in *.md *.rst; do
         if [ -f "$file" ]; then
-                readabilityWords=$(vale ls-metrics "$file" | grep '"words"' | sed 's/[^0-9]*//g')
-                readabilitySentences=$(vale ls-metrics "$file" | grep '"sentences"' | sed 's/[^0-9]*//g')
-                readabilitySyllables=$(vale ls-metrics "$file" | grep '"syllables"' | sed 's/[^0-9]*//g')
+            readabilityWords=$(vale ls-metrics "$file" | grep '"words"' | sed 's/[^0-9]*//g')
+            readabilitySentences=$(vale ls-metrics "$file" | grep '"sentences"' | sed 's/[^0-9]*//g')
+            readabilitySyllables=$(vale ls-metrics "$file" | grep '"syllables"' | sed 's/[^0-9]*//g')
         fi
     done
 
@@ -37,8 +38,9 @@ else
 
     # calculate mean number of words
     if [ "$files" -ge 1 ]; then
-        meanval=$(( readabilityWords / files))
-    else meanval=$readabilityWords
+        meanval=$((readabilityWords / files))
+    else
+        meanval=$readabilityWords
     fi
 
     readabilityAverage=$(echo "scale=2; 0.39 * ($readabilityWords / $readabilitySentences) + (11.8 * ($readabilitySyllables / $readabilityWords)) - 15.59" | bc)
@@ -49,7 +51,7 @@ else
     # value below 8 is considered readable
     if [ "$readabilityAverageInt" -lt 8 ]; then
         readable=true
-    else 
+    else
         readable=false
     fi
 

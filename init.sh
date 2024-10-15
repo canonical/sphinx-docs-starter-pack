@@ -16,21 +16,20 @@ if [ -z "$install_directory" ]; then
 fi
 
 # Check if md or rst is preferred for the documentation being built
-promptForFileChoice()
-{
-while true; do
-    read -p "Will you be using the 'rst' or 'md' file format for the documentation (default: 'rst'): " filetype_choice
+promptForFileChoice() {
+    while true; do
+        read -p "Will you be using the 'rst' or 'md' file format for the documentation (default: 'rst'): " filetype_choice
 
-    filetype_choice=${filetype_choice:-rst}
+        filetype_choice=${filetype_choice:-rst}
 
-    if [ "$filetype_choice" = "md" ] || [ "$filetype_choice" = "rst" ]; then
-        file_type="$filetype_choice"
-        echo "Setting filetype to: $file_type"
-        break
-    else
-        echo "Invalid input. Please enter either 'md' or 'rst':"
-    fi
-done
+        if [ "$filetype_choice" = "md" ] || [ "$filetype_choice" = "rst" ]; then
+            file_type="$filetype_choice"
+            echo "Setting filetype to: $file_type"
+            break
+        else
+            echo "Invalid input. Please enter either 'md' or 'rst':"
+        fi
+    done
 }
 
 # If default variable for filetype choice is defined in CI then don't prompt user for choice
@@ -82,7 +81,7 @@ if [ -f "$install_directory/.gitignore" ]; then
     read -p "Do you want to append the list of ignored files for Sphinx docs to the existing .gitignore? Enter 'n' to skip. (y/n): " confirm
     if [ "$confirm" = "y" ]; then
         echo "Appending contents to the existing .gitignore..."
-        cat "$temp_directory/sp-files/.gitignore" >> "$install_directory/.gitignore"
+        cat "$temp_directory/sp-files/.gitignore" >>"$install_directory/.gitignore"
     else
         echo "Operation skipped by the user. Add the .gitignore rules for the Sphinx docs to your .gitignore file manually."
     fi
@@ -100,9 +99,9 @@ if [ -f "$install_directory/Makefile" ]; then
         echo "Creating a backup: $backup_makefile"
         cp "$existing_makefile" "$backup_makefile"
 
-        echo "Appending Sphinx docs targets to the existing Makefile..." 
-        echo "" >> "$existing_makefile"    # Add a new line before appending the contents
-        cat "$temp_directory/sp-files/Makefile" >> "$existing_makefile"
+        echo "Appending Sphinx docs targets to the existing Makefile..."
+        echo "" >>"$existing_makefile" # Add a new line before appending the contents
+        cat "$temp_directory/sp-files/Makefile" >>"$existing_makefile"
     else
         echo "Operation skipped by the user. Add the Makefile targets for Sphinx docs manually."
     fi
@@ -153,7 +152,7 @@ if [ "$install_directory" != "." ]; then
             read -p "Do you want to append the contents of $install_directory/.wokeignore to the existing .wokeignore? Enter 'n' to skip. (y/n): " confirm
             if [ "$confirm" = "y" ]; then
                 echo "Appending contents to the existing .wokeignore..."
-                cat "$install_directory/.wokeignore" >> .wokeignore
+                cat "$install_directory/.wokeignore" >>.wokeignore
                 rm "$install_directory/.wokeignore"
             else
                 echo "Operation skipped by the user. Add the rules from $install_directory/.wokeignore to your .wokeignore file manually."
