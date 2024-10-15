@@ -12,7 +12,10 @@ def main():
     else:
         os.makedirs(f"{DIR}/.sphinx/styles/Canonical")
 
-    url = "https://api.github.com/repos/canonical/praecepta/contents/styles/Canonical"
+    url = (
+        "https://api.github.com/repos/canonical/praecepta/"
+        + "contents/styles/Canonical"
+    )
     r = requests.get(url)
     for item in r.json():
         download = requests.get(item["download_url"])
@@ -25,11 +28,17 @@ def main():
     else:
         os.makedirs(f"{DIR}/.sphinx/styles/config/vocabularies/Canonical")
 
-    url = "https://api.github.com/repos/canonical/praecepta/contents/styles/config/vocabularies/Canonical"
+    url = (
+        "https://api.github.com/repos/canonical/praecepta/"
+        + "contents/styles/config/vocabularies/Canonical"
+    )
     r = requests.get(url)
     for item in r.json():
         download = requests.get(item["download_url"])
-        file = open(".sphinx/styles/config/vocabularies/Canonical/" + item["name"], "w")
+        file = open(
+            ".sphinx/styles/config/vocabularies/Canonical/" + item["name"],
+            "w"
+        )
         file.write(download.text)
         file.close()
     config = requests.get(

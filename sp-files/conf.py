@@ -15,9 +15,9 @@ import ast
 # https://github.com/canonical/canonical-sphinx
 
 
-###########################
-### Project information ###
-###########################
+#######################
+# Project information #
+#######################
 
 # Project name
 #
@@ -41,12 +41,12 @@ html_title = project + " documentation"
 # Now, the starter pack uses CC-BY-SA as the license
 # and the current year as the copyright year.
 #
-# TODO: If your docs need a different license, specify it instead of 'CC-BY-SA'.
+# TODO: If your docs need another license, specify it instead of 'CC-BY-SA'.
 #
 # TODO: If your documentation is a part of the code repository of your project,
 #       it inherits the code license instead; specify it instead of 'CC-BY-SA'.
 #
-# NOTE: For static works, it is common to provide the year of first publication.
+# NOTE: For static works, it is common to provide the first publication year.
 #       Another option is to provide both the first year of publication
 #       and the current year, especially for docs that frequently change,
 #       e.g. 2022–2023 (note the en-dash).
@@ -83,7 +83,8 @@ ogp_site_name = project
 #
 # TODO: To customise the preview image, update as needed.
 
-ogp_image = "https://assets.ubuntu.com/v1/253da317-image-document-ubuntudocs.svg"
+ogp_image = \
+    "https://assets.ubuntu.com/v1/253da317-image-document-ubuntudocs.svg"
 
 
 # Product favicon; shown in bookmarks, browser tabs, etc.
@@ -120,7 +121,8 @@ html_context = {
     # Your Mattermost channel URL
     #
     # TODO: Change to your Mattermost channel URL or leave empty.
-    "mattermost": "https://chat.canonical.com/canonical/channels/documentation",
+    "mattermost":
+    "https://chat.canonical.com/canonical/channels/documentation",
     # Your Matrix channel URL
     #
     # TODO: Change to your Matrix channel URL or leave empty.
@@ -156,9 +158,9 @@ html_static_path = [".sphinx/_static"]
 templates_path = [".sphinx/_templates"]
 
 
-#################
-### Redirects ###
-#################
+#############
+# Redirects #
+#############
 
 # To set up redirects: https://documatt.gitlab.io/sphinx-reredirects/usage.html
 # For example: 'explanation/old-name.html': '../how-to/prettify.html',
@@ -172,15 +174,18 @@ templates_path = [".sphinx/_templates"]
 redirects = {}
 
 
-###############################
-### Link checker exceptions ###
-###############################
+###########################
+# Link checker exceptions #
+###########################
 
 # A regex list of URLs that are ignored by 'make linkcheck'
 #
 # TODO: Remove or adjust the ACME entry after you update the contributing guide
 
-linkcheck_ignore = ["http://127.0.0.1:8000", "https://github.com/canonical/ACME/*"]
+linkcheck_ignore = [
+    "http://127.0.0.1:8000",
+    "https://github.com/canonical/ACME/*"
+]
 
 
 # A regex list of URLs where anchors are ignored by 'make linkcheck'
@@ -188,9 +193,9 @@ linkcheck_ignore = ["http://127.0.0.1:8000", "https://github.com/canonical/ACME/
 linkcheck_anchors_ignore_for_url = [r"https://github\.com/.*"]
 
 
-############################
-### Configuration extras ###
-############################
+########################
+# Configuration extras #
+########################
 
 # Custom MyST syntax extensions; see
 # https://myst-parser.readthedocs.io/en/latest/syntax/optional.html
@@ -263,7 +268,8 @@ rst_epilog = """
 # NOTE: If set, adding ':manpage:' to an .rst file
 #       adds a link to the corresponding man section at the bottom of the page.
 
-# manpages_url = 'https://manpages.ubuntu.com/manpages/noble/en/man{section}/{page}.{section}.html'
+# manpages_url = f'https://manpages.ubuntu.com/manpages/{codename}/en/' + \
+#     f'man{section}/{page}.{section}.html'
 
 
 # Specifies a reST snippet to be prepended to each .rst file
@@ -279,12 +285,12 @@ rst_prolog = """
 
 # Workaround for https://github.com/canonical/canonical-sphinx/issues/34
 
-if not "discourse_prefix" in html_context and "discourse" in html_context:
+if "discourse_prefix" not in html_context and "discourse" in html_context:
     html_context["discourse_prefix"] = html_context["discourse"] + "/t/"
 
-############################################################
-### PDF configuration
-############################################################
+#####################
+# PDF configuration #
+#####################
 
 latex_additional_files = [
     "./.sphinx/fonts/Ubuntu-B.ttf",
