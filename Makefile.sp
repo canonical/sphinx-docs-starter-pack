@@ -20,9 +20,9 @@ ALLFILES      =  *.rst **/*.rst
 ADDPREREQS    ?=
 REQPDFPACKS   = latexmk fonts-freefont-otf texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-font-utils texlive-lang-cjk texlive-xetex plantuml xindy tex-gyre dvipng
 
-.PHONY: sp-full-help sp-woke-install sp-pa11y-ci-install sp-install sp-run sp-html \
+.PHONY: sp-full-help sp-woke-install sp-pa11y-install sp-install sp-run sp-html \
         sp-epub sp-serve sp-clean sp-clean-doc sp-spelling sp-spellcheck sp-linkcheck sp-woke \
-        sp-allmetrics sp-pa11y-ci sp-pdf-prep-force sp-pdf-prep sp-pdf Makefile.sp sp-vale sp-bash
+        sp-allmetrics sp-pa11y sp-pdf-prep-force sp-pdf-prep sp-pdf Makefile.sp sp-vale sp-bash
 
 sp-full-help: $(VENVDIR)
 	@. $(VENV); $(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
@@ -104,7 +104,7 @@ sp-woke: sp-woke-install
 	woke $(ALLFILES) --exit-1-on-failure \
 	    -c https://github.com/canonical/Inclusive-naming/raw/main/config.yml
 
-sp-pa11y: sp-pa11y-ci-install sp-html
+sp-pa11y: sp-pa11y-install sp-html
 	$(PA11YCI) $(shell find $(BUILDDIR) -name *.html)
 
 sp-vale: sp-install
