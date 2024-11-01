@@ -105,6 +105,14 @@ Add page-specific configuration
 You can override some global configuration for specific pages.
 
 For example, you can configure whether to display Previous/Next buttons at the bottom of pages by setting the ``sequential_nav`` variable in the :file:`conf.py` file.
+
+.. code:: python
+
+   html_context = {
+       ...
+       "sequential_nav": "both"
+   }
+
 You can then override this default setting for a specific page (for example, to turn off the Previous/Next buttons by default, but display them in a multi-page tutorial).
 
 To do so, add `file-wide metadata`_ at the top of a page.
