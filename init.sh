@@ -61,7 +61,7 @@ sed -i "s|requirements:\s*sp-docs/\.sphinx/requirements\.txt|requirements: $inst
 echo "Updating contribution guide..."
 sed -i "s|DOCDIR|$install_directory|g" "$temp_directory/sp-files/contributing.rst"
 [ "$install_directory" != "." ] && sed -i "s/Makefile.sp/$install_directory\/Makefile.sp/" "$temp_directory/sp-files/.github/workflows/sphinx-python-dependency-build-checks.yml"
-[ "$install_directory" != "." ] && sed -i "s/.sphinx\/.markdownlint.json/$install_directory\/.sphinx\.markdownlint.json/" "$temp_directory/sp-files/.github/workflows/markdown-style-checks.yml"
+[ "$install_directory" != "." ] && sed -i "s/.sphinx\/.markdownlint.json/$install_directory\/.sphinx\/.markdownlint.json/" "$temp_directory/sp-files/.github/workflows/markdown-style-checks.yml"
 
 # Update the GitHub folder path in the configuration file
 echo "Updating conf.py configuration..."
