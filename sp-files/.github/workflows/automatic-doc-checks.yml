@@ -16,3 +16,4 @@ jobs:
     uses: canonical/documentation-workflows/.github/workflows/documentation-checks.yaml@main
     with:
       working-directory: "."
+      fetch-depth: 0
