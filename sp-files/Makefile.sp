@@ -77,6 +77,7 @@ sp-pa11y-install:
 	@type $(PA11Y) >/dev/null 2>&1 || { \
 			echo "Installing \"pa11y\" from npm... \n"; \
 			mkdir -p $(SPHINXDIR)/node_modules/ ; \
+			$(SPHINXDIR)/check_npmdir_ownership.sh ; \
 			npm install --prefix $(SPHINXDIR) pa11y; \
 		}
 
