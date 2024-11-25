@@ -16,4 +16,3 @@ jobs:
     uses: secondskoll/documentation-workflows/.github/workflows/documentation-checks.yaml@main
     with:
       working-directory: "sp-docs"
-      fetch-depth: 0
