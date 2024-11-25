@@ -9,10 +9,7 @@ It is configured to use the `Web Content Accessibility Guidelines (WCAG) 2.2`_, 
 
 .. note::
 
-   The accessibility check is not yet required, since there are some issues within the starter pack itself.
-   We are working on resolving those.
-
-   For now, the check is implemented as non-blocking as part of our GitHub workflow.
+   This check is only available locally.
 
 Install prerequisite software
 -----------------------------
