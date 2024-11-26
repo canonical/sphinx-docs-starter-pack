@@ -27,3 +27,30 @@ To install the validation tools:
 
    make woke-install
    make pa11y-install
+
+.. note::
+
+   Both `woke` and `pa11y` are non-blocking checks in our current documentation workflow.
+
+Default GitHub actions
+----------------------
+
+The starter pack uses default workflows from the
+`documentation-workflows <https://github.com/canonical/documentation-workflows/>`_
+repository.
+
+The current defaults force usage of Canonical hosted runners, which some projects
+may not be able to use. You may select your own runners with an override, see line 7 below:
+
+.. code-block::
+   :emphasize-lines: 7
+   :linenos:
+
+   jobs:
+   documentation-checks:
+      uses: canonical/documentation-workflows/.github/workflows/documentation-checks.yaml@main
+      with:
+         working-directory: "sp-docs"
+         fetch-depth: 0
+         runs-on: "ubuntu-22.04"
+

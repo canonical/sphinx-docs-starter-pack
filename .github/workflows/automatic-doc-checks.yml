@@ -17,3 +17,4 @@ jobs:
     with:
       working-directory: "sp-docs"
       fetch-depth: 0
+#      runs-on: "ubuntu-22.04"
