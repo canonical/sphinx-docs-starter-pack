@@ -41,6 +41,7 @@ The initialisation script will download all required files, update them, and cop
 
      If the folder does not yet exist, it is created.
      If the folder exists already, some of its files might be overwritten by starter pack files, so make sure you have a backup.
+#. When prompted, specify if you'll be using ``.rst`` or ``.md``
 #. Check the output for any warnings or errors.
 
 You can now delete the :file:`init.sh` file.
