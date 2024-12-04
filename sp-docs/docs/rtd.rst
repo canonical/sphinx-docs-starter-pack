@@ -3,7 +3,7 @@
 Set up Read the Docs
 ====================
 
-For Canonical-specific information on how to set up your documentation on Read the Docs, see the `Read the Docs at Canonical <https://library.canonical.com/documentation/read-the-docs>`_ and `How to publish documentation on Read the Docs <https://library.canonical.com/documentation/publish-on-read-the-docs>`_ guides.
+For Canonical-specific information on how to set up your documentation on Read the Docs, see the `Read the Docs at Canonical <https://library.canonical.com/documentation/read-the-docs-at-canonical>`_ and `How to publish documentation on Read the Docs <https://library.canonical.com/documentation/publish-on-read-the-docs>`_ guides.
 
 In general, after enabling the starter pack for your documentation, follow these steps to build and publish your documentation on Read the Docs:
 
