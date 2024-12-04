@@ -13,8 +13,11 @@ In general, after enabling the starter pack for your documentation, follow these
 #. If your documentation is not on the root level but in a documentation folder, you must specify the path to the :file:`.readthedocs.yaml` file for your build.
    You do this by navigating to :guilabel:`Admin` > :guilabel:`Settings` and specifying the path under "Path for ``.readthedocs.yaml``".
 
-After this initial setup, your documentation should build successfully.
+After this initial setup, your documentation should build successfully if your project came from a public repository.
 If you get any errors, check the build log for indications on what the problem is.
+
+If your project was imported from a private repository, your initial build will fail because Read the Docs won't have access to clone the repository.
+You need to copy your project's private key from Read the Docs and add it as a deploy key to the repository, then re-run the build again in Read the Docs.
 
 Configure the webhook
 ---------------------
