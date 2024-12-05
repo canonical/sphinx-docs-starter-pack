@@ -146,6 +146,9 @@ html_context = {
     # TODO: To enable or disable the Previous / Next buttons at the bottom of pages
     # Valid options: none, prev, next, both
     # "sequential_nav": "both",
+
+    # TODO: To enable listing contributors on individual pages, set to True
+    "display_contributors": False
 }
 
 # Project slug; see https://meta.discourse.org/t/what-is-category-slug/87897
@@ -233,7 +236,6 @@ extensions = [
     "sphinxcontrib.cairosvgconverter",
     "sphinx_last_updated_by_git"
 ]
-
 
 # Excludes files or directories from processing
 
