@@ -15,6 +15,6 @@ jobs:
   documentation-checks:
     uses: canonical/documentation-workflows/.github/workflows/documentation-checks.yaml@main
     with:
-      working-directory: "sp-docs"
+      working-directory: "docs"
       fetch-depth: 0
 #      runs-on: "ubuntu-22.04"
