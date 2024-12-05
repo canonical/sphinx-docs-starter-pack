@@ -19,3 +19,4 @@ You can also find detailed information about the :ref:`automatic-checks` include
    /docs/update
    /docs/automatic_checks
    /docs/examples
+   contributing
