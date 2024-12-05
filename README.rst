@@ -20,11 +20,6 @@ Structure
 
 This section outlines the structure of this repository, and some key files.
 
-init.sh
-*******
-
-This script is an entrypoint intended to simplify adoption of this starter pack.
-Download and run this file it to install the starter pack in an arbitrary directory of the repo.
 
 docs
 ****
