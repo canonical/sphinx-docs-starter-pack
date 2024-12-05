@@ -16,12 +16,8 @@ jobs:
     steps:
       - name: Check out repo
         uses: actions/checkout@v4
-      - name: Run init and build
-        env:
-          default_filetype_choice: md # don't prompt for user choice
-        run: tests/run-init-and-build.sh
-      - name: Add some files, build, and test
-        run: tests/add-files-and-build.sh
+      - name: Build starter pack docs
+        run: tests/build-docs.sh
       - name: Run inclusive language check
         if: success() || failure()
         run: tests/check-inclusive-language.sh

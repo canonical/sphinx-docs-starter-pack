@@ -2,4 +2,4 @@
 set -ex
 
 # clean up
-rm -rf testdir
+make -C docs clean
