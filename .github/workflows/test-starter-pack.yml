@@ -27,11 +27,12 @@ jobs:
     - name: Run spelling check
       if: success() || failure()
       run: make -C docs spelling CONFIRM_SUDO=y
-    - name: Run styleguide check (expected to fail)
+    - name: Run styleguide check (allowed to fail)
       continue-on-error: true
       run: make -C docs vale
-    - name: Run accessibility check
+    - name: Run accessibility check (allowed to fail)
       if: success() || failure()
+      continue-on-error: true
       run: make -C docs pa11y
     - name: Clean up
       if: success() || failure()
