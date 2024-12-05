@@ -11,9 +11,9 @@
 # succeed.
 name: Check and document build requirements for Sphinx venv
 on:
-  - push
-  - pull_request
-  - workflow_dispatch
+- push
+- pull_request
+- workflow_dispatch
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -24,24 +24,24 @@ jobs:
     name: build
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-      - name: Install dependencies
-        run: |
-          set -ex
-          sudo apt -y install \
-            cargo \
-            libpython3-dev \
-            libxml2-dev \
-            libxslt1-dev \
-            make \
-            python3-venv \
-            rustc
-      - name: Build Sphinx venv
-        working-directory: "docs"
-        run: |
-          set -ex
-          make install \
-            PIPOPTS="--no-binary :all:" \
-            || ( cat .sphinx/venv/pip_install.log && exit 1 )
+    - name: Install dependencies
+      run: |
+        set -ex
+        sudo apt -y install \
+          cargo \
+          libpython3-dev \
+          libxml2-dev \
+          libxslt1-dev \
+          make \
+          python3-venv \
+          rustc
+    - name: Build Sphinx venv
+      working-directory: "docs"
+      run: |
+        set -ex
+        make install \
+          PIPOPTS="--no-binary :all:" \
+          || ( cat .sphinx/venv/pip_install.log && exit 1 )

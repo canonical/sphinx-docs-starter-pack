@@ -1,38 +1,36 @@
-# This workflow runs the init.sh script to test setting up
-# the starter pack.
-# You shouldn't run this workflow on any repos that use the
-# starter pack.
+# This workflow tests the starter pack.
+# Don't run this workflow on any repos that use the starter pack.
 
 name: Test starter pack
 
 on:
-  - pull_request
-  - push
+- pull_request
+- push
 
 jobs:
   test-docs:
     name: Test on docs folder
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repo
-        uses: actions/checkout@v4
-      - name: Build docs
-        run: make -C docs html
-      - name: Run inclusive language check
-        if: success() || failure()
-        run: make -C docs woke CONFIRM_SUDO=y
-      - name: Run link check
-        if: success() || failure()
-        run: make -C docs linkcheck
-      - name: Run spelling check
-        if: success() || failure()
-        run: make -C docs spelling CONFIRM_SUDO=y
-      - name: Run styleguide check (expected to fail)
-        continue-on-error: true
-        run: make -C docs vale
-      - name: Run accessibility check
-        if: success() || failure()
-        run: make -C docs pa11y
-      - name: Clean up
-        if: success() || failure()
-        run: make -C docs clean
+    - name: Check out repo
+      uses: actions/checkout@v4
+    - name: Build docs
+      run: make -C docs html
+    - name: Run inclusive language check
+      if: success() || failure()
+      run: make -C docs woke CONFIRM_SUDO=y
+    - name: Run link check
+      if: success() || failure()
+      run: make -C docs linkcheck
+    - name: Run spelling check
+      if: success() || failure()
+      run: make -C docs spelling CONFIRM_SUDO=y
+    - name: Run styleguide check (expected to fail)
+      continue-on-error: true
+      run: make -C docs vale
+    - name: Run accessibility check
+      if: success() || failure()
+      run: make -C docs pa11y
+    - name: Clean up
+      if: success() || failure()
+      run: make -C docs clean
