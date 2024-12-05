@@ -1,4 +1,4 @@
-name: "Linter for Markdown"
+name: Markdown style checks
 
 on:
   push:

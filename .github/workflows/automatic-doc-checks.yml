@@ -1,4 +1,5 @@
-name: Main Documentation Checks
+#
+name: Automatic doc checks
 
 on:
   push:
