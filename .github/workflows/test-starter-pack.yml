@@ -19,28 +19,28 @@ jobs:
       - name: Run init and build
         env:
           default_filetype_choice: md # don't prompt for user choice
-        run: sp-tests/run-init-and-build.sh
+        run: tests/run-init-and-build.sh
       - name: Add some files, build, and test
-        run: sp-tests/add-files-and-build.sh
+        run: tests/add-files-and-build.sh
       - name: Run inclusive language check
         if: success() || failure()
-        run: sp-tests/check-inclusive-language.sh
+        run: tests/check-inclusive-language.sh
       - name: Run link check
         if: success() || failure()
-        run: sp-tests/check-links.sh
+        run: tests/check-links.sh
       - name: Run spelling check
         if: success() || failure()
-        run: sp-tests/check-spelling.sh
+        run: tests/check-spelling.sh
       - name: Run styleguide check (expected to fail)
         continue-on-error: true
         if: success() || failure()
-        run: sp-tests/check-styleguide.sh
+        run: tests/check-styleguide.sh
       - name: Run accessibility check
         if: success() || failure()
-        run: sp-tests/check-accessibility.sh
+        run: tests/check-accessibility.sh
       - name: Clean up
         if: success() || failure()
-        run: sp-tests/clean-up.sh
+        run: tests/clean-up.sh
   test-docs:
     name: Test on docs folder
     runs-on: ubuntu-latest
@@ -50,24 +50,24 @@ jobs:
       - name: Run init and build
         env:
           default_filetype_choice: md # don't prompt for user choice
-        run: sp-tests/run-init-and-build.sh docs
+        run: tests/run-init-and-build.sh docs
       - name: Add some files, build, and test
-        run: sp-tests/add-files-and-build.sh docs
+        run: tests/add-files-and-build.sh docs
       - name: Run inclusive language check
         if: success() || failure()
-        run: sp-tests/check-inclusive-language.sh docs
+        run: tests/check-inclusive-language.sh docs
       - name: Run link check
         if: success() || failure()
-        run: sp-tests/check-links.sh docs
+        run: tests/check-links.sh docs
       - name: Run spelling check
         if: success() || failure()
-        run: sp-tests/check-spelling.sh docs
+        run: tests/check-spelling.sh docs
       - name: Run styleguide check (expected to fail)
         continue-on-error: true
-        run: sp-tests/check-styleguide.sh docs
+        run: tests/check-styleguide.sh docs
       - name: Run accessibility check
         if: success() || failure()
-        run: sp-tests/check-accessibility.sh docs
+        run: tests/check-accessibility.sh docs
       - name: Clean up
         if: success() || failure()
-        run: sp-tests/clean-up.sh
+        run: tests/clean-up.sh

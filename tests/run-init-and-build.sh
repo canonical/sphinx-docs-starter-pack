@@ -1,7 +1,7 @@
 #!/bin/bash
 set -ex
 
-source sp-tests/get-installation-directory.sh
+source tests/get-installation-directory.sh
 
 # Save current directory
 cwd=$(pwd)
