@@ -3,8 +3,12 @@
 Build and preview
 =================
 
-The starter pack provides make commands to build and view the documentation.
+The starter pack provides :command:`make` commands to build and view the documentation.
+
 All these commands will automatically set up the Python environment if it isn't set up yet.
+
+.. important::
+   Run these commands from within your documentation folder.
 
 .. _build-docs:
 
@@ -15,7 +19,7 @@ To build the documentation, run the following command::
 
   make html
 
-This command installs the required tools and renders the output to the :file:`_build/` directory in your documentation directory.
+This command installs the required tools and renders the output to the :file:`_build/` folder in your documentation folder.
 
 .. important::
    When you run :command:`make html` again, it updates the documentation for changed files only.

@@ -10,8 +10,10 @@ In general, after enabling the starter pack for your documentation, follow these
 1. Make sure your documentation :ref:`builds without errors or warnings <build-clean>`.
 #. Log into Read the Docs.
 #. Use the `manual import`_ to create a project.
-#. If your documentation is not on the root level but in a documentation folder, you must specify the path to the :file:`.readthedocs.yaml` file for your build.
-   You do this by navigating to :guilabel:`Admin` > :guilabel:`Settings` and specifying the path under "Path for ``.readthedocs.yaml``".
+#. Specify the path to the :file:`.readthedocs.yaml` file for your build.
+   To do this, navigate to :guilabel:`Admin` > :guilabel:`Settings` and specify the path under "Path for ``.readthedocs.yaml``".
+   
+   For example, if your documentation folder is :file:`docs/`, specify the path as ``docs/readthedocs.yaml``.
 
 After this initial setup, your documentation should build successfully.
 If you get any errors, check the build log for indications on what the problem is.
