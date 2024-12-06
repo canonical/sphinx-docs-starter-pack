@@ -20,26 +20,15 @@ Structure
 
 This section outlines the structure of this repository, and some key files.
 
-init.sh
-*******
 
-This script is an entrypoint intended to simplify adoption of this starter pack.
-Download and run this file it to install the starter pack in an arbitrary directory of the repo.
-
-sp-files
-********
-
-This directory contains the files required for the functionality of the starter pack.
-If you don't want to run ``init.sh`` for some reason, use these files.
-
-sp-docs
-*******
+docs
+****
 
 This directory contains the documentation for the starter pack itself.
 To view it in your browser, change to this directory and type `make run`.
 
-sp-tests
-********
+tests
+*****
 
 This directory contains files used to test the functionality of the starter pack project.
 

@@ -71,8 +71,8 @@ Links
 - https:\ //canonical.com/
 - :ref:`a_section_target`
 - :ref:`Link text <a_section_target>`
-- :doc:`index`
-- :doc:`Link text <index>`
+- :doc:`../index`
+- :doc:`Link text <../index>`
 
 
 Navigation
@@ -204,9 +204,9 @@ Reuse
 
 |reuse_key|
 
-.. include:: index.rst
-   :start-after: include_start
-   :end-before: include_end
+.. include:: include.txt
+   :start-after: [include_start]
+   :end-before: [include_end]
 
 Tabs
 ----

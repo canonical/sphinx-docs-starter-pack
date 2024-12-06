@@ -10,6 +10,6 @@ You'll find information on how to build and preview the documentation, and some 
 .. toctree::
    :maxdepth: 1
 
-   /docs/prereqs
-   /docs/build
-   /docs/guidance
+   /content/prereqs
+   /content/build
+   /content/guidance
