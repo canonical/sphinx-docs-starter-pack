@@ -187,8 +187,8 @@ Keys can be defined at the top of a file, or in a `myst_substitutions` option in
 ### File inclusion
 
 ```{include} include.txt
-   :start-after: include_start
-   :end-before: include_end
+   :start-after: [include_start]
+   :end-before: [include_end]
 ```
 
 ## Tabs
