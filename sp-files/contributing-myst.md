@@ -33,7 +33,7 @@ All contributors must sign the [Canonical contributor licence agreement](https:/
 
 ACME uses [semantic versioning](https://semver.org/); major releases occur once or twice a year.
 
-The release notes can be found TODO: [here](https://example.com).
+The release notes can be found [TODO: here](https://example.com).
 
 ## Environment setup
 
@@ -103,11 +103,55 @@ Such structure makes it easier to review contributions and simplifies porting fi
 
 <!-- TODO: Update with your suggestions or drop if excessive -->
 
-To improve contribution tracking, we use the developer certificate of origin ([DCO 1.1](https://developercertificate.org/)) and require a "sign-off" for any changes going into each branch.
+To improve contribution tracking, we use the developer certificate of origin
+([DCO 1.1](https://developercertificate.org/) and require signed commits (using
+the `-S` or `---gpg-sign` option) for all changes that go into the ACME project.
 
-The sign-off is a simple line at the end of the commit message certifying that you wrote it or have the right to commit it as an open-source contribution.
+```{code-block} none
+git commit -S -m "acme/component: updated life cycle diagram"
+```
 
-To sign off on a commit, use the `--signoff` option in `git commit`.
+Signed commits will have a GPG, SSH, or S/MIME signature that is
+cryptographically verifiable, and will be marked with a "Verified" or
+"Partially verified" badge in GitHub. This verifies that you made the changes or
+have the right to commit it as an open-source contribution.
+
+To set up locally signed commits and tags, see [GitHub Docs - About commit
+signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification).
+
+````{tip}
+You can configure your Git client to sign commits by default for any local
+repository by running:
+
+```{code-block} none
+git config --global commit.gpgsign true
+```
+
+Once you have configured this, you no longer need to add ``-S`` to your
+commits explicitly.
+
+See [GitHub Docs - Signing commits](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits) for more information.
+````
+
+If you've made an unsigned commit and encounter the "Commits must have verified
+signatures" error when pushing your changes to the remote:
+
+1. Amend the most recent commit by signing it without changing the commit
+message, and push again:
+
+   ```{code-block} none
+   git commit --amend --no-edit -n -S
+   git push
+   ```
+
+1. If you still encounter the same error, confirm that your GitHub account has
+been set up properly to sign commits as described in the [GitHub Docs - About
+commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification).
+   ```{tip}
+   If you use SSH keys to sign your commits, make sure to add a "Signing Key"
+   type in your GitHub account. See
+   [GitHub Docs - Adding a new SSH key to your account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+   for more information.
 
 ## Code
 
