@@ -14,11 +14,11 @@ It is configured to use the `Web Content Accessibility Guidelines (WCAG) 2.2`_, 
 Install prerequisite software
 -----------------------------
 
-``Pa11y`` must be installed through ``npm``::
+``Pa11y`` must be installed through ``npm``. If you need to install ``npm``, run the following command from any location on your system::
 
    sudo apt install npm
 
-To install ``Pa11y``:
+Once ``npm`` is installed, install ``Pa11y`` by running this command from within your documentation folder.
 
 .. code-block:: bash
 
@@ -27,6 +27,8 @@ To install ``Pa11y``:
 Run the accessibility check
 ---------------------------
 
+Run the following command from within your documentation folder.
+
 Look for accessibility issues in rendered documentation::
 
    make pa11y
@@ -34,6 +36,6 @@ Look for accessibility issues in rendered documentation::
 Configure the accessibility check
 ---------------------------------
 
-The :file:`pa11y.json` file in the :file:`.sphinx` directory provides basic defaults.
+The :file:`pa11y.json` file in the :file:`.sphinx` folder provides basic defaults.
 
 To browse the available settings and options, see ``Pa11y``'s `README <Pa11y readme_>`_ on GitHub.

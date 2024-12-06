@@ -8,6 +8,8 @@ The link check uses Sphinx to access the links in the documentation output and v
 Run the link check
 ------------------
 
+Run the following command from within your documentation folder.
+
 Validate links within the documentation::
 
    make linkcheck

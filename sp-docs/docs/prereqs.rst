@@ -19,13 +19,13 @@ Python environment
 
 The Python prerequisites from the :file:`.sphinx/requirements.txt` file are automatically installed when you build the documentation.
 
-If you want to install them manually, you can run the following command::
+If you want to install them manually, you can run the following command from within your documentation folder::
 
    make install
 
-This command creates a virtual environment (:file:`.sphinx/venv`) and installs dependency software within it.
+This command creates a virtual environment (:file:`.sphinx/venv/`) and installs dependency software within it.
 
-If you want to remove the installed Python packages (for example, to enforce a re-installation), run the following command::
+If you want to remove the installed Python packages (for example, to enforce a re-installation), run the following command from within your documentation folder::
 
   make clean
 

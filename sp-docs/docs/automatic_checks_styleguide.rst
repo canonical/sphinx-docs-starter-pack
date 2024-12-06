@@ -9,19 +9,21 @@ The starter pack includes a method to run the `Vale`_ documentation linter confi
 Run the style guide linting
 ---------------------------
 
+Run the following commands from within your documentation folder.
+
 Check documentation with Vale::
 
    make vale
 
-Vale can run against individual files, directories, or globs.
+Vale can run against individual files, folders, or globs.
 To set a specific target::
 
     make vale TARGET=example.file
-    make vale TARGET=example-directory
+    make vale TARGET=example-folder
 
 .. note::
 
-    Running Vale against a directory will also run against subfolders.
+    Running Vale against a folder will also run against its subfolders.
 
 You can use wildcards to run against all files matching a string, or an extension.
 
