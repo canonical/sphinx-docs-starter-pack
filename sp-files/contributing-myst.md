@@ -127,13 +127,16 @@ repository by running:
 git config --global commit.gpgsign true
 ```
 
+Once you have configured this, you no longer need to add ``-S`` to your
+commits explicitly.
+
 See [GitHub Docs - Signing commits](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits) for more information.
 ````
 
 If you've made an unsigned commit and encounter the "Commits must have verified
 signatures" error when pushing your changes to the remote:
 
-1. Amend the most recent commit, add a signature without changing the commit
+1. Amend the most recent commit by signing it without changing the commit
 message, and push again:
 
    ```{code-block} none
