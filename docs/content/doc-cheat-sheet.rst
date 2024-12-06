@@ -205,8 +205,8 @@ Reuse
 |reuse_key|
 
 .. include:: include.txt
-   :start-after: include_start
-   :end-before: include_end
+   :start-after: [include_start]
+   :end-before: [include_end]
 
 Tabs
 ----
