@@ -14,8 +14,9 @@ You can also find detailed information about the :ref:`automatic-checks` include
    :hidden:
    :maxdepth: 2
 
-   /docs/quickstart
-   /docs/setup
-   /docs/update
-   /docs/automatic_checks
-   /docs/examples
+   /content/quickstart
+   /content/setup
+   /content/update
+   /content/automatic_checks
+   /content/examples
+   /content/contributing

@@ -1,7 +1,5 @@
 # Minimal makefile for Sphinx documentation
 #
-# `Makefile.sp` is from the Sphinx starter pack and should not be
-# modified.
 # Add your customisation to `Makefile` instead.
 
 # You can set these variables from the command line, and also
@@ -20,11 +18,31 @@ METRICSDIR      = $(SOURCEDIR)/.sphinx/metrics
 REQPDFPACKS     = latexmk fonts-freefont-otf texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-font-utils texlive-lang-cjk texlive-xetex plantuml xindy tex-gyre dvipng
 CONFIRM_SUDO    ?= N
 
-.PHONY: sp-full-help sp-woke-install sp-spellcheck-install sp-pa11y-install sp-install sp-run sp-html \
-        sp-epub sp-serve sp-clean sp-clean-doc sp-spelling sp-spellcheck sp-linkcheck sp-woke \
-        sp-allmetrics sp-pa11y sp-pdf-prep-force sp-pdf-prep sp-pdf Makefile.sp sp-vale sp-bash
+# Put it first so that "make" without argument is like "make help".
+help:
+	@echo "\n" \
+        "------------------------------------------------------------- \n" \
+        "* watch, build and serve the documentation:  make run \n" \
+        "* only build:                                make html \n" \
+        "* only serve:                                make serve \n" \
+        "* clean built doc files:                     make clean-doc \n" \
+        "* clean full environment:                    make clean \n" \
+        "* check links:                               make linkcheck \n" \
+        "* check spelling:                            make spelling \n" \
+        "* check spelling (without building again):   make spellcheck \n" \
+        "* check inclusive language:                  make woke \n" \
+        "* check accessibility:                       make pa11y \n" \
+        "* check style guide compliance:              make vale \n" \
+        "* check style guide compliance on target:    make vale TARGET=* \n" \
+        "* check metrics for documentation:           make allmetrics \n" \
+        "* other possible targets:                    make <TAB twice> \n" \
+        "------------------------------------------------------------- \n"
 
-sp-full-help: $(VENVDIR)
+.PHONY: full-help woke-install spellcheck-install pa11y-install install run html \
+        epub serve clean clean-doc spelling spellcheck linkcheck woke \
+        allmetrics pa11y pdf-prep-force pdf-prep pdf Makefile.sp vale bash
+
+full-help: $(VENVDIR)
 	@. $(VENV); $(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 	@echo "\n\033[1;31mNOTE: This help texts shows unsupported targets!\033[0m"
 	@echo "Run 'make help' to see supported targets."
@@ -43,7 +61,7 @@ $(VENVDIR):
 	@. $(VENV); pip list --local --format=freeze > $(VENVDIR)/pip_list.txt
 	@touch $(VENVDIR)
 
-sp-woke-install:
+woke-install:
 	@type woke >/dev/null 2>&1 || \
 	{ \
 		echo "Installing system-wide \"woke\" snap..."; \
@@ -58,7 +76,7 @@ sp-woke-install:
 		fi \
 	}	
 
-sp-spellcheck-install:
+spellcheck-install:
 	@type aspell >/dev/null 2>&1 || \
 	{ \
 		echo "Installing system-wide \"aspell\" packages..."; \
@@ -73,56 +91,56 @@ sp-spellcheck-install:
 		fi \
 	}
 
-sp-pa11y-install:
+pa11y-install:
 	@type $(PA11Y) >/dev/null 2>&1 || { \
 			echo "Installing \"pa11y\" from npm... \n"; \
 			mkdir -p $(SPHINXDIR)/node_modules/ ; \
 			npm install --prefix $(SPHINXDIR) pa11y; \
 		}
 
-sp-install: $(VENVDIR)
+install: $(VENVDIR)
 
-sp-run: sp-install
+run: install
 	. $(VENV); $(VENVDIR)/bin/sphinx-autobuild -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
 
 # Doesn't depend on $(BUILDDIR) to rebuild properly at every run.
-sp-html: sp-install
+html: install
 	. $(VENV); $(SPHINXBUILD) -W --keep-going -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" -w $(SPHINXDIR)/warnings.txt $(SPHINXOPTS)
 
-sp-epub: sp-install
+epub: install
 	. $(VENV); $(SPHINXBUILD) -b epub "$(SOURCEDIR)" "$(BUILDDIR)" -w $(SPHINXDIR)/warnings.txt $(SPHINXOPTS)
 
-sp-serve: sp-html
+serve: html
 	cd "$(BUILDDIR)"; python3 -m http.server --bind 127.0.0.1 8000
 
-sp-clean: sp-clean-doc
+clean: clean-doc
 	@test ! -e "$(VENVDIR)" -o -d "$(VENVDIR)" -a "$(abspath $(VENVDIR))" != "$(VENVDIR)"
 	rm -rf $(VENVDIR)
 	rm -rf $(SPHINXDIR)/node_modules/
 	rm -rf $(SPHINXDIR)/styles
 	rm -rf $(SPHINXDIR)/vale.ini
 
-sp-clean-doc:
+clean-doc:
 	git clean -fx "$(BUILDDIR)"
 	rm -rf $(SPHINXDIR)/.doctrees
 
-sp-spellcheck: sp-spellcheck-install
+spellcheck: spellcheck-install
 	. $(VENV) ; python3 -m pyspelling -c $(SPHINXDIR)/spellingcheck.yaml -j $(shell nproc)
 
-sp-spelling: sp-html sp-spellcheck
+spelling: html spellcheck
 
-sp-linkcheck: sp-install
+linkcheck: install
 	. $(VENV) ; $(SPHINXBUILD) -b linkcheck "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) || { grep --color -F "[broken]" "$(BUILDDIR)/output.txt"; exit 1; }
 	exit 0
 
-sp-woke: sp-woke-install
+woke: woke-install
 	woke $(ALLFILES) --exit-1-on-failure \
 	    -c https://raw.githubusercontent.com/canonical/Inclusive-naming/main/config.yml
 
-sp-pa11y: sp-pa11y-install sp-html
+pa11y: pa11y-install html
 	find $(BUILDDIR) -name *.html -print0 | xargs -n 1 -0 $(PA11Y)
 
-sp-vale: sp-install
+vale: install
 	@. $(VENV); test -d $(SPHINXDIR)/venv/lib/python*/site-packages/vale || pip install vale
 	@. $(VENV); test -f $(SPHINXDIR)/vale.ini || python3 $(SPHINXDIR)/get_vale_conf.py
 	@. $(VENV); find $(SPHINXDIR)/venv/lib/python*/site-packages/vale/vale_bin -size 195c -exec vale --config "$(SPHINXDIR)/vale.ini" $(TARGET) > /dev/null \;
@@ -134,19 +152,19 @@ sp-vale: sp-install
 	@. $(VENV); vale --config "$(SPHINXDIR)/vale.ini" --glob='*.{md,txt,rst}' $(TARGET) || true
 	@cat $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept_backup.txt > $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept.txt && rm $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept_backup.txt
 
-sp-pdf-prep: sp-install
+pdf-prep: install
 	@for packageName in $(REQPDFPACKS); do (dpkg-query -W -f='$${Status}' $$packageName 2>/dev/null | \
         grep -c "ok installed" >/dev/null && echo "Package $$packageName is installed") && continue || \
         (echo "\nPDF generation requires the installation of the following packages: $(REQPDFPACKS)" && \
         echo "" && echo "Run 'sudo make pdf-prep-force' to install these packages" && echo "" && echo \
         "Please be aware these packages will be installed to your system") && exit 1 ; done
 
-sp-pdf-prep-force:
+pdf-prep-force:
 	apt-get update
 	apt-get upgrade -y
 	apt-get install --no-install-recommends -y $(REQPDFPACKS) \
 
-sp-pdf: sp-pdf-prep
+pdf: pdf-prep
 	@. $(VENV); sphinx-build -M latexpdf "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
 	@rm ./$(BUILDDIR)/latex/front-page-light.pdf || true
 	@rm ./$(BUILDDIR)/latex/normal-page-footer.pdf || true
@@ -154,7 +172,7 @@ sp-pdf: sp-pdf-prep
 	@rm -r $(BUILDDIR)/latex
 	@echo "\nOutput can be found in ./$(BUILDDIR)\n"
 
-sp-allmetrics: sp-html
+allmetrics: html
 	@echo "Recording documentation metrics..."
 	@echo "Checking for existence of vale..."
 	. $(VENV)
@@ -166,5 +184,5 @@ sp-allmetrics: sp-html
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
-%: Makefile.sp
+%:
 	. $(VENV); $(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)

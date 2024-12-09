@@ -11,7 +11,7 @@ The following checks are available:
    :maxdepth: 1
    :glob:
 
-   /docs/automatic_checks_*
+   /content/automatic_checks_*
 
 Install prerequisite software
 -----------------------------
@@ -50,7 +50,7 @@ may not be able to use. You may select your own runners with an override, see li
    documentation-checks:
       uses: canonical/documentation-workflows/.github/workflows/documentation-checks.yaml@main
       with:
-         working-directory: "sp-docs"
+         working-directory: "docs"
          fetch-depth: 0
          runs-on: "ubuntu-22.04"
 

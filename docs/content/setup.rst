@@ -18,7 +18,7 @@ After this is done, documentation contributors can follow the instructions in :r
 .. toctree::
    :maxdepth: 1
 
-   /docs/enable
-   /docs/customise
-   /docs/makefile
-   /docs/rtd
+   /content/enable
+   /content/customise
+   /content/makefile
+   /content/rtd

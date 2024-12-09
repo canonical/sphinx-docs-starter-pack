@@ -65,8 +65,8 @@ code:
 - [Canonical website](https://canonical.com/)
 - {ref}`a_section_target_myst`
 - {ref}`Link text <a_section_target_myst>`
-- {doc}`index`
-- {doc}`Link text <index>`
+- {doc}`../index`
+- {doc}`Link text <../index>`
 
 ## Navigation
 
@@ -186,9 +186,9 @@ Keys can be defined at the top of a file, or in a `myst_substitutions` option in
 
 ### File inclusion
 
-```{include} index.md
-   :start-after: include_start
-   :end-before: include_end
+```{include} include.txt
+   :start-after: [include_start]
+   :end-before: [include_end]
 ```
 
 ## Tabs
