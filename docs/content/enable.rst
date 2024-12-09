@@ -24,7 +24,7 @@ Run the initialisation script
 
 The initialisation script will download all required files, update them, and copy them to the selected location.
 
-1. Download :file:`init.sh` from the starter pack repository: :literalref:`https://raw.githubusercontent.com/canonical/sphinx-docs-starter-pack/use-canonical-sphinx-extension/init.sh`
+1. Download :file:`init.sh` from the starter pack repository.
 #. Put the script into the root folder of the Git repository in which you want to enable the starter pack.
 
    This can be a new, empty repository or your code repository.

@@ -7,7 +7,7 @@ The following steps will guide you through setting up your documentation using t
 
 For more detailed information, see the other sections of the starter pack documentation.
 
-1. Download the :literalref:`init.sh<https://raw.githubusercontent.com/canonical/sphinx-docs-starter-pack/use-canonical-sphinx-extension/init.sh>` file from the starter pack repository and place it into the directory where you want to set up your documentation.
+1. Download the :file:`init.sh` file from the starter pack repository and place it into the directory where you want to set up your documentation.
 
 #. Run the script and specify where you want the files for the documentation framework to be placed (either in the current directory or in a sub-directory).
    Your own documentation files will need to be placed in the same directory (or sub-directories of it) later.
