@@ -9,6 +9,8 @@ It ignores code (both code blocks and inline code) and URLs (but it does check t
 Run the spelling check
 ----------------------
 
+Run the following commands from within your documentation folder.
+
 Ensure there are no spelling errors in the documentation::
 
   make spelling

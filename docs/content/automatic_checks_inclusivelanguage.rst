@@ -8,6 +8,8 @@ The inclusive language check uses `woke`_ to check for violations of inclusive l
 Install prerequisite software
 -----------------------------
 
+The following two commands can be run from any location on your system.
+
 To install ``woke``, you need ``snap``::
 
    sudo apt install snapd
@@ -21,6 +23,8 @@ To install ``woke``:
 Run the inclusive language check
 --------------------------------
 
+Run the following command from within your documentation folder.
+
 Ensure the documentation uses inclusive language::
 
    make woke
@@ -28,9 +32,8 @@ Ensure the documentation uses inclusive language::
 Configure the inclusive language check
 --------------------------------------
 
-By default, the inclusive language check is applied only to |RST| files located
-under the documentation directory (usually :file:`docs`).
-To check Markdown files, for example, or to use a location other than the :file:`docs` sub-tree, you must override the ``ALLFILES`` variable in :file:`Makefile.sp` (see :ref:`Makefile`).
+By default, the inclusive language check is applied only to |RST| files located in the documentation folder (usually :file:`docs/`).
+To check Markdown files, for example, or to use a location other than the :file:`docs/` sub-tree, you must override the ``ALLFILES`` variable in :file:`Makefile.sp` (see :ref:`Makefile`).
 
 You can find more information about available options in the `woke User Guide`_.
 

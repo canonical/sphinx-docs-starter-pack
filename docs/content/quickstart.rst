@@ -14,7 +14,7 @@ For more detailed information, see the other sections of the starter pack docume
 
    See :ref:`enable` for detailed information on what the script does.
 
-#. Enter the documentation folder (the folder you specified when running the script) and build the documentation with the following command::
+#. Enter the documentation folder (the folder you specified when running the script, such as :file:`docs/`) and build the documentation with the following command::
 
      make run
 
