@@ -290,28 +290,3 @@ rst_prolog = """
 
 if "discourse_prefix" not in html_context and "discourse" in html_context:
     html_context["discourse_prefix"] = html_context["discourse"] + "/t/"
-
-#####################
-# PDF configuration #
-#####################
-
-latex_additional_files = [
-    "./.sphinx/fonts/Ubuntu-B.ttf",
-    "./.sphinx/fonts/Ubuntu-R.ttf",
-    "./.sphinx/fonts/Ubuntu-RI.ttf",
-    "./.sphinx/fonts/UbuntuMono-R.ttf",
-    "./.sphinx/fonts/UbuntuMono-RI.ttf",
-    "./.sphinx/fonts/UbuntuMono-B.ttf",
-    "./.sphinx/images/Canonical-logo-4x.png",
-    "./.sphinx/images/front-page-light.pdf",
-    "./.sphinx/images/normal-page-footer.pdf",
-]
-
-latex_engine = "xelatex"
-latex_show_pagerefs = True
-latex_show_urls = "footnote"
-
-with open(".sphinx/latex_elements_template.txt", "rt") as file:
-    latex_config = file.read()
-
-latex_elements = ast.literal_eval(latex_config.replace("$PROJECT", project))
