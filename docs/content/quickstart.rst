@@ -1,46 +1,59 @@
 .. _quickstart:
 
 Quickstart guide
-----------------
+-----------------
 
-The following steps will guide you through setting up your documentation using the starter pack and building an initial set of documentation.
+This guide is about the starter pack setup and usage.
 
-For more detailed information, see the other sections of the starter pack documentation.
+Initial setup
+*************
 
-1. Download the :file:`init.sh` file from the starter pack repository and place it into the directory where you want to set up your documentation.
+The following steps will guide you through setting up your documentation:
 
-#. Run the script and specify where you want the files for the documentation framework to be placed (either in the current directory or in a sub-directory).
-   Your own documentation files will need to be placed in the same directory (or sub-directories of it) later.
+#. Clone the [Starter pack](https://github.com/canonical/sphinx-docs-starter-pack) repository to a local folder.
+#. Copy the following files to the same folders in the repo you want your documentation to be:
+   - `.github/workflows/*-checks.yml` -- documentation tests
+   - `docs` -- documentation content and sphinx files
+   - `.readthedocs.yaml` -- Readthedocs configuration file
+   - `.wokeignore` -- exceptions list for the non-inclusive language check
+#. Configure your new documentation set by adjusting the copied `docs/conf.py` config file. Make sure to pay attention to all `TODO` comments. 
 
-   See :ref:`enable` for detailed information on what the script does.
+Build
+*****
 
-#. Enter the documentation folder (the folder you specified when running the script, such as :file:`docs/`) and build the documentation with the following command::
+To build the documentation, use the following command:
 
-     make run
+   .. code-block:: none
 
-   This command creates a virtual environment, installs the Python dependencies, builds the documentation, and serves it on :literalref:`http://127.0.0.1:8000/`.
+      make run
 
-   See :ref:`build` for detailed information on different commands for building and viewing the documentation.
+This command creates a virtual environment, installs the Python dependencies, builds the documentation, and serves it on the :literalref:`http://127.0.0.1:8000/` address.
 
-#. Keep this session running to rebuild the documentation automatically whenever a file is saved, and open :literalref:`http://127.0.0.1:8000/` in a web browser to see the locally built and hosted HTML.
+See the :ref:`build` page for more information on different commands for building and viewing the documentation.
 
-#. To add a new page to the documentation, create a new document called :file:`reference.rst`, insert the following |RST|-formatted ``Reference`` heading, and then save the file:
+Work on content
+***************
+
+Keep the session with the `make run` command running to rebuild the documentation automatically whenever a file in the `docs/content` is saved, and open the :literalref:`http://127.0.0.1:8000/` address in a web browser to see the locally built and hosted documentation as HTML.
+
+To add a new page to the documentation:    
+
+   #. Create a new file. For example, to create the `Reference` page, create a document called :file:`reference.rst`, insert the following |RST|-formatted heading ``Reference`` at the beginning, and then save the file:
 
    .. code-block:: rest
+      :caption: reStructuredText example
 
-      Reference
-      =========
+         The output of this line starts with four spaces.
 
-   .. note::
-      This Quickstart guide uses |RST|, but if you prefer to use Markdown, you can create a :file:`reference.md` file with the following content instead:
+   If you prefer to use Markdown syntax instead of |RST|, you can create a Markdown file instead. For example, :file:`reference.md` file with the following Markdown-formatted heading:
 
-      .. code-block:: Markdown
-
+   .. code-block:: markdown
+      :caption: Markdown example
+      
          # Reference
+  
+   #. Open the :file:`index.rst`. At the bottom of this file, add a 3-space-indented line containing ``Reference <reference>`` to the end of the ``toctree`` section, and then save the file.
 
-#. Open :file:`index.rst`.
-
-   At the bottom of this file, add a 3-space-indented line containing ``Reference <reference>`` to the end of the ``toctree`` section, and then save the file.
    This is the navigation title for the new document and its filename without the extension.
 
    The ``toctree`` section will now look like this:
@@ -58,8 +71,8 @@ For more detailed information, see the other sections of the starter pack docume
       You can leave out the navigation title to use the document title instead.
       This means that in this example, you could also just type ``reference`` instead of ``Reference <reference>``.
 
-#. Check :literalref:`http://127.0.0.1:8000/`.
+#. Check the rendered documentation at the :literalref:`http://127.0.0.1:8000/` address in a web browser.
 
-   The documentation will now show **Reference** added to the navigation, and selecting the link in the navigation will open the new ``reference.rst`` document.
+   The documentation will now show the **Reference** page added to the navigation.
 
-See :ref:`guidance` for links to more detailed information about |RST| and Markdown/MyST.
+See :ref:`guidance` for links to more detailed information about the |RST| and Markdown/MyST syntax.
