@@ -12,4 +12,5 @@ You'll find information on how to build and preview the documentation, and some 
 
    /content/prereqs
    /content/build
+   /content/edit
    /content/guidance
