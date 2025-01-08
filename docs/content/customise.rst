@@ -28,7 +28,7 @@ Open Graph configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 When you post a link to your documentation somewhere (for example, on Mattermost or Discourse), it might be shown with a preview.
-This preview is configured through the Open Graph Protocol (OGP) configuration.
+This preview is configured through the Open Graph Protocol (:spellexception:`OGP`) configuration.
 
 If you don't know yet where your documentation will be hosted, you can leave the URL empty.
 If you do, specify the hosting URL.
@@ -87,25 +87,25 @@ They are pre-configured as needed, but you can customise their configuration in 
 
 The following extensions are included by default:
 
-* `canonical_sphinx`
-* `sphinxcontrib.cairosvgconverter`
-* `sphinx_last_updated_by_git`
+* ``canonical_sphinx``
+* ``sphinxcontrib.cairosvgconverter``
+* ``sphinx_last_updated_by_git``
 
 The `canonical_sphinx` extension is required for the starter pack.
 It automatically enables the following extensions:
 
-* `custom-rst-roles`
-* `myst_parser`
-* `notfound.extension`
-* `related-links`
-* `sphinx_copybutton`
-* `sphinx_design`
-* `sphinx_reredirects`
-* `sphinx_tabs.tabs`
-* `sphinxcontrib.jquery`
-* `sphinxext.opengraph`
-* `terminal-output`
-* `youtube-links`
+* ``custom-rst-roles``
+* ``myst_parser``
+* ``notfound.extension``
+* ``related-links``
+* ``sphinx_copybutton``
+* ``sphinx_design``
+* ``sphinx_reredirects``
+* ``sphinx_tabs.tabs``
+* ``sphinxcontrib.jquery``
+* ``sphinxext.opengraph``
+* ``terminal-output``
+* ``youtube-links``
 
 To add new extensions needed for your documentation set, use the `extensions` parameter.
 If the extensions need specific Python packages, add those to the :file:`.sphinx/requirements.txt` file.

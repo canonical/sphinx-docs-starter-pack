@@ -38,16 +38,12 @@ This: creates and activates a virtual environment in :file:`docs/.sphinx/venv`, 
 
 The server watches the source files, including :file:`conf.py`, and rebuilds automatically on changes.
 
-
-Adjust config
-=============
+Configure
+=========
 
 Work through the settings in :file:`conf.py`. Most parameters can be left as they are or simply ignored. They can all be changed later.
-
 
 Update content
 ==============
 
 The landing page is :file:`docs/index.rst`. Other pages are under :file:`docs/content`.
-
-
