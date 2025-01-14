@@ -3,7 +3,7 @@
 Customise the setup
 ===================
 
-Configuration for a starter pack based documentation is set in the :file:`docs/conf.py` [Sphinx configuration file](https://www.sphinx-doc.org/en/master/usage/configuration.html).
+Configuration for a starter pack based documentation is set in the :file:`docs/conf.py` Sphinx configuration file.
 
 The starter pack's default configuration is prepared in a way that makes sense for most projects.
 However, you must set some critical parameters that are unique for your project, like the project's name.
