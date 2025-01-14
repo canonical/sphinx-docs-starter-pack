@@ -6,7 +6,7 @@ Edit content
 The landing page is stored in the :file:`docs/index.rst` file 
 while the rest of the pages are stored in the :file:`docs/content/` folder by default.
 
-The Navigation Menu structure is set by ``.. toctree::`` [directives](https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree). These directives define the hierarchy of included content throughout the documentation.
+The Navigation Menu structure is set by ``.. toctree::`` directives. These directives define the hierarchy of included content throughout the documentation.
 The :file:`index.rst` page's ``toctree`` block contains the top level Navigation Menu.
 
 To add a new page to the documentation:    
