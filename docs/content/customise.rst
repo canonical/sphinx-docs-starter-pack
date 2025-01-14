@@ -3,18 +3,18 @@
 Customise the setup
 ===================
 
-Most configuration parameters can be set in the :file:`docs/conf.py` file.
+Configuration for a starter pack based documentation is set in the :file:`docs/conf.py` [Sphinx configuration file](https://www.sphinx-doc.org/en/master/usage/configuration.html).
 
 The starter pack's default configuration is prepared in a way that makes sense for most projects.
-However, you must set some critical parameters that may be unique for your project, like the project's name.
+However, you must set some critical parameters that are unique for your project, like the project's name.
 
 In addition, you can find some optional parameters or add your own configuration parameters to the file.
 
 Required customisation
 ----------------------
 
-You must check and update some of the parameters to the needs of your project.
-Most of such mandatory parameters are commented with the `TODO` keyword.
+You must check and update some of the parameters specific to your project.
+Mandatory parameters are commented with the `TODO` keyword.
 
 The following are some highlights of the available configuration parameters.
 
@@ -38,9 +38,9 @@ Adjust the header
 ~~~~~~~~~~~~~~~~~
 
 The header is the top section of a page template.
-By default, the starter pack template header contains your product tag image, product name (taken from the ``project`` setting in the :file:`docs/conf.py` file), a link to your product page, and a drop-down menu for "More resources".
+By default, the starter pack template header contains your product's tag image and name (taken from the ``project`` setting in the :file:`docs/conf.py` file), a link to your product's page (if available), and a drop-down menu for "More resources".
 
-In many cases, this default setup is sufficient, but you can customise it.
+The default configuration is sufficient for many cases but can be further customised.
 
 You can change any of those links or add further links to the "More resources" drop-down by editing the :file:`.sphinx/_templates/header.html` file.
 For example, you might want to add links to announcements, tutorials, getting started guides, or videos that are not part of the documentation.
@@ -58,7 +58,7 @@ This button redirects users to your GitHub issues page, and populates an issue f
 
 If your project does not use GitHub issues, set the ``github_issues`` variable in the :file:`docs/conf.py` file to an empty value to disable both the feedback button and the issue link in the footer.
 
-If you want to deactivate only the feedback button, but keep the link in the footer, set ``disable_feedback_button`` in the :file:`docs/conf.py` file to ``True``.
+If you want to deactivate the feedback button, but keep the link in the footer, set ``disable_feedback_button`` in the :file:`docs/conf.py` file to ``True``.
 
 Configure the contributor display
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -92,7 +92,7 @@ The following extensions are included by default:
 * ``sphinx_last_updated_by_git``
 
 The `canonical_sphinx` extension is required for the starter pack.
-It automatically enables the following extensions:
+It automatically enables and sets default configurations for the following extensions:
 
 * ``custom-rst-roles``
 * ``myst_parser``
@@ -107,8 +107,10 @@ It automatically enables the following extensions:
 * ``terminal-output``
 * ``youtube-links``
 
-To add new extensions needed for your documentation set, use the `extensions` parameter.
-If the extensions need specific Python packages, add those to the :file:`.sphinx/requirements.txt` file.
+To add new extensions needed for your documentation set, add them to the ``extensions`` parameter in :file:`docs/conf.py`.
+.. info::
+
+    If any additional extensions need specific Python packages, ensure they are installed alongside the other requirements by adding them to the :file:`.sphinx/requirements.txt` file.
 
 Add page-specific configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -152,7 +154,7 @@ See `Hiding Contents sidebar`_.
 Add your own configuration
 --------------------------
 
-A custom configuration parameter for your project can be used to extend or override the common configuration, or to define additional configuration that is not covered by the common ``conf.py`` file.
+Custom configuration parameters for your project can be used to extend or override the common configuration, or to define additional configuration that is not covered by the common ``conf.py`` file.
 
 The following links can help you with additional configuration:
 

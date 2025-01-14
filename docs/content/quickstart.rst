@@ -23,25 +23,25 @@ Copy the following folders and files preserving their paths from the starter pac
 Build and run the local server
 ==============================
 
-Prerequisites (which you probably have installed already) are:
+To build HTML documentation the prerequisites are:
 
 * ``make`` 
 * ``python3``
 * ``python3-venv``
 * ``python3-pip`` 
 
-In :file:`docs` run::
+In :file:`docs`, run::
 
     make run
 
-This: creates and activates a virtual environment in :file:`docs/.sphinx/venv`, builds the documentation and serves it at :literalref:`http://127.0.0.1:8000/`.
+This creates and activates a virtual environment in :file:`docs/.sphinx/venv`, builds the documentation and serves it at :literalref:`http://127.0.0.1:8000/`.
 
-The server watches the source files, including :file:`conf.py`, and rebuilds automatically on changes.
+The server watches the source files, including :file:`docs/conf.py`, and rebuilds automatically on changes.
 
 Configure
 =========
 
-Work through the settings in :file:`conf.py`. Most parameters can be left as they are or simply ignored. They can all be changed later.
+Work through the settings in :file:`docs/conf.py`. Most parameters can be left with the default values as they can be changed later.
 
 Update content
 ==============
