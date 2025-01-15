@@ -5,7 +5,7 @@ Copy the starter pack
 
 Make sure to copy all required starter pack files to initialise a new documentation set:
 
-#. Clone the `Starter pack <https://github.com/canonical/sphinx-docs-starter-pack>`_ repository to a temporary local folder
+#. Clone the `Starter pack <https://github.com/canonical/sphinx-docs-starter-pack>`_ repository locally.
 #. Copy the following folders and files from the starter pack temporary folder to the repository where you want your documentation, placing them at the same relative paths:
 
    - :file:`docs` -- your documentation folder. Original content includes initial documentation pages (you are reading one of them) and internal Sphinx files 
