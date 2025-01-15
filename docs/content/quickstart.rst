@@ -4,31 +4,27 @@
 Quickstart guide
 ================
 
-This page contains a short guide on how to set up and use the starter pack. For more information, see the respective sections of the starter pack documentation: 
-:ref:`setup`, :ref:`update`, :ref:`automatic-checks`.
+This page contains a short guide on how to set up and use the starter pack. 
+
 
 Initial setup
 =============
 
-Clone the `Starter pack <https://github.com/canonical/sphinx-docs-starter-pack>`_ repository to a temporary local folder.
+Clone the `Starter pack <https://github.com/canonical/sphinx-docs-starter-pack>`_ repository to a local folder.
 
-Copy the following folders and files preserving their paths from the starter pack to the repository you want your documentation to be:
+Assuming that you have an existing repository that you want to build documentation in, you'll need to copy some files to it. Copy:
 
-   - :file:`docs`
-   - :file:`.readthedocs.yaml`
-   - :file:`.wokeignore`
-   - :file:`.github/workflows/*-checks.yml`
+* the entire :file:`docs` directory
+* :file:`.readthedocs.yaml` (configuration for the building on ReadTheDocs)
+* :file:`.wokeignore` (configuration for the Woke tool)
+* the entire :file:`.github/workflows` directory 
 
+You **must** delete :file:`.github/workflows/test-starter-pack.yml`.
 
 Build and run the local server
 ==============================
 
-To build HTML documentation the prerequisites are:
-
-* ``make`` 
-* ``python3``
-* ``python3-venv``
-* ``python3-pip`` 
+Building the documentation requires ``make``, ``python3``, ``python3-venv``, ``python3-pip``.
 
 In :file:`docs`, run::
 
