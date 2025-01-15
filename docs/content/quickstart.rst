@@ -1,65 +1,49 @@
 .. _quickstart:
 
+================
 Quickstart guide
-----------------
+================
 
-The following steps will guide you through setting up your documentation using the starter pack and building an initial set of documentation.
+This page contains a short guide on how to set up and use the starter pack. For more information, see the respective sections of the starter pack documentation: 
+:ref:`setup`, :ref:`update`, :ref:`automatic-checks`.
 
-For more detailed information, see the other sections of the starter pack documentation.
+Initial setup
+=============
 
-1. Download the :file:`init.sh` file from the starter pack repository and place it into the directory where you want to set up your documentation.
+Clone the `Starter pack <https://github.com/canonical/sphinx-docs-starter-pack>`_ repository to a temporary local folder.
 
-#. Run the script and specify where you want the files for the documentation framework to be placed (either in the current directory or in a sub-directory).
-   Your own documentation files will need to be placed in the same directory (or sub-directories of it) later.
+Copy the following folders and files preserving their paths from the starter pack to the repository you want your documentation to be:
 
-   See :ref:`enable` for detailed information on what the script does.
+   - :file:`docs`
+   - :file:`.readthedocs.yaml`
+   - :file:`.wokeignore`
+   - :file:`.github/workflows/*-checks.yml`
 
-#. Enter the documentation folder (the folder you specified when running the script, such as :file:`docs/`) and build the documentation with the following command::
 
-     make run
+Build and run the local server
+==============================
 
-   This command creates a virtual environment, installs the Python dependencies, builds the documentation, and serves it on :literalref:`http://127.0.0.1:8000/`.
+To build HTML documentation the prerequisites are:
 
-   See :ref:`build` for detailed information on different commands for building and viewing the documentation.
+* ``make`` 
+* ``python3``
+* ``python3-venv``
+* ``python3-pip`` 
 
-#. Keep this session running to rebuild the documentation automatically whenever a file is saved, and open :literalref:`http://127.0.0.1:8000/` in a web browser to see the locally built and hosted HTML.
+In :file:`docs`, run::
 
-#. To add a new page to the documentation, create a new document called :file:`reference.rst`, insert the following |RST|-formatted ``Reference`` heading, and then save the file:
+    make run
 
-   .. code-block:: rest
+This creates and activates a virtual environment in :file:`docs/.sphinx/venv`, builds the documentation and serves it at :literalref:`http://127.0.0.1:8000/`.
 
-      Reference
-      =========
+The server watches the source files, including :file:`docs/conf.py`, and rebuilds automatically on changes.
 
-   .. note::
-      This Quickstart guide uses |RST|, but if you prefer to use Markdown, you can create a :file:`reference.md` file with the following content instead:
+Configure
+=========
 
-      .. code-block:: Markdown
+Work through the settings in :file:`docs/conf.py`. Most parameters can be left with the default values as they can be changed later.
 
-         # Reference
+Update content
+==============
 
-#. Open :file:`index.rst`.
-
-   At the bottom of this file, add a 3-space-indented line containing ``Reference <reference>`` to the end of the ``toctree`` section, and then save the file.
-   This is the navigation title for the new document and its filename without the extension.
-
-   The ``toctree`` section will now look like this:
-
-   .. code-block:: rest
-
-      .. toctree::
-         :hidden:
-         :maxdepth: 2
-
-         self
-         Reference <reference>
-
-   .. note::
-      You can leave out the navigation title to use the document title instead.
-      This means that in this example, you could also just type ``reference`` instead of ``Reference <reference>``.
-
-#. Check :literalref:`http://127.0.0.1:8000/`.
-
-   The documentation will now show **Reference** added to the navigation, and selecting the link in the navigation will open the new ``reference.rst`` document.
-
-See :ref:`guidance` for links to more detailed information about |RST| and Markdown/MyST.
+The landing page is :file:`docs/index.rst`. Other pages are under :file:`docs/content`.
