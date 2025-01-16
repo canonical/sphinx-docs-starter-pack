@@ -1,8 +1,8 @@
-.. _quickstart:
+.. _set-up:
 
-================
-Quickstart guide
-================
+===================================
+Set up the documentation repository
+===================================
 
 This page contains a short guide on how to set up and use the starter pack. 
 
@@ -21,6 +21,7 @@ Assuming that you have an existing repository that you want to build documentati
 
 You **must** delete :file:`.github/workflows/test-starter-pack.yml`.
 
+
 Build and run the local server
 ==============================
 
@@ -34,12 +35,10 @@ This creates and activates a virtual environment in :file:`docs/.sphinx/venv`, b
 
 The server watches the source files, including :file:`docs/conf.py`, and rebuilds automatically on changes.
 
-Configure
-=========
-
-Work through the settings in :file:`docs/conf.py`. Most parameters can be left with the default values as they can be changed later.
-
-Update content
-==============
-
 The landing page is :file:`docs/index.rst`. Other pages are under :file:`docs/content`.
+
+
+Configure settings
+==================
+
+Work through the settings in :file:`docs/conf.py`. Most parameters can be left with the default values as they can be changed later. :ref:`customise` contains further guidance.

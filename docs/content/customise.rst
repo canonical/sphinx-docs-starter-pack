@@ -3,6 +3,15 @@
 Customise the setup
 ===================
 
+.. important::
+   After setting up your repository with the starter pack, you should track the changes made to the starter pack.
+
+   Changes to the look and feel, as well as common functionality, will be automatically available through updates to the `Canonical Sphinx`_ extension.
+
+   Changes to files that are part of the starter pack, for example, :ref:`automatic-checks`, might require you to manually update your repository with the required files.
+   See the starter pack's `change log`_ for the most relevant (and of course all breaking) changes.
+
+
 Configuration for a starter pack based documentation is set in the :file:`docs/conf.py` Sphinx configuration file.
 
 The starter pack's default configuration is prepared in a way that makes sense for most projects.
