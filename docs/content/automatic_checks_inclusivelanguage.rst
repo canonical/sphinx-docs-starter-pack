@@ -33,7 +33,7 @@ Configure the inclusive language check
 --------------------------------------
 
 By default, the inclusive language check is applied only to |RST| files located in the documentation folder (usually :file:`docs/`).
-To check Markdown files, for example, or to use a location other than the :file:`docs/` sub-tree, you must override the ``ALLFILES`` variable in :file:`Makefile.sp` (see :ref:`Makefile`).
+To check Markdown files, for example, or to use a location other than the :file:`docs/` sub-tree, you must override the ``ALLFILES`` variable in :file:`Makefile.sp`.
 
 You can find more information about available options in the `woke User Guide`_.
 

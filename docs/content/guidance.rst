@@ -6,7 +6,7 @@ Get guidance
 The starter pack uses `Sphinx`_ as the documentation framework.
 It supports markup in both `reStructuredText`_ and `Markdown`_ with `MyST`_.
 
-It's outside of the scope of the starter pack to teach you how to use these tools to create documentation, but you can check the :ref:`quickstart` for a very brief introduction.
+It's outside of the scope of the starter pack to teach you how to use these tools to create documentation, but you can check the :doc:`set-up` for a very brief introduction.
 For more detailed information and syntax guides, see the linked documents.
 
 To make it easier for you to get started, and to keep our documentation consistent, the following style guides give recommendations and conventions for using |RST| and Markdown/MyST:

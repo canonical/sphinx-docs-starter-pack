@@ -35,12 +35,12 @@ To add a new page to the documentation:
          .. toctree::
             :hidden:
             :maxdepth: 2
-
-            /content/quickstart
-            /content/setup
+         
+            Set up the documentation </content/set-up>
+            /content/customise
+            /content/rtd
             /content/update
             /content/automatic_checks
-            /content/examples
             /content/contributing
             /content/reference
 
