@@ -15,7 +15,7 @@ Clone the `Starter pack <https://github.com/canonical/sphinx-docs-starter-pack>`
 Assuming that you have an existing repository that you want to build documentation in, you'll need to copy some files to it. Copy:
 
 * the entire :file:`docs` directory
-* :file:`.readthedocs.yaml` (configuration for the building on ReadTheDocs)
+* :file:`.readthedocs.yaml` (configuration for the building on Read the Docs)
 * :file:`.wokeignore` (configuration for the Woke tool)
 * the entire :file:`.github/workflows` directory 
 
