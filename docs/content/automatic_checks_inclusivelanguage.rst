@@ -48,7 +48,7 @@ to this file to exempt that word globally.
 
 .. note::
 
-   `.custom-wordlist` is case sensitive if a capitalized word is used. For instance:
+   `.custom-wordlist` is case sensitive if a capitalised word is used. For instance:
 
    - Adding `kustom` will cause all instances of `Kustom` and `kustom` to be ignored.
    - Adding `Kustom` will cause only instances of `Kustom` to be ignored.
