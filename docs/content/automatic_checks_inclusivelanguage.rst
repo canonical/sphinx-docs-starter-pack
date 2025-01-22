@@ -3,80 +3,78 @@
 Inclusive language check
 ========================
 
-The inclusive language check uses `woke`_ to check for violations of inclusive language guidelines.
-
-Install prerequisite software
------------------------------
-
-The following two commands can be run from any location on your system.
-
-To install ``woke``, you need ``snap``::
-
-   sudo apt install snapd
-
-To install ``woke``:
-
-.. code-block:: bash
-
-   make woke-install
+The inclusive language check uses `Vale`_ to check for violations of inclusive language guidelines.
 
 Run the inclusive language check
 --------------------------------
 
-Run the following command from within your documentation folder.
-
-Ensure the documentation uses inclusive language::
+Run the following command from within your documentation folder::
 
    make woke
 
 Configure the inclusive language check
 --------------------------------------
 
-By default, the inclusive language check is applied only to |RST| files located in the documentation folder (usually :file:`docs/`).
-To check Markdown files, for example, or to use a location other than the :file:`docs/` sub-tree, you must override the ``ALLFILES`` variable in :file:`Makefile.sp`.
-
-You can find more information about available options in the `woke User Guide`_.
+By default, the inclusive language check is applied to Markdown and |RST| files located in the documentation folder (usually :file:`docs/`).
 
 Inclusive language check exemptions
 -----------------------------------
 
 Sometimes, you might need to use some non-inclusive words.
-In such cases, create check exemptions for them.
+In such cases, you may exclude them from the check.
 
-See the `woke documentation`_ for how to do this.
-The following sections provide some examples.
+Exempt a word in a single instance
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Exempt a word
-~~~~~~~~~~~~~
+To exempt an individual word, give the word the ``woke-ignore`` role::
 
-To exempt an individual word, place a custom ``none`` role (defined in the ``canonical-sphinx-extensions`` Sphinx extension) anywhere on the line containing the word in question.
-The role syntax is::
-
-   :none:`wokeignore:rule=<SOME_WORD>,`
+   :woke-ignore:`<SOME_WORD>`
 
 For instance::
 
-   This is your text. The word in question is here: whitelist. More text. :none:`wokeignore:rule=whitelist,`
+   This is your text. The word in question is here: :woke-ignore:`whitelist`.
 
-To exempt an element of a URL, use the standard |RST| method of placing links at the bottom of the page (or in a separate file) and place a comment line immediately above the URL line.
-The comment syntax is::
+.. note::
 
-   .. wokeignore:rule=<SOME_WORD>
+   Vale will lint the displayed text of a link, not the URL of a link. If you
+   wish to use a link that contains non-inclusive language, use appropriate link
+   text with the syntax appropriate for your source file. 
 
-Here is an example where a URL element contains the string "master": :none:`wokeignore:rule=master,`
+Exempt a word globally
+~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: none
+Vale will ignore any word listed in the `.custom_wordlist.txt` file. Add a word
+to this file to exempt that word globally.
 
-   .. LINKS
-   .. wokeignore:rule=master
-   .. _link definition: https://some-external-site.io/master/some-page.html
+.. note::
 
-You can now refer to the label ``link definition_`` in the body of the text.
+   `.custom-wordlist` is case sensitive if a capitalized word is used. For instance:
 
-Exempt an entire file
-~~~~~~~~~~~~~~~~~~~~~
+   - Adding `kustom` will cause all instances of `Kustom` and `kustom` to be ignored.
+   - Adding `Kustom` will cause only instances of `Kustom` to be ignored.
 
-A more drastic solution is to make an exemption for the contents of an entire file.
-For example, to exempt file :file:`docs/foo/bar.rst`, add the following line to the file :file:`.wokeignore`::
+Exclude multiple lines from a file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   foo/bar.rst
+Vale can be switched on and off within a file using syntax appropriate to that
+format.
+
+To turn Vale off entirely for a section of Markdown::
+
+   <!-- vale off -->
+
+   This text will be ignored.
+
+   <!-- vale on -->
+
+.. important::
+
+   Only use this when other options are not suitable.
+
+To turn Vale off entirely for a section of |RST|::
+
+   .. vale off
+
+   This text will be ignored.
+
+   .. vale on
