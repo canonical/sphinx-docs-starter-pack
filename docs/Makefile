@@ -61,21 +61,6 @@ $(VENVDIR):
 	@. $(VENV); pip list --local --format=freeze > $(VENVDIR)/pip_list.txt
 	@touch $(VENVDIR)
 
-woke-install:
-	@type woke >/dev/null 2>&1 || \
-	{ \
-		echo "Installing system-wide \"woke\" snap..."; \
-		confirm_sudo=$(CONFIRM_SUDO); \
-		if [ "$$confirm_sudo" != "y" ] && [ "$$confirm_sudo" != "Y" ]; then \
-			read -p "This requires sudo privileges. Proceed? [y/N]: " confirm_sudo; \
-		fi; \
-		if [ "$$confirm_sudo" = "y" ] || [ "$$confirm_sudo" = "Y" ]; then \
-			sudo snap install woke; \
-		else \
-			echo "Installation cancelled."; \
-		fi \
-	}	
-
 spellcheck-install:
 	@type aspell >/dev/null 2>&1 || \
 	{ \
@@ -133,23 +118,35 @@ linkcheck: install
 	. $(VENV) ; $(SPHINXBUILD) -b linkcheck "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) || { grep --color -F "[broken]" "$(BUILDDIR)/output.txt"; exit 1; }
 	exit 0
 
-woke: woke-install
-	woke $(ALLFILES) --exit-1-on-failure \
-	    -c https://raw.githubusercontent.com/canonical/Inclusive-naming/main/config.yml
-
 pa11y: pa11y-install html
 	find $(BUILDDIR) -name *.html -print0 | xargs -n 1 -0 $(PA11Y)
 
-vale: install
-	@. $(VENV); test -d $(SPHINXDIR)/venv/lib/python*/site-packages/vale || pip install vale
+vale-install: install
+	@. $(VENV); test -d $(SPHINXDIR)/venv/lib/python*/site-packages/vale || pip install rst2html vale
 	@. $(VENV); test -f $(SPHINXDIR)/vale.ini || python3 $(SPHINXDIR)/get_vale_conf.py
+	@printf '.Name=="Canonical.400-Enforce-inclusive-terms"' > $(SPHINXDIR)/styles/woke.filter
+	@printf '.Level=="error"' > $(SPHINXDIR)/styles/error.filter
 	@. $(VENV); find $(SPHINXDIR)/venv/lib/python*/site-packages/vale/vale_bin -size 195c -exec vale --config "$(SPHINXDIR)/vale.ini" $(TARGET) > /dev/null \;
+
+woke: vale-install
+	@cat $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept.txt > $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept_backup.txt
+	@cat $(SPHINXDIR)/.wordlist.txt $(SOURCEDIR)/.custom_wordlist.txt >> $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept.txt
+	@echo ""
+	@echo "Running Vale acceptable term check against $(TARGET). To change target set TARGET= with make command"
+	@echo ""
+	@. $(VENV); vale --config="$(SPHINXDIR)/vale.ini" --filter='$(SPHINXDIR)/styles/woke.filter' --glob='*.{md,rst}' $(TARGET) || true
+	@cat $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept_backup.txt > $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept.txt && rm $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept_backup.txt
+
+test:
+	@. $(VENV); vale --config="$(SPHINXDIR)/vale.ini"  --glob='*.{md,rst}' $(TARGET)
+
+vale: vale-install
 	@cat $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept.txt > $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept_backup.txt
 	@cat $(SPHINXDIR)/.wordlist.txt $(SOURCEDIR)/.custom_wordlist.txt >> $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept.txt
 	@echo ""
 	@echo "Running Vale against $(TARGET). To change target set TARGET= with make command"
 	@echo ""
-	@. $(VENV); vale --config "$(SPHINXDIR)/vale.ini" --glob='*.{md,txt,rst}' $(TARGET) || true
+	@. $(VENV); vale --config="$(SPHINXDIR)/vale.ini" --filter='$(SPHINXDIR)/styles/error.filter' --glob='*.{md,rst}' $(TARGET) || true
 	@cat $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept_backup.txt > $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept.txt && rm $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept_backup.txt
 
 pdf-prep: install
