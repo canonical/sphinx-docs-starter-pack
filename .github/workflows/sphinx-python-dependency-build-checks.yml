@@ -10,10 +10,12 @@
 # available, and as such we need to make sure building wheels from source can
 # succeed.
 name: Sphinx python dependency build checks
+
 on:
-- push
-- pull_request
-- workflow_dispatch
+  push:
+    branches: [ main ]
+  pull_request:
+  workflow_dispatch: # manual trigger
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
