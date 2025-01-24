@@ -4,22 +4,20 @@
 Set up the documentation repository
 ===================================
 
-This page contains a short guide on how to set up and use the starter pack. 
+This page contains a short guide on how to set up and use the starter pack. These steps assume you have an existing repository that you want to build documentation in.
 
 
 Initial setup
 =============
 
-Clone the `Starter pack <https://github.com/canonical/sphinx-docs-starter-pack>`_ repository to a local folder.
-
-Assuming that you have an existing repository that you want to build documentation in, you'll need to copy some files to it. Copy:
+From the `starter pack repository <https://github.com/canonical/sphinx-docs-starter-pack>`_, download the following into your existing repository:
 
 * the entire :file:`docs` directory
 * :file:`.readthedocs.yaml` (configuration for the building on Read the Docs)
 * :file:`.wokeignore` (configuration for the Woke tool)
 * the entire :file:`.github/workflows` directory 
 
-You **must** delete :file:`.github/workflows/test-starter-pack.yml`.
+Then, you **must** delete :file:`.github/workflows/test-starter-pack.yml`.
 
 
 Build and run the local server
