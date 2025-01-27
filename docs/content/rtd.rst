@@ -13,7 +13,7 @@ In general, after enabling the starter pack for your documentation, follow these
 #. Specify the path to the :file:`.readthedocs.yaml` file for your build.
    To do this, navigate to :guilabel:`Admin` > :guilabel:`Settings` and specify the path under "Path for ``.readthedocs.yaml``".
    
-   For example, if your documentation folder is :file:`docs/`, specify the path as ``docs/readthedocs.yaml``.
+   For example, if your documentation folder is :file:`docs/`, specify the path as ``docs/.readthedocs.yaml``.
 
 After this initial setup, your documentation should build successfully if your project is hosted from a public repository.
 If you get any errors, check the build log for indications on what the problem is.
