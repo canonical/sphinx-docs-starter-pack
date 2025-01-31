@@ -4,13 +4,15 @@
 Set up the documentation repository
 ===================================
 
-This page contains a short guide on how to set up and use the starter pack. These steps assume you have an existing repository that you want to build documentation in.
+This page contains a short guide on how to set up and use the starter pack.
 
 
 Initial setup
 =============
 
-From the `starter pack repository <https://github.com/canonical/sphinx-docs-starter-pack>`_, download the following into your existing repository:
+If you're starting a new project, clone the `starter pack repository <https://github.com/canonical/sphinx-docs-starter-pack>`_ and begin your project from there.
+
+If you already have a project, download the following files locally and copy them into your existing repository:
 
 * the entire :file:`docs` directory
 * :file:`.readthedocs.yaml` (configuration for the building on Read the Docs)
