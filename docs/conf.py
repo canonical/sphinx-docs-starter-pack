@@ -135,9 +135,11 @@ html_context = {
     # Docs branch in the repo; used in links for viewing the source files
     #
     # TODO: To customise the branch, uncomment and update as needed.
-     'github_version': 'main',
+    'github_version': 'main',
     # Docs location in the repo; used in links for viewing the source files
     #
+
+
     # TODO: To customise the directory, uncomment and update as needed.
     "github_folder": "/docs/",
     # TODO: To enable or disable the Previous / Next buttons at the bottom of pages
@@ -145,6 +147,9 @@ html_context = {
     # "sequential_nav": "both",
     # TODO: To enable listing contributors on individual pages, set to True
     "display_contributors": False,
+
+    # Required for feedback button    
+    'github_issues': 'enabled',
 }
 
 # Project slug; see https://meta.discourse.org/t/what-is-category-slug/87897
