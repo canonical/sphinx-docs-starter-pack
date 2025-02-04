@@ -43,12 +43,12 @@ For instance::
 Exempt a word globally
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Vale will ignore any word listed in the `.custom_wordlist.txt` file. Add a word
-to this file to exempt that word globally.
+Vale will ignore any word listed in the `.custom_wordlist.txt` file.
+To exempt a word, add it to this file globally.
 
 .. note::
 
-   `.custom-wordlist` is case sensitive if a capitalised word is used. For instance:
+   Entries in `.custom-wordlist` are case-sensitive only when a capitalised word is used. For instance:
 
    - Adding `kustom` will cause all instances of `Kustom` and `kustom` to be ignored.
    - Adding `Kustom` will cause only instances of `Kustom` to be ignored.
