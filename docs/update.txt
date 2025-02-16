@@ -1,0 +1,12 @@
+.github/workflows/automatic-doc-checks.yml
+.github/workflows/markdown-style-checks.yml
+docs/Makefile
+docs/update.txt
+docs/.sphinx/.markdownlint.json
+docs/.sphinx/.pre-commit-config.yaml
+docs/.sphinx/.wordlist.txt
+docs/.sphinx/get_vale_conf.py
+docs/.sphinx/pa11y.json
+docs/.sphinx/spellingcheck.yaml
+docs/.sphinx/metrics/build_metrics.sh
+docs/.sphinx/metrics/source_metrics.sh

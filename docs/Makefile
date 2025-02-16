@@ -1,6 +1,7 @@
-# Minimal makefile for Sphinx documentation
+# Minimal Makefile for Sphinx documentation
 #
-# Add your customisation to `Makefile` instead.
+# ATTENTION: This file can be updated without warning;
+#            add your customisations to a different Makefile instead.
 
 # You can set these variables from the command line, and also
 # from the environment for the first two.
@@ -39,9 +40,9 @@ help:
         "* other possible targets:                    make <TAB twice> \n" \
         "------------------------------------------------------------- \n"
 
-.PHONY: full-help woke-install spellcheck-install pa11y-install install run html \
-        epub serve clean clean-doc spelling spellcheck linkcheck woke \
-        allmetrics pa11y pdf-prep-force pdf-prep pdf Makefile.sp vale-install vale
+.PHONY: allmetrics clean clean-doc epub full-help html install linkcheck \
+        pa11y pa11y-install pdf pdf-prep pdf-prep-force run serve spellcheck \
+        spellcheck-install spelling update vale vale-install woke woke-install
 
 full-help: $(VENVDIR)
 	@. $(VENV); $(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
@@ -85,6 +86,40 @@ pa11y-install:
 		}
 
 install: $(VENVDIR)
+
+update:
+	@TMP_DIR=$$(mktemp -d) && \
+	echo "Cloning the starter pack into $$TMP_DIR ..." && \
+	git clone --depth=1 \
+	  https://github.com/canonical/sphinx-docs-starter-pack.git \
+	  $$TMP_DIR >/dev/null 2>&1 && \
+	\
+	INCLUDE_FILE="$$TMP_DIR/docs/update.txt"; \
+	if [ ! -f "$$INCLUDE_FILE" ]; then \
+	  echo "Missing remote update.txt in cloned repo. Aborting."; \
+	  rm -rf $$TMP_DIR; \
+	  exit 1; \
+	fi; \
+	\
+	if [ -f update_exclude.txt ]; then \
+	  EXCLUDE="--exclude-from=update_exclude.txt"; \
+	  echo "Found local update_exclude.txt; using for excludes."; \
+	else \
+	  EXCLUDE=""; \
+	fi; \
+	\
+	echo "Performing DRY RUN with files from $$INCLUDE_FILE ..."; \
+	rsync -v --dry-run --files-from="$$INCLUDE_FILE" $$EXCLUDE "$$TMP_DIR/" .. || true; \
+	\
+	read -p "To update, overwrite the files from the dry run above? [y/N]: " confirm_proceed; \
+	if [ "$$confirm_proceed" = "y" ] || [ "$$confirm_proceed" = "Y" ]; then \
+	  echo "Applying updates ..."; \
+	  rsync -v --files-from="$$INCLUDE_FILE" $$EXCLUDE "$$TMP_DIR/" .. || true; \
+	else \
+	  echo "Update cancelled."; \
+	fi; \
+	\
+	rm -rf $$TMP_DIR
 
 run: install
 	. $(VENV); $(VENVDIR)/bin/sphinx-autobuild -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
