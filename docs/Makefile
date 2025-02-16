@@ -39,9 +39,10 @@ help:
         "* other possible targets:                    make <TAB twice> \n" \
         "------------------------------------------------------------- \n"
 
-.PHONY: full-help woke-install spellcheck-install pa11y-install install run html \
-        epub serve clean clean-doc spelling spellcheck linkcheck woke \
-        allmetrics pa11y pdf-prep-force pdf-prep pdf Makefile.sp vale-install vale
+.PHONY: allmetrics clean clean-doc epub full-help html install linkcheck \
+        pa11y pa11y-install pdf pdf-prep pdf-prep-force run serve spellcheck \
+        spellcheck-install spelling sync-repo update vale vale-install woke \
+        woke-install
 
 full-help: $(VENVDIR)
 	@. $(VENV); $(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
@@ -85,6 +86,34 @@ pa11y-install:
 		}
 
 install: $(VENVDIR)
+
+update: clean sync-repo install
+
+sync-repo:
+	TMP_DIR=$$(mktemp -d) && \
+	git clone --depth=1 \
+		https://github.com/canonical/sphinx-docs-starter-pack.git \
+		$$TMP_DIR && \
+	echo "Performing a dry run..." && \
+	rsync -av --delete --dry-run \
+		--exclude 'content/' --exclude 'reuse/' \
+		--exclude '.custom_wordlist.txt' --exclude 'conf.py' \
+		--exclude 'index.rst' \
+		$$TMP_DIR/docs/ . && \
+	rsync -av --dry-run $$TMP_DIR/.github/workflows/ ../.github/workflows/ && \
+	read -p "To update, overwrite the files from the dry run above? [y/N]: " confirm_proceed; \
+	if [ "$$confirm_proceed" = "y" ] || [ "$$confirm_proceed" = "Y" ]; then \
+		echo "Applying updates..." && \
+		rsync -av --delete \
+			--exclude 'content/' --exclude 'reuse/' \
+			--exclude '.custom_wordlist.txt' --exclude 'conf.py' \
+			--exclude 'index.rst' \
+			$$TMP_DIR/docs/ . && \
+		rsync -av $$TMP_DIR/.github/workflows/ ../.github/workflows/; \
+	else \
+		echo "Update cancelled."; \
+	fi && \
+	rm -rf $$TMP_DIR
 
 run: install
 	. $(VENV); $(VENVDIR)/bin/sphinx-autobuild -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
