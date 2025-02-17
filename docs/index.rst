@@ -13,5 +13,6 @@ It contains common styling and configuration through the `Canonical Sphinx`_ ext
    /content/customise
    /content/rtd
    /content/update
+   /content/update-starter-pack
    /content/automatic_checks
    /content/contributing
