@@ -50,18 +50,19 @@ Pre-commit hooks (optional)
 Use `pre-commit <https://pre-commit.com/>`_ hooks with the starter pack
 to automate checks like spelling and inclusive language.
 
-The starter pack includes a ready-to-use :file:`.pre-commit-config.yaml` file:
+The starter pack includes a ready-to-use :file:`.pre-commit-config.yaml` file
+under :file:`docs/.sphinx/`:
 
-.. literalinclude:: ../../.pre-commit-config.yaml
+.. literalinclude:: ../.sphinx/.pre-commit-config.yaml
    :language: yaml
 
 For a new project, copy this file to your project's root directory;
 for an existing project using ``pre-commit``,
 add these hooks to your configuration.
 
-To apply the configuration, install the starter pack hooks::
+To apply the configuration, install the starter pack hooks, for instance::
 
-  pre-commit install
+  pre-commit install --config docs/.sphinx/.pre-commit-config.yaml
 
 
 After that, you should see the checks running with every commit::

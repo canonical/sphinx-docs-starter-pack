@@ -1,5 +1,4 @@
 canonical-sphinx[full]
-pre-commit
 sphinx-autobuild
 sphinxcontrib-svg2pdfconverter[CairoSVG]
 sphinx-last-updated-by-git
