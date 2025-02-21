@@ -9,7 +9,7 @@ The extension-based documentation starter pack provides a set of features and co
 Update to the last pre-extension version
 ----------------------------------------
 
-To ensure a smooth migration, update your documentation project to use the last pre-extension version of the Sphinx Documentation Starter Pack. This update ensures that your project is using the latest features and configurations available, minimizing the changes required during the migration.
+To ensure a smooth migration, update your documentation project to use the last pre-extension version of the Sphinx Documentation Starter Pack. This update ensures that your project is using the latest features and configurations available, minimising the changes required during the migration.
 
 You can find the release tag and branch for this version in the following links:
 
@@ -112,7 +112,7 @@ If you have customised any of these resources in the original project, you need 
 
 For example, if you added customised styling in the original ``.sphinx/_static/custom.css`` file, follow the steps:
 
-1. Compare the changes between your customised file and the `default custom.css file provided by the extension <https://github.com/canonical/canonical-sphinx/blob/main/canonical_sphinx/theme/static/custom.css>`_. This comparison helps you identify the changes that need to be migrated to the new project.
+1. Compare the changes between your customised file and the `default CSS file provided by the extension <https://github.com/canonical/canonical-sphinx/blob/main/canonical_sphinx/theme/static/custom.css>`_. This comparison helps you identify the changes that need to be migrated to the new project.
 2. Create a new CSS file under ``docs/.sphinx/_static``. You can choose any other file location in the project directory, but it's recommended to keep the file structure similar to the original project.
 3. Copy the additions and changes to the new empty file.
 4. In the ``conf.py``, add the new files into the pre-defined ``html_css_files`` list variable to overwrite the default settings.
