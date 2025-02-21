@@ -14,4 +14,5 @@ It contains common styling and configuration through the `Canonical Sphinx`_ ext
    /content/rtd
    /content/update
    /content/automatic_checks
+   /content/migrate-from-pre-extension
    /content/contributing
