@@ -82,7 +82,7 @@ If your project requires additional extensions beyond the default list, add the 
 Documentation source files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Remove the starter pack's documentation files (``index.rst`` and any files in the ``docs/content/*`` dir).
+1. Remove the starter pack's documentation files (``index.rst`` and any files in the ``docs/content/*`` sub-directory).
 
 2. Copy all documentation source files from your original project to the new project, keeping their original structure. These file may include but are not limited to:
 
@@ -183,7 +183,7 @@ Assuming that all previous documentation files were in the ``docs/`` sub-directo
     ├── .gitignore
     ├── .readthedocs.yaml
     ├── .wordlist.txt               # moved to `docs/.sphinx/.wordlist.txt`
-    ├── .wokeignore
+    ├── .wokeignore                 # removed, check replaced by Vale
     ├── conf.py                     # removed, now part of the extension
     ├── custom_conf.py              # renamed and moved to `docs/conf.py`
     ├── doc-cheat-sheet-myst.md     # moved to `docs/doc-cheat-sheet-myst.md`
