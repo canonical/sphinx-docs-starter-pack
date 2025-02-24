@@ -6,6 +6,7 @@ Set up the documentation repository
 
 This page contains a short guide on how to set up and use the starter pack.
 
+.. _initial-setup:
 
 Initial setup
 =============
