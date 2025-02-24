@@ -68,10 +68,10 @@ A significant change in the new starter pack is the organisation of the configur
      - Common configurations shared by all starter pack projects
      - Project-specific configurations
    * - ``custom_conf.py``
-     - Project-specific configurations in addition
+     - Project-specific configuration
      - Merged into ``conf.py`` and removed
 
-In the new starter pack, the common configurations are provided by the extension and are loaded automatically when building the documentation. ``docs/conf.py`` is the main and only configuration file that includes project-specific configurations.
+In the new starter pack, many common configurations are provided by the extension and are loaded automatically when building the documentation. ``docs/conf.py`` is the only configuration file, and it contains all project-specific configuration. Sensible defaults are set for general configuration by inclusion of the `canonical-sphinx` extension.
 
 Ensure that all the previous changes in the original ``custom_conf.py`` file are copied to the new ``conf.py`` file.  
 
@@ -83,9 +83,9 @@ If your project requires additional extensions beyond the default list, add the 
 Documentation source files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Remove the example documentation files in the starter pack under ``docs/content/``.
+1. Remove the starter pack's documentation files (``index.rst`` and any files in the ``docs/content/*`` dir).
 
-2. Copy all documentation source files from your original project to the new directory, keeping their original structure. These file may include but are not limited to:
+2. Copy all documentation source files from your original project to the new project, keeping their original structure. These file may include but are not limited to:
 
    - ``.md`` 
    - ``.rst`` 
@@ -99,7 +99,7 @@ Documentation source files
 Apply customisation
 -------------------
 
-If your projects have custom configurations or styles, ensure that you identify and  apply these changes to the new documentation project. The extension provides a mechanism to overwrite the default settings with customised resources.
+If your projects have custom configurations or styles, ensure that you identify and apply these changes to the new documentation project.
 
 For general information on customising the extension configuration, see :doc:`customise`.
 
@@ -134,7 +134,7 @@ Assuming that all previous documentation files were in the ``docs/`` sub-directo
     ├── .github
     │   └── workflows
     │       ├── automatic-doc-checks.yml
-    │       └── sphinx-python-dependency-build-checks.yml
+    │       └── markdown-style-checks.yml
     ├── .sphinx                     # moved to `docs/.sphinx`
     │   ├── fonts                   # removed, files are part of the extension
     │   │   ├── Ubuntu-B.ttf
