@@ -30,8 +30,7 @@ Set up a new project
 
 3. Ensure the following files are at the root of your repository:
 
-   - ``.github/workflows/``
-   - ``.wokeignore``
+   - ``.github/workflows/*``
 
 4. Ensure the following files are moved to their original paths in the project. These files are defaulted to the repository root, but may have be changed upon project needs: 
 
