@@ -18,7 +18,7 @@ If you already have a project, download the following files locally and copy the
 * the entire :file:`docs` directory
 * :file:`.readthedocs.yaml` (configuration for the building on Read the Docs)
 * :file:`.wokeignore` (configuration for the Woke tool)
-* the entire :file:`.github/workflows` directory 
+* the entire :file:`.github/workflows` directory
 
 Then, you **must** delete :file:`.github/workflows/test-starter-pack.yml`.
 
@@ -43,3 +43,33 @@ Configure settings
 ==================
 
 Work through the settings in :file:`docs/conf.py`. Most parameters can be left with the default values as they can be changed later. :ref:`customise` contains further guidance.
+
+
+Pre-commit hooks (optional)
+===========================
+
+Use `pre-commit <https://pre-commit.com/>`_ hooks with the starter pack
+to automate checks like spelling and inclusive language.
+
+The starter pack includes a ready-to-use :file:`.pre-commit-config.yaml` file
+under :file:`docs/.sphinx/`:
+
+.. literalinclude:: ../.sphinx/.pre-commit-config.yaml
+   :language: yaml
+
+For a new project, copy this file to your project's root directory;
+for an existing project using ``pre-commit``,
+add these hooks to your configuration.
+
+To apply the configuration, install the starter pack hooks, for instance::
+
+  pre-commit install --config docs/.sphinx/.pre-commit-config.yaml
+
+
+After that, you should see the checks running with every commit::
+
+  git commit -m 'add spelling errors'
+
+  Run make spelling.......................................................Failed
+  Run make linkcheck......................................................Passed
+  Run make woke...........................................................Passed
