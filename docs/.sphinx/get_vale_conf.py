@@ -5,7 +5,7 @@ import requests
 import sys
 from requests.exceptions import RequestException
 
-SPHINX_DIR = os.path.join(os.getcwd(), ".sphinx/")
+SPHINX_DIR = os.path.join(os.getcwd(), ".sphinx")
 
 GITHUB_REPO = "canonical/praecepta"
 GITHUB_API_BASE = f"https://api.github.com/repos/{GITHUB_REPO}"
@@ -14,9 +14,8 @@ GITHUB_RAW_BASE = f"https://raw.githubusercontent.com/{GITHUB_REPO}"
 TIMEOUT = 10  # seconds
 
 
-def create_dir_if_not_exists(path):
+def create_dir_if_not_exists(dir_path):
     """Check directory of the input path, create the directory it doesn't exist"""
-    dir_path = path if os.path.isdir(path) else os.path.dirname(path)
     if dir_path and not os.path.exists(dir_path):
         print(f"Creating directory: {dir_path}")
         os.makedirs(dir_path, exist_ok=True)
@@ -32,9 +31,8 @@ def download_file(url, output_path):
         response = requests.get(url, timeout=TIMEOUT)
         response.raise_for_status()
 
-        create_dir_if_not_exists(output_path)
-        with open(output_path, "w", encoding="utf-8") as file:
-            file.write(response.text)
+        with open(output_path, "wb") as file:
+            file.write(response.content)  # binary or text data
         return True
     except RequestException as e:
         print(f"Error downloading {url}: {e}")
@@ -110,7 +108,7 @@ def main():
 
     # Download vale.ini
     vale_ini_github_url = f"{GITHUB_RAW_BASE}/main/vale.ini"
-    vale_ini_output = f"{SPHINX_DIR}/vale.ini"
+    vale_ini_output = os.path.join(SPHINX_DIR, "vale.ini")
 
     if not download_file(vale_ini_github_url, vale_ini_output):
         print(f"Failed to download vale.ini from {vale_ini_github_url}")
@@ -121,4 +119,4 @@ def main():
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    sys.exit(main())  # Keep return code
