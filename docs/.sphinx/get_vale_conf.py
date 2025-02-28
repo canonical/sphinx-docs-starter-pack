@@ -24,6 +24,7 @@ def create_dir_if_not_exists(path):
         print(f"Directory exists, continue with: {dir_path}")
     return dir_path
 
+
 def download_file(url, output_path):
     """Download a file to the specified path"""
     try:
@@ -50,35 +51,48 @@ def download_github_directory(url, output_dir):
         items = response.json()
 
         # Handle GitHub API error
-        if isinstance(items, dict) and 'message' in items:
-            if 'rate limit' in items['message'].lower():
+        if isinstance(items, dict) and "message" in items:
+            if "rate limit" in items["message"].lower():
                 print("GitHub API rate limit exceeded. Try again later.")
             print(f"GitHub API error: {items['message']}")
             return False
 
-        total_count = len(items)
         success_count = 0
-        print(f"Found {total_count} items in {url}")
-
         for item in items:
+            # Handle subdirectories recursively
+            if item.get("type") == "dir":
+                dir_name = item.get("name", "")
+                sub_output_dir = os.path.join(output_dir, dir_name)
+                sub_url = item.get("url", "")
+                if sub_url and download_github_directory(
+                    sub_url, sub_output_dir
+                ):
+                    success_count += 1
+                continue
+
+            # Skip files without download URL or name
             if not item.get("download_url") or not item.get("name"):
                 print(f"Skipping {item['name']}")
                 continue
+
+            # Download leaf files
             output_file = os.path.join(output_dir, item["name"])
             if download_file(item["download_url"], output_file):
                 success_count += 1
-        print(f"Downloaded {success_count}/{total_count} items")
+
+        print(f"Downloaded {success_count} items")
         return True
     except RequestException as e:
         print(f"Error downloading {url}: {e}")
         return False
 
 def main():
-    # Define directory paths
+    # Define local directory paths
     rules_dir = os.path.join(SPHINX_DIR, "styles/Canonical")
     vocab_dir = os.path.join(SPHINX_DIR, "styles/config/vocabularies/Canonical")
     dict_dir = os.path.join(SPHINX_DIR, "styles/config/dictionaries")
 
+    # GitHub API URLs
     rules_github_url = f"{GITHUB_API_BASE}/contents/styles/Canonical"
     vocab_github_url = f"{GITHUB_API_BASE}/contents/styles/config/vocabularies/Canonical"
     dict_github_url = f"{GITHUB_API_BASE}/contents/styles/config/dictionaries"
