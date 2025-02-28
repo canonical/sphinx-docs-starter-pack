@@ -49,6 +49,13 @@ def download_github_directory(url, output_dir):
         create_dir_if_not_exists(output_dir)
         items = response.json()
 
+        # Handle GitHub API error
+        if isinstance(items, dict) and 'message' in items:
+            if 'rate limit' in items['message'].lower():
+                print("GitHub API rate limit exceeded. Try again later.")
+            print(f"GitHub API error: {items['message']}")
+            return False
+
         total_count = len(items)
         success_count = 0
         print(f"Found {total_count} items in {url}")
