@@ -152,7 +152,8 @@ html_context = {
     'github_issues': 'enabled',
 }
 
-# TODO: Uncomment to enable the edit button (pencil icon next to the feedback button)
+# TODO: To enable the edit button (pencil icon next to the feedback button),
+#       uncomment and update as needed.
 #
 # html_theme_options = {
 # 'source_edit_link': 'https://github.com/canonical/sphinx-docs-starter-pack',
