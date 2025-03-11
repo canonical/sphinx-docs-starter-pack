@@ -152,8 +152,12 @@ html_context = {
     'github_issues': 'enabled',
 }
 
-# TODO: To enable the edit button (pencil icon next to the feedback button),
-#       uncomment and update as needed.
+# TODO: To enable the edit button on pages, uncomment and change the link to a
+# public repository on GitHub or Launchpad. Any of the following link domains
+# are accepted:
+# - https://github.com/example-org/example"
+# - https://launchpad.net/example
+# - https://git.launchpad.net/example
 #
 # html_theme_options = {
 # 'source_edit_link': 'https://github.com/canonical/sphinx-docs-starter-pack',
