@@ -134,12 +134,15 @@ html_context = {
     "github_url": "https://github.com/canonical/sphinx-docs-starter-pack",
     # Docs branch in the repo; used in links for viewing the source files
     #
-    # TODO: To customise the default branch, uncomment and update as needed.
-    # 'repo_default_branch': 'main',
+
+    # TODO: To customise the branch, uncomment and update as needed.
+    'repo_default_branch': 'main',
+  
     # Docs location in the repo; used in links for viewing the source files
     #
     # TODO: To customise the directory, uncomment and update as needed.
-    "repo_folder": "docs",
+    "repo_folder": "/docs/",
+  
     # TODO: To enable or disable the Previous / Next buttons at the bottom of pages
     # Valid options: none, prev, next, both
     # "sequential_nav": "both",

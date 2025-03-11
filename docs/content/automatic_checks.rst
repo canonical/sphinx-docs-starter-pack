@@ -54,3 +54,18 @@ may not be able to use. You may select your own runners with an override, see li
          fetch-depth: 0
          runs-on: "ubuntu-22.04"
 
+Workflow triggers
+-----------------
+
+For efficiency, the documentation check workflows are configured to run **only** when
+changes are made to files in the ``docs/`` directory. If your project is structured
+differently, or if you want to run the checks on other directories, modify the trigger
+paths in the workflow files:
+
+.. code-block:: yaml
+   :emphasize-lines: 4
+   
+   on:
+     pull_request:
+       paths:
+         - 'docs/**'   # Only run on changes to the docs directory
