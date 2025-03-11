@@ -13,6 +13,7 @@
 .. _change log: https://github.com/canonical/sphinx-docs-starter-pack/wiki/Change-log
 .. _Open Graph: https://ogp.me/
 .. _manual import: https://readthedocs.com/dashboard/import/manual/
+.. _How to connect your Read the Docs account to your Git provider: https://docs.readthedocs.com/platform/stable/guides/connecting-git-account.html
 .. _How to manually configure a Git repository integration: https://docs.readthedocs.io/en/stable/guides/setup/git-repo-manual.html
 .. _reStructuredText: https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html
 .. _Markdown: https://commonmark.org/
