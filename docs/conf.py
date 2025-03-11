@@ -135,13 +135,13 @@ html_context = {
     # Docs branch in the repo; used in links for viewing the source files
     #
     # TODO: To customise the branch, uncomment and update as needed.
-    'github_version': 'main',
+    'repo_default_branch': 'main',
     # Docs location in the repo; used in links for viewing the source files
     #
 
 
     # TODO: To customise the directory, uncomment and update as needed.
-    "github_folder": "/docs/",
+    "repo_folder": "/docs/",
     # TODO: To enable or disable the Previous / Next buttons at the bottom of pages
     # Valid options: none, prev, next, both
     # "sequential_nav": "both",
@@ -151,6 +151,12 @@ html_context = {
     # Required for feedback button    
     'github_issues': 'enabled',
 }
+
+# To enable the edit button (pencil icon next to the feedback button)
+#
+# html_theme_options = {
+# 'source_edit_link': 'https://github.com/canonical/sphinx-docs-starter-pack',
+# }
 
 # Project slug; see https://meta.discourse.org/t/what-is-category-slug/87897
 #
