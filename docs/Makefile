@@ -86,8 +86,10 @@ pa11y-install:
 
 install: $(VENVDIR)
 
-run: install
-	. $(VENV); $(VENVDIR)/bin/sphinx-autobuild -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
+SPHINX_HOST ?= 127.0.0.1
+
+run: sp-install
+	. $(VENV); $(VENVDIR)/bin/sphinx-autobuild -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) --host $(SPHINX_HOST)
 
 # Doesn't depend on $(BUILDDIR) to rebuild properly at every run.
 html: install
