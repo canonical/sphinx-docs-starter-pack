@@ -18,6 +18,8 @@ METRICSDIR      = $(SOURCEDIR)/.sphinx/metrics
 REQPDFPACKS     = latexmk fonts-freefont-otf texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-font-utils texlive-lang-cjk texlive-xetex plantuml xindy tex-gyre dvipng
 CONFIRM_SUDO    ?= N
 VALE_CONFIG     = $(SPHINXDIR)/vale.ini
+SPHINX_HOST     ?= 127.0.0.1
+SPHINX_PORT     ?= 0
 
 # Put it first so that "make" without argument is like "make help".
 help:
@@ -86,10 +88,8 @@ pa11y-install:
 
 install: $(VENVDIR)
 
-SPHINX_HOST ?= 127.0.0.1
-
-run: sp-install
-	. $(VENV); $(VENVDIR)/bin/sphinx-autobuild -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) --host $(SPHINX_HOST)
+run: install
+	. $(VENV); $(VENVDIR)/bin/sphinx-autobuild -b dirhtml --host $(SPHINX_HOST) --port $(SPHINX_HOST) "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
 
 # Doesn't depend on $(BUILDDIR) to rebuild properly at every run.
 html: install
