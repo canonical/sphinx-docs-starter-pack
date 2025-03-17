@@ -283,13 +283,15 @@ rst_epilog = """
 
 # Your manpage URL
 #
-# TODO: To enable manpage links, uncomment and update as needed.
+# TODO: To enable manpage links, uncomment and replace {codename} with required
+#       release, preferably an LTS release (e.g. noble). Do *not* substitute
+#       {section} or {page}; these will be replaced by sphinx at build time
 #
 # NOTE: If set, adding ':manpage:' to an .rst file
 #       adds a link to the corresponding man section at the bottom of the page.
 
-# manpages_url = f'https://manpages.ubuntu.com/manpages/{codename}/en/' + \
-#     f'man{section}/{page}.{section}.html'
+# manpages_url = 'https://manpages.ubuntu.com/manpages/{codename}/en/' + \
+#     'man{section}/{page}.{section}.html'
 
 
 # Specifies a reST snippet to be prepended to each .rst file
