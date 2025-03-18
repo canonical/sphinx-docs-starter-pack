@@ -300,7 +300,7 @@ and hosted on `Read the Docs <https://about.readthedocs.com/>`_.
 
 For syntax help and guidelines,
 refer to the `Canonical style guides
-<https://canonical-documentation-with-sphinx-and-readthedocscom.readthedocs-hosted.com/#style-guides>`_.
+<https://canonical-documentation-with-sphinx-and-readthedocscom.readthedocs-hosted.com/>`_.
 
 In structuring,
 the documentation employs the `Diátaxis <https://diataxis.fr/>`_ approach.
