@@ -65,7 +65,7 @@ code:
 - [Canonical website](https://canonical.com/)
 - {ref}`a_section_target_myst`
 - {ref}`Link text <a_section_target_myst>`
-- {doc}`../index`
+- {doc}`../../index`
 - {doc}`Link text <../index>`
 
 ## Navigation
