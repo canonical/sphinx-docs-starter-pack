@@ -25,8 +25,11 @@ for file in glob.iglob(".sphinx/metrics/**.*", recursive=True):
 def main():
 
     # Check current version
-    with open(".sphinx/version") as f:
-        current_version = f.read()
+    try:
+        with open(".sphinx/version") as f:
+            current_version = f.read()
+    except:
+        raise Exception("You need to update to at least version 1.0.0 of the starter pack to start using inbuilt updates.")
 
     url = ("https://api.github.com/repos/secondskoll/sphinx-docs-starter-pack/releases/latest")
     r = requests.get(url)
@@ -56,8 +59,6 @@ def main():
             print(new)
         except:
             raise Exception("Current version not identified. Please examine the CHANGELOG and update manually.")
-
-
 
         # Provide information on any files identified for updates
         if files_updated == True:
@@ -95,7 +96,6 @@ def update_static_files():
 
     r = requests.get(url)
     for item in r.json():
-
 
         # Checks existing files in '.sphinx' starter pack static root for changed SHA 
         if item["name"] in files and item["type"] == "file":
@@ -140,7 +140,6 @@ def update_static_files():
     else:
         files_updated = False
 
-
     # Writes return value for parent function
     if new_files != []:
         # Provides more information on new files
@@ -152,7 +151,6 @@ def update_static_files():
         new_files = False
 
     return files_updated, new_files
-
 
 # Checks git hash of a file
 def get_git_revision_hash(file) -> str:
