@@ -3,11 +3,6 @@
     "MD003": {
         "style": "atx"
     },
-    "MD013": {
-        "code_blocks": false,
-        "tables": false,
-        "stern": true
-    },
     "MD014": true,
     "MD018": true,
     "MD022": true,
