@@ -6,8 +6,7 @@
     "MD013": {
         "code_blocks": false,
         "tables": false,
-        "stern": true,
-        "line_length": 150
+        "stern": true
     },
     "MD014": true,
     "MD018": true,
