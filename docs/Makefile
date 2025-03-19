@@ -43,7 +43,8 @@ help:
 
 .PHONY: full-help spellcheck-install pa11y-install install run html \
         epub serve clean clean-doc spelling spellcheck linkcheck woke \
-        allmetrics pa11y pdf-prep-force pdf-prep pdf vale-install vale
+        allmetrics pa11y pdf-prep-force pdf-prep pdf vale-install vale \
+		update
 
 full-help: $(VENVDIR)
 	@. $(VENV); $(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
@@ -182,6 +183,9 @@ allmetrics: html
 	@. $(VENV); find $(SPHINXDIR)/venv/lib/python*/site-packages/vale/vale_bin -size 195c -exec vale --config "$(VALE_CONFIG)" $(TARGET) > /dev/null \;
 	@eval '$(METRICSDIR)/source_metrics.sh $(PWD)'
 	@eval '$(METRICSDIR)/build_metrics.sh $(PWD) $(METRICSDIR)'
+
+update: install
+	@. $(VENV); .sphinx/update_sp.py
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
