@@ -11,9 +11,8 @@ build:
   tools:
     python: "3.11"
   jobs:
-    pre_install:
-    - git fetch --unshallow || true
     post_checkout:
+    - git fetch --unshallow || true
     # Cancel building pull requests when there aren't changed in the docs directory.
     # If there are no changes (git diff exits with 0) we force the command to return with 183.
     # This is a special exit code on Read the Docs that will cancel the build immediately.
@@ -37,4 +36,4 @@ formats:
 # Optionally declare the Python requirements required to build your docs
 python:
   install:
-  - requirements: docs/.sphinx/requirements.txt
+  - requirements: docs/requirements.txt
