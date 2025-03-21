@@ -54,7 +54,7 @@ to automate checks like spelling and inclusive language.
 The starter pack includes a ready-to-use :file:`.pre-commit-config.yaml` file
 under :file:`docs/.sphinx/`:
 
-.. literalinclude:: ../../.sphinx/.pre-commit-config.yaml
+.. literalinclude:: ../.sphinx/.pre-commit-config.yaml
    :language: yaml
 
 For a new project, copy this file to your project's root directory;
