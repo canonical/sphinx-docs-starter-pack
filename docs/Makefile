@@ -23,23 +23,24 @@ SPHINX_PORT     ?= 8000
 
 # Put it first so that "make" without argument is like "make help".
 help:
-	@echo "\n" \
-        "------------------------------------------------------------- \n" \
-        "* watch, build and serve the documentation:  make run \n" \
-        "* only build:                                make html \n" \
-        "* only serve:                                make serve \n" \
-        "* clean built doc files:                     make clean-doc \n" \
-        "* clean full environment:                    make clean \n" \
-        "* check links:                               make linkcheck \n" \
-        "* check spelling:                            make spelling \n" \
-        "* check spelling (without building again):   make spellcheck \n" \
-        "* check inclusive language:                  make woke \n" \
-        "* check accessibility:                       make pa11y \n" \
-        "* check style guide compliance:              make vale \n" \
-        "* check style guide compliance on target:    make vale TARGET=* \n" \
-        "* check metrics for documentation:           make allmetrics \n" \
-        "* other possible targets:                    make <TAB twice> \n" \
-        "------------------------------------------------------------- \n"
+	@echo
+	@echo "-------------------------------------------------------------"
+	@echo "* watch, build and serve the documentation:  make run"
+	@echo "* only build:                                make html"
+	@echo "* only serve:                                make serve"
+	@echo "* clean built doc files:                     make clean-doc"
+	@echo "* clean full environment:                    make clean"
+	@echo "* check links:                               make linkcheck"
+	@echo "* check spelling:                            make spelling"
+	@echo "* check spelling (without building again):   make spellcheck"
+	@echo "* check inclusive language:                  make woke"
+	@echo "* check accessibility:                       make pa11y"
+	@echo "* check style guide compliance:              make vale"
+	@echo "* check style guide compliance on target:    make vale TARGET=*"
+	@echo "* check metrics for documentation:           make allmetrics"
+	@echo "* other possible targets:                    make <TAB twice>"
+	@echo "-------------------------------------------------------------"
+	@echo
 
 .PHONY: full-help spellcheck-install pa11y-install install run html \
         epub serve clean clean-doc spelling spellcheck linkcheck woke \
@@ -81,7 +82,7 @@ spellcheck-install:
 
 pa11y-install:
 	@type $(PA11Y) >/dev/null 2>&1 || { \
-			echo "Installing \"pa11y\" from npm... \n"; \
+			echo "Installing \"pa11y\" from npm..."; echo; \
 			mkdir -p $(SPHINXDIR)/node_modules/ ; \
 			npm install --prefix $(SPHINXDIR) pa11y; \
 		}
@@ -156,7 +157,7 @@ vale-spelling: vale-install
 pdf-prep: install
 	@for packageName in $(REQPDFPACKS); do (dpkg-query -W -f='$${Status}' $$packageName 2>/dev/null | \
         grep -c "ok installed" >/dev/null && echo "Package $$packageName is installed") && continue || \
-        (echo "\nPDF generation requires the installation of the following packages: $(REQPDFPACKS)" && \
+        (echo; echo "PDF generation requires the installation of the following packages: $(REQPDFPACKS)" && \
         echo "" && echo "Run 'sudo make pdf-prep-force' to install these packages" && echo "" && echo \
         "Please be aware these packages will be installed to your system") && exit 1 ; done
 
@@ -171,7 +172,9 @@ pdf: pdf-prep
 	@rm ./$(BUILDDIR)/latex/normal-page-footer.pdf || true
 	@find ./$(BUILDDIR)/latex -name "*.pdf" -exec mv -t ./$(BUILDDIR) {} +
 	@rm -r $(BUILDDIR)/latex
-	@echo "\nOutput can be found in ./$(BUILDDIR)\n"
+	@echo
+	@echo "Output can be found in ./$(BUILDDIR)"
+	@echo
 
 allmetrics: html
 	@echo "Recording documentation metrics..."
