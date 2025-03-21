@@ -1,5 +1,7 @@
 import datetime
 import ast
+import os
+import yaml
 
 # Configuration for the Sphinx documentation builder.
 # All configuration specific to your project should be done in this file.
@@ -250,6 +252,7 @@ extensions = [
     "canonical_sphinx",
     "sphinxcontrib.cairosvgconverter",
     "sphinx_last_updated_by_git",
+    "sphinx.ext.intersphinx",
 ]
 
 # Excludes files or directories from processing
@@ -272,6 +275,7 @@ exclude_patterns = [
 
 rst_epilog = """
 .. include:: /reuse/links.txt
+.. include:: /reuse/substitutions.txt
 """
 
 # Feedback button at the top; enabled by default
@@ -313,3 +317,15 @@ rst_prolog = """
 
 if "discourse_prefix" not in html_context and "discourse" in html_context:
     html_context["discourse_prefix"] = html_context["discourse"] + "/t/"
+
+# Workaround for substitutions.yaml
+
+if os.path.exists('./reuse/substitutions.yaml'):
+    with open('./reuse/substitutions.yaml', 'r') as fd:
+        myst_substitutions = yaml.safe_load(fd.read())
+
+# Add configuration for intersphinx mapping
+
+intersphinx_mapping = {
+    'starter-pack': ('https://canonical-example-product-documentation.readthedocs-hosted.com/en/latest', None)
+}
