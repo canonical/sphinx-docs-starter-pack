@@ -12,13 +12,14 @@ import glob
 import logging
 import os
 import requests
+import re
 import subprocess
 import sys
 from requests.exceptions import RequestException
 
 SPHINX_DIR = os.path.join(os.getcwd(), ".sphinx")
 SPHINX_UPDATE_DIR = os.path.join(SPHINX_DIR, "update")
-GITHUB_REPO = "secondskoll/sphinx-docs-starter-pack"
+GITHUB_REPO = "canonical/sphinx-docs-starter-pack"
 GITHUB_API_BASE = f"https://api.github.com/repos/{GITHUB_REPO}"
 GITHUB_RAW_BASE = f"https://raw.githubusercontent.com/{GITHUB_REPO}/main"
 
@@ -34,7 +35,7 @@ def main():
     logging.debug("Checking local version")
     try:
         with open(os.path.join(SPHINX_DIR, "version")) as f:
-            current_version = f.read()
+            current_version = f.read().strip()
     except FileNotFoundError:
         print("WARNING\nWARNING\nWARNING")
         print(
@@ -71,14 +72,9 @@ def main():
         # Provide changelog to identify other significant changes
         changelog = query_api(GITHUB_RAW_BASE + "/CHANGELOG.md")
         logging.debug("Changelog obtained")
-        try:
-            new, old = changelog.text.split("## " + current_version)
-            print(new)
-        except ValueError:
-            print("WARNING\nWARNING\nWARNING")
-            print(
-                "Current version not identified. It is recommended to examine the CHANGELOG and update manually."
-            )
+        version_regex = re.compile(r'#+ +' + re.escape(current_version) + r' *\n')
+        print("SEE CURRENT CHANGELOG:")
+        print(re.split(version_regex, changelog.text)[0])
 
         # Provide information on any files identified for updates
         if files_updated:
@@ -147,11 +143,11 @@ def update_static_files():
                 download_file(item["download_url"], os.path.join(SPHINX_UPDATE_DIR, item["name"]))
                 if item["name"] == "update_sp.py":
                     # Indicate update script needs to be updated and re-run
-                    print("WARNING\nWARNING\nWARNING")
+                    print("WARNING")
                     print(
                         "THIS UPDATE SCRIPT IS OUT OF DATE. YOU MAY NEED TO RUN ANOTHER UPDATE AFTER UPDATING TO THE FILE IN '.sphinx/updates'."
                     )
-                    print("WARNING\nWARNING\nWARNING")
+                    print("WARNING\n")
             else:
                 logging.debug("File hashes are equal")
         # Checks nested files '.sphinx/**/**.*' for changed SHA (single level of depth)
