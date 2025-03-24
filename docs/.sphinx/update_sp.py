@@ -48,12 +48,12 @@ def main():
     logging.debug("Local version = " + current_version)
 
     # Check release version
-    current_release = query_api(GITHUB_API_BASE + "/releases/latest").json()["tag_name"]
-    logging.debug("current release = " + current_release)
+    latest_release = query_api(GITHUB_API_BASE + "/releases/latest").json()["tag_name"]
+    logging.debug("current release = " + latest_release)
 
     # Perform actions only if versions are different
     logging.debug("Comparing versions")
-    if current_version != current_release:
+    if current_version != latest_release:
         logging.debug("Difference identified in current version and release version.")
         print("Starter pack is out of date.\n")
 
