@@ -17,10 +17,10 @@ import sys
 from requests.exceptions import RequestException
 
 SPHINX_DIR = os.path.join(os.getcwd(), ".sphinx")
-SPHINX_UPDATE_DIR = os.path.join(SPHINX_DIR, "update")
+SPHINX_UPDATE_DIR = SPHINX_DIR + "/update/"
 GITHUB_REPO = "secondskoll/sphinx-docs-starter-pack"
 GITHUB_API_BASE = f"https://api.github.com/repos/{GITHUB_REPO}"
-GITHUB_RAW_BASE = f"https://raw.githubusercontent.com/{GITHUB_REPO}/main"
+GITHUB_RAW_BASE = f"https://raw.githubusercontent.com/{GITHUB_REPO}"
 
 TIMEOUT = 10  # seconds
 
@@ -33,7 +33,7 @@ def main():
     # Check local version
     logging.debug("Checking local version")
     try:
-        with open(SPHINX_DIR.join("/version")) as f:
+        with open(SPHINX_DIR + "/version") as f:
             current_version = f.read()
     except FileNotFoundError:
         print("WARNING\nWARNING\nWARNING")
@@ -63,12 +63,12 @@ def main():
         # Write new version to file to '.sphinx/update'
 
         download_file(
-            GITHUB_RAW_BASE + "/docs/.sphinx/version",
-            SPHINX_UPDATE_DIR.join("version"),
+            GITHUB_RAW_BASE + "/main/docs/.sphinx/version",
+            SPHINX_UPDATE_DIR + "version",
         )
 
         # Provide changelog to identify other significant changes
-        changelog = query_api(GITHUB_RAW_BASE + "/CHANGELOG.md")
+        changelog = query_api(GITHUB_RAW_BASE + "/main/CHANGELOG.md")
         logging.debug("Changelog obtained")
         try:
             new, old = changelog.text.split("## " + current_version)
@@ -96,7 +96,7 @@ def main():
         else:
             logging.debug("No new files found to download")
     else:
-        logging.debug("Local version and release version are the same")
+        logging("Local version and release version are the same")
         print("This version is up to date.")
 
     # Check requirements are the same
@@ -107,11 +107,11 @@ def main():
             local_reqs = file.read().splitlines()
 
             requirements = query_api(
-                GITHUB_RAW_BASE + "/docs/requirements.txt"
+                GITHUB_RAW_BASE + "/main/docs/requirements.txt"
             ).text.splitlines()
             for requirement in requirements:
                 logging.debug("Looking for " + requirement)
-                if requirement not in local_reqs and requirement != "":
+                if requirement not in local_reqs:
                     logging.debug(requirement + " not found")
                     new_requirements.append(requirement)
                 else:
@@ -134,8 +134,7 @@ def main():
 def update_static_files():
     """Checks local files against remote for new and different files, downloads to '.sphinx/updates'"""
     files, paths = get_local_files_and_paths()
-    new_file_list = []
-    new_files = False
+    new_files = []
 
     for item in query_api(GITHUB_API_BASE + "/contents/docs/.sphinx").json():
         logging.debug("Checking " + item["name"])
@@ -144,7 +143,7 @@ def update_static_files():
             index = files.index(item["name"])
             if item["sha"] != get_git_revision_hash(paths[index]):
                 logging.debug("Local " + item["name"] + " is different to remote")
-                download_file(item["download_url"], SPHINX_UPDATE_DIR.join(item["name"]))
+                download_file(item["download_url"], SPHINX_UPDATE_DIR + item["name"])
                 if item["name"] == "update_sp.py":
                     # Indicate update script needs to be updated and re-run
                     print("WARNING\nWARNING\nWARNING")
@@ -169,24 +168,30 @@ def update_static_files():
                         )
                         download_file(
                             nested_item["download_url"],
-                            SPHINX_UPDATE_DIR.join(item["name"]).join(nested_item["name"])
+                            SPHINX_UPDATE_DIR
+                            + item["name"]
+                            + "/"
+                            + nested_item["name"],
                         )
                 # Downloads NEW nested files
                 else:
                     logging.debug("No local version found of " + nested_item["name"])
                     if nested_item["type"] == "file":
-                        new_file_list.append(nested_item["name"])
+                        new_files.append(nested_item["name"])
                         download_file(
                             nested_item["download_url"],
-                            SPHINX_UPDATE_DIR.join(item["name"]).join(nested_item["name"])
+                            SPHINX_UPDATE_DIR
+                            + item["name"]
+                            + "/"
+                            + nested_item["name"],
                         )
         # Downloads NEW files in '.sphinx' starter pack static root
         else:
             if item["type"] == "file":
                 logging.debug("No local version found of " + item["name"])
-                download_file(item["download_url"], SPHINX_UPDATE_DIR.join(item["name"]))
+                download_file(item["download_url"], SPHINX_UPDATE_DIR + item["name"])
                 if item["name"] != "version":
-                    new_file_list.append(item["name"])
+                    new_files.append(item["name"])
     # Writes return value for parent function
     if os.path.exists(SPHINX_UPDATE_DIR):
         logging.debug("Files have been downloaded")
@@ -195,10 +200,10 @@ def update_static_files():
         logging.debug("No downloads found")
         files_updated = False
     # Writes return value for parent function
-    if new_file_list != []:
+    if new_files != []:
         # Provides more information on new files
         with open("NEWFILES.txt", "w") as f:
-            for entry in new_file_list:
+            for entry in new_files:
                 f.write("%s\n" % entry)
         logging.debug("Some downloaded files are new")
         new_files = True
@@ -221,13 +226,13 @@ def get_local_files_and_paths():
     try:
         files = []
         paths = []
-        for file in glob.iglob(SPHINX_DIR.join("/.*"), recursive=True):
+        for file in glob.iglob(SPHINX_DIR + "/.*", recursive=True):
             files.append(os.path.basename(file))
             paths.append(file)
-        for file in glob.iglob(SPHINX_DIR.join("/**.*"), recursive=True):
+        for file in glob.iglob(SPHINX_DIR + "/**.*", recursive=True):
             files.append(os.path.basename(file))
             paths.append(file)
-        for file in glob.iglob(SPHINX_DIR.join("/metrics/**.*"), recursive=True):
+        for file in glob.iglob(SPHINX_DIR + "/metrics/**.*", recursive=True):
             files.append(os.path.basename(file))
             paths.append(file)
         return files, paths
