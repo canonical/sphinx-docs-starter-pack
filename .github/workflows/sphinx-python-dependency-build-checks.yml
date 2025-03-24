@@ -32,7 +32,8 @@ jobs:
     - name: Install dependencies
       run: |
         set -ex
-        sudo apt -y install --fix-missing \
+        sudo apt-get --fix-missing update
+        sudo apt -y install \
           cargo \
           libpython3-dev \
           libxml2-dev \
