@@ -33,7 +33,7 @@ def main():
     # Check local version
     logging.debug("Checking local version")
     try:
-        with open(SPHINX_DIR.join("version")) as f:
+        with open(os.path.join(SPHINX_DIR, "version")) as f:
             current_version = f.read()
     except FileNotFoundError:
         print("WARNING\nWARNING\nWARNING")
@@ -44,7 +44,8 @@ def main():
         logging.debug("No local version found. Setting version to None")
         current_version = "None"
     except Exception as e:
-        raise Exception("ERROR executing check local version: " + e)
+        logging.debug(e, stack_info=True, exc_info=True)
+        raise Exception(f"ERROR executing check local version")
     logging.debug("Local version = " + current_version)
 
     # Check release version
@@ -229,7 +230,8 @@ def get_local_files_and_paths():
             paths.append(file)
         return files, paths
     except Exception as e:
-        raise Exception("ERROR executing get_local_files_and_paths: \n" + e)
+        logging.debug(e, stack_info=True, exc_info=True)
+        raise Exception("ERROR executing get_local_files_and_paths")
 
 
 # General API query with timeout and RequestException
@@ -252,7 +254,8 @@ def download_file(url, output_path):
         with open(output_path, "wb") as file:
             file.write(query_api(url).content)
     except Exception as e:
-        raise Exception("ERROR executing download_file\n" + e)
+        logging.debug(e, stack_info=True, exc_info=True)
+        raise Exception("ERROR executing download_file")
 
 
 if __name__ == "__main__":
