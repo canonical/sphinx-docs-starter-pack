@@ -135,7 +135,6 @@ def update_static_files():
     """Checks local files against remote for new and different files, downloads to '.sphinx/updates'"""
     files, paths = get_local_files_and_paths()
     new_file_list = []
-    new_files = False
 
     for item in query_api(GITHUB_API_BASE + "/contents/docs/.sphinx").json():
         logging.debug("Checking " + item["name"])
@@ -201,10 +200,8 @@ def update_static_files():
             for entry in new_file_list:
                 f.write("%s\n" % entry)
         logging.debug("Some downloaded files are new")
-        new_files = True
-    else:
-        new_files = False
-    return files_updated, new_files
+        return files_updated, True
+    return files_updated, False
 
 
 # Checks git hash of a file
