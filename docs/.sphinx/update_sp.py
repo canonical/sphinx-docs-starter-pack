@@ -44,7 +44,7 @@ def main():
         logging.debug("No local version found. Setting version to None")
         current_version = "None"
     except Exception as e:
-        logging.debug(e, stack_info=True, exc_info=True)
+        logging.debug(e)
         raise Exception(f"ERROR executing check local version")
     logging.debug("Local version = " + current_version)
 
@@ -230,7 +230,7 @@ def get_local_files_and_paths():
             paths.append(file)
         return files, paths
     except Exception as e:
-        logging.debug(e, stack_info=True, exc_info=True)
+        logging.debug(e)
         raise Exception("ERROR executing get_local_files_and_paths")
 
 
@@ -254,7 +254,7 @@ def download_file(url, output_path):
         with open(output_path, "wb") as file:
             file.write(query_api(url).content)
     except Exception as e:
-        logging.debug(e, stack_info=True, exc_info=True)
+        logging.debug(e)
         raise Exception("ERROR executing download_file")
 
 
