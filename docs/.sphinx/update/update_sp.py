@@ -44,7 +44,9 @@ def main():
         logging.debug("No local version found. Setting version to None")
         current_version = "None"
     except Exception as e:
-        raise Exception("ERROR executing check local version: " + e)
+        logging.debug(e)
+        print("ERROR executing check local version")
+        raise
     logging.debug("Local version = " + current_version)
 
     # Check release version
@@ -74,6 +76,7 @@ def main():
             new, old = changelog.text.split("## " + current_version)
             print(new)
         except ValueError:
+            logging.debug("WARNING: Current version not identified")
             print("WARNING\nWARNING\nWARNING")
             print(
                 "Current version not identified. It is recommended to examine the CHANGELOG and update manually."
@@ -237,7 +240,9 @@ def get_local_files_and_paths():
             paths.append(file)
         return files, paths
     except Exception as e:
-        raise Exception("ERROR executing get_local_files_and_paths: \n" + e)
+        logging.debug(e)
+        print("ERROR executing get_local_files_and_paths")
+        raise
 
 
 # General API query with timeout and RequestException
@@ -248,7 +253,9 @@ def query_api(URL):
         r = requests.get(URL, timeout=TIMEOUT)
         return r
     except RequestException as e:
-        raise Exception("ERROR executing query_api for " + URL + ":\n" + e)
+        logging.debug(e)
+        print("ERROR executing query_api for " + URL)
+        raise
 
 
 # General file download function
@@ -260,7 +267,9 @@ def download_file(url, output_path):
         with open(output_path, "wb") as file:
             file.write(query_api(url).content)
     except Exception as e:
-        raise Exception("ERROR executing download_file\n" + e)
+        logging.debug(e)
+        print("ERROR executing download_file")
+        raise
 
 
 if __name__ == "__main__":
