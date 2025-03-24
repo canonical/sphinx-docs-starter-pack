@@ -96,7 +96,7 @@ def main():
         else:
             logging.debug("No new files found to download")
     else:
-        logging("Local version and release version are the same")
+        logging.debug("Local version and release version are the same")
         print("This version is up to date.")
 
     # Check requirements are the same
