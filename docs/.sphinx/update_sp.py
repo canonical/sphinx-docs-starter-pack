@@ -82,14 +82,16 @@ def main():
             logging.debug("Updated files found and downloaded")
             print("Differences have been identified in static files.")
             print("Updated files have been downloaded to '.sphinx/update'.")
-            print("Move these files into your '.sphinx/' directory.")
+            print("Validate and move these files into your '.sphinx/' directory.")
         else:
             logging.debug("No files found to update")
         # Provide information on NEW files
         if new_files:
             logging.debug("New files found and downloaded")
             print(
-                "\nNOTE: New files have been downloaded: See 'NEWFILES.txt' for details."
+                "NOTE: New files have been downloaded\n",
+                "See 'NEWFILES.txt' for all downloaded files\n",
+                "Validate and merge these files into your '.sphinx/' directory"
             )
         else:
             logging.debug("No new files found to download")
