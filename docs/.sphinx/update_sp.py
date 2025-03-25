@@ -114,7 +114,7 @@ def main():
                 else:
                     logging.debug(requirement + " already exists in requirements.txt")
 
-            if new_requirements != []:
+            if new_requirements:
                 print(
                     "You may need to add the following pacakges to your requirements.txt file:"
                 )
