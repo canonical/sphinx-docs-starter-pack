@@ -19,9 +19,9 @@ from requests.exceptions import RequestException
 
 SPHINX_DIR = os.path.join(os.getcwd(), ".sphinx")
 SPHINX_UPDATE_DIR = os.path.join(SPHINX_DIR, "update")
-GITHUB_REPO = "canonical/sphinx-docs-starter-pack"
+GITHUB_REPO = "secondskoll/sphinx-docs-starter-pack"
 GITHUB_API_BASE = f"https://api.github.com/repos/{GITHUB_REPO}"
-GITHUB_RAW_BASE = f"https://raw.githubusercontent.com/{GITHUB_REPO}/main"
+GITHUB_RAW_BASE = f"https://raw.githubusercontent.com/{GITHUB_REPO}/check-log"
 
 TIMEOUT = 10  # seconds
 
@@ -101,25 +101,26 @@ def main():
     try:
         with open("requirements.txt", "r") as file:
             logging.debug("Checking requirements")
-            local_reqs = file.read().splitlines()
 
-            requirements = query_api(
-                GITHUB_RAW_BASE + "/docs/requirements.txt"
-            ).text.splitlines()
-            for requirement in requirements:
-                logging.debug("Looking for " + requirement)
-                if requirement not in local_reqs and requirement != "":
-                    logging.debug(requirement + " not found")
-                    new_requirements.append(requirement)
-                else:
-                    logging.debug(requirement + " already exists in requirements.txt")
+            local_reqs = set(file.read().splitlines()) - {""}
+            requirements = set(
+                query_api(GITHUB_RAW_BASE + "/docs/requirements.txt").text.splitlines()
+            )
 
-            if new_requirements:
+            new_requirements = requirements - local_reqs
+
+            for req in requirements - local_reqs:
+                logging.debug(f"{req} not found in local requirements.txt")
+
+            for req in requirements & local_reqs:
+                logging.debug(f"{req} already exists in local requirements.txt")
+
+            if new_requirements != set():
                 print(
                     "You may need to add the following pacakges to your requirements.txt file:"
                 )
                 for r in new_requirements:
-                    print("%s\n" % r)
+                    print(f"{r}\n")
     except FileNotFoundError:
         print("requirements.txt not found")
         print(
