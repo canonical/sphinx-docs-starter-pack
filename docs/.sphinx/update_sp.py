@@ -47,11 +47,11 @@ def main():
     except Exception as e:
         logging.debug(e)
         raise Exception(f"ERROR executing check local version")
-    logging.debug("Local version = " + current_version)
+    logging.debug(f"Local version = {current_version}")
 
     # Check release version
     latest_release = query_api(GITHUB_API_BASE + "/releases/latest").json()["tag_name"]
-    logging.debug("current release = " + latest_release)
+    logging.debug(f"current release = {latest_release}")
 
     # Perform actions only if versions are different
     logging.debug("Comparing versions")
@@ -135,12 +135,12 @@ def update_static_files():
     new_file_list = []
 
     for item in query_api(GITHUB_API_BASE + "/contents/docs/.sphinx").json():
-        logging.debug("Checking " + item["name"])
+        logging.debug(f"Checking {item["name"]}")
         # Checks existing files in '.sphinx' starter pack static root for changed SHA
         if item["name"] in files and item["type"] == "file":
             index = files.index(item["name"])
             if item["sha"] != get_git_revision_hash(paths[index]):
-                logging.debug("Local " + item["name"] + " is different to remote")
+                logging.debug(f"Local {item["name"]} is different to remote")
                 download_file(item["download_url"], os.path.join(SPHINX_UPDATE_DIR, item["name"]))
                 if item["name"] == "update_sp.py":
                     # Indicate update script needs to be updated and re-run
@@ -155,14 +155,14 @@ def update_static_files():
         elif item["type"] == "dir":
             logging.debug(item["name"] + " is a directory")
             for nested_item in query_api(
-                GITHUB_API_BASE + "/contents/docs/.sphinx" + "/" + item["name"]
+                f"{GITHUB_API_BASE}/contents/docs/.sphinx/{item["name"]}"
             ).json():
-                logging.debug("Checking " + nested_item["name"])
+                logging.debug(f"Checking {nested_item["name"]}")
                 if nested_item["name"] in files:
                     index = files.index(nested_item["name"])
                     if nested_item["sha"] != get_git_revision_hash(paths[index]):
                         logging.debug(
-                            "Local " + nested_item["name"] + " is different to remote"
+                            f"Local {nested_item["name"]} is different to remote"
                         )
                         download_file(
                             nested_item["download_url"],
@@ -170,7 +170,7 @@ def update_static_files():
                         )
                 # Downloads NEW nested files
                 else:
-                    logging.debug("No local version found of " + nested_item["name"])
+                    logging.debug(f"No local version found of {nested_item["name"]}")
                     if nested_item["type"] == "file":
                         new_file_list.append(nested_item["name"])
                         download_file(
@@ -180,7 +180,7 @@ def update_static_files():
         # Downloads NEW files in '.sphinx' starter pack static root
         else:
             if item["type"] == "file":
-                logging.debug("No local version found of " + item["name"])
+                logging.debug(f"No local version found of {item["name"]}")
                 download_file(item["download_url"], os.path.join(SPHINX_UPDATE_DIR, item["name"]))
                 if item["name"] != "version":
                     new_file_list.append(item["name"])
@@ -205,7 +205,7 @@ def update_static_files():
 # Checks git hash of a file
 def get_git_revision_hash(file) -> str:
     """Get SHA of local files"""
-    logging.debug("Getting hash of " + os.path.basename(file))
+    logging.debug(f"Getting hash of {os.path.basename(file)}")
     return subprocess.check_output(["git", "hash-object", file]).decode("ascii").strip()
 
 
@@ -226,13 +226,13 @@ def get_local_files_and_paths():
         return files, paths
     except Exception as e:
         logging.debug(e)
-        raise Exception("ERROR executing get_local_files_and_paths")
+        raise RuntimeError(f"get_local_files_and_paths()") from e
 
 
 # General API query with timeout and RequestException
 def query_api(url):
     """Query an API with a globally set timeout"""
-    logging.debug("Querying " + url)
+    logging.debug(f"Querying {url}")
     try:
         r = requests.get(url, timeout=TIMEOUT)
         return r
@@ -243,7 +243,7 @@ def query_api(url):
 # General file download function
 def download_file(url, output_path):
     """Download a file to a specified path"""
-    logging.debug("Downloading " + os.path.basename(output_path))
+    logging.debug(f"Downloading {os.path.basename(output_path)}")
     try:
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
         with open(output_path, "wb") as file:
