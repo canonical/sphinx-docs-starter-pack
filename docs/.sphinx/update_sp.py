@@ -232,14 +232,14 @@ def get_local_files_and_paths():
 
 
 # General API query with timeout and RequestException
-def query_api(URL):
+def query_api(url):
     """Query an API with a globally set timeout"""
-    logging.debug("Querying " + URL)
+    logging.debug("Querying " + url)
     try:
-        r = requests.get(URL, timeout=TIMEOUT)
+        r = requests.get(url, timeout=TIMEOUT)
         return r
     except RequestException as e:
-        raise Exception("ERROR executing query_api for " + URL + ":\n" + e)
+        raise RuntimeError(f"Failed query_api(): {url}") from e
 
 
 # General file download function
@@ -252,7 +252,7 @@ def download_file(url, output_path):
             file.write(query_api(url).content)
     except Exception as e:
         logging.debug(e)
-        raise Exception("ERROR executing download_file")
+        raise RuntimeError(f"Failed download_file(): {url}") from e
 
 
 if __name__ == "__main__":
