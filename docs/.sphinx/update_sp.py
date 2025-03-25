@@ -216,15 +216,13 @@ def get_local_files_and_paths():
     try:
         files = []
         paths = []
-        for file in glob.iglob(os.path.join(SPHINX_DIR, ".*"), recursive=True):
-            files.append(os.path.basename(file))
-            paths.append(file)
-        for file in glob.iglob(os.path.join(SPHINX_DIR, "**.*"), recursive=True):
-            files.append(os.path.basename(file))
-            paths.append(file)
-        for file in glob.iglob(os.path.join(SPHINX_DIR, "metrics/**.*"), recursive=True):
-            files.append(os.path.basename(file))
-            paths.append(file)
+        patterns = [".*", "**.*", "metrics/**.*"]
+        files, paths = [], []
+
+        for pattern in patterns:
+            for file in glob.iglob(os.path.join(SPHINX_DIR, pattern), recursive=True):
+                files.append(os.path.basename(file))
+                paths.append(file)
         return files, paths
     except Exception as e:
         logging.debug(e)
