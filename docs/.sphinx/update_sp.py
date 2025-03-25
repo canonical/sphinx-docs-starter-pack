@@ -21,6 +21,7 @@ SPHINX_DIR = os.path.join(os.getcwd(), ".sphinx")
 SPHINX_UPDATE_DIR = os.path.join(SPHINX_DIR, "update")
 GITHUB_REPO = "secondskoll/sphinx-docs-starter-pack"
 GITHUB_API_BASE = f"https://api.github.com/repos/{GITHUB_REPO}"
+GITHUB_API_SPHINX_DIR = f"{GITHUB_API_BASE}/contents/docs/.sphinx"
 GITHUB_RAW_BASE = f"https://raw.githubusercontent.com/{GITHUB_REPO}/check-log"
 
 TIMEOUT = 10  # seconds
@@ -134,7 +135,7 @@ def update_static_files():
     files, paths = get_local_files_and_paths()
     new_file_list = []
 
-    for item in query_api(GITHUB_API_BASE + "/contents/docs/.sphinx").json():
+    for item in query_api(GITHUB_API_SPHINX_DIR).json():
         logging.debug(f"Checking {item["name"]}")
         # Checks existing files in '.sphinx' starter pack static root for changed SHA
         if item["name"] in files and item["type"] == "file":
@@ -155,7 +156,7 @@ def update_static_files():
         elif item["type"] == "dir":
             logging.debug(item["name"] + " is a directory")
             for nested_item in query_api(
-                f"{GITHUB_API_BASE}/contents/docs/.sphinx/{item["name"]}"
+                f"{GITHUB_API_SPHINX_DIR}/{item["name"]}"
             ).json():
                 logging.debug(f"Checking {nested_item["name"]}")
                 if nested_item["name"] in files:
