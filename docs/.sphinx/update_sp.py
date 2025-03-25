@@ -196,7 +196,7 @@ def update_static_files():
         # Provides more information on new files
         with open("NEWFILES.txt", "w") as f:
             for entry in new_file_list:
-                f.write("%s\n" % entry)
+                f.write(f"{entry}\n")
         logging.debug("Some downloaded files are new")
         return files_updated, True
     return files_updated, False
