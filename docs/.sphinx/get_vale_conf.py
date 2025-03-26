@@ -6,6 +6,7 @@ import subprocess
 import tempfile
 import sys
 import logging
+import argparse
 
 # Configure logging
 logging.basicConfig(
@@ -125,12 +126,20 @@ def copy_files_to_path(source_path, dest_path, overwrite=False):
         logging.error("Copy failed: %s", e)
         return False
 
+def parse_arguments():
+    parser = argparse.ArgumentParser(description="Download Vale configuration files")
+    parser.add_argument("--no-overwrite", action="store_true", help="Don't overwrite existing files")
+    return parser.parse_args()
+
 def main():
     # Define local directory paths
     vale_files_dict = {file: os.path.join(SPHINX_DIR, file) for file in VALE_FILE_LIST}
 
+    # Parse command line arguments, default to overwrite_enabled = True
+    overwrite_enabled = not parse_arguments().no_overwrite
+
     # Download into /tmp through git clone 
-    if not clone_repo_and_copy_paths(vale_files_dict, overwrite=True):
+    if not clone_repo_and_copy_paths(vale_files_dict, overwrite=overwrite_enabled):
         logging.error("Failed to download files from repository")
         return 1
 
