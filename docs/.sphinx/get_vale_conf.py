@@ -4,10 +4,8 @@ import os
 import shutil
 import subprocess
 import tempfile
-import requests
 import sys
 import logging
-from requests.exceptions import RequestException
 
 # Configure logging
 logging.basicConfig(
@@ -19,13 +17,9 @@ logging.basicConfig(
 SPHINX_DIR = os.path.join(os.getcwd(), ".sphinx")
 
 GITHUB_REPO = "canonical/praecepta"
-GITHUB_API_BASE = f"https://api.github.com/repos/{GITHUB_REPO}"
-GITHUB_RAW_BASE = f"https://raw.githubusercontent.com/{GITHUB_REPO}"
 GITHUB_CLONE_URL = f"https://github.com/{GITHUB_REPO}.git"
 
-TIMEOUT = 10  # seconds
-
-# Source paths in repo and their destinations in .sphinx
+# Source paths to copy from repo
 VALE_FILE_LIST = [
     "styles/Canonical",
     "styles/config/vocabularies/Canonical",
@@ -33,38 +27,17 @@ VALE_FILE_LIST = [
     "vale.ini"
 ]
 
-
-def create_dir_if_not_exists(dir_path):
-    """Check directory of the input path, create the directory it doesn't exist"""
-    if dir_path and not os.path.exists(dir_path):
-        logging.info("Creating directory: %s", dir_path)
-        os.makedirs(dir_path, exist_ok=True)
-    else:
-        logging.info("Directory exists, continue with: %s", dir_path)
-    return dir_path
-
-
-def download_file(url, output_path):
-    """Download a file to the specified path"""
-    try:
-        logging.info("  Downloading: %s", os.path.basename(output_path))
-        response = requests.get(url, timeout=TIMEOUT)
-        response.raise_for_status()
-
-        with open(output_path, "wb") as file:
-            file.write(response.content)  # binary or text data
-        return True
-    except RequestException as e:
-        logging.error("Error downloading %s: %s", url, e)
-        return False
-
-
 def clone_repo_and_copy_paths(file_source_dest, overwrite=False):
     """
     Clone the repository to a temporary directory and copy required files
     
-    file_source_dest: dictionary of file paths to copy from the repository, and their destination paths
-    overwrite: boolean flag to overwrite existing files in the destination
+    Args:
+        file_source_dest: dictionary of file paths to copy from the repository,
+            and their destination paths
+        overwrite: boolean flag to overwrite existing files in the destination
+    
+    Returns:
+        bool: True if all files were copied successfully, False otherwise
     """
 
     if not file_source_dest:
@@ -115,6 +88,7 @@ def copy_files_to_path(source_path, dest_path, overwrite=False):
     Args:
         source_path: Path to the source file or directory
         dest_path: Path to the destination
+        overwrite: Boolean flag to overwrite existing files in the destination
         
     Returns:
         bool: True if copy was successful, False otherwise
@@ -134,7 +108,8 @@ def copy_files_to_path(source_path, dest_path, overwrite=False):
             else:
                 os.remove(dest_path)
         else:
-            logging.info("  Destination exists, skip copying (use overwrite=True to replace): %s", dest_path)
+            logging.info("  Destination exists, skip copying (use overwrite=True to replace): %s",
+                         dest_path)
             return True     # Skip copying
 
     # Copy the source to destination
@@ -148,51 +123,6 @@ def copy_files_to_path(source_path, dest_path, overwrite=False):
         return True
     except (shutil.Error, OSError) as e:
         logging.error("Copy failed: %s", e)
-        return False
-
-def download_github_directory(url, output_dir):
-    """Download all files from a GitHub directory to the specified path"""
-    try:
-        response = requests.get(url, timeout=TIMEOUT)
-        response.raise_for_status()
-
-        create_dir_if_not_exists(output_dir)
-        items = response.json()
-
-        # Handle GitHub API error
-        if isinstance(items, dict) and "message" in items:
-            if "rate limit" in items["message"].lower():
-                logging.error("GitHub API rate limit exceeded. Try again later.")
-            logging.error("GitHub API error: %s", items['message'])
-            return False
-
-        success_count = 0
-        for item in items:
-            # Handle subdirectories recursively
-            if item.get("type") == "dir":
-                dir_name = item.get("name", "")
-                sub_output_dir = os.path.join(output_dir, dir_name)
-                sub_url = item.get("url", "")
-                if sub_url and download_github_directory(
-                    sub_url, sub_output_dir
-                ):
-                    success_count += 1
-                continue
-
-            # Skip files without download URL or name
-            if not item.get("download_url") or not item.get("name"):
-                logging.warning("Skipping %s", item['name'])
-                continue
-
-            # Download leaf files
-            output_file = os.path.join(output_dir, item["name"])
-            if download_file(item["download_url"], output_file):
-                success_count += 1
-
-        logging.info("Downloaded %d items", success_count)
-        return True
-    except RequestException as e:
-        logging.error("Error downloading %s: %s", url, e)
         return False
 
 def main():
