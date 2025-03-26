@@ -11,7 +11,7 @@ The following checks are available:
    :maxdepth: 1
    :glob:
 
-   /content/automatic_checks_*
+   /reference/automatic_checks_*
 
 Install prerequisite software
 -----------------------------
