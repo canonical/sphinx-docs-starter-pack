@@ -1,6 +1,9 @@
 #! /usr/bin/env python
 
 import os
+import shutil
+import subprocess
+import tempfile
 import requests
 import sys
 import logging
@@ -18,8 +21,17 @@ SPHINX_DIR = os.path.join(os.getcwd(), ".sphinx")
 GITHUB_REPO = "canonical/praecepta"
 GITHUB_API_BASE = f"https://api.github.com/repos/{GITHUB_REPO}"
 GITHUB_RAW_BASE = f"https://raw.githubusercontent.com/{GITHUB_REPO}"
+GITHUB_CLONE_URL = f"https://github.com/{GITHUB_REPO}.git"
 
 TIMEOUT = 10  # seconds
+
+# Source paths in repo and their destinations in .sphinx
+VALE_FILE_LIST = [
+    "styles/Canonical",
+    "styles/config/vocabularies/Canonical",
+    "styles/config/dictionaries",
+    "vale.ini"
+]
 
 
 def create_dir_if_not_exists(dir_path):
@@ -46,6 +58,97 @@ def download_file(url, output_path):
         logging.error("Error downloading %s: %s", url, e)
         return False
 
+
+def clone_repo_and_copy_paths(file_source_dest, overwrite=False):
+    """
+    Clone the repository to a temporary directory and copy required files
+    
+    file_source_dest: dictionary of file paths to copy from the repository, and their destination paths
+    overwrite: boolean flag to overwrite existing files in the destination
+    """
+
+    if not file_source_dest:
+        logging.error("No files to copy")
+        return False
+
+    # Create temporary directory on disk for cloning
+    temp_dir = tempfile.mkdtemp()
+    logging.info("Cloning repository <%s> to temporary directory: %s", GITHUB_REPO, temp_dir)
+    clone_cmd = ["git", "clone", "--depth", "1", GITHUB_CLONE_URL, temp_dir]
+
+    try:
+        result = subprocess.run(
+            clone_cmd, 
+            capture_output=True, 
+            text=True,
+            check=True
+        )
+        logging.debug("Git clone output: %s", result.stdout)
+    except subprocess.CalledProcessError as e:
+        logging.error("Git clone failed: %s", e.stderr)
+        return False
+
+    # Copy files from the cloned repository to the destination paths
+    is_copy_success = True
+    for source, dest in file_source_dest.items():
+        source_path = os.path.join(temp_dir, source)
+
+        if not os.path.exists(source_path):
+            is_copy_success = False
+            logging.error("Source path not found: %s", source_path)
+            continue
+
+        if not copy_files_to_path(source_path, dest, overwrite):
+            is_copy_success = False            
+            logging.error("Failed to copy %s to %s", source_path, dest)
+
+    # Clean up temporary directory
+    logging.info("Cleaning up temporary directory: %s", temp_dir)
+    shutil.rmtree(temp_dir)
+
+    return is_copy_success
+
+def copy_files_to_path(source_path, dest_path, overwrite=False):
+    """
+    Copy a file or directory from source to destination
+    
+    Args:
+        source_path: Path to the source file or directory
+        dest_path: Path to the destination
+        
+    Returns:
+        bool: True if copy was successful, False otherwise
+    """
+    # Skip if source file doesn't exist
+    if not os.path.exists(source_path):
+        logging.warning("Source path not found: %s", source_path)
+        return False
+
+    logging.info("Copying %s to %s", source_path, dest_path)
+    # Handle existing files
+    if os.path.exists(dest_path):
+        if overwrite:
+            logging.info("  Destination exists, overwriting: %s", dest_path)
+            if os.path.isdir(dest_path):
+                shutil.rmtree(dest_path)
+            else:
+                os.remove(dest_path)
+        else:
+            logging.info("  Destination exists, skip copying (use overwrite=True to replace): %s", dest_path)
+            return True     # Skip copying
+
+    # Copy the source to destination
+    try:
+        if os.path.isdir(source_path):
+            # entire directory
+            shutil.copytree(source_path, dest_path)
+        else:
+            # individual files
+            shutil.copy2(source_path, dest_path)
+        return True
+    except (shutil.Error, OSError) as e:
+        logging.error("Copy failed: %s", e)
+        return False
 
 def download_github_directory(url, output_dir):
     """Download all files from a GitHub directory to the specified path"""
@@ -94,32 +197,11 @@ def download_github_directory(url, output_dir):
 
 def main():
     # Define local directory paths
-    rules_dir = os.path.join(SPHINX_DIR, "styles/Canonical")
-    vocab_dir = os.path.join(SPHINX_DIR, "styles/config/vocabularies/Canonical")
-    dict_dir = os.path.join(SPHINX_DIR, "styles/config/dictionaries")
+    vale_files_dict = {file: os.path.join(SPHINX_DIR, file) for file in VALE_FILE_LIST}
 
-    # GitHub API URLs
-    rules_github_url = f"{GITHUB_API_BASE}/contents/styles/Canonical"
-    vocab_github_url = f"{GITHUB_API_BASE}/contents/styles/config/vocabularies/Canonical"
-    dict_github_url = f"{GITHUB_API_BASE}/contents/styles/config/dictionaries"
-
-    # Download through GitHub API
-    if not download_github_directory(rules_github_url, rules_dir):
-        logging.error("Failed to download directory from %s", rules_github_url)
-        return 1
-    if not download_github_directory(vocab_github_url, vocab_dir):
-        logging.error("Failed to download directory from %s", vocab_github_url)
-        return 1
-    if not download_github_directory(dict_github_url, dict_dir):
-        logging.error("Failed to download directory from %s", dict_github_url)
-        return 1
-
-    # Download vale.ini
-    vale_ini_github_url = f"{GITHUB_RAW_BASE}/main/vale.ini"
-    vale_ini_output = os.path.join(SPHINX_DIR, "vale.ini")
-
-    if not download_file(vale_ini_github_url, vale_ini_output):
-        logging.error("Failed to download vale.ini from %s", vale_ini_github_url)
+    # Download into /tmp through git clone 
+    if not clone_repo_and_copy_paths(vale_files_dict, overwrite=True):
+        logging.error("Failed to download files from repository")
         return 1
 
     logging.info("Download complete")
