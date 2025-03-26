@@ -3,7 +3,15 @@
 import os
 import requests
 import sys
+import logging
 from requests.exceptions import RequestException
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
 
 SPHINX_DIR = os.path.join(os.getcwd(), ".sphinx")
 
@@ -17,17 +25,17 @@ TIMEOUT = 10  # seconds
 def create_dir_if_not_exists(dir_path):
     """Check directory of the input path, create the directory it doesn't exist"""
     if dir_path and not os.path.exists(dir_path):
-        print(f"Creating directory: {dir_path}")
+        logging.info("Creating directory: %s", dir_path)
         os.makedirs(dir_path, exist_ok=True)
     else:
-        print(f"Directory exists, continue with: {dir_path}")
+        logging.info("Directory exists, continue with: %s", dir_path)
     return dir_path
 
 
 def download_file(url, output_path):
     """Download a file to the specified path"""
     try:
-        print(f"  Downloading: {os.path.basename(output_path)}")
+        logging.info("  Downloading: %s", os.path.basename(output_path))
         response = requests.get(url, timeout=TIMEOUT)
         response.raise_for_status()
 
@@ -35,7 +43,7 @@ def download_file(url, output_path):
             file.write(response.content)  # binary or text data
         return True
     except RequestException as e:
-        print(f"Error downloading {url}: {e}")
+        logging.error("Error downloading %s: %s", url, e)
         return False
 
 
@@ -51,8 +59,8 @@ def download_github_directory(url, output_dir):
         # Handle GitHub API error
         if isinstance(items, dict) and "message" in items:
             if "rate limit" in items["message"].lower():
-                print("GitHub API rate limit exceeded. Try again later.")
-            print(f"GitHub API error: {items['message']}")
+                logging.error("GitHub API rate limit exceeded. Try again later.")
+            logging.error("GitHub API error: %s", items['message'])
             return False
 
         success_count = 0
@@ -70,7 +78,7 @@ def download_github_directory(url, output_dir):
 
             # Skip files without download URL or name
             if not item.get("download_url") or not item.get("name"):
-                print(f"Skipping {item['name']}")
+                logging.warning("Skipping %s", item['name'])
                 continue
 
             # Download leaf files
@@ -78,10 +86,10 @@ def download_github_directory(url, output_dir):
             if download_file(item["download_url"], output_file):
                 success_count += 1
 
-        print(f"Downloaded {success_count} items")
+        logging.info("Downloaded %d items", success_count)
         return True
     except RequestException as e:
-        print(f"Error downloading {url}: {e}")
+        logging.error("Error downloading %s: %s", url, e)
         return False
 
 def main():
@@ -97,13 +105,13 @@ def main():
 
     # Download through GitHub API
     if not download_github_directory(rules_github_url, rules_dir):
-        print(f"Failed to download directory from {rules_github_url}")
+        logging.error("Failed to download directory from %s", rules_github_url)
         return 1
     if not download_github_directory(vocab_github_url, vocab_dir):
-        print(f"Failed to download directory from {vocab_github_url}")
+        logging.error("Failed to download directory from %s", vocab_github_url)
         return 1
     if not download_github_directory(dict_github_url, dict_dir):
-        print(f"Failed to download directory from {dict_github_url}")
+        logging.error("Failed to download directory from %s", dict_github_url)
         return 1
 
     # Download vale.ini
@@ -111,10 +119,10 @@ def main():
     vale_ini_output = os.path.join(SPHINX_DIR, "vale.ini")
 
     if not download_file(vale_ini_github_url, vale_ini_output):
-        print(f"Failed to download vale.ini from {vale_ini_github_url}")
+        logging.error("Failed to download vale.ini from %s", vale_ini_github_url)
         return 1
 
-    print("Download complete")
+    logging.info("Download complete")
     return 0
 
 
