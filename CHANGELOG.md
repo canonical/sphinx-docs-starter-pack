@@ -25,6 +25,7 @@ starter pack based documentation sets.
 
 ### Removed
 
+* `.wokeignore` [#363](https://github.com/canonical/sphinx-docs-starter-pack/pull/363)
 * `docs/.sphinx/_static/project_specific.css` [#357](https://github.com/canonical/sphinx-docs-starter-pack/pull/357)
 
 ## pre-version
