@@ -60,3 +60,37 @@ For |RST|:
    This text will be ignored by Vale.
 
    .. vale on
+
+
+Exempt directives
+-----------------
+
+To disable Vale linting for a specific directive, you can apply a class to the section.
+
+For Markdown:
+
+.. code-block:: Markdown
+
+    ````{class} vale-ignore
+    ```{code-block}
+
+    This content will be ignored by Vale.
+    ```
+    ````
+
+.. note::
+    
+    This should not be necessary for Markdown, as Vale has an expanded scope for ignoring Markdown content by default.
+
+For |RST|:
+
+.. code-block:: rst
+
+    .. class:: vale-ignore
+    .. code-block::
+
+        This content will be ignored by Vale.
+
+.. note:: 
+
+    The `.. class::` directive does not need to encapsulate content, it applies to the next logical block (which can be another directive or even a paragraph of content).

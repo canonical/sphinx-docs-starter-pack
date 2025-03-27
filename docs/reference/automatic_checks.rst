@@ -42,6 +42,7 @@ repository.
 The current defaults force usage of Canonical hosted runners, which some projects
 may not be able to use. You may select your own runners with an override, see line 7 below:
 
+.. class:: vale-ignore
 .. code-block::
    :emphasize-lines: 7
    :linenos:
@@ -62,8 +63,10 @@ changes are made to files in the ``docs/`` directory. If your project is structu
 differently, or if you want to run the checks on other directories, modify the trigger
 paths in the workflow files:
 
-.. code-block:: yaml
+.. class:: vale-ignore
+.. code:: yaml
    :emphasize-lines: 4
+   :class: vale-ignore
    
    on:
      pull_request:
