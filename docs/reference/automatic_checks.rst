@@ -64,7 +64,7 @@ differently, or if you want to run the checks on other directories, modify the t
 paths in the workflow files:
 
 .. class:: vale-ignore
-.. code:: yaml
+.. code-block:: yaml
    :emphasize-lines: 4
    :class: vale-ignore
    
