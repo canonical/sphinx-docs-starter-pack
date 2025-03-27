@@ -66,7 +66,6 @@ paths in the workflow files:
 .. class:: vale-ignore
 .. code-block:: yaml
    :emphasize-lines: 4
-   :class: vale-ignore
    
    on:
      pull_request:
