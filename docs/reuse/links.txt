@@ -17,16 +17,13 @@
 .. _list tables: https://docutils.sourceforge.io/docs/ref/rst/directives.html#list-table
 .. _manual import: https://readthedocs.com/dashboard/import/manual/
 .. _Markdown: https://commonmark.org/
-.. _More useful markup: https://canonical-documentation-with-sphinx-and-readthedocscom.readthedocs-hosted.com/style-guide/#more-useful-markup
 .. _MyST: https://myst-parser.readthedocs.io/
-.. _MyST style guide: https://canonical-documentation-with-sphinx-and-readthedocscom.readthedocs-hosted.com/style-guide-myst/
 .. _Open Graph: https://ogp.me/
 .. _Pa11y: https://pa11y.org/
 .. _Pa11y readme: https://github.com/pa11y/pa11y#command-line-configuration
 .. _Pygments documentation: https://pygments.org/languages/
 .. _Read the Docs at Canonical: https://library.canonical.com/documentation/read-the-docs-at-canonical
 .. _reStructuredText: https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html
-.. _reStructuredText style guide: https://canonical-documentation-with-sphinx-and-readthedocscom.readthedocs-hosted.com/style-guide/
 .. _`Sphinx`: https://www.sphinx-doc.org/
 .. _`Sphinx configuration`: https://www.sphinx-doc.org/en/master/usage/configuration.html
 .. _Sphinx design: https://sphinx-design.readthedocs.io/en/latest/

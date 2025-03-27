@@ -39,4 +39,4 @@ Sometimes, you need to use a term in a specific context that should usually fail
 (For example, you might need to refer to a product called ``ABC Docs``, but you do not want to add ``docs`` to the word list because it isn't a valid word.)
 
 In this case, you can use the ``:spellexception:`` role.
-See `More useful markup`_ in the |RST| style guide (also available in MyST).
+See :ref:`More useful markup <section_more_useful_markup>` in the |RST| style guide (also available in MyST).
