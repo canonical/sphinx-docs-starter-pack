@@ -2,6 +2,14 @@
 
 Substantive file changes relating to starter pack functionality are detailed here.
 
+## 1.0.1
+
+Fixes and issue with Vale implementation.
+
+### Changed
+
+* `docs/Makefile` [#357](https://github.com/canonical/sphinx-docs-starter-pack/pull/357)
+
 ## 1.0.0
 
 First versioned release. Adds an update command to better facilitate updates to
