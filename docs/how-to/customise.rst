@@ -100,7 +100,7 @@ The following extensions are included by default:
 * ``sphinxcontrib.cairosvgconverter``
 * ``sphinx_last_updated_by_git``
 
-The `canonical_sphinx` extension is required for the starter pack.
+The ``canonical_sphinx`` extension is required for the starter pack.
 It automatically enables and sets default configurations for the following extensions:
 
 * ``custom-rst-roles``
