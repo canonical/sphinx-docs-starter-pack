@@ -8,6 +8,8 @@ myst:
                        ```"
 ---
 
+(myst_style_guide)=
+
 # MyST style guide
 
 The documentation files use a mixture of [Markdown](https://commonmark.org/) and [MyST](https://myst-parser.readthedocs.io/) syntax.

@@ -299,8 +299,8 @@ It is based on the `Canonical starter pack
 and hosted on `Read the Docs <https://about.readthedocs.com/>`_.
 
 For syntax help and guidelines,
-refer to the `Canonical style guides
-<https://canonical-documentation-with-sphinx-and-readthedocscom.readthedocs-hosted.com/>`_.
+refer to the Canonical style guides
+(:ref:`reStructuredText <style-guide>` and :ref:`MyST <myst_style_guide>`).
 
 In structuring,
 the documentation employs the `Diátaxis <https://diataxis.fr/>`_ approach.

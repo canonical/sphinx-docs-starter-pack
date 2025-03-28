@@ -826,6 +826,8 @@ You can define glossary terms in any file. Ideally, all terms should be collecte
    * - ``:term:`an example term```
      - :term:`an example term`
 
+.. _section_more_useful_markup:
+
 More useful markup
 ------------------
 

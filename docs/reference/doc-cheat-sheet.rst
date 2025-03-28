@@ -12,7 +12,7 @@ ReStructuredText cheat sheet
 This file contains the syntax for commonly used reST markup.
 Open it in your text editor to quickly copy and paste the markup you need.
 
-See the `reStructuredText style guide <https://canonical-documentation-with-sphinx-and-readthedocscom.readthedocs-hosted.com/style-guide/>`_ for detailed information and conventions.
+See the :ref:`reStructuredText style guide <style-guide>` for detailed information and conventions.
 
 Also see the `Sphinx reStructuredText Primer <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`_ for more details on reST, and the `Canonical Documentation Style Guide <https://docs.ubuntu.com/styleguide/en>`_ for general style conventions.
 
