@@ -1,14 +1,14 @@
 # sphinx-docs-starter-pack changelog
 
-Substantive file changes relating to starter pack functionality are detailed here.
-
 ## 1.0.1
 
-Fixes and issue with Vale implementation.
+Fixes an issue with Vale implementation, and adds words to main wordlist.
 
 ### Changed
 
-* `docs/Makefile` [#357](https://github.com/canonical/sphinx-docs-starter-pack/pull/357)
+* `docs/Makefile` [852c19b](https://github.com/canonical/sphinx-docs-starter-pack/commit/852c19bf162e4697d7f36b49e8bc36ad71302216)
+* `docs/.sphinx/.wordlist.txt` [#367](https://github.com/canonical/sphinx-docs-starter-pack/pull/367)
+* `docs/.sphinx/get_vale_conf.py` [#358](https://github.com/canonical/sphinx-docs-starter-pack/pull/358)
 
 ## 1.0.0
 
