@@ -185,7 +185,7 @@ allmetrics: html
 	@. $(VENV); test -f $(VALE_CONFIG) || python3 $(SPHINXDIR)/get_vale_conf.py
 	@. $(VENV); find $(SPHINXDIR)/venv/lib/python*/site-packages/vale/vale_bin -size 195c -exec vale --config "$(VALE_CONFIG)" $(TARGET) > /dev/null \;
 	@eval '$(METRICSDIR)/source_metrics.sh $(PWD)'
-	@eval '$(METRICSDIR)/build_metrics.sh $(PWD) $(METRICSDIR)'
+	@$(METRICSDIR)/build_metrics.py $(BUILDDIR)
 
 update: install
 	@. $(VENV); .sphinx/update_sp.py
