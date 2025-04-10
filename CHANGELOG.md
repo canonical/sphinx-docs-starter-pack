@@ -1,5 +1,11 @@
 # sphinx-docs-starter-pack changelog
 
+## NEXT-VER
+
+### Changed
+
+* `docs/.sphinx/metrics/build_metrics.sh` replaced with `docs/.sphinx/metrics/build_metrics.py` [#372](https://github.com/canonical/sphinx-docs-starter-pack/issues/372)
+
 ## 1.0.1
 
 Fixes an issue with Vale implementation, and adds words to main wordlist.
