@@ -32,7 +32,7 @@ class MetricsParser(HTMLParser):
         buf = ''
         while True:
             # Parse 1MB chunks at a time
-            buf = file.read(1024**3)
+            buf = file.read(1024**2)
             if not buf:
                 break
             self.feed(buf)
