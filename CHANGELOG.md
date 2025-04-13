@@ -1,5 +1,10 @@
 # sphinx-docs-starter-pack changelog
 
+## 1.0.2
+
+* Simplifies vale binary download & install.
+* Leaves vale install output in STDOUT to reveal potential problems.
+
 ## 1.0.1
 
 Fixes an issue with Vale implementation, and adds words to main wordlist.
