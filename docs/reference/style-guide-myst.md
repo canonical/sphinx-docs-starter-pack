@@ -677,7 +677,7 @@ By combining file inclusion and substitutions, you can even replace parts of the
     % file [style-guide.rst](style-guide.rst)
     ```{include} style-guide.rst
         :start-after: "Adhere to the following conventions:"
-        :end-before: "- Do not skip levels"
+        :end-before: "  Use the ones specified above."
     ```
 
     ````
@@ -686,7 +686,7 @@ By combining file inclusion and substitutions, you can even replace parts of the
     % Include parts of the content from file [style-guide.rst](style-guide.rst)
     ```{include} style-guide.rst
         :start-after: "Adhere to the following conventions:"
-        :end-before: "- Do not skip levels"
+        :end-before: "  Use the ones specified above."
     ```
 
 `````
