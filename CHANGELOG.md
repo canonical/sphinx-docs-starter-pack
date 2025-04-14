@@ -1,5 +1,15 @@
 # sphinx-docs-starter-pack changelog
 
+## NEW-VERSION
+
+### Changed
+
+* `docs/reference/style-guide.rst` [97fcd55](https://github.com/canonical/sphinx-docs-starter-pack/commit/97fcd55c9e5d52b639a9490b6eaf30d213638ce8) -- Remove impossible warning
+* `docs/reference/style-guide.rst` [edd848a](https://github.com/canonical/sphinx-docs-starter-pack/commit/edd848a24ef8781fe676e214456cb0c5d0089dec) -- Correct underline definition
+* `docs/reference/style-guide.rst` [c8e71d7](https://github.com/canonical/sphinx-docs-starter-pack/commit/c8e71d7dea5964df42396d330e29fad501b97ca2) -- Only use admonitions advised by the style guide
+* `docs/reference/style-guide.rst` [3ff16f2](https://github.com/canonical/sphinx-docs-starter-pack/commit/3ff16f2ac465907024d2a3c7d823e8ce1a9490ca) -- Add section on linking to Ubuntu man-pages
+* `docs/reference/style-guide.rst` [5bda4da](https://github.com/canonical/sphinx-docs-starter-pack/commit/5bda4daa0943af153d9604da45be47bbccc1cda5) -- Add note about image output formats
+
 ## 1.0.1
 
 Fixes an issue with Vale implementation, and adds words to main wordlist.
