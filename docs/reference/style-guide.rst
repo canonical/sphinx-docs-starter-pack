@@ -588,6 +588,18 @@ Notes
              This might damage your hardware!
      - .. caution::
           This might damage your hardware!
+   * - .. code::
+
+          .. warning::
+              This could damage your hardware!
+     - .. warning::
+          This could damage your hardware!
+   * - .. code::
+
+          .. seealso::
+              A reference to related content.
+     - .. seealso::
+          A reference to related content.
 
 Adhere to the following conventions:
 
