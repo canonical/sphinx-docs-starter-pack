@@ -195,6 +195,58 @@ Output is the main content of the directive.
 To override the prompt (`user@host:~$` by default), specify the `:user:` and/or `:host:` options.
 To make the terminal scroll horizontally instead of wrapping long lines, add `:scroll:`.
 
+### Command input and output
+
+When you are not trying to visually simulate a terminal, separate the input and output code blocks.
+Do not prefix commands with `$` as this is not user-friendly. Users should be able to copy and paste the command without requiring edits.
+
+`````{list-table}
+   :header-rows: 1
+
+* - Type
+  - Markdown/MyST
+  - Rendering
+* - Input
+  - ````
+
+    ```bash
+    docker volume inspect my-vol
+    ```
+
+    ````  
+  - ```bash
+    docker volume inspect my-vol
+    ```
+* - Output
+  - ````
+
+    ```json
+    [
+      {
+        "Driver": "local",
+        "Labels": {},
+        "Mountpoint": "/var/lib/docker/volumes/my-vol/_data",
+        "Name": "my-vol",
+        "Scope": "local"
+      }
+    ]
+    ```
+
+    ````
+  - ```json
+    [
+      {
+        "Driver": "local",
+        "Labels": {},
+        "Mountpoint": "/var/lib/docker/volumes/my-vol/_data",
+        "Name": "my-vol",
+        "Scope": "local"
+      }
+    ]
+    ```
+
+`````
+
 ## Links
 
 How to link depends on if you are linking to an external URL or to another page in the documentation.
