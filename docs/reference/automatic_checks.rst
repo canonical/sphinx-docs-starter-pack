@@ -27,6 +27,7 @@ To install the validation tools:
 
    make woke-install
    make pa11y-install
+   make markdownlint-install  # if using Markdown
 
 .. note::
 
@@ -66,7 +67,7 @@ paths in the workflow files:
 .. class:: vale-ignore
 .. code-block:: yaml
    :emphasize-lines: 4
-   
+
    on:
      pull_request:
        paths:
