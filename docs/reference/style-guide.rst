@@ -285,22 +285,22 @@ Then add the following field at the top of the page (where ``12345`` is the ID o
 
   :discourse: 12345
 
-Man-page links
-^^^^^^^^^^^^^^
+Manual-page links
+^^^^^^^^^^^^^^^^^
 
 When mentioning command line utilities, you may wish to link to the
-corresponding man-page for the command. Ensure that the ``manpages_url``
+corresponding manual page for the command. Ensure that the ``manpages_url``
 setting in your :file:`conf.py` is set appropriately and use the ``:manpage:``
 inline role within your text to create a link.
 
-For example, to link to man-pages from the 24.04 LTS (Noble Numbat) release,
-ensure the following is present in your :file:`conf.py`:
+For example, to link to man pages from the 24.04 LTS (Noble Numbat) release,
+include the following in your :file:`conf.py`:
 
 .. code-block:: python
 
     manpages_url = "https://manpages.ubuntu.com/manpages/noble/en/man{section}/{page}.{section}.html"
 
-Then within your documentation you can use the following reST:
+Then within your documentation, use the following reST:
 
 .. code-block:: rst
 
@@ -634,7 +634,7 @@ Adhere to the following conventions:
 - For local pictures, start the path with :file:`/` (for example, :file:`/images/image.png`).
 - Use ``PNG`` format for screenshots and ``SVG`` format for graphics.
 - If producing multiple output formats, use ``*`` as the file extension to have
-  sphinx select the best image format for the output
+  Sphinx select the best image format for the output
 - See `Five golden rules for compliant alt text`_ for information about how to word the alt text.
 
 Reuse
