@@ -13,6 +13,7 @@ gyre
 https
 Intersphinx
 lang
+LaTeX
 latexmk
 Multipass
 otf
@@ -25,11 +26,12 @@ tex
 texlive
 TOC
 toctree
+txt
+uncommenting
 utils
+VMs
 WCAG
+whitespace
+wordlist
 xetex
 xindy
-kustom
-VMs
-wordlist
-txt

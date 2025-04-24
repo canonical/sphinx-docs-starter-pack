@@ -35,14 +35,16 @@ The `latex_documents <https://www.sphinx-doc.org/en/master/usage/configuration.h
        ),
    ]
 
-* **startdocname**: The root document for the PDF (without the .rst extension).
-* **targetname**: The filename for the generated LaTeX source file. The PDF file name is derived from this filename with the ``.pdf`` extension. White spaces are not allowed.
-* **title**: The title for the PDF document on the cover page.
-* **author**: The author(s) of the document. Use ``\\and`` to separate multiple authors.
-* **theme**: Either ``manual`` or ``howto``.
-  - ``manual``: This is the default and is intended for comprehensive, book-style documentation. It produces a PDF with chapters, sections, and a table of contents. Use this for user guides, reference manuals, or any documentation that should be structured as a book.
-  - ``howto``: This type is for shorter, task-oriented documents. It produces a simpler PDF without chapters, and is best for single-topic guides or tutorials.
-* **toctree_only**: Boolean. If set to True, the startdoc document itself is not included in the output, only the documents referenced by the ``toctree`` directive are included. This is useful for creating a PDF-specific index file.
+* ``startdocname``: The root document for the PDF (without the .rst extension).
+* ``targetname``: The filename for the generated LaTeX source file. The PDF file name is derived from this filename with the ``.pdf`` extension. White spaces are not allowed.
+* ``title``: The title for the PDF document on the cover page.
+* ``author``: The author(s) of the document. Use ``\\and`` to separate multiple authors.
+* ``theme``: Either ``manual`` or ``howto``.
+
+  * ``manual``: This is the default and is intended for comprehensive, book-style documentation. It produces a PDF with chapters, sections, and a table of contents. Use this for user guides, reference manuals, or any documentation that should be structured as a book.
+  * ``howto``: This type is for shorter, task-oriented documents. It produces a simpler PDF without chapters, and is best for single-topic guides or tutorials.
+
+* ``toctree_only``: Boolean. If set to True, the ``startdocname`` document itself is not included in the output, only the documents referenced by the ``toctree`` directive are included. This is useful for creating a PDF-specific index file.
 
 For more details, see `latex_documents`_ in the Sphinx documentation.
 
@@ -52,7 +54,7 @@ Change PDF document filename
 
 By default, the PDF output filename is derived from the ``project`` name in the :file:`conf.py` file: lowercase characters with whitespaces removed. 
 
-To override the filename, update the second element (targetname) of the ``latex_documents`` tuple in :file:`conf.py`. The following example shows how to replace whitespaces in the project name with underscores:
+To override the filename, update the second element (``targetname``) of the ``latex_documents`` tuple in :file:`conf.py`. The following example shows how to replace whitespaces in the project name with underscores:
 
 .. code-block:: python
 
@@ -80,8 +82,8 @@ Because the PDF output has a different usage and structure from the HTML output,
 To use a different index document for PDF builds:
 
 1. Create a PDF-specific index document, for example, :file:`pdf-index.rst`.
-2. Update the first element (startdocname) of the ``latex_documents`` tuple in :file:`conf.py` to point to the new index document.
-3. Set the last element (toctree_only) of the ``latex_documents`` tuple in :file:`conf.py` to ``False`` to ensure only referenced documents are included in the PDF output.
+2. Update the first element (``startdocname``) of the ``latex_documents`` tuple in :file:`conf.py` to point to the new index document.
+3. Set the last element (``toctree_only``) of the ``latex_documents`` tuple in :file:`conf.py` to ``False`` to ensure only referenced documents are included in the PDF output.
 4. Exclude the PDF-specific index document from the HTML build. This is done by changing the ``exclude_patterns`` list in :file:`conf.py`:
 
    .. code-block:: python
