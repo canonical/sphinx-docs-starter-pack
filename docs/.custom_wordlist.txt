@@ -18,10 +18,12 @@ latexmk
 Multipass
 otf
 plantuml
+PNG
 Pygments
 QEMU
 Rockcraft
 rst
+SVG
 tex
 texlive
 TOC
