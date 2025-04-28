@@ -180,15 +180,20 @@ Include images or other assets
 
 If the local template requires additional images or other assets, for example, a custom title page or header, the file paths must be added to the Sphinx :file:`conf.py` file to be included in the PDF build.
 
-Provide a ``latex_additional_files`` variable in :file:`conf.py` as a list of file paths to the additional assets. If the variable already exists, add the new file paths to the list.
+Provide a ``latex_additional_files`` variable in :file:`conf.py` as a list of file paths to the additional assets. If the variable already exists, add the new file paths to the list. The paths should be relative to the :file:`conf.py` file.
 
 .. code-block:: python
 
    # path relative to the conf.py file
    latex_additional_files = [
-      'path/to/image.png',
+      'path/to/image.svg',
       'path/to/other-asset.pdf',
    ]
+
+.. note:: 
+   For better quality in the PDF output, it is recommended to use vector images (like SVG or PDF) rather than raster images (like PNG or JPEG). Raster images may lose quality when scaled up in the PDF.
+
+   Do not use ``.tex`` as suffix, otherwise the file is processed as source files for the PDF build process. Instead, use ``.tex.txt`` or ``.sty``  to avoid conflicts with the LaTeX build process.
 
 Use landscape layout
 ~~~~~~~~~~~~~~~~~~~~
