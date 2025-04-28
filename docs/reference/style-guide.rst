@@ -1,4 +1,4 @@
-:relatedlinks: https://github.com/canonical/lxd-sphinx-extensions, https://tinyurl.com/rstprimer, [Canonical&#32;Documentation&#32;Style&#32;Guide](https://docs.ubuntu.com/styleguide/en)
+:relatedlinks: https://github.com/canonical/lxd-sphinx-extensions, [reStructuredText&#32;Primer](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html), [Canonical&#32;Documentation&#32;Style&#32;Guide](https://docs.ubuntu.com/styleguide/en)
 
 .. _style-guide:
 
