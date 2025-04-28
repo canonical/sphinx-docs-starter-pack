@@ -20,7 +20,7 @@ For basic instructions about building the PDF, see :doc:`build`.
 Configure document properties
 -----------------------------
 
-The `latex_documents <https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-latex_documents>`_ variable in the Sphinx :file:`conf.py` file controls properties of the intermediate LaTeX file and the final PDF output. The values are defined in a tuple of five elements:
+The `latex_documents <https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-latex_documents>`_ variable in the Sphinx :file:`conf.py` file controls properties of the intermediate LaTeX file and the final PDF output. The values are defined in a tuple of six elements:
 
 .. code-block:: python
 
@@ -36,7 +36,7 @@ The `latex_documents <https://www.sphinx-doc.org/en/master/usage/configuration.h
    ]
 
 * ``startdocname``: The root document for the PDF (without the .rst extension).
-* ``targetname``: The filename for the generated LaTeX source file. The PDF file name is derived from this filename with the ``.pdf`` extension. White spaces are not allowed.
+* ``targetname``: The filename for the generated LaTeX source file. The PDF file name is derived from this filename with the ``.pdf`` extension. Blank space characters are not allowed.
 * ``title``: The title for the PDF document on the cover page.
 * ``author``: The author(s) of the document. Use ``\\and`` to separate multiple authors.
 * ``theme``: Either ``manual`` or ``howto``.
@@ -52,9 +52,9 @@ For more details, see `latex_documents`_ in the Sphinx documentation.
 Change PDF document filename
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-By default, the PDF output filename is derived from the ``project`` name in the :file:`conf.py` file: lowercase characters with whitespaces removed. 
+By default, the PDF output filename is derived from the ``project`` name in the :file:`conf.py` file: lowercase characters with blank spaces removed. 
 
-To override the filename, update the second element (``targetname``) of the ``latex_documents`` tuple in :file:`conf.py`. The following example shows how to replace whitespaces in the project name with underscores:
+To override the filename, update the second element (``targetname``) of the ``latex_documents`` tuple in :file:`conf.py`. The following example shows how to replace blank spaces in the project name with underscores:
 
 .. code-block:: python
 
