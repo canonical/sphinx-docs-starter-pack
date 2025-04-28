@@ -49,14 +49,13 @@ Headings
           .......
      - H5 heading
 
-Underlines must be the same length as the title or heading.
+Underlines must be at least as long as the title or heading.
 
 Adhere to the following conventions:
 
 - Do not use consecutive headings without intervening text.
 - Be consistent with the characters you use for each level.
   Use the ones specified above.
-- Do not skip levels (for example, do not follow an H2 heading with an H4 heading).
 - Use sentence style for headings (capitalise only the first word).
 
 Inline formatting
@@ -285,6 +284,30 @@ To add a link to a Discourse topic, configure the Discourse instance in the :fil
 Then add the following field at the top of the page (where ``12345`` is the ID of the Discourse topic)::
 
   :discourse: 12345
+
+Manual-page links
+^^^^^^^^^^^^^^^^^
+
+When mentioning command line utilities, you may wish to link to the
+corresponding manual page for the command. Ensure that the ``manpages_url``
+setting in your :file:`conf.py` is set appropriately and use the ``:manpage:``
+inline role within your text to create a link.
+
+For example, to link to man pages from the 24.04 LTS (Noble Numbat) release,
+include the following in your :file:`conf.py`:
+
+.. code-block:: python
+
+    manpages_url = "https://manpages.ubuntu.com/manpages/noble/en/man{section}/{page}.{section}.html"
+
+Then within your documentation, use the following reST:
+
+.. code-block:: rst
+
+    You can use the :manpage:`dd(1)` utility to write the disk image to your
+    SD card. If the image is compressed, use :manpage:`aunpack(1)` to extract
+    it first.
+
 
 YouTube links
 ^^^^^^^^^^^^^
@@ -572,28 +595,16 @@ Notes
           A note.
    * - .. code::
 
-          .. tip::
-             A tip.
-     - .. tip::
-          A tip.
-   * - .. code::
-
-          .. important::
-             Important information
-     - .. important::
-          Important information
-   * - .. code::
-
-          .. caution::
+          .. warning::
              This might damage your hardware!
-     - .. caution::
+     - .. warning::
           This might damage your hardware!
 
 Adhere to the following conventions:
 
 - Use notes sparingly.
-- Only use the following note types: ``note``, ``tip``, ``important``, ``caution``
-- Only use a caution if there is a clear hazard of hardware damage or data loss.
+- Only use the following note types: ``note``, ``warning``
+- Only use a warning if there is a clear hazard of hardware damage or data loss.
 
 Images
 ------
@@ -622,6 +633,8 @@ Adhere to the following conventions:
 
 - For local pictures, start the path with :file:`/` (for example, :file:`/images/image.png`).
 - Use ``PNG`` format for screenshots and ``SVG`` format for graphics.
+- If producing multiple output formats, use ``*`` as the file extension to have
+  Sphinx select the best image format for the output
 - See `Five golden rules for compliant alt text`_ for information about how to word the alt text.
 
 Reuse
