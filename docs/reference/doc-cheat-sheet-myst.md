@@ -163,6 +163,14 @@ Important information
 This might damage your hardware!
 ```
 
+```{warning}
+This could damage your hardware!
+```
+
+```{seealso}
+A reference to related content.
+```
+
 ## Images
 
 ![Alt text](https://assets.ubuntu.com/v1/b3b72cb2-canonical-logo-166.png)
