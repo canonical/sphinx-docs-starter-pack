@@ -9,6 +9,7 @@ maintaining, and contributing to the starter pack.
 
    rtd
    customise
+   customise-pdf
    migrate-from-pre-extension
    update
    contributing
