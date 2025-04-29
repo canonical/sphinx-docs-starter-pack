@@ -1,5 +1,5 @@
 ---
-relatedlinks: https://github.com/canonical/canonical-sphinx-extensions, https://tinyurl.com/rstprimer, [Canonical&#32;Documentation&#32;Style&#32;Guide](https://docs.ubuntu.com/styleguide/en)
+relatedlinks: https://github.com/canonical/canonical-sphinx-extensions, [reStructuredText&#32;Primer](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html), [Canonical&#32;Documentation&#32;Style&#32;Guide](https://docs.ubuntu.com/styleguide/en)
 myst:
   substitutions:
     advanced_reuse_key: "This is a substitution that includes a code block:
@@ -677,7 +677,7 @@ By combining file inclusion and substitutions, you can even replace parts of the
     % file [style-guide.rst](style-guide.rst)
     ```{include} style-guide.rst
         :start-after: "Adhere to the following conventions:"
-        :end-before: "- Do not skip levels"
+        :end-before: "  Use the ones specified above."
     ```
 
     ````
@@ -686,7 +686,7 @@ By combining file inclusion and substitutions, you can even replace parts of the
     % Include parts of the content from file [style-guide.rst](style-guide.rst)
     ```{include} style-guide.rst
         :start-after: "Adhere to the following conventions:"
-        :end-before: "- Do not skip levels"
+        :end-before: "  Use the ones specified above."
     ```
 
 `````
