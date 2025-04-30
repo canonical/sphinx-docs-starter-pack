@@ -25,4 +25,4 @@ jobs:
         globs: |
           README.md
           CHANGELOG.md
-          docs/*.md
+          docs/**.{md,markdown}
