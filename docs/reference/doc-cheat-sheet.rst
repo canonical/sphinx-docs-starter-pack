@@ -282,6 +282,23 @@ A link to a YouTube video:
           :title: Demo
 
 
+Jinja2 templating example
+-------------------------
+
+With the required configuration:
+
+.. code-block::
+
+   .. jinja:: ctx
+
+      Hello {{ name }}.
+
+Outputs:
+
+.. jinja:: ctx
+
+   Hello {{ name }}.
+
 
 .. LINKS
 .. _Canonical website: https://canonical.com/

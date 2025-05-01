@@ -259,3 +259,23 @@ A link to a YouTube video:
 ```{youtube} https://www.youtube.com/watch?v=iMLiK1fX4I0
    :title: Demo
 ```
+
+### Jinja2 templating example
+
+Jinja2 needs to use the `eval-rst` directive:
+
+````
+```{eval-rst}
+.. jinja:: ctx
+
+   Hello {{ name }}.
+```
+````
+
+Outputs:
+
+```{eval-rst}
+.. jinja:: ctx
+
+   Hello {{ name }}.
+```

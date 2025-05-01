@@ -2,6 +2,7 @@ import datetime
 import ast
 import os
 import yaml
+import json
 
 # Configuration for the Sphinx documentation builder.
 # All configuration specific to your project should be done in this file.
@@ -253,6 +254,7 @@ extensions = [
     "sphinxcontrib.cairosvgconverter",
     "sphinx_last_updated_by_git",
     "sphinx.ext.intersphinx",
+    "sphinx_jinja2",
 ]
 
 # Excludes files or directories from processing
@@ -329,3 +331,5 @@ if os.path.exists('./reuse/substitutions.yaml'):
 intersphinx_mapping = {
     'starter-pack': ('https://canonical-example-product-documentation.readthedocs-hosted.com/en/latest', None)
 }
+
+jinja2_contexts = json.load(open("jinja_template.json", "r"))
