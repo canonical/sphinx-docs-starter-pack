@@ -65,7 +65,7 @@ $(VENVDIR):
 	@touch $(VENVDIR)
 
 spellcheck-install:
-	@type aspell >/dev/null 2>&1 || \
+	@command -v aspell >/dev/null || \
 	{ \
 		echo "Installing system-wide \"aspell\" packages..."; \
 		confirm_sudo=$(CONFIRM_SUDO); \
@@ -80,7 +80,7 @@ spellcheck-install:
 	}
 
 pa11y-install:
-	@type $(PA11Y) >/dev/null 2>&1 || { \
+	@command -v $(PA11Y) >/dev/null || { \
 			echo "Installing \"pa11y\" from npm..."; echo; \
 			mkdir -p $(SPHINXDIR)/node_modules/ ; \
 			npm install --prefix $(SPHINXDIR) pa11y; \
