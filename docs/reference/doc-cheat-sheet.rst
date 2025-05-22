@@ -211,13 +211,13 @@ Reuse
 Tabs
 ----
 
-.. tabs::
+.. tab-set::
 
-   .. group-tab:: Tab 1
+   .. tab-item:: Tab 1
 
       Content Tab 1
 
-   .. group-tab:: Tab 2
+   .. tab-item:: Tab 2
 
       Content Tab 2
 
