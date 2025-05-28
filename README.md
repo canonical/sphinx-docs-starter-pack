@@ -1,37 +1,34 @@
-Canonical's Sphinx Starter Pack
-===============================
+# Canonical's Sphinx Starter Pack
 
 *A pre-configured repository to build and publish documentation with Sphinx.*
 
-Description
------------
+## Description
 
 The Documentation starter pack includes:
 
-* A bundled Sphinx_ theme, configuration, and extensions
+* A bundled [Sphinx] theme, configuration, and extensions
 * Support for both reStructuredText (reST) and MyST Markdown
 * Build checks for links, spelling, and inclusive language
 * Customisation support layered over a core configuration
 
 See the full documentation: https://canonical-starter-pack.readthedocs-hosted.com/
 
-Structure
----------
+## Structure
 
 This section outlines the structure of this repository, and some key files.
 
-
-docs
-****
+### docs/
 
 This directory contains the documentation for the starter pack itself.
-To view it in your browser, change to this directory and type `make run`.
 
-tests
-*****
+To view it in your browser, navigate to this directory and type `make run`.
 
-This directory contains files used to test the functionality of the starter pack project.
+### .github/workflows/
 
-.. LINKS
+This directory contains files used for documentation build checks via GitHub's CI.
 
-.. _`Sphinx`: https://www.sphinx-doc.org/
+The file `test-starter-pack.yml` tests the functionality of the starter pack project.
+
+<!--Links-->
+
+[Sphinx]: https://www.sphinx-doc.org/
