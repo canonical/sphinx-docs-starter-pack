@@ -17,13 +17,13 @@ See the full documentation: https://canonical-starter-pack.readthedocs-hosted.co
 
 This section outlines the structure of this repository, and some key files.
 
-### docs/
+### `docs/`
 
 This directory contains the documentation for the starter pack itself.
 
 To view it in your browser, navigate to this directory and type `make run`.
 
-### .github/workflows/
+### `.github/workflows/`
 
 This directory contains files used for documentation build checks via GitHub's CI.
 
