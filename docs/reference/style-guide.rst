@@ -456,9 +456,9 @@ Lists
 
 You can also nest lists:
 
-.. tabs::
+.. tab-set::
 
-   .. group-tab:: Input
+   .. tab-item:: Input
 
       .. code::
 
@@ -477,7 +477,7 @@ You can also nest lists:
 
                - Item
             #. Sub-step 2
-   .. group-tab:: Output
+   .. tab-item:: Output
 
 
 
@@ -753,38 +753,7 @@ Adhere to the following conventions:
 Tabs
 ----
 
-The recommended way of creating tabs is to use the `Sphinx tabs`_ extension, which remembers the selected tab (also when navigating to other pages).
-
-.. list-table::
-   :header-rows: 1
-
-   * - Input
-     - Output
-   * - .. code::
-
-          .. tabs::
-
-             .. group-tab:: Tab 1
-
-                Content Tab 1
-
-             .. group-tab:: Tab 2
-
-                Content Tab 2
-     - .. tabs::
-
-          .. group-tab:: Tab 1
-
-             Content Tab 1
-
-          .. group-tab:: Tab 2
-
-             Content Tab 2
-
-Alternatively, if you use tabs only occasionally and don't want to include an additional extension for them, you can use the basic tabs that the `Sphinx design`_ extension provides.
-
-.. note::
-   The Sphinx design tabs sync within a page, but if you navigate to another page, the selection is lost.
+The recommended way of creating tabs is to use the tabs that the `Sphinx design`_ extension provides.
 
 .. list-table::
    :header-rows: 1
@@ -815,6 +784,34 @@ Alternatively, if you use tabs only occasionally and don't want to include an ad
             :sync: key2
 
             Content Tab 2
+
+Alternatively, you can use the `Sphinx tabs`_ extension, which is also enabled by default. This was previously recommended due to limitations in Sphinx Design that are now fixed.
+
+.. list-table::
+   :header-rows: 1
+
+   * - Input
+     - Output
+   * - .. code::
+
+          .. tabs::
+
+             .. group-tab:: Tab 1
+
+                Content Tab 1
+
+             .. group-tab:: Tab 2
+
+                Content Tab 2
+     - .. tabs::
+
+          .. group-tab:: Tab 1
+
+             Content Tab 1
+
+          .. group-tab:: Tab 2
+
+             Content Tab 2
 
 Glossary
 --------
