@@ -22,7 +22,10 @@ PNG
 Pygments
 QEMU
 Rockcraft
+readthedocs
 rst
+subproject
+subprojects
 SVG
 tex
 texlive

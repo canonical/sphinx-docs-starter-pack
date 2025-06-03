@@ -172,6 +172,24 @@ html_context = {
 
 # slug = ''
 
+#######################
+# Sitemap configuration: https://sphinx-sitemap.readthedocs.io/
+#######################
+
+# Base URL of RTD hosted project
+
+html_baseurl = 'https://canonical-starter-pack.readthedocs-hosted.com/'
+
+# URL scheme. Add language and version scheme elements manually e.g. '{0}/{1}/{{link}}'.format(os.environ['READTHEDOCS_LANGUAGE'], os.environ['READTHEDOCS_VERSION'])
+
+# When configured with RTD variables, check for RTD environment so manual runs succeed:
+
+# if 'READTHEDOCS' in os.environ and os.environ['READTHEDOCS'] == True:
+#     sitemap_url_scheme = '{0}/{1}/{{link}}'.format(os.environ['READTHEDOCS_LANGUAGE'], os.environ['READTHEDOCS_VERSION'])
+# else:
+#     sitemap_url_scheme = 'en/1.0/{link}'
+
+sitemap_url_scheme = '{link}'
 
 # Template and asset locations
 
