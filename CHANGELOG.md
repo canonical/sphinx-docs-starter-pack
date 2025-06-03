@@ -1,10 +1,16 @@
 # sphinx-docs-starter-pack changelog
 
-## 1.0.2
+## 1.1.0
 
+* Adds sitemap support.
 * Simplifies vale binary download & install.
 * Leaves vale install output in STDOUT to reveal potential problems.
 * Improves update logic.
+
+### Changed
+
+* `docs/conf.py` [#389](https://github.com/canonical/sphinx-docs-starter-pack/pull/389)
+* `docs/requirements.txt`(https://github.com/canonical/sphinx-docs-starter-pack/pull/389)
 
 ## 1.0.1
 
