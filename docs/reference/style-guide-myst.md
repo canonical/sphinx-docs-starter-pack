@@ -275,6 +275,7 @@ To override the title, add the `:title:` option.
 For internal references, both Markdown and MyST syntax are supported. In most cases, you should use MyST syntax though, because it resolves the link text automatically and gives an indication of the link in GitHub rendering.
 
 (section_target_myst)=
+
 #### Referencing a section
 
 To reference a section within the documentation (either on the same page or on another page), add a target to that section and reference that target.
@@ -282,6 +283,7 @@ To reference a section within the documentation (either on the same page or on a
 You can add targets at any place in the documentation. However, if there is no heading or title for the targeted element, you must specify a link text.
 
 (a_random_target_myst)=
+
 ```{list-table}
    :header-rows: 1
 

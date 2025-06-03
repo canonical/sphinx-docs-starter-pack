@@ -1,5 +1,14 @@
 # sphinx-docs-starter-pack changelog
 
+## 1.0.3
+
+Fixes the Markdown linting GitHub action and adds a `make lint-md` check.
+
+### Changed
+
+* `.github/workflows/markdown-style-checks.yml` [#379](https://github.com/canonical/sphinx-docs-starter-pack/pull/379)
+* `docs/Makefile` [#379](https://github.com/canonical/sphinx-docs-starter-pack/pull/379)
+
 ## 1.0.2
 
 * Simplifies vale binary download & install.

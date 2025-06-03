@@ -15,6 +15,7 @@ Intersphinx
 lang
 LaTeX
 latexmk
+markdownlint
 Multipass
 otf
 plantuml
