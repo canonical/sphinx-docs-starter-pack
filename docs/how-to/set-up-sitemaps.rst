@@ -1,4 +1,4 @@
-How to set up Sphinx sitemaps
+Set up Sphinx sitemaps
 =============================
 
 Projects hosted on Read the Docs (RTD) should use the
