@@ -94,7 +94,7 @@ as it is hosted on RTD:
 .. dropdown:: How to specify a sitemap
 
     A `robots.txt` file dictates which sitemap is used to index a website. You
-    can use a custom file by creating your own and adding it to `html_static_path`.
+    can use a custom `robots.txt` file by creating your own and adding it to `html_static_path` in your configuration file.
     An example can be found in the
     `Ubuntu documentation library <https://github.com/canonical/ubuntu-documentation-library>`_
     project.
