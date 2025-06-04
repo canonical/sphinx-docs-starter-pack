@@ -187,7 +187,7 @@ html_baseurl = 'https://canonical-starter-pack.readthedocs-hosted.com/'
 if 'READTHEDOCS' in os.environ and os.environ['READTHEDOCS'] == True:
     sitemap_url_scheme = '{0}/{{link}}'.format(os.environ['READTHEDOCS_VERSION'])
 else:
-    sitemap_url_scheme = '1.1.0/{link}'
+    sitemap_url_scheme = 'MANUAL/{link}'
 
 # Template and asset locations
 
