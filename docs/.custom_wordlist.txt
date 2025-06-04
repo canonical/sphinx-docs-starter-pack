@@ -11,6 +11,8 @@ github
 GPG
 gyre
 https
+html
+io
 Intersphinx
 lang
 LaTeX
@@ -24,6 +26,7 @@ QEMU
 Rockcraft
 readthedocs
 rst
+sitemapindex
 subproject
 subprojects
 SVG
@@ -41,3 +44,4 @@ whitespaces
 wordlist
 xetex
 xindy
+xml
