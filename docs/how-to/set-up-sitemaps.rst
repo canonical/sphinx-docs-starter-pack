@@ -35,6 +35,11 @@ configuration file. For example, in :file:`docs/conf.py`:
 
     html_baseurl = 'https://canonical-starter-pack.readthedocs-hosted.com/'
 
+.. note::
+
+    Sitemap configuration is included in the Starter pack's
+    `default configuration file <https://github.com/canonical/sphinx-docs-starter-pack/blob/a6a34459c3b6d8b6097e484cd67cc50330274b0d/docs/conf.py#L175>`_.
+
 Optional sitemap configuration
 ------------------------------
 
