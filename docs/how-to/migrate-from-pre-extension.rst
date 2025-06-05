@@ -1,4 +1,4 @@
-Migrate from the pre-extension starter pack 
+Migrate from the pre-extension starter pack
 ===========================================
 
 This guide outlines the steps required to migrate a documentation project from the legacy Sphinx Documentation Starter Pack (*pre-extension* version) to the latest version that adopts the ``canonical-sphinx`` Sphinx extension.
@@ -9,7 +9,7 @@ The extension-based documentation starter pack provides a set of features and co
 Update to the last pre-extension version
 ----------------------------------------
 
-To ensure a smooth migration, update your documentation project to use the last pre-extension version of the Sphinx Documentation Starter Pack. This update ensures that your project is using the latest features and configurations available, minimising the changes required during the migration.
+To ensure a smooth migration, update your documentation project to use the last pre-extension version of the Sphinx Documentation Starter Pack. This update ensures that your project is using the latest features and configurations available, minimizing the changes required during the migration.
 
 You can find the release tag and branch for this version in the following links:
 
@@ -26,13 +26,13 @@ Set up a new project
 
       If you proceed in the same directory, the following steps will overwrite some of the configuration files in the original project.
 
-2. Follow the steps in the :ref:`initial-setup` guide to initialise an empty project with the extension-based starter pack, at the original file path.
+2. Follow the steps in the :ref:`initial-setup` guide to initialize an empty project with the extension-based starter pack, at the original file path.
 
 3. Ensure the following files are at the root of your repository:
 
    - ``.github/workflows/*``
 
-4. Ensure the following files are moved to their original paths in the project. These files are defaulted to the repository root, but may have be changed upon project needs: 
+4. Ensure the following files are moved to their original paths in the project. These files are defaulted to the repository root, but may have be changed upon project needs:
 
    - ``.gitignore``
    - ``.readthedocs.yml``
@@ -54,14 +54,14 @@ For a complete list of the structural changes, refer to the `directory-structure
 Sphinx configuration
 ~~~~~~~~~~~~~~~~~~~~~
 
-A significant change in the new starter pack is the organisation of the configuration files, summarised in the following table:
+A significant change in the new starter pack is the organization of the configuration files, summarized in the following table:
 
 .. list-table::
    :widths: 20 40 40
    :header-rows: 1
 
    * - Configuration file
-     - Pre-extension 
+     - Pre-extension
      - Extension-based
    * - ``conf.py``
      - Common configurations shared by all starter pack projects
@@ -72,7 +72,7 @@ A significant change in the new starter pack is the organisation of the configur
 
 In the new starter pack, many common configurations are provided by the extension and are loaded automatically when building the documentation. ``docs/conf.py`` is the only configuration file, and it contains all project-specific configuration. Sensible defaults are set for general configuration by inclusion of the `canonical-sphinx` extension.
 
-Ensure that all the previous changes in the original ``custom_conf.py`` file are copied to the new ``conf.py`` file.  
+Ensure that all the previous changes in the original ``custom_conf.py`` file are copied to the new ``conf.py`` file.
 
 Dependencies
 ~~~~~~~~~~~~
@@ -86,8 +86,8 @@ Documentation source files
 
 2. Copy all documentation source files from your original project to the new project, keeping their original structure. These file may include but are not limited to:
 
-   - ``.md`` 
-   - ``.rst`` 
+   - ``.md``
+   - ``.rst``
    - ``.txt``
    - ``.json``
    - images
@@ -95,27 +95,27 @@ Documentation source files
 
 3. Validate the migration by running ``make run``.
 
-Apply customisation
+Apply customization
 -------------------
 
 If your projects have custom configurations or styles, ensure that you identify and apply these changes to the new documentation project.
 
-For general information on customising the extension configuration, see :doc:`customise`.
+For general information on customizing the extension configuration, see :doc:`customize`.
 
 Static resources
 ~~~~~~~~~~~~~~~~
 
 The extension provides a set of static resources, such as images, fonts, CSS files, and HTML templates, that are used to style the documentation for Canonical-branded design. These resources are bundled with the extension and are no longer provided as source files in the new starter pack.
 
-If you have customised any of these resources in the original project, you need to manually migrate these changes to the new project. 
+If you have customized any of these resources in the original project, you need to manually migrate these changes to the new project.
 
-For example, if you added customised styling in the original ``.sphinx/_static/custom.css`` file, follow the steps:
+For example, if you added customized styling in the original ``.sphinx/_static/custom.css`` file, follow the steps:
 
-1. Compare the changes between your customised file and the `default CSS file provided by the extension <https://github.com/canonical/canonical-sphinx/blob/main/canonical_sphinx/theme/static/custom.css>`_. This comparison helps you identify the changes that need to be migrated to the new project.
+1. Compare the changes between your customized file and the `default CSS file provided by the extension <https://github.com/canonical/canonical-sphinx/blob/main/canonical_sphinx/theme/static/custom.css>`_. This comparison helps you identify the changes that need to be migrated to the new project.
 2. Create a new CSS file under ``docs/.sphinx/_static``. You can choose any other file location in the project directory, but it's recommended to keep the file structure similar to the original project.
 3. Copy the additions and changes to the new empty file.
 4. In the ``conf.py``, add the new files into the pre-defined ``html_css_files`` list variable to overwrite the default settings.
-5. Build the documentation to verify that the customised styling is applied correctly.
+5. Build the documentation to verify that the customized styling is applied correctly.
 
 
 .. _directory-structure-change:
@@ -175,8 +175,8 @@ Assuming that all previous documentation files were in the ``docs/`` sub-directo
     │   └── spellingcheck.yaml
     ├── metrics                     # moved to `docs/.sphinx/metrics/`
     │   └── scripts                 # removed, files moved to parent directory
-    │       ├── build_metrics.sh   
-    │       └── source_metrics.sh   
+    │       ├── build_metrics.sh
+    │       └── source_metrics.sh
     ├── reuse                       # moved to `docs/reuse`
     │   └── links.txt
     ├── .custom_wordlist.txt        # moved to `docs/.custom_wordlist.txt`

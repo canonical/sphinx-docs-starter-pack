@@ -1,6 +1,6 @@
-.. _pdf-customise:
+.. _pdf-customize:
 
-Customise PDF output
+Customize PDF output
 ====================
 
 Overview
@@ -8,12 +8,12 @@ Overview
 
 The starter pack supports PDF output via LaTeX using the ``make pdf`` command. This build process relies on system packages, Sphinx configurations, and a LaTeX template from the ``canonical-sphinx`` extension.
 
-Customising PDF output involves two levels of configuration:
+Customizing PDF output involves two levels of configuration:
 
 * **Sphinx configuration**: built-in options for configuring LaTeX build process in :file:`conf.py`, for example: the engine used to generate the PDF, output file name, and input file paths.
 * **LaTeX configuration**: the LaTeX packages, styling, and configuration for the PDF output, set through the `latex_elements <https://www.sphinx-doc.org/en/master/latex.html#the-latex-elements-configuration-setting>`_ dictionary in the project :file:`conf.py`. In the starter-pack, a default set of LaTeX elements is provided by the ``canonical-sphinx`` extension. Changing the LaTeX configuration requires overriding the default values loaded from the extension.
 
-This guide covers common practices and tips for customising PDF output from your documentation project using the starter pack and the ``canonical-sphinx`` extension.
+This guide covers common practices and tips for customizing PDF output from your documentation project using the starter pack and the ``canonical-sphinx`` extension.
 
 For basic instructions about building the PDF, see :doc:`build`.
 
@@ -52,7 +52,7 @@ For more details, see `latex_documents`_ in the Sphinx documentation.
 Change PDF document filename
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-By default, the PDF output filename is derived from the ``project`` name in the :file:`conf.py` file: lowercase characters with blank spaces removed. 
+By default, the PDF output filename is derived from the ``project`` name in the :file:`conf.py` file: lowercase characters with blank spaces removed.
 
 To override the filename, update the second element (``targetname``) of the ``latex_documents`` tuple in :file:`conf.py`. The following example shows how to replace blank spaces in the project name with underscores:
 
@@ -72,7 +72,7 @@ To override the filename, update the second element (``targetname``) of the ``la
 Change PDF document title
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-By default, the PDF title on the cover page comes from the title of the main index document. To override it, update the third element (title) of the ``latex_documents`` tuple in :file:`conf.py`. Use an empty string (``''``) to keep the default behaviour.
+By default, the PDF title on the cover page comes from the title of the main index document. To override it, update the third element (title) of the ``latex_documents`` tuple in :file:`conf.py`. Use an empty string (``''``) to keep the default behavior.
 
 Use a different index document for PDF builds
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -124,8 +124,8 @@ Any additions or changes to the default settings of LaTeX elements in the PDF do
 .. code-block:: python
 
    # Replace with the path to your local override file
-   latex_elements_file = ".sphinx/latex_elements_custom.txt"  
-   
+   latex_elements_file = ".sphinx/latex_elements_custom.txt"
+
    with open(latex_elements_file, "rt") as file:
       latex_config = file.read()
       if latex_elements == {}:
@@ -154,14 +154,14 @@ You can use two methods to add additional LaTeX packages to the preamble:
 
 * Modify the values of the ``preamble`` key in your local template file. This is more flexible for adding LaTeX configurations and commands to the preamble.
 
-.. note:: 
+.. note::
    The format of the element values is a multi-line string, so use a raw string with the ``r`` prefix.
 
 
 Remove the table of contents
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-For a short, compact document where navigation is not needed, you may want to remove the table of contents from the PDF output. 
+For a short, compact document where navigation is not needed, you may want to remove the table of contents from the PDF output.
 
 To do this, provide a local copy of the default template file, and add a new key ``tableofcontents`` with an empty string as the value:
 
@@ -173,7 +173,7 @@ To do this, provide a local copy of the default template file, and add a new key
       'tableofcontents': '',
       ...
    }
-   
+
 
 Include images or other assets
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -190,7 +190,7 @@ Provide a ``latex_additional_files`` variable in :file:`conf.py` as a list of fi
       'path/to/other-asset.pdf',
    ]
 
-.. note:: 
+.. note::
    For better quality in the PDF output, it is recommended to use vector images (like SVG or PDF) rather than raster images (like PNG or JPEG). Raster images may lose quality when scaled up in the PDF.
 
    Do not use ``.tex`` as suffix, otherwise the file is processed as source files for the PDF build process. Instead, use ``.tex.txt`` or ``.sty``  to avoid conflicts with the LaTeX build process.
@@ -211,7 +211,7 @@ The PDF output uses portrait orientation by default. To use landscape orientatio
          ...
       }
 
-   .. note:: 
+   .. note::
       The format of the element values is a multi-line string, so use a raw string with the ``r`` prefix.
 
 2. Use the landscape environment in your documentation source file, and only in the PDF output.
@@ -262,4 +262,4 @@ To temporarily save the log files for debugging:
 Related
 -------
 - :doc:`build`
-- :doc:`customise`
+- :doc:`customize`

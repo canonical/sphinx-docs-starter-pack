@@ -9,7 +9,7 @@ links=$(find . -type d -path './.sphinx' -prune -o -name '*.html' -exec cat {} +
 # count number of images
 images=$(find . -type d -path './.sphinx' -prune -o -name '*.html' -exec cat {} + | grep -o "<img " | wc -l)
 
-# summarise latest metrics
-echo "Summarising metrics for build files (.html)..."
+# summarize latest metrics
+echo "Summarizing metrics for build files (.html)..."
 echo -e "\tlinks: $links"
 echo -e "\timages: $images"

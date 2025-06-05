@@ -56,7 +56,7 @@ Adhere to the following conventions:
 - Do not use consecutive headings without intervening text.
 - Be consistent with the characters you use for each level.
   Use the ones specified above.
-- Use sentence style for headings (capitalise only the first word).
+- Use sentence style for headings (capitalize only the first word).
 
 Inline formatting
 -----------------

@@ -1,6 +1,6 @@
-.. _customise:
+.. _customize:
 
-Customise the setup
+Customize the setup
 ===================
 
 .. important::
@@ -19,7 +19,7 @@ However, you must set some critical parameters that are unique for your project,
 
 In addition, you can find some optional parameters or add your own configuration parameters to the file.
 
-Required customisation
+Required customization
 ----------------------
 
 You must check and update some of the parameters specific to your project.
@@ -49,12 +49,12 @@ Adjust the header
 The header is the top section of a page template.
 By default, the starter pack template header contains your product's tag image and name (taken from the ``project`` setting in the :file:`docs/conf.py` file), a link to your product's page (if available), and a drop-down menu for "More resources".
 
-The default configuration is sufficient for many cases but can be further customised.
+The default configuration is sufficient for many cases but can be further customized.
 
 You can change any of those links or add further links to the "More resources" drop-down by editing the :file:`.sphinx/_templates/header.html` file.
 For example, you might want to add links to announcements, tutorials, getting started guides, or videos that are not part of the documentation.
 
-Optional customisation
+Optional customization
 ----------------------
 
 The starter pack contains several features that you can configure, or turn off if they aren't suitable for your documentation.
@@ -92,7 +92,7 @@ Configure included extensions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The starter pack includes a set of extensions that are useful for all documentation sets.
-They are pre-configured as needed, but you can customise their configuration in the  :file:`docs/conf.py` file.
+They are pre-configured as needed, but you can customize their configuration in the  :file:`docs/conf.py` file.
 
 The following extensions are included by default:
 
