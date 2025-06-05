@@ -65,8 +65,8 @@ Or, if the version is set with the ``version`` key in your configuration file:
 
 To read from the provided RTD environment variable::
     
-    if 'READTHEDOCS' in os.environ and os.environ['READTHEDOCS'] == True:
-        sitemap_url_scheme = '{0}/{{link}}'.format(os.environ['READTHEDOCS_VERSION'])
+    if 'READTHEDOCS_VERSION' in os.environ:
+        sitemap_url_scheme = f'{os.environ["READTHEDOCS_VERSION"]}/{{{{link}}}}'
     else:
         sitemap_url_scheme = 'MANUAL/{link}'
 
