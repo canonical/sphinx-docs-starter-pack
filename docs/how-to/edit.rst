@@ -36,13 +36,13 @@ To add a new page to the documentation:
             :hidden:
             :maxdepth: 2
          
-            Set up the documentation </content/set-up>
-            /content/customise
-            /content/rtd
-            /content/update
-            /content/automatic_checks
-            /content/contributing
-            /content/reference
+            Set up the documentation <set-up>
+            customise
+            rtd
+            update
+            automatic_checks
+            contributing
+            reference
 
 The documentation will now show the new page added to the navigation when rebuilt.
 

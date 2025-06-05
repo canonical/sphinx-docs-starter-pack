@@ -9,6 +9,7 @@ maintaining, and contributing to the starter pack.
 
    rtd
    customise
+   set-up-sitemaps
    customise-pdf
    migrate-from-pre-extension
    update
