@@ -38,7 +38,7 @@ configuration file. For example, in :file:`docs/conf.py`:
 .. note::
 
     Sitemap configuration is included in the Starter pack's
-    `default configuration file <https://github.com/canonical/sphinx-docs-starter-pack/blob/a6a34459c3b6d8b6097e484cd67cc50330274b0d/docs/conf.py#L175>`_.
+    `default configuration file <https://github.com/canonical/sphinx-docs-starter-pack/blob/a489ae041f6cebb7948fdf21b996e8c67d636a83/docs/conf.py#L176>`_.
 
 Optional sitemap configuration
 ------------------------------
