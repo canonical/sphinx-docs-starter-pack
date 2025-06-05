@@ -185,7 +185,8 @@ html_baseurl = 'https://canonical-starter-pack.readthedocs-hosted.com/'
 # When configured with RTD variables, check for RTD environment so manual runs succeed:
 
 if 'READTHEDOCS_VERSION' in os.environ:
-    sitemap_url_scheme = f'{os.environ["READTHEDOCS_VERSION"]}/{{{{link}}}}'
+    version = os.environ["READTHEDOCS_VERSION"]
+    sitemap_url_scheme = '{version}{link}'
 else:
     sitemap_url_scheme = 'MANUAL/{link}'
 
