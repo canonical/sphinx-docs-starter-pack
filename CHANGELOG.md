@@ -6,6 +6,7 @@
 * Simplifies vale binary download & install.
 * Leaves vale install output in STDOUT to reveal potential problems.
 * Improves update logic.
+* Update Makefile logic
 
 ### Changed
 
