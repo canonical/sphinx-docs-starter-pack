@@ -186,6 +186,12 @@ Notes
 .. caution::
    This might damage your hardware!
 
+.. warning::
+   This could damage your hardware!
+
+.. seealso::
+   A reference to related content.
+
 Images
 ------
 
