@@ -19,13 +19,13 @@ The guidelines below will help keep your contributions effective and meaningful.
 
 When contributing, you must abide by the [Ubuntu Code of Conduct](https://ubuntu.com/community/ethos/code-of-conduct).
 
-## Licence and copyright
+## License and copyright
 
 <!-- TODO: Update with your license details or drop if excessive -->
 
-By default, all contributions to ACME are made under the AGPLv3 licence. See the [licence](https://github.com/canonical/ACME/blob/main/COPYING) in the ACME GitHub repository for details.
+By default, all contributions to ACME are made under the AGPLv3 license. See the [license](https://github.com/canonical/ACME/blob/main/COPYING) in the ACME GitHub repository for details.
 
-All contributors must sign the [Canonical contributor licence agreement](https://ubuntu.com/legal/contributors), which grants Canonical permission to use the contributions. The author of a change remains the copyright owner of their code (no copyright assignment occurs).
+All contributors must sign the [Canonical contributor license agreement](https://ubuntu.com/legal/contributors), which grants Canonical permission to use the contributions. The author of a change remains the copyright owner of their code (no copyright assignment occurs).
 
 ## Releases and versions
 
@@ -71,7 +71,7 @@ Your changes will be reviewed in due time; if approved, they will eventually be 
 
 To be properly considered, reviewed, and merged, your pull request must provide the following details:
 
-- **Title**: Summarise the change in a short, descriptive title.
+- **Title**: Summarize the change in a short, descriptive title.
 - **Description**: Explain the problem that your pull request solves. Mention any new features, bug fixes, or refactoring.
 - **Relevant issues**: Reference any [related issues, pull requests, and repositories](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls).
 - **Testing**: Explain whether new or updated tests are included.
@@ -174,12 +174,12 @@ TODO: lint command 2
 ### Structure
 
 - **Check linked code elements**: Ensure coupled code elements, files, and directories are adjacent. For instance, store test data close to the corresponding test code.
-- **Group variable declaration and initialisation**: Declare and initialise variables together to improve code organisation and readability.
+- **Group variable declaration and initialization**: Declare and initialize variables together to improve code organization and readability.
 - **Split large expressions**: Break down large expressions into smaller self-explanatory parts. Use multiple variables where appropriate to make the code more understandable and choose names that reflect their purpose.
 - **Use blank lines for logical separation**: Insert a blank line between two logically separate sections of code to improve its structure and readability.
 - **Avoid nested conditions**: Avoid nesting conditions to improve readability and maintainability.
 - **Remove dead code and redundant comments**: Drop unused or obsolete code and comments to promote a cleaner code base and reduce confusion.
-- **Normalise symmetries**: Treat identical operations consistently, using a uniform approach to improve consistency and readability.
+- **Normalize symmetries**: Treat identical operations consistently, using a uniform approach to improve consistency and readability.
 
 ### Best practices
 

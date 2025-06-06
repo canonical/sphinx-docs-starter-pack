@@ -42,7 +42,7 @@ The landing page is :file:`docs/index.rst`. Other pages are under :file:`docs/co
 Configure settings
 ==================
 
-Work through the settings in :file:`docs/conf.py`. Most parameters can be left with the default values as they can be changed later. :ref:`customise` contains further guidance.
+Work through the settings in :file:`docs/conf.py`. Most parameters can be left with the default values as they can be changed later. :ref:`customize` contains further guidance.
 
 
 Pre-commit hooks (optional)

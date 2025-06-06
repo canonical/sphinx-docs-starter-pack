@@ -1,5 +1,13 @@
 # sphinx-docs-starter-pack changelog
 
+## 1.1.1
+
+* Switched to American English
+
+### Changed
+
+* `docs/.sphinx/spellingcheck.yaml` [#394](https://github.com/canonical/sphinx-docs-starter-pack/pull/394)
+
 ## 1.1.0
 
 * Adds sitemap support.

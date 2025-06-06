@@ -33,16 +33,16 @@ When contributing, you must abide by the
 `Ubuntu Code of Conduct <https://ubuntu.com/community/ethos/code-of-conduct>`_.
 
 
-Licence and copyright
+License and copyright
 ---------------------
 
 .. TODO: Update with your license details or drop if excessive
 
-By default, all contributions to ACME are made under the AGPLv3 licence.
-See the `licence <https://github.com/canonical/ACME/blob/main/COPYING>`_
+By default, all contributions to ACME are made under the AGPLv3 license.
+See the `license <https://github.com/canonical/ACME/blob/main/COPYING>`_
 in the ACME GitHub repository for details.
 
-All contributors must sign the `Canonical contributor licence agreement
+All contributors must sign the `Canonical contributor license agreement
 <https://ubuntu.com/legal/contributors>`_,
 which grants Canonical permission to use the contributions.
 The author of a change remains the copyright owner of their code
@@ -115,7 +115,7 @@ Describing pull requests
 To be properly considered, reviewed and merged,
 your pull request must provide the following details:
 
-- **Title**: Summarise the change in a short, descriptive title.
+- **Title**: Summarize the change in a short, descriptive title.
 
 - **Description**: Explain the problem that your pull request solves.
   Mention any new features, bug fixes or refactoring.
@@ -146,10 +146,10 @@ to ensure consistency across the project:
 .. code-block:: none
 
    Ensure correct permissions and ownership for the content mounts
-    
+
     * Work around an ACME issue regarding empty dirs:
       https://github.com/canonical/ACME/issues/12345
-    
+
     * Ensure the source directory is owned by the user running a container.
 
    Links:
@@ -242,9 +242,9 @@ Structure
   Check that coupled code elements, files and directories are adjacent.
   For instance, store test data close to the corresponding test code.
 
-- **Group variable declaration and initialisation**:
-  Declare and initialise variables together
-  to improve code organisation and readability.
+- **Group variable declaration and initialization**:
+  Declare and initialize variables together
+  to improve code organization and readability.
 
 - **Split large expressions**:
   Break down large expressions
@@ -264,7 +264,7 @@ Structure
   Drop unused or obsolete code and comments.
   This promotes a cleaner code base and reduces confusion.
 
-- **Normalise symmetries**:
+- **Normalize symmetries**:
   Treat identical operations consistently, using a uniform approach.
   This also improves consistency and readability.
 

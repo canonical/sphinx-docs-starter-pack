@@ -38,7 +38,7 @@ For instance::
 
    Vale will lint the displayed text of a link, not the URL of a link. If you
    wish to use a link that contains non-inclusive language, use appropriate link
-   text with the syntax appropriate for your source file. 
+   text with the syntax appropriate for your source file.
 
 Exempt a word globally
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -48,7 +48,7 @@ To exempt a word, add it to this file globally.
 
 .. note::
 
-   Entries in ``.custom-wordlist`` are case-sensitive only when a capitalised word is used. For instance:
+   Entries in ``.custom-wordlist`` are case-sensitive only when a capitalized word is used. For instance:
 
    - Adding ``kustom`` will cause all instances of ``Kustom`` and ``kustom`` to be ignored.
    - Adding ``Kustom`` will cause only instances of ``Kustom`` to be ignored.

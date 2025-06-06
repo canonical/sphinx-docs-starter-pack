@@ -55,8 +55,8 @@ else
         readable=false
     fi
 
-    # summarise latest metrics
-    echo "Summarising metrics for source files (.md, .rst)..."
+    # summarize latest metrics
+    echo "Summarizing metrics for source files (.md, .rst)..."
     echo -e "\ttotal files: $files"
     echo -e "\ttotal words (raw): $words"
     echo -e "\ttotal words (prose): $readabilityWords"

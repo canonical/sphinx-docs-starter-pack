@@ -68,7 +68,7 @@ When you change a documentation file and save it, the documentation will be auto
    However, it is quite error-prone because it displays warnings or errors only when they occur.
    If you save other files later, you might miss these messages.
 
-   Therefore, you should always :ref:`build-clean` before finalising your changes.
+   Therefore, you should always :ref:`build-clean` before finalizing your changes.
 
 Build a PDF
 -----------
@@ -101,10 +101,10 @@ On Linux, required packages can be installed with:
 .. code-block:: none
 
     make pdf-prep-force
-    
+
 .. note::
 
-    When generating a PDF, the index page is considered a 'foreword' and will not be labelled with a chapter.
+    When generating a PDF, the index page is considered a 'foreword' and will not be labeled with a chapter.
 
 .. important::
 

@@ -9,7 +9,7 @@ The Documentation starter pack includes:
 * A bundled [Sphinx] theme, configuration, and extensions
 * Support for both reStructuredText (reST) and MyST Markdown
 * Build checks for links, spelling, and inclusive language
-* Customisation support layered over a core configuration
+* Customization support layered over a core configuration
 
 See the full documentation: https://canonical-starter-pack.readthedocs-hosted.com/
 

@@ -8,9 +8,9 @@ maintaining, and contributing to the starter pack.
    :maxdepth: 1
 
    rtd
-   customise
+   customize
    set-up-sitemaps
-   customise-pdf
+   customize-pdf
    migrate-from-pre-extension
    update
    contributing

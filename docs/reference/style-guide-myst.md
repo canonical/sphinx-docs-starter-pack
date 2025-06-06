@@ -46,7 +46,7 @@ Adhere to the following conventions:
 
 - Do not use consecutive headings without intervening text.
 - Do not skip levels (for example, do not follow an H2 heading with an H4 heading).
-- Use sentence style for headings (capitalise only the first word).
+- Use sentence style for headings (capitalize only the first word).
 
 ## Inline formatting
 
