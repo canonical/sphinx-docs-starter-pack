@@ -27,7 +27,7 @@ To install the validation tools:
 
    make woke-install
    make pa11y-install
-   make markdownlint-install  # if using Markdown
+   make pymarkdownlnt-install  # if using Markdown
 
 .. note::
 

@@ -17,12 +17,12 @@ Intersphinx
 lang
 LaTeX
 latexmk
-markdownlint
 Multipass
 otf
 plantuml
 PNG
 Pygments
+pymarkdown
 QEMU
 Rockcraft
 readthedocs

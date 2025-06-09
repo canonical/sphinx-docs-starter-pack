@@ -19,10 +19,9 @@ jobs:
     - uses: actions/checkout@v4
       with:
         fetch-depth: 0
-    - uses: DavidAnson/markdownlint-cli2-action@v19
-      with:
-        config: "docs/.sphinx/.markdownlint.json"
-        globs: |
-          README.md
-          CHANGELOG.md
-          docs/**.{md,markdown}
+    - name: Create venv
+      working-directory: "docs"
+      run: make install
+    - name: Lint markdown
+      working-directory: "docs"
+      run: make lint-md
