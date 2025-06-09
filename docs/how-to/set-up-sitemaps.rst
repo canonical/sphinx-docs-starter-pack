@@ -35,6 +35,9 @@ configuration file. For example, in :file:`docs/conf.py`:
 
     html_baseurl = 'https://canonical-starter-pack.readthedocs-hosted.com/'
 
+Make sure to include the trailing slash (`/`) to avoid errors in the concatenated
+URLs in the sitemap.
+
 .. note::
 
     Sitemap configuration is included in the Starter pack's
@@ -44,11 +47,14 @@ Optional sitemap configuration
 ------------------------------
 
 Sphinx sitemap uses a configurable URL scheme to set language and version options
-for your documentation. Default configuration provided by the starter pack uses:
+for your documentation. If you have no languages and no versions in your URL, add
+the following to your `conf.py` file:
 
 .. code-block::
 
     sitemap_url_scheme = "{link}"
+
+Note that this is the default configuration provided by the starter pack.
 
 To add versioning, this can be done manually, or you can read the version from
 the RTD instance. To implement a manual version:
