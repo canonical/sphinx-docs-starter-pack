@@ -48,7 +48,7 @@ Optional sitemap configuration
 
 Sphinx sitemap uses a configurable URL scheme to set language and version options
 for your documentation. If you have no languages and no versions in your URL, add
-the following to your `conf.py` file:
+the following to your ``conf.py`` file:
 
 .. code-block::
 
