@@ -35,7 +35,7 @@ configuration file. For example, in :file:`docs/conf.py`:
 
     html_baseurl = 'https://canonical-starter-pack.readthedocs-hosted.com/'
 
-Make sure to include the trailing slash (`/`) to avoid errors in the concatenated
+Make sure to include the trailing slash (``/``) to avoid errors in the concatenated
 URLs in the sitemap.
 
 .. note::
