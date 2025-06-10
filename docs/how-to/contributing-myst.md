@@ -152,6 +152,7 @@ commit signature verification](https://docs.github.com/en/authentication/managin
    type in your GitHub account. See
    [GitHub Docs - Adding a new SSH key to your account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
    for more information.
+   ```
 
 ## Code
 
