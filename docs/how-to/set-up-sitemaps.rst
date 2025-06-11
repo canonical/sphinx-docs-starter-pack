@@ -62,7 +62,7 @@ the following to your ``conf.py`` file:
     sitemap_url_scheme = "{link}"
 
 If you have a version in the URL of your documentation, it is recommended to read
-the version from RTD's environment variables::
+the version from environment variables::
     
     if 'READTHEDOCS_VERSION' in os.environ:
         version = os.environ["READTHEDOCS_VERSION"]
