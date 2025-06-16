@@ -13,15 +13,15 @@ Initial setup
 
 If you're starting a new project, clone the `starter pack repository <https://github.com/canonical/sphinx-docs-starter-pack>`_ and begin your project from there.
 
-If you already have a project, download the following files locally and copy them into your existing repository:
+If you already have a project, download the following files from the repository and copy them into your existing repository:
 
 * the entire :file:`docs` directory
 * :file:`.readthedocs.yaml` (configuration for the building on Read the Docs)
 * :file:`.wokeignore` (configuration for the Woke tool)
 * the entire :file:`.github/workflows` directory
 
-Then, you **must** delete :file:`.github/workflows/test-starter-pack.yml`.
-
+After cloning or copying the starter pack, you **must** delete :file:`.github/workflows/test-starter-pack.yml` from your repository, as this workflow is specific to testing the starter pack itself and should not be included in your project. Optionally, you can also delete 
+:file:`.github/workflows/sphinx-python-dependency-build-checks.yml` and :file:`.github/workflows/markdown-style-checks.yml` if you do not need these workflows in your project.
 
 Build and run the local server
 ==============================
