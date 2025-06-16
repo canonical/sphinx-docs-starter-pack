@@ -1,5 +1,13 @@
 # sphinx-docs-starter-pack changelog
 
+## 1.1.1
+
+* Fixes the download branch name in the update script.
+
+### Changed
+
+* `docs/.sphinx/update_sp.py` [#397](https://github.com/canonical/sphinx-docs-starter-pack/pull/397)
+
 ## 1.1.0
 
 * Adds sitemap support.
