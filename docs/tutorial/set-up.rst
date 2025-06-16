@@ -36,7 +36,7 @@ This creates and activates a virtual environment in :file:`docs/.sphinx/venv`, b
 
 The server watches the source files, including :file:`docs/conf.py`, and rebuilds automatically on changes.
 
-The landing page is :file:`docs/index.rst`. Other pages are under :file:`docs/content`.
+The landing page is :file:`docs/index.rst`. Other pages are under one of the sub-directories under :file:`docs/`.
 
 
 Configure settings
