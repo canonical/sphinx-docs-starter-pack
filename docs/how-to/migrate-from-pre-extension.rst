@@ -82,7 +82,7 @@ If your project requires additional extensions beyond the default list, add the 
 Documentation source files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Remove the starter pack's documentation files (``index.rst`` and any files in the ``docs/content/*`` sub-directory).
+1. Remove the starter pack's documentation files (``index.rst`` and any files in the ``docs/**/*`` sub-directory).
 
 2. Copy all documentation source files from your original project to the new project, keeping their original structure. These file may include but are not limited to:
 
