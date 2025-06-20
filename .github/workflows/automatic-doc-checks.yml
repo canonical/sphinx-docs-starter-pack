@@ -18,7 +18,7 @@ concurrency:
 
 jobs:
   documentation-checks:
-    uses: canonical/documentation-workflows/.github/workflows/documentation-checks.yaml@main
+    uses: secondskoll/documentation-workflows/.github/workflows/documentation-checks.yaml@main
     with:
       working-directory: "docs"
       fetch-depth: 0
