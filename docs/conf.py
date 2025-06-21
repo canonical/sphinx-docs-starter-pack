@@ -188,6 +188,8 @@ if 'READTHEDOCS_VERSION' in os.environ:
 else:
     sitemap_url_scheme = 'MANUAL/{link}'
 
+sitemap_show_lastmod = True
+
 # Template and asset locations
 
 #html_static_path = ["_static"]
