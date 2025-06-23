@@ -1,5 +1,6 @@
 canonical-sphinx[full]
 packaging
+requests
 sphinxcontrib-svg2pdfconverter[CairoSVG]
 sphinx-last-updated-by-git
 sphinx-sitemap
