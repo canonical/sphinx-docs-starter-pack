@@ -49,8 +49,8 @@ URLs in the sitemap.
     Sitemap configuration is included in the Starter pack's
     `default configuration file <https://github.com/canonical/sphinx-docs-starter-pack/blob/a489ae041f6cebb7948fdf21b996e8c67d636a83/docs/conf.py#L176>`_.
 
-Optional sitemap configuration
-------------------------------
+URL configuration
+-----------------
 
 Sphinx sitemap uses a configurable URL scheme to set language and version options
 for your documentation. If you have no languages and no versions in your URL, add
@@ -92,6 +92,14 @@ To read from the provided RTD environment variable::
     This is a known bug. The only current workaround is to use a different
     `sitemap name <https://sphinx-sitemap.readthedocs.io/en/latest/advanced-configuration.html#changing-the-filename>`_
     and a custom ``robots.txt`` pointing to it.
+
+``lastmod`` configuration
+-------------------------
+
+As of version 2.7.0, the sitemap extension supports adding a ``lastmod`` date.
+Make sure that your configuration file has::
+
+    sitemap_show_lastmod = True
 
 Validating your sitemap
 -----------------------
@@ -148,24 +156,20 @@ For instance, using the starter pack as an example, with three versions
 
     .. code-block::
 
-            <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-            <url>
+            <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+            <sitemap>
             <loc>https://canonical-starter-pack.readthedocs-hosted.com/latest/sitemap.xml</loc>
-            <lastmod>2025-04-30</lastmod>
-            </url>
-            <url>
+            </sitemap>
+            <sitemap>
             <loc>https://canonical-starter-pack.readthedocs-hosted.com/3.0/sitemap.xml</loc>
-            <lastmod>2025-04-30</lastmod>
-            </url>
-            <url>
+            </sitemap>
+            <sitemap>
             <loc>https://canonical-starter-pack.readthedocs-hosted.com/2.0/sitemap.xml</loc>
-            <lastmod>2025-04-30</lastmod>
-            </url>
-            <url>
+            </sitemap>
+            <sitemap>
             <loc>https://canonical-starter-pack.readthedocs-hosted.com/1.0/sitemap.xml</loc>
-            <lastmod>2025-04-30</lastmod>
-            </url>
-            </urlset>
+            </sitemap>
+            </sitemapindex>
 
 4.  Add ``robots.txt`` and ``sitemapindex.xml`` to your configuration file:
 
