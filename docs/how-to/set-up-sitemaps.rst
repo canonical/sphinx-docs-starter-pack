@@ -97,8 +97,7 @@ To read from the provided RTD environment variable::
 -------------------------
 
 As of version 2.7.0, the sitemap extension supports adding a ``lastmod`` date.
-Enabling this is done through the ``sitemap_show_lastmod`` key in your configuration
-file::
+Make sure that your configuration file has::
 
     sitemap_show_lastmod = True
 
