@@ -93,10 +93,10 @@ To read from the provided RTD environment variable::
     `sitemap name <https://sphinx-sitemap.readthedocs.io/en/latest/advanced-configuration.html#changing-the-filename>`_
     and a custom ``robots.txt`` pointing to it.
 
-Lastmod configuration
----------------------
+``lastmod`` configuration
+-------------------------
 
-As of version 2.7.0, the sitemap extension supports adding a `lastmod` date.
+As of version 2.7.0, the sitemap extension supports adding a ``lastmod`` date.
 Enabling this is done through the ``sitemap_show_lastmod`` key in your configuration
 file::
 
