@@ -541,8 +541,22 @@ See [list tables](https://docutils.sourceforge.io/docs/ref/rst/directives.html#l
   - ```{caution}
     This might damage your hardware!
     ```
-
-
+* - ````
+    ```{warning}
+    This could damage your hardware!
+    ```
+    ````
+  - ```{warning}
+    This could damage your hardware!
+    ```
+* - ````
+    ```{seealso}
+    A reference to related content.
+    ```
+    ````
+  - ```{seealso}
+    A reference to related content.
+    ```
 `````
 
 Adhere to the following conventions:
