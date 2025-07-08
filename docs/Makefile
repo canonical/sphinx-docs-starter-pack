@@ -55,10 +55,8 @@ full-help: $(VENVDIR)
 
 # If requirements are updated, venv should be rebuilt and timestamped.
 $(VENVDIR):
-	python3 -c "import venv" || \
-        (echo "You must install python3-venv before you can build the documentation."; exit 1)
 	@echo "... setting up virtualenv"
-	python3 -m venv $(VENVDIR)
+	python3 -m venv $(VENVDIR) || { echo "You must install python3-venv before you can build the documentation."; exit 1; }
 	. $(VENV); pip install $(PIPOPTS) --require-virtualenv \
 	    --upgrade -r requirements.txt \
             --log $(VENVDIR)/pip_install.log
@@ -68,7 +66,7 @@ $(VENVDIR):
 	@touch $(VENVDIR)
 
 spellcheck-install:
-	@type aspell >/dev/null 2>&1 || \
+	@command -v aspell >/dev/null || \
 	{ \
 		echo "Installing system-wide \"aspell\" packages..."; \
 		confirm_sudo=$(CONFIRM_SUDO); \
@@ -83,7 +81,7 @@ spellcheck-install:
 	}
 
 pa11y-install:
-	@type $(PA11Y) >/dev/null 2>&1 || { \
+	@command -v $(PA11Y) >/dev/null || { \
 			echo "Installing \"pa11y\" from npm..."; echo; \
 			mkdir -p $(SPHINXDIR)/node_modules/ ; \
 			npm install --prefix $(SPHINXDIR) pa11y; \
@@ -97,7 +95,7 @@ install: $(VENVDIR)
 run: install
 	. $(VENV); $(VENVDIR)/bin/sphinx-autobuild -b dirhtml --host $(SPHINX_HOST) --port $(SPHINX_PORT) "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
 
-# Doesn't depend on $(BUILDDIR) to rebuild properly at every run.
+# Does not depend on $(BUILDDIR) to rebuild properly at every run.
 html: install
 	. $(VENV); $(SPHINXBUILD) -W --keep-going -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" -w $(SPHINXDIR)/warnings.txt $(SPHINXOPTS)
 
