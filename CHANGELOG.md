@@ -2,11 +2,22 @@
 
 ## 1.1.1
 
+* Fixes the Markdown linting GitHub action and adds a `make lint-md` check.
 * Fixes the download branch name in the update script.
+
+### Added
+
+* `docs/.sphinx/.pymarkdown.json` [#379](https://github.com/canonical/sphinx-docs-starter-pack/pull/379)
 
 ### Changed
 
 * `docs/.sphinx/update_sp.py` [#397](https://github.com/canonical/sphinx-docs-starter-pack/pull/397)
+* `.github/workflows/markdown-style-checks.yml` [#379](https://github.com/canonical/sphinx-docs-starter-pack/pull/379)
+* `docs/Makefile` [#379](https://github.com/canonical/sphinx-docs-starter-pack/pull/379)
+
+### Removed
+
+* `docs/.sphinx/.markdownlint.json` [#379](https://github.com/canonical/sphinx-docs-starter-pack/pull/379)
 
 ## 1.1.0
 

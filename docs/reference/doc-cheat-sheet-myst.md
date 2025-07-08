@@ -12,6 +12,7 @@ myst:
 <!-- vale off -->
 
 (cheat-sheet-myst)=
+
 # Markdown/MyST cheat sheet
 
 <!-- vale on -->
@@ -60,6 +61,7 @@ code:
 ```
 
 (a_section_target_myst)=
+
 ## Links
 
 - [Canonical website](https://canonical.com/)

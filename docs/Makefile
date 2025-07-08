@@ -11,7 +11,7 @@ SOURCEDIR       = .
 BUILDDIR        = _build
 VENVDIR         = $(SPHINXDIR)/venv
 PA11Y           = $(SPHINXDIR)/node_modules/pa11y/bin/pa11y.js --config $(SPHINXDIR)/pa11y.json
-VENV         	   = $(VENVDIR)/bin/activate
+VENV            = $(VENVDIR)/bin/activate
 TARGET          = *
 ALLFILES        =  *.rst **/*.rst
 METRICSDIR      = $(SOURCEDIR)/.sphinx/metrics
@@ -31,6 +31,7 @@ help:
 	@echo "* clean built doc files:                     make clean-doc"
 	@echo "* clean full environment:                    make clean"
 	@echo "* check links:                               make linkcheck"
+	@echo "* check markdown:                            make lint-md"
 	@echo "* check spelling:                            make spelling"
 	@echo "* check spelling (without building again):   make spellcheck"
 	@echo "* check inclusive language:                  make woke"
@@ -45,7 +46,7 @@ help:
 .PHONY: help full‑help html epub pdf linkcheck spelling spellcheck woke \
         vale pa11y run serve install spellcheck‑install pa11y‑install   \
         vale‑install pdf‑prep pdf‑prep‑force clean clean‑doc allmetrics \
-        update
+        update lint-md
 
 full-help: $(VENVDIR)
 	@. $(VENV); $(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
@@ -88,6 +89,9 @@ pa11y-install:
 			npm install --prefix $(SPHINXDIR) pa11y; \
 		}
 
+pymarkdownlnt-install:
+	@. $(VENV); test -d $(SPHINXDIR)/venv/lib/python*/site-packages/pymarkdown || pip install pymarkdownlnt
+
 install: $(VENVDIR)
 
 run: install
@@ -125,6 +129,9 @@ linkcheck: install
 
 pa11y: pa11y-install html
 	find $(BUILDDIR) -name *.html -print0 | xargs -n 1 -0 $(PA11Y)
+
+lint-md: pymarkdownlnt-install
+	@. $(VENV); pymarkdownlnt --config $(SPHINXDIR)/.pymarkdown.json scan --recurse --exclude=./$(SPHINXDIR)/** $(SOURCEDIR)
 
 vale-install: install
 	@. $(VENV); test -d $(SPHINXDIR)/venv/lib/python*/site-packages/vale || pip install rst2html vale
