@@ -43,10 +43,10 @@ help:
 	@echo "-------------------------------------------------------------"
 	@echo
 
-.PHONY: full-help spellcheck-install pa11y-install install run html \
-        epub serve clean clean-doc spelling spellcheck linkcheck woke \
-        allmetrics pa11y pdf-prep-force pdf-prep pdf vale-install vale \
-		update pymarkdownlnt-install lint-md
+.PHONY: help full‑help html epub pdf linkcheck spelling spellcheck woke \
+        vale pa11y run serve install spellcheck‑install pa11y‑install   \
+        vale‑install pdf‑prep pdf‑prep‑force clean clean‑doc allmetrics \
+        update lint-md
 
 full-help: $(VENVDIR)
 	@. $(VENV); $(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
@@ -200,4 +200,5 @@ update: install
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
 %:
+	$(MAKE) —no-print-directory install
 	. $(VENV); $(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)

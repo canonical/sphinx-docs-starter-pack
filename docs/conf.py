@@ -1,5 +1,4 @@
 import datetime
-import ast
 import os
 import yaml
 
@@ -189,7 +188,13 @@ if 'READTHEDOCS_VERSION' in os.environ:
 else:
     sitemap_url_scheme = 'MANUAL/{link}'
 
+# Include `lastmod` dates in the sitemap:
+
+sitemap_show_lastmod = True
+
+#######################
 # Template and asset locations
+#######################
 
 #html_static_path = ["_static"]
 #templates_path = ["_templates"]

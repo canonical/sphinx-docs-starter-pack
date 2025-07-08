@@ -2,7 +2,8 @@
 
 ## 1.1.1
 
-Fixes the Markdown linting GitHub action and adds a `make lint-md` check.
+* Fixes the Markdown linting GitHub action and adds a `make lint-md` check.
+* Fixes the download branch name in the update script.
 
 ### Added
 
@@ -10,6 +11,7 @@ Fixes the Markdown linting GitHub action and adds a `make lint-md` check.
 
 ### Changed
 
+* `docs/.sphinx/update_sp.py` [#397](https://github.com/canonical/sphinx-docs-starter-pack/pull/397)
 * `.github/workflows/markdown-style-checks.yml` [#379](https://github.com/canonical/sphinx-docs-starter-pack/pull/379)
 * `docs/Makefile` [#379](https://github.com/canonical/sphinx-docs-starter-pack/pull/379)
 
@@ -23,6 +25,7 @@ Fixes the Markdown linting GitHub action and adds a `make lint-md` check.
 * Simplifies vale binary download & install.
 * Leaves vale install output in STDOUT to reveal potential problems.
 * Improves update logic.
+* Update Makefile logic
 
 ### Changed
 
