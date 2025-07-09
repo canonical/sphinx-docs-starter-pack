@@ -15,7 +15,6 @@ Contents
    :maxdepth: 1
 
    automatic_checks
-   doc-cheat-sheet
-   doc-cheat-sheet-myst
+   removed-url-check
    rst-syntax-guide
    myst-syntax-reference
