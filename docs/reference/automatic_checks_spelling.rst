@@ -21,9 +21,6 @@ Configure the spelling check
 The Vale repository `includes a common list of words <https://github.com/canonical/documentation-style-guide/blob/main/styles/config/vocabularies/Canonical/accept.txt>`_ that will be excluded from the check.
 To add custom exceptions for your project, add them to the :file:`.custom_wordlist.txt` file.
 
-If you need to add systematic exceptions for specific HTML tags or CSS classes (for example, all image captions or H2 headings), you can do this in the :file:`.sphinx/spellingcheck.yaml` file.
-You can configure which HTML elements to exclude under ``pyspelling.filters.html``.
-
 Exclude specific terms
 ----------------------
 

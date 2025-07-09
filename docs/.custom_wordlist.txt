@@ -46,3 +46,5 @@ wordlist
 xetex
 xindy
 xml
+ip
+spread_test_example
