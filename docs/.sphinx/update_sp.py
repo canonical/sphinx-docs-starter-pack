@@ -113,7 +113,7 @@ def main():
 
             new_requirements = requirements - local_reqs
 
-            for req in requirements - local_reqs:
+            for req in new_requirements:
                 logging.debug(f"{req} not found in local requirements.txt")
 
             for req in requirements & local_reqs:
