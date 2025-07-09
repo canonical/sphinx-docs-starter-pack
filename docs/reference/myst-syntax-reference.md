@@ -274,7 +274,7 @@ To override the title, add the `:title:` option.
 
 For internal references, both Markdown and MyST syntax are supported. In most cases, you should use MyST syntax though, because it resolves the link text automatically and gives an indication of the link in GitHub rendering.
 
-(section_target_myst)=
+(a_section_target_myst)=
 
 #### Referencing a section
 
@@ -676,8 +676,8 @@ By combining file inclusion and substitutions, you can even replace parts of the
 * - ````
 
     % Include parts of the content from
-    % file [style-guide.rst](style-guide.rst)
-    ```{include} style-guide.rst
+    % file [rst-syntax-reference.rst](rst-syntax-reference.rst)
+    ```{include} rst-syntax-reference.rst
         :start-after: "Adhere to the following conventions:"
         :end-before: "  Use the ones specified above."
     ```
@@ -685,8 +685,8 @@ By combining file inclusion and substitutions, you can even replace parts of the
     ````
 
   -
-    % Include parts of the content from file [style-guide.rst](style-guide.rst)
-    ```{include} style-guide.rst
+    % Include parts of the content from file [rst-syntax-reference.rst](rst-syntax-reference.rst)
+    ```{include} rst-syntax-reference.rst
         :start-after: "Adhere to the following conventions:"
         :end-before: "  Use the ones specified above."
     ```

@@ -46,7 +46,7 @@ The :literalref:`latex_documents <https://www.sphinx-doc.org/en/master/usage/con
 
 * ``toctree_only``: Boolean. If set to True, the ``startdocname`` document itself is not included in the output, only the documents referenced by the ``toctree`` directive are included. This is useful for creating a PDF-specific index file.
 
-For more details, see `latex_documents`_ in the Sphinx documentation.
+For more details, see `latex_documents <https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-latex_documents>`_ in the Sphinx documentation.
 
 
 Change PDF document filename
@@ -195,6 +195,8 @@ Provide a ``latex_additional_files`` variable in :file:`conf.py` as a list of fi
    For better quality in the PDF output, it is recommended to use vector images (like SVG or PDF) rather than raster images (like PNG or JPEG). Raster images may lose quality when scaled up in the PDF.
 
    Do not use ``.tex`` as suffix, otherwise the file is processed as source files for the PDF build process. Instead, use ``.tex.txt`` or ``.sty``  to avoid conflicts with the LaTeX build process.
+
+.. vale 
 
 Use landscape layout
 ~~~~~~~~~~~~~~~~~~~~

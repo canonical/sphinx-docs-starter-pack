@@ -16,5 +16,5 @@ Contents
 
    automatic_checks
    removed-url-check
-   rst-syntax-guide
+   rst-syntax-reference
    myst-syntax-reference

@@ -2,8 +2,8 @@
 
 .. _style-guide:
 
-reStructuredText yntax reference
-===============================
+reStructuredText syntax reference
+=================================
 
 The documentation files use `reStructuredText`_ (reST) syntax.
 
@@ -335,7 +335,7 @@ Internal references
 
 You can reference pages and targets in this documentation set, and also in other documentation sets using Intersphinx.
 
-.. _section_target:
+.. _a_section_target:
 
 Referencing a section
 ^^^^^^^^^^^^^^^^^^^^^
