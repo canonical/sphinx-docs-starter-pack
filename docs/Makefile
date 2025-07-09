@@ -116,11 +116,6 @@ clean-doc:
 	git clean -fx "$(BUILDDIR)"
 	rm -rf $(SPHINXDIR)/.doctrees
 
-spellcheck: spellcheck-install
-	. $(VENV) ; python3 -m pyspelling -c $(SPHINXDIR)/spellingcheck.yaml -j $(shell nproc)
-
-spelling: html spellcheck
-
 linkcheck: install
 	. $(VENV) ; $(SPHINXBUILD) -b linkcheck "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) || { grep --color -F "[broken]" "$(BUILDDIR)/output.txt"; exit 1; }
 	exit 0
@@ -153,7 +148,7 @@ vale: vale-install
 	@. $(VENV); vale --config="$(VALE_CONFIG)" --filter='$(SPHINXDIR)/styles/error.filter' --glob='*.{md,rst}' $(TARGET)
 	@cat $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept_backup.txt > $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept.txt && rm $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept_backup.txt
 
-vale-spelling: vale-install
+spelling: vale-install
 	@cat $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept.txt > $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept_backup.txt
 	@cat $(SPHINXDIR)/.wordlist.txt $(SOURCEDIR)/.custom_wordlist.txt >> $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept.txt
 	@echo "Running Vale against $(TARGET). To change target set TARGET= with make command"
