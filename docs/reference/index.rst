@@ -17,5 +17,5 @@ Contents
    automatic_checks
    doc-cheat-sheet
    doc-cheat-sheet-myst
-   style-guide
-   style-guide-myst
+   rst-syntax-guide
+   myst-syntax-reference
