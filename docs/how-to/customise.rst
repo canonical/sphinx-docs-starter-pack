@@ -46,13 +46,23 @@ You can leave the defaults for the website name and the preview image or specify
 Adjust the header
 ~~~~~~~~~~~~~~~~~
 
-The header is the top section of a page template.
-By default, the starter pack template header contains your product's tag image and name (taken from the ``project`` setting in the :file:`docs/conf.py` file), a link to your product's page (if available), and a drop-down menu for "More resources".
+The header is the top section of a page template. By default, the starter pack template header contains your product's tag image and name (taken from the ``project`` setting in the :file:`docs/conf.py` file), a link to your product's page (if available), and a drop-down menu for "More resources". 
 
-The default configuration is sufficient for many cases but can be further customised.
+This configuration is sufficient for many cases but can be further customised. For example, you might want to add links to announcements or videos that are not part of the documentation.
 
-You can change any of those links or add further links to the "More resources" drop-down by editing the :file:`.sphinx/_templates/header.html` file.
-For example, you might want to add links to announcements, tutorials, getting started guides, or videos that are not part of the documentation.
+To override the default template header, create a new folder called ``_templates`` in the same folder as your ``conf.py`` file. Default templates are pulled from the ``canonical-sphinx`` extension. Copy `its header.html file <https://github.com/canonical/canonical-sphinx/blob/main/canonical_sphinx/theme/templates/header.html>`_ to your ``.sphinx/_templates`` folder and edit it as needed.
+
+Finally, find the following line in :file:`docs/conf.py`:
+
+.. code:: python
+
+    #templates_path = ["_templates"]
+
+Enable this variable initialisation by removing the `#` at the beginning:
+
+.. code:: python
+    
+    templates_path = ["_templates"]
 
 Optional customisation
 ----------------------
