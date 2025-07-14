@@ -11,7 +11,7 @@ jobs:
       - name: Checkout PR branch
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.head_ref }}
+          ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
           path: compare
       - name: Checkout base branch
