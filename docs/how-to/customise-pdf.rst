@@ -196,7 +196,6 @@ Provide a ``latex_additional_files`` variable in :file:`conf.py` as a list of fi
 
    Do not use ``.tex`` as suffix, otherwise the file is processed as source files for the PDF build process. Instead, use ``.tex.txt`` or ``.sty``  to avoid conflicts with the LaTeX build process.
 
-.. vale 
 
 Use landscape layout
 ~~~~~~~~~~~~~~~~~~~~
