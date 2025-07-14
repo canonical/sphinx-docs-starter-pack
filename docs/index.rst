@@ -37,3 +37,10 @@ In this documentation
       :link-type: doc
 
       **Technical information** - understand the automatic checks and Sphinx capabilities.
+
+
+.. toctree::
+   :hidden:
+   :glob:
+
+   test/index
