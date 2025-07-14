@@ -213,7 +213,12 @@ sitemap_show_lastmod = True
 # NOTE: If undefined, set to None, or empty,
 #       the sphinx_reredirects extension will be disabled.
 
-redirects = {}
+redirects = {
+    'reference/doc-cheat-sheet-myst/': '/reference/myst-syntax-reference',
+    'reference/doc-cheat-sheet/': '/reference/rst-syntax-reference',
+    'reference/style-guide-myst/': '/reference/myst-syntax-reference',
+    'reference/style-guide/': '/reference/rst-syntax-reference',
+}
 
 
 ###########################
