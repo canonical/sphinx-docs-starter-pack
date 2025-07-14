@@ -205,7 +205,7 @@ ACME's documentation is stored in the `DOCDIR` directory of the repository. It i
 
 For general guidance, refer to the [starter pack guide](https://canonical-starter-pack.readthedocs-hosted.com/latest/).
 
-For syntax help and guidelines, refer to the syntax guides contained in this documentation's reference section.
+For syntax help and guidelines, refer to the syntax guides contained in the [rST](project:#style-guide) and [MyST](project:#myst_style_guide) syntax guides.
 
 In structuring, the documentation employs the [Diátaxis](https://diataxis.fr/) approach.
 
