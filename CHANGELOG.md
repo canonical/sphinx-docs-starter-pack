@@ -5,25 +5,26 @@
 * Replaces spelling check with Vale
 * Fixes the Markdown linting GitHub action and adds a `make lint-md` check.
 * Fixes the download branch name in the update script.
+* Adds a check for removed URLs.
 
 ### Added
 
 * `docs/.sphinx/.pymarkdown.json` [#379](https://github.com/canonical/sphinx-docs-starter-pack/pull/379)
-* `.github/workflows/check-removed-urls.yml` [#]
+* `.github/workflows/check-removed-urls.yml` [#410](https://github.com/canonical/sphinx-docs-starter-pack/pull/410)
 
 ### Changed
 
-* `docs/.sphinx/update_sp.py` [#397](https://github.com/canonical/sphinx-docs-starter-pack/pull/397) [#]
+* `docs/.sphinx/update_sp.py` [#397](https://github.com/canonical/sphinx-docs-starter-pack/pull/397) [#410](https://github.com/canonical/sphinx-docs-starter-pack/pull/410)
 * `.github/workflows/markdown-style-checks.yml` [#379](https://github.com/canonical/sphinx-docs-starter-pack/pull/379)
-* `docs/Makefile` [#379](https://github.com/canonical/sphinx-docs-starter-pack/pull/379) [#]
-* `docs/requirements.txt` [#]
-* `docs/.sphinx/get_vale_conf.py` [#]
+* `docs/Makefile` [#379](https://github.com/canonical/sphinx-docs-starter-pack/pull/379) [#410](https://github.com/canonical/sphinx-docs-starter-pack/pull/410)
+* `docs/requirements.txt` [#410](https://github.com/canonical/sphinx-docs-starter-pack/pull/410)
+* `docs/.sphinx/get_vale_conf.py` [#410](https://github.com/canonical/sphinx-docs-starter-pack/pull/410)
 
 ### Removed
 
 * `docs/.sphinx/.markdownlint.json` [#379](https://github.com/canonical/sphinx-docs-starter-pack/pull/379)
-* `docs/.sphinx/.wordlist.txt` [#]
-* `docs/.sphinx/spellingcheck.yaml` [#]
+* `docs/.sphinx/.wordlist.txt` [#410](https://github.com/canonical/sphinx-docs-starter-pack/pull/410)
+* `docs/.sphinx/spellingcheck.yaml` [#410](https://github.com/canonical/sphinx-docs-starter-pack/pull/410)
 
 
 ## 1.1.0
