@@ -13,6 +13,12 @@ It contains common styling and configuration through the `Canonical Sphinx`_ ext
    How-to guides </how-to/index>
    Reference </reference/index>
 
+.. toctree::
+   :hidden:
+   :glob:
+
+   test/index
+
 In this documentation
 ---------------------
 
@@ -39,8 +45,3 @@ In this documentation
       **Technical information** - understand the automatic checks and Sphinx capabilities.
 
 
-.. toctree::
-   :hidden:
-   :glob:
-
-   test/index
