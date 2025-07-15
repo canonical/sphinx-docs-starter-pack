@@ -25,6 +25,8 @@ Versus:
 Terminal extension
 ------------------
 
+Default:
+
 .. terminal::
    :user: starter-pack
    :host: vm
@@ -41,6 +43,8 @@ Terminal extension
 
    :input: docker container list
    :input: docker image list
+
+With `no-copybutton` class:
 
 .. terminal::
    :class: no-copybutton
@@ -59,3 +63,28 @@ Terminal extension
 
    :input: docker container list
    :input: docker image list
+
+Code block:
+
+.. code-block::
+
+   DRIVER    VOLUME NAME
+   local     afbce5b0348199a3777259a7495a9a9c1bb98d06c5858aec00df4c2df63bb6b8
+   local     community_build-user-builds
+   local     community_postgres_backups_data
+   local     community_postgres_data_16
+   local     community_search_data
+   local     community_storage_data
+
+Code block with `no-copybutton` class:
+
+.. code-block::
+   :class: no-copybutton
+
+   DRIVER    VOLUME NAME
+   local     afbce5b0348199a3777259a7495a9a9c1bb98d06c5858aec00df4c2df63bb6b8
+   local     community_build-user-builds
+   local     community_postgres_backups_data
+   local     community_postgres_data_16
+   local     community_search_data
+   local     community_storage_data
