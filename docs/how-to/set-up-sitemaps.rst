@@ -60,8 +60,6 @@ the following to your ``conf.py`` file:
 
     sitemap_url_scheme = "{link}"
 
-Note that this is the default configuration provided by the starter pack.
-
 To add versioning, this can be done manually, or you can read the version from
 the RTD instance. To implement a manual version:
 
