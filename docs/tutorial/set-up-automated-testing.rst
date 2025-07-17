@@ -159,7 +159,7 @@ appear in our ``task.yaml`` file, again using the ``literalinclude`` directive:
 
   Congratulations! You have created a "Hello, world" script and executed it!
 
-If you were to render the tutorial file using Read The Docs, then the page would
+If you were to render the tutorial file using Sphinx, then the page would
 look like the following:
 
 .. image:: mock-tutorial-example.png
