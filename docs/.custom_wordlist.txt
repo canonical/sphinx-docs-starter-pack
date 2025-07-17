@@ -46,3 +46,4 @@ wordlist
 xetex
 xindy
 xml
+yaml
