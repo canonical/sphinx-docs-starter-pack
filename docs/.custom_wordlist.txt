@@ -46,3 +46,19 @@ wordlist
 xetex
 xindy
 xml
+ip
+spread_test_example
+Furo
+PDF
+Open Graph
+MyST
+YouTube
+reStructuredText
+GitHub
+Sphinx
+URL
+PR
+Read the Docs
+Spread
+landscape
+lastmod

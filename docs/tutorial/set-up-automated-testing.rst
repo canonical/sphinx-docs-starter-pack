@@ -314,7 +314,7 @@ If the test is successful, the terminal will output something similar to the fol
     2025-02-04 16:17:10 Aborted tasks: 0
 
 Another sign of a successful test is whether the Multipass VM was deleted as expected.
-We can check by running ``multipass list``, and if the Spread test was successful
+We can check by running :code:`multipass list`, and if the Spread test was successful
 (and you have no other Multipass VMs created at the time), the terminal should
 respond with the following:
 

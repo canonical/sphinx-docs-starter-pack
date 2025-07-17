@@ -99,6 +99,17 @@ Make sure that your configuration file has::
 
     sitemap_show_lastmod = True
 
+Exclude pages
+-------------
+
+Pages can be excluded from the sitemap by adding them to `sitemap_excludes` in :file:`docs/conf.py`::
+
+    sitemap_excludes = [
+        "genindex/",
+        "404/",
+        "search/",
+    ]
+
 Validating your sitemap
 -----------------------
 
