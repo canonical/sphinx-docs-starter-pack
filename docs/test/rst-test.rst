@@ -44,10 +44,30 @@ Default:
    :input: docker container list
    :input: docker image list
 
-With `no-copybutton` class:
+With `copybutton` class:
 
 .. terminal::
-   :class: no-copybutton
+   :class: copybutton
+   :user: starter-pack
+   :host: vm
+   :dir: Docker/hosting
+   :input: docker volume list
+
+   DRIVER    VOLUME NAME
+   local     afbce5b0348199a3777259a7495a9a9c1bb98d06c5858aec00df4c2df63bb6b8
+   local     community_build-user-builds
+   local     community_postgres_backups_data
+   local     community_postgres_data_16
+   local     community_search_data
+   local     community_storage_data
+
+   :input: docker container list
+   :input: docker image list
+
+With `:copy:` option:
+
+.. terminal::
+   :copy:
    :user: starter-pack
    :host: vm
    :dir: Docker/hosting
