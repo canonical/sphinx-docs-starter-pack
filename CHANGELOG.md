@@ -2,7 +2,7 @@
 
 ## 1.2.0
 
-* Replaces spelling check with Vale
+* Replaces spelling check with Vale.
 * Fixes the Markdown linting GitHub action and adds a `make lint-md` check.
 * Fixes the download branch name in the update script.
 * Adds a check for removed URLs.

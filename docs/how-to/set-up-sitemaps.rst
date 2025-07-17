@@ -104,7 +104,7 @@ Make sure that your configuration file has::
 Exclude pages
 -------------
 
-Pages can be excluded from the sitemap by adding them to `sitemap_excludes` in in :file:`docs/conf.py`::
+Pages can be excluded from the sitemap by adding them to `sitemap_excludes` in :file:`docs/conf.py`::
 
     sitemap_excludes = [
         "genindex/",

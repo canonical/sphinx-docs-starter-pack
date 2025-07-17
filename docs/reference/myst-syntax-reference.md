@@ -676,7 +676,7 @@ By combining file inclusion and substitutions, you can even replace parts of the
 * - ````
 
     % Include parts of the content from
-    % file [rst-syntax-reference.rst](rst-syntax-reference.rst)
+    % file rst-syntax-reference.rst
     ```{include} rst-syntax-reference.rst
         :start-after: "Adhere to the following conventions:"
         :end-before: "  Use the ones specified above."

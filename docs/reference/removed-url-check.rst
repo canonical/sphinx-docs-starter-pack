@@ -1,7 +1,7 @@
 Check for removed URLs
 ======================
 
-As of version 1.2.0, the starter pack includes a GitHub action based check to
+As of version 1.2.0, the starter pack includes a GitHub action to
 identify when page URLs have been removed. This includes moving pages to another
 path, or removing them completely.
 
