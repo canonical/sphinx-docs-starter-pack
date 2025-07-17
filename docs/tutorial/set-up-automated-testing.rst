@@ -54,6 +54,7 @@ In ``spread_test_example/tests/example_tutorial``, paste the following contents
 into a new file ``task.yaml``:
 
 .. code-block:: yaml
+    :caption: ~/spread_test_example/tests/example_tutorial/task.yaml
 
     ###########################################
     # IMPORTANT
@@ -96,6 +97,7 @@ named ``example_tutorial.rst``. To add a title for your tutorial, copy the
 block below to this file. 
 
 .. code-block:: rst
+    :caption: ~/spread_test_example/tests/example_tutorial/example_tutorial.rst
 
     Demonstrate Spread tests capabilities with a "Hello, world" script
     ==================================================================
@@ -109,6 +111,7 @@ create the file themselves, so let's use that language in ``example_tutorial.rst
 when we include the script. Add the following text below the title:
 
 .. code-block:: rst
+  :caption: ~/spread_test_example/tests/example_tutorial/example_tutorial.rst
   :emphasize-lines: 4-7
 
   Demonstrate Spread tests capabilities with a "Hello, world" script
@@ -127,6 +130,7 @@ At the end of the ``example_tutorial.rst`` file, insert the two commands that
 appear in our ``task.yaml`` file, again using the ``literalinclude`` directive:
 
 .. code-block:: rst
+  :caption: ~/spread_test_example/tests/example_tutorial/example_tutorial.rst
   :emphasize-lines: 9-25
 
   Demonstrate Spread tests capabilities with a "Hello, world" script
@@ -171,6 +175,7 @@ Now let's create the Spread test file and include our example tutorial. From the
 following contents:
 
 .. code-block:: yaml
+    :caption: ~/spread_test_example/spread.yaml
 
     project: spread_test_example
 
@@ -184,6 +189,7 @@ Now we need to tell Spread about the ``example_tutorial`` Spread test. Add the
 following section to the end of ``spread.yaml``:
 
 .. code-block:: yaml
+    :caption: ~/spread_test_example/spread.yaml
     :emphasize-lines: 5-9
 
     project: spread_test_example
@@ -194,7 +200,7 @@ following section to the end of ``spread.yaml``:
       tests/:
         summary: example tutorial
         systems:
-        - ubuntu-24.04.64
+          - ubuntu-24.04-64
 
 The ``suites`` section is how we tell Spread about the various Spread tests in
 our project. We tell Spread to look in the ``tests`` directory for all Spread tests
@@ -214,6 +220,7 @@ Include the following ``backends`` section of ``spread.yaml`` between the ``path
 ``suites`` sections:
 
 .. code-block:: yaml
+    :caption: ~/spread_test_example/spread.yaml
     :emphasize-lines: 5-40
 
     project: spread_test_example
@@ -261,7 +268,7 @@ Include the following ``backends`` section of ``spread.yaml`` between the ``path
       tests/:
         summary: example tutorial
         systems:
-        - ubuntu-24.04.64
+          - ubuntu-24.04-64
 
 The ``backends`` section contains the following sections:
 
@@ -309,6 +316,7 @@ connecting to the VM, sending the Spread test to the VM and executing the test.
 If the test is successful, the terminal will output something similar to the following:
 
 .. terminal::
+    :dir: spread_test_example
 
     2025-02-04 16:17:10 Successful tasks: 1
     2025-02-04 16:17:10 Aborted tasks: 0
@@ -329,6 +337,7 @@ Multipass VM so that additional debugging can happen. In that case, the terminal
 will output something similar to the following:
 
 .. terminal::
+    :dir: spread_test_example
 
     2025-02-04 16:17:10 Starting shell to debug...
     2025-02-04 16:17:10 Sending script for multipass:ubuntu-24.04-64 (multipass:ubuntu-24.04-64:tests/example_tutorial):
