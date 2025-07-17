@@ -299,7 +299,7 @@ It is based on the `Canonical starter pack
 and hosted on `Read the Docs <https://about.readthedocs.com/>`_.
 
 For syntax help and guidelines,
-refer to the Canonical style guides
+refer to the Canonical syntax guides
 (:ref:`reStructuredText <style-guide>` and :ref:`MyST <myst_style_guide>`).
 
 In structuring,
