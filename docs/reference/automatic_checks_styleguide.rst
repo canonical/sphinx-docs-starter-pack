@@ -105,7 +105,7 @@ Use the ``:vale-ignore:`` role to ignore specific words inline, but first ensure
       :class: vale-ignore
   """
 
-.. warning::
+.. important::
 
     The spelling check might still flag some terms that contain hyphens or spaces.
 
