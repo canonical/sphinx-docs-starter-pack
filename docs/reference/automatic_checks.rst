@@ -16,23 +16,18 @@ The following checks are available:
 Install prerequisite software
 -----------------------------
 
-The tools used by the automatic checks need ``npm`` and ``python3-venv``. 
-
-Install ``npm`` using the appropriate method for your operating system using your preferred package manager, by following the `node version  manager installation process <https://docs.npmjs.com/downloading-and-installing-node-js-and-npm#using-a-node-version-manager-to-install-nodejs-and-npm>`_, or for Debian and Ubuntu Linux flavors with the ``sudo apt install npm`` command.
-
-Similarly, if your system does not already have ``python3-venv``
+Some of the tools used by the automatic checks need ``npm``. Install ``npm`` using the appropriate method for your operating system through your preferred package manager, by following the `node version  manager installation process <https://docs.npmjs.com/downloading-and-installing-node-js-and-npm#using-a-node-version-manager-to-install-nodejs-and-npm>`_, or for Debian and Ubuntu Linux flavors with the ``sudo apt install npm`` command.
 
 To install the validation tools:
 
 .. code-block:: bash
 
-   make woke-install
    make pa11y-install
    make pymarkdownlnt-install  # if using Markdown
 
 .. note::
 
-   Both `woke` and `pa11y` are non-blocking checks in our current documentation workflow.
+   `pa11y` is non-blocking check in our current documentation workflow.
 
 Default GitHub actions
 ----------------------
