@@ -16,10 +16,11 @@ The following checks are available:
 Install prerequisite software
 -----------------------------
 
-Some of the tools used by the automatic checks might not be available by default on your system.
-To install them, you need ``snap`` and ``npm``::
+The tools used by the automatic checks need ``npm`` and ``python3-venv``. 
 
-   sudo apt install npm snapd
+Install ``npm`` using the appropriate method for your operating system using your preferred package manager, by following the `node version  manager installation process <https://docs.npmjs.com/downloading-and-installing-node-js-and-npm#using-a-node-version-manager-to-install-nodejs-and-npm>`_, or for Debian and Ubuntu Linux flavors with the ``sudo apt install npm`` command.
+
+Similarly, if your system does not already have ``python3-venv``
 
 To install the validation tools:
 
