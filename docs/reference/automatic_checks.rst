@@ -25,6 +25,7 @@ Some of the tools used by the automatic checks need ``npm``. Install ``npm`` usi
 To install the validation tools:
 
 .. code-block:: bash
+
    make pa11y-install
    make pymarkdownlnt-install  # if using Markdown
 
