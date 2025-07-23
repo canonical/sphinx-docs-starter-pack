@@ -16,18 +16,21 @@ The following checks are available:
 Install prerequisite software
 -----------------------------
 
-Some of the tools used by the automatic checks need ``npm``. Install ``npm`` using the appropriate method for your operating system through your preferred package manager, by following the `node version  manager installation process <https://docs.npmjs.com/downloading-and-installing-node-js-and-npm#using-a-node-version-manager-to-install-nodejs-and-npm>`_, or for Debian and Ubuntu Linux flavors with the ``sudo apt install npm`` command.
+Some of the tools used by the automatic checks need ``npm``. Install ``npm`` using the appropriate method for your operating system through one of the follow methods: 
+
+* Your preferred package manager 
+* By following the `node version  manager installation process <https://docs.npmjs.com/downloading-and-installing-node-js-and-npm#using-a-node-version-manager-to-install-nodejs-and-npm>`_
+* For Debian and Ubuntu Linux flavors, the ``sudo apt install npm`` command.
 
 To install the validation tools:
 
 .. code-block:: bash
-
    make pa11y-install
    make pymarkdownlnt-install  # if using Markdown
 
 .. note::
 
-   `pa11y` is non-blocking check in our current documentation workflow.
+   `pa11y` is a non-blocking check in our current documentation workflow.
 
 Default GitHub actions
 ----------------------
