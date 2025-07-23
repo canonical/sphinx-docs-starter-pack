@@ -16,7 +16,7 @@ The following checks are available:
 Install prerequisite software
 -----------------------------
 
-Some of the tools used by the automatic checks need ``npm``. Install ``npm`` using the appropriate method for your operating system through one of the follow methods: 
+Some of the tools used by the automatic checks need ``npm``. Install ``npm`` using the appropriate method for your operating system through one of the following methods: 
 
 * Your preferred package manager 
 * By following the `node version  manager installation process <https://docs.npmjs.com/downloading-and-installing-node-js-and-npm#using-a-node-version-manager-to-install-nodejs-and-npm>`_
