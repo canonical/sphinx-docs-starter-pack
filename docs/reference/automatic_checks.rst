@@ -20,7 +20,7 @@ Some of the tools used by the automatic checks need ``npm``. Install ``npm`` usi
 
 * Your preferred package manager 
 * By following the `node version  manager installation process <https://docs.npmjs.com/downloading-and-installing-node-js-and-npm#using-a-node-version-manager-to-install-nodejs-and-npm>`_
-* For Debian and Ubuntu Linux flavors, the ``sudo apt install npm`` command.
+* For Debian and Ubuntu Linux flavors, the ``sudo apt install npm`` command
 
 To install the validation tools:
 
