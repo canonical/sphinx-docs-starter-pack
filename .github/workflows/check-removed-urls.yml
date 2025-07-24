@@ -49,5 +49,6 @@ jobs:
           if [ -n "$removed" ]; then
             echo "The following URLs were removed:"
             echo "$removed"
+            echo "Please ensure removed pages are redirected"
             exit 1
           fi
