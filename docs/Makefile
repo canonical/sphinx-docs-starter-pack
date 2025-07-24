@@ -44,7 +44,7 @@ help:
 	@echo
 
 .PHONY: help full‑help html epub pdf linkcheck spelling spellcheck woke \
-        vale pa11y run serve install spellcheck‑install pa11y‑install   \
+        vale pa11y run serve install pa11y‑install   \
         vale‑install pdf‑prep pdf‑prep‑force clean clean‑doc allmetrics \
         update lint-md
 
@@ -64,21 +64,6 @@ $(VENVDIR):
             mv $(VENVDIR)/pip_list.txt $(VENVDIR)/pip_list.txt.bak
 	@. $(VENV); pip list --local --format=freeze > $(VENVDIR)/pip_list.txt
 	@touch $(VENVDIR)
-
-spellcheck-install:
-	@command -v aspell >/dev/null || \
-	{ \
-		echo "Installing system-wide \"aspell\" packages..."; \
-		confirm_sudo=$(CONFIRM_SUDO); \
-		if [ "$$confirm_sudo" != "y" ] && [ "$$confirm_sudo" != "Y" ]; then \
-			read -p "This requires sudo privileges. Proceed? [y/N]: " confirm_sudo; \
-		fi; \
-		if [ "$$confirm_sudo" = "y" ] || [ "$$confirm_sudo" = "Y" ]; then \
-			sudo apt-get install aspell aspell-en; \
-		else \
-			echo "Installation cancelled."; \
-		fi \
-	}
 
 pa11y-install:
 	@command -v $(PA11Y) >/dev/null || { \
