@@ -1,5 +1,21 @@
 # sphinx-docs-starter-pack changelog
 
+## Upcoming
+
+* Changes metrics script to a less brittle Python script
+
+### Added
+
+* `docs/.sphinx/metrics/build_metrics.py` [#373](https://github.com/canonical/sphinx-docs-starter-pack/pull/373)
+
+## Changed
+
+* `docs/Makefile` [#373](https://github.com/canonical/sphinx-docs-starter-pack/pull/373)
+
+### Removed
+
+* `docs/.sphinx/metrics/build_metrics.py` [#373](https://github.com/canonical/sphinx-docs-starter-pack/pull/373)
+
 ## 1.2.0
 
 * Replaces spelling check with Vale.
