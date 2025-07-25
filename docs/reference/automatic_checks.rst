@@ -16,22 +16,22 @@ The following checks are available:
 Install prerequisite software
 -----------------------------
 
-Some of the tools used by the automatic checks might not be available by default on your system.
-To install them, you need ``snap`` and ``npm``::
+Some of the tools used by the automatic checks require ``npm``. Install ``npm`` using the appropriate method for your operating system through one of the following methods: 
 
-   sudo apt install npm snapd
+* Your preferred package manager 
+* By following the `node version manager installation process <https://docs.npmjs.com/downloading-and-installing-node-js-and-npm#using-a-node-version-manager-to-install-nodejs-and-npm>`_
+* For Debian and Ubuntu Linux distributions, the ``sudo apt install npm`` command
 
 To install the validation tools:
 
 .. code-block:: bash
 
-   make woke-install
    make pa11y-install
    make pymarkdownlnt-install  # if using Markdown
 
 .. note::
 
-   Both `woke` and `pa11y` are non-blocking checks in our current documentation workflow.
+   `pa11y` is a non-blocking check in our current documentation workflow.
 
 Default GitHub actions
 ----------------------
