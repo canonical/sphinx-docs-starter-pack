@@ -2,15 +2,15 @@
 
 .. _style-guide:
 
-reStructuredText style guide
-============================
+reStructuredText syntax reference
+=================================
 
 The documentation files use `reStructuredText`_ (reST) syntax.
 
 See the following sections for syntax help and conventions.
 
 .. note::
-   This style guide assumes that you are using the `Sphinx documentation starter pack`_.
+   This guide assumes that you are using the `Sphinx documentation starter pack`_.
    Some of the mentioned syntax requires Sphinx extensions (which are enabled in the starter pack).
 
 For general style conventions, see the `Canonical Documentation Style Guide`_.
@@ -335,7 +335,7 @@ Internal references
 
 You can reference pages and targets in this documentation set, and also in other documentation sets using Intersphinx.
 
-.. _section_target:
+.. _a_section_target:
 
 Referencing a section
 ^^^^^^^^^^^^^^^^^^^^^

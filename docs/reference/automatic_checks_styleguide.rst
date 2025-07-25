@@ -94,3 +94,19 @@ For |RST|:
 .. note:: 
 
     The `.. class::` directive does not need to encapsulate content, it applies to the next logical block (which can be another directive or even a paragraph of content).
+
+Exempt words
+------------
+
+Use the ``:vale-ignore:`` role to ignore specific words inline, but first ensure your configuration file contains a class association in the ``rst_prolog``::
+
+  rst_prolog = """
+  .. role:: vale-ignore
+      :class: vale-ignore
+  """
+
+.. important::
+
+    The spelling check might still flag some terms that contain hyphens or spaces.
+
+    For example, "Juju 3" was unable to be ignored by this method, and `needed to be added to the a specific exception within a rule <https://github.com/canonical/documentation-style-guide/blob/a6f530b07d774bee67dd79d146ae5bbedc9ddef1/styles/Canonical/013-Spell-out-numbers-below-10.yml#L15>`_.

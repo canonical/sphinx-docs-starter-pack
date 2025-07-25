@@ -44,7 +44,7 @@ help:
 	@echo
 
 .PHONY: help full‑help html epub pdf linkcheck spelling spellcheck woke \
-        vale pa11y run serve install spellcheck‑install pa11y‑install   \
+        vale pa11y run serve install pa11y‑install   \
         vale‑install pdf‑prep pdf‑prep‑force clean clean‑doc allmetrics \
         update lint-md
 
@@ -64,21 +64,6 @@ $(VENVDIR):
             mv $(VENVDIR)/pip_list.txt $(VENVDIR)/pip_list.txt.bak
 	@. $(VENV); pip list --local --format=freeze > $(VENVDIR)/pip_list.txt
 	@touch $(VENVDIR)
-
-spellcheck-install:
-	@command -v aspell >/dev/null || \
-	{ \
-		echo "Installing system-wide \"aspell\" packages..."; \
-		confirm_sudo=$(CONFIRM_SUDO); \
-		if [ "$$confirm_sudo" != "y" ] && [ "$$confirm_sudo" != "Y" ]; then \
-			read -p "This requires sudo privileges. Proceed? [y/N]: " confirm_sudo; \
-		fi; \
-		if [ "$$confirm_sudo" = "y" ] || [ "$$confirm_sudo" = "Y" ]; then \
-			sudo apt-get install aspell aspell-en; \
-		else \
-			echo "Installation cancelled."; \
-		fi \
-	}
 
 pa11y-install:
 	@command -v $(PA11Y) >/dev/null || { \
@@ -116,11 +101,6 @@ clean-doc:
 	git clean -fx "$(BUILDDIR)"
 	rm -rf $(SPHINXDIR)/.doctrees
 
-spellcheck: spellcheck-install
-	. $(VENV) ; python3 -m pyspelling -c $(SPHINXDIR)/spellingcheck.yaml -j $(shell nproc)
-
-spelling: html spellcheck
-
 linkcheck: install
 	. $(VENV) ; $(SPHINXBUILD) -b linkcheck "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) || { grep --color -F "[broken]" "$(BUILDDIR)/output.txt"; exit 1; }
 	exit 0
@@ -141,24 +121,27 @@ vale-install: install
 
 woke: vale-install
 	@cat $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept.txt > $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept_backup.txt
-	@cat $(SPHINXDIR)/.wordlist.txt $(SOURCEDIR)/.custom_wordlist.txt >> $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept.txt
+	@cat $(SOURCEDIR)/.custom_wordlist.txt >> $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept.txt
 	@echo "Running Vale acceptable term check against $(TARGET). To change target set TARGET= with make command"
 	@. $(VENV); vale --config="$(VALE_CONFIG)" --filter='$(SPHINXDIR)/styles/woke.filter' --glob='*.{md,rst}' $(TARGET)
 	@cat $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept_backup.txt > $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept.txt && rm $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept_backup.txt
 
 vale: vale-install
 	@cat $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept.txt > $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept_backup.txt
-	@cat $(SPHINXDIR)/.wordlist.txt $(SOURCEDIR)/.custom_wordlist.txt >> $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept.txt
+	@cat $(SOURCEDIR)/.custom_wordlist.txt >> $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept.txt
 	@echo "Running Vale against $(TARGET). To change target set TARGET= with make command"
 	@. $(VENV); vale --config="$(VALE_CONFIG)" --filter='$(SPHINXDIR)/styles/error.filter' --glob='*.{md,rst}' $(TARGET)
 	@cat $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept_backup.txt > $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept.txt && rm $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept_backup.txt
 
-vale-spelling: vale-install
+spelling: vale-install
 	@cat $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept.txt > $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept_backup.txt
-	@cat $(SPHINXDIR)/.wordlist.txt $(SOURCEDIR)/.custom_wordlist.txt >> $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept.txt
+	@cat $(SOURCEDIR)/.custom_wordlist.txt >> $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept.txt
 	@echo "Running Vale against $(TARGET). To change target set TARGET= with make command"
 	@. $(VENV); vale --config="$(VALE_CONFIG)" --filter='$(SPHINXDIR)/styles/spelling.filter' --glob='*.{md,rst}' $(TARGET)
 	@cat $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept_backup.txt > $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept.txt && rm $(SPHINXDIR)/styles/config/vocabularies/Canonical/accept_backup.txt
+
+spellcheck: spelling
+	@echo "Please note that the \`make spellcheck\` command is being deprecated in favor of \`make spelling\`"
 
 pdf-prep: install
 	@for packageName in $(REQPDFPACKS); do (dpkg-query -W -f='$${Status}' $$packageName 2>/dev/null | \

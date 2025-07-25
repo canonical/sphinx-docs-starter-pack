@@ -11,7 +11,7 @@ The starter pack supports PDF output via LaTeX using the ``make pdf`` command. T
 Customising PDF output involves two levels of configuration:
 
 * **Sphinx configuration**: built-in options for configuring LaTeX build process in :file:`conf.py`, for example: the engine used to generate the PDF, output file name, and input file paths.
-* **LaTeX configuration**: the LaTeX packages, styling, and configuration for the PDF output, set through the `latex_elements <https://www.sphinx-doc.org/en/master/latex.html#the-latex-elements-configuration-setting>`_ dictionary in the project :file:`conf.py`. In the starter-pack, a default set of LaTeX elements is provided by the ``canonical-sphinx`` extension. Changing the LaTeX configuration requires overriding the default values loaded from the extension.
+* **LaTeX configuration**: the LaTeX packages, styling, and configuration for the PDF output, set through the :literalref:`latex_elements <https://www.sphinx-doc.org/en/master/latex.html#the-latex-elements-configuration-setting>` dictionary in the project :file:`conf.py`. In the starter-pack, a default set of LaTeX elements is provided by the ``canonical-sphinx`` extension. Changing the LaTeX configuration requires overriding the default values loaded from the extension.
 
 This guide covers common practices and tips for customising PDF output from your documentation project using the starter pack and the ``canonical-sphinx`` extension.
 
@@ -20,7 +20,7 @@ For basic instructions about building the PDF, see :doc:`build`.
 Configure document properties
 -----------------------------
 
-The `latex_documents <https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-latex_documents>`_ variable in the Sphinx :file:`conf.py` file controls properties of the intermediate LaTeX file and the final PDF output. The values are defined in a tuple of six elements:
+The :literalref:`latex_documents <https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-latex_documents>` variable in the Sphinx :file:`conf.py` file controls properties of the intermediate LaTeX file and the final PDF output. The values are defined in a tuple of six elements:
 
 .. code-block:: python
 
@@ -46,7 +46,7 @@ The `latex_documents <https://www.sphinx-doc.org/en/master/usage/configuration.h
 
 * ``toctree_only``: Boolean. If set to True, the ``startdocname`` document itself is not included in the output, only the documents referenced by the ``toctree`` directive are included. This is useful for creating a PDF-specific index file.
 
-For more details, see `latex_documents`_ in the Sphinx documentation.
+For more details, see `latex_documents <https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-latex_documents>`_ in the Sphinx documentation.
 
 
 Change PDF document filename
@@ -144,6 +144,7 @@ You can use two methods to add additional LaTeX packages to the preamble:
 * Add the ``extrapackages`` key in your local template file:
 
   .. code-block:: python
+     :class: vale-ignore
      :emphasize-lines: 3
 
      {
@@ -194,6 +195,7 @@ Provide a ``latex_additional_files`` variable in :file:`conf.py` as a list of fi
    For better quality in the PDF output, it is recommended to use vector images (like SVG or PDF) rather than raster images (like PNG or JPEG). Raster images may lose quality when scaled up in the PDF.
 
    Do not use ``.tex`` as suffix, otherwise the file is processed as source files for the PDF build process. Instead, use ``.tex.txt`` or ``.sty``  to avoid conflicts with the LaTeX build process.
+
 
 Use landscape layout
 ~~~~~~~~~~~~~~~~~~~~

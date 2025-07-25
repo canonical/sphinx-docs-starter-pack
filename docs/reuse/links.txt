@@ -35,7 +35,7 @@
 .. _tables: https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#table-directives
 .. _toctree: https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree
 .. _Vale: https://vale.sh/
-.. _Vale rules: https://github.com/canonical/praecepta
+.. _Vale rules: https://github.com/canonical/documentation-style-guide
 .. _Web Content Accessibility Guidelines (WCAG) 2.2: https://www.w3.org/TR/WCAG22/
 
 
