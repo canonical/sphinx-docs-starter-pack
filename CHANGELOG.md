@@ -1,5 +1,45 @@
 # sphinx-docs-starter-pack changelog
 
+## 1.2.0
+
+* Replaces spelling check with Vale.
+* Fixes the Markdown linting GitHub action and adds a `make lint-md` check.
+* Fixes the download branch name in the update script.
+* Adds a check for removed URLs.
+
+### Added
+
+* `docs/.sphinx/.pymarkdown.json` [#379](https://github.com/canonical/sphinx-docs-starter-pack/pull/379)
+* `.github/workflows/check-removed-urls.yml` [#410](https://github.com/canonical/sphinx-docs-starter-pack/pull/410)
+
+### Changed
+
+* `docs/.sphinx/update_sp.py` [#397](https://github.com/canonical/sphinx-docs-starter-pack/pull/397) [#410](https://github.com/canonical/sphinx-docs-starter-pack/pull/410)
+* `.github/workflows/markdown-style-checks.yml` [#379](https://github.com/canonical/sphinx-docs-starter-pack/pull/379)
+* `docs/Makefile` [#379](https://github.com/canonical/sphinx-docs-starter-pack/pull/379) [#410](https://github.com/canonical/sphinx-docs-starter-pack/pull/410)
+* `docs/requirements.txt` [#410](https://github.com/canonical/sphinx-docs-starter-pack/pull/410)
+* `docs/.sphinx/get_vale_conf.py` [#410](https://github.com/canonical/sphinx-docs-starter-pack/pull/410)
+
+### Removed
+
+* `docs/.sphinx/.markdownlint.json` [#379](https://github.com/canonical/sphinx-docs-starter-pack/pull/379)
+* `docs/.sphinx/.wordlist.txt` [#410](https://github.com/canonical/sphinx-docs-starter-pack/pull/410)
+* `docs/.sphinx/spellingcheck.yaml` [#410](https://github.com/canonical/sphinx-docs-starter-pack/pull/410)
+
+
+## 1.1.0
+
+* Adds sitemap support.
+* Simplifies vale binary download & install.
+* Leaves vale install output in STDOUT to reveal potential problems.
+* Improves update logic.
+* Update Makefile logic
+
+### Changed
+
+* `docs/conf.py` [#389](https://github.com/canonical/sphinx-docs-starter-pack/pull/389)
+* `docs/requirements.txt`(https://github.com/canonical/sphinx-docs-starter-pack/pull/389)
+
 ## 1.0.1
 
 Fixes an issue with Vale implementation, and adds words to main wordlist.

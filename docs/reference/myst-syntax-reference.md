@@ -1,5 +1,5 @@
 ---
-relatedlinks: https://github.com/canonical/canonical-sphinx-extensions, https://tinyurl.com/rstprimer, [Canonical&#32;Documentation&#32;Style&#32;Guide](https://docs.ubuntu.com/styleguide/en)
+relatedlinks: https://github.com/canonical/canonical-sphinx-extensions, [reStructuredText&#32;Primer](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html), [Canonical&#32;Documentation&#32;Style&#32;Guide](https://docs.ubuntu.com/styleguide/en)
 myst:
   substitutions:
     advanced_reuse_key: "This is a substitution that includes a code block:
@@ -10,14 +10,14 @@ myst:
 
 (myst_style_guide)=
 
-# MyST style guide
+# MyST syntax guide
 
 The documentation files use a mixture of [Markdown](https://commonmark.org/) and [MyST](https://myst-parser.readthedocs.io/) syntax.
 
 See the following sections for syntax help and conventions.
 
 ```{note}
-This style guide assumes that you are using the [Sphinx documentation starter pack](https://github.com/canonical/starter-pack).
+This guide assumes that you are using the [Sphinx documentation starter pack](https://github.com/canonical/starter-pack).
 Some of the mentioned syntax requires Sphinx extensions (which are enabled in the starter pack).
 ```
 
@@ -274,7 +274,8 @@ To override the title, add the `:title:` option.
 
 For internal references, both Markdown and MyST syntax are supported. In most cases, you should use MyST syntax though, because it resolves the link text automatically and gives an indication of the link in GitHub rendering.
 
-(section_target_myst)=
+(a_section_target_myst)=
+
 #### Referencing a section
 
 To reference a section within the documentation (either on the same page or on another page), add a target to that section and reference that target.
@@ -282,6 +283,7 @@ To reference a section within the documentation (either on the same page or on a
 You can add targets at any place in the documentation. However, if there is no heading or title for the targeted element, you must specify a link text.
 
 (a_random_target_myst)=
+
 ```{list-table}
    :header-rows: 1
 
@@ -674,19 +676,19 @@ By combining file inclusion and substitutions, you can even replace parts of the
 * - ````
 
     % Include parts of the content from
-    % file [style-guide.rst](style-guide.rst)
-    ```{include} style-guide.rst
+    % file rst-syntax-reference.rst
+    ```{include} rst-syntax-reference.rst
         :start-after: "Adhere to the following conventions:"
-        :end-before: "- Do not skip levels"
+        :end-before: "  Use the ones specified above."
     ```
 
     ````
 
   -
-    % Include parts of the content from file [style-guide.rst](style-guide.rst)
-    ```{include} style-guide.rst
+    % Include parts of the content from file [rst-syntax-reference.rst](rst-syntax-reference.rst)
+    ```{include} rst-syntax-reference.rst
         :start-after: "Adhere to the following conventions:"
-        :end-before: "- Do not skip levels"
+        :end-before: "  Use the ones specified above."
     ```
 
 `````
@@ -699,46 +701,7 @@ Adhere to the following convention:
 
 ## Tabs
 
-The recommended way of creating tabs is to use the [Sphinx tabs](https://sphinx-tabs.readthedocs.io/en/latest/) extension, which remembers the selected tab (also when navigating to other pages).
-
-``````{list-table}
-   :header-rows: 1
-
-* - Input
-  - Output
-* - `````
-
-    ````{tabs}
-
-    ```{group-tab} Tab 1
-
-    Content Tab 1
-    ```
-
-    ```{group-tab} Tab 2
-
-    Content Tab 2
-    ```
-
-    ````
-
-    `````
-
-  - ````{tabs}
-
-    ```{group-tab} Tab 1
-
-    Content Tab 1
-    ```
-
-    ```{group-tab} Tab 2
-
-    Content Tab 2
-    ```
-    ````
-``````
-
-Alternatively, if you use tabs only occasionally and don't want to include an additional extension for them, you can use the basic tabs that the [Sphinx design](https://sphinx-design.readthedocs.io/en/latest/) extension provides.
+The recommended way of creating tabs is to use the tabs that the [Sphinx design](https://sphinx-design.readthedocs.io/en/latest/) extension provides.
 
 ``````{list-table}
    :header-rows: 1
@@ -775,6 +738,45 @@ Alternatively, if you use tabs only occasionally and don't want to include an ad
 
     ```{tab-item} Tab 2
     :sync: key2
+
+    Content Tab 2
+    ```
+    ````
+``````
+
+Alternatively, you can use the [Sphinx tabs](https://sphinx-tabs.readthedocs.io/en/latest/) extension, which is also enabled by default. This was previously recommended due to limitations in Sphinx Design that are now fixed.
+
+``````{list-table}
+   :header-rows: 1
+
+* - Input
+  - Output
+* - `````
+
+    ````{tabs}
+
+    ```{group-tab} Tab 1
+
+    Content Tab 1
+    ```
+
+    ```{group-tab} Tab 2
+
+    Content Tab 2
+    ```
+
+    ````
+
+    `````
+
+  - ````{tabs}
+
+    ```{group-tab} Tab 1
+
+    Content Tab 1
+    ```
+
+    ```{group-tab} Tab 2
 
     Content Tab 2
     ```

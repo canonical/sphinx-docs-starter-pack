@@ -1,5 +1,4 @@
 import datetime
-import ast
 import os
 import yaml
 
@@ -172,8 +171,30 @@ html_context = {
 
 # slug = ''
 
+#######################
+# Sitemap configuration: https://sphinx-sitemap.readthedocs.io/
+#######################
 
+# Base URL of RTD hosted project
+
+html_baseurl = 'https://canonical-starter-pack.readthedocs-hosted.com/'
+
+# URL scheme. Add language and version scheme elements.
+# When configured with RTD variables, check for RTD environment so manual runs succeed:
+
+if 'READTHEDOCS_VERSION' in os.environ:
+    version = os.environ["READTHEDOCS_VERSION"]
+    sitemap_url_scheme = '{version}{link}'
+else:
+    sitemap_url_scheme = 'MANUAL/{link}'
+
+# Include `lastmod` dates in the sitemap:
+
+sitemap_show_lastmod = True
+
+#######################
 # Template and asset locations
+#######################
 
 #html_static_path = ["_static"]
 #templates_path = ["_templates"]
@@ -192,7 +213,12 @@ html_context = {
 # NOTE: If undefined, set to None, or empty,
 #       the sphinx_reredirects extension will be disabled.
 
-redirects = {}
+redirects = {
+    'reference/doc-cheat-sheet-myst/': '/reference/myst-syntax-reference',
+    'reference/doc-cheat-sheet/': '/reference/rst-syntax-reference',
+    'reference/style-guide-myst/': '/reference/myst-syntax-reference',
+    'reference/style-guide/': '/reference/rst-syntax-reference',
+}
 
 
 ###########################
@@ -253,6 +279,7 @@ extensions = [
     "sphinxcontrib.cairosvgconverter",
     "sphinx_last_updated_by_git",
     "sphinx.ext.intersphinx",
+    "sphinx_sitemap",
 ]
 
 # Excludes files or directories from processing

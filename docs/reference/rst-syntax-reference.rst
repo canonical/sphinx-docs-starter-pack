@@ -1,16 +1,16 @@
-:relatedlinks: https://github.com/canonical/lxd-sphinx-extensions, https://tinyurl.com/rstprimer, [Canonical&#32;Documentation&#32;Style&#32;Guide](https://docs.ubuntu.com/styleguide/en)
+:relatedlinks: https://github.com/canonical/lxd-sphinx-extensions, [reStructuredText&#32;Primer](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html), [Canonical&#32;Documentation&#32;Style&#32;Guide](https://docs.ubuntu.com/styleguide/en)
 
 .. _style-guide:
 
-reStructuredText style guide
-============================
+reStructuredText syntax reference
+=================================
 
 The documentation files use `reStructuredText`_ (reST) syntax.
 
 See the following sections for syntax help and conventions.
 
 .. note::
-   This style guide assumes that you are using the `Sphinx documentation starter pack`_.
+   This guide assumes that you are using the `Sphinx documentation starter pack`_.
    Some of the mentioned syntax requires Sphinx extensions (which are enabled in the starter pack).
 
 For general style conventions, see the `Canonical Documentation Style Guide`_.
@@ -49,14 +49,13 @@ Headings
           .......
      - H5 heading
 
-Underlines must be the same length as the title or heading.
+Underlines must be at least as long as the title or heading.
 
 Adhere to the following conventions:
 
 - Do not use consecutive headings without intervening text.
 - Be consistent with the characters you use for each level.
   Use the ones specified above.
-- Do not skip levels (for example, do not follow an H2 heading with an H4 heading).
 - Use sentence style for headings (capitalise only the first word).
 
 Inline formatting
@@ -286,6 +285,30 @@ Then add the following field at the top of the page (where ``12345`` is the ID o
 
   :discourse: 12345
 
+Manual-page links
+^^^^^^^^^^^^^^^^^
+
+When mentioning command line utilities, you may wish to link to the
+corresponding manual page for the command. Ensure that the ``manpages_url``
+setting in your :file:`conf.py` is set appropriately and use the ``:manpage:``
+inline role within your text to create a link.
+
+For example, to link to man pages from the 24.04 LTS (Noble Numbat) release,
+include the following in your :file:`conf.py`:
+
+.. code-block:: python
+
+    manpages_url = "https://manpages.ubuntu.com/manpages/noble/en/man{section}/{page}.{section}.html"
+
+Then within your documentation, use the following reST:
+
+.. code-block:: rst
+
+    You can use the :manpage:`dd(1)` utility to write the disk image to your
+    SD card. If the image is compressed, use :manpage:`aunpack(1)` to extract
+    it first.
+
+
 YouTube links
 ^^^^^^^^^^^^^
 
@@ -312,7 +335,7 @@ Internal references
 
 You can reference pages and targets in this documentation set, and also in other documentation sets using Intersphinx.
 
-.. _section_target:
+.. _a_section_target:
 
 Referencing a section
 ^^^^^^^^^^^^^^^^^^^^^
@@ -433,9 +456,9 @@ Lists
 
 You can also nest lists:
 
-.. tabs::
+.. tab-set::
 
-   .. group-tab:: Input
+   .. tab-item:: Input
 
       .. code::
 
@@ -454,7 +477,7 @@ You can also nest lists:
 
                - Item
             #. Sub-step 2
-   .. group-tab:: Output
+   .. tab-item:: Output
 
 
 
@@ -572,28 +595,16 @@ Notes
           A note.
    * - .. code::
 
-          .. tip::
-             A tip.
-     - .. tip::
-          A tip.
-   * - .. code::
-
-          .. important::
-             Important information
-     - .. important::
-          Important information
-   * - .. code::
-
-          .. caution::
+          .. warning::
              This might damage your hardware!
-     - .. caution::
+     - .. warning::
           This might damage your hardware!
 
 Adhere to the following conventions:
 
 - Use notes sparingly.
-- Only use the following note types: ``note``, ``tip``, ``important``, ``caution``
-- Only use a caution if there is a clear hazard of hardware damage or data loss.
+- Only use the following note types: ``note``, ``warning``
+- Only use a warning if there is a clear hazard of hardware damage or data loss.
 
 Images
 ------
@@ -622,6 +633,8 @@ Adhere to the following conventions:
 
 - For local pictures, start the path with :file:`/` (for example, :file:`/images/image.png`).
 - Use ``PNG`` format for screenshots and ``SVG`` format for graphics.
+- If producing multiple output formats, use ``*`` as the file extension to have
+  Sphinx select the best image format for the output
 - See `Five golden rules for compliant alt text`_ for information about how to word the alt text.
 
 Reuse
@@ -740,38 +753,7 @@ Adhere to the following conventions:
 Tabs
 ----
 
-The recommended way of creating tabs is to use the `Sphinx tabs`_ extension, which remembers the selected tab (also when navigating to other pages).
-
-.. list-table::
-   :header-rows: 1
-
-   * - Input
-     - Output
-   * - .. code::
-
-          .. tabs::
-
-             .. group-tab:: Tab 1
-
-                Content Tab 1
-
-             .. group-tab:: Tab 2
-
-                Content Tab 2
-     - .. tabs::
-
-          .. group-tab:: Tab 1
-
-             Content Tab 1
-
-          .. group-tab:: Tab 2
-
-             Content Tab 2
-
-Alternatively, if you use tabs only occasionally and don't want to include an additional extension for them, you can use the basic tabs that the `Sphinx design`_ extension provides.
-
-.. note::
-   The Sphinx design tabs sync within a page, but if you navigate to another page, the selection is lost.
+The recommended way of creating tabs is to use the tabs that the `Sphinx design`_ extension provides.
 
 .. list-table::
    :header-rows: 1
@@ -802,6 +784,34 @@ Alternatively, if you use tabs only occasionally and don't want to include an ad
             :sync: key2
 
             Content Tab 2
+
+Alternatively, you can use the `Sphinx tabs`_ extension, which is also enabled by default. This was previously recommended due to limitations in Sphinx Design that are now fixed.
+
+.. list-table::
+   :header-rows: 1
+
+   * - Input
+     - Output
+   * - .. code::
+
+          .. tabs::
+
+             .. group-tab:: Tab 1
+
+                Content Tab 1
+
+             .. group-tab:: Tab 2
+
+                Content Tab 2
+     - .. tabs::
+
+          .. group-tab:: Tab 1
+
+             Content Tab 1
+
+          .. group-tab:: Tab 2
+
+             Content Tab 2
 
 Glossary
 --------
