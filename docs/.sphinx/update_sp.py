@@ -17,6 +17,7 @@ import subprocess
 import sys
 from requests.exceptions import RequestException
 from packaging.version import parse as parse_version
+
 SPHINX_DIR = os.path.abspath(os.path.dirname(__file__))
 SPHINX_UPDATE_DIR = os.path.join(SPHINX_DIR, "update")
 GITHUB_REPO = "canonical/sphinx-docs-starter-pack"
