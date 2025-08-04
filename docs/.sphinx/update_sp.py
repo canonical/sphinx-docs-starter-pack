@@ -121,7 +121,7 @@ def main():
 
             if new_requirements != set():
                 print(
-                    "You may need to add the following pacakges to your requirements.txt file:"
+                    "You may need to add the following packages to your requirements.txt file:"
                 )
                 for r in new_requirements:
                     print(f"{r}\n")
