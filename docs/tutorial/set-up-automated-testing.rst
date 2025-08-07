@@ -19,6 +19,12 @@ your tutorial uses the same commands that Spread is testing.
 * `Multipass <https://multipass.run/install>`_ installed on your machine 
 * `Spread <https://github.com/canonical/spread>`_ installed on your machine
 
+.. warning::
+
+    Spread requires elevated permissions to run as root, and this tutorial will
+    not work if Spread is installed as a snap. Use the Go install method
+    recommended in the Spread README to install Spread.
+
 **What you’ll do**
 
 * Create a "Hello, world" Spread test called ``example_tutorial``
