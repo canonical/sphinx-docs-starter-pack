@@ -19,6 +19,8 @@ from requests.exceptions import RequestException
 from packaging.version import parse as parse_version
 
 SPHINX_DIR = os.path.abspath(os.path.dirname(__file__))
+DOCS_DIR = os.path.abspath(os.path.join(SPHINX_DIR, '..'))
+REQUIREMENTS = os.path.join(DOCS_DIR, "requirements.txt")
 SPHINX_UPDATE_DIR = os.path.join(SPHINX_DIR, "update")
 GITHUB_REPO = "canonical/sphinx-docs-starter-pack"
 GITHUB_API_BASE = f"https://api.github.com/repos/{GITHUB_REPO}"
@@ -103,7 +105,7 @@ def main():
     # Check requirements are the same
     new_requirements = []
     try:
-        with open("requirements.txt", "r") as file:
+        with open(REQUIREMENTS, "r") as file:
             logging.debug("Checking requirements")
 
             local_reqs = set(file.read().splitlines()) - {""}
