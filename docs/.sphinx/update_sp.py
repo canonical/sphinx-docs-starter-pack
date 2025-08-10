@@ -208,7 +208,7 @@ def update_static_files():
     # Writes return value for parent function
     if new_file_list != []:
         # Provides more information on new files
-        with open("NEWFILES.txt", "w") as f:
+        with open(f"{SPHINX_DIR}/NEWFILES.txt", "w") as f:
             for entry in new_file_list:
                 f.write(f"{entry}\n")
         logging.debug("Some downloaded files are new")
