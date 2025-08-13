@@ -192,7 +192,7 @@ else:
 
 sitemap_show_lastmod = True
 
-# TODO: To exclude paths from the sitemap, uncomment and update as needed.
+# TODO: To exclude pages from the sitemap, uncomment and update as needed.
 
 # sitemap_excludes = [
 #     'genindex/',
