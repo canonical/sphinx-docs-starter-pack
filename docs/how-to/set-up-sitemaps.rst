@@ -105,10 +105,12 @@ Exclude pages
 Pages can be excluded from the sitemap by adding them to `sitemap_excludes` in :file:`docs/conf.py`::
 
     sitemap_excludes = [
-        "genindex/",
-        "404/",
-        "search/",
+        '404/',
+        'genindex/',
+        'search/',
     ]
+
+Wildcards are supported. For example, ``_modules/*`` excludes the path ``_modules/`` and all paths such as ``_modules/foo/bar/``. For details, see `Excluding Pages <https://sphinx-sitemap.readthedocs.io/en/latest/advanced-configuration.html#excluding-pages>`_.
 
 Validating your sitemap
 -----------------------
