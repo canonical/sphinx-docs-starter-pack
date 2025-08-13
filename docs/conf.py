@@ -192,6 +192,16 @@ else:
 
 sitemap_show_lastmod = True
 
+# TODO: To exclude paths from the sitemap, uncomment and update as needed.
+
+# sitemap_excludes = [
+#     'genindex/',
+#     '404/',
+#     'search/',
+#     'py-modindex/',
+#     '_modules/*',
+# ]
+
 #######################
 # Template and asset locations
 #######################
