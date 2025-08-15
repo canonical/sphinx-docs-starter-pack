@@ -183,3 +183,9 @@ The following links can help you with additional configuration:
 - `Furo documentation`_ (Furo is the Sphinx theme we use as our base)
 
 If you need additional Python packages for any custom processing you do in your documentation, add them to the :file:`.sphinx/requirements.txt` file.
+
+Disable failure on warning
+--------------------------
+
+The docs build (``make html``) is, by default, set to fail when a warning (``WARNING`` in the build log) is encountered. To disable this setting, remove the ``--failure-on-warning`` option from the command specified in the ``html`` target in the ``Makefile``.
+
