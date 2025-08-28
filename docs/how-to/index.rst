@@ -14,3 +14,4 @@ maintaining, and contributing to the starter pack.
    migrate-from-pre-extension
    update
    contributing
+   troubleshoot-issues
