@@ -3,7 +3,7 @@
 Troubleshoot issues
 ===================
 
-This page provides guidance to resolving issues with the Starter Pack and ReadTheDocs
+This page provides guidance to resolve issues with the Starter Pack and ReadTheDocs
 that are difficult to identify or that we don't expect to be solved.
 
 
@@ -15,6 +15,10 @@ default `semantic versioning behavior
 <https://docs.readthedocs.com/platform/stable/versions.html#versions-are-git-tags-and-branches>`_,
 your stable version can become out-of-step and continue building a particular tag, even
 when the repository has newer tags.
+
+
+Possible causes
+~~~~~~~~~~~~~~~
 
 An unwanted tag might have been pushed to the repository and then removed. Once
 ReadTheDocs creates a version from a tag, it doesn't later verify that the tag still
@@ -29,7 +33,7 @@ continue pointing to it.
 Diagnosis
 ~~~~~~~~~
 
-There's a convoluted procedure to verify whether your project is affected. Start by
+There's a roundabout procedure to verify whether your project is affected. Start by
 opening your project dashboard on ReadTheDocs.
 
 On the **Builds** tab, locate the most recent stable build. For that version, hover over
