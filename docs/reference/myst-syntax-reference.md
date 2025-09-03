@@ -239,7 +239,7 @@ To add a link to a related website, add the following field at the top of the pa
 
 To override the title, use Markdown syntax. Note that spaces are ignored; if you need spaces in the title, replace them with `&#32;`, and include the value in quotes if Sphinx complains about the metadata value because it starts with `[`.
 
-To add a link to a Discourse topic, configure the Discourse instance in the {file}`custom_conf.py` file.
+To add a link to a Discourse topic, configure the Discourse instance in the {file}`conf.py` file.
 Then add the following field at the top of the page (where `12345` is the ID of the Discourse topic):
 
     discourse: 12345
@@ -385,7 +385,7 @@ Use orphan pages sparingly and only if there is a clear reason for it.
 Instead of hiding pages that you do not want to include in the documentation from the navigation, you can exclude them from being built.
 This method will also prevent them from being found through the search.
 
-To exclude pages from the build, add them to the `custom_excludes` variable in the {file}`custom_conf.py` file.
+To exclude pages from the build, add them to the `custom_excludes` variable in the {file}`conf.py` file.
 ```
 
 ## Lists
@@ -596,10 +596,10 @@ To reuse sentences or paragraphs that have little markup and special formatting,
 
 Substitutions can be defined in the following locations:
 
-- Globally, in a file named {file}`reuse/substitutions.yaml` that is loaded into the [`myst_substitutions`](https://myst-parser.readthedocs.io/en/v0.13.5/using/syntax-optional.html#substitutions-with-jinja2) variable in {file}`custom_conf.py`:
+- Globally, in a file named {file}`reuse/substitutions.yaml` that is loaded into the [`myst_substitutions`](https://myst-parser.readthedocs.io/en/v0.13.5/using/syntax-optional.html#substitutions-with-jinja2) variable in {file}`conf.py`:
 
   ```{code-block} python
-     :caption: "{spellexception}`custom_conf.py`"
+     :caption: "{spellexception}`conf.py`"
 
   import os
   import yaml
