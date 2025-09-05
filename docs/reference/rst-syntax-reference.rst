@@ -254,7 +254,7 @@ Define the links in a shared file:
   (see the `Sphinx documentation <rst_epilog_>`_).
 
   .. code-block:: python
-     :caption: :spellexception:`custom_conf.py`
+     :caption: :spellexception:`conf.py`
 
      custom_rst_epilog = """
          .. include:: reuse/links.txt
@@ -280,7 +280,7 @@ To add a link to a related website, add the following field at the top of the pa
 
 To override the title, use Markdown syntax. Note that spaces are ignored; if you need spaces in the title, replace them with ``&#32;``, and include the value in quotes if Sphinx complains about the metadata value because it starts with ``[``.
 
-To add a link to a Discourse topic, configure the Discourse instance in the :file:`custom_conf.py` file.
+To add a link to a Discourse topic, configure the Discourse instance in the :file:`conf.py` file.
 Then add the following field at the top of the page (where ``12345`` is the ID of the Discourse topic)::
 
   :discourse: 12345
@@ -419,7 +419,7 @@ Use orphan pages sparingly and only if there is a clear reason for it.
    Instead of hiding pages that you do not want to include in the documentation from the navigation, you can exclude them from being built.
    This method will also prevent them from being found through the search.
 
-   To exclude pages from the build, add them to the ``custom_excludes`` variable in the :file:`custom_conf.py` file.
+   To exclude pages from the build, add them to the ``custom_excludes`` variable in the :file:`conf.py` file.
 
 Lists
 -----
