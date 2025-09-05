@@ -3,6 +3,7 @@
 ## Upcoming
 
 * Changes metrics script to a less brittle Python script
+* Dropped unused makefile variables `ALLFILES` and `CONFIRM_SUDO`
 
 ### Added
 
