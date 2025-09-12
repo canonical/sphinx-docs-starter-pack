@@ -13,6 +13,7 @@
 * `docs/Makefile` [#373](https://github.com/canonical/sphinx-docs-starter-pack/pull/373)
 * `docs/conf.py` [#429](https://github.com/canonical/sphinx-docs-starter-pack/pull/429)
 * `docs/.sphinx/update_sp.py` [#425](https://github.com/canonical/sphinx-docs-starter-pack/pull/425)
+* `.github/workflows/check-removed-urls.yml` [#437](https://github.com/canonical/sphinx-docs-starter-pack/pull/437)
 
 ### Removed
 
