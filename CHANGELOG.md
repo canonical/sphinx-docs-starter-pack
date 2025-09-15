@@ -7,7 +7,6 @@
 ### Added
 
 * `docs/.sphinx/metrics/build_metrics.py` [#373](https://github.com/canonical/sphinx-docs-starter-pack/pull/373)
-* `.github/CODEOWNERS` [#438](https://github.com/canonical/sphinx-docs-starter-pack/pull/439)
 
 ## Changed
 
