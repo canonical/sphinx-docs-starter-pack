@@ -1,0 +1,15 @@
+# Codeowners for this repository.
+# Guidance and syntax is covered in
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+# 
+# Important: The last match takes precedence.
+
+# Development reviewers
+# Adjust this once we establish a Sphinx development team.
+* @akcano @dwilding @medubelko @minaelee @rkratky @SecondSkoll @tang-mm
+
+# Changes to CODEOWNERS must be reviewed by admins
+/.github/CODEOWNERS @SecondSkoll
+
+# Doc reviewers
+# /docs/
