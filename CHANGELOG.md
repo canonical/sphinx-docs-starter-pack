@@ -3,10 +3,12 @@
 ## Upcoming
 
 * Changes metrics script to a less brittle Python script
+* Adds pre-commit configuration for automatic fixes and checks
 
 ### Added
 
 * `docs/.sphinx/metrics/build_metrics.py` [#373](https://github.com/canonical/sphinx-docs-starter-pack/pull/373)
+* `.pre-commit-config.py`
 
 ## Changed
 
