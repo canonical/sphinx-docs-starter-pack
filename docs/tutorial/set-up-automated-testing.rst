@@ -16,7 +16,7 @@ your tutorial uses the same commands that Spread is testing.
 
 **What you'll need**
 
-* `Multipass <https://multipass.run/install>`_ installed on your machine 
+* `Multipass <https://multipass.run/install>`_ installed on your machine
 * `Spread <https://github.com/canonical/spread>`_ installed on your machine
 
 .. warning::
@@ -38,7 +38,7 @@ and change into it. This is the root directory of your example project.
 
 Inside the ``spread_test_example`` directory, create the ``tests`` directory
 using ``mkdir tests`` and change into it. This directory can hold materials for multiple
-Spread tests. 
+Spread tests.
 
 Under the ``tests`` directory, create a new directory ``example_tutorial``
 to store the files for a "Hello, world" Spread test. This test consists of two files:
@@ -51,7 +51,7 @@ named ``example_bash_script.sh``:
 
 .. code-block::
 
-    echo -e '#! /usr/bin/bash\n\necho "Hello, world!"' > example_bash_script.sh 
+    echo -e '#! /usr/bin/bash\n\necho "Hello, world!"' > example_bash_script.sh
 
 Now let's create a ``task.yaml`` file. This file holds all the commands the
 user will run in your tutorial.
@@ -76,16 +76,16 @@ into a new file ``task.yaml``:
     execute: |
       # [docs:make-bash-executable]
       chmod +x example_bash_script.sh
-      # [docs:make-bash-executable-end] 
+      # [docs:make-bash-executable-end]
 
       # [docs:execute-bash-script]
       bash example_bash_script.sh
-      # [docs:execute-bash-script-end] 
+      # [docs:execute-bash-script-end]
 
 The ``summary`` section contains a brief description of your tutorial, and
 the ``execute`` section contains all the commands that your tutorial uses.
 The ``kill-timeout`` option has a default of 10 minutes and doesn't need to be
-included if your test will complete in that time frame. 
+included if your test will complete in that time frame.
 
 By wrapping commands with comments in the form of
 ``# [docs:example-wrapping-command]`` and ``# [docs-example-wrapping-command-end]``,
@@ -96,11 +96,11 @@ Create the tutorial file
 
 Now we have everything we need to create the tutorial file itself.
 `ReStructuredText (.rst)`_ is used for the tutorial file format; `MyST-Markdown`_
-can also be used. 
+can also be used.
 
 In ``spread_test_example/tests/example_tutorial``, create a text file
 named ``example_tutorial.rst``. To add a title for your tutorial, copy the
-block below to this file. 
+block below to this file.
 
 .. code-block:: rst
     :caption: ~/spread_test_example/tests/example_tutorial/example_tutorial.rst
@@ -110,7 +110,7 @@ block below to this file.
 
 In this file, we can use Sphinx's ``literalinclude`` directives
 to feed the Spread test materials directly into our tutorial. This way, we guarantee
-that the Spread test is testing the exact commands that appear in the tutorial. 
+that the Spread test is testing the exact commands that appear in the tutorial.
 
 Let's start with the bash script. In the mock tutorial, we want the the reader to
 create the file themselves, so let's use that language in ``example_tutorial.rst``
@@ -145,7 +145,7 @@ appear in our ``task.yaml`` file, again using the ``literalinclude`` directive:
   Create a new file ``example_bash_script.sh`` with the following contents:
 
   .. literalinclude:: example_bash_script.sh
-      :language: bash  
+      :language: bash
 
     Make the script executable:
 
@@ -212,7 +212,7 @@ The ``suites`` section is how we tell Spread about the various Spread tests in
 our project. We tell Spread to look in the ``tests`` directory for all Spread tests
 (which it will only find one, ``example_tutorial``). We also use the ``suites``
 section to tell Spread about the systems we want Spread to test.
-For our mock tutorial, we will use Ubuntu 24.04. 
+For our mock tutorial, we will use Ubuntu 24.04.
 
 Configure the Spread test to use Multipass
 ------------------------------------------
@@ -220,7 +220,7 @@ Configure the Spread test to use Multipass
 Each job in Spread has a backend, or a way to obtain a machine on which to run
 your Spread test. The `Spread repository <https://github.com/canonical/spread>`_ contains
 more information on backends like Google or QEMU, but let's set up Multipass as
-a backend to run local tests. 
+a backend to run local tests.
 
 Include the following ``backends`` section of ``spread.yaml`` between the ``path`` and
 ``suites`` sections:
@@ -231,7 +231,7 @@ Include the following ``backends`` section of ``spread.yaml`` between the ``path
 
     project: spread_test_example
 
-    path: /spread_test_example  
+    path: /spread_test_example
 
     backends:
       multipass:
@@ -279,7 +279,7 @@ Include the following ``backends`` section of ``spread.yaml`` between the ``path
 The ``backends`` section contains the following sections:
 
 * The backend is designated as ``type: adhoc`` as we are explicitly
-  scripting the procedure to allocate and discard the Multipass VM. 
+  scripting the procedure to allocate and discard the Multipass VM.
 * In the ``allocate`` section, we define the image and name of the VM, launch the
   VM, and then set up the proper SSH permissions so that Spread can log in (via root)
   into the VM and insert the Spread test. We also must tell Spread about the
@@ -303,7 +303,7 @@ test for ``example_tutorial``:
     :dir: spread_test_example
     :input: spread --list
 
-    multipass:ubuntu-24.04-64:tests/example_tutorial 
+    multipass:ubuntu-24.04-64:tests/example_tutorial
 
 Now let's run the Spread test for ``example_tutorial``:
 
@@ -353,7 +353,7 @@ Next steps
 
 Congratulations! You set up the materials needed to run a Spread test locally using
 Multipass with commands that explicitly appear in a Sphinx-based tutorial. This
-section provides additional examples of Spread tests: 
+section provides additional examples of Spread tests:
 
 * `Spread tests included in Rockcraft documentation <https://github.com/canonical/rockcraft/tree/main/docs/tutorial/code>`_
 * `Spread tests included in Charmcraft documentation <https://github.com/canonical/charmcraft/tree/main/docs/tutorial/code>`_

@@ -14,7 +14,7 @@ In general, after enabling the starter pack for your documentation, follow these
 #. Use the `manual import`_ to create a project.
 #. Specify the path to the :file:`.readthedocs.yaml` file for your build.
    To do this, navigate to :guilabel:`Admin` > :guilabel:`Settings` and specify the path under "Path for ``.readthedocs.yaml``".
-   
+
    For example, if your documentation folder is :file:`docs/`, specify the path as ``docs/.readthedocs.yaml``.
 #. Update the relative paths in the :file:`.readthedocs.yaml` file to match the structure of your project. You might need to update the file paths specified in the following fields:
 

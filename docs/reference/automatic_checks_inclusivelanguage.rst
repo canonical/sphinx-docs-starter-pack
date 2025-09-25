@@ -38,7 +38,7 @@ For instance::
 
    Vale will lint the displayed text of a link, not the URL of a link. If you
    wish to use a link that contains non-inclusive language, use appropriate link
-   text with the syntax appropriate for your source file. 
+   text with the syntax appropriate for your source file.
 
 Exempt a word globally
 ~~~~~~~~~~~~~~~~~~~~~~

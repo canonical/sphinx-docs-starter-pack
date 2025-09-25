@@ -2,10 +2,7 @@
 relatedlinks: https://github.com/canonical/canonical-sphinx-extensions, [reStructuredText&#32;Primer](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html), [Canonical&#32;Documentation&#32;Style&#32;Guide](https://docs.ubuntu.com/styleguide/en)
 myst:
   substitutions:
-    advanced_reuse_key: "This is a substitution that includes a code block:
-                       ```
-                       code block
-                       ```"
+    advanced_reuse_key: 'This is a substitution that includes a code block: ``` code block ```'
 ---
 
 (myst_style_guide)=
@@ -26,8 +23,9 @@ For general style conventions, see the [Canonical Documentation Style Guide](htt
 ## Headings
 
 ```{list-table}
-   :header-rows: 1
-
+---
+header-rows: 1
+---
 * - Input
   - Description
 * - `# Title`
@@ -51,8 +49,9 @@ Adhere to the following conventions:
 ## Inline formatting
 
 ```{list-table}
-   :header-rows: 1
-
+---
+header-rows: 1
+---
 * - Input
   - Output
 * - `` {guilabel}`UI element` ``
@@ -81,13 +80,16 @@ Adhere to the following conventions:
 
 Start and end a code block with three back ticks:
 
-    ```
+````
+```
+````
 
 You can specify the code language after the back ticks to enforce a specific lexer, but in many cases, the default lexer works just fine.
 
 `````{list-table}
-   :header-rows: 1
-
+---
+header-rows: 1
+---
 * - Input
   - Output
 * - ````
@@ -126,9 +128,10 @@ You can specify the code language after the back ticks to enforce a specific lex
 
 To include back ticks in a code block, increase the number of surrounding back ticks:
 
-`````{list-table}
-   :header-rows: 1
-
+``````{list-table}
+---
+header-rows: 1
+---
 * - Input
   - Output
 * -
@@ -147,7 +150,7 @@ To include back ticks in a code block, increase the number of surrounding back t
 
     ````
 
-`````
+``````
 
 ### Terminal output
 
@@ -157,8 +160,9 @@ In addition, including a terminal view can help break up a long text and make it
 To show a terminal view, use the following directive:
 
 `````{list-table}
-   :header-rows: 1
-
+---
+header-rows: 1
+---
 * - Input
   - Output
 * - ````
@@ -205,8 +209,9 @@ For external links, use Markdown syntax.
 You can also use just the URL, but this will usually cause issues with the spelling check, so you should specify the link text as code in this case.
 
 ```{list-table}
-   :header-rows: 1
-
+---
+header-rows: 1
+---
 * - Input
   - Output
 * - `[Canonical website](https://canonical.com)`
@@ -220,8 +225,9 @@ You can also use just the URL, but this will usually cause issues with the spell
 To display a URL as text and prevent it from being linked, add a `<span></span>`:
 
 ```{list-table}
-   :header-rows: 1
-
+---
+header-rows: 1
+---
 * - Input
   - Output
 * - `https:/<span></span>/canonical.com`
@@ -235,22 +241,27 @@ You can add links to related websites or Discourse topics to the sidebar
 
 To add a link to a related website, add the following field at the top of the page:
 
-    relatedlinks: https://github.com/canonical/canonical-sphinx-extensions, [RTFM](https://www.google.com)
+```
+relatedlinks: https://github.com/canonical/canonical-sphinx-extensions, [RTFM](https://www.google.com)
+```
 
 To override the title, use Markdown syntax. Note that spaces are ignored; if you need spaces in the title, replace them with `&#32;`, and include the value in quotes if Sphinx complains about the metadata value because it starts with `[`.
 
 To add a link to a Discourse topic, configure the Discourse instance in the {file}`conf.py` file.
 Then add the following field at the top of the page (where `12345` is the ID of the Discourse topic):
 
-    discourse: 12345
+```
+discourse: 12345
+```
 
 #### YouTube links
 
 To add a link to a YouTube video, use the following directive:
 
 `````{list-table}
-   :header-rows: 1
-
+---
+header-rows: 1
+---
 * - Input
   - Output
 * - ````
@@ -285,8 +296,9 @@ You can add targets at any place in the documentation. However, if there is no h
 (a_random_target_myst)=
 
 ```{list-table}
-   :header-rows: 1
-
+---
+header-rows: 1
+---
 * - Input
   - Output
   - Output on GitHub
@@ -325,8 +337,9 @@ If a documentation page does not have a target, you can still reference it by us
 Use MyST syntax to automatically extract the link text. When overriding the link text, use Markdown syntax.
 
 ```{list-table}
-   :header-rows: 1
-
+---
+header-rows: 1
+---
 * - Input
   - Output
   - Output on GitHub
@@ -391,8 +404,9 @@ To exclude pages from the build, add them to the `custom_excludes` variable in t
 ## Lists
 
 ````{list-table}
-   :header-rows: 1
-
+---
+header-rows: 1
+---
 * - Input
   - Output
 * - ```
@@ -438,8 +452,9 @@ Adhere to the following conventions:
 ### Definition lists
 
 ````{list-table}
-   :header-rows: 1
-
+---
+header-rows: 1
+---
 * - Input
   - Output
 * - ```
@@ -464,8 +479,9 @@ See the [Sphinx documentation](https://www.sphinx-doc.org/en/master/usage/restru
 Both markups result in the following output:
 
 ```{list-table}
-   :header-rows: 1
-
+---
+header-rows: 1
+---
 * - Header 1
   - Header 2
 * - Cell 1
@@ -507,8 +523,9 @@ See [list tables](https://docutils.sourceforge.io/docs/ref/rst/directives.html#l
 ## Notes
 
 `````{list-table}
-   :header-rows: 1
-
+---
+header-rows: 1
+---
 * - Input
   - Output
 * - ````
@@ -555,9 +572,10 @@ Adhere to the following conventions:
 
 ## Images
 
-````{list-table}
-   :header-rows: 1
-
+`````{list-table}
+---
+header-rows: 1
+---
 * - Input
   - Output
 * - ```
@@ -578,7 +596,7 @@ Adhere to the following conventions:
 
        Figure caption
     ```
-````
+`````
 
 Adhere to the following conventions:
 
@@ -599,8 +617,9 @@ Substitutions can be defined in the following locations:
 - Globally, in a file named {file}`reuse/substitutions.yaml` that is loaded into the [`myst_substitutions`](https://myst-parser.readthedocs.io/en/v0.13.5/using/syntax-optional.html#substitutions-with-jinja2) variable in {file}`conf.py`:
 
   ```{code-block} python
-     :caption: "{spellexception}`conf.py`"
-
+  ---
+  caption: '{spellexception}`conf.py`'
+  ---
   import os
   import yaml
 
@@ -612,12 +631,15 @@ Substitutions can be defined in the following locations:
   ```
 
   ```{code-block} yaml
-     :caption: "{spellexception}`reuse/substitutions.yaml`"
-
+  ---
+  caption: '{spellexception}`reuse/substitutions.yaml`'
+  ---
   # Key/value substitutions to use within the Sphinx doc.
   {version_number: "0.1.0",
    formatted_text: "*Multi-line* text\n that uses basic **markup**.",
    site_link: "[Website link](https://example.com)"}
+  ```
+
 - Locally, putting the definitions at the top of a single file in the following format:
 
   ````
@@ -640,8 +662,9 @@ You can combine both options by defining a default substitution in `reuse/substi
 The definitions from the above examples are rendered as follows:
 
 ```{list-table}
-   :header-rows: 1
-
+---
+header-rows: 1
+---
 * - Input
   - Output
 * - `{{version_number}}`
@@ -669,8 +692,9 @@ You cannot put any targets into the content that is being reused (because refere
 By combining file inclusion and substitutions, you can even replace parts of the included text.
 
 `````{list-table}
-     :header-rows: 1
-
+---
+header-rows: 1
+---
 * - Input
   - Output
 * - ````
@@ -696,7 +720,7 @@ By combining file inclusion and substitutions, you can even replace parts of the
 Adhere to the following convention:
 
 - File inclusion does not work on GitHub. Therefore, always add a comment linking to the included file.
-- Files that only contain text that is reused somewhere else should be placed in the {file}`reuse` folder and end with the extension ``.txt`` to distinguish them from normal content files.
+- Files that only contain text that is reused somewhere else should be placed in the {file}`reuse` folder and end with the extension `.txt` to distinguish them from normal content files.
 - To make sure inclusions don't break, consider adding HTML comments (`<!-- some comment -->`) to the source file as markers for starting and ending.
 
 ## Tabs
@@ -704,8 +728,9 @@ Adhere to the following convention:
 The recommended way of creating tabs is to use the tabs that the [Sphinx design](https://sphinx-design.readthedocs.io/en/latest/) extension provides.
 
 ``````{list-table}
-   :header-rows: 1
-
+---
+header-rows: 1
+---
 * - Input
   - Output
 * - `````
@@ -747,8 +772,9 @@ The recommended way of creating tabs is to use the tabs that the [Sphinx design]
 Alternatively, you can use the [Sphinx tabs](https://sphinx-tabs.readthedocs.io/en/latest/) extension, which is also enabled by default. This was previously recommended due to limitations in Sphinx Design that are now fixed.
 
 ``````{list-table}
-   :header-rows: 1
-
+---
+header-rows: 1
+---
 * - Input
   - Output
 * - `````
@@ -788,8 +814,9 @@ Alternatively, you can use the [Sphinx tabs](https://sphinx-tabs.readthedocs.io/
 There is no support for details sections in MyST, but you can insert HTML to create them.
 
 ````{list-table}
-   :header-rows: 1
-
+---
+header-rows: 1
+---
 * - Input
   - Output
 * - ```
@@ -813,8 +840,9 @@ There is no support for details sections in MyST, but you can insert HTML to cre
 You can define glossary terms in any file. Ideally, all terms should be collected in one glossary file though, and they can then be referenced from any file.
 
 `````{list-table}
-   :header-rows: 1
-
+---
+header-rows: 1
+---
 * - Input
   - Output
 * - ````
@@ -840,8 +868,9 @@ You can define glossary terms in any file. Ideally, all terms should be collecte
 ## More useful markup
 
 `````{list-table}
-   :header-rows: 1
-
+---
+header-rows: 1
+---
 * - Input
   - Output
   - Description

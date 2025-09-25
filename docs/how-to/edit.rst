@@ -8,7 +8,7 @@ The landing page is stored in the :file:`docs/index.rst` file by default.
 The Navigation Menu structure is set by ``.. toctree::`` directives. These directives define the hierarchy of included content throughout the documentation.
 The :file:`index.rst` page's ``toctree`` block contains the top level Navigation Menu, default to the `Diátaxis`_ documentation structure.
 
-To add a new page to the documentation:    
+To add a new page to the documentation:
 
 1. Create a new file in the `docs/` folder. For example, to create a new **Reference** page, create a document under `docs/reference/` directory called :file:`settings.rst`, insert the following |RST|-formatted heading ``Settings`` at the beginning, and then save the file:
 
@@ -22,7 +22,7 @@ To add a new page to the documentation:
 
    .. code-block:: markdown
       :caption: Markdown title example
-         
+
          # Settings
 
 2. Add the new page to the Navigation Menu: open the :file:`docs/reference/index.rst` file or another file where you want to nest the new page; at the bottom of the file, locate the ``toctree`` directive and add a properly indented line containing the relative path (without a file extension) to the new file created in the first step. For example, ``settings``.
@@ -30,7 +30,7 @@ To add a new page to the documentation:
    The ``toctree`` block will now look like this:
 
    .. code-block:: rest
-         
+
          .. toctree::
             :hidden:
             :maxdepth: 2

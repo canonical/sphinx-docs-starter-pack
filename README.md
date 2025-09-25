@@ -6,10 +6,10 @@
 
 The Documentation starter pack includes:
 
-* A bundled [Sphinx] theme, configuration, and extensions
-* Support for both reStructuredText (reST) and MyST Markdown
-* Build checks for links, spelling, and inclusive language
-* Customisation support layered over a core configuration
+- A bundled [Sphinx] theme, configuration, and extensions
+- Support for both reStructuredText (reST) and MyST Markdown
+- Build checks for links, spelling, and inclusive language
+- Customisation support layered over a core configuration
 
 See the full documentation: https://canonical-starter-pack.readthedocs-hosted.com/
 
@@ -29,6 +29,12 @@ This directory contains files used for documentation build checks via GitHub's C
 
 The file `test-starter-pack.yml` tests the functionality of the starter pack project.
 
+### `.pre-commit-config.yaml`
+
+This file has configuration for [pre-commit](pre-commit) checks for automatic fixes and checks, local or in CI.
+
+It can apply the automatic fixes directly through [the GitHub App](pre-commit-ci-lite) - configure it to enable access to repositories you want it on.
+
 ## Contributing
 
 We welcome contributions to this project! If you have suggestions, bug fixes, or improvements, please open an issue or submit a pull request.
@@ -37,5 +43,5 @@ Please read and sign our [Contributor Licence Agreement (CLA)] before submitting
 
 <!--Links-->
 
-[Sphinx]: https://www.sphinx-doc.org/
-[Contributor Licence Agreement (CLA)]: https://ubuntu.com/legal/contributors
+[contributor licence agreement (cla)]: https://ubuntu.com/legal/contributors
+[sphinx]: https://www.sphinx-doc.org/

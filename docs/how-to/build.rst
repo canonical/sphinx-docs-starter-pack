@@ -101,7 +101,7 @@ On Linux, required packages can be installed with:
 .. code-block:: none
 
     make pdf-prep-force
-    
+
 .. note::
 
     When generating a PDF, the index page is considered a 'foreword' and will not be labelled with a chapter.
