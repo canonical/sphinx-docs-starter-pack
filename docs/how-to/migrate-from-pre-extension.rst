@@ -1,4 +1,4 @@
-Migrate from the pre-extension starter pack 
+Migrate from the pre-extension starter pack
 ===========================================
 
 This guide outlines the steps required to migrate a documentation project from the legacy Sphinx Documentation Starter Pack (*pre-extension* version) to the latest version that adopts the ``canonical-sphinx`` Sphinx extension.
@@ -32,7 +32,7 @@ Set up a new project
 
    - ``.github/workflows/*``
 
-4. Ensure the following files are moved to their original paths in the project. These files are defaulted to the repository root, but may have be changed upon project needs: 
+4. Ensure the following files are moved to their original paths in the project. These files are defaulted to the repository root, but may have be changed upon project needs:
 
    - ``.gitignore``
    - ``.readthedocs.yml``
@@ -61,7 +61,7 @@ A significant change in the new starter pack is the organisation of the configur
    :header-rows: 1
 
    * - Configuration file
-     - Pre-extension 
+     - Pre-extension
      - Extension-based
    * - ``conf.py``
      - Common configurations shared by all starter pack projects
@@ -72,7 +72,7 @@ A significant change in the new starter pack is the organisation of the configur
 
 In the new starter pack, many common configurations are provided by the extension and are loaded automatically when building the documentation. ``docs/conf.py`` is the only configuration file, and it contains all project-specific configuration. Sensible defaults are set for general configuration by inclusion of the `canonical-sphinx` extension.
 
-Ensure that all the previous changes in the original ``custom_conf.py`` file are copied to the new ``conf.py`` file.  
+Ensure that all the previous changes in the original ``custom_conf.py`` file are copied to the new ``conf.py`` file.
 
 Dependencies
 ~~~~~~~~~~~~
@@ -86,8 +86,8 @@ Documentation source files
 
 2. Copy all documentation source files from your original project to the new project, keeping their original structure. These file may include but are not limited to:
 
-   - ``.md`` 
-   - ``.rst`` 
+   - ``.md``
+   - ``.rst``
    - ``.txt``
    - ``.json``
    - images
@@ -107,7 +107,7 @@ Static resources
 
 The extension provides a set of static resources, such as images, fonts, CSS files, and HTML templates, that are used to style the documentation for Canonical-branded design. These resources are bundled with the extension and are no longer provided as source files in the new starter pack.
 
-If you have customised any of these resources in the original project, you need to manually migrate these changes to the new project. 
+If you have customised any of these resources in the original project, you need to manually migrate these changes to the new project.
 
 For example, if you added customised styling in the original ``.sphinx/_static/custom.css`` file, follow the steps:
 
@@ -175,8 +175,8 @@ Assuming that all previous documentation files were in the ``docs/`` sub-directo
     │   └── spellingcheck.yaml
     ├── metrics                     # moved to `docs/.sphinx/metrics/`
     │   └── scripts                 # removed, files moved to parent directory
-    │       ├── build_metrics.sh   
-    │       └── source_metrics.sh   
+    │       ├── build_metrics.sh
+    │       └── source_metrics.sh
     ├── reuse                       # moved to `docs/reuse`
     │   └── links.txt
     ├── .custom_wordlist.txt        # moved to `docs/.custom_wordlist.txt`
@@ -194,4 +194,3 @@ Assuming that all previous documentation files were in the ``docs/`` sub-directo
     ├── Makefile                    # moved to `docs/Makefile`
     ├── Makefile.sp                 # removed
     └── readme.rst                  # renamed to `README.rst`
-

@@ -146,10 +146,10 @@ to ensure consistency across the project:
 .. code-block:: none
 
    Ensure correct permissions and ownership for the content mounts
-    
+
     * Work around an ACME issue regarding empty dirs:
       https://github.com/canonical/ACME/issues/12345
-    
+
     * Ensure the source directory is owned by the user running a container.
 
    Links:

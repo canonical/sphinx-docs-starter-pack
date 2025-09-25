@@ -46,7 +46,7 @@ You can leave the defaults for the website name and the preview image or specify
 Adjust the header
 ~~~~~~~~~~~~~~~~~
 
-The header is the top section of a page template. By default, the starter pack template header contains your product's tag image and name (taken from the ``project`` setting in the :file:`docs/conf.py` file), a link to your product's page (if available), and a drop-down menu for "More resources". 
+The header is the top section of a page template. By default, the starter pack template header contains your product's tag image and name (taken from the ``project`` setting in the :file:`docs/conf.py` file), a link to your product's page (if available), and a drop-down menu for "More resources".
 
 This configuration is sufficient for many cases but can be further customised. For example, you might want to add links to announcements or videos that are not part of the documentation.
 
@@ -61,7 +61,7 @@ Finally, find the following line in :file:`docs/conf.py`:
 Enable this variable initialisation by removing the `#` at the beginning:
 
 .. code:: python
-    
+
     templates_path = ["_templates"]
 
 Optional customisation
@@ -188,4 +188,3 @@ Disable failure on warning
 --------------------------
 
 The docs build (``make html``) is, by default, set to fail when a warning (``WARNING`` in the build log) is encountered. To disable this setting, remove the ``--failure-on-warning`` option from the command specified in the ``html`` target in the ``Makefile``.
-

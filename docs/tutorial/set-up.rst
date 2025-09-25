@@ -20,7 +20,7 @@ If you already have a project, download the following files from the repository 
 * :file:`.wokeignore` (configuration for the Woke tool)
 * the entire :file:`.github/workflows` directory
 
-After cloning or copying the starter pack, you **must** delete :file:`.github/workflows/test-starter-pack.yml` from your repository, as this workflow is specific to testing the starter pack itself and should not be included in your project. Optionally, you can also delete 
+After cloning or copying the starter pack, you **must** delete :file:`.github/workflows/test-starter-pack.yml` from your repository, as this workflow is specific to testing the starter pack itself and should not be included in your project. Optionally, you can also delete
 :file:`.github/workflows/sphinx-python-dependency-build-checks.yml` and :file:`.github/workflows/markdown-style-checks.yml` if you do not need these workflows in your project.
 
 Build and run the local server

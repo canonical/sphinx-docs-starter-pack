@@ -6,10 +6,10 @@
 
 The Documentation starter pack includes:
 
-* A bundled [Sphinx] theme, configuration, and extensions
-* Support for both reStructuredText (reST) and MyST Markdown
-* Build checks for links, spelling, and inclusive language
-* Customisation support layered over a core configuration
+- A bundled [Sphinx] theme, configuration, and extensions
+- Support for both reStructuredText (reST) and MyST Markdown
+- Build checks for links, spelling, and inclusive language
+- Customisation support layered over a core configuration
 
 See the full documentation: https://canonical-starter-pack.readthedocs-hosted.com/
 
@@ -43,7 +43,5 @@ Please read and sign our [Contributor Licence Agreement (CLA)] before submitting
 
 <!--Links-->
 
-[Sphinx]: https://www.sphinx-doc.org/
-[Contributor Licence Agreement (CLA)]: https://ubuntu.com/legal/contributors
-[pre-commit]: https://pre-commit.com/
-[pre-commit-ci-lite]: https://github.com/apps/pre-commit-ci-lite
+[contributor licence agreement (cla)]: https://ubuntu.com/legal/contributors
+[sphinx]: https://www.sphinx-doc.org/

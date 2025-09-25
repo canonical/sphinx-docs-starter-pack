@@ -79,7 +79,7 @@ For Markdown:
     ````
 
 .. note::
-    
+
     This should not be necessary for Markdown, as Vale has an expanded scope for ignoring Markdown content by default.
 
 For |RST|:
@@ -91,7 +91,7 @@ For |RST|:
 
         This content will be ignored by Vale.
 
-.. note:: 
+.. note::
 
     The `.. class::` directive does not need to encapsulate content, it applies to the next logical block (which can be another directive or even a paragraph of content).
 

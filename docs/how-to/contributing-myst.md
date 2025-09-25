@@ -3,6 +3,7 @@ orphan: true
 ---
 
 <!-- TODO: Replace all mentions of ACME with your project name -->
+
 <!-- TODO: Update all sections containing TODOs; make sure no TODOs are left -->
 
 # How to contribute
@@ -137,7 +138,7 @@ If you've made an unsigned commit and encounter the "Commits must have verified
 signatures" error when pushing your changes to the remote:
 
 1. Amend the most recent commit by signing it without changing the commit
-message, and push again:
+   message, and push again:
 
    ```{code-block} none
    git commit --amend --no-edit -n -S
@@ -145,8 +146,9 @@ message, and push again:
    ```
 
 1. If you still encounter the same error, confirm that your GitHub account has
-been set up properly to sign commits as described in the [GitHub Docs - About
-commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification).
+   been set up properly to sign commits as described in the [GitHub Docs - About
+   commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification).
+
    ```{tip}
    If you use SSH keys to sign your commits, make sure to add a "Signing Key"
    type in your GitHub account. See
