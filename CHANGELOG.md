@@ -13,6 +13,7 @@
 ### Added
 
 * `docs/.sphinx/metrics/build_metrics.py` [#373](https://github.com/canonical/sphinx-docs-starter-pack/pull/373)
+* `docs/.conf.py` [#444](https://github.com/canonical/sphinx-docs-starter-pack/pull/444)
 
 ## Changed
 
