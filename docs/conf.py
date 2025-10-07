@@ -153,6 +153,13 @@ html_context = {
     'github_issues': 'enabled',
 }
 
+html_extra_path = []
+
+# Allow opt-in build of the OpenAPI "Hello" example so docs stay clean by default.
+if os.getenv("OPENAPI", ""):
+    tags.add("openapi")
+    html_extra_path.append("how-to/assets/openapi.yaml")
+
 # TODO: To enable the edit button on pages, uncomment and change the link to a
 # public repository on GitHub or Launchpad. Any of the following link domains
 # are accepted:
