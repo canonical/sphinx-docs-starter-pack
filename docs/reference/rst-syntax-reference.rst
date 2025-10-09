@@ -173,8 +173,15 @@ To include a terminal view, use the following directive:
 Input is specified as the ``:input:`` option (or prefixed with ``:input:`` as part of the main content of the directive).
 Output is the main content of the directive.
 
-To override the prompt (``user@host:~$`` by default), specify the ``:user:`` and/or ``:host:`` options.
+To override the prompt (``user@host:~$`` by default), specify any of the following options:
+
+* ``:user:``
+* ``:host:``
+* ``:dir:``
+
 To make the terminal scroll horizontally instead of wrapping long lines, add ``:scroll:``.
+
+For details, see the `sphinx-terminal documentation <https://pypi.org/project/sphinx-terminal/#description>`_.
 
 Links
 -----
