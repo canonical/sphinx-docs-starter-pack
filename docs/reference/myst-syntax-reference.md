@@ -200,7 +200,7 @@ To override the prompt (`user@host:~$` by default), specify any of the following
 
 To make the terminal scroll horizontally instead of wrapping long lines, add `:scroll:`.
 
-For details, see the [`sphinx-terminal` documentation](https://pypi.org/project/sphinx-terminal/#description>).
+For more details, refer to the [`sphinx-terminal` README](https://github.com/canonical/sphinx-terminal/blob/main/README.md).
 
 ## Links
 
