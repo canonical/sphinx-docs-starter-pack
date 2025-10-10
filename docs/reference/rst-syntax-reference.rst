@@ -173,13 +173,13 @@ To include a terminal view, use the following directive:
 Input is specified as the ``:input:`` option (or prefixed with ``:input:`` as part of the main content of the directive).
 Output is the main content of the directive.
 
-To override the prompt (``user@host:~$`` by default), specify any of the following options:
+To customize the prompt (``user@host:~$`` by default), specify any of the following options:
 
 * ``:user:``
 * ``:host:``
 * ``:dir:``
 
-To make the terminal scroll horizontally instead of wrapping long lines, add ``:scroll:``.
+To make the terminal scroll horizontally instead of wrapping long lines, include the ``:scroll:`` option.
 
 For more details, refer to the `sphinx-terminal README <https://github.com/canonical/sphinx-terminal/blob/main/README.md>`_.
 

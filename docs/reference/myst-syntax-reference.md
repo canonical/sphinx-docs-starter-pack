@@ -198,7 +198,7 @@ To customize the prompt (`user@host:~$` by default), specify any of the followin
 * `:host:`
 * `:dir:`
 
-To make the terminal scroll horizontally instead of wrapping long lines, add `:scroll:`.
+To make the terminal scroll horizontally instead of wrapping long lines, include the `:scroll:` option.
 
 For more details, refer to the [`sphinx-terminal` README](https://github.com/canonical/sphinx-terminal/blob/main/README.md).
 
