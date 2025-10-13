@@ -16,7 +16,7 @@ OR
 
 ## Setup
 
-In the {file}`conf.py` file in your docs directory, update the `sys.path` so that Sphinx can find your module files. At the top of the file, add a `sys.path.insert` that adds your `<code>` directory:
+In the {file}`conf\.py` file in your docs directory, update the `sys.path` so that Sphinx can find your module files. At the top of the file, add a `sys.path.insert` that adds your `<code>` directory:
 
 ```{code-block} python
 :caption: conf.py
@@ -27,7 +27,7 @@ from pathlib import Path
 sys.path.insert(0,str(Path('..','<code>').resolve()))
 ```
 
-Then, further down in the conf.py, add `sphinx.ext.autodoc` to the list of extensions:
+Then, further down in the {file}`conf\.py`, add `sphinx.ext.autodoc` to the list of extensions:
 
 ```{code-block} python
 :caption: conf.py
