@@ -198,6 +198,8 @@ To customize the prompt (`user@host:~$` by default), specify any of the followin
 * `:host:`
 * `:dir:`
 
+To add a button that copies the command specified in `:input:`, include the `:copy:` option.
+
 To make the terminal scroll horizontally instead of wrapping long lines, include the `:scroll:` option.
 
 For more details, refer to the [`sphinx-terminal` README](https://github.com/canonical/sphinx-terminal/blob/main/README.md).
