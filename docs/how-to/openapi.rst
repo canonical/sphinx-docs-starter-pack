@@ -5,15 +5,15 @@ Add OpenAPI integration
 
 Use this guide to add a minimal OpenAPI integration for the starter pack.
 This implementation uses `Swagger UI <https://swagger.io/tools/swagger-ui/>`_;
-it includes a basic specification and an opt-in tag toggle,
-based on a build-time environment variable,
+it includes a basic specification and an opt-in tag toggle --
+based on a build-time environment variable --
 to keep the documentation clean by default.
 
 Locate the specification
 ------------------------
 
 The stub OpenAPI document can be found under ``docs/how-to/assets/openapi.yaml``.
-You can reuse it as a starting point for your API description:
+You can use it as a starting point for your API description:
 
 .. literalinclude:: assets/openapi.yaml
    :language: yaml
@@ -22,7 +22,7 @@ Enable the viewer
 -----------------
 
 The OpenAPI interactive viewer is disabled by default.
-Exporting the ``OPENAPI`` environment variable when building
+Exporting the ``OPENAPI`` environment variable when building in your terminal
 makes Sphinx copy the specification to the output directory
 and add an ``openapi`` tag that we can use in the documentation source::
 
@@ -34,7 +34,13 @@ Then rebuild the docs to pick up the specification::
 
 .. tip::
 
-   Unset the variable to go back to the default build.
+   Unset the variable to go back to the default build::
+
+      unset OPENAPI
+
+   To enable it for a single command, prefix it like this::
+
+      OPENAPI=1 make clean html
 
 Confirm the viewer works
 ------------------------
@@ -45,8 +51,8 @@ Serve the documentation locally::
 
 Navigate to ``/how-to/openapi/``.
 When the feature flag is enabled,
-the page renders the Swagger UI for the shipped specification right here;
-the snippet that does this should be included in your documentation source
+the page renders the Swagger UI for the shipped specification right here.
+The snippet that does this should be included in your documentation source
 with the ``.. raw:: html`` directive:
 
 .. literalinclude:: assets/openapi._rst
@@ -66,6 +72,34 @@ with the ``.. raw:: html`` directive:
       The interactive viewer is hidden now because ``OPENAPI`` was not set
       when this documentation was built.
       Export ``OPENAPI=1`` when building the documentation to see it here.
+
+Building on RTD
+---------------
+
+To enable the OpenAPI viewer on `Read the Docs <https://readthedocs.org/>`_ tentatively,
+define the ``OPENAPI`` environment variable in your project's
+`admin settings <https://docs.readthedocs.com/platform/stable/guides/environment-variables.html>`_.
+
+If you're certain that you want the OpenAPI viewer enabled for all builds,
+drop all conditional statements from ``conf.py`` and the reST files.
+In ``conf.py``, replace the following lines::
+
+   html_extra_path = []
+
+   # ...
+   if os.getenv("OPENAPI", ""):
+       tags.add("openapi")
+       html_extra_path.append("how-to/assets/openapi.yaml")
+
+
+With this::
+
+   html_extra_path = ["how-to/assets/openapi.yaml"]
+
+
+Next, remove any tag-based logic from the reST files::
+
+   .. only:: openapi
 
 Troubleshooting
 ---------------
