@@ -3,6 +3,7 @@
 ## Upcoming
 
 * Changes metrics script to a less brittle Python script
+* Introduce guidelines for adding diagrams-as-code
 
 ### Added
 
@@ -11,7 +12,7 @@
 ## Changed
 
 * `docs/Makefile` [#373](https://github.com/canonical/sphinx-docs-starter-pack/pull/373)
-* `docs/conf.py` [#429](https://github.com/canonical/sphinx-docs-starter-pack/pull/429)
+* `docs/conf.py` [#429](https://github.com/canonical/sphinx-docs-starter-pack/pull/429), [#442](https://github.com/canonical/sphinx-docs-starter-pack/pull/442)
 * `docs/.sphinx/get_vale_conf.py` [#448](https://github.com/canonical/sphinx-docs-starter-pack/pull/448)
 * `docs/.sphinx/update_sp.py` [#425](https://github.com/canonical/sphinx-docs-starter-pack/pull/425)
 * `docs/.sphinx/metrics/build_metrics.py` [#448](https://github.com/canonical/sphinx-docs-starter-pack/pull/448)
