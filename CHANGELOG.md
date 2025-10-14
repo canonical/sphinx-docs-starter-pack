@@ -13,8 +13,13 @@
 
 * `docs/Makefile` [#373](https://github.com/canonical/sphinx-docs-starter-pack/pull/373)
 * `docs/conf.py` [#429](https://github.com/canonical/sphinx-docs-starter-pack/pull/429), [#442](https://github.com/canonical/sphinx-docs-starter-pack/pull/442)
+* `docs/.sphinx/get_vale_conf.py` [#448](https://github.com/canonical/sphinx-docs-starter-pack/pull/448)
 * `docs/.sphinx/update_sp.py` [#425](https://github.com/canonical/sphinx-docs-starter-pack/pull/425)
-* `.github/workflows/check-removed-urls.yml` [#437](https://github.com/canonical/sphinx-docs-starter-pack/pull/437)
+* `docs/.sphinx/metrics/build_metrics.py` [#448](https://github.com/canonical/sphinx-docs-starter-pack/pull/448)
+* `.github/workflows/check-removed-urls.yml` [#437](https://github.com/canonical/sphinx-docs-starter-pack/pull/437), [#445](https://github.com/canonical/sphinx-docs-starter-pack/pull/445)
+* `.github/workflows/markdown-style-checks.yml` [#445](https://github.com/canonical/sphinx-docs-starter-pack/pull/445)
+* `.github/workflows/sphinx-python-dependency-build-checks.yml` [#445](https://github.com/canonical/sphinx-docs-starter-pack/pull/445)
+* `.github/workflows/test-starter-pack.yml` [#445](https://github.com/canonical/sphinx-docs-starter-pack/pull/445)
 
 ### Removed
 
