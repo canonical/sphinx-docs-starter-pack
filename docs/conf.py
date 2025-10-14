@@ -225,10 +225,10 @@ sitemap_excludes = [
 #       the sphinx_reredirects extension will be disabled.
 
 redirects = {
-    'reference/doc-cheat-sheet-myst/': '/reference/myst-syntax-reference',
-    'reference/doc-cheat-sheet/': '/reference/rst-syntax-reference',
-    'reference/style-guide-myst/': '/reference/myst-syntax-reference',
-    'reference/style-guide/': '/reference/rst-syntax-reference',
+    'reference/doc-cheat-sheet-myst/': '/latest/reference/myst-syntax-reference',
+    'reference/doc-cheat-sheet/': '/latest/reference/rst-syntax-reference',
+    'reference/style-guide-myst/': '/latest/reference/myst-syntax-reference',
+    'reference/style-guide/': '/latest/reference/rst-syntax-reference',
 }
 
 
