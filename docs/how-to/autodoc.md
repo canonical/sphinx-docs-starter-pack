@@ -1,12 +1,12 @@
-(sphinx_autodocs)=
+(sphinx_autodoc)=
 
-# How to import docstrings with Sphinx Autodocs
+# How to import docstrings with Sphinx Autodoc
 
-Module and function details are useful reference material to have in documentation, but the process of manually pulling all the necessary details over can become tedious. The [Sphinx Autodocs extension](https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html) provides capabilities to automatically pull in docstrings and module information for Python code.
+Module and function details are useful reference material to have in documentation, but the process of manually pulling all the necessary details over can become tedious. The [Sphinx Autodoc extension](https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html) provides capabilities to automatically pull in docstrings and module information for Python code.
 
 ## Prerequisites
 
-To use the Sphinx autodocs extension with the Starter Pack, you need:
+To use the Sphinx autodoc extension with the Starter Pack, you need:
 
 * Python module files located within the same repository as your documentation
 
@@ -16,21 +16,24 @@ OR
 
 ## Setup
 
-In the {file}`conf\.py` file in your docs directory, update the `sys.path` so that Sphinx can find your module files. At the top of the file, add a `sys.path.insert` that adds your `<code>` directory:
+In the {file}`conf.py` file in your docs directory, update the `sys.path` so that Sphinx can find your module files. At the top of the file, add a `sys.path.insert` that adds your `<code>` directory:
 
 ```{code-block} python
-:caption: {file}`conf\.py`
+:caption: {file}`conf.py`
 
 import sys
 from pathlib import Path
 
-sys.path.insert(0,str(Path('..','<code>').resolve()))
+relative_code_path = Path('..', '<code>')
+absolute_code_path = relative_code_path.resolve()
+absolute_code_path_str = str(absolute_code_path)
+sys.path.insert(0, absolute_code_path_str) # insert at index 0 so it occurs early in the list
 ```
 
-Then, further down in the {file}`conf\.py`, add `sphinx.ext.autodoc` to the list of extensions:
+Then, further down in the {file}`conf.py`, add `sphinx.ext.autodoc` to the list of extensions:
 
 ```{code-block} python
-:caption: {file}`conf\.py`
+:caption: {file}`conf.py`
 
 extensions = [
     ...
@@ -52,7 +55,7 @@ The extension's usage is limited to Python code. There are extensions for some o
 
 ### Docstring format
 
-The autodocs extension pulls the docstrings straight into the the reStructuredText document, which requires the docstrings to be in rST format. For docstrings in the Numpy or Google style, the [napoleon](https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html#module-sphinx.ext.napoleon) extension can be enabled to preprocess the docstrings and convert them into rST prior to processing by autodocs.
+The autodoc extension pulls the docstrings straight into the the reStructuredText document, which requires the docstrings to be in reST format. For docstrings in the Numpy or Google style, the [napoleon](https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html#module-sphinx.ext.napoleon) extension can be enabled to preprocess the docstrings and convert them into reST prior to processing by autodoc.
 
 For documentation that is written in MyST Markdown, wrap the `eval-rst` directive around the autdocs calls:
 
@@ -70,7 +73,7 @@ For documentation that is written in MyST Markdown, wrap the `eval-rst` directiv
 
 ## Canonical examples
 
-```{list-table} Canonical Autodocs Examples
+```{list-table} Canonical autodoc Examples
 :header-rows: 1
 
 *  - Product
