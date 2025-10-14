@@ -12,7 +12,7 @@
 ## Changed
 
 * `docs/Makefile` [#373](https://github.com/canonical/sphinx-docs-starter-pack/pull/373)
-* `docs/conf.py` [#429](https://github.com/canonical/sphinx-docs-starter-pack/pull/429), [#442](https://github.com/canonical/sphinx-docs-starter-pack/pull/442)
+* `docs/conf.py` [#429](https://github.com/canonical/sphinx-docs-starter-pack/pull/429), [#442](https://github.com/canonical/sphinx-docs-starter-pack/pull/442), [#453](https://github.com/canonical/sphinx-docs-starter-pack/pull/453)
 * `docs/.sphinx/get_vale_conf.py` [#448](https://github.com/canonical/sphinx-docs-starter-pack/pull/448)
 * `docs/.sphinx/update_sp.py` [#425](https://github.com/canonical/sphinx-docs-starter-pack/pull/425)
 * `docs/.sphinx/metrics/build_metrics.py` [#448](https://github.com/canonical/sphinx-docs-starter-pack/pull/448)
