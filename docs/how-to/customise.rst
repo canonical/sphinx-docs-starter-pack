@@ -107,30 +107,33 @@ They are pre-configured as needed, but you can customise their configuration in 
 The following extensions are included by default:
 
 * ``canonical_sphinx``
-* ``sphinxcontrib.cairosvgconverter``
-* ``sphinx_last_updated_by_git``
-
-The ``canonical_sphinx`` extension is required for the starter pack.
-It automatically enables and sets default configurations for the following extensions:
-
-* ``custom-rst-roles``
-* ``myst_parser``
 * ``notfound.extension``
-* ``related-links``
+* ``sphinx.ext.intersphinx``
+* ``sphinx_config_options``
+* ``sphinx_contributor_listing``
 * ``sphinx_copybutton``
 * ``sphinx_design``
+* ``sphinx_filtered_toctree``
+* ``sphinx_last_updated_by_git``
+* ``sphinx_related_links``
 * ``sphinx_reredirects``
+* ``sphinx_roles``
+* ``sphinx_sitemap``
 * ``sphinx_tabs.tabs``
+* ``sphinx_terminal``
+* ``sphinx_ubuntu_images``
+* ``sphinx_youtube_links``
+* ``sphinxcontrib.cairosvgconverter``
 * ``sphinxcontrib.jquery``
 * ``sphinxext.opengraph``
-* ``terminal-output``
-* ``youtube-links``
+
+The ``canonical_sphinx`` extension is required for the starter pack and provides the Furo-based theme and custom templates.
 
 To add new extensions needed for your documentation set, add them to the ``extensions`` parameter in :file:`docs/conf.py`.
 
 .. note::
 
-   If any additional extensions need specific Python packages, ensure they are installed alongside the other requirements by adding them to the :file:`.sphinx/requirements.txt` file.
+   If any additional extensions need specific Python packages, ensure they are installed alongside the other requirements by adding them to the :file:`docs/requirements.txt` file.
 
 Add page-specific configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -182,7 +185,7 @@ The following links can help you with additional configuration:
 - `Sphinx extensions`_
 - `Furo documentation`_ (Furo is the Sphinx theme we use as our base)
 
-If you need additional Python packages for any custom processing you do in your documentation, add them to the :file:`.sphinx/requirements.txt` file.
+If you need additional Python packages for any custom processing you do in your documentation, add them to the :file:`docs/requirements.txt` file.
 
 Disable failure on warning
 --------------------------
