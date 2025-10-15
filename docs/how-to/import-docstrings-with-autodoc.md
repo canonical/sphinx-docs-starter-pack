@@ -73,7 +73,7 @@ For documentation that is written in MyST Markdown, wrap the `eval-rst` directiv
 
 ## Canonical examples
 
-```{list-table} Canonical `autodoc` Examples
+```{list-table} Canonical autodoc Examples
 :header-rows: 1
 
 *  - Product
