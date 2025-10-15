@@ -1,8 +1,8 @@
-(sphinx_autodoc)=
+(sphinx-autodoc)=
 
-# How to import docstrings with Sphinx Autodoc
+# Import docstrings with Sphinx `autodoc`
 
-Module and function details are useful reference material to have in documentation, but the process of manually pulling all the necessary details over can become tedious. The [Sphinx Autodoc extension](https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html) provides capabilities to automatically pull in docstrings and module information for Python code.
+Module and function details are useful reference material to have in documentation, but the process of manually pulling all the necessary details over can become tedious. The [Sphinx `autodoc` extension](https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html) provides the capability to automatically pull in docstrings and module information for Python code.
 
 ## Prerequisites
 
@@ -12,7 +12,7 @@ To use the Sphinx autodoc extension with the Starter Pack, you need:
 
 OR
 
-* The code repository added as a [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules) into the docs repository
+* The code repository added as a [Git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules) into the documentation repository
 
 ## Setup
 
@@ -43,7 +43,7 @@ extensions = [
 
 ## Usage
 
-See [Sphinx's Autodoc instructions](https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#usage) for details.
+See [Sphinx's `autodoc` instructions](https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#usage) for details.
 
 ## Known issues and limitations
 
@@ -55,7 +55,7 @@ The extension's usage is limited to Python code. There are extensions for some o
 
 ### Docstring format
 
-The autodoc extension pulls the docstrings straight into the the reStructuredText document, which requires the docstrings to be in reST format. For docstrings in the Numpy or Google style, the [napoleon](https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html#module-sphinx.ext.napoleon) extension can be enabled to preprocess the docstrings and convert them into reST prior to processing by autodoc.
+The `autodoc` extension pulls the docstrings straight into the the reStructuredText (reST) document, which requires the docstrings to be in reST format. For docstrings in the Numpy or Google style, the [napoleon](https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html#module-sphinx.ext.napoleon) extension can convert the docstrings into reST prior to processing by `autodoc`.
 
 For documentation that is written in MyST Markdown, wrap the `eval-rst` directive around the autdocs calls:
 
@@ -73,7 +73,7 @@ For documentation that is written in MyST Markdown, wrap the `eval-rst` directiv
 
 ## Canonical examples
 
-```{list-table} Canonical autodoc Examples
+```{list-table} Canonical `autodoc` Examples
 :header-rows: 1
 
 *  - Product
