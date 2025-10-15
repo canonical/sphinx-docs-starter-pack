@@ -18,7 +18,7 @@ sphinx-contributor-listing>=0.1.0
 sphinx-filtered-toctree>=0.1.0
 sphinx-related-links>=0.1.1
 sphinx-roles>=0.1.0
-sphinx-terminal @ git+https://github.com/secondskoll/sphinx-terminal@input-lines
+sphinx-terminal @ git+https://github.com/canonical/sphinx-terminal@work/multiline-input
 sphinx-ubuntu-images>=0.1.0
 sphinx-youtube-links>=0.1.0
 

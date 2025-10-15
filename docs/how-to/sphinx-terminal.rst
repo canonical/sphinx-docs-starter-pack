@@ -60,7 +60,7 @@ The new pattern separates input from output, and properly supports multi-line in
     :dir: /tmp/dir/
     :copy:
 
-    echo 'This is an input line'
+    echo 'This is an input line' > output.txt
     echo 'This is a second input line'
 
     This is an input line
