@@ -152,23 +152,23 @@ To include a terminal view, use the following directive:
    * - .. code::
 
           .. terminal::
-             :input: command number one
+             :input: 
              :user: root
              :host: vm
-
+            
+             command number one
+             
              output line one
              output line two
-             :input: another command
-             more output
      - .. terminal::
-          :input: command number one
+          
           :user: root
           :host: vm
 
+          command number one
+
           output line one
           output line two
-          :input: another command
-          more output
 
 Input is specified as the ``:input:`` option (or prefixed with ``:input:`` as part of the main content of the directive).
 Output is the main content of the directive.

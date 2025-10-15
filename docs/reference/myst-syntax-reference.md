@@ -177,14 +177,13 @@ To show a terminal view, use the following directive:
     ````
 
   - ```{terminal}
-    :input: command number one
     :user: root
     :host: vm
 
+    command number one
+
     output line one
     output line two
-    :input: another command
-    more output
     ```
 
 `````
