@@ -523,6 +523,8 @@ Definition lists
        Term 2:
          Definition
 
+.. _style-guide-tables:
+
 Tables
 ------
 
@@ -578,6 +580,11 @@ See `list tables`_ for reference.
         - Cell 2
       * - Cell 3
         - Cell 4
+
+Data tables
+~~~~~~~~~~~
+
+The starter pack can render CSV data as tables. See :ref:`create-data-tables`.
 
 Notes
 -----

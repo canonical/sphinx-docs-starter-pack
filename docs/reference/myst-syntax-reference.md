@@ -456,6 +456,8 @@ Adhere to the following conventions:
     : Definition
 ````
 
+(myst_style_guide_tables)=
+
 ## Tables
 
 You can use standard Markdown tables. However, using the reST [list table](https://docutils.sourceforge.io/docs/ref/rst/directives.html#list-table) syntax is usually much easier.
@@ -503,6 +505,10 @@ See [list tables](https://docutils.sourceforge.io/docs/ref/rst/directives.html#l
   - Cell 4
 ```
 ````
+
+### Data tables
+
+The starter pack can render CSV data as tables. See {ref}`create-data-tables`.
 
 ## Notes
 
