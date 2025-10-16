@@ -57,7 +57,7 @@ The extension's usage is limited to Python code. There are extensions for some o
 
 The `autodoc` extension pulls the docstrings straight into the the reStructuredText (reST) document, which requires the docstrings to be in reST format. For docstrings in the Numpy or Google style, the [napoleon](https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html#module-sphinx.ext.napoleon) extension can convert the docstrings into reST prior to processing by `autodoc`.
 
-For documentation that is written in MyST Markdown, wrap the `eval-rst` directive around the autdocs calls:
+For documentation that is written in MyST Markdown, wrap the `eval-rst` directive around the `autodoc` calls:
 
 ````{code-block} md
 
