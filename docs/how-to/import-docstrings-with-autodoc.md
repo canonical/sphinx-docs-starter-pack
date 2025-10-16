@@ -6,7 +6,7 @@ Module and function details are useful reference material to have in documentati
 
 ## Prerequisites
 
-To use the Sphinx autodoc extension with the Starter Pack, you need:
+To use the Sphinx `autodoc` extension with the Starter Pack, you need:
 
 * Python module files located within the same repository as your documentation
 
@@ -73,7 +73,7 @@ For documentation that is written in MyST Markdown, wrap the `eval-rst` directiv
 
 ## Canonical examples
 
-```{list-table} Canonical autodoc Examples
+```{list-table} Canonical autodoc examples
 :header-rows: 1
 
 *  - Product
