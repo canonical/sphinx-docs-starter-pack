@@ -30,3 +30,4 @@ As your documentation grows, you may need additional features and workflows to s
    :maxdepth: 1
 
    diagrams-as-code-mermaid
+   import-docstrings-with-autodoc
