@@ -4,6 +4,7 @@
 
 * Changes metrics script to a less brittle Python script
 * Introduce guidelines for adding diagrams-as-code
+* Introduce guidelines for pulling in docstrings using Sphinx `autodoc` extension
 * Introduce guidelines for using custom base templates
 
 ### Added
