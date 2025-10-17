@@ -1,0 +1,22 @@
+.. raw:: html
+
+   <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@5.11.0/swagger-ui.css" />
+   <div id="openapi-hello-swagger"></div>
+   <script src="https://unpkg.com/swagger-ui-dist@5.11.0/swagger-ui-bundle.js" charset="UTF-8"
+       crossorigin="anonymous"></script>
+   <script src="https://unpkg.com/swagger-ui-dist@5.11.0/swagger-ui-standalone-preset.js" charset="UTF-8"
+       crossorigin="anonymous"></script>
+   <script>
+       window.addEventListener('load', function () {
+           const specUrl = new URL('/openapi.yaml', window.location.href).toString();
+           SwaggerUIBundle({
+               url: specUrl,
+               dom_id: '#openapi-hello-swagger',
+               presets: [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset],
+               plugins: [],
+               deepLinking: true,
+               defaultModelsExpandDepth: -1,
+               supportedSubmitMethods: []
+           });
+       });
+   </script>
