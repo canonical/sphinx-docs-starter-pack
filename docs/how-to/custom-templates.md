@@ -1,8 +1,8 @@
-# Use custom base HTML templates
+# Use custom templates
 
-If the default template in the Starter Pack doesn't fully meet your needs -- whether you want a unique layout, a custom header or footer, or a specialized sidebar for certain pages -- you can create and use a custom base HTML template for your Sphinx project.
+If the default template in the Starter Pack doesn't fully meet your needs -- whether you want a unique layout, a custom header or footer, or a specialized sidebar for certain pages -- you can create and use a custom template for your Sphinx project.
 
-This guide shows you how to extend or override the default templates to tailor the look and structure of your documentation.
+This guide shows you how to extend or override the default templates in the Starter Pack to tailor the look and structure of your documentation.
 
 ```{note}
 Base template customizations can be made to your documentation.
@@ -14,7 +14,7 @@ Use them at your own discretion.
 
 First, create the {file}`_templates` directory; all your custom templates will need to be stored in this folder.
 
-Then uncomment this line in {file}`conf.py` so your Sphinx project will use local templates:
+Then uncomment this line in {file}`conf.py` so your Sphinx project will use local templates (where available):
 
 ```{code-block} py
 :caption: conf\.py
@@ -22,7 +22,12 @@ Then uncomment this line in {file}`conf.py` so your Sphinx project will use loca
 templates_path = ["_templates"]
 ```
 
-In most cases, you will need to copy the templates for the [canonical-sphinx theme] as a starting point and edit as needed.
+In most cases, you will need to copy the default templates from the [canonical-sphinx theme] as a starting point and edit as needed.
+
+
+```{seealso}
+Sphinx uses the Jinja templating engine for its HTML templates; see the [Jinja template syntax reference] for more details.
+```
 
 ## Use custom template for all pages
 
@@ -33,12 +38,13 @@ Here are some examples.
 
 ### Remove on-page TOC
 
-To remove the on-page TOC in the right sidebar, make a copy of [page.html] in the {file}`_templates` folder, and remove lines 2 - 14.
+To remove the on-page TOC in the right sidebar, make a copy of [page.html] in the {file}`_templates` folder, and remove the applicable lines.
 This will apply to all pages. 
 
 ```{code-block} html
-:emphasize-lines: 2-14
-:linenos:
+:caption: page.html
+:emphasize-lines: 3-14
+:class: no-copybutton
 
 {% block right_sidebar %}
 <div class="toc-sticky toc-scroll">
@@ -63,10 +69,10 @@ This will apply to all pages.
 
 To customize the default header by adding an icon for the GitHub link, first make a copy of [header.html] in the {file}`_templates` folder.
 
-Then modify the conditional statement related to GitHub (see lines 5 - 13 below).
+Then modify the conditional statement related to the GitHub URL with your code.
 
 ```{code-block} html
-:linenos:
+:caption: header.html
 :emphasize-lines: 5-13
 
 [...]     
@@ -89,40 +95,20 @@ Then modify the conditional statement related to GitHub (see lines 5 - 13 below)
 [...]
 ```
 
-If you want to use a different file name for the header (e.g. {file}`new-header.html`), you would also need to make a copy of [page.html] in {file}`_templates` and modify the corresponding line.
-
-```{code-block} html
-:linenos:
-:emphasize-lines: 3
-
-[...]
-{% block body -%}
-   {% include "new-header.html" %}
-   {{ super() }}
-{%- endblock body %}
-
-[...]
-```
-
 ## Use custom template for specific pages
 
 If you want to use a custom template for specific pages in your project, you can do so by using conditional logic in {file}`page.html`.
 
 First, create the base template with your modifications (e.g. {file}`special-header.html`, {file}`special-page.html`) and place it in the {file}`_templates` folder.
 
-```{important}
-Be sure to use a different name for any parts (e.g., {file}`footer.html`, {file}`header.html`, or other partials) that you want to customize specifically for this page, so they don't override the templates used by the rest of your documentation.
-```
-
 Next, make a copy of [page.html].
 
 ### Partial template changes
 
 To make partial changes (e.g. custom header) to specific pages, modify only the relevant parts of {file}`page.html` where you want the custom layout or behavior to apply.
-For example, wrap the body block in a conditional statement so the custom header applies only to the "how-to/custom-base-template" and "how-to/build" page.
+For example, wrap the body block in a conditional statement so the custom header (e.g. {file}`special-header.html`) applies only to the "how-to/custom-templates" and "how-to/build" page.
 
 ```{code-block} html
-:linenos:
 :emphasize-lines: 2-6
 :caption: _templates/page.html
 
@@ -139,9 +125,9 @@ For example, wrap the body block in a conditional statement so the custom header
 ### Whole template changes
 
 To make changes to the whole template (e.g. a custom layout for a landing page or marketing page), modify the `extends` statement in {file}`page.html` to specify the pages that will use different templates.
+For example, the {file}`special-page.html` template applies only to the "how-to/customise" and "how-to/diagrams-as-code" page.
 
 ```{code-block} html
-:linenos:
 :caption: _templates/page.html
 
 {% if pagename in ["how-to/customise", "how-to/diagrams-as-code"] %}
@@ -157,5 +143,6 @@ The pages "how-to/customise" and "how-to/diagrams-as-code" will use {file}`speci
 
 % LINKS
 [canonical-sphinx theme]: https://github.com/canonical/canonical-sphinx/tree/main/canonical_sphinx/theme/templates
+[Jinja template syntax reference]: https://jinja.palletsprojects.com/en/latest/templates/
 [page.html]: https://github.com/canonical/canonical-sphinx/blob/main/canonical_sphinx/theme/templates/page.html
 [header.html]: https://github.com/canonical/canonical-sphinx/blob/main/canonical_sphinx/theme/templates/header.html
