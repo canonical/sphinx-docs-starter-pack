@@ -3,7 +3,7 @@
 Create data tables
 ===================
 
-The starter pack can render comma-separated values (CSV) data as tables. We call these "data tables".
+The starter pack can render comma-separated values (CSV) data as tables.
 
 For other types of table, see :ref:`tables in reStructuredText <style-guide-tables>` and :ref:`tables in MyST <myst_style_guide_tables>`.
 
