@@ -28,6 +28,7 @@
 .. _reStructuredText: https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html
 .. _`Sphinx`: https://www.sphinx-doc.org/
 .. _`Sphinx configuration`: https://www.sphinx-doc.org/en/master/usage/configuration.html
+.. _Sphinx DataTables: https://sharm294.github.io/sphinx-datatables/
 .. _Sphinx design: https://sphinx-design.readthedocs.io/en/latest/
 .. _Sphinx documentation starter pack:
 .. _Sphinx documentation starter pack repository: https://github.com/canonical/starter-pack
