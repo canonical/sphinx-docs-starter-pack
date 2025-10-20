@@ -24,7 +24,9 @@ Set up, configure, upgrade, and customize your project to keep it organized and 
 Optional features and workflows
 -------------------------------
 
-As your documentation grows, you may need additional features and workflows to support richer content and more advanced use cases, such as diagrams as code, automated API references, and interactive data tables.
+As your documentation grows, you may need more advanced features to support richer content. This can include diagrams as code, automated API references, and data tables.
+
+While some of these features are available by default in the starter pack, others may require additional extensions. The following guides will help you get started:
 
 .. toctree::
    :maxdepth: 1
