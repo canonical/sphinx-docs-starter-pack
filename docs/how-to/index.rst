@@ -31,3 +31,5 @@ As your documentation grows, you may need additional features and workflows to s
 
    diagrams-as-code-mermaid
    create-data-tables
+   import-docstrings-with-autodoc
+   openapi

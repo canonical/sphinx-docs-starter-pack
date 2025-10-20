@@ -1,0 +1,24 @@
+openapi: 3.0.3
+info:
+  title: Hello API
+  version: 1.0.0
+paths:
+  /hello:
+    get:
+      summary: Say hello
+      parameters:
+        - in: query
+          name: name
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Hello, world!"

@@ -17,7 +17,7 @@ Before you start, make sure that you have ``make``, ``python3``, ``python3-venv`
 Python environment
 ------------------
 
-The Python prerequisites from the :file:`.sphinx/requirements.txt` file are automatically installed when you build the documentation.
+The Python prerequisites from the :file:`docs/requirements.txt` file are automatically installed when you build the documentation.
 
 If you want to install them manually, you can run the following command from within your documentation folder::
 
