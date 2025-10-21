@@ -6,6 +6,7 @@
 * Introduce guidelines for adding diagrams-as-code
 * Introduce guidelines for pulling in docstrings using Sphinx `autodoc` extension
 * Introduce guidelines for using custom base templates
+* Add a step to the tutorial about removing `CODEOWNERS`.
 
 ### Added
 

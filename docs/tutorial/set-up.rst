@@ -8,20 +8,36 @@ This page contains a short guide on how to set up and use the starter pack.
 
 .. _initial-setup:
 
-Initial setup
-=============
+Copy the starter pack
+=====================
 
 If you're starting a new project, clone the `starter pack repository <https://github.com/canonical/sphinx-docs-starter-pack>`_ and begin your project from there.
 
-If you already have a project, download the following files from the repository and copy them into your existing repository:
+If you're adding documentation to an existing software project, download the following files from the repository and copy them into your existing repository:
 
 * the entire :file:`docs` directory
 * :file:`.readthedocs.yaml` (configuration for the building on Read the Docs)
 * :file:`.wokeignore` (configuration for the Woke tool)
 * the entire :file:`.github/workflows` directory
 
-After cloning or copying the starter pack, you **must** delete :file:`.github/workflows/test-starter-pack.yml` from your repository, as this workflow is specific to testing the starter pack itself and should not be included in your project. Optionally, you can also delete 
-:file:`.github/workflows/sphinx-python-dependency-build-checks.yml` and :file:`.github/workflows/markdown-style-checks.yml` if you do not need these workflows in your project.
+
+.. _remove-unneeded-files:
+
+Remove the unneeded files
+=========================
+
+Next, review the files inherited from the starter pack and remove those that could interfere with your project.
+
+Remove the files that can't be reused:
+
+- :file:`.github/CODEOWNERS`
+- :file:`.github/workflows/test-starter-pack.yml`
+
+Review and remove the GitHub workflows in ``.github/workflows/`` that your project might not need:
+
+- :file:`sphinx-python-dependency-build-checks.yml` verifies Sphinx dependencies
+- :file:`markdown-style-checks.yml` calls the built-in Markdown linter
+
 
 Build and run the local server
 ==============================
