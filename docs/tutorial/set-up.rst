@@ -26,7 +26,7 @@ If you're adding documentation to an existing software project, copy the followi
 Remove the unneeded files
 =========================
 
-Next, review the files inherited from the starter pack and remove those that could interfere with your project.
+Next, review the starter pack files and remove those that could interfere with your project.
 
 Remove the files that can't be reused:
 
