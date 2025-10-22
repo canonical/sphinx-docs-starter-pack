@@ -13,7 +13,7 @@ Copy the starter pack
 
 If you're starting a new project, clone the `starter pack repository <https://github.com/canonical/sphinx-docs-starter-pack>`_ and begin your project from there.
 
-If you're adding documentation to an existing software project, download the following files from the repository and copy them into your existing repository:
+If you're adding documentation to an existing software project, copy the following files from the starter pack repository into your project:
 
 * the entire :file:`docs` directory
 * :file:`.readthedocs.yaml` (configuration for the building on Read the Docs)
@@ -35,8 +35,8 @@ Remove the files that can't be reused:
 
 Review and remove the GitHub workflows in ``.github/workflows/`` that your project might not need:
 
-- :file:`sphinx-python-dependency-build-checks.yml` verifies Sphinx dependencies
-- :file:`markdown-style-checks.yml` calls the built-in Markdown linter
+- :file:`sphinx-python-dependency-build-checks.yml` verifies Python dependencies for the documentation system. If your project has its own dependency checks, it won't need this workflow.
+- :file:`markdown-style-checks.yml` calls the built-in Markdown linter. If your project already validates its Markdown files, it won't need this workflow.
 
 
 Build and run the local server
