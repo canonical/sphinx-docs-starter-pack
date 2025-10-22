@@ -36,7 +36,7 @@ Remove the files that can't be reused:
 Review and remove the GitHub workflows in ``.github/workflows/`` that your project might not need:
 
 - :file:`sphinx-python-dependency-build-checks.yml` verifies Python dependencies for the documentation system. If your project has its own dependency checks, it won't need this workflow.
-- :file:`markdown-style-checks.yml` calls the built-in Markdown linter. If your project already validates its Markdown files, it won't need this workflow.
+- :file:`markdown-style-checks.yml` runs the built-in Markdown linter. If your project already validates its Markdown files, it won't need this workflow.
 
 
 Build and run the local server
