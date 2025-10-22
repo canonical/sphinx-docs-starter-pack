@@ -6,6 +6,7 @@
 * Introduce guidelines for adding diagrams-as-code
 * Introduce guidelines for rendering CSV data as tables
 * Introduce guidelines for pulling in docstrings using Sphinx `autodoc` extension
+* Introduce guidelines for using custom base templates
 
 ### Added
 

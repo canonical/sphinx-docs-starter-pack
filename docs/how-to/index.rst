@@ -35,3 +35,4 @@ While some of these features are available by default in the starter pack, other
    create-data-tables
    import-docstrings-with-autodoc
    openapi
+   custom-templates
