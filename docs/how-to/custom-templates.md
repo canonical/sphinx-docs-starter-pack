@@ -1,3 +1,5 @@
+(custom-templates)=
+
 # Use custom templates
 
 If the default template in the Starter Pack doesn't fully meet your needs -- whether you want a unique layout, a custom header or footer, or a specialized sidebar for certain pages -- you can create and use a custom template for your Sphinx project.
@@ -12,9 +14,9 @@ Use them at your own discretion.
 
 ## Setup
 
-First, create the {file}`_templates` directory; all your custom templates will need to be stored in this folder.
+First, create the {file}`docs/_templates` directory; all your custom templates will need to be stored in this folder.
 
-Then uncomment this line in {file}`conf.py` so your Sphinx project will use local templates (where available):
+Then uncomment this line in {file}`docs/conf.py` so your Sphinx project will use local templates (where available):
 
 ```{code-block} py
 :caption: conf\.py
@@ -38,7 +40,7 @@ Here are some examples.
 
 ### Remove on-page TOC
 
-To remove the on-page TOC in the right sidebar, make a copy of [page.html] in the {file}`_templates` folder, and remove the applicable lines.
+To remove the on-page TOC in the right sidebar, make a copy of [page.html] in the {file}`docs/_templates` folder, and remove the applicable lines.
 This will apply to all pages. 
 
 ```{code-block} html
@@ -67,7 +69,7 @@ This will apply to all pages.
 
 ### Add icon for GitHub link in header
 
-To customize the default header by adding an icon for the GitHub link, first make a copy of [header.html] in the {file}`_templates` folder.
+To customize the default header by adding an icon for the GitHub link, first make a copy of [header.html] in the {file}`docs/_templates` folder.
 
 Then modify the conditional statement related to the GitHub URL with your code.
 
@@ -99,7 +101,7 @@ Then modify the conditional statement related to the GitHub URL with your code.
 
 If you want to use a custom template for specific pages in your project, you can do so by using conditional logic in {file}`page.html`.
 
-First, create the base template with your modifications (e.g. {file}`special-header.html`, {file}`special-page.html`) and place it in the {file}`_templates` folder.
+First, create the base template with your modifications (e.g. {file}`special-header.html`, {file}`special-page.html`) and place it in the {file}`docs/_templates` folder.
 
 Next, make a copy of [page.html].
 
