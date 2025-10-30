@@ -301,7 +301,8 @@ test for ``example_tutorial``:
 
 .. terminal::
     :dir: spread_test_example
-    :input: spread --list
+
+    spread --list
 
     multipass:ubuntu-24.04-64:tests/example_tutorial 
 
@@ -334,7 +335,8 @@ respond with the following:
 
 .. terminal::
     :dir: spread_test_example
-    :input: multipass list
+
+    multipass list
 
     No instances found.
 

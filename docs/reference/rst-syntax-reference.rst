@@ -152,26 +152,39 @@ To include a terminal view, use the following directive:
    * - .. code::
 
           .. terminal::
-             :input: command number one
-             :user: root
-             :host: vm
+              :user: root
+              :host: vm
+              
+              input line 1
+              input line 2
 
-             output line one
-             output line two
-             :input: another command
-             more output
+              output line 1
+              output line 2
+
+              output line 3
      - .. terminal::
-          :input: command number one
           :user: root
           :host: vm
 
-          output line one
-          output line two
-          :input: another command
-          more output
+          input line 1
+          input line 2
 
-Input is specified as the ``:input:`` option (or prefixed with ``:input:`` as part of the main content of the directive).
-Output is the main content of the directive.
+          output line 1
+          output line 2
+
+          output line 3
+
+Input can span multiple lines, as long as every line is in the same paragraph.
+Everything after the first blank line in the directive's content is rendered as output.
+Each terminal directive can only display a single input.
+
+To render only the output of a command, include the ``:output-only:`` flag in the
+directive's options:
+
+.. terminal::
+    :output-only:
+
+    This is rendered as output.
 
 To customize the prompt (``user@host:~$`` by default), specify any of the following options:
 
@@ -179,7 +192,8 @@ To customize the prompt (``user@host:~$`` by default), specify any of the follow
 * ``:host:``
 * ``:dir:``
 
-To add a button that copies the command specified in ``:input:``, include the ``:copy:`` option.
+To add a button that copies the input command, include the `:copy:` flag in the
+directive's options.
 
 To make the terminal scroll horizontally instead of wrapping long lines, include the ``:scroll:`` option.
 
