@@ -139,8 +139,10 @@ For a list of supported languages and their respective lexers, see the official 
 Terminal output
 ~~~~~~~~~~~~~~~
 
-Showing a terminal view can be useful to show the output of a specific command or series of commands, where it is important to see the difference between input and output.
-In addition, including a terminal view can help break up a long text and make it easier to consume, which is especially useful when documenting command-line-only products.
+Showing a terminal view can be useful to show the output of a specific command or series
+of commands, where it is important to see the difference between input and output. In
+addition, including a terminal view can help break up a long text and make it easier to
+consume, which is especially useful when documenting command-line-only products.
 
 To include a terminal view, use the following directive:
 
@@ -192,8 +194,8 @@ To customize the prompt (``user@host:~$`` by default), specify any of the follow
 * ``:host:``
 * ``:dir:``
 
-To add a button that copies the input command, include the `:copy:` flag in the
-directive's options.
+The copy button for input commands is **opt-in**. You must include the ``:copy:`` flag
+in the directive's options for the button to be displayed.
 
 To make the terminal scroll horizontally instead of wrapping long lines, include the ``:scroll:`` option.
 

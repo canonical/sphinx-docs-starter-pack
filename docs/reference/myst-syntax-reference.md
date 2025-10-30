@@ -212,8 +212,8 @@ To customize the prompt (`user@host:~$` by default), specify any of the followin
 * `:host:`
 * `:dir:`
 
-To add a button that copies the input command, include the `:copy:` flag in the
-directive's options.
+The copy button for input commands is **opt-in**. You must include the `:copy:` flag
+in the directive's options for the button to be displayed.
 
 To make the terminal scroll horizontally instead of wrapping long lines, include the `:scroll:` option.
 
