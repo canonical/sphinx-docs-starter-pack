@@ -323,6 +323,7 @@ connecting to the VM, sending the Spread test to the VM and executing the test.
 If the test is successful, the terminal will output something similar to the following:
 
 .. terminal::
+    :output-only:
     :dir: spread_test_example
 
     2025-02-04 16:17:10 Successful tasks: 1
@@ -345,6 +346,7 @@ Multipass VM so that additional debugging can happen. In that case, the terminal
 will output something similar to the following:
 
 .. terminal::
+    :output-only:
     :dir: spread_test_example
 
     2025-02-04 16:17:10 Starting shell to debug...
