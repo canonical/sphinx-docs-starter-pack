@@ -139,39 +139,63 @@ For a list of supported languages and their respective lexers, see the official 
 Terminal output
 ~~~~~~~~~~~~~~~
 
-Showing a terminal view can be useful to show the output of a specific command or series of commands, where it is important to see the difference between input and output.
-In addition, including a terminal view can help break up a long text and make it easier to consume, which is especially useful when documenting command-line-only products.
+A terminal view can be useful to show the output of a specific command, where it is
+important to see the difference between input and output. In addition, including a
+terminal view can help break up a long text and make it easier to consume, which is
+especially useful when documenting command-line-only products.
 
 To include a terminal view, use the following directive:
 
 .. list-table::
-   :header-rows: 1
+    :header-rows: 1
 
-   * - Input
-     - Output
-   * - .. code::
+    * - Input
+      - Output
+    * - .. code-block:: text
 
-          .. terminal::
-             :input: command number one
-             :user: root
-             :host: vm
+            .. terminal::
+                
+                input line 1
+                input line 2
 
-             output line one
-             output line two
-             :input: another command
-             more output
-     - .. terminal::
-          :input: command number one
-          :user: root
-          :host: vm
+                output line 1
+                output line 2
 
-          output line one
-          output line two
-          :input: another command
-          more output
+                output line 3
+      - .. terminal::
 
-Input is specified as the ``:input:`` option (or prefixed with ``:input:`` as part of the main content of the directive).
-Output is the main content of the directive.
+            input line 1
+            input line 2
+
+            output line 1
+            output line 2
+
+            output line 3
+
+By default, everything before the first blank line in the directive's content is
+rendered as input, while any content that follows is rendered as output. The terminal
+directive can only display one input command, but that command can span multiple lines,
+as in the previous example.
+
+To render only the output of a command, include the ``:output-only:`` flag in the
+directive's options:
+
+.. list-table::
+    :header-rows: 1
+
+    * - Input
+      - Output
+    * - .. code-block:: text
+
+            .. terminal::
+                :output-only:
+
+                This is rendered as output.
+
+      - .. terminal::
+            :output-only:
+
+            This is rendered as output.
 
 To customize the prompt (``user@host:~$`` by default), specify any of the following options:
 
@@ -179,7 +203,32 @@ To customize the prompt (``user@host:~$`` by default), specify any of the follow
 * ``:host:``
 * ``:dir:``
 
-To add a button that copies the command specified in ``:input:``, include the ``:copy:`` option.
+.. list-table::
+    :header-rows: 1
+
+    * - Input
+      - Output
+    * - .. code-block:: text
+
+            .. terminal::
+                :user: author
+                :host: canonical
+                :dir: ~/path
+                
+                input
+
+                output
+      - .. terminal::
+            :user: author
+            :host: canonical
+            :dir: ~/path
+
+            input
+
+            output
+
+The copy button for input commands is **opt-in**. You must include the ``:copy:`` flag
+in the directive's options for the button to be displayed.
 
 To make the terminal scroll horizontally instead of wrapping long lines, include the ``:scroll:`` option.
 
