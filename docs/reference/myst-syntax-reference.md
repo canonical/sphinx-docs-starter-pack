@@ -151,8 +151,10 @@ To include back ticks in a code block, increase the number of surrounding back t
 
 ### Terminal output
 
-Showing a terminal view can be useful to show the output of a specific command or series of commands, where it is important to see the difference between input and output.
-In addition, including a terminal view can help break up a long text and make it easier to consume, which is especially useful when documenting command-line-only products.
+A terminal view can be useful to show the output of a specific command, where it is
+important to see the difference between input and output. In addition, including a
+terminal view can help break up a long text and make it easier to consume, which is
+especially useful when documenting command-line-only products.
 
 To show a terminal view, use the following directive:
 
@@ -161,11 +163,8 @@ To show a terminal view, use the following directive:
 
 * - Input
   - Output
-* - ````
-
+* - ````text
     ```{terminal}
-    :user: root
-    :host: vm
 
     input line 1
     input line 2
@@ -175,12 +174,8 @@ To show a terminal view, use the following directive:
 
     output line 3
     ```
-
     ````
-
   - ```{terminal}
-    :user: root
-    :host: vm
 
     input line 1
     input line 2
@@ -190,27 +185,66 @@ To show a terminal view, use the following directive:
     
     output line 3
     ```
-
 `````
 
-Input can span multiple lines, as long as every line is in the same paragraph.
-Everything after the first blank line in the directive's content is rendered as output.
-Each terminal directive can only display a single input.
+By default, everything between the directive's options and the first blank line in the
+directive's content is rendered as input, while any content that follows is rendered as
+output. The terminal directive can only display one input command.
 
 To render only the output of a command, include the `:output-only:` flag as a directive
 option:
 
-```{terminal}
-:output-only:
+`````{list-table}
+   :header-rows: 1
 
-This is rendered as output.
-```
+* - Input
+  - Output
+* - ````text
+    ```{terminal}
+    :output-only:
+
+    This is rendered as output.
+    ```
+    ````
+  - ```{terminal}
+    :output-only:
+
+    This is rendered as output.
+    ```
+`````
 
 To customize the prompt (`user@host:~$` by default), specify any of the following options:
 
 * `:user:`
 * `:host:`
 * `:dir:`
+
+`````{list-table}
+   :header-rows: 1
+
+* - Input
+  - Output
+* - ````text
+    ```{terminal}
+    :user: author
+    :host: canonical
+    :dir: ~/path
+
+    input
+
+    output
+    ```
+    ````
+  - ```{terminal}
+    :user: author
+    :host: canonical
+    :dir: ~/path
+
+    input
+
+    output
+    ```
+`````
 
 The copy button for input commands is **opt-in**. You must include the `:copy:` flag
 in the directive's options for the button to be displayed.
