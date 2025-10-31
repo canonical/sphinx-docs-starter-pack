@@ -7,6 +7,8 @@
 * Introduce guidelines for rendering CSV data as tables
 * Introduce guidelines for pulling in docstrings using Sphinx `autodoc` extension
 * Introduce guidelines for using custom base templates
+* Fix syntax error in Makefile that caused the fallback target to loop
+  infinitely.
 
 ### Added
 
@@ -24,6 +26,7 @@
 * `.github/workflows/markdown-style-checks.yml` [#445](https://github.com/canonical/sphinx-docs-starter-pack/pull/445)
 * `.github/workflows/sphinx-python-dependency-build-checks.yml` [#445](https://github.com/canonical/sphinx-docs-starter-pack/pull/445)
 * `.github/workflows/test-starter-pack.yml` [#445](https://github.com/canonical/sphinx-docs-starter-pack/pull/445)
+* `docs/Makefile` [#461](https://github.com/canonical/sphinx-docs-starter-pack/pull/461)
 
 ### Removed
 
