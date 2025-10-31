@@ -24,6 +24,7 @@
 * `.github/workflows/markdown-style-checks.yml` [#445](https://github.com/canonical/sphinx-docs-starter-pack/pull/445)
 * `.github/workflows/sphinx-python-dependency-build-checks.yml` [#445](https://github.com/canonical/sphinx-docs-starter-pack/pull/445)
 * `.github/workflows/test-starter-pack.yml` [#445](https://github.com/canonical/sphinx-docs-starter-pack/pull/445)
+* Fix default case in `docs/Makefile` [#461](https://github.com/canonical/sphinx-docs-starter-pack/pull/461)
 
 ### Removed
 
