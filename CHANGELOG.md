@@ -7,6 +7,8 @@
 * Introduce guidelines for rendering CSV data as tables
 * Introduce guidelines for pulling in docstrings using Sphinx `autodoc` extension
 * Introduce guidelines for using custom base templates
+* Fix syntax error in Makefile that caused the fallback target to loop
+  infinitely.
 
 ### Added
 
