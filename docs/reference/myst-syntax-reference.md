@@ -187,9 +187,10 @@ To show a terminal view, use the following directive:
     ```
 `````
 
-By default, everything between the directive's options and the first blank line in the
-directive's content is rendered as input, while any content that follows is rendered as
-output. The terminal directive can only display one input command.
+By default, everything before the first blank line in the directive's content is
+rendered as input, while any content that follows is rendered as output. The terminal
+directive can only display one input command, but that command can span multiple lines,
+as in the previous example.
 
 To render only the output of a command, include the `:output-only:` flag as a directive
 option:
