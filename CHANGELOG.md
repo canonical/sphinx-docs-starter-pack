@@ -2,6 +2,7 @@
 
 ## 1.3.0
 
+* !!!BREAKING: Uses atomic extensions over `canonical-sphinx[full]`. `sphinx-terminal` has changed syntax support
 * Changed `html_baseurl` for better canonical URL support
 * Changes metrics script to a less brittle Python script
 * Introduce guidelines for adding diagrams-as-code
