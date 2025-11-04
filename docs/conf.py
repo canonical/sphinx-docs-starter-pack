@@ -122,7 +122,7 @@ html_context = {
     # For the URL, link directly to the product's license statement, typically found on
     # the product's home page or in its GitHub project.
     "license": {
-        "name": "LGPL-3.0-only",
+        "name": "CC-BY-SA-4.0",
         "url": "https://github.com/canonical/sphinx-docs-starter-pack/blob/main/LICENSE",
     },
     # Your Discourse instance URL
