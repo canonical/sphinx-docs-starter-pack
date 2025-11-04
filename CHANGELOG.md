@@ -9,6 +9,7 @@
 * Introduce guidelines for using custom base templates
 * Fix syntax error in Makefile that caused the fallback target to loop
   infinitely.
+* Add a step to the tutorial about removing `CODEOWNERS`.
 
 ### Added
 
