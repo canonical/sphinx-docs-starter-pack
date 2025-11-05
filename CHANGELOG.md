@@ -1,7 +1,9 @@
 # sphinx-docs-starter-pack changelog
 
-## Upcoming
+## 1.3.0
 
+* !!!BREAKING: Updated deps to use atomic extensions, not `canonical-sphinx[full]`. Updated `sphinx-terminal` uses backwards incompatible syntax
+* Changed `html_baseurl` for better canonical URL support
 * Changes metrics script to a less brittle Python script
 * Introduce guidelines for adding diagrams-as-code
 * Introduce guidelines for rendering CSV data as tables
@@ -20,7 +22,7 @@
 
 * `docs/Makefile` [#373](https://github.com/canonical/sphinx-docs-starter-pack/pull/373), [#456](https://github.com/canonical/sphinx-docs-starter-pack/pull/456)
 * `docs/requirements.txt` [#449](https://github.com/canonical/sphinx-docs-starter-pack/pull/449), [#456](https://github.com/canonical/sphinx-docs-starter-pack/pull/456), [#460](https://github.com/canonical/sphinx-docs-starter-pack/pull/460)
-* `docs/conf.py` [#429](https://github.com/canonical/sphinx-docs-starter-pack/pull/429), [#449](https://github.com/canonical/sphinx-docs-starter-pack/pull/449), [#442](https://github.com/canonical/sphinx-docs-starter-pack/pull/442), [#460](https://github.com/canonical/sphinx-docs-starter-pack/pull/460)
+* `docs/conf.py` [#429](https://github.com/canonical/sphinx-docs-starter-pack/pull/429), [#449](https://github.com/canonical/sphinx-docs-starter-pack/pull/449), [#442](https://github.com/canonical/sphinx-docs-starter-pack/pull/442), [#460](https://github.com/canonical/sphinx-docs-starter-pack/pull/460) [#462](https://github.com/canonical/sphinx-docs-starter-pack/pull/462)
 * `docs/.sphinx/get_vale_conf.py` [#448](https://github.com/canonical/sphinx-docs-starter-pack/pull/448)
 * `docs/.sphinx/update_sp.py` [#425](https://github.com/canonical/sphinx-docs-starter-pack/pull/425)
 * `docs/.sphinx/metrics/build_metrics.py` [#448](https://github.com/canonical/sphinx-docs-starter-pack/pull/448)
