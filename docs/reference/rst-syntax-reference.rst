@@ -139,42 +139,100 @@ For a list of supported languages and their respective lexers, see the official 
 Terminal output
 ~~~~~~~~~~~~~~~
 
-Showing a terminal view can be useful to show the output of a specific command or series of commands, where it is important to see the difference between input and output.
-In addition, including a terminal view can help break up a long text and make it easier to consume, which is especially useful when documenting command-line-only products.
+A terminal view can be useful to show the output of a specific command, where it is
+important to see the difference between input and output. In addition, including a
+terminal view can help break up a long text and make it easier to consume, which is
+especially useful when documenting command-line-only products.
 
 To include a terminal view, use the following directive:
 
 .. list-table::
-   :header-rows: 1
+    :header-rows: 1
 
-   * - Input
-     - Output
-   * - .. code::
+    * - Input
+      - Output
+    * - .. code-block:: text
 
-          .. terminal::
-             :input: command number one
-             :user: root
-             :host: vm
+            .. terminal::
+                
+                input line 1
+                input line 2
 
-             output line one
-             output line two
-             :input: another command
-             more output
-     - .. terminal::
-          :input: command number one
-          :user: root
-          :host: vm
+                output line 1
+                output line 2
 
-          output line one
-          output line two
-          :input: another command
-          more output
+                output line 3
+      - .. terminal::
 
-Input is specified as the ``:input:`` option (or prefixed with ``:input:`` as part of the main content of the directive).
-Output is the main content of the directive.
+            input line 1
+            input line 2
 
-To override the prompt (``user@host:~$`` by default), specify the ``:user:`` and/or ``:host:`` options.
-To make the terminal scroll horizontally instead of wrapping long lines, add ``:scroll:``.
+            output line 1
+            output line 2
+
+            output line 3
+
+By default, everything before the first blank line in the directive's content is
+rendered as input, while any content that follows is rendered as output. The terminal
+directive can only display one input command, but that command can span multiple lines,
+as in the previous example.
+
+To render only the output of a command, include the ``:output-only:`` flag in the
+directive's options:
+
+.. list-table::
+    :header-rows: 1
+
+    * - Input
+      - Output
+    * - .. code-block:: text
+
+            .. terminal::
+                :output-only:
+
+                This is rendered as output.
+
+      - .. terminal::
+            :output-only:
+
+            This is rendered as output.
+
+To customize the prompt (``user@host:~$`` by default), specify any of the following options:
+
+* ``:user:``
+* ``:host:``
+* ``:dir:``
+
+.. list-table::
+    :header-rows: 1
+
+    * - Input
+      - Output
+    * - .. code-block:: text
+
+            .. terminal::
+                :user: author
+                :host: canonical
+                :dir: ~/path
+                
+                input
+
+                output
+      - .. terminal::
+            :user: author
+            :host: canonical
+            :dir: ~/path
+
+            input
+
+            output
+
+The copy button for input commands is **opt-in**. You must include the ``:copy:`` flag
+in the directive's options for the button to be displayed.
+
+To make the terminal scroll horizontally instead of wrapping long lines, include the ``:scroll:`` option.
+
+For more details, refer to the `sphinx-terminal README <https://github.com/canonical/sphinx-terminal/blob/main/README.md>`_.
 
 Links
 -----
@@ -254,7 +312,7 @@ Define the links in a shared file:
   (see the `Sphinx documentation <rst_epilog_>`_).
 
   .. code-block:: python
-     :caption: :spellexception:`custom_conf.py`
+     :caption: :spellexception:`conf.py`
 
      custom_rst_epilog = """
          .. include:: reuse/links.txt
@@ -280,7 +338,7 @@ To add a link to a related website, add the following field at the top of the pa
 
 To override the title, use Markdown syntax. Note that spaces are ignored; if you need spaces in the title, replace them with ``&#32;``, and include the value in quotes if Sphinx complains about the metadata value because it starts with ``[``.
 
-To add a link to a Discourse topic, configure the Discourse instance in the :file:`custom_conf.py` file.
+To add a link to a Discourse topic, configure the Discourse instance in the :file:`conf.py` file.
 Then add the following field at the top of the page (where ``12345`` is the ID of the Discourse topic)::
 
   :discourse: 12345
@@ -419,7 +477,7 @@ Use orphan pages sparingly and only if there is a clear reason for it.
    Instead of hiding pages that you do not want to include in the documentation from the navigation, you can exclude them from being built.
    This method will also prevent them from being found through the search.
 
-   To exclude pages from the build, add them to the ``custom_excludes`` variable in the :file:`custom_conf.py` file.
+   To exclude pages from the build, add them to the ``custom_excludes`` variable in the :file:`conf.py` file.
 
 Lists
 -----
@@ -523,6 +581,8 @@ Definition lists
        Term 2:
          Definition
 
+.. _style-guide-tables:
+
 Tables
 ------
 
@@ -578,6 +638,11 @@ See `list tables`_ for reference.
         - Cell 2
       * - Cell 3
         - Cell 4
+
+Data tables
+~~~~~~~~~~~
+
+The starter pack can render CSV data as tables. See :ref:`create-data-tables`.
 
 Notes
 -----

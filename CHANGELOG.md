@@ -3,6 +3,13 @@
 ## Upcoming
 
 * Changes metrics script to a less brittle Python script
+* Introduce guidelines for adding diagrams-as-code
+* Introduce guidelines for rendering CSV data as tables
+* Introduce guidelines for pulling in docstrings using Sphinx `autodoc` extension
+* Introduce guidelines for using custom base templates
+* Fix syntax error in Makefile that caused the fallback target to loop
+  infinitely.
+* Add a step to the tutorial about removing `CODEOWNERS`.
 
 ### Added
 
@@ -10,7 +17,17 @@
 
 ## Changed
 
-* `docs/Makefile` [#373](https://github.com/canonical/sphinx-docs-starter-pack/pull/373)
+* `docs/Makefile` [#373](https://github.com/canonical/sphinx-docs-starter-pack/pull/373), [#456](https://github.com/canonical/sphinx-docs-starter-pack/pull/456)
+* `docs/requirements.txt` [#449](https://github.com/canonical/sphinx-docs-starter-pack/pull/449), [#456](https://github.com/canonical/sphinx-docs-starter-pack/pull/456), [#460](https://github.com/canonical/sphinx-docs-starter-pack/pull/460)
+* `docs/conf.py` [#429](https://github.com/canonical/sphinx-docs-starter-pack/pull/429), [#449](https://github.com/canonical/sphinx-docs-starter-pack/pull/449), [#442](https://github.com/canonical/sphinx-docs-starter-pack/pull/442), [#460](https://github.com/canonical/sphinx-docs-starter-pack/pull/460)
+* `docs/.sphinx/get_vale_conf.py` [#448](https://github.com/canonical/sphinx-docs-starter-pack/pull/448)
+* `docs/.sphinx/update_sp.py` [#425](https://github.com/canonical/sphinx-docs-starter-pack/pull/425)
+* `docs/.sphinx/metrics/build_metrics.py` [#448](https://github.com/canonical/sphinx-docs-starter-pack/pull/448)
+* `.github/workflows/check-removed-urls.yml` [#437](https://github.com/canonical/sphinx-docs-starter-pack/pull/437), [#445](https://github.com/canonical/sphinx-docs-starter-pack/pull/445)
+* `.github/workflows/markdown-style-checks.yml` [#445](https://github.com/canonical/sphinx-docs-starter-pack/pull/445)
+* `.github/workflows/sphinx-python-dependency-build-checks.yml` [#445](https://github.com/canonical/sphinx-docs-starter-pack/pull/445)
+* `.github/workflows/test-starter-pack.yml` [#445](https://github.com/canonical/sphinx-docs-starter-pack/pull/445)
+* `docs/Makefile` [#461](https://github.com/canonical/sphinx-docs-starter-pack/pull/461)
 
 ### Removed
 

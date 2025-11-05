@@ -43,31 +43,23 @@ If you don't know yet where your documentation will be hosted, you can leave the
 If you do, specify the hosting URL.
 You can leave the defaults for the website name and the preview image or specify your own.
 
-Adjust the header
-~~~~~~~~~~~~~~~~~
-
-The header is the top section of a page template. By default, the starter pack template header contains your product's tag image and name (taken from the ``project`` setting in the :file:`docs/conf.py` file), a link to your product's page (if available), and a drop-down menu for "More resources". 
-
-This configuration is sufficient for many cases but can be further customised. For example, you might want to add links to announcements or videos that are not part of the documentation.
-
-To override the default template header, create a new folder called ``_templates`` in the same folder as your ``conf.py`` file. Default templates are pulled from the ``canonical-sphinx`` extension. Copy `its header.html file <https://github.com/canonical/canonical-sphinx/blob/main/canonical_sphinx/theme/templates/header.html>`_ to your ``.sphinx/_templates`` folder and edit it as needed.
-
-Finally, find the following line in :file:`docs/conf.py`:
-
-.. code:: python
-
-    #templates_path = ["_templates"]
-
-Enable this variable initialisation by removing the `#` at the beginning:
-
-.. code:: python
-    
-    templates_path = ["_templates"]
-
 Optional customisation
 ----------------------
 
 The starter pack contains several features that you can configure, or turn off if they aren't suitable for your documentation.
+
+Modify the template
+~~~~~~~~~~~~~~~~~~~
+
+The default starter pack templates provide an initial configuration for your documentation set, including:
+
+- Header template - The top section of the page that contains your product's tag image and name, a link to your product's page (if available), and a drop-down menu for "More resources".
+- Footer template - The bottom section of the page that contains sequential navigation controls, copyright information, licensing details, and other relevant links.
+
+These project settings are configured in :file:`docs/conf.py` and are generally sufficient for most cases.
+However, if you have additional requirements -- such as adding links to announcements or videos that are not part of the documentation -- you can override the default templates to customize them as needed.
+
+See the :ref:`custom-templates` guide for details on how to do so.
 
 Deactivate the feedback button
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -107,30 +99,33 @@ They are pre-configured as needed, but you can customise their configuration in 
 The following extensions are included by default:
 
 * ``canonical_sphinx``
-* ``sphinxcontrib.cairosvgconverter``
-* ``sphinx_last_updated_by_git``
-
-The ``canonical_sphinx`` extension is required for the starter pack.
-It automatically enables and sets default configurations for the following extensions:
-
-* ``custom-rst-roles``
-* ``myst_parser``
 * ``notfound.extension``
-* ``related-links``
+* ``sphinx.ext.intersphinx``
+* ``sphinx_config_options``
+* ``sphinx_contributor_listing``
 * ``sphinx_copybutton``
 * ``sphinx_design``
+* ``sphinx_filtered_toctree``
+* ``sphinx_last_updated_by_git``
+* ``sphinx_related_links``
 * ``sphinx_reredirects``
+* ``sphinx_roles``
+* ``sphinx_sitemap``
 * ``sphinx_tabs.tabs``
+* ``sphinx_terminal``
+* ``sphinx_ubuntu_images``
+* ``sphinx_youtube_links``
+* ``sphinxcontrib.cairosvgconverter``
 * ``sphinxcontrib.jquery``
 * ``sphinxext.opengraph``
-* ``terminal-output``
-* ``youtube-links``
+
+The ``canonical_sphinx`` extension is required for the starter pack and provides the Furo-based theme and custom templates.
 
 To add new extensions needed for your documentation set, add them to the ``extensions`` parameter in :file:`docs/conf.py`.
 
 .. note::
 
-   If any additional extensions need specific Python packages, ensure they are installed alongside the other requirements by adding them to the :file:`.sphinx/requirements.txt` file.
+   If any additional extensions need specific Python packages, ensure they are installed alongside the other requirements by adding them to the :file:`docs/requirements.txt` file.
 
 Add page-specific configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -182,4 +177,10 @@ The following links can help you with additional configuration:
 - `Sphinx extensions`_
 - `Furo documentation`_ (Furo is the Sphinx theme we use as our base)
 
-If you need additional Python packages for any custom processing you do in your documentation, add them to the :file:`.sphinx/requirements.txt` file.
+If you need additional Python packages for any custom processing you do in your documentation, add them to the :file:`docs/requirements.txt` file.
+
+Disable failure on warning
+--------------------------
+
+The docs build (``make html``) is, by default, set to fail when a warning (``WARNING`` in the build log) is encountered. To disable this setting, remove the ``--failure-on-warning`` option from the command specified in the ``html`` target in the ``Makefile``.
+
