@@ -301,7 +301,8 @@ test for ``example_tutorial``:
 
 .. terminal::
     :dir: spread_test_example
-    :input: spread --list
+
+    spread --list
 
     multipass:ubuntu-24.04-64:tests/example_tutorial 
 
@@ -322,6 +323,7 @@ connecting to the VM, sending the Spread test to the VM and executing the test.
 If the test is successful, the terminal will output something similar to the following:
 
 .. terminal::
+    :output-only:
     :dir: spread_test_example
 
     2025-02-04 16:17:10 Successful tasks: 1
@@ -334,7 +336,8 @@ respond with the following:
 
 .. terminal::
     :dir: spread_test_example
-    :input: multipass list
+
+    multipass list
 
     No instances found.
 
@@ -343,6 +346,7 @@ Multipass VM so that additional debugging can happen. In that case, the terminal
 will output something similar to the following:
 
 .. terminal::
+    :output-only:
     :dir: spread_test_example
 
     2025-02-04 16:17:10 Starting shell to debug...
