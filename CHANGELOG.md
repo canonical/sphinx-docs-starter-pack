@@ -13,6 +13,7 @@
 * Fix syntax error in Makefile that caused the fallback target to loop
   infinitely.
 * Add a step to the tutorial about removing `CODEOWNERS`.
+* Allow workflows to be executed from other workflows
 
 ### Added
 
