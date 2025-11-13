@@ -1,5 +1,9 @@
 # sphinx-docs-starter-pack changelog
 
+### Added
+
+* Allow workflows to be executed from other workflows
+
 ## 1.3.0
 
 * !!!BREAKING: Updated deps to use atomic extensions, not `canonical-sphinx[full]`. Updated `sphinx-terminal` uses backwards incompatible syntax
@@ -13,7 +17,6 @@
 * Fix syntax error in Makefile that caused the fallback target to loop
   infinitely.
 * Add a step to the tutorial about removing `CODEOWNERS`.
-* Allow workflows to be executed from other workflows
 
 ### Added
 
