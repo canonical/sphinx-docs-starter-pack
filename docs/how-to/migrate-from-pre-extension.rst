@@ -77,7 +77,7 @@ Ensure that all the previous changes in the original ``custom_conf.py`` file are
 Dependencies
 ~~~~~~~~~~~~
 
-If your project requires additional extensions beyond the default list, add the extension list to the new project in ``docs/.sphinx/requirements.txt``.
+If your project requires additional extensions beyond the default list, add the extension list to the new project in ``docs/requirements.txt``.
 
 Documentation source files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~

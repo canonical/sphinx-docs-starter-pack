@@ -151,8 +151,10 @@ To include back ticks in a code block, increase the number of surrounding back t
 
 ### Terminal output
 
-Showing a terminal view can be useful to show the output of a specific command or series of commands, where it is important to see the difference between input and output.
-In addition, including a terminal view can help break up a long text and make it easier to consume, which is especially useful when documenting command-line-only products.
+A terminal view can be useful to show the output of a specific command, where it is
+important to see the difference between input and output. In addition, including a
+terminal view can help break up a long text and make it easier to consume, which is
+especially useful when documenting command-line-only products.
 
 To show a terminal view, use the following directive:
 
@@ -161,39 +163,96 @@ To show a terminal view, use the following directive:
 
 * - Input
   - Output
-* - ````
-
+* - ````text
     ```{terminal}
-    :input: command number one
-    :user: root
-    :host: vm
 
-    output line one
-    output line two
-    :input: another command
-    more output
+    input line 1
+    input line 2
+
+    output line 1
+    output line 2
+
+    output line 3
     ```
-
     ````
-
   - ```{terminal}
-    :input: command number one
-    :user: root
-    :host: vm
 
-    output line one
-    output line two
-    :input: another command
-    more output
+    input line 1
+    input line 2
+
+    output line 1
+    output line 2
+    
+    output line 3
     ```
-
 `````
 
-Input is specified as the `:input:` option (or prefixed with `:input:` as part of the main content of the directive).
-Output is the main content of the directive.
+By default, everything before the first blank line in the directive's content is
+rendered as input, while any content that follows is rendered as output. The terminal
+directive can only display one input command, but that command can span multiple lines,
+as in the previous example.
 
-To override the prompt (`user@host:~$` by default), specify the `:user:` and/or `:host:` options.
-To make the terminal scroll horizontally instead of wrapping long lines, add `:scroll:`.
+To render only the output of a command, include the `:output-only:` flag as a directive
+option:
+
+`````{list-table}
+   :header-rows: 1
+
+* - Input
+  - Output
+* - ````text
+    ```{terminal}
+    :output-only:
+
+    This is rendered as output.
+    ```
+    ````
+  - ```{terminal}
+    :output-only:
+
+    This is rendered as output.
+    ```
+`````
+
+To customize the prompt (`user@host:~$` by default), specify any of the following options:
+
+* `:user:`
+* `:host:`
+* `:dir:`
+
+`````{list-table}
+   :header-rows: 1
+
+* - Input
+  - Output
+* - ````text
+    ```{terminal}
+    :user: author
+    :host: canonical
+    :dir: ~/path
+
+    input
+
+    output
+    ```
+    ````
+  - ```{terminal}
+    :user: author
+    :host: canonical
+    :dir: ~/path
+
+    input
+
+    output
+    ```
+`````
+
+The copy button for input commands is **opt-in**. You must include the `:copy:` flag
+in the directive's options for the button to be displayed.
+
+To make the terminal scroll horizontally instead of wrapping long lines, include the `:scroll:` option.
+
+For more details, refer to the [`sphinx-terminal` README](https://github.com/canonical/sphinx-terminal/blob/main/README.md).
 
 ## Links
 
@@ -239,7 +298,7 @@ To add a link to a related website, add the following field at the top of the pa
 
 To override the title, use Markdown syntax. Note that spaces are ignored; if you need spaces in the title, replace them with `&#32;`, and include the value in quotes if Sphinx complains about the metadata value because it starts with `[`.
 
-To add a link to a Discourse topic, configure the Discourse instance in the {file}`custom_conf.py` file.
+To add a link to a Discourse topic, configure the Discourse instance in the {file}`conf.py` file.
 Then add the following field at the top of the page (where `12345` is the ID of the Discourse topic):
 
     discourse: 12345
@@ -385,7 +444,7 @@ Use orphan pages sparingly and only if there is a clear reason for it.
 Instead of hiding pages that you do not want to include in the documentation from the navigation, you can exclude them from being built.
 This method will also prevent them from being found through the search.
 
-To exclude pages from the build, add them to the `custom_excludes` variable in the {file}`custom_conf.py` file.
+To exclude pages from the build, add them to the `custom_excludes` variable in the {file}`conf.py` file.
 ```
 
 ## Lists
@@ -456,6 +515,8 @@ Adhere to the following conventions:
     : Definition
 ````
 
+(myst_style_guide_tables)=
+
 ## Tables
 
 You can use standard Markdown tables. However, using the reST [list table](https://docutils.sourceforge.io/docs/ref/rst/directives.html#list-table) syntax is usually much easier.
@@ -503,6 +564,10 @@ See [list tables](https://docutils.sourceforge.io/docs/ref/rst/directives.html#l
   - Cell 4
 ```
 ````
+
+### Data tables
+
+The starter pack can render CSV data as tables. See {ref}`create-data-tables`.
 
 ## Notes
 
@@ -596,10 +661,10 @@ To reuse sentences or paragraphs that have little markup and special formatting,
 
 Substitutions can be defined in the following locations:
 
-- Globally, in a file named {file}`reuse/substitutions.yaml` that is loaded into the [`myst_substitutions`](https://myst-parser.readthedocs.io/en/v0.13.5/using/syntax-optional.html#substitutions-with-jinja2) variable in {file}`custom_conf.py`:
+- Globally, in a file named {file}`reuse/substitutions.yaml` that is loaded into the [`myst_substitutions`](https://myst-parser.readthedocs.io/en/v0.13.5/using/syntax-optional.html#substitutions-with-jinja2) variable in {file}`conf.py`:
 
   ```{code-block} python
-     :caption: "{spellexception}`custom_conf.py`"
+     :caption: "{spellexception}`conf.py`"
 
   import os
   import yaml

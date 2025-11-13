@@ -19,6 +19,12 @@ your tutorial uses the same commands that Spread is testing.
 * `Multipass <https://multipass.run/install>`_ installed on your machine 
 * `Spread <https://github.com/canonical/spread>`_ installed on your machine
 
+.. warning::
+
+    Spread requires elevated permissions to run as root, and this tutorial will
+    not work if Spread is installed as a snap. Use the Go install method
+    recommended in the Spread README to install Spread.
+
 **What you’ll do**
 
 * Create a "Hello, world" Spread test called ``example_tutorial``
@@ -295,7 +301,8 @@ test for ``example_tutorial``:
 
 .. terminal::
     :dir: spread_test_example
-    :input: spread --list
+
+    spread --list
 
     multipass:ubuntu-24.04-64:tests/example_tutorial 
 
@@ -316,6 +323,7 @@ connecting to the VM, sending the Spread test to the VM and executing the test.
 If the test is successful, the terminal will output something similar to the following:
 
 .. terminal::
+    :output-only:
     :dir: spread_test_example
 
     2025-02-04 16:17:10 Successful tasks: 1
@@ -328,7 +336,8 @@ respond with the following:
 
 .. terminal::
     :dir: spread_test_example
-    :input: multipass list
+
+    multipass list
 
     No instances found.
 
@@ -337,6 +346,7 @@ Multipass VM so that additional debugging can happen. In that case, the terminal
 will output something similar to the following:
 
 .. terminal::
+    :output-only:
     :dir: spread_test_example
 
     2025-02-04 16:17:10 Starting shell to debug...

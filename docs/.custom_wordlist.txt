@@ -36,7 +36,7 @@ texlive
 TOC
 toctree
 txt
-uncommenting
+uncomment(ing)?
 utils
 VMs
 WCAG
@@ -63,3 +63,9 @@ Spread
 landscape
 lastmod
 yaml
+sequenceDiagram
+Numpy
+openapi
+docstrings?
+Makefile
+retrigger(ing)?
