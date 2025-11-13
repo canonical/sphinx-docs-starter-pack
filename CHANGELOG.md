@@ -1,5 +1,14 @@
 # sphinx-docs-starter-pack changelog
 
+## 1.4.0
+
+### Changed
+
+* `.github/workflows/automatic-doc-checks.yml` [#466](https://github.com/canonical/sphinx-docs-starter-pack/pull/466)
+* `.github/workflows/check-removed-urls.yml` [#466](https://github.com/canonical/sphinx-docs-starter-pack/pull/466)
+* `.github/workflows/markdown-style-checks.yml` [#466](https://github.com/canonical/sphinx-docs-starter-pack/pull/466)
+* `.github/workflows/sphinx-python-dependency-build-checks.yml` [#466](https://github.com/canonical/sphinx-docs-starter-pack/pull/466)
+
 ## 1.3.0
 
 * !!!BREAKING: Updated deps to use atomic extensions, not `canonical-sphinx[full]`. Updated `sphinx-terminal` uses backwards incompatible syntax
