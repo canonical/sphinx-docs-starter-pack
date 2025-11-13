@@ -34,7 +34,7 @@
 
 ### Removed
 
-* `docs/.sphinx/metrics/build_metrics.py` [#373](https://github.com/canonical/sphinx-docs-starter-pack/pull/373)
+* `docs/.sphinx/metrics/build_metrics.sh` [#373](https://github.com/canonical/sphinx-docs-starter-pack/pull/373)
 
 ## 1.2.0
 
