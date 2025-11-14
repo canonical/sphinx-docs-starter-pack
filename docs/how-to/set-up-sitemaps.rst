@@ -160,7 +160,7 @@ For instance, using the starter pack as an example, with three versions
 
             Disallow: # Allow everything
 
-            Sitemap: https://canonical-starter-pack.readthedocs-hosted.com/latest/sitemapindex.xml
+            Sitemap: https://canonical-starter-pack.readthedocs-hosted.com/stable/sitemapindex.xml
 
 3.  Create a ``sitemapindex.xml`` file, in the same directory as your configuration
     file, which points to the sitemap files of each of your documentation sets:
@@ -169,7 +169,7 @@ For instance, using the starter pack as an example, with three versions
 
             <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
             <sitemap>
-            <loc>https://canonical-starter-pack.readthedocs-hosted.com/latest/sitemap.xml</loc>
+            <loc>https://canonical-starter-pack.readthedocs-hosted.com/stable/sitemap.xml</loc>
             </sitemap>
             <sitemap>
             <loc>https://canonical-starter-pack.readthedocs-hosted.com/3.0/sitemap.xml</loc>

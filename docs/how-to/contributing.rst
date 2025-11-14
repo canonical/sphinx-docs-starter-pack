@@ -295,7 +295,7 @@ Documentation
 
 ACME's documentation is stored in the ``DOCDIR`` directory of the repository.
 It is based on the `Canonical starter pack
-<https://canonical-starter-pack.readthedocs-hosted.com/latest/>`_
+<https://canonical-starter-pack.readthedocs-hosted.com/stable/>`_
 and hosted on `Read the Docs <https://about.readthedocs.com/>`_.
 
 For syntax help and guidelines,
