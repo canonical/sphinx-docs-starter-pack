@@ -2,7 +2,6 @@
 name: Canonical Contributor Licence Agreement check
 
 on:
-  workflow_call:
   pull_request:
     branches: [main]
 
