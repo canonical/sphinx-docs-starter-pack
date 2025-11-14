@@ -1,5 +1,9 @@
 # sphinx-docs-starter-pack changelog
 
+### Added
+
+* Allow workflows to be executed from other workflows
+
 ## 1.3.0
 
 * !!!BREAKING: Updated deps to use atomic extensions, not `canonical-sphinx[full]`. Updated `sphinx-terminal` uses backwards incompatible syntax
