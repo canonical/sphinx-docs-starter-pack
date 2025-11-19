@@ -2,8 +2,11 @@
 
 ## 1.4.0
 
+* Switches doc links to `stable` slug.
+
 ### Changed
 
+* `docs/Makefile` [#468](https://github.com/canonical/sphinx-docs-starter-pack/pull/468)
 * `.github/workflows/automatic-doc-checks.yml` [#466](https://github.com/canonical/sphinx-docs-starter-pack/pull/466)
 * `.github/workflows/check-removed-urls.yml` [#466](https://github.com/canonical/sphinx-docs-starter-pack/pull/466)
 * `.github/workflows/markdown-style-checks.yml` [#466](https://github.com/canonical/sphinx-docs-starter-pack/pull/466)
