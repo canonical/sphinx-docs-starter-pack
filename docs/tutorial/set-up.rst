@@ -35,8 +35,9 @@ Remove the files that can't be reused:
 
 Review and remove the GitHub workflows in ``.github/workflows/`` that your project might not need:
 
-- :file:`sphinx-python-dependency-build-checks.yml` verifies Python dependencies for the documentation system. If your project has its own dependency checks, it won't need this workflow.
-- :file:`markdown-style-checks.yml` runs the built-in Markdown linter. If your project already validates its Markdown files, it won't need this workflow.
+- :file:`cla-check.yml` verifies whether contributors have signed the `Canonical License Agreement <https://canonical.com/legal/contributors>`_. All Canonical projects require this check, so if you're adding docs to an existing Canonical project that already has it, remove this workflow.
+- :file:`sphinx-python-dependency-build-checks.yml` verifies Python dependencies for the documentation system. If your project has its own dependency checks, remove this workflow.
+- :file:`markdown-style-checks.yml` runs the built-in Markdown linter. If your project already validates its Markdown files, remove this workflow.
 
 
 Build and run the local server
