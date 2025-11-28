@@ -6,7 +6,7 @@
 
 ### Changed
 
-* `docs/Makefile` [#468](https://github.com/canonical/sphinx-docs-starter-pack/pull/468)
+* `docs/Makefile` [#468](https://github.com/canonical/sphinx-docs-starter-pack/pull/468), [#472](https://github.com/canonical/sphinx-docs-starter-pack/pull/472)
 * `.github/workflows/automatic-doc-checks.yml` [#466](https://github.com/canonical/sphinx-docs-starter-pack/pull/466)
 * `.github/workflows/check-removed-urls.yml` [#466](https://github.com/canonical/sphinx-docs-starter-pack/pull/466)
 * `.github/workflows/markdown-style-checks.yml` [#466](https://github.com/canonical/sphinx-docs-starter-pack/pull/466)
