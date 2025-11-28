@@ -44,9 +44,9 @@ help:
 	@echo "-------------------------------------------------------------"
 	@echo
 
-.PHONY: help full‑help html epub pdf linkcheck spelling spellcheck woke \
-        vale pa11y run serve install pa11y‑install   \
-        vale‑install pdf‑prep pdf‑prep‑force clean clean‑doc allmetrics \
+.PHONY: help full-help html epub pdf linkcheck spelling spellcheck woke \
+        vale pa11y run serve install pa11y-install   \
+        vale-install pdf-prep pdf-prep-force clean clean-doc allmetrics \
         update lint-md
 
 full-help: $(VENVDIR)
