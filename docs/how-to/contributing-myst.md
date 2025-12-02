@@ -17,7 +17,7 @@ The guidelines below will help keep your contributions effective and meaningful.
 
 ## Code of conduct
 
-When contributing, you must abide by the [Ubuntu Code of Conduct](https://ubuntu.com/community/ethos/code-of-conduct).
+When contributing, you must abide by the [Ubuntu Code of Conduct](https://ubuntu.com/community/docs/ethos/code-of-conduct).
 
 ## Licence and copyright
 
@@ -25,7 +25,7 @@ When contributing, you must abide by the [Ubuntu Code of Conduct](https://ubuntu
 
 By default, all contributions to ACME are made under the AGPLv3 licence. See the [licence](https://github.com/canonical/ACME/blob/main/COPYING) in the ACME GitHub repository for details.
 
-All contributors must sign the [Canonical contributor licence agreement](https://ubuntu.com/legal/contributors), which grants Canonical permission to use the contributions. The author of a change remains the copyright owner of their code (no copyright assignment occurs).
+All contributors must sign the [Canonical contributor licence agreement](https://canonical.com/legal/contributors), which grants Canonical permission to use the contributions. The author of a change remains the copyright owner of their code (no copyright assignment occurs).
 
 ## Releases and versions
 
@@ -201,9 +201,9 @@ TODO: test command 2
 
 ## Documentation
 
-ACME's documentation is stored in the `DOCDIR` directory of the repository. It is based on the [Canonical starter pack](https://canonical-starter-pack.readthedocs-hosted.com/latest/) and hosted on [Read the Docs](https://about.readthedocs.com/).
+ACME's documentation is stored in the `DOCDIR` directory of the repository. It is based on the [Canonical starter pack](https://canonical-starter-pack.readthedocs-hosted.com/) and hosted on [Read the Docs](https://about.readthedocs.com/).
 
-For general guidance, refer to the [starter pack guide](https://canonical-starter-pack.readthedocs-hosted.com/latest/).
+For general guidance, refer to the [starter pack guide](https://canonical-starter-pack.readthedocs-hosted.com/).
 
 For syntax help and guidelines, refer to the syntax guides contained in the [rST](project:#style-guide) and [MyST](project:#myst_style_guide) syntax guides.
 
