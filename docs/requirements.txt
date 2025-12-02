@@ -1,5 +1,7 @@
 # Canonical theme (still needed for Furo theme and custom templates)
-canonical-sphinx>=0.5.1
+#canonical-sphinx>=0.5.1
+canonical-sphinx-config @ git+https://github.com/Canonical/canonical-sphinx-config.git@main
+sphinx-modern-pdf-style
 
 # Extensions previously auto-loaded by canonical-sphinx
 myst-parser
@@ -30,3 +32,4 @@ sphinx-sitemap
 # Vale dependencies
 rst2html
 vale
+ulwazi-0.1.tar.gz

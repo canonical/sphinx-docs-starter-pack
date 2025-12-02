@@ -203,7 +203,7 @@ TODO: test command 2
 
 ACME's documentation is stored in the `DOCDIR` directory of the repository. It is based on the [Canonical starter pack](https://canonical-starter-pack.readthedocs-hosted.com/latest/) and hosted on [Read the Docs](https://about.readthedocs.com/).
 
-For general guidance, refer to the [starter pack guide](https://canonical-starter-pack.readthedocs-hosted.com/latest/).
+For general guidance, refer to the [starter pack guide](https://canonical-starter-pack.readthedocs-hosted.com/stable/).
 
 For syntax help and guidelines, refer to the syntax guides contained in the [rST](project:#style-guide) and [MyST](project:#myst_style_guide) syntax guides.
 

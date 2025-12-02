@@ -649,7 +649,7 @@ Adhere to the following conventions:
 
 - For local pictures, start the path with `/` (for example, `/images/image.png`).
 - Use `PNG` format for screenshots and `SVG` format for graphics.
-- See [Five golden rules for compliant alt text](https://abilitynet.org.uk/news-blogs/five-golden-rules-compliant-alt-text) for information about how to word the alt text.
+- See [Five golden rules for compliant alt text](https://abilitynet.org.uk/resources/digital-accessibility/five-golden-rules-compliant-alt-text) for information about how to word the alt text.
 
 ## Reuse
 
