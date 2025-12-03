@@ -60,7 +60,7 @@ html_title = project + " documentation"
 #         -H 'Accept: application/vnd.github.v3.raw' \
 #         https://api.github.com/repos/canonical/<REPO> | jq '.created_at'
 
-copyright = "%s CC-BY-SA, %s" % (datetime.date.today().year, author)
+copyright = f"{datetime.date.today().year}"
 
 
 # Documentation website URL
@@ -111,6 +111,21 @@ html_context = {
     #
     # TODO: To add a tag image, uncomment and update as needed.
     # 'product_tag': '_static/tag.png',
+    # Inherit project name
+    "project": project, 
+    # Inherit the author value
+    "author": author,
+    # Licensing information
+    # 
+    # TODO: Change your product's license name and a link to its file.
+    # For the name, we recommend using the standard shorthand identifier from
+    # https://spdx.org/licenses
+    # For the URL, link directly to the product's license statement, typically found on
+    # the product's home page or in its GitHub project.
+    "license": {
+        "name": "LGPL-3.0-only",
+        "url": "https://github.com/canonical/ulwazi/blob/main/LICENSE",
+    },
     # Your Discourse instance URL
     #
     # TODO: Change to your Discourse instance URL or leave empty.
@@ -132,15 +147,13 @@ html_context = {
     #
     # NOTE: If set, links for viewing the documentation source files
     #       and creating GitHub issues are added at the bottom of each page.
-    "github_url": "https://github.com/canonical/sphinx-docs-starter-pack",
+    "github_url": "https://github.com/canonical/ulwazi",
     # Docs branch in the repo; used in links for viewing the source files
     #
     # TODO: To customise the branch, uncomment and update as needed.
     'repo_default_branch': 'main',
     # Docs location in the repo; used in links for viewing the source files
     #
-
-
     # TODO: To customise the directory, uncomment and update as needed.
     "repo_folder": "/docs/",
     # TODO: To enable or disable the Previous / Next buttons at the bottom of pages
@@ -150,7 +163,40 @@ html_context = {
     "display_contributors": False,
 
     # Required for feedback button    
-    'github_issues': 'enabled',
+    "feedback": True,
+    "github_issues": "enabled",
+    "default_source_extension": ".md",
+    "default_edit_url": "https://github.com/canonical/ulwazi/edit/main/docs/index.rst",
+    "default_view_url": "https://github.com/canonical/ulwazi/blob/main/docs/index.rst",
+
+    # Horizontal Nav Menu
+    "company": "Canonical",
+    "link1_URL": "https://snapcraft.io/",
+    "link1_name": "First optional link",
+    "link2_URL": "https://snapcraft.io/",
+    "link2_name": "Second optional link",
+
+    # Canonical Product menu
+    # Uncomment if you need a product menu added on the top of every page
+    "add_product_menu": True,
+    
+    # Main Horizontal menu
+    # "is_docs": False, # Purpose unknown
+    "logo_link_URL": "https://documentation.ubuntu.com",
+    "logo_img_URL": "https://assets.ubuntu.com/v1/82818827-CoF_white.svg",
+    "logo_title": "Canonical",
+
+    # TODO: Customize the footer.
+    "footer": {
+        # Whether to add the product name as the first entry.
+        "product": True,
+        # Whether to add the license as the second entry.
+        "license": True,
+        # List your footer entries. Accepts HTML tags.
+        "entries": [
+            '<a class="js-revoke-cookie-manager" href="#tracker-settings">Manage your tracker settings</a>',
+        ]
+    }
 }
 
 html_extra_path = []
@@ -178,6 +224,9 @@ if os.getenv("OPENAPI", ""):
 
 # slug = ''
 
+# Limit the number of levels for Table of contents
+localtoc_max_depth = 3
+
 #######################
 # Sitemap configuration: https://sphinx-sitemap.readthedocs.io/
 #######################
@@ -189,11 +238,11 @@ html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "/")
 # URL scheme. Add language and version scheme elements.
 # When configured with RTD variables, check for RTD environment so manual runs succeed:
 
-if 'READTHEDOCS_VERSION' in os.environ:
+if "READTHEDOCS_VERSION" in os.environ:
     version = os.environ["READTHEDOCS_VERSION"]
-    sitemap_url_scheme = '{version}{link}'
+    sitemap_url_scheme = "{version}{link}"
 else:
-    sitemap_url_scheme = 'MANUAL/{link}'
+    sitemap_url_scheme = "MANUAL/{link}"
 
 # Include `lastmod` dates in the sitemap:
 
@@ -214,7 +263,8 @@ sitemap_excludes = [
 # Template and asset locations
 #######################
 
-#html_static_path = ["_static"]
+html_theme = "ulwazi"
+html_static_path = ["_static"]
 #templates_path = ["_templates"]
 
 
@@ -280,7 +330,7 @@ linkcheck_retries = 3
 # NOTE: The canonical_sphinx extension is required for the starter pack.
 
 extensions = [
-    "canonical_sphinx",
+    #"canonical_sphinx",
     "notfound.extension",
     "sphinx_design",
     "sphinx_reredirects",
@@ -299,6 +349,10 @@ extensions = [
     "sphinx_last_updated_by_git",
     "sphinx.ext.intersphinx",
     "sphinx_sitemap",
+    "ulwazi",
+    "canonical_sphinx_config",
+    "sphinx_modern_pdf_style",
+    "myst_parser",
 ]
 
 # Excludes files or directories from processing
@@ -316,6 +370,10 @@ exclude_patterns = [
 
 # html_js_files = []
 
+# Syntax highlighting settings
+
+highlight_language = "none" # default
+pygments_style = "autumn" # see https://pygments.org/styles for more
 
 # Specifies a reST snippet to be appended to each .rst file
 
@@ -376,3 +434,7 @@ intersphinx_mapping = {
     'starter-pack': ('https://canonical-example-product-documentation.readthedocs-hosted.com/en/latest', None),
     'sphinxcontrib-mermaid': ('https://sphinxcontrib-mermaid-demo.readthedocs.io/en/latest', None)
 }
+
+# PDF
+
+set_modern_pdf_config = True
