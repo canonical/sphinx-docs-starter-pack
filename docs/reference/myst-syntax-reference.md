@@ -17,7 +17,7 @@ The documentation files use a mixture of [Markdown](https://commonmark.org/) and
 See the following sections for syntax help and conventions.
 
 ```{note}
-This guide assumes that you are using the [Sphinx documentation starter pack](https://github.com/canonical/starter-pack).
+This guide assumes that you are using the [Sphinx documentation starter pack](https://github.com/canonical/sphinx-docs-starter-pack).
 Some of the mentioned syntax requires Sphinx extensions (which are enabled in the starter pack).
 ```
 

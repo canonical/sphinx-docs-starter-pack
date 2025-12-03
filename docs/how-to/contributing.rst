@@ -30,7 +30,7 @@ Code of conduct
 ---------------
 
 When contributing, you must abide by the
-`Ubuntu Code of Conduct <https://ubuntu.com/community/ethos/code-of-conduct>`_.
+`Ubuntu Code of Conduct <https://ubuntu.com/community/docs/ethos/code-of-conduct>`_.
 
 
 Licence and copyright
@@ -43,7 +43,7 @@ See the `licence <https://github.com/canonical/ACME/blob/main/COPYING>`_
 in the ACME GitHub repository for details.
 
 All contributors must sign the `Canonical contributor licence agreement
-<https://ubuntu.com/legal/contributors>`_,
+<https://canonical.com/legal/contributors>`_,
 which grants Canonical permission to use the contributions.
 The author of a change remains the copyright owner of their code
 (no copyright assignment occurs).
@@ -295,7 +295,7 @@ Documentation
 
 ACME's documentation is stored in the ``DOCDIR`` directory of the repository.
 It is based on the `Canonical starter pack
-<https://canonical-starter-pack.readthedocs-hosted.com/stable/>`_
+<https://canonical-starter-pack.readthedocs-hosted.com/>`_
 and hosted on `Read the Docs <https://about.readthedocs.com/>`_.
 
 For syntax help and guidelines,

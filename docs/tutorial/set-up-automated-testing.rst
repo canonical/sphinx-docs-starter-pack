@@ -16,7 +16,7 @@ your tutorial uses the same commands that Spread is testing.
 
 **What you'll need**
 
-* `Multipass <https://multipass.run/install>`_ installed on your machine 
+* `Multipass <https://documentation.ubuntu.com/multipass/latest/how-to-guides/install-multipass/>`_ installed on your machine 
 * `Spread <https://github.com/canonical/spread>`_ installed on your machine
 
 .. warning::

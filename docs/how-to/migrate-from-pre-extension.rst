@@ -13,7 +13,7 @@ To ensure a smooth migration, update your documentation project to use the last 
 
 You can find the release tag and branch for this version in the following links:
 
-* `pre-extension branch <https://github.com/canonical/sphinx-docs-starter-pack/blob/pre-extension>`_
+* `pre-extension branch <https://github.com/canonical/sphinx-docs-starter-pack/tree/pre-extension>`_
 * `pre-extension release tag <https://github.com/canonical/sphinx-docs-starter-pack/releases/tag/pre-extension>`_
 
 
