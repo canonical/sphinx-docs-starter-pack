@@ -31,55 +31,29 @@ Add ``sphinx_sitemap`` to ``extensions`` in your configuration file (:file:`docs
 
     extensions = ['sphinx_sitemap']
 
-Required sitemap configuration
+Sitemap configuration
 ------------------------------
 
 Sphinx Sitemap requires a ``html_baseurl`` configured for the project in your
-configuration file. For example, in :file:`docs/conf.py`:
+configuration file. In :file:`docs/conf.py`, for ReadTheDocs builds, this is set
+dynamically using the ``READTHEDOCS_CANONICAL_URL`` environment variable.
 
-.. code-block::
+.. code-block:: python
 
-    html_baseurl = 'https://canonical-starter-pack.readthedocs-hosted.com/'
+    html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "/")
 
-Make sure to include the trailing slash (``/``) to avoid errors in the concatenated
-URLs in the sitemap.
+When hosted on ReadTheDocs, the ``READTHEDOCS_CANONICAL_URL`` variable contains
+the full URL of your documentation, including version and language (if
+applicable). The second argument (``"/"``) is a fallback value for local builds.
 
 .. note::
 
     Sitemap configuration is included in the Starter pack's
     `default configuration file <https://github.com/canonical/sphinx-docs-starter-pack/blob/a489ae041f6cebb7948fdf21b996e8c67d636a83/docs/conf.py#L176>`_.
 
-URL configuration
------------------
-
-Sphinx sitemap uses a configurable URL scheme to set language and version options
-for your documentation. If you have no languages and no versions in your URL, add
-the following to your ``conf.py`` file:
-
-.. code-block::
-
-    sitemap_url_scheme = "{link}"
-
-To add versioning, this can be done manually, or you can read the version from
-the RTD instance. To implement a manual version:
-
-.. code-block::
-
-    sitemap_url_scheme = "<version>/{link}"
-
-Or, if the version is set with the ``version`` key in your configuration file:
-
-.. code-block::
-
-    sitemap_url_scheme = "{version}{link}"
-
-To read from the provided RTD environment variable::
-    
-    if 'READTHEDOCS_VERSION' in os.environ:
-        version = os.environ["READTHEDOCS_VERSION"]
-        sitemap_url_scheme = '{version}{link}'
-    else:
-        sitemap_url_scheme = 'MANUAL/{link}'
+The ``sitemap_url_scheme`` variable is set to ``'{link}'`` by default in
+:file:`docs/conf.py`. This uses the value of ``html_baseurl`` to generate
+the full URL for each page.
 
 .. note::
 
