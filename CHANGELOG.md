@@ -1,9 +1,9 @@
 # sphinx-docs-starter-pack changelog
 
-## 1.4.0
+## 1.3.1
 
 * Switches doc links to `stable` slug.
-* !!POTENTIAL BREAKING CHANGE: Fixes duplicate version strings in sitemaps for versioned docs. This removes the `version` variable previously set in the sitemaps configuration section of `conf.py`. If you have any custom code that uses this variable elsewhere, do not remove it.
+* !!POTENTIAL CONFIGURATION ISSUE: Fixes duplicate version strings in sitemaps for versioned docs. This removes the `version` variable previously set in the sitemaps configuration section of `conf.py`. If you have any custom code that uses this variable elsewhere, do not remove it.
 
 ### Changed
 
