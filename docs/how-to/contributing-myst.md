@@ -17,7 +17,7 @@ The guidelines below will help keep your contributions effective and meaningful.
 
 ## Code of conduct
 
-When contributing, you must abide by the [Ubuntu Code of Conduct](https://ubuntu.com/community/ethos/code-of-conduct).
+When contributing, you must abide by the [Ubuntu Code of Conduct](https://ubuntu.com/community/docs/ethos/code-of-conduct).
 
 ## Licence and copyright
 
@@ -25,7 +25,7 @@ When contributing, you must abide by the [Ubuntu Code of Conduct](https://ubuntu
 
 By default, all contributions to ACME are made under the AGPLv3 licence. See the [licence](https://github.com/canonical/ACME/blob/main/COPYING) in the ACME GitHub repository for details.
 
-All contributors must sign the [Canonical contributor licence agreement](https://ubuntu.com/legal/contributors), which grants Canonical permission to use the contributions. The author of a change remains the copyright owner of their code (no copyright assignment occurs).
+All contributors must sign the [Canonical contributor licence agreement](https://canonical.com/legal/contributors), which grants Canonical permission to use the contributions. The author of a change remains the copyright owner of their code (no copyright assignment occurs).
 
 ## Releases and versions
 
