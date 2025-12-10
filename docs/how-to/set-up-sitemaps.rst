@@ -31,55 +31,26 @@ Add ``sphinx_sitemap`` to ``extensions`` in your configuration file (:file:`docs
 
     extensions = ['sphinx_sitemap']
 
-Required sitemap configuration
-------------------------------
+Sitemap configuration
+---------------------
 
-Sphinx Sitemap requires a ``html_baseurl`` configured for the project in your
-configuration file. For example, in :file:`docs/conf.py`:
+The Sphinx starter pack's configuration file (:file:`docs/conf.py`) includes default sitemap configuration.
 
-.. code-block::
+The ``sphinx-sitemap`` extension requires a ``html_baseurl`` variable to be configured.
+This is set as follows:
 
-    html_baseurl = 'https://canonical-starter-pack.readthedocs-hosted.com/'
+.. code-block:: python
 
-Make sure to include the trailing slash (``/``) to avoid errors in the concatenated
-URLs in the sitemap.
+    html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "/")
 
-.. note::
+When building on Read the Docs, this sets ``html_baseurl`` dynamically to the value of the
+``READTHEDOCS_CANONICAL_URL`` environment variable, which resolves to the full URL of the documentation
+including the version and language (if applicable).
 
-    Sitemap configuration is included in the Starter pack's
-    `default configuration file <https://github.com/canonical/sphinx-docs-starter-pack/blob/a489ae041f6cebb7948fdf21b996e8c67d636a83/docs/conf.py#L176>`_.
+In local builds and builds on other hosts, ``html_baseurl`` defaults to ``/``.
 
-URL configuration
------------------
-
-Sphinx sitemap uses a configurable URL scheme to set language and version options
-for your documentation. If you have no languages and no versions in your URL, add
-the following to your ``conf.py`` file:
-
-.. code-block::
-
-    sitemap_url_scheme = "{link}"
-
-To add versioning, this can be done manually, or you can read the version from
-the RTD instance. To implement a manual version:
-
-.. code-block::
-
-    sitemap_url_scheme = "<version>/{link}"
-
-Or, if the version is set with the ``version`` key in your configuration file:
-
-.. code-block::
-
-    sitemap_url_scheme = "{version}{link}"
-
-To read from the provided RTD environment variable::
-    
-    if 'READTHEDOCS_VERSION' in os.environ:
-        version = os.environ["READTHEDOCS_VERSION"]
-        sitemap_url_scheme = '{version}{link}'
-    else:
-        sitemap_url_scheme = 'MANUAL/{link}'
+The ``sitemap_url_scheme`` variable is set to ``'{link}'`` by default. This uses the value of ``html_baseurl`` to generate
+the full URL for each page for the sitemap.
 
 .. note::
 
@@ -160,7 +131,7 @@ For instance, using the starter pack as an example, with three versions
 
             Disallow: # Allow everything
 
-            Sitemap: https://canonical-starter-pack.readthedocs-hosted.com/latest/sitemapindex.xml
+            Sitemap: https://canonical-starter-pack.readthedocs-hosted.com/stable/sitemapindex.xml
 
 3.  Create a ``sitemapindex.xml`` file, in the same directory as your configuration
     file, which points to the sitemap files of each of your documentation sets:
@@ -169,7 +140,7 @@ For instance, using the starter pack as an example, with three versions
 
             <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
             <sitemap>
-            <loc>https://canonical-starter-pack.readthedocs-hosted.com/latest/sitemap.xml</loc>
+            <loc>https://canonical-starter-pack.readthedocs-hosted.com/stable/sitemap.xml</loc>
             </sitemap>
             <sitemap>
             <loc>https://canonical-starter-pack.readthedocs-hosted.com/3.0/sitemap.xml</loc>

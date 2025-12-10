@@ -7,9 +7,9 @@
 SPHINXDIR       = .sphinx
 SPHINXOPTS      ?= -c . -d $(SPHINXDIR)/.doctrees -j auto
 SPHINXBUILD     ?= $(VENVDIR)/bin/sphinx-build
-SOURCEDIR       = .
+SOURCEDIR       ?= .
 BUILDDIR        = _build
-VENVDIR         = $(SPHINXDIR)/venv
+VENVDIR         ?= $(SPHINXDIR)/venv
 PA11Y           = $(SPHINXDIR)/node_modules/pa11y/bin/pa11y.js --config $(SPHINXDIR)/pa11y.json
 VENV            = $(VENVDIR)/bin/activate
 TARGET          = *
@@ -44,9 +44,9 @@ help:
 	@echo "-------------------------------------------------------------"
 	@echo
 
-.PHONY: help full‑help html epub pdf linkcheck spelling spellcheck woke \
-        vale pa11y run serve install pa11y‑install   \
-        vale‑install pdf‑prep pdf‑prep‑force clean clean‑doc allmetrics \
+.PHONY: help full-help html epub pdf linkcheck spelling spellcheck woke \
+        vale pa11y run serve install pa11y-install   \
+        vale-install pdf-prep pdf-prep-force clean clean-doc allmetrics \
         update lint-md
 
 full-help: $(VENVDIR)

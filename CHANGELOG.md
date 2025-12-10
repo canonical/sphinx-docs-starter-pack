@@ -1,5 +1,19 @@
 # sphinx-docs-starter-pack changelog
 
+## 1.3.1
+
+* Switches doc links to `stable` slug.
+* !!POTENTIAL CONFIGURATION ISSUE: Fixes duplicate version strings in sitemaps for versioned docs. This removes the `version` variable previously set in the sitemaps configuration section of `conf.py`. If you have any custom code that uses this variable elsewhere, do not remove it.
+
+### Changed
+
+* `docs/conf.py` [#477](https://github.com/canonical/sphinx-docs-starter-pack/pull/477)
+* `docs/Makefile` [#468](https://github.com/canonical/sphinx-docs-starter-pack/pull/468), [#472](https://github.com/canonical/sphinx-docs-starter-pack/pull/472)
+* `.github/workflows/automatic-doc-checks.yml` [#466](https://github.com/canonical/sphinx-docs-starter-pack/pull/466)
+* `.github/workflows/check-removed-urls.yml` [#466](https://github.com/canonical/sphinx-docs-starter-pack/pull/466)
+* `.github/workflows/markdown-style-checks.yml` [#466](https://github.com/canonical/sphinx-docs-starter-pack/pull/466)
+* `.github/workflows/sphinx-python-dependency-build-checks.yml` [#466](https://github.com/canonical/sphinx-docs-starter-pack/pull/466)
+
 ## 1.3.0
 
 * !!!BREAKING: Updated deps to use atomic extensions, not `canonical-sphinx[full]`. Updated `sphinx-terminal` uses backwards incompatible syntax
