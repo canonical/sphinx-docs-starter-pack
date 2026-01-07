@@ -2,7 +2,17 @@
 
 ## Upcoming
 
-* Remove scripts and documentation related to HTML metrics.
+* Remove scripts and references to unused HTML metrics.
+
+### Changed
+
+* `docs/Makefile` [#490](https://github.com/canonical/sphinx-docs-starter-pack/pull/490)
+* `docs/.sphinx/update_sp.py` [#490](https://github.com/canonical/sphinx-docs-starter-pack/pull/490)
+
+### Removed
+
+* `docs/.sphinx/metrics/build_metrics.py` [#490](https://github.com/canonical/sphinx-docs-starter-pack/pull/490)
+* `docs/.sphinx/metrics/source_metrics.sh` [#490](https://github.com/canonical/sphinx-docs-starter-pack/pull/490)
 
 ## 1.3.1
 
