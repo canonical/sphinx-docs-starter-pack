@@ -1,5 +1,9 @@
 # sphinx-docs-starter-pack changelog
 
+## Upcoming
+
+* Remove scripts and documentation related to HTML metrics.
+
 ## 1.3.1
 
 * Switches doc links to `stable` slug.
