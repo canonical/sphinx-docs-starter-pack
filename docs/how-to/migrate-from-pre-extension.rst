@@ -173,8 +173,8 @@ Assuming that all previous documentation files were in the ``docs/`` sub-directo
     │   ├── latex_elements_template.txt     # removed, now part of the extension
     │   ├── pa11y-ci.json           # renamed to `pa11y.json`
     │   └── spellingcheck.yaml
-    ├── metrics                     # moved to `docs/.sphinx/metrics/`
-    │   └── scripts                 # removed, files moved to parent directory
+    ├── metrics                     # removed
+    │   └── scripts                 
     │       ├── build_metrics.sh   
     │       └── source_metrics.sh   
     ├── reuse                       # moved to `docs/reuse`
