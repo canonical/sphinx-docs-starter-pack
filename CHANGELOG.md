@@ -3,6 +3,7 @@
 ## Upcoming
 
 * Remove scripts and references to unused HTML metrics.
+* Update `check-removed-urls.yml` to skip workflow if no Makefile exists
 
 ### Changed
 
