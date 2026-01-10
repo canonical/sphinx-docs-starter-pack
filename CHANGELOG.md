@@ -2,8 +2,9 @@
 
 ## 1.3.1
 
-* Switches doc links to `stable` slug.
+* Switch doc links to `stable` slug.
 * !!POTENTIAL CONFIGURATION ISSUE: Fixes duplicate version strings in sitemaps for versioned docs. This removes the `version` variable previously set in the sitemaps configuration section of `conf.py`. If you have any custom code that uses this variable elsewhere, do not remove it.
+* Make `VALEDIR` in Makefile configurable from the calling environment.
 
 ### Changed
 
@@ -13,6 +14,7 @@
 * `.github/workflows/check-removed-urls.yml` [#466](https://github.com/canonical/sphinx-docs-starter-pack/pull/466)
 * `.github/workflows/markdown-style-checks.yml` [#466](https://github.com/canonical/sphinx-docs-starter-pack/pull/466)
 * `.github/workflows/sphinx-python-dependency-build-checks.yml` [#466](https://github.com/canonical/sphinx-docs-starter-pack/pull/466)
+* `docs/Makefile` [#493](https://github.com/canonical/sphinx-docs-starter-pack/pull/493)
 
 ## 1.3.0
 
