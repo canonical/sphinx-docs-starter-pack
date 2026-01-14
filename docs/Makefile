@@ -6,17 +6,18 @@
 # from the environment for the first two.
 SPHINXDIR       = .sphinx
 SPHINXOPTS      ?= -c . -d $(SPHINXDIR)/.doctrees -j auto
-SPHINXBUILD     ?= $(VENVDIR)/bin/sphinx-build
-SOURCEDIR       ?= .
-BUILDDIR        ?= _build
-VENVDIR         ?= $(SPHINXDIR)/venv
+SPHINXBUILD     ?= $(DOCS_VENVDIR)/bin/sphinx-build
+DOCS_VENVDIR    ?= $(SPHINXDIR)/venv
+DOCS_VENV       ?= $(DOCS_VENVDIR)/bin/activate
+DOCS_SOURCEDIR  ?= .
+DOCS_BUILDDIR   ?= _build
+DOCS_VALEDIR    ?= $(DOCS_VENVDIR)/lib/python*/site-packages/vale
+DOCS_METRICSDIR ?= $(DOCS_SOURCEDIR)/.sphinx/metrics
+DOCS            = *  # Target for checks
 PA11Y           = $(SPHINXDIR)/node_modules/pa11y/bin/pa11y.js --config $(SPHINXDIR)/pa11y.json
-VENV            ?= $(VENVDIR)/bin/activate
-TARGET          = *
 REQPDFPACKS     = latexmk fonts-freefont-otf texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-font-utils texlive-lang-cjk texlive-xetex plantuml xindy tex-gyre dvipng
 CONFIRM_SUDO    ?= N
 VALE_CONFIG     = $(SPHINXDIR)/vale.ini
-VALEDIR         ?= $(VENVDIR)/lib/python*/site-packages/vale
 VOCAB_CANONICAL = $(SPHINXDIR)/styles/config/vocabularies/Canonical
 SPHINX_HOST     ?= 127.0.0.1
 SPHINX_PORT     ?= 8000
@@ -37,7 +38,7 @@ help:
 	@echo "* check inclusive language:                  make woke"
 	@echo "* check accessibility:                       make pa11y"
 	@echo "* check style guide compliance:              make vale"
-	@echo "* check style guide compliance on target:    make vale TARGET=*"
+	@echo "* check style guide compliance on target:    make vale DOCS=*"
 	@echo "* other possible targets:                    make <TAB twice>"
 	@echo "-------------------------------------------------------------"
 	@echo
@@ -47,22 +48,22 @@ help:
         vale-install pdf-prep pdf-prep-force clean clean-doc \
         update lint-md
 
-full-help: $(VENVDIR)
-	@. $(VENV); $(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+full-help: $(DOCS_VENVDIR)
+	@. $(DOCS_VENV); $(SPHINXBUILD) -M help "$(DOCS_SOURCEDIR)" "$(DOCS_BUILDDIR)" $(SPHINXOPTS) $(O)
 	@echo "\n\033[1;31mNOTE: This help texts shows unsupported targets!\033[0m"
 	@echo "Run 'make help' to see supported targets."
 
 # If requirements are updated, venv should be rebuilt and timestamped.
-$(VENVDIR):
+$(DOCS_VENVDIR):
 	@echo "... setting up virtualenv"
-	python3 -m venv $(VENVDIR) || { echo "You must install python3-venv before you can build the documentation."; exit 1; }
-	. $(VENV); pip install $(PIPOPTS) --require-virtualenv \
+	python3 -m venv $(DOCS_VENVDIR) || { echo "You must install python3-venv before you can build the documentation."; exit 1; }
+	. $(DOCS_VENV); pip install $(PIPOPTS) --require-virtualenv \
 	    --upgrade -r requirements.txt \
-            --log $(VENVDIR)/pip_install.log
-	@test ! -f $(VENVDIR)/pip_list.txt || \
-            mv $(VENVDIR)/pip_list.txt $(VENVDIR)/pip_list.txt.bak
-	@. $(VENV); pip list --local --format=freeze > $(VENVDIR)/pip_list.txt
-	@touch $(VENVDIR)
+            --log $(DOCS_VENVDIR)/pip_install.log
+	@test ! -f $(DOCS_VENVDIR)/pip_list.txt || \
+            mv $(DOCS_VENVDIR)/pip_list.txt $(DOCS_VENVDIR)/pip_list.txt.bak
+	@. $(DOCS_VENV); pip list --local --format=freeze > $(DOCS_VENVDIR)/pip_list.txt
+	@touch $(DOCS_VENVDIR)
 
 pa11y-install:
 	@command -v $(PA11Y) >/dev/null || { \
@@ -72,70 +73,70 @@ pa11y-install:
 		}
 
 pymarkdownlnt-install:
-	@. $(VENV); test -d $(SPHINXDIR)/venv/lib/python*/site-packages/pymarkdown || pip install pymarkdownlnt
+	@. $(DOCS_VENV); test -d $(SPHINXDIR)/venv/lib/python*/site-packages/pymarkdown || pip install pymarkdownlnt
 
-install: $(VENVDIR)
+install: $(DOCS_VENVDIR)
 
 run: install
-	. $(VENV); $(VENVDIR)/bin/sphinx-autobuild -b dirhtml --host $(SPHINX_HOST) --port $(SPHINX_PORT) "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
+	. $(DOCS_VENV); $(DOCS_VENVDIR)/bin/sphinx-autobuild -b dirhtml --host $(SPHINX_HOST) --port $(SPHINX_PORT) "$(DOCS_SOURCEDIR)" "$(DOCS_BUILDDIR)" $(SPHINXOPTS)
 
-# Does not depend on $(BUILDDIR) to rebuild properly at every run.
+# Does not depend on $(DOCS_BUILDDIR) to rebuild properly at every run.
 html: install
-	. $(VENV); $(SPHINXBUILD) --fail-on-warning --keep-going -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" -w $(SPHINXDIR)/warnings.txt $(SPHINXOPTS)
+	. $(DOCS_VENV); $(SPHINXBUILD) --fail-on-warning --keep-going -b dirhtml "$(DOCS_SOURCEDIR)" "$(DOCS_BUILDDIR)" -w $(SPHINXDIR)/warnings.txt $(SPHINXOPTS)
 
 epub: install
-	. $(VENV); $(SPHINXBUILD) -b epub "$(SOURCEDIR)" "$(BUILDDIR)" -w $(SPHINXDIR)/warnings.txt $(SPHINXOPTS)
+	. $(DOCS_VENV); $(SPHINXBUILD) -b epub "$(DOCS_SOURCEDIR)" "$(DOCS_BUILDDIR)" -w $(SPHINXDIR)/warnings.txt $(SPHINXOPTS)
 
 serve: html
-	cd "$(BUILDDIR)"; python3 -m http.server --bind $(SPHINX_HOST) $(SPHINX_PORT)
+	cd "$(DOCS_BUILDDIR)"; python3 -m http.server --bind $(SPHINX_HOST) $(SPHINX_PORT)
 
 clean: clean-doc
-	@test ! -e "$(VENVDIR)" -o -d "$(VENVDIR)" -a "$(abspath $(VENVDIR))" != "$(VENVDIR)"
-	rm -rf $(VENVDIR)
+	@test ! -e "$(DOCS_VENVDIR)" -o -d "$(DOCS_VENVDIR)" -a "$(abspath $(DOCS_VENVDIR))" != "$(DOCS_VENVDIR)"
+	rm -rf $(DOCS_VENVDIR)
 	rm -rf $(SPHINXDIR)/node_modules/
 	rm -rf $(SPHINXDIR)/styles
 	rm -rf $(VALE_CONFIG)
 
 clean-doc:
-	git clean -fx "$(BUILDDIR)"
+	git clean -fx "$(DOCS_BUILDDIR)"
 	rm -rf $(SPHINXDIR)/.doctrees
 
 linkcheck: install
-	. $(VENV) ; $(SPHINXBUILD) -b linkcheck "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) || { grep --color -F "[broken]" "$(BUILDDIR)/output.txt"; exit 1; }
+	. $(DOCS_VENV) ; $(SPHINXBUILD) -b linkcheck "$(DOCS_SOURCEDIR)" "$(DOCS_BUILDDIR)" $(SPHINXOPTS) || { grep --color -F "[broken]" "$(DOCS_BUILDDIR)/output.txt"; exit 1; }
 	exit 0
 
 pa11y: pa11y-install html
-	find $(BUILDDIR) -name *.html -print0 | xargs -n 1 -0 $(PA11Y)
+	find $(DOCS_BUILDDIR) -name *.html -print0 | xargs -n 1 -0 $(PA11Y)
 
 lint-md: pymarkdownlnt-install
-	@. $(VENV); pymarkdownlnt --config $(SPHINXDIR)/.pymarkdown.json scan --recurse --exclude=./$(SPHINXDIR)/** $(SOURCEDIR)
+	@. $(DOCS_VENV); pymarkdownlnt --config $(SPHINXDIR)/.pymarkdown.json scan --recurse --exclude=./$(SPHINXDIR)/** $(DOCS_SOURCEDIR)
 
 vale-install: install
-	@. $(VENV); test -f $(VALE_CONFIG) || python3 $(SPHINXDIR)/get_vale_conf.py
+	@. $(DOCS_VENV); test -f $(VALE_CONFIG) || python3 $(SPHINXDIR)/get_vale_conf.py
 	@echo '.Name=="Canonical.400-Enforce-inclusive-terms"' > $(SPHINXDIR)/styles/woke.filter
 	@echo '.Level=="error" and .Name!="Canonical.500-Repeated-words" and .Name!="Canonical.000-US-spellcheck"' > $(SPHINXDIR)/styles/error.filter
 	@echo '.Name=="Canonical.000-US-spellcheck"' > $(SPHINXDIR)/styles/spelling.filter
-	@. $(VENV); find $(VALEDIR)/vale_bin -size 195c -exec vale --version \;
+	@. $(DOCS_VENV); find $(DOCS_VALEDIR)/vale_bin -size 195c -exec vale --version \;
 
 woke: vale-install
 	@cat $(VOCAB_CANONICAL)/accept.txt > $(VOCAB_CANONICAL)/accept_backup.txt
-	@cat $(SOURCEDIR)/.custom_wordlist.txt >> $(VOCAB_CANONICAL)/accept.txt
-	@echo "Running Vale acceptable term check against $(TARGET). To change target set TARGET= with make command"
-	@. $(VENV); vale --config="$(VALE_CONFIG)" --filter='$(SPHINXDIR)/styles/woke.filter' --glob='*.{md,rst}' $(TARGET)
+	@cat $(DOCS_SOURCEDIR)/.custom_wordlist.txt >> $(VOCAB_CANONICAL)/accept.txt
+	@echo "Running Vale acceptable term check against $(DOCS). To change target set DOCS= with make command"
+	@. $(DOCS_VENV); vale --config="$(VALE_CONFIG)" --filter='$(SPHINXDIR)/styles/woke.filter' --glob='*.{md,rst}' $(DOCS)
 	@cat $(VOCAB_CANONICAL)/accept_backup.txt > $(VOCAB_CANONICAL)/accept.txt && rm $(VOCAB_CANONICAL)/accept_backup.txt
 
 vale: vale-install
 	@cat $(VOCAB_CANONICAL)/accept.txt > $(VOCAB_CANONICAL)/accept_backup.txt
-	@cat $(SOURCEDIR)/.custom_wordlist.txt >> $(VOCAB_CANONICAL)/accept.txt
-	@echo "Running Vale against $(TARGET). To change target set TARGET= with make command"
-	@. $(VENV); vale --config="$(VALE_CONFIG)" --filter='$(SPHINXDIR)/styles/error.filter' --glob='*.{md,rst}' $(TARGET)
+	@cat $(DOCS_SOURCEDIR)/.custom_wordlist.txt >> $(VOCAB_CANONICAL)/accept.txt
+	@echo "Running Vale against $(DOCS). To change target set DOCS= with make command"
+	@. $(DOCS_VENV); vale --config="$(VALE_CONFIG)" --filter='$(SPHINXDIR)/styles/error.filter' --glob='*.{md,rst}' $(DOCS)
 	@cat $(VOCAB_CANONICAL)/accept_backup.txt > $(VOCAB_CANONICAL)/accept.txt && rm $(VOCAB_CANONICAL)/accept_backup.txt
 
 spelling: vale-install
 	@cat $(VOCAB_CANONICAL)/accept.txt > $(VOCAB_CANONICAL)/accept_backup.txt
-	@cat $(SOURCEDIR)/.custom_wordlist.txt >> $(VOCAB_CANONICAL)/accept.txt
-	@echo "Running Vale against $(TARGET). To change target set TARGET= with make command"
-	@. $(VENV); vale --config="$(VALE_CONFIG)" --filter='$(SPHINXDIR)/styles/spelling.filter' --glob='*.{md,rst}' $(TARGET)
+	@cat $(DOCS_SOURCEDIR)/.custom_wordlist.txt >> $(VOCAB_CANONICAL)/accept.txt
+	@echo "Running Vale against $(DOCS). To change target set DOCS= with make command"
+	@. $(DOCS_VENV); vale --config="$(VALE_CONFIG)" --filter='$(SPHINXDIR)/styles/spelling.filter' --glob='*.{md,rst}' $(DOCS)
 	@cat $(VOCAB_CANONICAL)/accept_backup.txt > $(VOCAB_CANONICAL)/accept.txt && rm $(VOCAB_CANONICAL)/accept_backup.txt
 
 spellcheck: spelling
@@ -154,20 +155,20 @@ pdf-prep-force:
 	apt-get install --no-install-recommends -y $(REQPDFPACKS) \
 
 pdf: pdf-prep
-	@. $(VENV); sphinx-build -M latexpdf "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
-	@rm ./$(BUILDDIR)/latex/front-page-light.pdf || true
-	@rm ./$(BUILDDIR)/latex/normal-page-footer.pdf || true
-	@find ./$(BUILDDIR)/latex -name "*.pdf" -exec mv -t ./$(BUILDDIR) {} +
-	@rm -r $(BUILDDIR)/latex
+	@. $(DOCS_VENV); sphinx-build -M latexpdf "$(DOCS_SOURCEDIR)" "$(DOCS_BUILDDIR)" $(SPHINXOPTS)
+	@rm ./$(DOCS_BUILDDIR)/latex/front-page-light.pdf || true
+	@rm ./$(DOCS_BUILDDIR)/latex/normal-page-footer.pdf || true
+	@find ./$(DOCS_BUILDDIR)/latex -name "*.pdf" -exec mv -t ./$(DOCS_BUILDDIR) {} +
+	@rm -r $(DOCS_BUILDDIR)/latex
 	@echo
-	@echo "Output can be found in ./$(BUILDDIR)"
+	@echo "Output can be found in ./$(DOCS_BUILDDIR)"
 	@echo
 
 update: install
-	@. $(VENV); .sphinx/update_sp.py
+	@. $(DOCS_VENV); .sphinx/update_sp.py
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
 %:
 	$(MAKE) --no-print-directory install
-	. $(VENV); $(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+	. $(DOCS_VENV); $(SPHINXBUILD) -M $@ "$(DOCS_SOURCEDIR)" "$(DOCS_BUILDDIR)" $(SPHINXOPTS) $(O)
