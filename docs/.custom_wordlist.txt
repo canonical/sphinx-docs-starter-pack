@@ -1,6 +1,7 @@
 # Leave a blank line at the end of this file to support concatenation
 backend
 backends
+Canonical('s)?
 Charmcraft
 cjk
 cryptographically
@@ -26,10 +27,12 @@ pymarkdown
 QEMU
 Rockcraft
 readthedocs
+redeclare
 rst
 sitemapindex
 subproject
 subprojects
+SCons
 SVG
 tex
 texlive
@@ -38,6 +41,7 @@ toctree
 txt
 uncomment(ing)?
 utils
+uv
 VMs
 WCAG
 whitespace
