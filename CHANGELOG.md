@@ -2,11 +2,17 @@
 
 ## Upcoming
 
+* Removes or replaces docs use of archived example product documentation site.
 * Remove scripts and references to unused HTML metrics.
 * Pin myst-parser package version to 4.0 to avoid conflicts.
 
 ### Changed
 
+* `docs/conf.py` [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/502)
+* `docs/how-to/guidance.rst` [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/502)
+* `docs/reference/index.rst` [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/502)
+* `docs/reference/myst-syntax-reference.md` [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/502)
+* `docs/reference/rst-syntax-reference.rst` [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/502)
 * `docs/requirements.txt` [#496](https://github.com/canonical/sphinx-docs-starter-pack/pull/496)
 * `docs/Makefile` [#490](https://github.com/canonical/sphinx-docs-starter-pack/pull/490)
 * `docs/.sphinx/update_sp.py` [#490](https://github.com/canonical/sphinx-docs-starter-pack/pull/490)

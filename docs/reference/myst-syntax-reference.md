@@ -345,30 +345,25 @@ You can add targets at any place in the documentation. However, if there is no h
 
 ```{list-table}
    :header-rows: 1
+   :widths: 7 3 3
 
 * - Input
   - Output
-  - Output on GitHub
   - Description
 * - `(target_ID)=`
   -
-  - \(target_ID\)=
   - Adds the target ``target_ID``.
 * - `` {ref}`a_section_target_myst` ``
   - {ref}`a_section_target_myst`
-  - \{ref\}`a_section_target_myst`
   - References a target that has a title.
 * - `` {ref}`link text <a_random_target_myst>` ``
   - {ref}`link text <a_random_target_myst>`
-  - \{ref\}`link text <a_random_target_myst>`
   - References a target and specifies a title.
-* - `` {ref}`starter-pack:home` ``
-  - {ref}`starter-pack:home`
-  - \{ref\}`starter-pack:home`
-  - You can also reference targets in other doc sets.
+* - `` {ref}`project_key:an_external_target` ``
+  - Default link text
+  - You can also reference targets in other Sphinx projects. `project-key` must be a key in the `intersphinx_mapping` dictionary in `conf.py`. The link text defaults to the target's title.
 * - ``[`xyz`](a_random_target_myst)``
   - [`xyz`](a_random_target_myst)
-  - [`xyz`](a_random_target_myst) (link is broken)
   - Use Markdown syntax if you need markup on the link text.
 ```
 
@@ -388,25 +383,19 @@ Use MyST syntax to automatically extract the link text. When overriding the link
 
 * - Input
   - Output
-  - Output on GitHub
   - Status
 * - `` {doc}`index` ``
   - {doc}`index`
-  - {doc}<span></span>`index`
   - Preferred.
 * - `[](index)`
   - [](index)
-  -
   - Do not use.
 * - `[Index page](index)`
-  - [Index page](index)
   - [Index page](index)
   - Preferred when overriding the link text.
 * - `` {doc}`Index page <index>` ``
   - {doc}`Index page <index>`
-  - {doc}<span></span>`Index page <index>`
   - Alternative when overriding the link text.
-
 ```
 
 Adhere to the following conventions:
