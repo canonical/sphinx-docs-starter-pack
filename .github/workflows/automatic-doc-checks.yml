@@ -9,6 +9,12 @@ on:
       - 'docs/**'   # Only run on changes to the docs directory
 
   workflow_call:
+    inputs:
+      python-version:
+        description: 'Version of the Python interpreter to use (defaults to 3.10)'
+        required: false
+        type: string
+        default: '3.10'
   workflow_dispatch:
     # Manual trigger
 
@@ -22,3 +28,4 @@ jobs:
     with:
       working-directory: "docs"
       fetch-depth: 0
+      python-version: ${{ inputs.python-version }}
