@@ -72,3 +72,18 @@ paths in the workflow files:
      pull_request:
        paths:
          - 'docs/**'   # Only run on changes to the docs directory
+
+Customizing the Python version
+-----------------
+
+To set the python version, pass the ``python-version`` input when calling the workflow:
+
+.. class:: vale-ignore
+.. code-block:: yaml
+   :emphasize-lines: 5
+
+   jobs:
+      documentation-checks:
+         uses: canonical/sphinx-docs-starter-pack/.github/workflows/automatic-doc-checks.yml@dev
+         with:
+            python-version: "3.12"
