@@ -230,7 +230,7 @@ def get_local_files_and_paths():
     try:
         files = []
         paths = []
-        patterns = [".*", "**.*", "metrics/**.*"]
+        patterns = [".*", "**.*"]
         files, paths = [], []
 
         for pattern in patterns:

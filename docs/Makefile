@@ -13,7 +13,6 @@ VENVDIR         ?= $(SPHINXDIR)/venv
 PA11Y           = $(SPHINXDIR)/node_modules/pa11y/bin/pa11y.js --config $(SPHINXDIR)/pa11y.json
 VENV            = $(VENVDIR)/bin/activate
 TARGET          = *
-METRICSDIR      = $(SOURCEDIR)/.sphinx/metrics
 REQPDFPACKS     = latexmk fonts-freefont-otf texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-font-utils texlive-lang-cjk texlive-xetex plantuml xindy tex-gyre dvipng
 CONFIRM_SUDO    ?= N
 VALE_CONFIG     = $(SPHINXDIR)/vale.ini
@@ -39,14 +38,13 @@ help:
 	@echo "* check accessibility:                       make pa11y"
 	@echo "* check style guide compliance:              make vale"
 	@echo "* check style guide compliance on target:    make vale TARGET=*"
-	@echo "* check metrics for documentation:           make allmetrics"
 	@echo "* other possible targets:                    make <TAB twice>"
 	@echo "-------------------------------------------------------------"
 	@echo
 
 .PHONY: help full-help html epub pdf linkcheck spelling spellcheck woke \
         vale pa11y run serve install pa11y-install   \
-        vale-install pdf-prep pdf-prep-force clean clean-doc allmetrics \
+        vale-install pdf-prep pdf-prep-force clean clean-doc \
         update lint-md
 
 full-help: $(VENVDIR)
@@ -164,16 +162,6 @@ pdf: pdf-prep
 	@echo
 	@echo "Output can be found in ./$(BUILDDIR)"
 	@echo
-
-allmetrics: html
-	@echo "Recording documentation metrics..."
-	@echo "Checking for existence of vale..."
-	. $(VENV)
-	@. $(VENV); test -d $(VALEDIR) || pip install vale
-	@. $(VENV); test -f $(VALE_CONFIG) || python3 $(SPHINXDIR)/get_vale_conf.py
-	@. $(VENV); find $(VALEDIR)/vale_bin -size 195c -exec vale --config "$(VALE_CONFIG)" $(TARGET) > /dev/null \;
-	@eval '$(METRICSDIR)/source_metrics.sh $(PWD)'
-	@. $(VENV); python3 $(METRICSDIR)/build_metrics.py $(BUILDDIR)
 
 update: install
 	@. $(VENV); .sphinx/update_sp.py

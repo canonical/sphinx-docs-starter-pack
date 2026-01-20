@@ -1,5 +1,21 @@
 # sphinx-docs-starter-pack changelog
 
+## Upcoming
+
+* Remove scripts and references to unused HTML metrics.
+* Pin myst-parser package version to 4.0 to avoid conflicts.
+
+### Changed
+
+* `docs/requirements.txt` [#496](https://github.com/canonical/sphinx-docs-starter-pack/pull/496)
+* `docs/Makefile` [#490](https://github.com/canonical/sphinx-docs-starter-pack/pull/490)
+* `docs/.sphinx/update_sp.py` [#490](https://github.com/canonical/sphinx-docs-starter-pack/pull/490)
+
+### Removed
+
+* `docs/.sphinx/metrics/build_metrics.py` [#490](https://github.com/canonical/sphinx-docs-starter-pack/pull/490)
+* `docs/.sphinx/metrics/source_metrics.sh` [#490](https://github.com/canonical/sphinx-docs-starter-pack/pull/490)
+
 ## 1.3.1
 
 * Switch doc links to `stable` slug.
