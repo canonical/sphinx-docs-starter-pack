@@ -74,7 +74,7 @@ paths in the workflow files:
          - 'docs/**'   # Only run on changes to the docs directory
 
 Customizing the Python version
------------------
+------------------------------
 
 To set the python version, pass the ``python-version`` input when calling the workflow:
 
