@@ -13,7 +13,7 @@ DOCS_SOURCEDIR  ?= .
 DOCS_BUILDDIR   ?= _build
 DOCS_VALEDIR    ?= $(DOCS_VENVDIR)/lib/python*/site-packages/vale
 DOCS_METRICSDIR ?= $(DOCS_SOURCEDIR)/.sphinx/metrics
-DOCS            = *  # Target for checks
+CHECK_PATH      ?= *
 PA11Y           = $(SPHINXDIR)/node_modules/pa11y/bin/pa11y.js --config $(SPHINXDIR)/pa11y.json
 REQPDFPACKS     = latexmk fonts-freefont-otf texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-font-utils texlive-lang-cjk texlive-xetex plantuml xindy tex-gyre dvipng
 CONFIRM_SUDO    ?= N
@@ -38,7 +38,7 @@ help:
 	@echo "* check inclusive language:                  make woke"
 	@echo "* check accessibility:                       make pa11y"
 	@echo "* check style guide compliance:              make vale"
-	@echo "* check style guide compliance on target:    make vale DOCS=*"
+	@echo "* check style guide compliance on target:    make vale CHECK_PATH=*"
 	@echo "* other possible targets:                    make <TAB twice>"
 	@echo "-------------------------------------------------------------"
 	@echo
@@ -121,22 +121,22 @@ vale-install: install
 woke: vale-install
 	@cat $(VOCAB_CANONICAL)/accept.txt > $(VOCAB_CANONICAL)/accept_backup.txt
 	@cat $(DOCS_SOURCEDIR)/.custom_wordlist.txt >> $(VOCAB_CANONICAL)/accept.txt
-	@echo "Running Vale acceptable term check against $(DOCS). To change target set DOCS= with make command"
-	@. $(DOCS_VENV); vale --config="$(VALE_CONFIG)" --filter='$(SPHINXDIR)/styles/woke.filter' --glob='*.{md,rst}' $(DOCS)
+	@echo "Running Vale acceptable term check against $(CHECK_PATH). To change target set CHECK_TARGET= with make command"
+	@. $(DOCS_VENV); vale --config="$(VALE_CONFIG)" --filter='$(SPHINXDIR)/styles/woke.filter' --glob='*.{md,rst}' $(CHECK_PATH)
 	@cat $(VOCAB_CANONICAL)/accept_backup.txt > $(VOCAB_CANONICAL)/accept.txt && rm $(VOCAB_CANONICAL)/accept_backup.txt
 
 vale: vale-install
 	@cat $(VOCAB_CANONICAL)/accept.txt > $(VOCAB_CANONICAL)/accept_backup.txt
 	@cat $(DOCS_SOURCEDIR)/.custom_wordlist.txt >> $(VOCAB_CANONICAL)/accept.txt
-	@echo "Running Vale against $(DOCS). To change target set DOCS= with make command"
-	@. $(DOCS_VENV); vale --config="$(VALE_CONFIG)" --filter='$(SPHINXDIR)/styles/error.filter' --glob='*.{md,rst}' $(DOCS)
+	@echo "Running Vale against $(CHECK_PATH). To change target set CHECK_TARGET= with make command"
+	@. $(DOCS_VENV); vale --config="$(VALE_CONFIG)" --filter='$(SPHINXDIR)/styles/error.filter' --glob='*.{md,rst}' $(CHECK_PATH)
 	@cat $(VOCAB_CANONICAL)/accept_backup.txt > $(VOCAB_CANONICAL)/accept.txt && rm $(VOCAB_CANONICAL)/accept_backup.txt
 
 spelling: vale-install
 	@cat $(VOCAB_CANONICAL)/accept.txt > $(VOCAB_CANONICAL)/accept_backup.txt
 	@cat $(DOCS_SOURCEDIR)/.custom_wordlist.txt >> $(VOCAB_CANONICAL)/accept.txt
-	@echo "Running Vale against $(DOCS). To change target set DOCS= with make command"
-	@. $(DOCS_VENV); vale --config="$(VALE_CONFIG)" --filter='$(SPHINXDIR)/styles/spelling.filter' --glob='*.{md,rst}' $(DOCS)
+	@echo "Running Vale against $(CHECK_PATH). To change target set CHECK_TARGET= with make command"
+	@. $(DOCS_VENV); vale --config="$(VALE_CONFIG)" --filter='$(SPHINXDIR)/styles/spelling.filter' --glob='*.{md,rst}' $(CHECK_PATH)
 	@cat $(VOCAB_CANONICAL)/accept_backup.txt > $(VOCAB_CANONICAL)/accept.txt && rm $(VOCAB_CANONICAL)/accept_backup.txt
 
 spellcheck: spelling
