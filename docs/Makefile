@@ -73,7 +73,7 @@ pa11y-install:
 		}
 
 pymarkdownlnt-install:
-	@. $(DOCS_VENV); test -d $(SPHINXDIR)/venv/lib/python*/site-packages/pymarkdown || pip install pymarkdownlnt
+	@. $(DOCS_VENV); test -d $(VENVDIR)/lib/python*/site-packages/pymarkdown || pip install pymarkdownlnt
 
 install: $(DOCS_VENVDIR)
 
