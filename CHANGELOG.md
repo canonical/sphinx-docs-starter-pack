@@ -3,7 +3,8 @@
 ## Upcoming
 
 * Fix exclude paths issue for pymarkdown introduced in 0.9.35 and pin version.
-* Remove scripts and references to unused HTML metrics.
+* Add `install` dependency to `pymarkdownlnt-install` make target and use VENVDIR variable.
+* Remove scripts and references o unused HTML metrics.
 * Pin myst-parser package version to 4.0 to avoid conflicts.
 
 ### Changed
