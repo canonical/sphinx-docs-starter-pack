@@ -8,7 +8,7 @@
 ### Changed
 
 * `docs/requirements.txt` [#496](https://github.com/canonical/sphinx-docs-starter-pack/pull/496)
-* `docs/Makefile` [#490](https://github.com/canonical/sphinx-docs-starter-pack/pull/490), [#493](https://github.com/canonical/sphinx-docs-starter-pack/pull/493)
+* `docs/Makefile` [#490](https://github.com/canonical/sphinx-docs-starter-pack/pull/490), [#493](https://github.com/canonical/sphinx-docs-starter-pack/pull/493), [#504](https://github.com/canonical/sphinx-docs-starter-pack/pull/504)
 * `docs/.sphinx/update_sp.py` [#490](https://github.com/canonical/sphinx-docs-starter-pack/pull/490)
 
 ### Removed
