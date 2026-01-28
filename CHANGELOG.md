@@ -2,7 +2,9 @@
 
 ## Upcoming
 
-* Removes or replaces docs use of archived example product documentation site.
+* !!!BREAKING: Rename Makefile variables to avoid collisions in host environment.
+* !!!BREAKING: Rename `TARGET` variable for Vale checks to `CHECK_PATH`.
+* Remove or replace docs use of archived example product documentation site.
 * Remove scripts and references to unused HTML metrics.
 * Pin myst-parser package version to 4.0 to avoid conflicts.
 
