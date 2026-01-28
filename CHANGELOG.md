@@ -1,17 +1,18 @@
 # sphinx-docs-starter-pack changelog
 
-## Upcoming
+## 1.4.0
 
 * Fix exclude paths issue for pymarkdown introduced in 0.9.35 and pin version.
 * Add `install` dependency to `pymarkdownlnt-install` make target and use VENVDIR variable.
-* Remove scripts and references o unused HTML metrics.
+* Remove scripts and references to unused HTML metrics.
 * Pin myst-parser package version to 4.0 to avoid conflicts.
+* Make `BUILDDIR` in Makefile configurable from the calling environment.
 
 ### Changed
 
 * `docs/Makefile` [#508](https://github.com/canonical/sphinx-docs-starter-pack/pull/508)
 * `docs/requirements.txt` [#496](https://github.com/canonical/sphinx-docs-starter-pack/pull/496)
-* `docs/Makefile` [#490](https://github.com/canonical/sphinx-docs-starter-pack/pull/490), [#493](https://github.com/canonical/sphinx-docs-starter-pack/pull/493), [#504](https://github.com/canonical/sphinx-docs-starter-pack/pull/504)
+* `docs/Makefile` [#490](https://github.com/canonical/sphinx-docs-starter-pack/pull/490), [#504](https://github.com/canonical/sphinx-docs-starter-pack/pull/504)
 * `docs/.sphinx/update_sp.py` [#490](https://github.com/canonical/sphinx-docs-starter-pack/pull/490)
 
 ### Removed
