@@ -16,7 +16,7 @@
 * `docs/reference/myst-syntax-reference.md` [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/502)
 * `docs/reference/rst-syntax-reference.rst` [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/502)
 * `docs/requirements.txt` [#496](https://github.com/canonical/sphinx-docs-starter-pack/pull/496)
-* `docs/Makefile` [#490](https://github.com/canonical/sphinx-docs-starter-pack/pull/490)
+* `docs/Makefile` [#490](https://github.com/canonical/sphinx-docs-starter-pack/pull/490), [#510](https://github.com/canonical/sphinx-docs-starter-pack/pull/510)
 * `docs/.sphinx/update_sp.py` [#490](https://github.com/canonical/sphinx-docs-starter-pack/pull/490)
 
 ### Removed
