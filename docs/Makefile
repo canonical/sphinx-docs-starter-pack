@@ -4,7 +4,7 @@
 
 # You can set these variables from the command line, and also
 # from the environment for the first two.
-SPHINX_DIR       = .sphinx
+SPHINX_DIR       ?= .sphinx
 SPHINX_OPTS      ?= -c . -d $(SPHINX_DIR)/.doctrees -j auto
 SPHINX_BUILD     ?= $(DOCS_VENVDIR)/bin/sphinx-build
 SPHINX_HOST      ?= 127.0.0.1
