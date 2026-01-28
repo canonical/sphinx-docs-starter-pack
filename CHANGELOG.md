@@ -2,7 +2,9 @@
 
 ## Upcoming
 
-* Removes or replaces docs use of archived example product documentation site.
+* !!!BREAKING: Rename Makefile variables to avoid collisions in host environment.
+* !!!BREAKING: Rename `TARGET` variable for Vale checks to `CHECK_PATH`.
+* Remove or replace docs use of archived example product documentation site.
 * Remove scripts and references to unused HTML metrics.
 * Pin myst-parser package version to 4.0 to avoid conflicts.
 
@@ -36,7 +38,7 @@
 * `.github/workflows/check-removed-urls.yml` [#466](https://github.com/canonical/sphinx-docs-starter-pack/pull/466)
 * `.github/workflows/markdown-style-checks.yml` [#466](https://github.com/canonical/sphinx-docs-starter-pack/pull/466)
 * `.github/workflows/sphinx-python-dependency-build-checks.yml` [#466](https://github.com/canonical/sphinx-docs-starter-pack/pull/466)
-* `docs/Makefile` [#493](https://github.com/canonical/sphinx-docs-starter-pack/pull/493)
+* `docs/Makefile` [#493](https://github.com/canonical/sphinx-docs-starter-pack/pull/493), [#494](https://github.com/canonical/sphinx-docs-starter-pack/pull/494)
 
 ## 1.3.0
 
