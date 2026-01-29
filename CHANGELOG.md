@@ -1,5 +1,13 @@
 # sphinx-docs-starter-pack changelog
 
+## 1.4.1
+
+* Fix the version slug so the upgrade script has the right release tag.
+
+### Changed
+
+* `docs/.sphinx/version` [#516](https://github.com/canonical/sphinx-docs-starter-pack/pull/516)
+
 ## 1.4.0
 
 * Fix exclude paths issue for pymarkdown introduced in 0.9.35 and pin version.
