@@ -419,7 +419,7 @@ Adhere to the following conventions:
 
 Every documentation page must be included as a sub-page to another page in the navigation.
 
-This is achieved with the [`toctree`](https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree) directive in the parent page: <!-- wokeignore:rule=master -->
+This is achieved with the [`toctree`](https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree) directive in the parent page:
 
 ````
 ```{toctree}
@@ -520,7 +520,7 @@ Adhere to the following conventions:
 ## Tables
 
 You can use standard Markdown tables. However, using the reST [list table](https://docutils.sourceforge.io/docs/ref/rst/directives.html#list-table) syntax is usually much easier.
-See the [Sphinx documentation](https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#table-directives) for all table syntax alternatives. <!-- wokeignore:rule=master -->
+See the [Sphinx documentation](https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#table-directives) for all table syntax alternatives.
 
 Both markups result in the following output:
 
@@ -657,7 +657,7 @@ A big advantage of MyST in comparison to plain Markdown is that it allows to reu
 
 ### Substitution
 
-To reuse sentences or paragraphs that have little markup and special formatting, use [substitutions](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#substitutions). <!-- wokeignore:rule=master -->
+To reuse sentences or paragraphs that have little markup and special formatting, use [substitutions](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#substitutions).
 
 Substitutions can be defined in the following locations:
 

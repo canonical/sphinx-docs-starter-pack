@@ -17,7 +17,6 @@ If you're adding documentation to an existing software project, copy the followi
 
 * the entire :file:`docs` directory
 * :file:`.readthedocs.yaml` (configuration for the building on Read the Docs)
-* :file:`.wokeignore` (configuration for the Woke tool)
 * the entire :file:`.github/workflows` directory
 
 
