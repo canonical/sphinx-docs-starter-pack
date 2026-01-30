@@ -7,6 +7,7 @@
 * Remove or replace docs use of archived example product documentation site.
 * Remove scripts and references to unused HTML metrics.
 * Pin myst-parser package version to 4.0 to avoid conflicts.
+* Revert the switch to a reusable `automatic-doc-checks.yml` workflow.
 
 ### Changed
 
@@ -18,6 +19,7 @@
 * `docs/requirements.txt` [#496](https://github.com/canonical/sphinx-docs-starter-pack/pull/496)
 * `docs/Makefile` [#490](https://github.com/canonical/sphinx-docs-starter-pack/pull/490)
 * `docs/.sphinx/update_sp.py` [#490](https://github.com/canonical/sphinx-docs-starter-pack/pull/490)
+* `.github/workflows/automatic-doc-checks.yml` [#514](https://github.com/canonical/sphinx-docs-starter-pack/pull/514)
 
 ### Removed
 
