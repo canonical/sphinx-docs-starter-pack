@@ -1,5 +1,13 @@
 # sphinx-docs-starter-pack changelog
 
+## Upcoming
+
+### Changed
+
+* `docs/conf.py` [#520](https://github.com/canonical/sphinx-docs-starter-pack/pull/520)
+* `docs/requirements.txt` [#520](https://github.com/canonical/sphinx-docs-starter-pack/pull/520)
+* `docs/.sphinx/.wordlist.txt` [#520](https://github.com/canonical/sphinx-docs-starter-pack/pull/520)
+
 ## 1.4.1
 
 * Fix the version slug so the upgrade script has the right release tag.
