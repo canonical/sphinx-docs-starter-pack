@@ -42,48 +42,47 @@ workflow comes from the `documentation-checks
 <https://github.com/canonical/documentation-workflows>`_ repository and supports the
 following inputs.
 
-.. code-block::
-    
-    jobs:
-      documentation-checks:
-        uses: canonical/documentation-workflows/.github/workflows/documentation-checks.yaml@main
-        with:
-          # The root of the documentation project. This input is required
-          working-directory: ''
+.. list-table::
+    :header-rows: 1
 
-          # The Python interpreter to use.
-          python-version: '3.10'
-
-          # The Makefile that checks are invoked from.
-          # Defaults to 'Makefile.sp' if it exists, or 'Makefile' if it doesn't.
-          makefile: 'Makefile'
-
-          # The make target for installing required tools.
-          install-target: 'install'
-
-          # The make target to run for the spelling check.
-          spelling-target: 'spelling'
-
-          # The make target to run for the inclusive language check.
-          woke-target: 'woke'
-
-          # The make target to run for the link check.
-          linkcheck-target: 'linkcheck'
-
-          # The desired fetch depth.
-          fetch-depth: '0'
-
-          # The desired system for GitHub runners.
-          runs-on: '["ubuntu-24.04"]'
-
-          # The make target to run for the accessibility check.
-          pa11y-target: 'pa11y'
+    * - Input
+      - Description
+      - Default
+    * - ``working-directory``
+      - The root of the documentation project. This input is required.
+      - None
+    * - ``python-version``
+      - The Python interpreter to use for the workflow's jobs.
+      - ``'3.10'``
+    * - ``makefile``
+      - The Makefile that checks are invoked from. Defaults to ``'Makefile.sp'`` if it exists, or ``'Makefile'`` if it doesn't.
+      - ``'Makefile.sp'`` or ``'Makefile'``
+    * - ``install-target``
+      - The make target for installing required tools.
+      - ``'install'``
+    * - ``spelling-target``
+      - The make target to run for the spelling check.
+      - ``'spelling'``
+    * - ``woke-target``
+      - The make target to run for the inclusive language check
+      - ``'woke'``
+    * - ``linkcheck-target``
+      - The make target to run for the link check.
+      - ``'linkcheck'``
+    * - ``'fetch-depth'``
+      - The desired fetch depth.
+      - ``'0'``
+    * - ``-target``
+      - The GitHub runners' host system.
+      - ``'["ubuntu-24.04"]'``
+    * - ``pa11y-target``
+      - The make target to run for the accessibility check.
+      - ``'pa11y'``
 
 The current defaults force usage of Canonical-hosted runners, which some projects
 may not be able to use. You may select your own runners by providing a ``runs-on``
 value, as shown by line 7 in the following example:
 
-.. class:: vale-ignore
 .. code-block::
    :emphasize-lines: 7
    :linenos:
@@ -104,7 +103,6 @@ changes are made to files in the ``docs/`` directory. If your project is structu
 differently, or if you want to run the checks on other directories, modify the trigger
 paths in the workflow files:
 
-.. class:: vale-ignore
 .. code-block:: yaml
    :emphasize-lines: 4
 
