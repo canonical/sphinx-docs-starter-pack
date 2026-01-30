@@ -7,6 +7,7 @@
 * Remove or replace docs use of archived example product documentation site.
 * Remove scripts and references to unused HTML metrics.
 * Pin myst-parser package version to 4.0 to avoid conflicts.
+* Revert the switch to a reusable `automatic-doc-checks.yml` workflow.
 
 ### Changed
 
