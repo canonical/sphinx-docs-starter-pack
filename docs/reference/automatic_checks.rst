@@ -36,12 +36,52 @@ To install the validation tools:
 Default GitHub actions
 ----------------------
 
-The starter pack uses default workflows from the
-`documentation-workflows <https://github.com/canonical/documentation-workflows/>`_
-repository.
+The :literalref:`documentation-checks.yaml
+<https://github.com/canonical/documentation-workflows/blob/main/.github/workflows/documentation-checks.yaml>`
+workflow comes from the `documentation-checks
+<https://github.com/canonical/documentation-workflows>`_ repository and supports the
+following inputs.
 
-The current defaults force usage of Canonical hosted runners, which some projects
-may not be able to use. You may select your own runners with an override, see line 7 below:
+.. code-block::
+    
+    jobs:
+      documentation-checks:
+        uses: canonical/documentation-workflows/.github/workflows/documentation-checks.yaml@main
+        with:
+          # The root of the documentation project. This input is required
+          working-directory: ''
+
+          # The Python interpreter to use.
+          python-version: '3.10'
+
+          # The Makefile that checks are invoked from.
+          # Defaults to 'Makefile.sp' if it exists, or 'Makefile' if it doesn't.
+          makefile: 'Makefile'
+
+          # The make target for installing required tools.
+          install-target: 'install'
+
+          # The make target to run for the spelling check.
+          spelling-target: 'spelling'
+
+          # The make target to run for the inclusive language check.
+          woke-target: 'woke'
+
+          # The make target to run for the link check.
+          linkcheck-target: 'linkcheck'
+
+          # The desired fetch depth.
+          fetch-depth: '0'
+
+          # The desired system for GitHub runners.
+          runs-on: '["ubuntu-24.04"]'
+
+          # The make target to run for the accessibility check.
+          pa11y-target: 'pa11y'
+
+The current defaults force usage of Canonical-hosted runners, which some projects
+may not be able to use. You may select your own runners by providing a ``runs-on``
+value, as shown by line 7 in the following example:
 
 .. class:: vale-ignore
 .. code-block::
@@ -49,12 +89,12 @@ may not be able to use. You may select your own runners with an override, see li
    :linenos:
 
    jobs:
-   documentation-checks:
+    documentation-checks:
       uses: canonical/documentation-workflows/.github/workflows/documentation-checks.yaml@main
       with:
-         working-directory: "docs"
-         fetch-depth: 0
-         runs-on: "ubuntu-22.04"
+        working-directory: "docs"
+        fetch-depth: 0
+        runs-on: "ubuntu-22.04"
 
 Workflow triggers
 -----------------
