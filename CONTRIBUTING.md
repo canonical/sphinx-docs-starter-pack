@@ -249,7 +249,7 @@ Your PR should include the following details:
 - Testing: How reviewers can verify the change or test the fix
 - Reversibility: For costly-to-reverse decisions, explain reasoning and reversal steps
 
-Make sure to peek at the preview for documentation changes (find the `Read the Docs build` check and click `...` - `View details`).
+Make sure to peek at the preview for documentation changes (find the `Read the Docs build` check and click `...` - `View details`). If your PR adds or changes specific documentation pages, include links to the preview pages in the PR description.
 
 ## CI/CD pipeline
 
