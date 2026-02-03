@@ -54,9 +54,15 @@ following inputs.
     * - ``python-version``
       - The Python interpreter to use for the workflow's jobs.
       - ``'3.10'``
+    * - ``'fetch-depth'``
+      - The number of commits to fetch from your repository.
+      - The full history is fetched.
+    * - ``runs-on``
+      - The host system for the workflow's runners.
+      - ``'["ubuntu-24.04"]'``
     * - ``makefile``
-      - The Makefile that checks are invoked from. Defaults to ``'Makefile.sp'`` if it exists, or ``'Makefile'`` if it doesn't.
-      - ``'Makefile.sp'`` or ``'Makefile'``
+      - The Makefile that checks are invoked from.
+      - ``'Makefile'``
     * - ``install-target``
       - The make target for installing required tools.
       - ``'install'``
@@ -69,15 +75,6 @@ following inputs.
     * - ``linkcheck-target``
       - The make target to run for the link check.
       - ``'linkcheck'``
-    * - ``'fetch-depth'``
-      - The desired fetch depth.
-      - ``'0'``
-    * - ``-target``
-      - The GitHub runners' host system.
-      - ``'["ubuntu-24.04"]'``
-    * - ``pa11y-target``
-      - The make target to run for the accessibility check.
-      - ``'pa11y'``
 
 The current defaults force usage of Canonical-hosted runners, which some projects
 may not be able to use. You may select your own runners by providing a ``runs-on``
