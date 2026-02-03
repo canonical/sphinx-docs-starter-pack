@@ -32,7 +32,7 @@ When you open a pull request (PR) against the `main` branch, an automated check 
 If you haven't signed the CLA:
 1. The check will fail with a message indicating the CLA requirement
 2. Visit <https://ubuntu.com/legal/contributors> to review and sign the agreement
-3. Once signed, re-run the failed check or push a new commit to trigger re-evaluation
+3. Once signed, ask a maintainer to re-run the check, or push a new commit to trigger re-evaluation
 
 The CLA check only runs on PRs to `main`. Internal team members working on other branches should ensure they have signed the CLA before their changes are merged to `main`.
 
@@ -58,7 +58,7 @@ The starter pack is designed to be a minimal, flexible foundation for diverse do
 
 **May not belong in the starter pack:**
 - Enables optional tooling or features by default (these should be opt-in)
-- Adds opinionated formatting or linting rules
+- Adds opinionated formatting or linting rules that would cause a sizable portion of existing doc sets to fail checks suddenly
 - Makes changes that conflict with existing workflows
 - Introduces features that are project-specific rather than general-purpose
 - UI-related changes may be better suited for the ongoing alternative theme update project (ask maintainers)
@@ -129,7 +129,6 @@ The upstream `main` branch is for changes that are ready for the next release. T
 Follow these guidelines:
 
 - Use separate commits for each logical change, and for changes to different components
-- Prefix your commit messages with names of components they affect, using the file hierarchy structure
 - Keep the starter pack minimal by default; optional features should be opt-in
 - Ensure your changes work in both light and dark themes where applicable
 
@@ -253,8 +252,6 @@ Make sure to peek at the preview for documentation changes (find the `Read the D
 
 The repository configures multiple automated checks. Some are conditional based on target branch or changed files.
 
-Workflows marked "callable" below support `workflow_call`; those marked "manual dispatch" support `workflow_dispatch` via the GitHub UI.
-
 If a check fails, review the logs for remediation guidance. For failures unrelated to your changes, rebase against the latest base branch.
 
 ### Checks on all PRs
@@ -265,17 +262,17 @@ These run on every PR and on pushes to `main`:
 - Spelling check: Verifies spelling using Vale
 - Link check: Validates all links in the documentation
 - Inclusive language check: Runs woke to check for non-inclusive language
-- Python dependency build: Verifies dependencies can be built from source (callable, manual dispatch)
+- Python dependency build: Verifies dependencies can be built from source
 
 ### Checks on PRs to `main` only
 
 - CLA check: Verifies you have signed the Canonical Contributor License Agreement
-- Removed URLs check: Detects if any URLs were removed without redirects (callable)
+- Removed URLs check: Detects if any URLs were removed without redirects
 
 ### Checks on changes to `docs/` only
 
-- Markdown style check: Runs `pymarkdownlnt` on Markdown files (callable)
-- Automatic documentation checks: Runs upstream documentation workflow checks (manual dispatch).
+- Markdown style check: Runs `pymarkdownlnt` on Markdown files
+- Automatic documentation checks: Runs upstream documentation workflow checks.
   The project uses [canonical/documentation-workflows](https://github.com/canonical/documentation-workflows) for automatic documentation checks. To modify this part of CI behavior, pass inputs to upstream workflows rather than creating or customizing local copies.
 
 ### Optional checks (allowed to fail)
@@ -285,39 +282,22 @@ These run on every PR and on pushes to `main`:
 
 ## Review process
 
-PRs are typically reviewed within a week. Reviewers may request:
-
-- Wording, terminology, or formatting changes
-- Consistency with existing documentation patterns
-- Proper reST or MyST markup style
-- Minimal examples before listing options
+PRs are typically reviewed within a week.
 
 ### Responding to feedback
 
 Push additional commits to address feedback (commit locally rather than via GitHub UI to avoid sync conflicts).
 
-#### Using fixup commits
-
-Use fixup commits to address feedback while keeping review history visible:
-
-```bash
-# Create a fixup commit targeting a specific commit
-git commit --fixup <hash-of-commit-being-fixed>
-```
-
-This keeps updates granular and traceable.
-
-Before merge (after final approval), squash the fixup commits:
-
-```bash
-git rebase -i --autosquash upstream/main
-git push --force-with-lease
-```
-
-Don't force-push after approval; this obscures what exactly changed.
+Rebase your branch before requesting a review to keep your commits clean. Once review has started, avoid rebasing to maintain the review history and make it easier for reviewers to see what changed.
 
 ### Common feedback themes
 
+Reviewers may request:
+
+- Wording, terminology, or formatting changes
+- Consistency with existing documentation patterns
+- Proper reST or MyST markup style
+- Minimal examples before listing options
 - Terminology: Align naming with existing documentation and code
 - Cross-references: Use proper reST or MyST syntax
 - Examples: Start minimal, then show options; include verification steps
