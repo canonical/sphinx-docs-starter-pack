@@ -38,7 +38,7 @@ Default GitHub actions
 
 The :literalref:`documentation-checks.yaml
 <https://github.com/canonical/documentation-workflows/blob/main/.github/workflows/documentation-checks.yaml>`
-workflow comes from the `documentation-checks
+workflow comes from the `documentation-workflows
 <https://github.com/canonical/documentation-workflows>`_ repository and supports the
 following inputs.
 
@@ -89,7 +89,6 @@ value, as shown by line 7 in the following example:
       uses: canonical/documentation-workflows/.github/workflows/documentation-checks.yaml@main
       with:
         working-directory: "docs"
-        fetch-depth: 0
         runs-on: "ubuntu-22.04"
 
 Workflow triggers
