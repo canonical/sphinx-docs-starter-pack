@@ -115,16 +115,14 @@ Sync and create a new branch:
 
 ```bash
 git fetch upstream
-git checkout -b <new-branch-name> upstream/main
+git checkout -b <new-branch-name> upstream/dev
 ```
 
 Name your branch `<ticket-id>-<description>` (e.g., `issue-235-add-string-sanitizer`), keeping it under 80 characters.
 
-#### Base branch guidance
+The upstream `dev` branch is for unreleased changes or work-in-progress features. You'll likely want to target this branch.
 
-- Target `main` for changes that are ready for the next release (this is usually done by maintainers only)
-- Target `dev` for unreleased changes or work-in-progress features
-- If CI issues appear unrelated to your changes, rebase your branch against the latest base branch
+The upstream `main` branch is for changes that are ready for the next release. This is usually done by maintainers only
 
 ### Make your changes
 
