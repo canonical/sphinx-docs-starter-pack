@@ -78,10 +78,10 @@ following inputs.
 
 The current defaults force usage of Canonical-hosted runners, which some projects
 may not be able to use. You may select your own runners by providing a ``runs-on``
-value, as shown by line 7 in the following example:
+value, as shown by line 6 in the following example:
 
 .. code-block::
-   :emphasize-lines: 7
+   :emphasize-lines: 6
    :linenos:
 
    jobs:
