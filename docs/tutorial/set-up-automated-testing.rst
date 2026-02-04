@@ -362,6 +362,5 @@ section provides additional examples of Spread tests:
 * `Spread tests included in Rockcraft documentation <https://github.com/canonical/rockcraft/tree/main/docs/tutorial/code>`_
 * `Spread tests included in Charmcraft documentation <https://github.com/canonical/charmcraft/tree/main/docs/tutorial/code>`_
 
-.. wokeignore:rule=master
 .. _ReStructuredText (.rst): https://www.sphinx-doc.org/en/master/usage/restructuredtext
 .. _MyST-Markdown: https://myst-parser.readthedocs.io/en/latest
