@@ -11,7 +11,7 @@ This page contains a short guide on how to set up and use the starter pack.
 Copy the starter pack
 =====================
 
-If you're starting a new project, clone the `starter pack repository <https://github.com/canonical/sphinx-docs-starter-pack>`_ and begin your project from there.
+If you're starting a new project, create it from the `starter pack repository <https://github.com/canonical/sphinx-docs-starter-pack>`_ with the :guilabel:`Use this template` button. `Using a template <https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template>`_ copies the default branch without the git history or other unneeded artifacts.
 
 If you're adding documentation to an existing software project, copy the following files from the starter pack repository into your project:
 
