@@ -1,15 +1,15 @@
-# Contributing to the starter pack
+# Contributing to the Starter Pack
 
-The starter pack provides a shared foundation for Sphinx-based documentation across multiple Canonical projects. The work done here benefits every team that uses it. While most of the work is done by the Documentation Practice team, this in no way limits the external contributions.
+The Starter Pack provides a shared foundation for Sphinx documentation projects, and contributions help improve the documentation of all its users. The Documentation Practice team performs most of the work, but all contributors are welcome.
 
 Common contributions include:
 
 - Bug fixes: Build errors, broken links, configuration issues
-- Documentation: Guides for starter pack features, syntax references, troubleshooting, ad-hoc how-to guides
-- Improvements: Better defaults, new extensions, workflow enhancements, CI/CD, style rules
+- Documentation: How-to guides on Starter Pack features and usage, syntax references, troubleshooting information
+- Improvements: Better defaults, new extensions, workflow enhancements, new or improved style rules
 - Dependency updates: Security patches, compatibility fixes, better tooling
 
-If you use the starter pack and encounter an issue or see room for improvement, you're in the best position to contribute a fix.
+If you run into any problems or see room for improvement, we encourage you to open an issue or even contribute a fix.
 
 ## Review the project expectations
 
@@ -21,46 +21,35 @@ When contributing, you must abide by the [Ubuntu Code of Conduct](https://ubuntu
 
 ### Canonical Contributor License Agreement
 
-Please read and sign our [Contributor License Agreement (CLA)](https://ubuntu.com/legal/contributors) before submitting any changes. The agreement grants Canonical permission to use your contributions. The author of a change remains the copyright owner of their code (no copyright assignment occurs).
+Code contributions can only be accepted from contributors who have signed our [Contributor License Agreement (CLA)](https://ubuntu.com/legal/contributors). Signing the agreement grants Canonical permission to use your contributions, and you remain the copyright owner of your work (no copyright assignment occurs).
 
-Before committing anything, review the terms of the agreement. If you agree and sign it, your work can be incorporated into the repository.
-
-#### CLA check in CI
-
-When you open a pull request (PR) against the `main` branch, an automated check verifies that you have signed the CLA. This check uses the [canonical/has-signed-canonical-cla](https://github.com/canonical/has-signed-canonical-cla) GitHub Action.
-
-If you haven't signed the CLA:
-1. The check will fail with a message indicating the CLA requirement
-2. Visit <https://ubuntu.com/legal/contributors> to review and sign the agreement
-3. Once signed, ask a maintainer to re-run the check, or push a new commit to trigger re-evaluation
-
-The CLA check only runs on PRs to `main`. Internal team members working on other branches should ensure they have signed the CLA before their changes are merged to `main`.
+Review the terms of the agreement before signing it or committing anything. If you agree and choose to sign it, your work can be incorporated into the repository.
 
 ### Open source license
 
-The starter pack is licensed under [GPL-3.0](LICENSE). Documentation for this project is licensed under CC-BY-SA 3.0.
+The Starter Pack is licensed under [GPL-3.0](LICENSE). Documentation for this project is licensed under CC-BY-SA 3.0.
 
 ## Report an issue or open a request
 
-If you find a bug or feature gap in the starter pack, look for it in the [project's GitHub issues](https://github.com/canonical/sphinx-docs-starter-pack/issues) first. If you have fresh input, add your voice to share new findings.
+If you find a bug or feature gap in the Starter Pack, look for it in the [project's GitHub issues](https://github.com/canonical/sphinx-docs-starter-pack/issues) first. Add your voice to the thread if you have fresh input.
 
 If the bug or feature doesn't have an issue, [open one](https://github.com/canonical/sphinx-docs-starter-pack/issues/new/choose).
 
-## What belongs in the starter pack
+## What belongs in the Starter Pack
 
-The starter pack is designed to be a minimal, flexible foundation for diverse documentation projects.
+The Starter Pack is designed to be a minimal, flexible foundation for diverse documentation projects.
 
-**Belongs in the starter pack:**
-- Fixes bugs in core functionality
-- Improves the default configuration in ways that benefit all users
-- Adds documentation about existing features
-- Updates dependencies for security or compatibility
+**Belongs in the Starter Pack:**
+- Bug fixes for core functionality
+- Improvements to default configuration that benefit all users
+- Documentation about existing features
+- Dependency updates for security or compatibility
 
-**May not belong in the starter pack:**
-- Enables optional tooling or features by default (these should be opt-in)
-- Adds opinionated formatting or linting rules that would cause a sizable portion of existing doc sets to fail checks suddenly
-- Makes changes that conflict with existing workflows
-- Introduces features that are project-specific rather than general-purpose
+**May not belong in the Starter Pack:**
+- Optional tooling or features (these should be opt-in and implemented by projects using the Starter Pack)
+- Opinionated formatting or linting rules that would cause a sizable portion of existing doc sets to fail checks suddenly
+- Changes that conflict with existing workflows
+- Features that are project-specific rather than general-purpose
 - UI-related changes may be better suited for the ongoing alternative theme update project (ask maintainers)
 
 When in doubt, open an issue first to discuss whether the change aligns with the project's goals.
@@ -103,11 +92,11 @@ All significant work should be tied to an existing issue. Before starting, comme
 
 #### Minor changes
 
-Check [GitHub issues](https://github.com/canonical/sphinx-docs-starter-pack/issues) for existing reports. If none exists, [open one](https://github.com/canonical/sphinx-docs-starter-pack/issues/new/choose) and indicate you'd like to work on it.
+Check [GitHub issues](https://github.com/canonical/sphinx-docs-starter-pack/issues) for existing reports. If none exist, [open one](https://github.com/canonical/sphinx-docs-starter-pack/issues/new/choose) and state your interest in working on it.
 
 #### Major changes
 
-Describe your proposal in the issue thread, including the plan, tests, and documentation. For new documentation pages, propose a [Diataxis](https://diataxis.fr) category.
+Describe your proposal in the issue thread, including the plan, tests, and documentation. For new documentation pages, propose a [Diátaxis](https://diataxis.fr) category.
 
 ### Create a development branch
 
@@ -115,27 +104,23 @@ Sync and create a new branch:
 
 ```bash
 git fetch upstream
-git checkout -b <new-branch-name> upstream/dev
+git checkout -b <new-branch-name>
 ```
 
 Name your branch `<ticket-id>-<description>` (e.g., `issue-235-add-string-sanitizer`), keeping it under 80 characters.
-
-The upstream `dev` branch is for unreleased changes or work-in-progress features. You'll likely want to target this branch.
-
-The upstream `main` branch is for changes that are ready for the next release. This is usually done by maintainers only
 
 ### Make your changes
 
 Follow these guidelines:
 
 - Use separate commits for each logical change, and for changes to different components
-- Keep the starter pack minimal by default; optional features should be opt-in
-- Ensure your changes work in both light and dark themes where applicable
+- Keep the Starter Pack minimal by default; optional features are best implemented
+  by the projects using the Starter Pack rather than the Starter Pack itself
 
 ### Commit a change
 
 ```bash
-git add <files>
+git add -A
 git commit
 ```
 
@@ -147,24 +132,24 @@ feat: add text sanitizer
 
 To determine the commit type, check the file history with `git log --oneline <filename>`.
 
-> Tip
+> **Tip**
 >
 > If you're unsure which type to use, the commit may be doing too much, so split it into smaller commits instead. Select the highest-ranked type that fits:
 >
-> - ci
-> - build
-> - feat
-> - fix
-> - perf
-> - refactor
-> - style
-> - test
-> - docs
-> - chore
+> - `ci`
+> - `build`
+> - `feat`
+> - `fix`
+> - `perf`
+> - `refactor`
+> - `style`
+> - `test`
+> - `docs`
+> - `chore`
 
 ### Sign your commits
 
-All commits require cryptographic signatures ([DCO 1.1](https://developercertificate.org/)):
+All commits require cryptographic signatures ([DCO 1.1](https://developercertificate.org/)). You can sign commits by adding `-S` to the `git commit` command from the previous section, for example:
 
 ```bash
 git commit -S -m "docs: updated configuration guide"
@@ -172,7 +157,7 @@ git commit -S -m "docs: updated configuration guide"
 
 Signed commits display a "Verified" badge in GitHub. Set up signing via [GitHub Docs - About commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification).
 
-> Tip
+> **Tip**
 >
 > You can configure your Git client to sign commits by default for any local repository by running `git config --global commit.gpgsign true`. Once you have done this, you no longer need to add `-S` to your commits explicitly.
 >
@@ -189,7 +174,7 @@ If you've made an unsigned commit and encounter the "Commits must have verified 
 
 2. If you still encounter the same error, confirm that your GitHub account has been set up properly to sign commits as described in the [GitHub Docs - About commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification).
 
-   > Tip
+   > **Tip**
    >
    > If you use SSH keys to sign your commits, make sure to add a "Signing Key" type in your GitHub account. See [GitHub Docs - Adding a new SSH key to your account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) for more information.
 
@@ -210,7 +195,7 @@ make lint-md       # Check Markdown style
 make vale          # Check style guide compliance (optional)
 ```
 
-Preview locally with live reload at `http://127.0.0.1:8000`:
+To preview locally with live reload at `http://127.0.0.1:8000`, run:
 
 ```bash
 make run
@@ -218,7 +203,7 @@ make run
 
 ### Document the change
 
-This documentation uses [Diataxis](https://diataxis.fr). For small changes, update existing how-to guides and references. For major changes or new flows, create new pages in the appropriate category.
+This documentation uses [Diátaxis](https://diataxis.fr). For small changes, update existing how-to guides and references. For major changes or new flows, create new pages in the appropriate category.
 
 Run the same basic checks locally that GitHub runs on PRs; see [Test the change](#test-the-change).
 
@@ -269,6 +254,17 @@ These run on every PR and on pushes to `main`:
 - CLA check: Verifies you have signed the Canonical Contributor License Agreement
 - Removed URLs check: Detects if any URLs were removed without redirects
 
+#### CLA check in CI
+
+When you open a pull request (PR) against the `main` branch, a mandatory automated check verifies that you have signed the CLA. It uses the [canonical/has-signed-canonical-cla](https://github.com/canonical/has-signed-canonical-cla) GitHub Action.
+
+If you haven't signed the CLA:
+1. The check will fail with a message indicating the CLA requirement
+2. Visit <https://ubuntu.com/legal/contributors> to review and sign the agreement
+3. Once signed, re-run the check if you have permissions, or ask a maintainer to do so. Pushing a new commit also triggers re-evaluation.
+
+The CLA check only runs on PRs to `main`. Internal team members working on other branches should ensure they have signed the CLA before their changes are merged to `main`.
+
 ### Checks on changes to `docs/` only
 
 - Markdown style check: Runs `pymarkdownlnt` on Markdown files
@@ -309,4 +305,4 @@ Reviewers may request:
 
 ## Branch management policy
 
-<!-- TODO: Document the branching strategy, including the relationship between main and dev branches, when to target each branch, and how changes flow between branches. -->
+<!-- TODO: Document the branching strategy, including the relationship between long-lived branches, when to target each branch, and how changes flow between branches. -->
