@@ -23,6 +23,7 @@ Set up, configure, upgrade, and customize your project to keep it organized and 
     set-up-sitemaps
     customise-pdf
     migrate-from-pre-extension
+    upgrade-starter-pack
     update
     troubleshoot-issues
 
