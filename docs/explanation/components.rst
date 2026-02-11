@@ -31,7 +31,7 @@ Sphinx
 Python
 ======
 
-Sphinx is a Python application and many of its extensions are Python applications, by extention, Starter pack depends on Python and Python package manager. As it is generally recommended to work on projects locally in a virtual environment, Starter pack's local build relies on Python `venv`. 
+Sphinx is a Python application and many of its extensions are Python applications. By extension, Starter pack depends on Python and Python package manager. As it is generally recommended to work on projects locally in a virtual environment, Starter pack's local build relies on Python ``venv``. 
 
 To be able to work on a Starter pack-based project, you must have ``python3``, ``python3-venv``, and ``python3-pip`` on your system.
 
@@ -110,7 +110,7 @@ The following extensions are enabled by default:
 Third-party extensions
 ----------------------
 
-If an extention is not built into Sphinx, you must download and install it into your enviornment before you can enable it in the Sphinx configuration. 
+If an extention is not built into Sphinx, you must download and install it into your environment before you can enable it in the Sphinx configuration. 
 
 As many extensions are Python applications, Starter Pack uses a `requirements.txt <https://pip.pypa.io/en/stable/reference/requirements-file-format/>`_ file to manage them.  
 
@@ -150,7 +150,7 @@ Canonical theme is based on the Furo theme and packaged as a standalone `canonic
 Command line tools
 ==================
 
-Starter Pack uses Make as its local build system. Starter Pack's Makefile is developed specifically to serve as an interface for operating the project e.g. to be able create a virtual environment and install dependencies with one command. 
+Starter Pack uses Make as its local build system. Starter Pack's Makefile is developed specifically to serve as an interface for operating the project, creating a virtual environment and installing dependencies with one command. 
 
 Makefile
 --------
@@ -177,7 +177,7 @@ Additionally, the Makefile provides commands to trigger third-party CLI tools, s
 Read The Docs configuration file
 ================================
 
-If you are publishing your documentation through Read the Docs, Read the Docs build logic is declared in `.readthedocs.yaml`. Starter Pack comes with a pre-configured  `.readthedocs.yaml` with default values that should work for the majority of projects.
+If you are publishing your documentation through Read the Docs, Read the Docs build logic is declared in ``.readthedocs.yaml``. Starter Pack comes with a pre-configured  ``.readthedocs.yaml`` with default values that should work for the majority of projects.
 
 See :ref:`rtd` to learn how configure your Read the Docs instance.  
 
