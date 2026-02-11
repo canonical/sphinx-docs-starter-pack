@@ -16,5 +16,7 @@ Contents
 
    automatic_checks
    removed-url-check
+   default-extensions
    rst-syntax-reference
    myst-syntax-reference
+   
