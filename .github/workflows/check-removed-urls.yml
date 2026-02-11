@@ -8,6 +8,10 @@ on:
 jobs:
   build-docs:
     runs-on: ubuntu-latest
+    if: |
+      !contains(github.event.pull_request.title, 'skip check-removed-urls') &&
+      !contains(github.event.pull_request.body, 'skip check-removed-urls') &&
+      !contains(github.event.head_commit.message, 'skip check-removed-urls')
     steps:
       - name: Checkout PR branch
         uses: actions/checkout@v5
