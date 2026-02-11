@@ -1,3 +1,5 @@
+.. _migrage-from-pre-extension:
+
 Migrate from the pre-extension starter pack 
 ===========================================
 
