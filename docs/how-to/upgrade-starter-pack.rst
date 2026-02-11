@@ -20,7 +20,7 @@ Open a terminal and clone the starter pack's GitHub repository:
 
 By default, this will clone the main branch which will have the latest updates,
 and may include some experimental features. For the latest stable version, clone
-the dev branch instead:
+the ``dev`` branch instead:
 
 .. code-block::
 
@@ -42,7 +42,7 @@ the new one.
 Replace `conf.py`
 ~~~~~~~~~~~~~~~~~
 Rename the existing `conf.py` file and copy the version in the starter pack into
-your docs repo. Use a graphical diff tool such as `Kompare <https://apps.kde.org/kompare/>`_
+your repository. Use a graphical diff tool such as `Kompare <https://apps.kde.org/kompare/>`_
 or `meld <https://meldmerge.org/>`_ to compare the two versions of `conf.py` and 
 make the following changes:
 
@@ -85,8 +85,8 @@ replace it with one from the starter pack.
 Additional changes
 ------------------
 Replace the `requirements.txt`. Just as with the configuration file, take note 
-of any repo-specific requirements that are not available in the new file and add
-them, e.g., `sphinxext-rediraffe` if you use rediraffe to handle redirects. 
+of any repository-specific requirements that are not available in the new file 
+and add them, e.g., `sphinxext-rediraffe` if you use rediraffe to handle redirects. 
 
 In the new versions of the starter pack, the requirements file is placed at the 
 root of the `/docs` folder.
@@ -127,7 +127,7 @@ if you use the manual process. These may be starter-pack specific files, or file
 that have been replaced: 
 
 -   If you haven't done it already, deleted the copies of `conf.py`, `Makefile`, and 
-    `./readthedocs.yaml` that were renamed and replaced in your docs repo. 
+    `./readthedocs.yaml` that were renamed and replaced in your repository. 
 -   If you didn't follow this workflow for this or previous upgrades, it's possible 
     that you have some starter pack-specific files in your repository, and these
     can be deleted unless you intentionally use them for your docs. These include:
@@ -139,3 +139,13 @@ that have been replaced:
     -   `substitutions.txt`
     -   `substitutions.yaml`
     -   `CODEOWNERS`
+
+Test Make commands
+------------------
+To ensure the upgrade will pass linting checks when you make a pull request, run
+the following commands:
+-   ``make spelling``
+-   ``make linkcheck``
+-   ``make woke``
+-   ``make lint-md`` (if you included the `markdown-style-checks` workflow)
+
