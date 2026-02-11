@@ -82,31 +82,6 @@ Built-in extensions
 Built-in extensions do not need to be installed separately from Sphinx and can be enabled directly through `docs/conf.py`.
 `docs/conf.py` in the Starter Pack has already been configured to enabled typical extensions necessary for docmentation work.
 
-.. _default-extensions:
-
-The following extensions are enabled by default:
-
-* ``canonical_sphinx``
-* ``notfound.extension``
-* ``sphinx.ext.intersphinx``
-* ``sphinx_config_options``
-* ``sphinx_contributor_listing``
-* ``sphinx_copybutton``
-* ``sphinx_design``
-* ``sphinx_filtered_toctree``
-* ``sphinx_last_updated_by_git``
-* ``sphinx_related_links``
-* ``sphinx_reredirects``
-* ``sphinx_roles``
-* ``sphinx_sitemap``
-* ``sphinx_tabs.tabs``
-* ``sphinx_terminal``
-* ``sphinx_ubuntu_images``
-* ``sphinx_youtube_links``
-* ``sphinxcontrib.cairosvgconverter``
-* ``sphinxcontrib.jquery``
-* ``sphinxext.opengraph``
-
 Third-party extensions
 ----------------------
 
