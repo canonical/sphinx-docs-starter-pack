@@ -247,10 +247,10 @@ In the example project, the main build calls the targets like this:
     :caption: Makefile
 
     # Override for `clean` target in docs project. We don't want to touch `.venv`,
-    # so we pass a null dir instead.
+    # so we pass a temp dir instead.
     .PHONY: docs-clean
     docs-clean:
-    	VENVDIR=null $(MAKE) -C docs clean --no-print-directory
+    	VENVDIR=$(mktemp) $(MAKE) -C docs clean --no-print-directory
 
     # Override for `help` target
     .PHONY: docs-help
