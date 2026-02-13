@@ -24,6 +24,7 @@ Set up, configure, upgrade, and customize your project to keep it organized and 
     customise-pdf
     migrate-from-pre-extension
     update
+    Use Ulwazi theme <use-ulwazi-theme>
     troubleshoot-issues
 
 Optional features and workflows
