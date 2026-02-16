@@ -94,7 +94,7 @@ Configure included extensions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The starter pack includes a set of extensions that are useful for all documentation sets.
-Some extensions are :ref:`enabled by default <default-extensions>` within Starter Pack but you can customise the selection in the  :file:`docs/conf.py` file.
+Some extensions are :ref:`enabled by default <default-extensions>` within the Starter Pack, but you can customize the selection in the  :file:`docs/conf.py` file.
 
 The ``canonical_sphinx`` extension is required for the starter pack and provides the Furo-based theme and custom templates.
 

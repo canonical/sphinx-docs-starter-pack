@@ -3,7 +3,7 @@
 Default extensions
 ===================
 
-These extentions are enabled in the Starter Pack by default.
+These extensions are enabled in the Starter Pack by default.
 
 ``canonical_sphinx``
    Contains the default Canonical branded theme.
@@ -52,7 +52,7 @@ These extentions are enabled in the Starter Pack by default.
    Automatically generates a list of contributors to the project repository.
 
 ``sphinx_filtered_toctree``
-   Allows filtering Table of Contents (toctree) entries based on specific tags or conditions.
+   Allows filtering Table of Contents (``toctree``) entries based on specific tags or conditions.
 
 ``sphinx_last_updated_by_git``
    Fetches and displays the accurate 'last updated' date for pages by reading Git commit metadata.
@@ -64,7 +64,7 @@ These extentions are enabled in the Starter Pack by default.
    Provides custom inline text roles for standardized formatting or linking across the project.
 
 ``sphinx_sitemap``
-   Automatically generates a standard sitemap.xml file to improve search engine indexing (SEO).
+   Automatically generates a standard sitemap.xml file to improve indexing for search engine optimization (SEO).
 
 ``sphinx_terminal``
    Renders styled terminal sessions and command-line output within the documentation.
@@ -73,6 +73,6 @@ These extentions are enabled in the Starter Pack by default.
    Provides directives specific to rendering standard Ubuntu-branded images and icons.
 
 ``sphinx_youtube_links``
-   Provides a simple directive to seamlessly embed YouTube videos into.
+   Provides a directive to embed YouTube videos into a page.
 
 
