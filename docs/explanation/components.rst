@@ -1,17 +1,17 @@
 .. meta::
-    :description: Learn about what Starter Pack is made 
+    :description: A breakdown of Canonical's Sphinx Starter Pack that covers its constituent elements and their purpose.
 
 .. _explanation-components:
 
 Starter pack components
 #######################
 
-Starter pack is template of a `Sphinx <https://www.sphinx-doc.org/en/master/>`_ project, it provides a layout of the project's file structure, a theme, and all the necessary dependencies.
+The Starter Pack is a template `Sphinx <https://www.sphinx-doc.org/en/master/>`__ project. It provides the default layout for a new project's file structure, a theme, and all the necessary dependencies.
 
 Sphinx
 ======
 
-`Sphinx <https://www.sphinx-doc.org/en/master/>`_  is the core documentation build engine that converts reStructuredText or Markdown files into HTML.
+Sphinx is the core documentation build engine that converts reStructuredText or Markdown files into HTML.
 
 `docs/conf.py` is a configuration file that defines the properties of the Sphinx project such as project metadata and dependencies.
  
@@ -31,9 +31,9 @@ Sphinx
 Python
 ======
 
-Sphinx is a Python application and many of its extensions are Python applications. By extension, Starter pack depends on Python and Python package manager. As it is generally recommended to work on projects locally in a virtual environment, Starter pack's local build relies on Python ``venv``. 
+Because Sphinx is a Python application, the Starter Pack depends on Python and a Python package manager. Most of its dependencies are Python packages. As it is generally recommended to work on projects locally in a virtual environment, the Starter Pack's local build relies on Python ``venv``. 
 
-To be able to work on a Starter pack-based project, you must have ``python3``, ``python3-venv``, and ``python3-pip`` on your system.
+To be able to work on a Starter Pack project, your host needs Python 3.11, pip, and venv.
 
 .. mermaid::
     :caption: Python's role in Starter Pack
@@ -54,12 +54,12 @@ To be able to work on a Starter pack-based project, you must have ``python3``, `
 Extensions
 ==========
 
-Sphinx's default functionality can always be changed and expanded with built-in or third-party extensions for tasks like creating diagrams, testing code, and more. 
+Sphinx's default functionality can be expanded with built-in or third-party extensions for tasks, such as creating diagrams, testing code, and more. 
 
-Starter pack is preconfigured with a curated and tested set of extensions.
+The Starter Pack is preconfigured with a curated and tested set of extensions.
 
 .. mermaid::
-    :caption: Extention types
+    :caption: Extension types
 
     graph TD
         Python["Python"]
@@ -80,14 +80,14 @@ Built-in extensions
 -------------------
 
 Built-in extensions do not need to be installed separately from Sphinx and can be enabled directly through `docs/conf.py`.
-`docs/conf.py` in the Starter Pack has already been configured to enabled typical extensions necessary for docmentation work.
+`docs/conf.py` in the Starter Pack has already been configured to enabled typical extensions necessary for documentation work.
 
 Third-party extensions
 ----------------------
 
-If an extention is not built into Sphinx, you must download and install it into your environment before you can enable it in the Sphinx configuration. 
+If an extension is not built into Sphinx, you must include it in `requirements.txt` before you can enable it in the Sphinx configuration file. 
 
-As many extensions are Python applications, Starter Pack uses a `requirements.txt <https://pip.pypa.io/en/stable/reference/requirements-file-format/>`_ file to manage them.  
+As extensions are Python packages, the Starter Pack uses a `requirements.txt <https://pip.pypa.io/en/stable/reference/requirements-file-format/>`_ file to manage them.  
 
 .. mermaid::
     :caption: Third-party extensions
@@ -115,22 +115,22 @@ As many extensions are Python applications, Starter Pack uses a `requirements.tx
 Markdown support
 ^^^^^^^^^^^^^^^^
 
-By default, Sphinx uses reStructuredText. To be able to build Markdown, it relies on `MyST parser <https://myst-parser.readthedocs.io/en/latest/>`_ that requires a `myst-parser` extention.
+By default, Sphinx uses reStructuredText. To be able to build Markdown, it relies on the `MyST parser <https://myst-parser.readthedocs.io/en/latest/>`_, enabled by the `myst-parser` extension.
 
 Canonical theme
 ^^^^^^^^^^^^^^^
 
-Canonical theme is based on the Furo theme and packaged as a standalone `canonical-sphinx <https://github.com/canonical/canonical-sphinx>`_ extention. It is based on an upstream Furo theme and is designed to follow Canonical branding.
+The Canonical theme is packaged as a standalone `canonical-sphinx <https://github.com/canonical/canonical-sphinx>`_ extension. It is based on an upstream Furo theme and is designed to follow Canonical branding.
 
 Command line tools
 ==================
 
-Starter Pack uses Make as its local build system. Starter Pack's Makefile is developed specifically to serve as an interface for operating the project, creating a virtual environment and installing dependencies with one command. 
+The Starter Pack uses Make as its local build system. The Starter Pack's Makefile serves as an interface for operating the project, including setting up the virtual environment, installing dependencies, and more, through CLI commands.
 
 Makefile
 --------
 
-Some of the commands that Makefile has are built to represent Sphinx-native functionality for building documentation or testing the URLs in a simplified form while also managing all the necessary dependencies, for example, instead of using `sphinx-build linkcheck SOURCEDIR OUTPUTDIR` command, you can use `make linkcheck`. 
+Some of the Makefile targets (such as ``html`` and ``linkcheck``) provide Sphinx-native functionality for building documentation or performing tests in a simplified form while managing required dependencies. For example, instead of using  the ``sphinx-build linkcheck SOURCEDIR OUTPUTDIR`` command, you can use ``make linkcheck``. 
 
 See :ref:`explanation-build` to learn how the local build process works.  
 
@@ -152,7 +152,9 @@ Additionally, the Makefile provides commands to trigger third-party CLI tools, s
 Read The Docs configuration file
 ================================
 
-If you are publishing your documentation through Read the Docs, Read the Docs build logic is declared in ``.readthedocs.yaml``. Starter Pack comes with a pre-configured  ``.readthedocs.yaml`` with default values that should work for the majority of projects.
+Read The Docs is a documentation building and hosting platform. It takes the documentation created using Sphinx (or other tools) and builds and publishes it online.
+
+If you are publishing your documentation through Read the Docs, the Read the Docs build logic is declared in ``.readthedocs.yaml``. The Starter Pack comes with a pre-configured  ``.readthedocs.yaml`` with default values that should work for the majority of projects.
 
 See :ref:`rtd` to learn how configure your Read the Docs instance.  
 
