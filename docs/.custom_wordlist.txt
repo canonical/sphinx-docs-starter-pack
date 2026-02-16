@@ -73,3 +73,6 @@ openapi
 docstrings?
 Makefile
 retrigger(ing)?
+preconfigured
+venv
+rtd

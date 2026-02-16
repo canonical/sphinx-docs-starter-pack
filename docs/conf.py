@@ -294,7 +294,6 @@ extensions = [
     "sphinx_last_updated_by_git",
     "sphinx.ext.intersphinx",
     "sphinx_sitemap",
-    "sphinxcontrib.mermaid",
 ]
 
 # Excludes files or directories from processing
