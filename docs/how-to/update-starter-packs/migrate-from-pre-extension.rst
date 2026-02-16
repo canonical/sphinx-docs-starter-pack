@@ -1,4 +1,4 @@
-.. _migrage-from-pre-extension:
+.. _migrate-from-pre-extension:
 
 Migrate from the pre-extension starter pack 
 ===========================================
@@ -7,6 +7,8 @@ This guide outlines the steps required to migrate a documentation project from t
 
 The extension-based documentation starter pack provides a set of features and configurations that are common across Canonical documentation projects. Key components, such as configuration and styling, are loaded as an add-on to your documentation project. It can significantly reduce maintenance concerns when managing your documentation.
 
+If you would like to upgrade an extension-based starter pack to the latest 
+version, refer to our :ref:`general guide for upgrading starter packs <upgrade-new-starter-pack>`.
 
 Update to the last pre-extension version
 ----------------------------------------
@@ -102,7 +104,7 @@ Apply customisation
 
 If your projects have custom configurations or styles, ensure that you identify and apply these changes to the new documentation project.
 
-For general information on customising the extension configuration, see :doc:`customise`.
+For general information on customising the extension configuration, see :ref:`customise`.
 
 Static resources
 ~~~~~~~~~~~~~~~~
