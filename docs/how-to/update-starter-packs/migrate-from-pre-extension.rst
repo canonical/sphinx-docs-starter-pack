@@ -7,8 +7,10 @@ This guide outlines the steps required to migrate a documentation project from t
 
 The extension-based documentation starter pack provides a set of features and configurations that are common across Canonical documentation projects. Key components, such as configuration and styling, are loaded as an add-on to your documentation project. It can significantly reduce maintenance concerns when managing your documentation.
 
-If you would like to upgrade an extension-based starter pack to the latest 
-version, refer to our :ref:`general guide for upgrading starter packs <upgrade-new-starter-pack>`.
+.. note::
+   If ``canonical-sphinx`` is included under ``extensions`` in your `conf.py`, 
+   you are already using an extension-based starter-pack. Follow the guide on 
+   :ref:`upgrading to the new starter pack <upgrade-new-starter-pack>`.
 
 Update to the last pre-extension version
 ----------------------------------------

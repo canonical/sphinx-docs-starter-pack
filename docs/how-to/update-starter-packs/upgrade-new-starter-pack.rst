@@ -1,26 +1,23 @@
 .. _upgrade-new-starter-pack:
 
-Upgrade the new starter pack
-============================
+Upgrade to the new starter pack
+===============================
 The documentation starter pack is regularly updated to add features and address 
-bugs. You can transfer these improvements to your documentation by upgrading your 
-repository's starter pack. You'll need to:
+bugs. You can transfer these improvements to your project by following these steps:
 
 - Clone the latest version of the starter pack
-- Compare key parts of the starter pack to your existing repository 
+- Compare key files and directories in the starter pack to your project 
 - Transfer or delete relevant changes 
-- Test that the documentation builds correctly with the new changes
+- Confirm that your project builds correctly with the new changes
 
-This guide assumes your project runs on an extension-based version of the starter 
-pack. If this is not the case, refer to the guide on 
-:ref:`migrating from the pre-extension version <migrate-from-pre-extension>`.
-One sign that your docs may be on the pre-extenstion version is having the 
-`build_requirements.py` file in the repository.
+This guide assumes your project has minimal customizations, and the repository 
+structure closely mirrors the starter pack's. Depending on your customizations, 
+you may need to take extra steps when upgrading. 
 
 .. note::
-    This upgrade guide assumes your existing project has minimal customizations, 
-    and the repository structure closely mirrors the starter pack's. Depending 
-    on your customizations, you may need to take extra steps when upgrading. 
+   If ``canonical-sphinx`` is not included under ``extensions`` in your `conf.py`, 
+   your project is not on an extension-based starter-pack. Follow the guide on 
+   :ref:`migrating from the pre-extension version <migrate-from-pre-extension>`.
 
 Clone the starter pack repository
 ---------------------------------
@@ -30,18 +27,20 @@ Open a terminal and clone the starter pack's GitHub repository:
 
     git clone https://github.com/canonical/sphinx-docs-starter-pack.git
 
-Confirm that the starter pack's documentation and your own build with no errors.
+Confirm that both the starter pack's documentation and your project build with 
+no errors.
 
 .. important::
-   Verify that your documentation still builds correctly after each key step. This 
+   Verify that your project still builds correctly after each key step. This 
    makes it easier to identify causes of build errors.
 
 Update the `Makefile`, `conf.py`, and `.readthedocs.yaml` files
 ----------------------------------------------------------------
-A starter pack upgrade usually includes some changes to these files. You'll need 
-to merge the changes you want to keep to the new ones from the starter pack. The 
-recommended approach is to copy the customizations in your existing files to 
-the starter pack files and then replace the existing files with the starter pack's. 
+New starter pack versions often change the default configuration files. You'll 
+need to merge your project files with the config files from the new starter pack.
+The recommended approach is to copy the customizations in your project to the starter 
+pack's config files and then replace your project's config files with the starter 
+pack's. 
 
 The changes to be made vary between projects and upgrades. Therefore, this guide 
 cannot be overly prescriptive.
@@ -59,31 +58,31 @@ following changes:
     -   Ignored links
     -   Social links, etc.
 
--   Verify that the `/static` and `/templates` folders are located at the locations
+-   Verify that the `/static` and `/templates` directories are located at the locations
     specified by `html_static_path` and `templates_path`, respectively, in the 
-    new `conf.py` file. These should not be inside the `/.sphinx` folder.
+    new `conf.py` file. These should not be inside the `/.sphinx` directory.
 
 For other customizations, consider need and compatibility before copying them to 
 the new file. If it's not obvious whether you should copy over a customization
 or include a new change, reach out to `Canonical's documentation team <https://matrix.to/#/#documentation:ubuntu.com>`_.
 
 Update `Makefile` and `.readthedocs.yaml`
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Depending on the version of your starter pack, the new `Makefile` and `.readthedocs.yaml`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Depending on the version of your project's starter pack, the new `Makefile` and `.readthedocs.yaml`
 files may have few or no changes. Apply the same approach you used for `conf.py` 
 to merge your customizations into the new files. 
 
 If there are no project-specific customizations in your files but there are changes 
 in the new ones, you can just overwrite your existing files with the new ones.
 
-Update the `/.sphinx` folder
------------------------------
-In addition to the docs above, the `/.sphinx` folder is also likely to have some
+Update the `/.sphinx` directory
+-------------------------------
+In addition to the docs above, the `/.sphinx` directory is also likely to have some
 changes in each upgrade. These files are not intended to be modified by users. 
 
-Unless you intentionally customized files in this folder, you can simply delete 
-your existing `/.sphinx` folder and replace it with the starter pack's. If you 
-have any modifications in your existing `/.sphinx` folder, it is recommended that 
+Unless you intentionally customized files in this directory, you can simply delete 
+your project's `/.sphinx` directory and replace it with the starter pack's. If there 
+are modifications in your project's `/.sphinx` directory, it is recommended that 
 they transfer them out.
 
 Review less frequently changed files
@@ -91,24 +90,24 @@ Review less frequently changed files
 Some files in the starter pack may be updated less frequently, but it's a good idea 
 to review them during each upgrade and determine if there are relevant changes:
 
--   Review `requirements.txt`: If there are any updates, and your existing file 
-    has no repository-specific requirements, you can simply replace the existing 
-    file with the new one. If you added requirements based on your customizations 
-    be sure to include them, e.g., `sphinxext-rediraffe` if you use rediraffe to 
+-   Review `requirements.txt`: If there are any updates, and your project's file 
+    has no repository-specific requirements, you can overwrite the existing file 
+    with the new one. If you added requirements based on your customizations be 
+    sure to include them, e.g., `sphinxext-rediraffe` if you use rediraffe to 
     handle redirects.
 
--   Review the workflows in the `/.github` folder: If there are changes in the 
+-   Review the workflows in the `/.github` directory: If there are changes in the 
     following workflows, replace the existing files with the new ones. The starter 
-    pack may have more workflows included. You'll need to decide whether you need 
-    the additional workflows or not: 
+    pack will have other workflows as well, but you'll need to decide whether your 
+    project needs them or not: 
 
     -   Automatic doc checks
     -   CLA (contributor license agreement) check
     -   Check for removed URLs
     -   Markdown style check (only required for docs using markdown)
 
--   Review and transfer any additions in the new `.gitignore` file to the existing
-    one.
+-   Review and transfer any necessary changes in the new `.gitignore` file to your 
+    project.
 
 Test the build and run local CI checks
 --------------------------------------
@@ -142,11 +141,11 @@ Clean up
 There may be files that need to be deleted after the upgrade such as starter-pack 
 specific files or files that have been replaced with newer versions: 
 
--   If you haven't done it already, delete the copies of `conf.py`, `Makefile`, and 
+-   If you haven't done so already, delete the copies of `conf.py`, `Makefile`, and 
     `/.readthedocs.yaml` that were renamed and replaced. 
 -   If you did not strictly follow this guide for this or previous upgrades, it's 
-    possible that you have some starter pack-specific files in your repository. 
-    These can be deleted unless you repurposed them for your docs: 
+    possible that you have some starter pack-specific files in your project. 
+    These can be deleted unless you repurposed them for your project: 
 
     -   `.github/pull_request_template.md`
     -   `.github/workflows/sphinx-python-dependency-build-checks.yml`
