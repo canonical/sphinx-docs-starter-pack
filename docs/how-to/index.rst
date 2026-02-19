@@ -25,6 +25,7 @@ Set up, configure, upgrade, and customize your project to keep it organized and 
     migrate-from-pre-extension
     update
     troubleshoot-issues
+    skip-removed-urls-check
 
 Optional features and workflows
 -------------------------------
