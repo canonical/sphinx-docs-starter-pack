@@ -94,30 +94,7 @@ Configure included extensions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The starter pack includes a set of extensions that are useful for all documentation sets.
-They are pre-configured as needed, but you can customise their configuration in the  :file:`docs/conf.py` file.
-
-The following extensions are included by default:
-
-* ``canonical_sphinx``
-* ``notfound.extension``
-* ``sphinx.ext.intersphinx``
-* ``sphinx_config_options``
-* ``sphinx_contributor_listing``
-* ``sphinx_copybutton``
-* ``sphinx_design``
-* ``sphinx_filtered_toctree``
-* ``sphinx_last_updated_by_git``
-* ``sphinx_related_links``
-* ``sphinx_reredirects``
-* ``sphinx_roles``
-* ``sphinx_sitemap``
-* ``sphinx_tabs.tabs``
-* ``sphinx_terminal``
-* ``sphinx_ubuntu_images``
-* ``sphinx_youtube_links``
-* ``sphinxcontrib.cairosvgconverter``
-* ``sphinxcontrib.jquery``
-* ``sphinxext.opengraph``
+Some extensions are :ref:`enabled by default <default-extensions>` within the Starter Pack, but you can customize the selection in the  :file:`docs/conf.py` file.
 
 The ``canonical_sphinx`` extension is required for the starter pack and provides the Furo-based theme and custom templates.
 
