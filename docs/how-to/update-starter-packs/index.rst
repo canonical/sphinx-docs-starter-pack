@@ -14,5 +14,5 @@ starter pack repository.
 .. toctree::
     :maxdepth: 1
 
-    extendable
-    pre-extension
+    New starter pack <new-starter-pack>
+    Legacy starter pack <legacy-starter-pack>

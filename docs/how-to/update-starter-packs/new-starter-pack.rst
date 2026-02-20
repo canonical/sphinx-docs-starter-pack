@@ -1,10 +1,10 @@
 .. meta::
    :description: Learn how to update Sphinx starter pack projects that use the ``canonical-sphinx`` extenstion.
 
-.. _update-extendable-starter-pack:
+.. _update-new-starter-pack:
 
-Update an extendable starter pack project
-=========================================
+Update the new starter pack
+===========================
 
 The documentation starter pack is regularly updated to add features and address 
 bugs. You can transfer these improvements to your project by following these steps:
@@ -21,7 +21,7 @@ you may need to take extra steps when upgrading.
 .. note::
    If ``canonical-sphinx`` is not included under ``extensions`` in your `conf.py`, 
    your project is not on an extension-based starter-pack. Follow the guide on 
-   :ref:`Updating a pre-extension starter pack project <update-pre-extension-starter-pack>`.
+   :ref:`updating a legacy starter pack project <update-legacy-starter-pack>`.
 
 Clone the starter pack repository
 ---------------------------------
@@ -149,15 +149,16 @@ specific files or files that have been replaced with newer versions:
     `/.readthedocs.yaml` that were renamed and replaced. 
 -   If you did not strictly follow this guide for this or previous upgrades, it's 
     possible that you have some starter pack-specific files in your project. 
-    These can be deleted unless you repurposed them for your project: 
+    These files can be safely deleted: 
 
     -   `.github/pull_request_template.md`
     -   `.github/workflows/sphinx-python-dependency-build-checks.yml`
--   The following are starter pack specific files and should be deleted:
+    -   `.github/CODEOWNERS`
+    -   `.github/workflows/test-starter-pack.yml`
+    
+-   These files can be deleted as long as they are not being used in your docs:
 
     -   `docs/reuse/links.txt`
     -   `docs/reuse/mermaid.txt`
     -   `docs/reuse/substitutions.txt`
     -   `docs/reuse/substitutions.yaml`
-    -   `.github/CODEOWNERS` (starter pack's version)
-    -   `.github/workflows/test-starter-pack.yml`
