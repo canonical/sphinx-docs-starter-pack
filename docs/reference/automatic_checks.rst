@@ -36,25 +36,60 @@ To install the validation tools:
 Default GitHub actions
 ----------------------
 
-The starter pack uses default workflows from the
-`documentation-workflows <https://github.com/canonical/documentation-workflows/>`_
-repository.
+The :literalref:`documentation-checks.yaml
+<https://github.com/canonical/documentation-workflows/blob/main/.github/workflows/documentation-checks.yaml>`
+workflow comes from the `documentation-workflows
+<https://github.com/canonical/documentation-workflows>`_ repository and supports the
+following inputs.
 
-The current defaults force usage of Canonical hosted runners, which some projects
-may not be able to use. You may select your own runners with an override, see line 7 below:
+.. list-table::
+    :header-rows: 1
 
-.. class:: vale-ignore
+    * - Input
+      - Description
+      - Default
+    * - ``working-directory``
+      - The root of the documentation project. This input is required.
+      - None
+    * - ``python-version``
+      - The Python interpreter to use for the workflow's jobs.
+      - ``'3.10'``
+    * - ``'fetch-depth'``
+      - The number of commits to fetch from your repository.
+      - The full history is fetched.
+    * - ``runs-on``
+      - The host system for the workflow's runners.
+      - ``'["ubuntu-24.04"]'``
+    * - ``makefile``
+      - The Makefile that checks are invoked from.
+      - ``'Makefile'``
+    * - ``install-target``
+      - The make target for installing required tools.
+      - ``'install'``
+    * - ``spelling-target``
+      - The make target to run for the spelling check.
+      - ``'spelling'``
+    * - ``woke-target``
+      - The make target to run for the inclusive language check
+      - ``'woke'``
+    * - ``linkcheck-target``
+      - The make target to run for the link check.
+      - ``'linkcheck'``
+
+The current defaults force usage of Canonical-hosted runners, which some projects
+may not be able to use. You may select your own runners by providing a ``runs-on``
+value, as shown by line 6 in the following example:
+
 .. code-block::
-   :emphasize-lines: 7
+   :emphasize-lines: 6
    :linenos:
 
    jobs:
-   documentation-checks:
+    documentation-checks:
       uses: canonical/documentation-workflows/.github/workflows/documentation-checks.yaml@main
       with:
-         working-directory: "docs"
-         fetch-depth: 0
-         runs-on: "ubuntu-22.04"
+        working-directory: "docs"
+        runs-on: "ubuntu-22.04"
 
 Workflow triggers
 -----------------
@@ -64,7 +99,6 @@ changes are made to files in the ``docs/`` directory. If your project is structu
 differently, or if you want to run the checks on other directories, modify the trigger
 paths in the workflow files:
 
-.. class:: vale-ignore
 .. code-block:: yaml
    :emphasize-lines: 4
 

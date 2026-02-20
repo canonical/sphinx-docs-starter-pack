@@ -1,5 +1,24 @@
 # sphinx-docs-starter-pack changelog
 
+## Upcoming
+
+* Add `CONTRIBUTING.md`.
+* Rename Makefile variables to avoid collisions in host environment.
+* Rename `TARGET` variable for Vale checks to `CHECK_PATH`.
+* Remove or replace docs use of archived example product documentation site.
+* Revert the switch to a reusable `automatic-doc-checks.yml` workflow.
+
+### Changed
+
+* `docs/Makefile` [#494](https://github.com/canonical/sphinx-docs-starter-pack/pull/494)
+* `docs/conf.py` [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/502)
+* `docs/how-to/guidance.rst` [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/502)
+* `docs/reference/index.rst` [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/502)
+* `docs/reference/myst-syntax-reference.md` [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/502)
+* `docs/reference/rst-syntax-reference.rst` [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/502)
+* `.github/workflows/automatic-doc-checks.yml` [#514](https://github.com/canonical/sphinx-docs-starter-pack/pull/514)
+
+
 ## 1.4.1
 
 * Fix the version slug so the upgrade script has the right release tag.
