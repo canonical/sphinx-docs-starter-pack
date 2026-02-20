@@ -18,12 +18,12 @@ Set up, configure, upgrade, and customize your project to keep it organized and 
 .. toctree::
     :maxdepth: 1
 
-    update-starter-packs/index.rst
     rtd
     customise
     set-up-sitemaps
     customise-pdf
     update
+    update-starter-packs/index.rst
     troubleshoot-issues
 
 Optional features and workflows

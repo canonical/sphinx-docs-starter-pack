@@ -1,6 +1,9 @@
-.. _migrate-from-pre-extension:
+.. meta::
+   :description: Learn how to update Sphinx starter pack projects that don't yet use the ``canonical-sphinx`` extenstion.
 
-Migrate from the pre-extension starter pack 
+.. _update-pre-extension-starter-pack:
+
+Update a pre-extension starter pack project 
 ===========================================
 
 This guide outlines the steps required to migrate a documentation project from the legacy Sphinx Documentation Starter Pack (*pre-extension* version) to the latest version that adopts the ``canonical-sphinx`` Sphinx extension.
@@ -10,7 +13,7 @@ The extension-based documentation starter pack provides a set of features and co
 .. note::
    If ``canonical-sphinx`` is included under ``extensions`` in your `conf.py`, 
    you are already using an extension-based starter-pack. Follow the guide on 
-   :ref:`upgrading to the new starter pack <upgrade-new-starter-pack>`.
+   :ref:`updating and extendable starter pack project<update-extendable-starter-pack>`.
 
 Update to the last pre-extension version
 ----------------------------------------

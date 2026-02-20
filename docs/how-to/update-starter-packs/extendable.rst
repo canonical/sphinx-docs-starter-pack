@@ -1,7 +1,11 @@
-.. _upgrade-new-starter-pack:
+.. meta::
+   :description: Learn how to update Sphinx starter pack projects that use the ``canonical-sphinx`` extenstion.
 
-Upgrade to the new starter pack
-===============================
+.. _update-extendable-starter-pack:
+
+Update an extendable starter pack project
+=========================================
+
 The documentation starter pack is regularly updated to add features and address 
 bugs. You can transfer these improvements to your project by following these steps:
 
@@ -17,11 +21,11 @@ you may need to take extra steps when upgrading.
 .. note::
    If ``canonical-sphinx`` is not included under ``extensions`` in your `conf.py`, 
    your project is not on an extension-based starter-pack. Follow the guide on 
-   :ref:`migrating from the pre-extension version <migrate-from-pre-extension>`.
+   :ref:`Updating a pre-extension starter pack project <update-pre-extension-starter-pack>`.
 
 Clone the starter pack repository
 ---------------------------------
-Open a terminal and clone the starter pack's GitHub repository:
+If you don't have a clean, local copy of the starter pack, clone it:
 
 .. code-block::
 
@@ -34,8 +38,8 @@ no errors.
    Verify that your project still builds correctly after each key step. This 
    makes it easier to identify causes of build errors.
 
-Update the `Makefile`, `conf.py`, and `.readthedocs.yaml` files
-----------------------------------------------------------------
+Update the configuration and build files
+----------------------------------------
 New starter pack versions often change the default configuration files. You'll 
 need to merge your project files with the config files from the new starter pack.
 The recommended approach is to copy the customizations in your project to the starter 
@@ -45,8 +49,8 @@ pack's.
 The changes to be made vary between projects and upgrades. Therefore, this guide 
 cannot be overly prescriptive.
 
-Update `conf.py`
-~~~~~~~~~~~~~~~~~
+``conf.py``
+~~~~~~~~~~~
 Rename your `conf.py` file to avoid overwriting it, and copy the starter pack's 
 version to the same location. Use a graphical diff tool such as `Kompare <https://apps.kde.org/kompare/>`_
 or `meld <https://meldmerge.org/>`_ to compare the old and new file and make the 
@@ -66,7 +70,7 @@ For other customizations, consider need and compatibility before copying them to
 the new file. If it's not obvious whether you should copy over a customization
 or include a new change, reach out to `Canonical's documentation team <https://matrix.to/#/#documentation:ubuntu.com>`_.
 
-Update `Makefile` and `.readthedocs.yaml`
+``Makefile`` and ``.readthedocs.yaml``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Depending on the version of your project's starter pack, the new `Makefile` and `.readthedocs.yaml`
 files may have few or no changes. Apply the same approach you used for `conf.py` 
@@ -75,8 +79,8 @@ to merge your customizations into the new files.
 If there are no project-specific customizations in your files but there are changes 
 in the new ones, you can just overwrite your existing files with the new ones.
 
-Update the `/.sphinx` directory
--------------------------------
+Update the ``/.sphinx`` directory
+---------------------------------
 In addition to the docs above, the `/.sphinx` directory is also likely to have some
 changes in each upgrade. These files are not intended to be modified by users. 
 
@@ -85,8 +89,8 @@ your project's `/.sphinx` directory and replace it with the starter pack's. If t
 are modifications in your project's `/.sphinx` directory, it is recommended that 
 they transfer them out.
 
-Review less frequently changed files
-------------------------------------
+Review the remaining files
+--------------------------
 Some files in the starter pack may be updated less frequently, but it's a good idea 
 to review them during each upgrade and determine if there are relevant changes:
 
@@ -109,8 +113,8 @@ to review them during each upgrade and determine if there are relevant changes:
 -   Review and transfer any necessary changes in the new `.gitignore` file to your 
     project.
 
-Test the build and run local CI checks
---------------------------------------
+Build and test
+--------------
 Try building the docs locally and check the terminal output for errors::
 
     make run
@@ -123,8 +127,8 @@ the following commands and fix any errors reported:
 -   ``make woke``
 -   ``make lint-md`` (if you included the `markdown-style-checks` workflow)
 
-Troubleshooting build errors
-----------------------------
+Troubleshooting errors
+----------------------
 There is always the possibility of encountering build errors. Common causes 
 include:
 

@@ -1,11 +1,18 @@
-Update the starter pack
------------------------
+.. meta::
+   :description: Learn how to update your Sphinx starter pack with the latest features and improvements.
 
-Upgrade your project to keep your starter pack up-to-date with the latest
-upstream changes.
+.. _update-starter-packs:
+
+Update your starter pack
+------------------------
+
+The starter pack is updated frequently. After you copy its code and it becomes 
+the documentation system in your project, you must manually maintain it. There's 
+a special pathway to bring in the latest features and improvements from the 
+starter pack repository.
 
 .. toctree::
     :maxdepth: 1
 
-    migrate-from-pre-extension
-    upgrade-new-starter-pack
+    extendable
+    pre-extension

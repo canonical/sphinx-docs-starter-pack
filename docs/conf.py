@@ -231,7 +231,7 @@ redirects = {
     'reference/doc-cheat-sheet/': '../rst-syntax-reference',
     'reference/style-guide-myst/': '../myst-syntax-reference',
     'reference/style-guide/': '../rst-syntax-reference',
-    'how-to/migrate-from-pre-extension': '../update-starter-packs/migrate-from-pre-extension/'
+    'how-to/migrate-from-pre-extension': '../update-starter-packs/pre-extension/'
 }
 
 
