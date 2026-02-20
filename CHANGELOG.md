@@ -7,6 +7,7 @@
 * Rename `TARGET` variable for Vale checks to `CHECK_PATH`.
 * Remove or replace docs use of archived example product documentation site.
 * Revert the switch to a reusable `automatic-doc-checks.yml` workflow.
+* Add `-q` flag to linkchecker to only report errors or broken links.
 
 ### Changed
 
@@ -17,7 +18,7 @@
 * `docs/reference/myst-syntax-reference.md` [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/502)
 * `docs/reference/rst-syntax-reference.rst` [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/502)
 * `.github/workflows/automatic-doc-checks.yml` [#514](https://github.com/canonical/sphinx-docs-starter-pack/pull/514)
-
+* `docs/Makefile` [#536](https://github.com/canonical/sphinx-docs-starter-pack/pull/536)
 
 ## 1.4.1
 
