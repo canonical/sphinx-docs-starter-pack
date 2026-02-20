@@ -1,5 +1,5 @@
 .. meta::
-   :description: Learn how to update Sphinx starter pack projects that use the ``canonical-sphinx`` extenstion.
+   :description: Learn how to update Sphinx starter pack projects that use the canonical-sphinx extension.
 
 .. _update-new-starter-pack:
 
@@ -79,8 +79,8 @@ to merge your customizations into the new files.
 If there are no project-specific customizations in your files but there are changes 
 in the new ones, you can just overwrite your existing files with the new ones.
 
-Update the ``/.sphinx`` directory
----------------------------------
+Update the ``.sphinx`` directory
+--------------------------------
 In addition to the docs above, the `/.sphinx` directory is also likely to have some
 changes in each upgrade. These files are not intended to be modified by users. 
 

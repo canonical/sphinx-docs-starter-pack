@@ -1,5 +1,5 @@
 .. meta::
-   :description: Learn how to update Sphinx starter pack projects that don't yet use the ``canonical-sphinx`` extenstion.
+   :description: Learn how to update Sphinx starter pack projects that don't yet use the canonical-sphinx extension.
 
 .. _update-legacy-starter-pack:
 
