@@ -21,8 +21,3 @@ Other resources
 ---------------
 
 Canonical documentation uses `Diátaxis`_.
-
-The following documentation repository contains an example for how to implement this structure:
-
-- `Example product documentation <https://canonical-example-product-documentation.readthedocs-hosted.com/>`_
-- `Example product documentation repository <https://github.com/canonical/example-product-documentation>`_

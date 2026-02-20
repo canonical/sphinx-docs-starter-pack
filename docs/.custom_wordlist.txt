@@ -75,3 +75,4 @@ docstrings?
 Makefile
 rediraffe
 retrigger(ing)?
+Diátaxis

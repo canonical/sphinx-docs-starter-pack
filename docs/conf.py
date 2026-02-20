@@ -247,6 +247,9 @@ linkcheck_ignore = [
     "http://127.0.0.1:8000",
     "https://github.com/canonical/ACME/*",
     r"https://matrix\.to/.*",
+    "https://example.com",
+    # SourceForge domains often block linkcheck
+    r"https://.*\.sourceforge\.(net|io)/.*",
     ]
 
 
@@ -368,8 +371,7 @@ if os.path.exists('./reuse/substitutions.yaml'):
         myst_substitutions = yaml.safe_load(fd.read())
 
 # Add configuration for intersphinx mapping
-
+# Map only the Sphinx documentation sets that you need to link to from your docs set.
 intersphinx_mapping = {
-    'starter-pack': ('https://canonical-example-product-documentation.readthedocs-hosted.com/en/latest', None),
     'sphinxcontrib-mermaid': ('https://sphinxcontrib-mermaid-demo.readthedocs.io/en/latest', None)
 }
