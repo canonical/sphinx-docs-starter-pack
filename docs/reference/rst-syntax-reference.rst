@@ -945,8 +945,5 @@ More useful markup
 
 .. LINKS
 
-.. wokeignore:rule=master
 .. _substitutions: https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#substitutions
-
-.. wokeignore:rule=master
 .. _rst_epilog: https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-rst_epilog

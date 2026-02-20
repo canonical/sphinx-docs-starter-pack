@@ -4,6 +4,7 @@
 
 # You can set these variables from the command line, and also
 # from the environment for the first two.
+
 SPHINX_DIR       ?= .sphinx
 SPHINX_OPTS      ?= -c . -d $(SPHINX_DIR)/.doctrees -j auto
 SPHINX_BUILD     ?= $(DOCS_VENVDIR)/bin/sphinx-build
@@ -71,8 +72,8 @@ pa11y-install:
 			npm install --prefix $(SPHINX_DIR) pa11y; \
 		}
 
-pymarkdownlnt-install:
-	@. $(DOCS_VENV); test -d $(DOCS_VENVDIR)/lib/python*/site-packages/pymarkdown || pip install pymarkdownlnt
+pymarkdownlnt-install: install
+	@. $(DOCS_VENV); test -d $(DOCS_VENVDIR)/lib/python*/site-packages/pymarkdown || pip install pymarkdownlnt==0.9.35
 
 install: $(DOCS_VENVDIR)
 
@@ -108,7 +109,7 @@ pa11y: pa11y-install html
 	find $(DOCS_BUILDDIR) -name *.html -print0 | xargs -n 1 -0 $(PA11Y_CMD)
 
 lint-md: pymarkdownlnt-install
-	@. $(DOCS_VENV); pymarkdownlnt --config $(SPHINX_DIR)/.pymarkdown.json scan --recurse --exclude=./$(SPHINX_DIR)/** $(DOCS_SOURCEDIR)
+	@. $(DOCS_VENV); pymarkdownlnt --config $(SPHINX_DIR)/.pymarkdown.json scan --recurse --exclude=$(SPHINX_DIR)/** $(DOCS_SOURCEDIR)
 
 vale-install: install
 	@. $(DOCS_VENV); test -f $(VALE_CONFIG) || python3 $(SPHINX_DIR)/get_vale_conf.py
