@@ -11,6 +11,7 @@ freefont
 github
 GPG
 gyre
+hotfix(es)?
 https
 html
 io
