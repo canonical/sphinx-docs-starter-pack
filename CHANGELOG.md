@@ -26,6 +26,7 @@
 
 ### Changed
 
+* Fix compatiblity with dependencies by updating the Ubuntu image version to run the markdown checks
 * `docs/.sphinx/version` [#516](https://github.com/canonical/sphinx-docs-starter-pack/pull/516)
 
 ## 1.4.0
