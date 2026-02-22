@@ -231,6 +231,7 @@ redirects = {
     'reference/doc-cheat-sheet/': '../rst-syntax-reference',
     'reference/style-guide-myst/': '../myst-syntax-reference',
     'reference/style-guide/': '../rst-syntax-reference',
+    'how-to/migrate-from-pre-extension': '../update-starter-packs/pre-extension/'
 }
 
 
@@ -245,6 +246,7 @@ redirects = {
 linkcheck_ignore = [
     "http://127.0.0.1:8000",
     "https://github.com/canonical/ACME/*",
+    r"https://matrix\.to/.*",
     "https://example.com",
     # SourceForge domains often block linkcheck
     r"https://.*\.sourceforge\.(net|io)/.*",

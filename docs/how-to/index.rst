@@ -22,8 +22,8 @@ Set up, configure, upgrade, and customize your project to keep it organized and 
     customise
     set-up-sitemaps
     customise-pdf
-    migrate-from-pre-extension
     update
+    update-starter-packs/index.rst
     troubleshoot-issues
 
 Optional features and workflows
