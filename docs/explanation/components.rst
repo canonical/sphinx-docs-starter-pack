@@ -11,7 +11,7 @@ The Starter Pack is a template `Sphinx <https://www.sphinx-doc.org/en/master/>`_
 Sphinx
 ------
 
-Sphinx is the core documentation static site generator that converts reStructuredText or Markdown files into HTML.
+Sphinx is a documentation static site generator that converts reStructuredText or Markdown files into HTML. It's the core software in the Starter Pack.
 
 `docs/conf.py` is a configuration file that defines the properties of the Sphinx project such as project metadata and dependencies.
  
@@ -32,8 +32,8 @@ To be able to work on a Starter Pack project, your host needs Python 3.11, pip, 
 
     Python's role in the Starter Pack
 
-Extensions
-----------
+Sphinx extensions
+-----------------
 
 Sphinx's default functionality can be expanded with built-in or third-party extensions for tasks, such as creating diagrams, testing code, and more. 
 

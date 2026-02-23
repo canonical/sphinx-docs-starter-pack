@@ -1,7 +1,7 @@
-.. _default-extensions:
+.. _reference-default-sphinx-extensions:
 
-Default extensions
-===================
+Default Sphinx extensions
+=========================
 
 These extensions are enabled in the Starter Pack by default.
 
