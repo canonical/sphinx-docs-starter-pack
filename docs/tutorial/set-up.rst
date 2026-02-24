@@ -31,6 +31,7 @@ Next, review the starter pack files and remove those that could interfere with y
 
 Remove the files that can't be reused:
 
+- :file:`CONTRIBUTING.md`
 - :file:`.github/CODEOWNERS`
 - :file:`.github/workflows/test-starter-pack.yml`
 
