@@ -1,7 +1,7 @@
-.. _customise:
+.. _configure-your-project:
 
-Customise the setup
-===================
+Configure your project
+======================
 
 .. important::
 
