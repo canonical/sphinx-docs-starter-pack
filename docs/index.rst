@@ -13,11 +13,11 @@ In this documentation
 
 .. grid:: 1 1 2 2
 
-    .. grid-item-card:: Tutorial
-        :link: /tutorial/index
+    .. grid-item-card:: Get started
+        :link: /set-up-a-new-project
         :link-type: doc
 
-        **Get started** - use Sphinx and Read the Docs to host and test your documentation.
+        Set up the Sphinx starter pack in your project for the first time.
 
     .. grid-item-card:: How-to guides
         :link: /how-to/index
@@ -39,11 +39,18 @@ In this documentation
 
         **Concepts** - understand the design and architecture of the starter pack.
 
+
+Project and community
+----------------------
+
+The Canonical Sphinx starter pack is an open source project that warmly welcomes community contributions, suggestions, fixes and constructive feedback.
+
+
 .. toctree::
     :hidden:
     :maxdepth: 2
 
-    Tutorials <tutorial/index>
+    Set up a new project <set-up-a-new-project>
     How-to guides <how-to/index>
     Reference <reference/index>
     Explanation <explanation/index>

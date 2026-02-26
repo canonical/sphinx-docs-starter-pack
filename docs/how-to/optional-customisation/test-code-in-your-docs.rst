@@ -1,3 +1,5 @@
+.. _test-code-in-your-docs:
+
 Set up automated testing for a Sphinx-based tutorial
 ====================================================
 
