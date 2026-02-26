@@ -300,7 +300,7 @@ and hosted on `Read the Docs <https://about.readthedocs.com/>`_.
 
 For syntax help and guidelines,
 refer to the Canonical syntax guides
-(:ref:`reStructuredText <style-guide>` and :ref:`MyST <myst_style_guide>`).
+(:ref:`reStructuredText <rst-syntax>` and :ref:`MyST <myst-syntax>`).
 
 In structuring,
 the documentation employs the `Diátaxis <https://diataxis.fr/>`_ approach.

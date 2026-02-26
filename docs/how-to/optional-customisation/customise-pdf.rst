@@ -15,7 +15,7 @@ Customising PDF output involves two levels of configuration:
 
 This guide covers common practices and tips for customising PDF output from your documentation project using the starter pack and the ``canonical-sphinx`` extension.
 
-For basic instructions about building the PDF, see :doc:`build`.
+For basic instructions about building the PDF, see :ref:`build-and-preview`.
 
 Configure document properties
 -----------------------------
@@ -263,5 +263,5 @@ To temporarily save the log files for debugging:
 
 Related
 -------
-- :doc:`build`
-- :doc:`customise`
+- :ref:`build-and-preview`
+- :ref:`configure-your-project`

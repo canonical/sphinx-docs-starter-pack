@@ -4,10 +4,10 @@
 :relatedlinks: [pip&#32;and&#32;dependency&#32;groups](https://pip.pypa.io/en/stable/user_guide/#dependency-groups), [uv&#32;and&#32;dependency&#32;groups](https://docs.astral.sh/uv/concepts/projects/dependencies/#dependency-groups), [Poetry&#32;and&#32;dependency&#32;groups](https://python-poetry.org/docs/managing-dependencies#dependency-groups)
 
 
-.. _how-to-bridge-project-builds:
+.. _customise-your-build:
 
-Bridge project and docs builds
-==============================
+Customise your build
+=====================
 
 .. If more parent projects and build systems are tested, make the introduction general 
    and add tabs to each of the steps

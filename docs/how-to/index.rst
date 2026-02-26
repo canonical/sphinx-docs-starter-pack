@@ -18,13 +18,10 @@ Set up, configure, upgrade, and customize your project to keep it organized and 
 .. toctree::
     :maxdepth: 1
 
-    rtd
-    customise
-    set-up-sitemaps
-    customise-pdf
-    update
+    configure-your-project
+    build-and-preview
+    publish-on-rtd
     update-starter-packs/index.rst
-    troubleshoot-issues
 
 Optional features and workflows
 -------------------------------
@@ -34,11 +31,6 @@ As your documentation grows, you may need more advanced features to support rich
 While some of these features are available by default in the starter pack, others may require additional extensions. The following guides will help you get started:
 
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 2
 
-    bridge-project-and-doc-builds
-    diagrams-as-code-mermaid
-    create-data-tables
-    import-docstrings-with-autodoc
-    openapi
-    custom-templates
+    optional-customisation/index.rst
