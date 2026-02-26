@@ -11,7 +11,7 @@
 
 ### Changed
 
-* `docs/Makefile` [#494](https://github.com/canonical/sphinx-docs-starter-pack/pull/494), [#536](https://github.com/canonical/sphinx-docs-starter-pack/pull/536), [#544](https://github.com/canonical/sphinx-docs-starter-pack/pull/555)
+* `docs/Makefile` [#494](https://github.com/canonical/sphinx-docs-starter-pack/pull/494), [#536](https://github.com/canonical/sphinx-docs-starter-pack/pull/536), [#544](https://github.com/canonical/sphinx-docs-starter-pack/pull/544)
 * `docs/conf.py` [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/502)
 * `docs/how-to/guidance.rst` [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/502)
 * `docs/reference/index.rst` [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/502)
