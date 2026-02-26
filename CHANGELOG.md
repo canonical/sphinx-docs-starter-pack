@@ -12,7 +12,7 @@
 ### Changed
 
 * `docs/Makefile` [#494](https://github.com/canonical/sphinx-docs-starter-pack/pull/494)
-* `docs/conf.py` [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/502)
+* `docs/conf.py` [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/502), [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/545)
 * `docs/how-to/guidance.rst` [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/502)
 * `docs/reference/index.rst` [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/502)
 * `docs/reference/myst-syntax-reference.md` [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/502)
