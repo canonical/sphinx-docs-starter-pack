@@ -252,8 +252,9 @@ redirects = {
     'reference/removed-url-check/': '../automatic_checks_removed-url-check',
     'reference/myst-syntax-reference/': '../myst-syntax',
     'reference/style-guide-myst/': '../myst-syntax',
+    'reference/doc-cheat-sheet-myst/': '../myst-syntax',
     'reference/rst-syntax-reference/': '../rst-syntax',
-    'reference/style-guide/': '../rst-syntax',
+    'reference/doc-cheat-sheet/': '../rst-syntax',
     
     'explanation/build/': '../build-system',
 }
