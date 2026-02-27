@@ -9,6 +9,7 @@ myst:
 ---
 
 (myst-syntax)=
+
 # MyST syntax
 
 The documentation files use a mixture of [Markdown](https://commonmark.org/) and [MyST](https://myst-parser.readthedocs.io/) syntax.
