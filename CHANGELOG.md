@@ -1,6 +1,6 @@
 # sphinx-docs-starter-pack changelog
 
-## Upcoming
+## 1.5
 
 * Add `CONTRIBUTING.md`.
 * Rename Makefile variables to avoid collisions in host environment.
