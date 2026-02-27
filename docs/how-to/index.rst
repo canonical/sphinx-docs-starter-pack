@@ -13,7 +13,8 @@ maintaining, and contributing to the starter pack.
 Basic setup and maintenance
 ---------------------------
 
-Set up, configure, upgrade, and customize your project to keep it organized and aligned with your documentation needs.
+Set up, configure, upgrade, and customize your project to keep it organized and aligned with 
+your documentation needs.
 
 .. toctree::
     :maxdepth: 1
@@ -23,12 +24,17 @@ Set up, configure, upgrade, and customize your project to keep it organized and 
     publish-on-rtd
     update-starter-packs/index.rst
 
-Optional features and workflows
--------------------------------
+Optional features and customisation
+-----------------------------------
 
-As your documentation grows, you may need more advanced features to support richer content. This can include diagrams as code, automated API references, and data tables.
+As your documentation grows, you may need more advanced features to support richer content. This 
+can include customising the build system, adding diagrams as code, rendering API references, interactive 
+tables, and custom HTML.
 
-While some of these features are available by default in the starter pack, others may require additional extensions. The following guides will help you get started:
+While some of these features are available by default in the starter pack, others may require additional 
+extensions.
+
+The following guides will help you get started:
 
 .. toctree::
     :maxdepth: 2
