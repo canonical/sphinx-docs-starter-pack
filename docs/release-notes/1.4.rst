@@ -1,0 +1,86 @@
+.. meta::
+    :description: The new features, changes, and fixes in Canonical's Sphinx Starter Pack 1.4.0.
+
+
+.. _release-1.4:
+
+Canonical's Sphinx Starter Pack 1.4
+===================================
+
+28 January 2026
+
+These release notes cover new features and changes in Canonical's Sphinx Starter Pack
+1.4.0. The `full commit log
+<https://github.com/canonical/sphinx-docs-starter-pack/compare/1.3.1...1.4.0>`__ is
+available on GitHub.
+
+
+What's new in 1.4.0
+-------------------
+
+
+Bridging the build
+~~~~~~~~~~~~~~~~~~
+
+The docs build and its Make targets are hosted in the ``docs`` directory. If the docs
+are in a larger project with its own build system, it can be difficult to maintain and
+run the two separate builds.
+
+We've taken some initial steps to make the docs build easier to integrate into larger
+projects. With 1.4.0, the docs ``Makefile`` is now properly callable by a parent build
+system, because the main build can ensure the ``VENVDIR``, ``BUILDDIR``, and ``VALEDIR``
+variables are set to the right locations in the project.
+
+The new guide :ref:`how-to-bridge-project-builds` covers in detail how to integrate the
+docs build in a parent Python project.
+
+
+Build explanation
+~~~~~~~~~~~~~~~~~
+
+We've released an :ref:`explanation of the starter pack build <explanation-build>` to
+share with you some of its design and inner workings.
+
+
+Removed in 1.4.0
+----------------
+
+
+Metrics check
+~~~~~~~~~~~~~
+
+The metrics check was a set of scripts called with ``make allmetrics`` that collected
+measures and statistics about source documents and rendered HTML files.
+
+We've removed this check because it was underused and underdeveloped. There have been no
+reported usages of it from any active projects at Canonical.
+
+
+Fixed bugs and issues
+---------------------
+
+1.4.0
+~~~~~
+
+- `#496 <https://github.com/canonical/sphinx-docs-starter-pack/pull/496>`__ myst-parser
+  causes Python dependency check to time out
+- `#509 <https://github.com/canonical/sphinx-docs-starter-pack/issues/509>`__ Markdown
+  linter falsely flags contents of ``.sphinx`` dir
+
+
+1.4.1
+~~~~~
+
+- `#444 <https://github.com/canonical/sphinx-docs-starter-pack/pull/516>`__ Patch the
+  ``version`` file so the upgrade script works
+
+
+Contributors
+------------
+
+We would like to express a big thank you to all the people who contributed to this
+release:
+
+:literalref:`medubelko <https://github.com/medubelko>`,
+:literalref:`minaelee <https://github.com/minaelee>`, and
+:literalref:`tang-mm <https://github.com/tang-mm>`

@@ -155,7 +155,7 @@ pdf-prep-force:
 	apt-get install --no-install-recommends -y $(DOCS_PDFPACKAGES) \
 
 pdf: pdf-prep
-	@. $(DOCS_VENV); sphinx-build -M latexpdf "$(DOCS_SOURCEDIR)" "$(DOCS_BUILDDIR)" $(SPHINX_OPTS)
+	@. $(DOCS_VENV); $(SPHINX_BUILD) -M latexpdf "$(DOCS_SOURCEDIR)" "$(DOCS_BUILDDIR)" $(SPHINX_OPTS)
 	@rm ./$(DOCS_BUILDDIR)/latex/front-page-light.pdf || true
 	@rm ./$(DOCS_BUILDDIR)/latex/normal-page-footer.pdf || true
 	@find ./$(DOCS_BUILDDIR)/latex -name "*.pdf" -exec mv -t ./$(DOCS_BUILDDIR) {} +
