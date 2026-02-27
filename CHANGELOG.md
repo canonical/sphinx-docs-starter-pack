@@ -8,16 +8,18 @@
 * Remove or replace docs use of archived example product documentation site.
 * Revert the switch to a reusable `automatic-doc-checks.yml` workflow.
 * Add `-q` flag to linkchecker to only report errors or broken links.
+* Update dependency canonical-sphinx to 0.6.0 or higher.
 
 ### Changed
 
 * `docs/Makefile` [#494](https://github.com/canonical/sphinx-docs-starter-pack/pull/494), [#536](https://github.com/canonical/sphinx-docs-starter-pack/pull/536), [#544](https://github.com/canonical/sphinx-docs-starter-pack/pull/544)
-* `docs/conf.py` [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/502)
+* `docs/conf.py` [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/502), [#545](https://github.com/canonical/sphinx-docs-starter-pack/pull/545)
 * `docs/how-to/guidance.rst` [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/502)
 * `docs/reference/index.rst` [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/502)
 * `docs/reference/myst-syntax-reference.md` [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/502)
 * `docs/reference/rst-syntax-reference.rst` [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/502)
 * `.github/workflows/automatic-doc-checks.yml` [#514](https://github.com/canonical/sphinx-docs-starter-pack/pull/514)
+* `docs/requirements.txt` [#543](https://github.com/canonical/sphinx-docs-starter-pack/pull/543)
 
 ## 1.4.1
 
