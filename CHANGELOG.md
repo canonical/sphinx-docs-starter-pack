@@ -12,14 +12,13 @@
 
 ### Changed
 
-* `docs/Makefile` [#494](https://github.com/canonical/sphinx-docs-starter-pack/pull/494)
-* `docs/conf.py` [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/502), [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/545)
+* `docs/Makefile` [#494](https://github.com/canonical/sphinx-docs-starter-pack/pull/494), [#536](https://github.com/canonical/sphinx-docs-starter-pack/pull/536), [#544](https://github.com/canonical/sphinx-docs-starter-pack/pull/544)
+* `docs/conf.py` [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/502), [#545](https://github.com/canonical/sphinx-docs-starter-pack/pull/545)
 * `docs/how-to/guidance.rst` [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/502)
 * `docs/reference/index.rst` [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/502)
 * `docs/reference/myst-syntax-reference.md` [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/502)
 * `docs/reference/rst-syntax-reference.rst` [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/502)
 * `.github/workflows/automatic-doc-checks.yml` [#514](https://github.com/canonical/sphinx-docs-starter-pack/pull/514)
-* `docs/Makefile` [#536](https://github.com/canonical/sphinx-docs-starter-pack/pull/536)
 * `docs/requirements.txt` [#543](https://github.com/canonical/sphinx-docs-starter-pack/pull/543)
 
 ## 1.4.1
@@ -40,9 +39,8 @@
 
 ### Changed
 
-* `docs/Makefile` [#508](https://github.com/canonical/sphinx-docs-starter-pack/pull/508)
 * `docs/requirements.txt` [#496](https://github.com/canonical/sphinx-docs-starter-pack/pull/496)
-* `docs/Makefile` [#490](https://github.com/canonical/sphinx-docs-starter-pack/pull/490), [#504](https://github.com/canonical/sphinx-docs-starter-pack/pull/504)
+* `docs/Makefile` [#490](https://github.com/canonical/sphinx-docs-starter-pack/pull/490), [#504](https://github.com/canonical/sphinx-docs-starter-pack/pull/504), [#508](https://github.com/canonical/sphinx-docs-starter-pack/pull/508)
 * `docs/.sphinx/update_sp.py` [#490](https://github.com/canonical/sphinx-docs-starter-pack/pull/490)
 
 ### Removed
