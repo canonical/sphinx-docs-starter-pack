@@ -109,7 +109,8 @@ pa11y: pa11y-install html
 	find $(DOCS_BUILDDIR) -name *.html -print0 | xargs -n 1 -0 $(PA11Y_CMD)
 
 lint-md: pymarkdownlnt-install
-	@. $(DOCS_VENV); pymarkdownlnt --config $(SPHINX_DIR)/.pymarkdown.json scan --recurse --exclude=$(SPHINX_DIR)/** $(DOCS_SOURCEDIR)
+	@. $(DOCS_VENV); pymarkdownlnt --config $(SPHINX_DIR)/.pymarkdown.json scan --recurse --exclude=$(SPHINX_DIR)/** $(DOCS_SOURCEDIR) \
+	|| ([ $$? -eq 1 ] && echo "No Markdown files selected for linting")
 
 vale-install: install
 	@. $(DOCS_VENV); test -f $(VALE_CONFIG) || python3 $(SPHINX_DIR)/get_vale_conf.py
