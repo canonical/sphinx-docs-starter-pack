@@ -309,12 +309,12 @@ exclude_patterns = [
 
 # Adds custom CSS files, located under 'html_static_path'
 
-# html_css_files = []
+# html_css_files = [https://assets.ubuntu.com/v1/]
 
 
 # Adds custom JavaScript files, located under 'html_static_path'
 
-# html_js_files = []
+# html_js_files = [https://assets.ubuntu.com/v1/]
 
 
 # Specifies a reST snippet to be appended to each .rst file
