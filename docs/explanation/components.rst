@@ -6,7 +6,7 @@
 Starter pack components
 =======================
 
-The Starter Pack is a template `Sphinx <https://www.sphinx-doc.org/en/master/>`__ project. It provides the default layout for a new project's file structure, a theme, and all the necessary dependencies.
+The Starter Pack is a template `Sphinx <https://www.sphinx-doc.org/en/master/>`__ project. It provides a default file structure, a theme, and dependencies for Canonical documentation.
 
 Sphinx
 ------
@@ -23,7 +23,7 @@ Sphinx is a documentation static site generator that converts reStructuredText o
 Python
 ------
 
-Because Sphinx is a Python application, the Starter Pack depends on Python and a Python package manager. Most of its dependencies are Python packages. As it is generally recommended to work on projects locally in a virtual environment, the Starter Pack's local build relies on Python ``venv``. 
+Because Sphinx is a Python application, the Starter Pack depends on Python and a Python package manager. Most of its dependencies are Python packages. Local builds of the Starter Pack require a Python virtual environment to isolate the project from the host system.
 
 To be able to work on a Starter Pack project, your host needs Python 3.11, pip, and venv.
 
@@ -35,9 +35,9 @@ To be able to work on a Starter Pack project, your host needs Python 3.11, pip, 
 Sphinx extensions
 -----------------
 
-Sphinx's default functionality can be expanded with built-in or third-party extensions for tasks, such as creating diagrams, testing code, and more. 
+The syntax and behavior of Sphinx can be modified with extensions. These can be used to create diagrams, test code, and more.
 
-The Starter Pack is preconfigured with a curated and tested set of extensions.
+The Starter Pack includes a curated and tested set of extensions.
 
 .. figure:: assets/extensions.png
     :class: with-border
@@ -54,9 +54,9 @@ Built-in extensions do not need to be installed separately from Sphinx and can b
 Third-party extensions
 ~~~~~~~~~~~~~~~~~~~~~~
 
-If an extension is not built into Sphinx, you must include it in `requirements.txt` before you can enable it in the Sphinx configuration file. 
+If an extension is not built into Sphinx, you must include it in the `requirements.txt` file before enabling it in the Sphinx configuration file.
 
-As extensions are Python packages, the Starter Pack uses a `requirements.txt <https://pip.pypa.io/en/stable/reference/requirements-file-format/>`_ file to manage them.  
+Extensions are Python packages, and the Starter Pack manages them with a `requirements.txt <https://pip.pypa.io/en/stable/reference/requirements-file-format/>`_ file.  
 
 .. figure:: assets/third-party.png
     :class: with-border
@@ -66,17 +66,17 @@ As extensions are Python packages, the Starter Pack uses a `requirements.txt <ht
 Markdown support
 ^^^^^^^^^^^^^^^^
 
-By default, Sphinx uses reStructuredText. To be able to build Markdown, it relies on the `MyST parser <https://myst-parser.readthedocs.io/en/latest/>`_, enabled by the `myst-parser` extension.
+By default, Sphinx uses reStructuredText. Markdown is supported through the `MyST parser <https://myst-parser.readthedocs.io/en/latest/>`_, which is enabled with the `myst-parser` extension.
 
 Canonical theme
 ^^^^^^^^^^^^^^^
 
-The Canonical theme is packaged as a standalone `canonical-sphinx <https://github.com/canonical/canonical-sphinx>`_ extension. It is based on an upstream Furo theme and is designed to follow Canonical branding.
+The Canonical theme is packaged as a standalone `canonical-sphinx <https://github.com/canonical/canonical-sphinx>`_ extension. It is based on `Furo <https://github.com/pradyunsg/furo>`__ and is designed to follow Canonical branding.
 
-Command line tools
+Command-line tools
 ------------------
 
-The Starter Pack uses Make as its local build system. The Starter Pack's Makefile serves as an interface for operating the project, including setting up the virtual environment, installing dependencies, and more, through CLI commands.
+The Starter Pack uses Make as its local build system. The Starter Pack's Makefile provides a command-line interface for setting up the virtual environment, installing dependencies, building the documentation, and more.
 
 Makefile
 ~~~~~~~~
