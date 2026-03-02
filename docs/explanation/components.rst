@@ -13,7 +13,7 @@ Sphinx
 
 Sphinx is a documentation static site generator that converts reStructuredText or Markdown files into HTML. It's the core software in the Starter Pack.
 
-`docs/conf.py` is a configuration file that defines the properties of the Sphinx project such as project metadata and dependencies.
+`docs/conf.py` is a configuration file that defines the properties of the Sphinx project such as project metadata and extensions.
  
 .. figure:: assets/sphinx-build-engine.png
     :class: with-border
