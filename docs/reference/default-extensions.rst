@@ -1,3 +1,6 @@
+.. meta::
+    :description: A list of extensions included in the starter pack by default.
+
 .. _reference-default-sphinx-extensions:
 
 Default Sphinx extensions
@@ -10,11 +13,6 @@ These extensions are enabled in the Starter Pack by default.
 
 ``notfound.extension``
    Allows creating custom 404 pages.
-   Needed by ``canonical_sphinx``.
-
-``sphinx_copybutton``
-   Adds a clickable *copy* button to code blocks.
-
    Needed by ``canonical_sphinx``.
 
 ``sphinx_design``
@@ -52,7 +50,7 @@ These extensions are enabled in the Starter Pack by default.
    Automatically generates a list of contributors to the project repository.
 
 ``sphinx_filtered_toctree``
-   Allows filtering Table of Contents (``toctree``) entries based on specific tags or conditions.
+   Filters Table of Contents (``toctree``) entries based on specific tags or conditions.
 
 ``sphinx_last_updated_by_git``
    Fetches and displays the accurate 'last updated' date for pages by reading Git commit metadata.
@@ -70,9 +68,10 @@ These extensions are enabled in the Starter Pack by default.
    Renders styled terminal sessions and command-line output within the documentation.
 
 ``sphinx_ubuntu_images``
-   Provides directives specific to rendering standard Ubuntu-branded images and icons.
+   Generates lists of official Ubuntu disk images for specific release ranges and architectures.
 
 ``sphinx_youtube_links``
    Provides a directive to embed YouTube videos into a page.
-
+`sphinxcontrib.cairosvgconverter`
+   Converts SVG images into PDF.
 

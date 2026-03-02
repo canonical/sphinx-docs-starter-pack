@@ -1,9 +1,9 @@
 .. meta::
     :description: A breakdown of Canonical's Sphinx Starter Pack that covers its constituent elements and their purpose.
 
-.. _explanation-components:
+.. _explanation-structure:
 
-Starter pack components
+Starter pack structure
 =======================
 
 The Starter Pack is a template `Sphinx <https://www.sphinx-doc.org/en/master/>`__ project. It provides a default file structure, a theme, and dependencies for Canonical documentation.
@@ -15,7 +15,7 @@ Sphinx is a documentation static site generator that converts reStructuredText o
 
 `docs/conf.py` is a configuration file that defines the properties of the Sphinx project such as project metadata and extensions.
  
-.. figure:: assets/sphinx-build-engine.png
+.. figure:: assets/sphinx.png
     :class: with-border
 
     Sphinx as a documentation static site generator
@@ -48,8 +48,8 @@ Built-in extensions
 ~~~~~~~~~~~~~~~~~~~
 
 
-Built-in extensions do not need to be installed separately from Sphinx and can be enabled directly through `docs/conf.py`.
-`docs/conf.py` in the Starter Pack has already been configured to enabled typical extensions necessary for documentation work.
+Built-in extensions do not need to be installed separately from Sphinx and can be enabled directly through `conf.py`.
+`conf.py` in the Starter Pack has already been configured to enabled typical extensions necessary for documentation work.
 
 Third-party extensions
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -86,11 +86,6 @@ Some of the Makefile targets (such as ``html`` and ``linkcheck``) provide Sphinx
 See :ref:`explanation-build` to learn how the local build process works.  
 
 Additionally, the Makefile provides commands to trigger third-party CLI tools, such as the Vale prose linter for :ref:`automatic-checks-styleguide`.
-
-.. figure:: assets/makefile.png
-    :class: with-border
-
-    Makefile build interface and its targets
 
 Read The Docs configuration file
 --------------------------------
