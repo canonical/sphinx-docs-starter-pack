@@ -1,11 +1,50 @@
-.. _build:
+.. _build-and-preview:
 
 Build and preview
 =================
 
-The starter pack provides :command:`make` commands to build and view the documentation.
+The starter pack provides a :file:`Makefile` that defines :command:`make` commands to build and view the documentation.
 
-All these commands will automatically set up the Python environment if it isn't set up yet.
+This guide describes how to set up your environment and use these commands to build and preview the documentation locally.
+
+For more advanced information, including how to embed your docs build with your project build, see:
+
+- :ref:`build-system`
+- :ref:`How to customise your build <customise-your-build>`
+
+Install prerequisite software
+-----------------------------
+
+The documentation framework that the starter pack uses bundles most prerequisites in a Python virtual environment, so you don't need to worry about installing them.
+There are only a few packages that you need to install on your host system.
+
+Before you start, make sure that you have ``make``, ``python3``, ``python3-venv``, and ``python3-pip`` on your system::
+
+   sudo apt update
+   sudo apt install make python3 python3-venv python3-pip
+
+Python environment
+------------------
+
+The Python prerequisites from the :file:`docs/requirements.txt` file are automatically installed when you build the documentation.
+
+If you want to install them manually, you can run the following command from within your documentation folder::
+
+   make install
+
+This command creates a virtual environment (:file:`.sphinx/venv/`) and installs dependency software within it.
+
+If you want to remove the installed Python packages (for example, to enforce a re-installation), run the following command from within your documentation folder::
+
+  make clean
+
+.. note::
+   - By default, the starter pack uses the latest compatible version of all tools and does not pin its requirements.
+     This might change temporarily if there is an incompatibility with a new tool version.
+     There is therefore no need to use a tool like Renovate to automatically update the requirements.
+
+   - If you encounter the error ``locale.Error: unsupported locale setting`` when activating the Python virtual environment, include the environment variable in the command and try again: ``LC_ALL=en_US.UTF-8 make run``
+
 
 .. important::
    Run these commands from within your documentation folder.

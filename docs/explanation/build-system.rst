@@ -4,10 +4,10 @@
 :relatedlinks: [GNU&#32;Make](https://www.gnu.org/software/make/)
 
 
-.. _explanation-build:
+.. _build-system:
 
-Build
-=====
+Build system
+============
 
 Canonical's Starter Pack uses Make as its build system. Make was chosen because it's
 well-tested and available on all platforms. The majority of the build configuration is
@@ -75,4 +75,4 @@ update, requiring a rewrite of the parent build recipes.
 
 The solution to these complications is to create a bridge between the two builds, from
 the parent build to the docs ``Makefile``.
-:ref:`how-to-bridge-project-builds` is a guide for how to do this.
+:ref:`customise-your-build` is a guide for how to do this.

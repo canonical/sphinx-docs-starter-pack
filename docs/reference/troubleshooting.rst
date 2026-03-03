@@ -1,6 +1,6 @@
-.. _how-to-troubleshoot-issues:
+.. _troubleshooting:
 
-Troubleshoot issues
+Troubleshooting
 ===================
 
 This page provides guidance to resolve issues with the Starter Pack and ReadTheDocs
@@ -40,7 +40,7 @@ On the **Builds** tab, locate the most recent ``stable`` build. For that version
 over the status indicator. In the hover box, open the **stable** link. If the resulting
 GitHub page is a 404, then your project has a zombie version.
 
-.. image:: assets/troubleshoot-stable-zombie-version.png
+.. image:: ../how-to/assets/troubleshoot-stable-zombie-version.png
 
 Resolution
 ~~~~~~~~~~

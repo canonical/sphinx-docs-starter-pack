@@ -15,7 +15,7 @@ Locate the specification
 The stub OpenAPI document can be found under ``docs/how-to/assets/openapi.yaml``.
 You can use it as a starting point for your API description:
 
-.. literalinclude:: assets/openapi.yaml
+.. literalinclude:: ../assets/openapi.yaml
    :language: yaml
 
 Enable the viewer
@@ -55,7 +55,7 @@ the page renders the Swagger UI for the shipped specification right here.
 The snippet that does this should be included in your documentation source
 with the ``.. raw:: html`` directive:
 
-.. literalinclude:: assets/openapi._rst
+.. literalinclude:: ../assets/openapi._rst
    :language: html
    :lines: 2-
 
@@ -63,7 +63,7 @@ with the ``.. raw:: html`` directive:
 
    When added, the snippet above renders the interactive viewer:
 
-   .. include:: assets/openapi._rst
+   .. include:: ../assets/openapi._rst
 
 .. only:: not openapi
 

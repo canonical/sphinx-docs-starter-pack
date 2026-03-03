@@ -1,7 +1,7 @@
-.. _rtd:
+.. _publish-on-rtd:
 
-Set up Read the Docs
-====================
+Publish on Read the Docs
+========================
 
 For Canonical-specific information on how to set up your documentation on Read the Docs, see the `Read the Docs at Canonical <https://library.canonical.com/documentation/read-the-docs-at-canonical>`_ and `How to publish documentation on Read the Docs <https://library.canonical.com/documentation/publish-on-read-the-docs>`_ guides.
 

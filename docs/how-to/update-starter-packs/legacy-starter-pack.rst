@@ -109,7 +109,7 @@ Apply customisation
 
 If your projects have custom configurations or styles, ensure that you identify and apply these changes to the new documentation project.
 
-For general information on customising the extension configuration, see :ref:`customise`.
+For general information on customising the extension configuration, see :ref:`configure-your-project`.
 
 Static resources
 ~~~~~~~~~~~~~~~~

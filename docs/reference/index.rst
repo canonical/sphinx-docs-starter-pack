@@ -13,7 +13,7 @@ Contents
 .. toctree::
    :maxdepth: 1
 
+   troubleshooting
    automatic_checks
-   removed-url-check
-   rst-syntax-reference
-   myst-syntax-reference
+   rst-syntax
+   myst-syntax
