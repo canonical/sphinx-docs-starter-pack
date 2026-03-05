@@ -62,7 +62,7 @@ with the ``.. raw:: html`` directive:
 .. only:: openapi
 
    When added, the snippet above renders the interactive viewer:
-RTD
+
    .. include:: assets/openapi._rst
 
 .. only:: not openapi

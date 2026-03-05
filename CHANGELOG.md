@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-* Add files to enable Google Analytics
+* Add default templates for the Canonical cookie banner and Google Analytics.
 
 ### Changed
 
