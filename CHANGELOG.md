@@ -1,5 +1,15 @@
 # sphinx-docs-starter-pack changelog
 
+## Unreleased
+
+* Add default templates for the Canonical cookie banner and Google Analytics.
+
+### Changed
+
+* `docs/conf.py` [#549](https://github.com/canonical/sphinx-docs-starter-pack/pull/549)
+* `docs/_templates/header.html` [#549](https://github.com/canonical/sphinx-docs-starter-pack/pull/549)
+* `docs/_templates/footer.html` [#549](https://github.com/canonical/sphinx-docs-starter-pack/pull/549)
+
 ## 1.5
 
 * Add `CONTRIBUTING.md`.
