@@ -24,6 +24,13 @@ The process for sourcing these files depends on your Starter Pack version. Check
 version is listed in your project's ``docs/.sphinx/version`` file.
 
 
+On Starter Pack 1.6 or higher
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Starting in version 1.6 of the Starter Pack, these templates are available by default.
+If you're on one of these versions, skip ahead to :ref:`update-your-configuration-file`. 
+
+
 On Starter Pack 1.5 or lower
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -71,12 +78,7 @@ line to the ``right-details`` div:
     </div>
 
 
-On Starter Pack 1.6 or higher
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Starting in version 1.6 of the Starter Pack, these templates are available by default.
-You only need to update your build configuration file to enable Google Analytics.
-
+.. _update-your-configuration-file:
 
 Update your configuration file
 ------------------------------
