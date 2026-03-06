@@ -1,4 +1,6 @@
-# Try the Ulwazi theme for Sphinx documentation
+(how-to-test-ulwazi-theme)=
+
+# Test the Ulwazi theme
 
 The [Ulwazi theme] is a Sphinx theme built on top of Canonical's [Vanilla framework], with the base layout and functionality derived from [sphinx-basic-ng].
 
