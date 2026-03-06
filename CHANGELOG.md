@@ -1,5 +1,13 @@
 # sphinx-docs-starter-pack changelog
 
+## Upcoming
+
+* Fix the handling of non-zero exit codes from pymarkdownlnt.
+
+### Changed
+
+* `docs/Makefile` [#551](https://github.com/canonical/sphinx-docs-starter-pack/pull/551)
+
 ## 1.5
 
 * Add `CONTRIBUTING.md`.
