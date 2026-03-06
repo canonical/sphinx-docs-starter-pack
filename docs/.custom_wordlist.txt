@@ -42,7 +42,6 @@ TOC
 toctree
 txt
 ulwazi
-Ulwazi
 uncomment(ing)?
 utils
 uv
