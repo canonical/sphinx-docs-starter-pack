@@ -24,6 +24,7 @@ Set up, configure, upgrade, and customize your project to keep it organized and 
     customise-pdf
     update
     update-starter-packs/index.rst
+    test-ulwazi-theme
     troubleshoot-issues
 
 Optional features and workflows
