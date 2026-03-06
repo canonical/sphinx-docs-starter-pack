@@ -1,4 +1,7 @@
 ---
+myst:
+  html_meta:
+    description: How to test the Ulwazi theme in a documentation project based on Canonical's Sphinx Starter Pack.
 relatedlinks: "[Ulwazi&#32;on&#32;PyPI](https://pypi.org/project/ulwazi), [Vanilla](https://vanillaframework.org), [sphinx-basic-ng](https://github.com/pradyunsg/sphinx-basic-ng)"
 ---
 
