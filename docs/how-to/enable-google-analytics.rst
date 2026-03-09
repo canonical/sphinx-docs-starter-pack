@@ -44,8 +44,8 @@ Download the latest version of the templates:
 
 Next, create a ``docs/_templates`` directory and move the templates into it.
 
-If you find that your project already has a custom header, add the following HTML
-immediately after the opening ``<header>`` tag:
+If you find that your project already has a custom ``header.html`` file, add the
+following HTML immediately after the opening ``<header>`` tag:
 
 .. code-block:: html
 
@@ -67,8 +67,8 @@ immediately after the opening ``<header>`` tag:
     })(window, document, 'script', 'dataLayer', 'GTM-KNX3CJC');
     </script>
 
-Similarly, if your project already has a custom footer, add the following highlighted
-line to the ``right-details`` div:
+Similarly, if your project already has a custom ``footer.html`` file, add the following
+highlighted line to the ``right-details`` div:
 
 .. code-block:: html
     :emphasize-lines: 2
