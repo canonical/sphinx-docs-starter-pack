@@ -1,68 +1,45 @@
 .. _how-to-add-documentation-testing:
 
-Set up automated testing for a Sphinx-based tutorial
-====================================================
+Add testing for commands in your documentation
+==============================================
 
-When crafting a tutorial, you may want to check that all the steps
+When crafting documentation, you may want to check that all the commands
 run smoothly and as expected. You can accomplish this with
 **Spread** -- a system-wide test distribution that automatically assigns jobs to run
 tests in GitHub CI workflows. Using Spread, you can create a **Spread
-test** that runs through all the steps in your tutorial and outputs
+test** that runs through all the steps in your documentation and outputs
 any failures that may occur. And with Sphinx-based directives, you can guarantee that
-your tutorial uses the same commands that Spread is testing.
+your documentation uses the same commands that Spread is testing.
 
-.. note::
+Creating a Spread test for your documentation is **not** required to use
+the Sphinx starter pack; this is an optional capability.
 
-    Creating a Spread test for your tutorial is not required to use
-    the Sphinx starter pack; this is an optional capability.
-
-**What you'll need**
+What you'll need
+----------------
 
 * `Multipass <https://documentation.ubuntu.com/multipass/latest/how-to-guides/install-multipass/>`_ installed on your machine 
 * `Spread <https://github.com/canonical/spread>`_ installed on your machine
 
 .. warning::
 
-    Spread requires elevated permissions to run as root, and this tutorial will
-    not work if Spread is installed as a snap. Use the Go install method
+    Spread requires elevated permissions to run as root. Use the Go install method
     recommended in the Spread README to install Spread.
-
-**What you’ll do**
-
-* Create a "Hello, world" Spread test called ``example_tutorial``
-* Run the Spread test locally on your machine using Multipass
 
 Create the Spread test materials
 --------------------------------
 
-On your local machine, create a new directory called ``spread_test_example``
-and change into it. This is the root directory of your example project.
+Create a dedicated directory to hold the materials for your
+Spread tests, for example, ``tests``. 
 
-Inside the ``spread_test_example`` directory, create the ``tests`` directory
-using ``mkdir tests`` and change into it. This directory can hold materials for multiple
-Spread tests. 
+Under the ``tests`` directory, create dedicated directories
+to store the files for your documentation Spread tests. For individual tests,
+you will need a ``task.yaml`` file that contains all the commands
+you want the Spread test to run.
 
-Under the ``tests`` directory, create a new directory ``example_tutorial``
-to store the files for a "Hello, world" Spread test. This test consists of two files:
-
-* A bash script that echoes "Hello, world" to the terminal.
-* A ``task.yaml`` file that contains all the commands you want the Spread test to run.
-
-In ``spread_test_example/tests/example_tutorial``, run this command to create a file
-named ``example_bash_script.sh``:
-
-.. code-block::
-
-    echo -e '#! /usr/bin/bash\n\necho "Hello, world!"' > example_bash_script.sh 
-
-Now let's create a ``task.yaml`` file. This file holds all the commands the
-user will run in your tutorial.
-
-In ``spread_test_example/tests/example_tutorial``, paste the following contents
-into a new file ``task.yaml``:
+An example ``task.yaml`` file is shown below:
 
 .. code-block:: yaml
-    :caption: ~/spread_test_example/tests/example_tutorial/task.yaml
+    :caption: task.yaml
 
     ###########################################
     # IMPORTANT
@@ -71,169 +48,112 @@ into a new file ``task.yaml``:
     # markers for including said instructions
     # as snippets in the docs.
     ###########################################
-    summary: Example tutorial
+    summary: Example Spread test
 
     kill-timeout: 5m
 
     execute: |
-      # [docs:make-bash-executable]
-      chmod +x example_bash_script.sh
-      # [docs:make-bash-executable-end] 
+      # [docs:first-wrapping-command]
+      echo "This is the first command that Spread will run"
+      # [docs:first-wrapping-command-end] 
 
-      # [docs:execute-bash-script]
-      bash example_bash_script.sh
-      # [docs:execute-bash-script-end] 
+      # [docs:second-wrapping-command]
+      echo "This is the second command that Spread will run"
+      # [docs:second-wrapping-command-end] 
 
-The ``summary`` section contains a brief description of your tutorial, and
+The ``summary`` section contains a brief description of the documentation you're testing, and
 the ``execute`` section contains all the commands that your tutorial uses.
 The ``kill-timeout`` option has a default of 10 minutes and doesn't need to be
 included if your test will complete in that time frame. 
 
-By wrapping commands with comments in the form of
+By wrapping commands with comments using the syntax
 ``# [docs:example-wrapping-command]`` and ``# [docs-example-wrapping-command-end]``,
-we can include the exact commands from ``task.yaml`` in the tutorial file.
+you can include the exact commands from ``task.yaml`` in the tutorial file like so:
 
-Create the tutorial file
-------------------------
+.. tab-set::
 
-Now we have everything we need to create the tutorial file itself.
-`ReStructuredText (.rst)`_ is used for the tutorial file format; `MyST-Markdown`_
-can also be used. 
+   .. tab-item:: reStructuredText
+      :sync: rest-commands
 
-In ``spread_test_example/tests/example_tutorial``, create a text file
-named ``example_tutorial.rst``. To add a title for your tutorial, copy the
-block below to this file. 
+      .. code-block:: rst
+        :caption: Example block to include commands from ``task.yaml``
 
-.. code-block:: rst
-    :caption: ~/spread_test_example/tests/example_tutorial/example_tutorial.rst
+        .. literalinclude:: relative-path-to/task.yaml
+            :language: bash
+            :start-after: [docs:first-wrapping-command]
+            :end-before: [docs:first-wrapping-command-end]
+            :dedent: 2
 
-    Demonstrate Spread tests capabilities with a "Hello, world" script
-    ==================================================================
+   .. tab-item:: MyST
+      :sync: myst-commands
 
-In this file, we can use Sphinx's ``literalinclude`` directives
-to feed the Spread test materials directly into our tutorial. This way, we guarantee
-that the Spread test is testing the exact commands that appear in the tutorial. 
+      .. code-block:: md
+        :caption: Example block to include commands from ``task.yaml``
 
-Let's start with the bash script. In the mock tutorial, we want the the reader to
-create the file themselves, so let's use that language in ``example_tutorial.rst``
-when we include the script. Add the following text below the title:
-
-.. code-block:: rst
-  :caption: ~/spread_test_example/tests/example_tutorial/example_tutorial.rst
-  :emphasize-lines: 4-7
-
-  Demonstrate Spread tests capabilities with a "Hello, world" script
-  ==================================================================
-
-  Create a new file ``example_bash_script.sh`` with the following contents:
-
-  .. literalinclude:: example_bash_script.sh
-      :language: bash
-
-Here, we specified that the language of the script is ``bash``. Since our
-tutorial file and the example bash script are located in the same directory,
-we don't need to specify where the script is located when we use ``literalinclude``.
-
-At the end of the ``example_tutorial.rst`` file, insert the two commands that
-appear in our ``task.yaml`` file, again using the ``literalinclude`` directive:
-
-.. code-block:: rst
-  :caption: ~/spread_test_example/tests/example_tutorial/example_tutorial.rst
-  :emphasize-lines: 9-25
-
-  Demonstrate Spread tests capabilities with a "Hello, world" script
-  ==================================================================
-
-  Create a new file ``example_bash_script.sh`` with the following contents:
-
-  .. literalinclude:: example_bash_script.sh
-      :language: bash  
-
-    Make the script executable:
-
-  .. literalinclude:: task.yaml
-      :language: bash
-      :start-after: [docs:make-bash-executable]
-      :end-before: [docs:make-bash-executable-end]
-      :dedent: 2
-
-  Now execute the script:
-
-  .. literalinclude:: task.yaml
-      :language: bash
-      :start-after: [docs:execute-bash-script]
-      :end-before: [docs:execute-bash-script-end]
-      :dedent: 2
-
-  Congratulations! You have created a "Hello, world" script and executed it!
-
-If you were to render the tutorial file using Sphinx, then the page would
-look like the following:
-
-.. image:: mock-tutorial-example.png
-    :align: center
-    :scale: 75%
-    :alt: rendered output of mock tutorial
+        ```{literalinclude} relative-path-to/task.yaml
+        :language: bash
+        :start-after: [docs:first-wrapping-command]
+        :end-before: [docs:first-wrapping-command-end]
+        :dedent: 2
+        ```
 
 Create the Spread test
 ----------------------
 
-Now let's create the Spread test file and include our example tutorial. From the
-``spread_test_example`` directory, create the file ``spread.yaml`` and insert the
+From the root of your project, create the file ``spread.yaml`` and insert the
 following contents:
 
 .. code-block:: yaml
-    :caption: ~/spread_test_example/spread.yaml
+    :caption: project_name/spread.yaml
 
-    project: spread_test_example
+    project: project_name
 
-    path: /spread_test_example
+    path: /project_name  
 
-Note that the ``project`` name matches the main directory's name,
-``spread_test_example``. The ``path`` designates the directory where the Spread
+Note that the ``project`` name should match the main directory's name.
+The ``path`` designates the directory where the Spread
 materials exist.
 
-Now we need to tell Spread about the ``example_tutorial`` Spread test. Add the
+So that Spread knows about your tests, add the
 following section to the end of ``spread.yaml``:
 
 .. code-block:: yaml
-    :caption: ~/spread_test_example/spread.yaml
+    :caption: project_name/spread.yaml
     :emphasize-lines: 5-9
 
-    project: spread_test_example
+    project: project_name
 
-    path: /spread_test_example
+    path: /project_name
 
     suites:
       tests/:
-        summary: example tutorial
+        summary: example test
         systems:
           - ubuntu-24.04-64
 
-The ``suites`` section is how we tell Spread about the various Spread tests in
-our project. We tell Spread to look in the ``tests`` directory for all Spread tests
-(which it will only find one, ``example_tutorial``). We also use the ``suites``
-section to tell Spread about the systems we want Spread to test.
-For our mock tutorial, we will use Ubuntu 24.04. 
+The ``suites`` section is how you tell Spread about the various Spread tests in
+your project along with the systems you want Spread to use.
+Spread looks in the ``project_name/tests`` directory for all Spread tests, and
+this example uses Ubuntu 24.04 for the system. 
 
 Configure the Spread test to use Multipass
 ------------------------------------------
 
 Each job in Spread has a backend, or a way to obtain a machine on which to run
 your Spread test. The `Spread repository <https://github.com/canonical/spread>`_ contains
-more information on backends like Google or QEMU, but let's set up Multipass as
+more information on backends like Google or QEMU, but this guide sets up Multipass as
 a backend to run local tests. 
 
 Include the following ``backends`` section of ``spread.yaml`` between the ``path`` and
 ``suites`` sections:
 
 .. code-block:: yaml
-    :caption: ~/spread_test_example/spread.yaml
+    :caption: project_name/spread.yaml
     :emphasize-lines: 5-40
 
-    project: spread_test_example
+    project: project_name
 
-    path: /spread_test_example  
+    path: /project_name  
 
     backends:
       multipass:
@@ -274,20 +194,22 @@ Include the following ``backends`` section of ``spread.yaml`` between the ``path
 
     suites:
       tests/:
-        summary: example tutorial
+        summary: example test
         systems:
           - ubuntu-24.04-64
 
-The ``backends`` section contains the following sections:
+The ``backends`` section contains the following pieces:
 
-* The backend is designated as ``type: adhoc`` as we are explicitly
-  scripting the procedure to allocate and discard the Multipass VM. 
-* In the ``allocate`` section, we define the image and name of the VM, launch the
-  VM, and then set up the proper SSH permissions so that Spread can log in (via root)
-  into the VM and insert the Spread test. We also must tell Spread about the
+* The backend is designated as ``type: adhoc`` as you must explicitly
+  script the procedure to allocate and discard the Multipass VM. 
+* The ``allocate`` section defines the image and name of the VM, launches the
+  VM, and then sets up the proper SSH permissions so that Spread can log in (using root)
+  into the VM and insert the Spread test. You also must tell Spread about the
   IP address of the Multipass VM and set the environment variable ``ADDRESS``.
-* In the ``discard`` section, we delete the Multipass VM once the Spread test
+* The ``discard`` section deletes the Multipass VM once the Spread test
   has finished running.
+* The ``systems`` key notes which systems the backend will use. Note that this key
+  must match the ``systems`` used by at least one test under ``suites``.
 
 Run the Spread test locally
 ---------------------------
@@ -298,24 +220,25 @@ List all available Spread tests in the code repository:
 
     spread --list
 
-The terminal should respond with a single line representing the
-test for ``example_tutorial``:
+The terminal should respond with all the tests defined in ``spread.yaml``.
+For example:
 
 .. terminal::
-    :dir: spread_test_example
+    :dir: project_name
 
     spread --list
 
-    multipass:ubuntu-24.04-64:tests/example_tutorial 
+    multipass:ubuntu-24.04-64:tests/example_documentation_test
 
-Now let's run the Spread test for ``example_tutorial``:
+Run all Spread tests locally with ``spread``. You can also run a single
+Spread test by specifying it like so:
 
 .. code-block:: bash
 
-    spread -vv -debug multipass:ubuntu-24.04-64:tests/example_tutorial
+    spread -vv -debug multipass:ubuntu-24.04-64:tests/example_documentation_test
 
-The test can take several minutes to complete. The ``-vv -debug`` flags
-provide useful debugging information as the test runs.
+Depending on the complexity of your test, Spread can take several minutes to complete.
+The ``-vv -debug`` flags provide useful debugging information as the test runs.
 
 Validate the Spread test results
 --------------------------------
@@ -326,18 +249,17 @@ If the test is successful, the terminal will output something similar to the fol
 
 .. terminal::
     :output-only:
-    :dir: spread_test_example
 
     2025-02-04 16:17:10 Successful tasks: 1
     2025-02-04 16:17:10 Aborted tasks: 0
 
 Another sign of a successful test is whether the Multipass VM was deleted as expected.
-We can check by running :code:`multipass list`, and if the Spread test was successful
+Check by running :code:`multipass list`, and if the Spread test was successful
 (and you have no other Multipass VMs created at the time), the terminal should
 respond with the following:
 
 .. terminal::
-    :dir: spread_test_example
+    :dir: project_name
 
     multipass list
 
@@ -349,20 +271,10 @@ will output something similar to the following:
 
 .. terminal::
     :output-only:
-    :dir: spread_test_example
 
     2025-02-04 16:17:10 Starting shell to debug...
-    2025-02-04 16:17:10 Sending script for multipass:ubuntu-24.04-64 (multipass:ubuntu-24.04-64:tests/example_tutorial):
+    2025-02-04 16:17:10 Sending script for multipass:ubuntu-24.04-64 (multipass:ubuntu-24.04-64:tests/example_documentation_test):
 
-Next steps
-----------
-
-Congratulations! You set up the materials needed to run a Spread test locally using
-Multipass with commands that explicitly appear in a Sphinx-based tutorial. This
-section provides additional examples of Spread tests: 
-
-* `Spread tests included in Rockcraft documentation <https://github.com/canonical/rockcraft/tree/main/docs/tutorial/code>`_
-* `Spread tests included in Charmcraft documentation <https://github.com/canonical/charmcraft/tree/main/docs/tutorial/code>`_
 
 .. _ReStructuredText (.rst): https://www.sphinx-doc.org/en/master/usage/restructuredtext
 .. _MyST-Markdown: https://myst-parser.readthedocs.io/en/latest
