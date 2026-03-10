@@ -30,7 +30,7 @@
 .. _`Sphinx configuration`: https://www.sphinx-doc.org/en/master/usage/configuration.html
 .. _Sphinx DataTables: https://sharm294.github.io/sphinx-datatables/
 .. _Sphinx design: https://sphinx-design.readthedocs.io/en/latest/
-.. _Sphinx documentation starter pack:
+.. _Sphinx documentation starter pack: https://github.com/canonical/sphinx-docs-starter-pack
 .. _Sphinx documentation starter pack repository: https://github.com/canonical/sphinx-docs-starter-pack
 .. _Sphinx documentation starter pack documentation: https://canonical-starter-pack.readthedocs-hosted.com/
 .. _`Sphinx extensions`: https://www.sphinx-doc.org/en/master/usage/extensions/index.html
