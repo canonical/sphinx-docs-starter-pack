@@ -30,8 +30,6 @@ jobs:
         run: |
           for dir in compare base; do
             pushd ${dir}/docs
-            make install
-            . .sphinx/venv/bin/activate
             make html
             popd
           done
