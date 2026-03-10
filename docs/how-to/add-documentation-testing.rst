@@ -118,14 +118,14 @@ following section to the end of ``spread.yaml``:
     path: /project_name
 
     suites:
-      tests/:
+      tests/spread/:
         summary: example test
         systems:
           - ubuntu-24.04-64
 
 The ``suites`` section is how you tell Spread about the various Spread tests in
 your project along with the systems you want Spread to use.
-In this example, Spread looks for tests in the ``project_name/tests`` directory and
+In this example, Spread looks for tests in the ``project_name/tests/spread`` directory and
 runs them on Ubuntu 24.04. 
 
 Set up the Multipass backend
