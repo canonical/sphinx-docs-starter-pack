@@ -7,9 +7,6 @@ It's challenging to keep documentation in sync with products as they evolve. Thi
 process is aided by *Spread*, a test distribution that can work through your
 documentation and report failures in GitHub workflows.
 
-Creating a Spread test for your documentation is **not** required to use
-the Sphinx starter pack; this is an optional capability.
-
 What you'll need
 ----------------
 
@@ -24,13 +21,12 @@ What you'll need
 Create the Spread test materials
 --------------------------------
 
-Create a dedicated directory to hold the materials for your
-Spread tests, for example, ``tests``. 
+Put your Spread files alongside your project's existing tests.
+The rest of this guide will assume they're in a top-level
+``tests/spread`` directory.
 
-Under the ``tests`` directory, create dedicated directories
-to store the files for your documentation Spread tests. For individual tests,
-you will need a ``task.yaml`` file that contains all the commands
-you want the Spread test to run.
+Each Spread test requires a dedicated ``task.yaml`` file that contains
+all the commands you want to test.
 
 An example ``task.yaml`` file is shown below:
 
@@ -132,8 +128,8 @@ your project along with the systems you want Spread to use.
 In this example, Spread looks for tests in the ``project_name/tests`` directory and
 runs them on Ubuntu 24.04. 
 
-Configure the Spread test to use Multipass
-------------------------------------------
+Set up the Multipass backend
+----------------------------
 
 Each job in Spread has a backend, or a way to obtain a machine for running your Spread
 tests. Spread can run on various backends, like
@@ -190,7 +186,7 @@ Include the following ``backends`` section of ``spread.yaml`` between the ``path
               workers: 1
 
     suites:
-      tests/:
+      tests/spread/:
         summary: example test
         systems:
           - ubuntu-24.04-64
@@ -225,14 +221,14 @@ For example:
 
     spread --list
 
-    multipass:ubuntu-24.04-64:tests/example_documentation_test
+    multipass:ubuntu-24.04-64:tests/spread/example_documentation_test
 
 Run all Spread tests locally with ``spread``. You can also run a single
 Spread test by specifying it like so:
 
 .. code-block:: bash
 
-    spread -vv -debug multipass:ubuntu-24.04-64:tests/example_documentation_test
+    spread -vv -debug multipass:ubuntu-24.04-64:tests/spread/example_documentation_test
 
 Depending on the complexity of your test, Spread can take several minutes to complete.
 The ``-vv -debug`` flags provide useful debugging information as the test runs.
@@ -270,7 +266,7 @@ will output something similar to the following:
     :output-only:
 
     2025-02-04 16:17:10 Starting shell to debug...
-    2025-02-04 16:17:10 Sending script for multipass:ubuntu-24.04-64 (multipass:ubuntu-24.04-64:tests/example_documentation_test):
+    2025-02-04 16:17:10 Sending script for multipass:ubuntu-24.04-64 (multipass:ubuntu-24.04-64:tests/spread/example_documentation_test):
 
 
 .. _ReStructuredText (.rst): https://www.sphinx-doc.org/en/master/usage/restructuredtext
