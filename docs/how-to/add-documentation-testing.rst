@@ -1,3 +1,5 @@
+.. _how-to-add-documentation-testing:
+
 Set up automated testing for a Sphinx-based tutorial
 ====================================================
 
