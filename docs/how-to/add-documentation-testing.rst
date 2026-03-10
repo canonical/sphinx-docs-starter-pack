@@ -1,15 +1,11 @@
 .. _how-to-add-documentation-testing:
 
-Add testing for commands in your documentation
-==============================================
+Test commands in documentation
+==============================
 
-When crafting documentation, you may want to check that all the commands
-run smoothly and as expected. You can accomplish this with
-**Spread** -- a system-wide test distribution that automatically assigns jobs to run
-tests in GitHub CI workflows. Using Spread, you can create a **Spread
-test** that runs through all the steps in your documentation and outputs
-any failures that may occur. And with Sphinx-based directives, you can guarantee that
-your documentation uses the same commands that Spread is testing.
+It's challenging to keep documentation in sync with products as they evolve. This
+process is aided by *Spread*, a test distribution that can work through your
+documentation and report failures in GitHub workflows.
 
 Creating a Spread test for your documentation is **not** required to use
 the Sphinx starter pack; this is an optional capability.
@@ -62,7 +58,7 @@ An example ``task.yaml`` file is shown below:
       # [docs:second-wrapping-command-end] 
 
 The ``summary`` section contains a brief description of the documentation you're testing, and
-the ``execute`` section contains all the commands that your tutorial uses.
+the ``execute`` section contains your documentation's commands.
 The ``kill-timeout`` option has a default of 10 minutes and doesn't need to be
 included if your test will complete in that time frame. 
 
@@ -97,8 +93,8 @@ you can include the exact commands from ``task.yaml`` in the tutorial file like 
         :dedent: 2
         ```
 
-Create the Spread test
-----------------------
+Create a Spread test
+--------------------
 
 From the root of your project, create the file ``spread.yaml`` and insert the
 following contents:
@@ -110,7 +106,7 @@ following contents:
 
     path: /project_name  
 
-Note that the ``project`` name should match the main directory's name.
+The ``project`` name should match the main directory's name.
 The ``path`` designates the directory where the Spread
 materials exist.
 
@@ -133,16 +129,17 @@ following section to the end of ``spread.yaml``:
 
 The ``suites`` section is how you tell Spread about the various Spread tests in
 your project along with the systems you want Spread to use.
-Spread looks in the ``project_name/tests`` directory for all Spread tests, and
-this example uses Ubuntu 24.04 for the system. 
+In this example, Spread looks for tests in the ``project_name/tests`` directory and
+runs them on Ubuntu 24.04. 
 
 Configure the Spread test to use Multipass
 ------------------------------------------
 
-Each job in Spread has a backend, or a way to obtain a machine on which to run
-your Spread test. The `Spread repository <https://github.com/canonical/spread>`_ contains
-more information on backends like Google or QEMU, but this guide sets up Multipass as
-a backend to run local tests. 
+Each job in Spread has a backend, or a way to obtain a machine for running your Spread
+tests. Spread can run on various backends, like
+`Google <https://github.com/canonical/spread/blob/master/README.md#google>`__,
+`QEMU <https://github.com/canonical/spread/blob/master/README.md#qemu>`__, or, as this
+guide sets up, Multipass.
 
 Include the following ``backends`` section of ``spread.yaml`` between the ``path`` and
 ``suites`` sections:
@@ -203,16 +200,16 @@ The ``backends`` section contains the following pieces:
 * The backend is designated as ``type: adhoc`` as you must explicitly
   script the procedure to allocate and discard the Multipass VM. 
 * The ``allocate`` section defines the image and name of the VM, launches the
-  VM, and then sets up the proper SSH permissions so that Spread can log in (using root)
-  into the VM and insert the Spread test. You also must tell Spread about the
+  VM, and sets up the proper SSH permissions Spread then logs in to the VM with
+  root permissions and inserts the Spread test. The last two lines tell Spread the
   IP address of the Multipass VM and set the environment variable ``ADDRESS``.
 * The ``discard`` section deletes the Multipass VM once the Spread test
   has finished running.
 * The ``systems`` key notes which systems the backend will use. Note that this key
   must match the ``systems`` used by at least one test under ``suites``.
 
-Run the Spread test locally
----------------------------
+Run tests locally
+-----------------
 
 List all available Spread tests in the code repository:
 
@@ -240,8 +237,8 @@ Spread test by specifying it like so:
 Depending on the complexity of your test, Spread can take several minutes to complete.
 The ``-vv -debug`` flags provide useful debugging information as the test runs.
 
-Validate the Spread test results
---------------------------------
+Check the results
+-----------------
 
 The terminal will output various messages about allocating the Multipass VM,
 connecting to the VM, sending the Spread test to the VM and executing the test.
