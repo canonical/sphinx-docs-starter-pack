@@ -10,8 +10,8 @@
 
 * `docs/Makefile` [#551](https://github.com/canonical/sphinx-docs-starter-pack/pull/551)
 * `docs/.sphinx/.wordlist.txt` [#520](https://github.com/canonical/sphinx-docs-starter-pack/pull/520)
-* `docs/conf.py` [#XXX](https://github.com/canonical/sphinx-docs-starter-pack/pull/XXX)
-* `docs/redirects.txt` [#XXX](https://github.com/canonical/sphinx-docs-starter-pack/pull/XXX)
+* `docs/conf.py` [#558](https://github.com/canonical/sphinx-docs-starter-pack/pull/558)
+* `docs/redirects.txt` [#558](https://github.com/canonical/sphinx-docs-starter-pack/pull/558)
 
 ## 1.5
 
