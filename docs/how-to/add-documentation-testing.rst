@@ -15,7 +15,8 @@ What you'll need
 
 .. warning::
 
-    Spread requires elevated permissions to run as root. Use the [Go install method](https://github.com/canonical/spread?tab=readme-ov-file#install)
+    Spread requires elevated permissions to run as root. Use the
+    `Go install method <https://github.com/canonical/spread?tab=readme-ov-file#install>`_
     recommended in the Spread README to install Spread.
 
 Create a Spread task
