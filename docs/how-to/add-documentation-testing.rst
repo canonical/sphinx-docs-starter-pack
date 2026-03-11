@@ -19,72 +19,6 @@ What you'll need
     `Go install method <https://github.com/canonical/spread?tab=readme-ov-file#install>`_
     recommended in the Spread README to install Spread.
 
-Create a Spread task
---------------------
-
-Put your Spread files alongside your project's existing tests.
-The rest of this guide will assume they're in a top-level
-``tests/spread`` directory.
-
-Each Spread test requires a dedicated ``task.yaml`` file that contains
-all the commands you want to test.
-
-An example ``task.yaml`` file is shown below:
-
-.. code-block:: yaml
-    :caption: task.yaml
-
-    ###########################################
-    # IMPORTANT
-    # Comments matter!
-    # The docs use the wrapping comments as
-    # markers for including said instructions
-    # as snippets in the docs.
-    ###########################################
-    summary: Example Spread test
-
-    kill-timeout: 5m
-
-    execute: |
-      echo "This is the first command that Spread will run"
-
-      echo "This is the second command that Spread will run"
-
-The ``summary`` section contains a brief description of the documentation you're testing, and
-the ``execute`` section contains your documentation's commands.
-The ``kill-timeout`` option has a default of 10 minutes and doesn't need to be
-included if your test will complete in that time frame. 
-
-By using the ``literalinclude`` directive in Sphinx, you can insert the
-exact commands from ``task.yaml`` in your documentation file like so:
-
-.. tab-set::
-
-   .. tab-item:: reStructuredText
-      :sync: rest-commands
-
-      .. code-block:: rst
-        :caption: Example ``literalinclude`` block
-
-        .. literalinclude:: relative-path-to/task.yaml
-            :language: bash
-            :start-at: echo "This is the first command that Spread will run"
-            :end-at: echo "This is the first command that Spread will run"
-            :dedent: 2
-
-   .. tab-item:: MyST
-      :sync: myst-commands
-
-      .. code-block:: md
-        :caption: Example ``literalinclude`` block
-
-        ```{literalinclude} relative-path-to/task.yaml
-        :language: bash
-        :start-at: echo "This is the first command that Spread will run"
-        :end-at: echo "This is the first command that Spread will run"
-        :dedent: 2
-        ```
-
 Create a test suite
 -------------------
 
@@ -201,6 +135,65 @@ The ``backends`` section contains the following pieces:
   has finished running.
 * The ``systems`` key notes which systems the backend will use. Note that this key
   must match the ``systems`` used by at least one test under ``suites``.
+
+Create a Spread task
+--------------------
+
+Put your Spread files alongside your project's existing tests.
+The rest of this guide will assume they're in a top-level
+``tests/spread`` directory.
+
+Each Spread test requires a dedicated ``task.yaml`` file that contains
+all the commands you want to test.
+
+An example ``task.yaml`` file is shown below:
+
+.. code-block:: yaml
+    :caption: task.yaml
+
+    summary: Example Spread test
+
+    kill-timeout: 5m
+
+    execute: |
+      echo "This is the first command that Spread will run"
+
+      echo "This is the second command that Spread will run"
+
+The ``summary`` section contains a brief description of the documentation you're testing, and
+the ``execute`` section contains your documentation's commands.
+The ``kill-timeout`` option has a default of 10 minutes and doesn't need to be
+included if your test will complete in that time frame. 
+
+By using the ``literalinclude`` directive in Sphinx, you can insert the
+exact commands from ``task.yaml`` in your documentation file like so:
+
+.. tab-set::
+
+   .. tab-item:: reStructuredText
+      :sync: rest-commands
+
+      .. code-block:: rst
+        :caption: Example ``literalinclude`` block
+
+        .. literalinclude:: relative-path-to/task.yaml
+            :language: bash
+            :start-at: echo "This is the first command that Spread will run"
+            :end-at: echo "This is the first command that Spread will run"
+            :dedent: 2
+
+   .. tab-item:: MyST
+      :sync: myst-commands
+
+      .. code-block:: md
+        :caption: Example ``literalinclude`` block
+
+        ```{literalinclude} relative-path-to/task.yaml
+        :language: bash
+        :start-at: echo "This is the first command that Spread will run"
+        :end-at: echo "This is the first command that Spread will run"
+        :dedent: 2
+        ```
 
 Run tests locally
 -----------------
