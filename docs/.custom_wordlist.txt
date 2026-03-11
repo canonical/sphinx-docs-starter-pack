@@ -41,6 +41,7 @@ texlive
 TOC
 toctree
 txt
+ulwazi
 uncomment(ing)?
 utils
 uv
