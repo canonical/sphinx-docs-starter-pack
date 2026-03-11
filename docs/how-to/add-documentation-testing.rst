@@ -18,8 +18,8 @@ What you'll need
     Spread requires elevated permissions to run as root. Use the [Go install method](https://github.com/canonical/spread?tab=readme-ov-file#install)
     recommended in the Spread README to install Spread.
 
-Create the Spread test materials
---------------------------------
+Create a Spread task
+--------------------
 
 Put your Spread files alongside your project's existing tests.
 The rest of this guide will assume they're in a top-level
@@ -45,22 +45,17 @@ An example ``task.yaml`` file is shown below:
     kill-timeout: 5m
 
     execute: |
-      # [docs:first-wrapping-command]
       echo "This is the first command that Spread will run"
-      # [docs:first-wrapping-command-end] 
 
-      # [docs:second-wrapping-command]
       echo "This is the second command that Spread will run"
-      # [docs:second-wrapping-command-end] 
 
 The ``summary`` section contains a brief description of the documentation you're testing, and
 the ``execute`` section contains your documentation's commands.
 The ``kill-timeout`` option has a default of 10 minutes and doesn't need to be
 included if your test will complete in that time frame. 
 
-By wrapping commands with comments using the syntax
-``# [docs:example-wrapping-command]`` and ``# [docs-example-wrapping-command-end]``,
-you can include the exact commands from ``task.yaml`` in the tutorial file like so:
+By using the ``literalinclude`` directive in Sphinx, you can insert the
+exact commands from ``task.yaml`` in your documentation file like so:
 
 .. tab-set::
 
@@ -68,24 +63,24 @@ you can include the exact commands from ``task.yaml`` in the tutorial file like 
       :sync: rest-commands
 
       .. code-block:: rst
-        :caption: Example block to include commands from ``task.yaml``
+        :caption: Example ``literalinclude`` block
 
         .. literalinclude:: relative-path-to/task.yaml
             :language: bash
-            :start-after: [docs:first-wrapping-command]
-            :end-before: [docs:first-wrapping-command-end]
+            :start-at: echo "This is the first command that Spread will run"
+            :end-at: echo "This is the first command that Spread will run"
             :dedent: 2
 
    .. tab-item:: MyST
       :sync: myst-commands
 
       .. code-block:: md
-        :caption: Example block to include commands from ``task.yaml``
+        :caption: Example ``literalinclude`` block
 
         ```{literalinclude} relative-path-to/task.yaml
         :language: bash
-        :start-after: [docs:first-wrapping-command]
-        :end-before: [docs:first-wrapping-command-end]
+        :start-at: echo "This is the first command that Spread will run"
+        :end-at: echo "This is the first command that Spread will run"
         :dedent: 2
         ```
 
@@ -126,7 +121,9 @@ following section to the end of ``spread.yaml``:
 The ``suites`` section is how you tell Spread about the various Spread tests in
 your project along with the systems you want Spread to use.
 In this example, Spread looks for tests in the ``project_name/tests/spread`` directory and
-runs them on Ubuntu 24.04. 
+runs them on Ubuntu 24.04.
+If you create a new ``task.yaml`` file in a different directory,
+remember to add a corresponding suite for it in ``spread.yaml``.
 
 Set up the Multipass backend
 ----------------------------
