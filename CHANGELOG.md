@@ -4,7 +4,7 @@
 
 * Fix the handling of non-zero exit codes from pymarkdownlnt.
 * Add a how-to guide about testing the Ulwazi theme.
-* 
+* Make rediraffe the default extension for page redirects
 
 ### Changed
 
