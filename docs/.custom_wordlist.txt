@@ -78,3 +78,6 @@ Makefile
 rediraffe
 retrigger(ing)?
 Diátaxis
+preconfigured
+venv
+rtd
