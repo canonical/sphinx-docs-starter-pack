@@ -26,6 +26,7 @@ Set up, configure, upgrade, and customize your project to keep it organized and 
     update-starter-packs/index.rst
     test-ulwazi-theme
     troubleshoot-issues
+    skip-removed-urls-check
 
 Optional features and workflows
 -------------------------------
