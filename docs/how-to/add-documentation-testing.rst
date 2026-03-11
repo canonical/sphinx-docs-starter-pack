@@ -15,7 +15,7 @@ What you'll need
 
 .. warning::
 
-    Spread requires elevated permissions to run as root. Use the Go install method
+    Spread requires elevated permissions to run as root. Use the [Go install method](https://github.com/canonical/spread?tab=readme-ov-file#install)
     recommended in the Spread README to install Spread.
 
 Create the Spread test materials
@@ -89,8 +89,8 @@ you can include the exact commands from ``task.yaml`` in the tutorial file like 
         :dedent: 2
         ```
 
-Create a Spread test
---------------------
+Create a test suite
+-------------------
 
 From the root of your project, create the file ``spread.yaml`` and insert the
 following contents:
