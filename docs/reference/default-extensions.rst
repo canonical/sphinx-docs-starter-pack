@@ -72,6 +72,7 @@ These extensions are enabled in the Starter Pack by default.
 
 ``sphinx_youtube_links``
    Provides a directive to embed YouTube videos into a page.
-`sphinxcontrib.cairosvgconverter`
+
+``sphinxcontrib.cairosvgconverter``
    Converts SVG images into PDF.
 
