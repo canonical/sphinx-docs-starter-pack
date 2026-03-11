@@ -144,7 +144,9 @@ The rest of this guide will assume they're in a top-level
 ``tests/spread`` directory.
 
 Each Spread test requires a dedicated ``task.yaml`` file that contains
-all the commands you want to test.
+all the commands you want to test. A single ``task.yaml``  can help you
+validate an entire assumed workflow, for instance,
+an end-to-end tutorial.
 
 An example ``task.yaml`` file is shown below:
 
@@ -155,13 +157,17 @@ An example ``task.yaml`` file is shown below:
 
     kill-timeout: 5m
 
+    prepare: |
+      echo "Use this section to install any prerequisites"
+
     execute: |
       echo "This is the first command that Spread will run"
 
       echo "This is the second command that Spread will run"
 
-The ``summary`` section contains a brief description of the documentation you're testing, and
-the ``execute`` section contains your documentation's commands.
+The ``summary`` section contains a brief description of the documentation you're testing,
+the ``prepare`` section contains any initial setup your test needs,
+and the ``execute`` section contains your documentation's commands.
 The ``kill-timeout`` option has a default of 10 minutes and doesn't need to be
 included if your test will complete in that time frame. 
 
