@@ -1,0 +1,67 @@
+documentation_architecture:
+  - diagram_name: "Sphinx"
+    description: "The core process of transforming source files into HTML using Sphinx."
+    mermaid_code: |
+      graph LR
+          A["Source Files<br/>(.rst or .md)"] -->|provides content to| C[Sphinx]
+          B["Configuration<br/>(docs/conf.py)"] -->|provides settings to| C
+          C -->|generates| D[Built HTML Pages]
+    rendered_image: "../explanation/assets/sphinx.png"
+
+  - diagram_name: "Python environment"
+    description: "The relationship between the host system and the virtual environment."
+    mermaid_code: |
+      graph LR
+          subgraph Host ["Host"]
+              direction LR
+              pip[pip] -->|installs| PD["Project dependencies"]
+              python3[python3] --> Sphinx
+              venv[venv] -->|creates| VE["Virtual environment"]
+              subgraph VE ["Virtual environment"]
+                  direction LR
+                  PD -->|extend| Sphinx
+              end
+              Sphinx -->|builds| HTML[HTML]
+          end
+    rendered_image: "../explanation/assets/python-starter-pack.png"
+
+  - diagram_name: "Extensions"
+    description: "How built-in and third-party extensions are integrated and activated via requirements and conf.py."
+    mermaid_code: |
+      graph TD
+          Python -->|installs the contents of| Reqs[/"requirements.txt"\]
+          Reqs -->|specifies| ThirdParty["Third-party extensions"]
+          Sphinx -->|provides| BuiltIn["Built-in Sphinx extensions"]
+          subgraph Deps ["Various dependencies"]
+              BuiltIn
+              ThirdParty
+          end
+          BuiltIn -->|are activated in| Conf[/"Project configuration file (docs/conf.py)"\]
+          ThirdParty -->|are activated in| Conf
+    rendered_image: "../explanation/assets/extensions.png"
+
+  - diagram_name: "Read the Docs"
+    description: "Details the declaration of build logic in the RTD configuration file for hosting."
+    mermaid_code: |
+      graph TD
+          Sphinx -->|is declared in| RTD_Conf[/"RTD configuration file (.readthedocs.yaml)"\]
+          Conf_py["conf.py"] -->|is declared in| RTD_Conf
+          Python_Ver["Python version"] -->|is declared in| RTD_Conf
+          RTD_Conf -->|defines the build logic for| RTD["Read the Docs (RTD)"]
+          RTD -->|builds and hosts| HTML[/"HTML"\]
+    rendered_image: "../explanation/assets/rtd-build.png"
+
+  - diagram_name: "Third-party extensions"
+    description: "Focuses on the specific installation path for external dependencies via pip and requirements."
+    mermaid_code: |
+      graph TD
+        Python[Python]
+        Reqs[/"requirements.txt"\]
+        Sphinx[Sphinx]
+        subgraph Deps ["Various dependencies"]
+            BuiltIn["Built-in Sphinx extensions"]
+            ThirdParty["Third-party extensions"]
+        end
+        Python -->|installs the contents of| Reqs
+        Reqs -->|specifies| ThirdParty
+    rendered_image: "../explanation/assets/third-party-extensions.png"
