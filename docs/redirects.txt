@@ -13,5 +13,3 @@
 
 "how-to/migrate-from-pre-extension" "how-to/update-starter-packs/legacy-starter-pack"
 "how-to/update-starter-packs/pre-extension" "how-to/update-starter-packs/legacy-starter-pack"
-
-"test" "https://github.com/jahn-junior"
