@@ -1,7 +1,7 @@
 .. _how-to-add-documentation-testing:
 
-Test commands in documentation
-==============================
+Test commands in documentation with Spread
+==========================================
 
 It's challenging to keep documentation in sync with products as they evolve. This
 process is aided by *Spread*, a test distribution that can work through your
@@ -32,7 +32,7 @@ following contents:
 
     path: /project_name  
 
-The ``project`` name should match the main directory's name.
+Match the ``project`` name to your main directory's name.
 The ``path`` designates the directory where the Spread
 materials exist.
 
@@ -69,7 +69,7 @@ tests. Spread can run on various backends, like
 `QEMU <https://github.com/canonical/spread/blob/master/README.md#qemu>`__, or, as this
 guide sets up, Multipass.
 
-Include the following ``backends`` section of ``spread.yaml`` between the ``path`` and
+Copy the following ``backends`` section of ``spread.yaml`` between the ``path`` and
 ``suites`` sections:
 
 .. code-block:: yaml
@@ -133,14 +133,14 @@ The ``backends`` section contains the following pieces:
   IP address of the Multipass VM and set the environment variable ``ADDRESS``.
 * The ``discard`` section deletes the Multipass VM once the Spread test
   has finished running.
-* The ``systems`` key notes which systems the backend will use. Note that this key
+* The ``systems`` key notes which systems the backend uses. Note that this key
   must match the ``systems`` used by at least one test under ``suites``.
 
 Create a Spread task
 --------------------
 
 Put your Spread files alongside your project's existing tests.
-The rest of this guide will assume they're in a top-level
+The rest of this guide assumes they're in a top-level
 ``tests/spread`` directory.
 
 Each Spread test requires a dedicated ``task.yaml`` file that contains
@@ -169,7 +169,7 @@ The ``summary`` section contains a brief description of the documentation you're
 the ``prepare`` section contains any initial setup your test needs,
 and the ``execute`` section contains your documentation's commands.
 The ``kill-timeout`` option has a default of 10 minutes and doesn't need to be
-included if your test will complete in that time frame. 
+included if you expect your test to complete in that time frame. 
 
 By using the ``literalinclude`` directive in Sphinx, you can insert the
 exact commands from ``task.yaml`` in your documentation file like so:
@@ -221,7 +221,7 @@ For example:
     multipass:ubuntu-24.04-64:tests/spread/example_documentation_test
 
 Run all Spread tests locally with ``spread``. You can also run a single
-Spread test by specifying it like so:
+Spread test by specifying:
 
 .. code-block:: bash
 
@@ -233,7 +233,7 @@ The ``-vv -debug`` flags provide useful debugging information as the test runs.
 Check the results
 -----------------
 
-The terminal will output various messages about allocating the Multipass VM,
+During runtime, the terminal outputs various messages about allocating the Multipass VM,
 connecting to the VM, sending the Spread test to the VM and executing the test.
 If the test is successful, the terminal will output something similar to the following:
 
@@ -246,7 +246,7 @@ If the test is successful, the terminal will output something similar to the fol
 Another sign of a successful test is whether the Multipass VM was deleted as expected.
 Check by running :code:`multipass list`, and if the Spread test was successful
 (and you have no other Multipass VMs created at the time), the terminal should
-respond with the following:
+respond with:
 
 .. terminal::
     :dir: project_name
