@@ -6,10 +6,10 @@
 # The old path must be a file that doesn't exist in the source. The current path must be
 # a file that does exist in the source.
 
-"reference/doc-cheat-sheet-myst/" "reference/myst-syntax-reference/"
-"reference/style-guide-myst/" "reference/myst-syntax-reference/"
-"reference/doc-cheat-sheet/" "reference/rst-syntax-reference/"
-"reference/style-guide/" "reference/rst-syntax-reference/"
+"reference/doc-cheat-sheet-myst" "reference/myst-syntax-reference"
+"reference/style-guide-myst" "reference/myst-syntax-reference"
+"reference/doc-cheat-sheet" "reference/rst-syntax-reference"
+"reference/style-guide" "reference/rst-syntax-reference"
 
-"how-to/migrate-from-pre-extension/" "how-to/update-starter-packs/legacy-starter-pack"
-"how-to/update-starter-packs/pre-extension/" "how-to/update-starter-packs/legacy-starter-pack"
+"how-to/migrate-from-pre-extension" "how-to/update-starter-packs/legacy-starter-pack"
+"how-to/update-starter-packs/pre-extension" "how-to/update-starter-packs/legacy-starter-pack"

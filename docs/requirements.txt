@@ -10,7 +10,7 @@ sphinx-reredirects
 sphinx-tabs
 sphinxcontrib-jquery
 sphinxext-opengraph
-sphinxext-rediraffe~=0.3
+sphinxext-rediraffe @ git+https://github.com/jahn-junior/sphinxext-rediraffe@work/bettiraffe
 
 # Extra extensions, previously bundled as canonical-sphinx-extensions
 sphinx-config-options>=0.1.0
