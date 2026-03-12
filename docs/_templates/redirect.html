@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <noscript>
+            <meta http-equiv="refresh" content="0; url={{rel_url}}"/>
+        </noscript>
+    </head>
+    <body>
+        <script>
+            var url = '{{ rel_url }}'.replace(/index\.html$/, '');
+            window.location.href = '{{rel_url}}' + (window.location.search || '') + (window.location.hash || '');
+        </script>
+        <p>You should have been redirected.</p>
+        <a href="{{rel_url}}">If not, click here to continue.</a>
+    </body>
+</html>
