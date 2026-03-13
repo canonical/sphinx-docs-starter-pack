@@ -1,10 +1,10 @@
 .. _how-to-add-documentation-testing:
 
-Test commands in documentation with Spread
+Use Spread to test commands in documentation
 ==========================================
 
 It's challenging to keep documentation in sync with products as they evolve. This
-process is aided by *Spread*, a test distribution that can work through your
+process is aided by *Spread*, a test distributor that can work through your
 documentation and report failures in GitHub workflows.
 
 What you'll need
@@ -170,6 +170,9 @@ the ``prepare`` section contains any initial setup your test needs,
 and the ``execute`` section contains your documentation's commands.
 The ``kill-timeout`` option has a default of 10 minutes and doesn't need to be
 included if you expect your test to complete in that time frame. 
+
+Include the tested commands in documentation
+--------------------------------------------
 
 By using the ``literalinclude`` directive in Sphinx, you can insert the
 exact commands from ``task.yaml`` in your documentation file like so:
