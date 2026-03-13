@@ -224,7 +224,6 @@ sitemap_excludes = [
 # https://docs.readthedocs.io/en/stable/guides/redirects.html
 
 rediraffe_redirects = "redirects.txt"
-rediraffe_dir_only = True
 
 
 ###########################
