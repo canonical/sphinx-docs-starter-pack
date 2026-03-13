@@ -129,7 +129,8 @@ For instance, using the starter pack as an example, with three versions
 
             User-agent: *
 
-            Disallow: # Allow everything
+            # Allow everything
+            Disallow:
 
             Sitemap: https://canonical-starter-pack.readthedocs-hosted.com/stable/sitemapindex.xml
 
