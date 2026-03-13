@@ -1,11 +1,14 @@
 .. _how-to-add-documentation-testing:
 
 Use Spread to test commands in documentation
-==========================================
+============================================
 
 It's challenging to keep documentation in sync with products as they evolve. This
 process is aided by *Spread*, a test distributor that can work through your
 documentation and report failures in GitHub workflows.
+
+By using Spread tests, you can rely on the tests as the source of truth for commands
+in your documentation, enabling fully tested documentation at build time.
 
 What you'll need
 ----------------
@@ -169,13 +172,34 @@ The ``summary`` section contains a brief description of the documentation you're
 the ``prepare`` section contains any initial setup your test needs,
 and the ``execute`` section contains your documentation's commands.
 The ``kill-timeout`` option has a default of 10 minutes and doesn't need to be
-included if you expect your test to complete in that time frame. 
+included if you expect your test to complete in that time frame.
+
+.. note::
+
+  For a real-world example, see ``task.yaml`` for
+  `the Rockcraft Go tutorial. <https://github.com/canonical/rockcraft/blob/main/docs/tutorial/code/go/task.yaml>`_
 
 Include the tested commands in documentation
 --------------------------------------------
 
 By using the ``literalinclude`` directive in Sphinx, you can insert the
-exact commands from ``task.yaml`` in your documentation file like so:
+exact commands from ``task.yaml`` in your documentation file.
+
+For example, consider the following ``task.yaml`` file:
+
+.. code-block:: yaml
+    :caption: task.yaml
+
+    summary: Clone and build the starter pack
+
+    kill-timeout: 5m
+
+    execute: |
+      git clone https://github.com/canonical/sphinx-docs-starter-pack.git
+      cd docs
+      make run
+
+Include the commands from ``task.yaml`` in your documentation with:
 
 .. tab-set::
 
@@ -183,26 +207,51 @@ exact commands from ``task.yaml`` in your documentation file like so:
       :sync: rest-commands
 
       .. code-block:: rst
-        :caption: Example ``literalinclude`` block
+        :caption: Example ``literalinclude`` blocks
+
+        Clone the starter pack:
 
         .. literalinclude:: relative-path-to/task.yaml
             :language: bash
-            :start-at: echo "This is the first command that Spread will run"
-            :end-at: echo "This is the first command that Spread will run"
+            :start-at: git clone https://github.com/canonical/sphinx-docs-starter-pack.git
+            :end-at: git clone https://github.com/canonical/sphinx-docs-starter-pack.git
+            :dedent: 2
+
+        Enter the ``docs`` folder and build the project:
+
+        .. literalinclude:: relative-path-to/task.yaml
+            :language: bash
+            :start-at: cd docs
+            :end-at: make run
             :dedent: 2
 
    .. tab-item:: MyST
       :sync: myst-commands
 
       .. code-block:: md
-        :caption: Example ``literalinclude`` block
+        :caption: Example ``literalinclude`` blocks
+
+        Clone the starter pack:
 
         ```{literalinclude} relative-path-to/task.yaml
         :language: bash
-        :start-at: echo "This is the first command that Spread will run"
-        :end-at: echo "This is the first command that Spread will run"
+        :start-at: git clone https://github.com/canonical/sphinx-docs-starter-pack.git
+        :end-at: git clone https://github.com/canonical/sphinx-docs-starter-pack.git
         :dedent: 2
         ```
+
+        Enter the `docs` folder and build the project:
+
+        ```{literalinclude} relative-path-to/task.yaml
+        :language: bash
+        :start-at: cd docs
+        :end-at: make run
+        :dedent: 2
+        ```
+
+By using the options ``:start-at:`` and ``:end-at:``, the documentation file
+sources and includes all commands appearing in ``task.yaml`` between the
+specified lines (inclusive).
 
 Run tests locally
 -----------------
