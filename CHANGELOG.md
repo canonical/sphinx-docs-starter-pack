@@ -19,6 +19,7 @@
 * Revert the switch to a reusable `automatic-doc-checks.yml` workflow.
 * Add `-q` flag to linkchecker to only report errors or broken links.
 * Update dependency canonical-sphinx to 0.6.0 or higher.
+* Update the default runner version for markdown linting.
 
 ### Changed
 
@@ -29,6 +30,7 @@
 * `docs/reference/myst-syntax-reference.md` [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/502)
 * `docs/reference/rst-syntax-reference.rst` [#502](https://github.com/canonical/sphinx-docs-starter-pack/pull/502)
 * `.github/workflows/automatic-doc-checks.yml` [#514](https://github.com/canonical/sphinx-docs-starter-pack/pull/514)
+* `.github/workflows/markdown-style-checks.yml [#535](https://github.com/canonical/sphinx-docs-starter-pack/pull/535)
 * `docs/requirements.txt` [#543](https://github.com/canonical/sphinx-docs-starter-pack/pull/543)
 
 ## 1.4.1
@@ -37,7 +39,6 @@
 
 ### Changed
 
-* Fix compatiblity with dependencies by updating the Ubuntu image version to run the markdown checks
 * `docs/.sphinx/version` [#516](https://github.com/canonical/sphinx-docs-starter-pack/pull/516)
 
 ## 1.4.0
