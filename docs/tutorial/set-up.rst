@@ -11,7 +11,9 @@ This page contains a short guide on how to set up and use the starter pack.
 Copy the starter pack
 =====================
 
-If you're starting a new project, clone the `starter pack repository <https://github.com/canonical/sphinx-docs-starter-pack>`_ and begin your project from there.
+If you're starting a new project, `copy the starter pack as a template repository <https://github.com/new?template_name=sphinx-docs-starter-pack&template_owner=canonical>`__.
+
+If you're creating documentation for a Canonical project, set the owner to **canonical**.
 
 If you're adding documentation to an existing software project, copy the following files from the starter pack repository into your project:
 
@@ -29,6 +31,7 @@ Next, review the starter pack files and remove those that could interfere with y
 
 Remove the files that can't be reused:
 
+- :file:`CONTRIBUTING.md`
 - :file:`.github/CODEOWNERS`
 - :file:`.github/workflows/test-starter-pack.yml`
 

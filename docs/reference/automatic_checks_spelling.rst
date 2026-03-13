@@ -1,4 +1,4 @@
-.. _automatic-checks-spelling:
+.. _reference-automatic-checks-spelling:
 
 Spelling check
 ==============
@@ -20,6 +20,9 @@ Configure the spelling check
 
 The Vale repository `includes a common list of words <https://github.com/canonical/documentation-style-guide/blob/main/styles/config/vocabularies/Canonical/accept.txt>`_ that will be excluded from the check.
 To add custom exceptions for your project, add them to the :file:`.custom_wordlist.txt` file.
+
+
+.. _reference-automatic-checks-spelling-vale-ignore:
 
 Exclude specific terms
 ----------------------

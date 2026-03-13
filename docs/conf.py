@@ -231,6 +231,7 @@ redirects = {
     'reference/doc-cheat-sheet/': '../rst-syntax-reference',
     'reference/style-guide-myst/': '../myst-syntax-reference',
     'reference/style-guide/': '../rst-syntax-reference',
+    'how-to/migrate-from-pre-extension': '../update-starter-packs/pre-extension/'
 }
 
 
@@ -244,7 +245,11 @@ redirects = {
 
 linkcheck_ignore = [
     "http://127.0.0.1:8000",
-    "https://github.com/canonical/ACME/*"
+    "https://github.com",
+    r"https://matrix\.to/.*",
+    "https://example.com",
+    # SourceForge domains often block linkcheck
+    r"https://.*\.sourceforge\.(net|io)/.*",
     ]
 
 
@@ -357,7 +362,7 @@ rst_prolog = """
 # Workaround for https://github.com/canonical/canonical-sphinx/issues/34
 
 if "discourse_prefix" not in html_context and "discourse" in html_context:
-    html_context["discourse_prefix"] = html_context["discourse"] + "/t/"
+    html_context["discourse_prefix"] = f"{html_context['discourse']}/t/"
 
 # Workaround for substitutions.yaml
 
@@ -366,8 +371,7 @@ if os.path.exists('./reuse/substitutions.yaml'):
         myst_substitutions = yaml.safe_load(fd.read())
 
 # Add configuration for intersphinx mapping
-
+# Map only the Sphinx documentation sets that you need to link to from your docs set.
 intersphinx_mapping = {
-    'starter-pack': ('https://canonical-example-product-documentation.readthedocs-hosted.com/en/latest', None),
     'sphinxcontrib-mermaid': ('https://sphinxcontrib-mermaid-demo.readthedocs.io/en/latest', None)
 }

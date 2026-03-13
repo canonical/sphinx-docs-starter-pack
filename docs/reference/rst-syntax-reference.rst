@@ -419,12 +419,12 @@ You can add targets at any place in the documentation. However, if there is no h
    * - ``:ref:`a_section_target```
      - :ref:`a_section_target`
      - References a target that has a title.
-   * - ``:ref:`Link text <a_random_target>```
-     - :ref:`Link text <a_random_target>`
+   * - ``:ref:`Provided link text <a_random_target>```
+     - :ref:`Provided link text <a_random_target>`
      - References a target and specifies a title.
-   * - ``:ref:`starter-pack:home```
-     - :ref:`starter-pack:home`
-     - You can also reference targets in other doc sets.
+   * - ``:external+project_key:ref:`an_external_target```
+     - Default link text
+     - You can also reference targets in other Sphinx projects. ``project-key`` must be a key in the ``intersphinx_mapping`` dictionary in ``conf.py``. The link text defaults to the target's title.
 
 Adhere to the following conventions:
 
@@ -439,23 +439,25 @@ If a documentation page does not have a target, you can still reference it by us
 
 .. list-table::
    :header-rows: 1
+   :widths: 8 2
 
    * - Input
      - Output
    * - ``:doc:`index```
      - :doc:`index`
-   * - ``:doc:`Link text <index>```
-     - :doc:`Link text <index>`
-   * - ``:doc:`starter-pack:how-to/index```
-     - :doc:`starter-pack:how-to/index`
-   * - ``:doc:`Link text <starter-pack:how-to/index>```
-     - :doc:`Link text <starter-pack:how-to/index>`
+   * - ``:doc:`Provided link text <index>```
+     - :doc:`Provided link text <index>`
+   * - ``:external+project_key:doc:`howto/index```
+     - Default link text (from document title)
+   * - ``:external+project_key:doc:`Provided link text <how-to/index>```
+     - Provided link text
 
 Adhere to the following conventions:
 
 - Only use the ``:doc:`` role when you cannot use the ``:ref:`` role, thus only if there is no target at the top of the file and you cannot add it. When using the ``:doc:`` role, your reference will break when a file is renamed or moved.
 - Override the link text only when it is necessary. If you can use the document title as link text, do so, because the text will then update automatically if the title changes.
 - Never "override" the link text with the same text that would be generated automatically.
+- When using an external target, ``project_key`` must be a key in the ``intersphinx_mapping`` dictionary in ``conf.py``.
 
 Navigation
 ----------

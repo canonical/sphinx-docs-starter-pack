@@ -47,3 +47,4 @@ In this documentation
     How-to guides <how-to/index>
     Reference <reference/index>
     Explanation <explanation/index>
+    Release notes <release-notes/index>

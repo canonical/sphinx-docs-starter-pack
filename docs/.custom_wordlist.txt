@@ -11,10 +11,12 @@ freefont
 github
 GPG
 gyre
+hotfix(es)?
 https
 html
 io
 Intersphinx
+Kompare
 lang
 LaTeX
 latexmk
@@ -39,6 +41,7 @@ texlive
 TOC
 toctree
 txt
+ulwazi
 uncomment(ing)?
 utils
 uv
@@ -72,4 +75,9 @@ Numpy
 openapi
 docstrings?
 Makefile
+rediraffe
 retrigger(ing)?
+Diátaxis
+preconfigured
+venv
+rtd

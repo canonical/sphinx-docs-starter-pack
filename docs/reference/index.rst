@@ -5,7 +5,6 @@ These documents provide an overview of different features of the starter pack.
 
 Also see the following information:
 
-- `Example product documentation`_ and `Example product documentation repository`_
 - `Sphinx documentation starter pack repository`_
 
 Contents
@@ -16,5 +15,7 @@ Contents
 
    automatic_checks
    removed-url-check
+   default-extensions
    rst-syntax-reference
    myst-syntax-reference
+   
