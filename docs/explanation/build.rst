@@ -21,7 +21,7 @@ files. They are conditional variables, so other systems can invoke the build at
 different locations without changing the docs ``Makefile``.
 
 Being primarily a Python project, all dependencies are stored in a virtual environment,
-``docs/.sphinx/venv``. The environment is ephemeral and subject to frequent change.
+``docs/.venv`` by default. The environment is ephemeral and subject to frequent change.
 Installing the starter pack initializes it, while cleaning and upgrading tears it
 down and rebuilds it.
 
@@ -45,7 +45,7 @@ files would be arranged along these lines:
     ├── ...
     ├── docs
     │   ├── ...
-    │   ├── .sphinx/venv
+    │   ├── .venv
     │   └── Makefile
     ├── src
     │   └── ...
