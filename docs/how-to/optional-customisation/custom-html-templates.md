@@ -1,6 +1,6 @@
-(custom-templates)=
+(custom-html-templates)=
 
-# Use custom templates
+# Use custom HTML templates
 
 If the default template in the Starter Pack doesn't fully meet your needs -- whether you want a unique layout, a custom header or footer, or a specialized sidebar for certain pages -- you can create and use a custom template for your Sphinx project.
 

@@ -59,7 +59,7 @@ The default starter pack templates provide an initial configuration for your doc
 These project settings are configured in :file:`docs/conf.py` and are generally sufficient for most cases.
 However, if you have additional requirements -- such as adding links to announcements or videos that are not part of the documentation -- you can override the default templates to customize them as needed.
 
-See the :ref:`custom-templates` guide for details on how to do so.
+See the :ref:`custom-html-templates` guide for details on how to do so.
 
 Deactivate the feedback button
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

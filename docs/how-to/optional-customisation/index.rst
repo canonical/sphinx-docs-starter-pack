@@ -13,7 +13,7 @@ This includes adding extensions, modifying the build process, and adding custom 
     customise-your-build
     customise-pdf
     Test code in your docs <test-code-in-your-docs>
-    Use custom templates <custom-templates>
+    Use custom HTML templates <custom-html-templates>
     Add Mermaid diagrams <mermaid-diagrams>
     Add Python docstrings <python-docstrings>
     Add OpenAPI specifications <openapi-specifications>

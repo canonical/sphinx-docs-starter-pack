@@ -4,7 +4,7 @@
 :relatedlinks: [GNU&#32;Make](https://www.gnu.org/software/make/)
 
 
-.. _build-system:
+.. _build:
 
 Build system
 ============

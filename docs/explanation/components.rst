@@ -112,7 +112,7 @@ functionality for building documentation or performing tests in a simplified for
 managing required dependencies. For example, instead of using  the ``sphinx-build
 linkcheck SOURCEDIR OUTPUTDIR`` command, you can use ``make linkcheck``. 
 
-See :ref:`build-system` to learn how the local build process works.  
+See :ref:`build` to learn how the local build process works.  
 
 Additionally, the Makefile provides commands to trigger third-party CLI tools, such as
 the Vale prose linter for :ref:`automatic-checks-styleguide`.

@@ -38,7 +38,7 @@ docs build in a parent Python project.
 Build explanation
 ~~~~~~~~~~~~~~~~~
 
-We've released an :ref:`explanation of the starter pack build <build-system>` to
+We've released an :ref:`explanation of the starter pack build <build>` to
 share with you some of its design and inner workings.
 
 

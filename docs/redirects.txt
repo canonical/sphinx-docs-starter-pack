@@ -22,7 +22,7 @@
 "how-to/update-starter-packs/pre-extension" "how-to/update-starter-packs/legacy-starter-pack"
 "how-to/bridge-project-and-doc-builds/" "how-to/optional-customisation/customise-your-build"
 "how-to/create-data-tables/" "how-to/optional-customisation/interactive-tables"
-"how-to/custom-templates/" "how-to/optional-customisation/custom-templates"
+"how-to/custom-templates/" "how-to/optional-customisation/custom-html-templates"
 "how-to/customise-pdf/" "how-to/optional-customisation/customise-pdf"
 "how-to/diagrams-as-code-mermaid/" "how-to/optional-customisation/mermaid-diagrams"
 "how-to/import-docstrings-with-autodoc/" "how-to/optional-customisation/"
@@ -42,5 +42,3 @@
 "reference/style-guide-myst" "reference/myst-syntax-reference"
 "reference/doc-cheat-sheet" "reference/rst-syntax-reference"
 "reference/style-guide" "reference/rst-syntax-reference"
-
-"explanation/build/" "explanation/build-system"
