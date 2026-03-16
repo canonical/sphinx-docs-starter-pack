@@ -6,8 +6,8 @@
 
 .. _build:
 
-Build system
-============
+Build
+======
 
 Canonical's Starter Pack uses Make as its build system. Make was chosen because it's
 well-tested and available on all platforms. The majority of the build configuration is
