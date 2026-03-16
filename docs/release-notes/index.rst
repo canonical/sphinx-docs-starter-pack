@@ -11,12 +11,13 @@ the release and support policies for the starter pack.
 Latest release
 --------------
 
-- :ref:`release-1.5`
+- :ref:`release-1.6`
 
 
 Past releases
 -------------
 
+- :ref:`release-1.5`
 - :ref:`release-1.4`
 
 
@@ -43,5 +44,6 @@ modifications. It has numbers for major and minor version, but *not* patch versi
 .. toctree::
     :hidden:
 
+    1.6 <1.6>
     1.5 <1.5>
     1.4 <1.4>
