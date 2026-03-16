@@ -15,7 +15,6 @@ Contents
 
    troubleshooting
    automatic_checks
-   removed-url-check
    default-extensions
    rst-syntax
    myst-syntax

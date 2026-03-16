@@ -24,7 +24,6 @@ your documentation needs.
     publish-on-rtd
     update-starter-packs/index.rst
     test-ulwazi-theme
-    troubleshoot-issues
 
 Optional features and customisation
 -----------------------------------

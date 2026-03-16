@@ -112,7 +112,7 @@ functionality for building documentation or performing tests in a simplified for
 managing required dependencies. For example, instead of using  the ``sphinx-build
 linkcheck SOURCEDIR OUTPUTDIR`` command, you can use ``make linkcheck``. 
 
-See :ref:`explanation-build` to learn how the local build process works.  
+See :ref:`build-system` to learn how the local build process works.  
 
 Additionally, the Makefile provides commands to trigger third-party CLI tools, such as
 the Vale prose linter for :ref:`automatic-checks-styleguide`.
@@ -128,7 +128,7 @@ If you are publishing your documentation through Read the Docs, the Read the Doc
 logic is declared in ``.readthedocs.yaml``. The Starter Pack comes with a pre-configured
 ``.readthedocs.yaml`` with default values that should work for the majority of projects.
 
-See :ref:`rtd` to learn how configure your Read the Docs instance.  
+See :ref:`publish-on-rtd` to learn how configure your Read the Docs instance.  
 
 .. figure:: assets/rtd-build.png
     :class: with-border
