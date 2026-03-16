@@ -1,0 +1,47 @@
+# Client-side page redirects. Each mapping takes the format:
+#
+#     "<old path>" "<current path>"
+#
+# Paths must be represented as source files relative to the root of the docs directory.
+# The old path must be a file that doesn"t exist in the source. The current path must be
+# a file that does exist in the source.
+
+"reference/doc-cheat-sheet-myst" "reference/myst-syntax-reference"
+"reference/style-guide-myst" "reference/myst-syntax-reference"
+"reference/doc-cheat-sheet" "reference/rst-syntax-reference"
+"reference/style-guide" "reference/rst-syntax-reference"
+
+"how-to/migrate-from-pre-extension" "how-to/update-starter-packs/legacy-starter-pack"
+"how-to/update-starter-packs/pre-extension" "how-to/update-starter-packs/legacy-starter-pack"
+
+"tutorial/" "tutorial/set-up-a-new-project"
+"tutorial/set-up-automated-testing/" "how-to/optional-customisation/test-code-in-your-docs"
+"tutorial/set-up/" "tutorial/set-up-a-new-project"
+
+"how-to/customise/" "how-to/configure-your-project"
+"how-to/rtd/" "how-to/publish-on-rtd"
+"how-to/update/" "how-to"
+"how-to/prereqs/" "how-to"
+"how-to/build/" "how-to/build-and-preview"
+"how-to/edit/" "tutorial/set-up-a-new-project"
+"how-to/guidance/" "how-to"
+# "how-to/migrate-from-pre-extension" "../update-starter-packs/pre-extension/"
+# "how-to/bridge-project-and-doc-builds/" "../optional-customisation/customise-your-build"
+# "how-to/create-data-tables/" "../optional-customisation/add-interactive-tables"
+# "how-to/custom-templates/" "../optional-customisation/custom-templates"
+# "how-to/customise-pdf/" "../optional-customisation/customise-pdf"
+# "how-to/diagrams-as-code-mermaid/" "../optional-customisation/mermaid-diagrams"
+# "how-to/import-docstrings-with-autodoc/" "../optional-customisation/"
+# "how-to/openapi/" "../optional-customisation/openapi-specifications"
+# "how-to/troubleshoot-issues/" "../../reference/troubleshooting"
+# "how-to/set-up-sitemaps/" "../../explanation/sitemaps"
+# 
+# "reference/removed-url-check/" "../automatic_checks_removed-url-check"
+# "reference/myst-syntax-reference/" "../myst-syntax"
+# "reference/style-guide-myst/" "../myst-syntax"
+# "reference/doc-cheat-sheet-myst/" "../myst-syntax"
+# "reference/rst-syntax-reference/" "../rst-syntax"
+# "reference/style-guide/" "../rst-syntax"
+# "reference/doc-cheat-sheet/" "../rst-syntax"
+# 
+"explanation/build/" "explanation/build-system"

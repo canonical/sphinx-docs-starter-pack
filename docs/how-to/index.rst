@@ -23,6 +23,8 @@ your documentation needs.
     build-and-preview
     publish-on-rtd
     update-starter-packs/index.rst
+    test-ulwazi-theme
+    troubleshoot-issues
 
 Optional features and customisation
 -----------------------------------

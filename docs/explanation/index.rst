@@ -14,5 +14,7 @@ The starter pack is built using standard Python tools, and is both deep and flex
 .. toctree::
     :maxdepth: 1
 
-    build-system
+    build
     sitemaps
+    components
+

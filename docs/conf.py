@@ -217,48 +217,13 @@ sitemap_excludes = [
 # Redirects #
 #############
 
-# To set up redirects: https://documatt.gitlab.io/sphinx-reredirects/usage.html
-# For example: 'explanation/old-name.html': '../how-to/prettify.html',
+# Add redirects to the 'redirects.txt' file
+# https://sphinxext-rediraffe.readthedocs.io/en/latest/
 
 # To set up redirects in the Read the Docs project dashboard:
 # https://docs.readthedocs.io/en/stable/guides/redirects.html
 
-# NOTE: If undefined, set to None, or empty,
-#       the sphinx_reredirects extension will be disabled.
-
-redirects = {
-    'tutorial/': '../set-up-a-new-project',
-    'tutorial/set-up-automated-testing/': '../../how-to/optional-customisation/test-code-in-your-docs',
-    'tutorial/set-up/': '../../set-up-a-new-project',
-
-    'how-to/customise/': '../configure-your-project',
-    'how-to/rtd/': '../publish-on-rtd',
-    'how-to/update/':'..',
-    'how-to/prereqs/': '..',
-    'how-to/build/': '../build-and-preview',
-    'how-to/edit/': '../../set-up-a-new-project',
-    'how-to/guidance/': '..',
-    'how-to/migrate-from-pre-extension': '../update-starter-packs/pre-extension/',
-    'how-to/bridge-project-and-doc-builds/': '../optional-customisation/customise-your-build',
-    'how-to/create-data-tables/': '../optional-customisation/add-interactive-tables',
-    'how-to/custom-templates/': '../optional-customisation/custom-templates',
-    'how-to/customise-pdf/': '../optional-customisation/customise-pdf',
-    'how-to/diagrams-as-code-mermaid/': '../optional-customisation/mermaid-diagrams',
-    'how-to/import-docstrings-with-autodoc/': '../optional-customisation/',
-    'how-to/openapi/': '../optional-customisation/openapi-specifications',
-    'how-to/troubleshoot-issues/': '../../reference/troubleshooting',
-    'how-to/set-up-sitemaps/': '../../explanation/sitemaps',
-
-    'reference/removed-url-check/': '../automatic_checks_removed-url-check',
-    'reference/myst-syntax-reference/': '../myst-syntax',
-    'reference/style-guide-myst/': '../myst-syntax',
-    'reference/doc-cheat-sheet-myst/': '../myst-syntax',
-    'reference/rst-syntax-reference/': '../rst-syntax',
-    'reference/style-guide/': '../rst-syntax',
-    'reference/doc-cheat-sheet/': '../rst-syntax',
-    
-    'explanation/build/': '../build-system',
-}
+rediraffe_redirects = "redirects.txt"
 
 
 ###########################
@@ -309,6 +274,7 @@ extensions = [
     "canonical_sphinx",
     "notfound.extension",
     "sphinx_design",
+    "sphinxext.rediraffe",
     "sphinx_reredirects",
     "sphinx_tabs.tabs",
     "sphinxcontrib.jquery",

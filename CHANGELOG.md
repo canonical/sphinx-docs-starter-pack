@@ -1,5 +1,18 @@
 # sphinx-docs-starter-pack changelog
 
+## Upcoming
+
+* Fix the handling of non-zero exit codes from pymarkdownlnt.
+* Add a how-to guide about testing the Ulwazi theme.
+* Make rediraffe the default extension for page redirects
+
+### Changed
+
+* `docs/Makefile` [#551](https://github.com/canonical/sphinx-docs-starter-pack/pull/551)
+* `docs/.sphinx/.wordlist.txt` [#520](https://github.com/canonical/sphinx-docs-starter-pack/pull/520)
+* `docs/conf.py` [#558](https://github.com/canonical/sphinx-docs-starter-pack/pull/558)
+* `docs/redirects.txt` [#558](https://github.com/canonical/sphinx-docs-starter-pack/pull/558)
+
 ## 1.5
 
 * Add `CONTRIBUTING.md`.
