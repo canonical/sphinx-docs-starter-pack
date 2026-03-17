@@ -195,9 +195,14 @@ For example, consider the following ``task.yaml`` file:
     kill-timeout: 5m
 
     execute: |
+      # [docs:clone-starter-pack]
       git clone https://github.com/canonical/sphinx-docs-starter-pack.git
-      cd docs
+      # [docs:clone-starter-pack-end]
+
+      # [docs:build-documentation]
+      cd sphinx-docs-starter-pack/docs
       make run
+      # [docs:build-documentation-end]
 
 Include the commands from ``task.yaml`` in your documentation with:
 
@@ -213,16 +218,16 @@ Include the commands from ``task.yaml`` in your documentation with:
 
         .. literalinclude:: relative-path-to/task.yaml
             :language: bash
-            :start-at: git clone https://github.com/canonical/sphinx-docs-starter-pack.git
-            :end-at: git clone https://github.com/canonical/sphinx-docs-starter-pack.git
+            :start-after: [docs:clone-starter-pack]
+            :end-before: [docs:clone-starter-pack-end]
             :dedent: 2
 
         Enter the ``docs`` folder and build the project:
 
         .. literalinclude:: relative-path-to/task.yaml
             :language: bash
-            :start-at: cd docs
-            :end-at: make run
+            :start-after: [docs:build-documentation]
+            :end-before: [docs:build-documentation-end]
             :dedent: 2
 
    .. tab-item:: MyST
@@ -235,8 +240,8 @@ Include the commands from ``task.yaml`` in your documentation with:
 
         ```{literalinclude} relative-path-to/task.yaml
         :language: bash
-        :start-at: git clone https://github.com/canonical/sphinx-docs-starter-pack.git
-        :end-at: git clone https://github.com/canonical/sphinx-docs-starter-pack.git
+        :start-after: [docs:clone-starter-pack]
+        :end-before: [docs:clone-starter-pack-end]
         :dedent: 2
         ```
 
@@ -244,14 +249,14 @@ Include the commands from ``task.yaml`` in your documentation with:
 
         ```{literalinclude} relative-path-to/task.yaml
         :language: bash
-        :start-at: cd docs
-        :end-at: make run
+        :start-after: [docs:build-documentation]
+        :end-before: [docs:build-documentation-end]
         :dedent: 2
         ```
 
-By using the options ``:start-at:`` and ``:end-at:``, the documentation file
+By using the options ``:start-after:`` and ``:end-before:``, the documentation file
 sources and includes all commands appearing in ``task.yaml`` between the
-specified lines (inclusive).
+specified lines.
 
 Run tests locally
 -----------------
