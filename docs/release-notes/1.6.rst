@@ -7,7 +7,7 @@
 Canonical's Sphinx Starter Pack 1.6
 ===================================
 
-16 March 2026
+23 March 2026
 
 These release notes cover new features and changes in Canonical's Sphinx Starter Pack
 1.6. The `full commit log
@@ -27,13 +27,13 @@ What's new in 1.6
 New extension for redirects
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If your project has a lot of redirects, you'll know how quickly they can begin to
-clutter your build configuration file. To get around this, we've changed the default
-extension for redirects to ``sphinx-rerediraffe``, a fork of the ``sphinxext-rediraffe``
-extension.
+If your project has a lot of redirects, they can begin to clutter your build
+configuration file. To remedy this, we changed the default extension for redirects to
+sphinx-rerediraffe, a fork of sphinxext-rediraffe that suports external redirects and
+cleans up destination URLs.
 
-You can now define your redirects in a ``redirects.txt`` file and configure your
-project to use them with:
+You can now list redirects in a ``redirects.txt`` file and configure your project to use
+them with:
 
 .. code-block:: diff
     :caption: conf.py
@@ -45,30 +45,26 @@ project to use them with:
     + rediraffe_redirects = "redirects.txt"
     + rediraffe_dir_only = True
 
-The ``sphinx-rerediraffe`` fork adds support for external redirects and aligns
-destination URLs with our current practices.
-
 
 Remote cookie banner files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Following the recent changes to our RTD cookie banner, we evaluated how its files are
-distributed and maintained. In version 1.6, these files are now hosted centrally and
-no longer need to be duplicated in every project collecting analytics.
-
-To enable Google Analytics with the new method, follow the steps in :ref:`Enable Google
-Analytics <how-to-enable-google-analytics>`.
+Following the recent changes to the cookie banner, we evaluated how its files are
+distributed and maintained. In version 1.6, these files are hosted centrally so you
+don't need to duplicate them to collect analytics for your project.
 
 If you've already enabled Google Analytics in your project, you should make it a
-priority to use the centrally-hosted files, as they contain important legal changes.
-Once you update your Starter Pack, be sure to remove your local copies of
-``cookie-banner.css`` and ``bundle.js``.
+priority to use the centrally-hosted files, as they contain important legal changes. For
+guidance, refer to :ref:`how-to-enable-google-analytics`.
 
 
 Virtual environment path
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-We've moved the Python virtual environment from ``docs/.sphinx/venv`` to ``docs/.venv``.
+To make the Python virtual environment more discoverable, we moved it from
+``docs/.sphinx/venv`` to ``docs/.venv``. This also preserves the ``.sphinx/``
+directory's scope, which is to house static utility files.
+
 Once you've replaced all occurrences of the old path, remove the old virtual
 environment.
 
@@ -76,9 +72,8 @@ environment.
 Ulwazi testing guide
 ~~~~~~~~~~~~~~~~~~~~
 
-Our new Sphinx theme based on the Vanilla framework, Ulwazi, has been is now available
-for testing. To try it out, follow the :ref:`how-to-test-ulwazi-theme` guide we
-published.
+Our new Sphinx theme based on the Vanilla framework, Ulwazi, is now available for
+testing. To try it out, follow the new guide, :ref:`how-to-test-ulwazi-theme`.
 
 
 Starter Pack explanation
@@ -95,11 +90,11 @@ The following features are deprecated and will be removed in an upcoming version
 the Starter Pack.
 
 
-``sphinx-reredirects``
-~~~~~~~~~~~~~~~~~~~~~~
+sphinx-reredirects
+~~~~~~~~~~~~~~~~~~
 
-The ``sphinx-reredirects`` extension was deprecated in 1.6. Redirects, both internal and
-external, should now be declared the ``sphinx-rerediraffe`` extension.
+The sphinx-reredirects extension is deprecated in 1.6. Redirects, both internal and
+external, should now be handled with ``sphinx-rerediraffe``.
 
 
 Fixed for 1.6
