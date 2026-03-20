@@ -51,7 +51,7 @@ Remote cookie banner files
 
 Following the recent changes to the cookie banner, we evaluated how its files are
 distributed and maintained. In version 1.6, these files are hosted centrally so you
-don't need to duplicate them to collect analytics for your project.
+don't need to duplicate them to enable Google Analytics for your project.
 
 If you've already enabled Google Analytics in your project, you should make it a
 priority to use the centrally-hosted files, as they contain important legal changes. For
