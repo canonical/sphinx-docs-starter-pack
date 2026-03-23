@@ -23,8 +23,8 @@ These extensions are enabled in the Starter Pack by default.
 ``sphinx_reredirects``
    Handles URL redirects for moved or deleted pages.
 
-   Support for this extension will be dropped in an upcoming release of the Starter
-   Pack. Update your documentation to use ``sphinxext-rediraffe`` instead.
+   Default Support for this extension will be dropped in an upcoming release of the 
+   Starter Pack. Update your documentation to use ``sphinxext-rediraffe`` instead.
 
    Needed by ``canonical_sphinx``.
 
