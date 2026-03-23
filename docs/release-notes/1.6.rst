@@ -29,7 +29,7 @@ New extension for redirects
 
 If your project has a lot of redirects, they can begin to clutter your build
 configuration file. To remedy this, we changed the default extension for redirects to
-sphinx-rerediraffe, a fork of sphinxext-rediraffe that suports external redirects and
+sphinx-rerediraffe, a fork of sphinxext-rediraffe that supports external redirects and
 cleans up destination URLs.
 
 In your docs, you can now list redirects in a ``redirects.txt`` file and configure your
@@ -103,7 +103,7 @@ Fixed for 1.6
 - `#535 <https://github.com/canonical/sphinx-docs-starter-pack/pull/535>`__ Markdown
   checks are incompatible with default runner version
 - `#550 <https://github.com/canonical/sphinx-docs-starter-pack/issues/550>`__ Makefile
-  doesn't allow for pymarkdownlnt to exit with a status code of 1
+  doesn't allow for :vale-ignore:`pymarkdownlnt` to exit with a status code of 1
 
 
 Contributors
