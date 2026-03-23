@@ -32,8 +32,8 @@ configuration file. To remedy this, we changed the default extension for redirec
 sphinx-rerediraffe, a fork of sphinxext-rediraffe that suports external redirects and
 cleans up destination URLs.
 
-You can now list redirects in a ``redirects.txt`` file and configure your project to use
-them with:
+In your docs, you can now list redirects in a ``redirects.txt`` file and configure your
+project to use them with:
 
 .. code-block:: diff
     :caption: conf.py
