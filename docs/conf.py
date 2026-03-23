@@ -224,6 +224,8 @@ sitemap_excludes = [
 # https://docs.readthedocs.io/en/stable/guides/redirects.html
 
 rediraffe_redirects = "redirects.txt"
+
+# Strips '/index.html' from destination URLs when building with 'dirhtml'
 rediraffe_dir_only = True
 
 
