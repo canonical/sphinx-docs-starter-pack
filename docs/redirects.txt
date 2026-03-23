@@ -10,8 +10,6 @@
 "reference/style-guide-myst" "reference/myst-syntax-reference"
 "reference/doc-cheat-sheet" "reference/rst-syntax-reference"
 "reference/style-guide" "reference/rst-syntax-reference"
-
 "how-to/migrate-from-pre-extension" "how-to/update-starter-packs/legacy-starter-pack"
 "how-to/update-starter-packs/pre-extension" "how-to/update-starter-packs/legacy-starter-pack"
-
-"test-redirect-input" "https://github.com/jahn-junior"
+"tutorial/set-up-automated-testing" "how-to/add-documentation-testing"
