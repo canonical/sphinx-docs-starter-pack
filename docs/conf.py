@@ -274,7 +274,7 @@ extensions = [
     "canonical_sphinx",
     "notfound.extension",
     "sphinx_design",
-    "sphinxext.rediraffe",
+    "sphinx-rerediraffe",
     "sphinx_reredirects",
     "sphinx_tabs.tabs",
     "sphinxcontrib.jquery",
