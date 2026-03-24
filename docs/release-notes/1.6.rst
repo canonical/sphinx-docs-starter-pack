@@ -7,7 +7,7 @@
 Canonical's Sphinx Starter Pack 1.6
 ===================================
 
-23 March 2026
+24 March 2026
 
 These release notes cover new features and changes in Canonical's Sphinx Starter Pack
 1.6. The `full commit log
