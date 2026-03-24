@@ -2,7 +2,7 @@
 
 ## Upcoming
 
-* Update how copyright and license info is displayed in the footer
+* Separate default configuration for copyright and license statements.
 * Fix the handling of non-zero exit codes from pymarkdownlnt.
 * Add a how-to guide about testing the Ulwazi theme.
 * Move the Python virtual environment from `docs/.sphinx/venv` to `docs/.venv`.
