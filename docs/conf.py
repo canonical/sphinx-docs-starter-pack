@@ -34,7 +34,7 @@ author = "Canonical Ltd."
 #
 # copyright = f"2026-{datetime.date.today().year}"
 
-copyright = datetime.date.today().year
+copyright = f"{datetime.date.today().year}"
 
 # Sidebar documentation title; best kept reasonably short
 #
