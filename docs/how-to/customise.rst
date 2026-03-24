@@ -85,39 +85,27 @@ It takes any Linux date format (for example, a full date, or an expression like 
 Add redirects
 ~~~~~~~~~~~~~
 
-If you rename a source file, its URL will change.
-To prevent broken links, you should add a redirect from the old URL to the new URL in this case.
+If you rename a source file, its URL will change. To prevent broken links, you should
+add a redirect from the old URL to the new URL in this case.
 
-You can add redirects in the ``redirects`` variable in the :file:`docs/conf.py` file.
+You can add redirects in the ``docs/redirects.txt`` file. The paths for internal
+redirects are relative to the root of the docs project.
+
+.. code-block::
+
+    "path/to/old/page" "path/to/new/page"
+
+Destination paths can also be external URLs.
+
+.. code-block::
+
+    "path/to/old/page" "https://example.com/new-page"
 
 Configure included extensions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The starter pack includes a set of extensions that are useful for all documentation sets.
-They are pre-configured as needed, but you can customise their configuration in the  :file:`docs/conf.py` file.
-
-The following extensions are included by default:
-
-* ``canonical_sphinx``
-* ``notfound.extension``
-* ``sphinx.ext.intersphinx``
-* ``sphinx_config_options``
-* ``sphinx_contributor_listing``
-* ``sphinx_copybutton``
-* ``sphinx_design``
-* ``sphinx_filtered_toctree``
-* ``sphinx_last_updated_by_git``
-* ``sphinx_related_links``
-* ``sphinx_reredirects``
-* ``sphinx_roles``
-* ``sphinx_sitemap``
-* ``sphinx_tabs.tabs``
-* ``sphinx_terminal``
-* ``sphinx_ubuntu_images``
-* ``sphinx_youtube_links``
-* ``sphinxcontrib.cairosvgconverter``
-* ``sphinxcontrib.jquery``
-* ``sphinxext.opengraph``
+Some extensions are :ref:`enabled by default <reference-default-sphinx-extensions>` within the Starter Pack, but you can customize the selection in the  :file:`docs/conf.py` file.
 
 The ``canonical_sphinx`` extension is required for the starter pack and provides the Furo-based theme and custom templates.
 

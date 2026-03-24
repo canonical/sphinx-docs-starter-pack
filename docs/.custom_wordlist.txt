@@ -41,6 +41,7 @@ texlive
 TOC
 toctree
 txt
+ulwazi
 uncomment(ing)?
 utils
 uv
@@ -77,3 +78,6 @@ Makefile
 rediraffe
 retrigger(ing)?
 Diátaxis
+preconfigured
+venv
+rtd

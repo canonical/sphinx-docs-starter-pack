@@ -17,3 +17,4 @@ The starter pack is built using standard Python tools, and is both deep and flex
     :hidden:
 
     build
+    components
