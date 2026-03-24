@@ -15,6 +15,7 @@ Contents
 
    troubleshooting
    automatic_checks
+   ci-workflows
    default-extensions
    rst-syntax
    myst-syntax

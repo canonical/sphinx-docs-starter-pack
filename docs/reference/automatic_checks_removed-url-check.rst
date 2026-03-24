@@ -1,5 +1,5 @@
 Check for removed URLs
-======================
+~~~~~~~~~~~~~~~~~~~~~~
 
 .. versionadded:: 1.2.0
 
