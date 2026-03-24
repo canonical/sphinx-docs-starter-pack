@@ -45,6 +45,18 @@ project to use them with:
     + rediraffe_redirects = "redirects.txt"
     + rediraffe_dir_only = True
 
+If your project uses relative redirects, these should be rewritten relative to the
+root of the docs directory.
+
+For example, if you were previously redirecting ``/how-to/set-up/project/`` to
+``../set-up-project/``, the redirect should now read:
+
+.. code-block:: text
+    :caption: redirects.txt
+    :class: no-copybutton
+
+    "/how-to/set-up/project/" "/how-to/set-up-project/"
+
 
 Remote cookie banner files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
