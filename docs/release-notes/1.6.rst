@@ -106,7 +106,7 @@ sphinx-reredirects
 ~~~~~~~~~~~~~~~~~~
 
 The sphinx-reredirects extension is deprecated in 1.6. Redirects, both internal and
-external, should now be handled with ``sphinx-rerediraffe``.
+external, should now be handled with sphinx-rerediraffe.
 
 
 Fixed for 1.6
