@@ -27,22 +27,14 @@ import yaml
 project = "Documentation starter pack"
 author = "Canonical Ltd."
 
-# Copyright year; shown at the bottom of the page
+# The year in the copyright statement. Defaults to the current year, so
+# individual document versions show when they were built.
+# TODO: If the date must be a range, like in a software license, replace 
+# 2026 with the starting year of development and use:
 #
-# NOTE: For static works, it is common to provide the first publication year.
-#       Another option is to provide both the first year of publication
-#       and the current year, especially for docs that frequently change,
-#       e.g. 2022–2023 (note the en-dash).
-#
-#       A way to check a repo's creation date is to get a classic GitHub token
-#       with 'repo' permissions; see https://github.com/settings/tokens
-#       Next, use 'curl' and 'jq' to extract the date from the API's output:
-#
-#       curl -H 'Authorization: token <TOKEN>' \
-#         -H 'Accept: application/vnd.github.v3.raw' \
-#         https://api.github.com/repos/canonical/<REPO> | jq '.created_at'
+# copyright = f"2026-{datetime.date.today().year}"
 
-copyright = "2024"
+copyright = datetime.date.today().year
 
 # Sidebar documentation title; best kept reasonably short
 #
@@ -51,9 +43,6 @@ copyright = "2024"
 # TODO: To disable the title, set to an empty string.
 
 html_title = project + " documentation"
-
-
-
 
 
 # Documentation website URL
