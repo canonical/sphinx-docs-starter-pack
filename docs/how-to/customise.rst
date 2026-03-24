@@ -85,10 +85,21 @@ It takes any Linux date format (for example, a full date, or an expression like 
 Add redirects
 ~~~~~~~~~~~~~
 
-If you rename a source file, its URL will change.
-To prevent broken links, you should add a redirect from the old URL to the new URL in this case.
+If you rename a source file, its URL will change. To prevent broken links, you should
+add a redirect from the old URL to the new URL in this case.
 
-You can add redirects in the ``redirects`` variable in the :file:`docs/conf.py` file.
+You can add redirects in the ``docs/redirects.txt`` file. The paths for internal
+redirects are relative to the root of the docs project.
+
+.. code-block::
+
+    "path/to/old/page" "path/to/new/page"
+
+Destination paths can also be external URLs.
+
+.. code-block::
+
+    "path/to/old/page" "https://example.com/new-page"
 
 Configure included extensions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

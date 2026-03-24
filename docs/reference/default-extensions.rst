@@ -23,6 +23,9 @@ These extensions are enabled in the Starter Pack by default.
 ``sphinx_reredirects``
    Handles URL redirects for moved or deleted pages.
 
+   Default Support for this extension will be dropped in an upcoming release of the 
+   Starter Pack. Update your documentation to use ``sphinxext-rediraffe`` instead.
+
    Needed by ``canonical_sphinx``.
 
 ``sphinx_tabs.tabs``
@@ -39,6 +42,10 @@ These extensions are enabled in the Starter Pack by default.
    Generates OpenGraph metadata to create rich preview cards when links are shared on social media.
 
    Needed by ``canonical_sphinx``.
+
+``sphinxext-rediraffe``
+   Handles URL redirects for moved or deleted pages. Redirects can be defined as a
+   dictionary in the ``conf.py`` file or in a separate file.
 
 ``sphinx.ext.intersphinx``
    Generates automatic links to the documentation objects of other Sphinx projects.

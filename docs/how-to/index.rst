@@ -43,3 +43,4 @@ While some of these features are available by default in the starter pack, other
     import-docstrings-with-autodoc
     openapi
     custom-templates
+    add-documentation-testing
