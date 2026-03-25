@@ -75,4 +75,4 @@ update, requiring a rewrite of the parent build recipes.
 
 The solution to these complications is to create a bridge between the two builds, from
 the parent build to the docs ``Makefile``.
-:ref:`customise-your-build` is a guide for how to do this.
+:ref:`bridge-project-and-docs-builds` is a guide for how to do this.

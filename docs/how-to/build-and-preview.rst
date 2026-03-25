@@ -10,7 +10,7 @@ This guide describes how to set up your environment and use these commands to bu
 For more advanced information, including how to embed your docs build with your project build, see:
 
 - :ref:`build`
-- :ref:`How to customise your build <customise-your-build>`
+- :ref:`bridge-project-and-docs-builds`
 
 Install prerequisite software
 -----------------------------

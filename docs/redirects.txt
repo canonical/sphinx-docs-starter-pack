@@ -20,7 +20,7 @@
 "how-to/guidance/" "how-to"
 "how-to/migrate-from-pre-extension" "how-to/update-starter-packs/legacy-starter-pack"
 "how-to/update-starter-packs/pre-extension" "how-to/update-starter-packs/legacy-starter-pack"
-"how-to/bridge-project-and-doc-builds/" "how-to/optional-customisation/customise-your-build"
+"how-to/bridge-project-and-doc-builds/" "how-to/optional-customisation/bridge-project-and-docs-builds"
 "how-to/create-data-tables/" "how-to/optional-customisation/interactive-tables"
 "how-to/custom-templates/" "how-to/optional-customisation/custom-html-templates"
 "how-to/customise-pdf/" "how-to/optional-customisation/customise-pdf"

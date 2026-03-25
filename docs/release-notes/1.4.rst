@@ -31,7 +31,7 @@ projects. With 1.4.0, the docs ``Makefile`` is now properly callable by a parent
 system, because the main build can ensure the ``VENVDIR``, ``BUILDDIR``, and ``VALEDIR``
 variables are set to the right locations in the project.
 
-The new guide :ref:`customise-your-build` covers in detail how to integrate the
+The new guide :ref:`bridge-project-and-docs-builds` covers in detail how to integrate the
 docs build in a parent Python project.
 
 
