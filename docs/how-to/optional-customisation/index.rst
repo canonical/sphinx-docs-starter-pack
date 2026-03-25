@@ -10,8 +10,8 @@ This includes adding extensions, modifying the build process, and adding custom 
 .. toctree::
     :maxdepth: 1
 
-    customise-your-build
-    customise-pdf
+    Bridge project and docs builds <bridge-project-and-docs-builds>
+    Customise PDF output <customise-pdf>
     Use Spread to test commands in documentation <add-documentation-testing>
     Use custom HTML templates <custom-html-templates>
     Add Mermaid diagrams <mermaid-diagrams>
