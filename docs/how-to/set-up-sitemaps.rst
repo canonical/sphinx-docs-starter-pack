@@ -149,7 +149,7 @@ file, and point to the sitemap files of each of your documentation sets:
 Create a ``robots.txt`` file in the same directory as the configuration file.
 
 If necessary, block any paths you don't want crawled. Google describes how to do this in
-`How to write and submit a robost.txt file
+`How to write and submit a robots.txt file
 <https://developers.google.com/crawling/docs/robots-txt/create-robots-txt#create_rules>`__.
 
 At the end of ``robots.txt``, point to the future path of ``sitemapindex.xml``:
