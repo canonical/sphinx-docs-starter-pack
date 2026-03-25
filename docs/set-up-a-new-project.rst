@@ -51,7 +51,7 @@ In :file:`docs`, run::
 
     make run
 
-This creates and activates a virtual environment in :file:`docs/.sphinx/venv`, builds the documentation and serves it at :literalref:`http://127.0.0.1:8000/`.
+This creates and activates a virtual environment in :file:`docs/.venv`, builds the documentation and serves it at :literalref:`http://127.0.0.1:8000/`.
 
 The server watches the source files, including :file:`docs/conf.py`, and rebuilds automatically on changes.
 

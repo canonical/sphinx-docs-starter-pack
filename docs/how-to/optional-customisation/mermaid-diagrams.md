@@ -99,7 +99,7 @@ Here are some Canonical projects that use Mermaid for diagramming in their docum
 
 - [Checkbox](https://canonical-checkbox.readthedocs-hosted.com/stable/explanation/remote/)
 - [cloud-init](https://docs.cloud-init.io/en/latest/explanation/boot.html)
-- [Charmed MySQL K8s](https://canonical-charmed-mysql-k8s.readthedocs-hosted.com/explanation/flowcharts/#)
+- [Charmed MySQL K8s](https://canonical-charmed-mysql-k8s.readthedocs-hosted.com/8.0/explanation/flowcharts/)
 - [Ubuntu Pro](https://documentation.ubuntu.com/pro/support-overview/)
 
 ## Related topics

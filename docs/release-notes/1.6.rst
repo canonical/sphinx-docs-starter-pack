@@ -1,0 +1,133 @@
+.. meta::
+    :description: The new features, changes, and fixes in Canonical's Sphinx Starter Pack 1.6.
+
+
+.. _release-1.6:
+
+Canonical's Sphinx Starter Pack 1.6
+===================================
+
+24 March 2026
+
+These release notes cover new features and changes in Canonical's Sphinx Starter Pack
+1.6. The `full commit log
+<https://github.com/canonical/sphinx-docs-starter-pack/releases/tag/1.6>`__ is available
+on GitHub.
+
+Bring these changes into your docs:
+
+- :ref:`Update starter pack 1.3.0 and higher <update-new-starter-pack>`
+- :ref:`Update starter pack 1.2.0 and lower <update-legacy-starter-pack>`
+
+
+What's new in 1.6
+-----------------
+
+
+New extension for redirects
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If your project has a lot of redirects, they can begin to clutter your build
+configuration file. To remedy this, we changed the default extension for redirects to
+sphinx-rerediraffe, a fork of sphinxext-rediraffe that supports external redirects and
+cleans up destination URLs.
+
+In your docs, you can now list redirects in a ``redirects.txt`` file and configure your
+project to use them with:
+
+.. code-block:: diff
+    :caption: conf.py
+    :class: no-copybutton
+
+    - redirects = {
+    -     "source-path": "destination-path"
+    - }
+    + rediraffe_redirects = "redirects.txt"
+    + rediraffe_dir_only = True
+
+If your project uses relative redirects, these should be rewritten relative to the
+root of the docs directory.
+
+For example, if you were previously redirecting ``/how-to/set-up/project/`` to
+``../set-up-project/``, the redirect should now read:
+
+.. code-block:: text
+    :caption: redirects.txt
+    :class: no-copybutton
+
+    "/how-to/set-up/project/" "/how-to/set-up-project/"
+
+
+Remote cookie banner files
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Following the recent changes to the cookie banner, we evaluated how its files are
+distributed and maintained. In version 1.6, these files are hosted centrally so you
+don't need to duplicate them to enable Google Analytics for your project.
+
+If you've already enabled Google Analytics in your project, you should make it a
+priority to use the centrally-hosted files, as they contain important legal changes. For
+guidance, refer to :ref:`how-to-enable-google-analytics`.
+
+
+Virtual environment path
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+To make the Python virtual environment more discoverable, we moved it from
+``docs/.sphinx/venv`` to ``docs/.venv``. This also preserves the ``.sphinx/``
+directory's scope, which is to house static utility files.
+
+Once you've replaced all occurrences of the old path, remove the old virtual
+environment.
+
+
+Ulwazi testing guide
+~~~~~~~~~~~~~~~~~~~~
+
+Our new Sphinx theme based on the Vanilla framework, Ulwazi, is now available for
+testing. To try it out, follow the new guide, :ref:`how-to-test-ulwazi-theme`.
+
+
+Starter Pack explanation
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+We published :ref:`explanation-structure` to explain the functionality of and
+relationships between the core elements of the Starter Pack.
+
+
+Deprecated features
+-------------------
+
+The following features are deprecated and will be removed in an upcoming version of
+the Starter Pack.
+
+
+sphinx-reredirects
+~~~~~~~~~~~~~~~~~~
+
+The sphinx-reredirects extension is deprecated in 1.6. Redirects, both internal and
+external, should now be handled with sphinx-rerediraffe.
+
+
+Fixed for 1.6
+-------------
+
+- `#535 <https://github.com/canonical/sphinx-docs-starter-pack/pull/535>`__ Markdown
+  checks are incompatible with default runner version
+- `#550 <https://github.com/canonical/sphinx-docs-starter-pack/issues/550>`__ Makefile
+  doesn't allow for :vale-ignore:`pymarkdownlnt` to exit with a status code of 1
+
+
+Contributors
+------------
+
+We would like to express a big thank you to all the people who contributed to this
+release:
+
+:literalref:`akcano <https://github.com/akcano>`,
+:literalref:`AnneCYH <https://github.com/AnneCYH>`,
+:literalref:`arturo-seijas <https://github.com/arturo-seijas>`,
+:literalref:`jahn-junior <https://github.com/jahn-junior>`,
+:literalref:`odadacharles <https://github.com/odadacharles>`,
+:literalref:`wctaylor <https://github.com/wctaylor>`, and
+:literalref:`yhontyk <https://github.com/yhontyk>`
