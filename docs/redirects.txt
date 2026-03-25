@@ -8,7 +8,7 @@
 
 
 "tutorial/" "set-up-a-new-project"
-"tutorial/set-up-automated-testing/" "how-to/optional-customisation/test-code-in-your-docs"
+"tutorial/set-up-automated-testing/" "how-to/optional-customisation/add-documentation-testing"
 "tutorial/set-up/" "set-up-a-new-project"
 
 "how-to/customise/" "how-to/configure-your-project"
