@@ -110,11 +110,14 @@ as it is hosted on RTD:
 Support multiple versions
 -------------------------
 
-Sphinx sitemap does not support multiple versions by default. Configuring your
-versioned documentation to use an appropriate version may be sufficient, as
-Google and other automated tools will crawl websites for the purposes of indexing.
-However, if you want comprehensive sitemaps for your documentation and all its
-versions, you will need to deploy your own ``robots.txt`` file and sitemap index.
+The sphinx-sitemap extension doesn't support multiple versions by default. Configuring
+your versioned documentation to use an appropriate version may be sufficient, as search
+engines and other web systems crawl websites for the purposes of indexing.
+
+If you want sitemaps for all your documentation's versions, you need to deploy your own
+``robots.txt`` file and sitemap index. Supporting multiple versions is recommended for
+documentation with LTS releases, as it makes past versions more prominent to search
+engines.
 
 For this task, we'll use the Starter Pack as an example. Let's assume it has three
 versions, 1.0, 2.0, and 3.0, and uses the URL schema of ``<version>/<filename>``.
