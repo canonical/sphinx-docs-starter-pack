@@ -47,6 +47,8 @@ jobs:
       working-directory: "docs"
       run: |
         set -ex
+        echo "setuptools_scm<10" > /tmp/constraints.txt
+        PIP_CONSTRAINT=/tmp/constraints.txt \
         make install \
           PIPOPTS="--no-binary :all:" \
           || ( cat .venv/pip_install.log && exit 1 )
