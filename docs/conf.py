@@ -27,7 +27,7 @@ import yaml
 project = "Documentation starter pack"
 author = "Canonical Ltd."
 
-# The year in the copyright statement. Defaults to the current year, so
+# The year in the copyright statement defaults to the current year, so
 # individual document versions show when they were built.
 # TODO: If the date must be a range, like in a software license, replace 
 # 2026 with the starting year of development and use:
@@ -150,7 +150,7 @@ html_context = {
     #       it inherits the code license instead; specify it instead of 'CC-BY-SA'.
 
     "license": {
-        "name": "LGPL-3.0-only",
+        "name": "CC-BY-SA-3.0",
         "url": "https://github.com/canonical/sphinx-docs-starter-pack/blob/main/LICENSE",
     },
 }
