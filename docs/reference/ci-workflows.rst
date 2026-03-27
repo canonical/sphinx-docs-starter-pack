@@ -3,26 +3,37 @@
 CI Workflows
 ============
 
+The primary documentation workflow checks spelling, links, and inclusive language in a documentation project. `documentation-checks.yaml` workflow covers these three checks and can be added to a new or existing workflow's jobs with:
 
-Workflows are available for each individual check so that projects may run a subset of
-those defined in `documentation-checks.yaml`. The following jobs are equivalent to the
-`documentation-checks` job from the previous example:
+.. code:: yaml
 
-```yaml
-jobs:
-  spell-check:
-    uses: canonical/documentation-workflows/.github/workflows/spelling-check.yaml@main
-    with:
-      working-directory: "docs"
-  inclusive-language-check:
-    uses: canonical/documentation-workflows/.github/workflows/inclusive-language-check.yaml@main
-    with:
-      working-directory: "docs"    
-  link-check:
-    uses: canonical/documentation-workflows/.github/workflows/link-check.yaml@main
-    with:
-      working-directory: "docs"
-```
+  jobs:
+    [...]
+    documentation-checks:
+      uses: canonical/documentation-workflows/.github/workflows/documentation-checks.yaml@main
+      with:
+        working-directory: 'docs'
+
+
+Workflows are also available for each individual check so that projects may run a subset of
+those defined in `documentation-checks.yaml`:
+
+.. code:: yaml
+  
+  jobs:
+    spell-check:
+      uses: canonical/documentation-workflows/.github/workflows/spelling-check.yaml@main
+      with:
+        working-directory: "docs"
+    inclusive-language-check:
+      uses: canonical/documentation-workflows/.github/workflows/inclusive-language-check.yaml@main
+      with:
+        working-directory: "docs"    
+    link-check:
+      uses: canonical/documentation-workflows/.github/workflows/link-check.yaml@main
+      with:
+        working-directory: "docs"
+
 
 Input
 -----

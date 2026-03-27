@@ -1,9 +1,9 @@
-.. _run-automatic-checks :
+.. _run-documentation-checks :
 
-Run automatic checks
+Run documentation checks
 ====================
 
-The starter pack comes with several automatic checks that you can (and should!) run on your documentation before committing and pushing changes.
+The starter pack comes with several tests and checks that you can (and should!) run on your documentation before committing and pushing changes.
 
 
 The avaiable checks are:
