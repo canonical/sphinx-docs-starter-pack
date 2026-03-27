@@ -14,7 +14,6 @@ Contents
    :maxdepth: 1
 
    troubleshooting
-   automatic_checks
    ci-workflows
    default-extensions
    rst-syntax
