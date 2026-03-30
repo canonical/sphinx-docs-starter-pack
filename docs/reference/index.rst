@@ -13,7 +13,6 @@ Contents
 .. toctree::
    :maxdepth: 1
 
-   troubleshooting
    automatic_checks
    default-extensions
    rst-syntax

@@ -25,6 +25,7 @@ your documentation needs.
     enable-google-analytics
     update-starter-packs/index.rst
     test-ulwazi-theme
+    troubleshooting
 
 Optional features and customisation
 -----------------------------------

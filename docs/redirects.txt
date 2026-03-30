@@ -27,7 +27,7 @@
 "how-to/diagrams-as-code-mermaid/" "how-to/optional-customisation/mermaid-diagrams"
 "how-to/import-docstrings-with-autodoc/" "how-to/optional-customisation/"
 "how-to/openapi/" "how-to/optional-customisation/openapi-specifications"
-"how-to/troubleshoot-issues/" "reference/troubleshooting"
+"how-to/troubleshoot-issues/" "how-to/troubleshooting"
 "how-to/set-up-sitemaps/" "explanation/sitemaps"
 "how-to/add-documentation-testing/" "how-to/optional-customisation/add-documentation-testing"
 
