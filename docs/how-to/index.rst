@@ -24,6 +24,7 @@ your documentation needs.
     publish-on-rtd
     update-starter-packs/index.rst
     troubleshooting
+    run-documentation-checks
 
 Optional features and customisation
 -----------------------------------
