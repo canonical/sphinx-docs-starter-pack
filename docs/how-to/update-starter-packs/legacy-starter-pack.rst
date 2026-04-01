@@ -196,7 +196,7 @@ Assuming that all previous documentation files were in the ``docs/`` sub-directo
     │   └── scripts                 
     │       ├── build_metrics.sh   
     │       └── source_metrics.sh   
-    ├── reuse                       # moved to `docs/reuse`
+    ├── reuse                       # removed
     │   └── links.txt
     ├── .custom_wordlist.txt        # moved to `docs/.custom_wordlist.txt`
     ├── .gitignore

@@ -66,7 +66,7 @@ See the [Mermaid - Diagram syntax] reference for details on the syntax and custo
 
 The left-to-right flowchart below uses the default Mermaid settings.
 
-```{include} /reuse/mermaid.txt
+```{include} /how-to/assets/mermaid.txt
 :start-after: mermaid-diagram-flowchart-start
 :end-before: mermaid-diagram-flowchart-end
 ```
@@ -75,7 +75,7 @@ The left-to-right flowchart below uses the default Mermaid settings.
 
 The timeline diagram below uses a [pre-defined Mermaid theme].
 
-```{include} /reuse/mermaid.txt
+```{include} /how-to/assets/mermaid.txt
 :start-after: mermaid-diagram-timeline-start
 :end-before: mermaid-diagram-timeline-end
 ```
@@ -86,7 +86,7 @@ The sequence diagram below has custom styling applied using a global CSS file.
 A global CSS file enables the styles to be easily applied to all sequence diagrams, based on the classes defined in your stylesheet.
 You can also use the global CSS file to customize the diagrams in dark mode.
 
-```{include} /reuse/mermaid.txt
+```{include} /how-to/assets/mermaid.txt
 :start-after: mermaid-diagram-sequence-start
 :end-before: mermaid-diagram-sequence-end
 ```
@@ -95,7 +95,7 @@ You can also use the global CSS file to customize the diagrams in dark mode.
 
 The state diagram below has image-specific custom styling applied using the [`classDef` keyword].
 
-```{include} /reuse/mermaid.txt
+```{include} /how-to/assets/mermaid.txt
 :start-after: mermaid-diagram-state-start
 :end-before: mermaid-diagram-state-end
 ```

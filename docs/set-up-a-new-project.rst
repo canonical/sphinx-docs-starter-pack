@@ -137,3 +137,6 @@ After that, you should see the checks running with every commit::
   Run make spelling.......................................................Failed
   Run make linkcheck......................................................Passed
   Run make woke...........................................................Passed
+
+.. Links
+.. _Diátaxis: https://diataxis.fr/

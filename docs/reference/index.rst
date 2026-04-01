@@ -18,3 +18,5 @@ Contents
    rst-syntax
    myst-syntax
    
+.. LINKS
+.. _Sphinx documentation starter pack repository: https://github.com/canonical/sphinx-docs-starter-pack

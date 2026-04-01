@@ -61,3 +61,10 @@ To make Read the Docs automatically build your documentation when a pull request
 To do so, navigate to :guilabel:`Admin` > :guilabel:`Settings` and select :guilabel:`Build pull requests for this project`.
 
 Read the Docs will then automatically build the documentation for each pull request, and the link to the output will be available as one of the checks in the pull request.
+
+.. LINKS
+.. _How to connect your Read the Docs account to your Git provider: https://docs.readthedocs.com/platform/stable/guides/connecting-git-account.html
+.. _How to manually configure a Git repository integration: https://docs.readthedocs.com/platform/stable/guides/setup/git-repo-manual.html
+.. _How to publish documentation on Read the Docs: https://library.canonical.com/documentation/publish-on-read-the-docs
+.. _manual import: https://readthedocs.com/dashboard/import/manual/
+.. _Read the Docs at Canonical: https://library.canonical.com/documentation/read-the-docs-at-canonical

@@ -60,3 +60,6 @@ The Canonical Sphinx starter pack is an open source project that warmly welcomes
 
     Release notes <release-notes/index>
     Contribute <contribute/index>
+
+.. LINKS
+.. _Canonical Sphinx: https://github.com/canonical/canonical-sphinx

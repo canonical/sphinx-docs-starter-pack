@@ -177,3 +177,13 @@ Disable failure on warning
 
 The docs build (``make html``) is, by default, set to fail when a warning (``WARNING`` in the build log) is encountered. To disable this setting, remove the ``--failure-on-warning`` option from the command specified in the ``html`` target in the ``Makefile``.
 
+.. LINKS
+.. _Canonical Sphinx: https://github.com/canonical/canonical-sphinx
+.. _change log: https://github.com/canonical/sphinx-docs-starter-pack/wiki/Change-log
+.. _`file-wide metadata`: https://www.sphinx-doc.org/en/master/usage/restructuredtext/field-lists.html
+.. _`Furo documentation`: https://pradyunsg.me/furo/quickstart/
+.. _`Hiding Contents sidebar`: https://pradyunsg.me/furo/customisation/toc/
+.. _`Sphinx configuration`: https://www.sphinx-doc.org/en/master/usage/configuration.html
+.. _`Sphinx extensions`: https://www.sphinx-doc.org/en/master/usage/extensions/index.html
+
+

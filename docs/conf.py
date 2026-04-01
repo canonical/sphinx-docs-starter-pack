@@ -29,7 +29,7 @@ author = "Canonical Ltd."
 
 # The year in the copyright statement defaults to the current year, so
 # individual document versions show when they were built.
-# TODO: If the date must be a range, like in a software license, replace 
+# TODO: If the date must be a range, like in a software license, replace
 # 2026 with the starting year of development and use:
 #
 # copyright = f"2026-{datetime.date.today().year}"
@@ -131,7 +131,7 @@ html_context = {
     # TODO: To enable listing contributors on individual pages, set to True
     "display_contributors": False,
 
-    # Required for feedback button    
+    # Required for feedback button   
     'github_issues': 'enabled',
 
     # Inherit the author value
@@ -320,10 +320,18 @@ exclude_patterns = [
 
 
 # Specifies a reST snippet to be appended to each .rst file
-
+# If you have many entries, consider creating a reuse/substitutions.txt file
+# and loading it here instead.
+# rst_epilog = """
+#     .. include:: reuse/substitutions.txt
+#     """
 rst_epilog = """
-.. include:: /reuse/links.txt
-.. include:: /reuse/substitutions.txt
+.. |RST| replace:: :abbr:`reST (reStructuredText)`
+.. |version_number| replace:: 0.1.0
+.. |rest_text| replace:: *Multi-line* text
+                         that uses basic **markup**.
+.. |site_link| replace:: Website link
+.. _site_link: https://example.com
 """
 
 # Feedback button at the top; enabled by default
@@ -367,10 +375,18 @@ if "discourse_prefix" not in html_context and "discourse" in html_context:
     html_context["discourse_prefix"] = f"{html_context['discourse']}/t/"
 
 # Workaround for substitutions.yaml
+# If the user has a reuse/substitutions.yaml file, load from there.
+# Otherwise, use the manual definitions below.
 
 if os.path.exists('./reuse/substitutions.yaml'):
     with open('./reuse/substitutions.yaml', 'r') as fd:
         myst_substitutions = yaml.safe_load(fd.read())
+else:
+    myst_substitutions = {
+        "version_number": "0.1.0",
+        "formatted_text": "*Multi-line* text\n that uses basic **markup**.",
+        "site_link": "[Website link](https://example.com)"
+    }
 
 # Add configuration for intersphinx mapping
 # Map only the Sphinx documentation sets that you need to link to from your docs set.

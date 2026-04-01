@@ -667,7 +667,7 @@ For example:
 .. code-block:: rst
 
     .. csv-table::
-      :file: /reuse/animals.csv
+      :file: /assets/animals.csv
       :header-rows: 1
 
 Both markups result in the following output:
@@ -987,3 +987,12 @@ More useful markup
 
 .. _substitutions: https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#substitutions
 .. _rst_epilog: https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-rst_epilog
+.. _Canonical Documentation Style Guide: https://docs.ubuntu.com/styleguide/en
+.. _Five golden rules for compliant alt text: https://abilitynet.org.uk/resources/digital-accessibility/five-golden-rules-compliant-alt-text
+.. _grid tables: https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#grid-tables
+.. _list tables: https://docutils.sourceforge.io/docs/ref/rst/directives.html#list-table
+.. _Pygments documentation: https://pygments.org/languages/
+.. _reStructuredText: https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html
+.. _Sphinx design: https://sphinx-design.readthedocs.io/en/latest/
+.. _Sphinx tabs: https://sphinx-tabs.readthedocs.io/en/latest/
+

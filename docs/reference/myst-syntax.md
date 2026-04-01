@@ -695,7 +695,8 @@ To reuse sentences or paragraphs that have little markup and special formatting,
 
 Substitutions can be defined in the following locations:
 
-- Globally, in a file named {file}`reuse/substitutions.yaml` that is loaded into the [`myst_substitutions`](https://myst-parser.readthedocs.io/en/v0.13.5/using/syntax-optional.html#substitutions-with-jinja2) variable in {file}`conf.py`:
+**Globally**, in a file named {file}`reuse/substitutions.yaml` that is loaded into the [`myst_substitutions`](https://myst-parser.readthedocs.io/en/v0.13.5/using/syntax-optional.html#substitutions-with-jinja2) variable in {file}`conf.py`. Or if you have a limitied amount of substitutions, enter them directly into the 
+`myst_substitutions` variable in `conf.py`:
 
   ```{code-block} python
      :caption: "{spellexception}`conf.py`"
@@ -708,6 +709,12 @@ Substitutions can be defined in the following locations:
   if os.path.exists('./reuse/substitutions.yaml'):
     with open('./reuse/substitutions.yaml', 'r') as fd:
         myst_substitutions = yaml.safe_load(fd.read())
+  else:
+    myst_substitutions = {
+        "version_number": "0.1.0",
+        "formatted_text": "*Multi-line* text\n that uses basic **markup**.",
+        "site_link": "[Website link](https://example.com)"
+    }
   ```
 
   ```{code-block} yaml
@@ -717,7 +724,9 @@ Substitutions can be defined in the following locations:
   {version_number: "0.1.0",
    formatted_text: "*Multi-line* text\n that uses basic **markup**.",
    site_link: "[Website link](https://example.com)"}
-- Locally, putting the definitions at the top of a single file in the following format:
+   ```
+
+**Locally**, putting the definitions at the top of a single file in the following format:
 
   ````
   ---
@@ -730,7 +739,6 @@ Substitutions can be defined in the following locations:
                          ```
                          code block
                          ```"
-
   ---
   ````
 
