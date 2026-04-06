@@ -695,7 +695,7 @@ To reuse sentences or paragraphs that have little markup and special formatting,
 
 Substitutions can be defined in the following locations:
 
-**Globally**, in a file named {file}`reuse/substitutions.yaml` that is loaded into the [`myst_substitutions`](https://myst-parser.readthedocs.io/en/v0.13.5/using/syntax-optional.html#substitutions-with-jinja2) variable in {file}`conf.py`. Or if you have a limitied amount of substitutions, enter them directly into the 
+**Globally**, in a file named {file}`reuse/substitutions.yaml` that is loaded into the [`myst_substitutions`](https://myst-parser.readthedocs.io/en/v0.13.5/using/syntax-optional.html#substitutions-with-jinja2) variable in {file}`conf.py`. Or if you have a limited amount of substitutions, enter them directly into the 
 `myst_substitutions` variable in `conf.py`:
 
   ```{code-block} python
