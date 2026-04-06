@@ -101,6 +101,10 @@ Instead of building the documentation for each change and then serving it, you c
 This command builds the documentation and serves it on :literalref:`http://127.0.0.1:8000/`.
 When you change a documentation file and save it, the documentation will be automatically rebuilt and refreshed in the browser.
 
+If you need project-specific ``sphinx-autobuild`` options (for example, ``--ignore`` or ``--watch``), pass them through ``AUTOBUILD_EXTRA_OPTS``::
+
+  make run AUTOBUILD_EXTRA_OPTS="--ignore '**/*.gen.rst' --watch ../data/"
+
 .. important::
    The :command:`run` target is very convenient while working on documentation updates.
 
