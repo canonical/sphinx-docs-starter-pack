@@ -1,7 +1,7 @@
-.. _ci-workflows:
+.. _github-workflows:
 
-CI Workflows
-============
+GitHub Workflows
+================
 
 The primary documentation workflow checks spelling, links, and inclusive language in a documentation project. `documentation-checks.yaml` workflow covers these three checks and can be added to a new or existing workflow's jobs with:
 

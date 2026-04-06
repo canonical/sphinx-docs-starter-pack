@@ -3,10 +3,8 @@
 Run documentation checks
 ========================
 
-The starter pack comes with several tests and checks that you can (and should!) run on your documentation before committing and pushing changes.
+The starter pack comes with several tests and checks that you can (and should!) run on your documentation before committing and pushing changes:
 
-
-The available checks are:
 
 - :ref:`accessibility_check`
 - :ref:`inclusive_lang_check`
@@ -20,38 +18,33 @@ The available checks are:
 Accessibility check
 -------------------
 
-The accessibility check uses `Pa11y`_ to check for accessibility issues in the documentation output.
+The Starter Pack checks the accessibility of the documentation with `Pa11y`_.
 
-It is configured to use the `Web Content Accessibility Guidelines (WCAG) 2.2`_, requiring `Level AA conformance`_.
+It's configured to check for Level AA conformity to the `Web Content Accessibility Guidelines (WCAG) 2.2`_.
 
 .. note::
 
-   This check is only available locally.
+   This check is only available locally; it is not part of the CI workflows.
 
 
 Prerequisites
 ~~~~~~~~~~~~~
 
-``Pa11y`` must be installed through ``npm``. Install ``npm`` using the appropriate method for your operating system through one of the following methods: 
+``Pa11y`` must be installed through ``npm``. Install ``npm`` with the appropriate method for your operating system: 
 
 * Your preferred package manager 
 * By following the `node version manager installation process <https://docs.npmjs.com/downloading-and-installing-node-js-and-npm#using-a-node-version-manager-to-install-nodejs-and-npm>`_
 * For Debian and Ubuntu Linux distributions, the ``sudo apt install npm`` command
 
-Once ``npm`` is installed, install ``Pa11y`` by running this command from within your documentation folder.
-
-.. code-block:: bash
-
-   make pa11y-install
-
 Run
 ~~~
 
-Run the following command from within your documentation folder.
+To check the accessibility of the documentation, run the following command from within your ``/docs`` folder.
 
-Look for accessibility issues in rendered documentation::
+.. code-block:: bash
+    make pa11y
 
-   make pa11y
+
 
 Configure
 ~~~~~~~~~
@@ -70,26 +63,18 @@ The inclusive language check uses `Vale`_ to check for violations of inclusive l
 Run
 ~~~
 
-Run the following command from within your documentation folder::
+Run the following command from within your ``/docs`` folder::
 
+.. code-block:: bash
    make woke
 
-Configure
-~~~~~~~~~
-
-By default, the inclusive language check is applied to Markdown and |RST| files located in the documentation folder (usually :file:`docs/`).
-
-Exemptions
-~~~~~~~~~~
-
-Sometimes, you might need to use some non-inclusive words.
-In such cases, you may exclude them from the check.
 
 Exempt a word in a single instance
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To exempt an individual word, give the word the ``woke-ignore`` role::
+To exempt an individual word, wrap it in the ``woke-ignore`` role::
 
+.. code-block:: bash
    :woke-ignore:`<SOME_WORD>`
 
 For instance::
@@ -103,10 +88,9 @@ For instance::
    text with the syntax appropriate for your source file. 
 
 Exempt a word globally
-^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~
 
-Vale will ignore any word listed in the ``.custom_wordlist.txt`` file.
-To exempt a word, add it to this file globally.
+Vale ignores any words in the ``.custom_wordlist.txt`` file. To exempt a word, add it to this file.
 
 .. note::
 
@@ -116,7 +100,7 @@ To exempt a word, add it to this file globally.
    - Adding ``Kustom`` will cause only instances of ``Kustom`` to be ignored.
 
 Exclude multiple lines from a file
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Vale can be switched on and off within a file using syntax appropriate to that
 format.
@@ -131,7 +115,7 @@ The link check uses Sphinx to access the links in the documentation output and v
 Run
 ~~~
 
-Run the following command from within your documentation folder.
+Run the following command from within your ``/docs`` folder.
 
 Validate links within the documentation::
 
@@ -140,7 +124,7 @@ Validate links within the documentation::
 Configure
 ~~~~~~~~~
 
-If you have links in the documentation that you don't want to be checked (for example, because they are local links or give random errors even though they work), you can add them to the ``linkcheck_ignore`` variable in the :file:`conf.py` file.
+If you have links in the documentation that you don't want to check, you can add them to the ``linkcheck_ignore`` variable in the :file:`conf.py` file.
 
 .. _markdown_lint_check:
 
@@ -152,7 +136,7 @@ The Markdown lint check is used to enforce standards and consistency in Markdown
 Run
 ~~~
 
-Run the following command from within your documentation folder to lint your Markdown files::
+Run the following command from within your ``/docs`` folder to lint your Markdown files::
 
    make lint-md
 
@@ -173,7 +157,7 @@ It ignores code (both code blocks and inline code) and URLs (but it does check t
 Run
 ~~~
 
-Run the following commands from within your documentation folder.
+Run the following commands from within your ``/docs`` folder.
 
 Ensure there are no spelling errors in the documentation::
 
@@ -212,7 +196,7 @@ The starter pack includes a method to run the `Vale`_ documentation linter confi
 Run
 ~~~
 
-Run the following commands from within your documentation folder.
+Run the following commands from within your ``/docs`` folder.
 
 Check documentation with Vale::
 
