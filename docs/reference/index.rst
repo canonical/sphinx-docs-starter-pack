@@ -5,7 +5,7 @@ These documents provide an overview of different features of the starter pack.
 
 Also see the following information:
 
-- `Sphinx documentation starter pack repository`_
+- `Sphinx documentation starter pack repository <Sphinx documentation starter pack_>`_
 
 Contents
 --------
@@ -17,6 +17,7 @@ Contents
    default-extensions
    rst-syntax
    myst-syntax
-   
+
+
 .. LINKS
-.. _Sphinx documentation starter pack repository: https://github.com/canonical/sphinx-docs-starter-pack
+.. _Sphinx documentation starter pack: https://github.com/canonical/sphinx-docs-starter-pack

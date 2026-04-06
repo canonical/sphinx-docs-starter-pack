@@ -44,4 +44,4 @@ To browse the available settings and options, see ``Pa11y``'s `README <Pa11y rea
 .. _Level AA conformance: https://www.w3.org/WAI/WCAG2AA-Conformance
 .. _Pa11y: https://pa11y.org/
 .. _Pa11y readme: https://github.com/pa11y/pa11y#command-line-configuration
-
+.. _Web Content Accessibility Guidelines (WCAG) 2.2: https://www.w3.org/TR/WCAG22/

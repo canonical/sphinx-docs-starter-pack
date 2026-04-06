@@ -995,4 +995,6 @@ More useful markup
 .. _reStructuredText: https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html
 .. _Sphinx design: https://sphinx-design.readthedocs.io/en/latest/
 .. _Sphinx tabs: https://sphinx-tabs.readthedocs.io/en/latest/
+.. _toctree: https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree
+.. _Sphinx documentation starter pack: https://github.com/canonical/sphinx-docs-starter-pack
 
