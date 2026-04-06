@@ -42,6 +42,7 @@ Run
 To check the accessibility of the documentation, run the following command from within your ``/docs`` folder.
 
 .. code-block:: bash
+
     make pa11y
 
 
@@ -66,7 +67,8 @@ Run
 Run the following command from within your ``/docs`` folder::
 
 .. code-block:: bash
-   make woke
+
+    make woke
 
 
 Exempt a word in a single instance
