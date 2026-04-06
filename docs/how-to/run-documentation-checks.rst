@@ -76,7 +76,6 @@ Exempt a word in a single instance
 
 To exempt an individual word, wrap it in the ``woke-ignore`` role::
 
-.. code-block:: bash
    :woke-ignore:`<SOME_WORD>`
 
 For instance::
