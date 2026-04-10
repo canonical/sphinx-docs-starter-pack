@@ -20,17 +20,22 @@ Update to the last pre-extension version
 
 To ensure a smooth migration, update your documentation project to use the last pre-extension version of the Sphinx Documentation Starter Pack.
 
-In your project repository, check out the last pre-extension release tag or branch. This step ensures that your project is using the latest features and configurations available in the pre-extension version, minimising the changes required during the migration.
+In your project repository, check out the last pre-extension release tag or branch. This step ensures that your project is using the latest features and configurations available in the pre-extension version, minimizing the changes required during the migration.
 
-To check out the `pre-extension branch <https://github.com/canonical/sphinx-docs-starter-pack/tree/pre-extension>`_::
+To check out the `pre-extension branch <https://github.com/canonical/sphinx-docs-starter-pack/tree/pre-extension>`_
+
+..code block:: bash
 
    git checkout pre-extension
 
 To check out the `pre-extension release tag <https://github.com/canonical/sphinx-docs-starter-pack/releases/tag/pre-extension>`_::
 
+..code block:: bash
+
    git checkout tags/pre-extension
 
-.. note::
+.. admonition:: Repository in detached HEAD state
+   :class: note
 
    Checking out a tag leaves your repository in a `detached HEAD state <https://git-scm.com/docs/git-checkout#_detached_head>`_. Before proceeding, create a new branch to work from::
 
