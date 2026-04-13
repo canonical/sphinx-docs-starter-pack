@@ -12,34 +12,22 @@ The starter pack comes with several tests and checks that you can (and should!) 
 - :ref:`markdown_lint_check`
 - :ref:`spelling_check`
 - :ref:`style_guide_linting`
+- :ref:`vale_exemptions`
 
 .. _accessibility_check:
 
 Accessibility check
 -------------------
 
-The Starter Pack checks the accessibility of the documentation with `Pa11y`_.
+The Starter Pack checks the accessibility of the documentation with `Pa11y`_. It's configured to check for Level AA conformity to the `Web Content Accessibility Guidelines (WCAG) 2.2`_.
 
-It's configured to check for Level AA conformity to the `Web Content Accessibility Guidelines (WCAG) 2.2`_.
-
-.. note::
-
-   This check is only available locally; it is not part of the CI workflows.
+Note that this check is only available locally; it is not part of the Starter Pack's :ref:`github-workflows`.
 
 
-Prerequisites
-~~~~~~~~~~~~~
+**Prerequisites:** ``Pa11y`` must be installed through ``npm``. Install ``npm`` with the appropriate method for your operating system; follow the `npm docs installation guide <https://docs.npmjs.com/downloading-and-installing-node-js-and-npm>`_ for details. 
 
-``Pa11y`` must be installed through ``npm``. Install ``npm`` with the appropriate method for your operating system: 
 
-* Your preferred package manager 
-* By following the `node version manager installation process <https://docs.npmjs.com/downloading-and-installing-node-js-and-npm#using-a-node-version-manager-to-install-nodejs-and-npm>`_
-* For Debian and Ubuntu Linux distributions, the ``sudo apt install npm`` command
-
-Run
-~~~
-
-To check the accessibility of the documentation, run the following command from within your ``/docs`` folder.
+To check the accessibility of the documentation, run the following command from within your ``/docs`` directory:
 
 .. code-block:: bash
 
@@ -50,48 +38,121 @@ To check the accessibility of the documentation, run the following command from 
 Configure
 ~~~~~~~~~
 
-The :file:`pa11y.json` file in the :file:`.sphinx` folder provides basic defaults.
-
-To browse the available settings and options, see ``Pa11y``'s `README <Pa11y readme_>`_ on GitHub.
+The ``pa11y.json`` file in the ``.sphinx`` directory provides basic defaults expected to be used for all teams; refrain from removing any unless absolutely necessary. To include additional checks, browse the available settings and options on ``Pa11y``'s `README <Pa11y readme_>`_ on GitHub.
 
 .. _inclusive_lang_check:
 
 Inclusive language check
 ------------------------
 
-The inclusive language check uses `Vale`_ to check for violations of inclusive language guidelines.
-
-Run
-~~~
-
-Run the following command from within your ``/docs`` folder::
+The Starter Pack checks for inclusive language with a custom set of `Vale`_ rules. To check for inclusive language violations, run:
 
 .. code-block:: bash
 
     make woke
 
+For options on exempting single words or sections, follow the process in the :ref:`vale_exemptions` section. 
 
-Exempt a word in a single instance
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. _link_check:
 
-To exempt an individual word, wrap it in the ``woke-ignore`` role::
+Link check
+----------
 
-   :woke-ignore:`<SOME_WORD>`
+The Starter Pack checks any links in your documentation with the Sphinx ``linkcheck`` builder. To validate the links, run:
 
-For instance::
+.. code-block:: bash
 
-   This is your text. The word in question is here: :woke-ignore:`whitelist`.
+   make linkcheck
 
-.. note::
+Configure
+~~~~~~~~~
 
-   Vale will lint the displayed text of a link, not the URL of a link. If you
-   wish to use a link that contains non-inclusive language, use appropriate link
-   text with the syntax appropriate for your source file. 
+If you have links in the documentation that you don't want to check, you can add them to the ``linkcheck_ignore`` variable in the ``conf.py`` file.
 
-Exempt a word globally
-~~~~~~~~~~~~~~~~~~~~~~
+.. _markdown_lint_check:
 
-Vale ignores any words in the ``.custom_wordlist.txt`` file. To exempt a word, add it to this file.
+Markdown lint check
+-------------------
+
+The Starter Pack checks standards and consistency in Markdown files with the Markdown lint check. To check your Markdown files, run:
+
+.. code-block:: bash
+
+   make lint-md
+
+Configure
+~~~~~~~~~
+
+You can update the linting rules to be enforced in the ``.sphinx/.pymarkdown.json`` file. Refer to `the pymarkdown rules documentation <https://pymarkdown.readthedocs.io/en/latest/rules/>`_ for all the available rules.
+
+
+.. _spelling_check:
+
+Spelling check
+--------------
+
+The Starter Pack uses `Vale`_ to check the spelling in your documentation. It ignores code (both code blocks and inline code) and URLs (but it does check the link text). To ensure there are no spelling errors in your documentation, run:
+
+.. code-block:: bash
+
+  make spelling
+
+For options on exempting single words or sections, follow the process in the :ref:`vale_exemptions` section. 
+
+.. _style_guide_linting:
+
+Style guide linting
+-------------------
+
+The Starter Pack includes a method to run the `Vale`_ documentation linter configured with `the Vale rules for the current style guide <Vale rules_>`_ To check your documentation with, run:
+
+.. code-block:: bash
+
+   make vale
+
+Vale can run against individual files, directories, or globs. To check a specific target, run:
+
+.. code-block:: bash
+
+    make vale TARGET=example.file
+    make vale TARGET=example-directory
+
+Note that running the linter against a directory will also run against its subdirectories.
+
+You can use wildcards to run against all files matching a string, or an extension. For example, to run against all :code:`.md` files within a directory:
+
+.. code-block:: bash
+
+    make vale TARGET=*.md
+
+For options on exempting single words or sections, follow the process in the :ref:`vale_exemptions` section. 
+
+.. _vale_exemptions:
+.. _reference-automatic-checks-spelling-vale-ignore:
+
+Vale exemptions
+---------------
+
+The :ref:`inclusive_lang_check`, :ref:`spelling_check`, and :ref:`style_guide_linting` all use `Vale`_ and share a common ``.custom_wordlist.txt`` file and follow the same process to add exemptions. The Vale repository `includes a common list of words <https://github.com/canonical/documentation-style-guide/blob/main/styles/config/vocabularies/Canonical/accept.txt>`_ that will be excluded from the checks. 
+
+Note that Vale will check the displayed text of a link, not the URL of a link. If you wish to use a link that contains non-inclusive language or incorrect spelling, use appropriate link text with the syntax appropriate for your source file. 
+
+A single instance of a word
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+To ignore only a single instance of a word, you can use the ``:vale-ignore:`` role (for spelling or style guide) or ``:woke-ignore:`` role (for inclusive language) and ensure your ``conf.py`` file contains the appropriate class association in the ``rst_prolog``:
+
+.. code-block:: text
+
+  rst_prolog = """
+  .. role:: vale-ignore
+      :class: vale-ignore
+  .. role:: woke-ignore
+      :class: woke-ignore
+  """
+
+Every instance of a word
+~~~~~~~~~~~~~~~~~~~~~~~~
+To ignore a word across your documentation, add the word to the custom exceptions for your project in the ``.custom_wordlist.txt`` file.
 
 .. note::
 
@@ -100,203 +161,66 @@ Vale ignores any words in the ``.custom_wordlist.txt`` file. To exempt a word, a
    - Adding ``kustom`` will cause all instances of ``Kustom`` and ``kustom`` to be ignored.
    - Adding ``Kustom`` will cause only instances of ``Kustom`` to be ignored.
 
-Exclude multiple lines from a file
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Vale can be switched on and off within a file using syntax appropriate to that
-format.
-
-.. _link_check:
-
-Link check
-----------
-
-The link check uses Sphinx to access the links in the documentation output and validate whether they are working.
-
-Run
-~~~
-
-Run the following command from within your ``/docs`` folder.
-
-Validate links within the documentation::
-
-   make linkcheck
-
-Configure
-~~~~~~~~~
-
-If you have links in the documentation that you don't want to check, you can add them to the ``linkcheck_ignore`` variable in the :file:`conf.py` file.
-
-.. _markdown_lint_check:
-
-Markdown lint check
--------------------
-
-The Markdown lint check is used to enforce standards and consistency in Markdown files.
-
-Run
-~~~
-
-Run the following command from within your ``/docs`` folder to lint your Markdown files::
-
-   make lint-md
-
-Configure
-~~~~~~~~~
-
-You can update the linting rules to enforce in the :file:`.sphinx/.pymarkdown.json` file. Refer to `the pymarkdown rules documentation <https://pymarkdown.readthedocs.io/en/latest/rules/>`_ for all the available rules.
-
-
-.. _spelling_check:
-
-Spelling check
---------------
-
-The spelling check uses ``vale`` to check the spelling in your documentation.
-It ignores code (both code blocks and inline code) and URLs (but it does check the link text).
-
-Run
-~~~
-
-Run the following commands from within your ``/docs`` folder.
-
-Ensure there are no spelling errors in the documentation::
-
-  make spelling
-
-Configure
-~~~~~~~~~
-
-The Vale repository `includes a common list of words <https://github.com/canonical/documentation-style-guide/blob/main/styles/config/vocabularies/Canonical/accept.txt>`_ that will be excluded from the check.
-To add custom exceptions for your project, add them to the :file:`.custom_wordlist.txt` file.
-
-
-.. _reference-automatic-checks-spelling-vale-ignore:
-
-Exclude specific terms
-~~~~~~~~~~~~~~~~~~~~~~
-
-Sometimes, you need to use a term in a specific context that should usually fail the spelling check.
-(For example, you might need to refer to a product called ``ABC Docs``, but you do not want to add ``docs`` to the word list because it isn't a valid word.)
-
-In this case, you can use the ``:vale-ignore:`` role, and ensure your configuration file contains a class association in the ``rst_prolog``::
-
-  rst_prolog = """
-  .. role:: vale-ignore
-      :class: vale-ignore
-  """
-
-.. _style_guide_linting:
-
-Style guide linting
--------------------
-
-The starter pack includes a method to run the `Vale`_ documentation linter configured with `the Vale rules for the current style guide <Vale rules_>`_.
-
-
-Run
-~~~
-
-Run the following commands from within your ``/docs`` folder.
-
-Check documentation with Vale::
-
-   make vale
-
-Vale can run against individual files, folders, or globs.
-To set a specific target::
-
-    make vale TARGET=example.file
-    make vale TARGET=example-folder
-
-.. note::
-
-    Running Vale against a folder will also run against its subfolders.
-
-You can use wildcards to run against all files matching a string, or an extension.
-
-For example, to run against all :code:`.md` files within a folder::
-
-    make vale TARGET=*.md
-
-To match, for example, :code:`doc_1.md` and :code:`doc_2.md`::
-
-    make vale TARGET=doc*
-
-
-Exempt paragraphs
+A section of text
 ~~~~~~~~~~~~~~~~~
+To disable Vale for a specific section of text, specific markup can be used:
 
-To disable Vale linting within individual files, specific markup can be used.
+.. tab-set:: 
 
-For Markdown:
+    .. tab-item:: Markdown
 
-.. code-block:: Markdown
+        .. code-block:: text
 
-   <!-- vale off -->
+            <!-- vale off -->
 
-   This text will be ignored by Vale.
+            This text will be ignored.
 
-   <!-- vale on -->
-
-For |RST|:
-
-.. code-block:: rest
-
-   .. vale off
-
-   This text will be ignored by Vale.
-
-   .. vale on
-
-
-Exempt directives
-~~~~~~~~~~~~~~~~~
-
-To disable Vale linting for a specific directive, you can apply a class to the section.
-
-For Markdown:
-
-.. code-block:: Markdown
-
-    ````{class} vale-ignore
-    ```{code-block}
-
-    This content will be ignored by Vale.
-    ```
-    ````
-
-.. note::
+            <!-- vale on -->
     
-    This should not be necessary for Markdown, as Vale has an expanded scope for ignoring Markdown content by default.
+    .. tab-item:: reST
 
-For |RST|:
+        .. code-block:: text
 
-.. code-block:: rst
+            .. vale off
 
-    .. class:: vale-ignore
-    .. code-block::
+            This text will be ignored.
 
-        This content will be ignored by Vale.
+            .. vale on
 
-.. note:: 
 
-    The `.. class::` directive does not need to encapsulate content, it applies to the next logical block (which can be another directive or even a paragraph of content).
 
-Exempt words
-~~~~~~~~~~~~
+A specific directive block
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Use the ``:vale-ignore:`` role to ignore specific words inline, but first ensure your configuration file contains a class association in the ``rst_prolog``::
+To disable Vale linting for a specific directive, such as a code block or note, you can apply a class to the section:
 
-  rst_prolog = """
-  .. role:: vale-ignore
-      :class: vale-ignore
-  """
+.. tab-set:: 
+
+    .. tab-item:: Markdown
+
+        .. code-block:: text
+
+            ````{class} vale-ignore
+            ```{code-block}
+
+            This content will be ignored by Vale.
+            ```
+            ````
+    
+    .. tab-item:: reST
+
+        .. code-block:: text
+
+            .. class:: vale-ignore
+                .. code-block::
+
+                    This content will be ignored by Vale.
+
+Note that the class process should not be necessary for Markdown, as Vale has an expanded scope for ignoring Markdown content by default. Also, the `.. class::` directive for reST does not need to encapsulate content, it applies to the next logical block (which can be another directive or even a paragraph of content). The class option should only be used when the other options are not suitable.
 
 .. important::
 
-    The spelling check might still flag some terms that contain hyphens or spaces.
+    The checks might still flag some terms that contain hyphens or spaces.
 
     For example, "Juju 3" was unable to be ignored by this method, and `needed to be added to the a specific exception within a rule <https://github.com/canonical/documentation-style-guide/blob/a6f530b07d774bee67dd79d146ae5bbedc9ddef1/styles/Canonical/013-Spell-out-numbers-below-10.yml#L15>`_.
-
-

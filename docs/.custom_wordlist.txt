@@ -21,6 +21,7 @@ lang
 LaTeX
 latexmk
 Multipass
+npm
 otf
 plantuml
 PNG

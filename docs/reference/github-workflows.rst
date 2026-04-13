@@ -3,7 +3,7 @@
 GitHub Workflows
 ================
 
-The primary documentation workflow checks spelling, links, and inclusive language in a documentation project. `documentation-checks.yaml` workflow covers these three checks and can be added to a new or existing workflow's jobs with:
+The primary documentation workflow checks spelling, links, and inclusive language in a documentation project; these are the same checks as described in :ref:`run-documentation-checks`. The ``documentation-checks.yaml`` workflow covers these three checks and can be added to a new or existing workflow's jobs with:
 
 .. code:: yaml
 
@@ -16,7 +16,7 @@ The primary documentation workflow checks spelling, links, and inclusive languag
 
 
 Workflows are also available for each individual check so that projects may run a subset of
-those defined in `documentation-checks.yaml`:
+those defined in ``documentation-checks.yaml``:
 
 .. code:: yaml
   
