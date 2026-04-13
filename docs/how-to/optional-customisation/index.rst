@@ -18,4 +18,5 @@ This includes adding extensions, modifying the build process, and adding custom 
     Add Python docstrings <python-docstrings>
     Add OpenAPI specifications <openapi-specifications>
     Add interactive tables <interactive-tables>
+    external-referencing-intersphinx
 
