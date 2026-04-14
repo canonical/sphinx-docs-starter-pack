@@ -33,6 +33,9 @@ TIMEOUT = 10  # seconds
 if os.getenv("DEBUGGING"):
     logging.basicConfig(level=logging.DEBUG)
 
+# Check if info
+if os.getenv("LOGGING_INFO"):
+    logging.basicConfig(level=logging.INFO)
 
 def main():
     # Check local version
@@ -41,11 +44,8 @@ def main():
         with open(os.path.join(SPHINX_DIR, "version")) as f:
             local_version = f.read().strip()
     except FileNotFoundError:
-        print("WARNING\nWARNING\nWARNING")
-        print(
-            "You need to update to at least version 1.0.0 of the starter pack to start using the update function."
-        )
-        print("You may experience issues using this functionality.")
+        logging.warning("You need to update to at least version 1.0.0 of the starter pack to start using the update function.")
+        logging.warning("You may experience issues using this functionality.")
         logging.debug("No local version found. Setting version to None")
         local_version = "None"
     except Exception as e:
@@ -61,7 +61,7 @@ def main():
     logging.debug("Comparing versions")
     if parse_version(local_version) < parse_version(latest_release):
         logging.debug("Local version is older than the release version.")
-        print("Starter pack is out of date.\n")
+        logging.warning("Starter pack is out of date.")
 
         # Identify and download '.sphinx' dir files to '.sphinx/update'
         files_updated, new_files = update_static_files()
@@ -77,30 +77,28 @@ def main():
         changelog = query_api(GITHUB_RAW_BASE + "/CHANGELOG.md")
         logging.debug("Changelog obtained")
         version_regex = re.compile(r"#+ +" + re.escape(local_version) + r" *\n")
-        print("SEE CURRENT CHANGELOG:")
-        print(re.split(version_regex, changelog.text)[0])
+        logging.info("SEE CURRENT CHANGELOG:")
+        logging.info(re.split(version_regex, changelog.text)[0])
 
         # Provide information on any files identified for updates
         if files_updated:
             logging.debug("Updated files found and downloaded")
-            print("Differences have been identified in static files.")
-            print("Updated files have been downloaded to '.sphinx/update'.")
-            print("Validate and move these files into your '.sphinx/' directory.")
+            logging.info("Differences have been identified in static files.")
+            logging.info("Updated files have been downloaded to '.sphinx/update'.")
+            logging.info("Validate and move these files into your '.sphinx/' directory.")
         else:
             logging.debug("No files found to update")
         # Provide information on NEW files
         if new_files:
             logging.debug("New files found and downloaded")
-            print(
-                "NOTE: New files have been downloaded\n",
-                "See 'NEWFILES.txt' for all downloaded files\n",
-                "Validate and merge these files into your '.sphinx/' directory",
-            )
+            logging.info("NOTE: New files have been downloaded")
+            logging.info("See 'NEWFILES.txt' for all downloaded files")
+            logging.info("Validate and merge these files into your '.sphinx/' directory")
         else:
             logging.debug("No new files found to download")
     else:
         logging.debug("Local version and release version are the same")
-        print("This version is up to date.")
+        logging.info("This version is up to date.")
 
     # Check requirements are the same
     new_requirements = []
@@ -111,7 +109,7 @@ def main():
             local_reqs = set(file.read().splitlines()) - {""}
             requirements = set(
                 query_api(GITHUB_RAW_BASE + "/docs/requirements.txt").text.splitlines()
-            )
+            ) - {""}
 
             new_requirements = requirements - local_reqs
 
@@ -122,17 +120,13 @@ def main():
                 logging.debug(f"{req} already exists in local requirements.txt")
 
             if new_requirements != set():
-                print(
-                    "You may need to add the following packages to your requirements.txt file:"
-                )
-                for r in new_requirements:
-                    print(f"{r}\n")
+                logging.warning(f"You may need to add the following packages to your requirements.txt file: {new_requirements}")
+
+                
     except FileNotFoundError:
-        print("requirements.txt not found")
-        print(
-            "The updated starter pack has moved requirements.txt out of the '.sphinx' dir"
-        )
-        print("requirements.txt not checked, please update your requirements manually")
+        logging.warning("requirements.txt not found")
+        logging.warning("The updated starter pack has moved requirements.txt out of the '.sphinx' dir")
+        logging.warning("requirements.txt not checked, please update your requirements manually")
 
 
 def update_static_files():
@@ -152,11 +146,7 @@ def update_static_files():
                 )
                 if item["name"] == "update_sp.py":
                     # Indicate update script needs to be updated and re-run
-                    print("WARNING")
-                    print(
-                        "THIS UPDATE SCRIPT IS OUT OF DATE. YOU MAY NEED TO RUN ANOTHER UPDATE AFTER UPDATING TO THE FILE IN '.sphinx/updates'."
-                    )
-                    print("WARNING\n")
+                    logging.warning("THIS UPDATE SCRIPT IS OUT OF DATE. YOU MAY NEED TO RUN ANOTHER UPDATE AFTER UPDATING TO THE FILE IN '.sphinx/updates'.")
             else:
                 logging.debug("File hashes are equal")
         # Checks nested files '.sphinx/**/**.*' for changed SHA (single level of depth)
