@@ -24,7 +24,6 @@ your documentation needs.
     publish-on-rtd
     enable-google-analytics
     update-starter-packs/index.rst
-    test-ulwazi-theme
     troubleshooting
 
 Optional features and customisation
