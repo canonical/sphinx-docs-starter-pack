@@ -2,6 +2,7 @@
 
 ## Upcoming
 
+* Add logging levels to the update script.
 * Separate default configuration for copyright and license statements.
 * Fix the handling of non-zero exit codes from pymarkdownlnt.
 * Add a how-to guide about testing the Ulwazi theme.
@@ -11,6 +12,7 @@
 
 ### Changed
 
+* `docs/.sphinx/update_sp.py` [#582](https://github.com/canonical/sphinx-docs-starter-pack/pull/582)
 * `docs/conf.py` [#562](https://github.com/canonical/sphinx-docs-starter-pack/pull/562)
 * `.github/workflows/check-removed-urls.yml` [#552](https://github.com/canonical/sphinx-docs-starter-pack/pull/552)
 * `.github/workflows/sphinx-python-dependency-build-checks.yml` [#552](https://github.com/canonical/sphinx-docs-starter-pack/pull/552)
