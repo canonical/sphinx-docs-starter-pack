@@ -57,7 +57,6 @@ The Canonical Sphinx starter pack is an open source project that warmly welcomes
 
 .. toctree::
     :hidden:
-    :maxdepth: 2
 
     Release notes <release-notes/index>
     Contribute <contribute/index>
