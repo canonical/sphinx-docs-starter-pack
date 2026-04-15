@@ -30,6 +30,8 @@
 "how-to/troubleshoot-issues/" "how-to/troubleshooting"
 "how-to/set-up-sitemaps/" "explanation/sitemaps"
 "how-to/add-documentation-testing/" "how-to/optional-customisation/add-documentation-testing"
+"how-to/test-ulwazi-theme/" "contribute/test-ulwazi-theme"
+"how-to/enable-google-analytics/" "how-to/optional-customisation/enable-google-analytics"
 
 "reference/removed-url-check/" "reference/automatic_checks_removed-url-check"
 "reference/myst-syntax-reference/" "reference/myst-syntax"
