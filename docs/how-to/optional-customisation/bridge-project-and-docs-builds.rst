@@ -264,6 +264,18 @@ In the example project, the main build calls the targets like this:
     docs-%: docs-install
     	$(MAKE) -C docs $(@:docs-%=%) --no-print-directory
 
+.. important::
+   When passing Make variables to submake calls with ``$(MAKE) -C``, pass them explicitly
+   as command-line arguments (as shown above) rather than relying on variable inheritance.
+   For example, if you need to customize ``SPHINX_AUTOBUILD_OPTS``, pass it like this:
+
+   .. code-block:: make
+
+      $(MAKE) -C docs run SPHINX_AUTOBUILD_OPTS="$(SPHINX_AUTOBUILD_OPTS)"
+
+   This makes dependencies explicit and ensures variables are available regardless of how
+   the parent target is invoked from the command line.
+
 
 .. _how-to-bridge-project-builds-adjust-rtd-build:
 

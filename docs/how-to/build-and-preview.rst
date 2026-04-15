@@ -104,6 +104,13 @@ When you change a documentation file and save it, the documentation will be auto
 If you need project-specific options for ``sphinx-autobuild`` such as ``--ignore`` or ``--watch``, pass them through ``SPHINX_AUTOBUILD_OPTS``::
 
   make run SPHINX_AUTOBUILD_OPTS="--ignore '**/*.gen.rst' --watch ../data/"
+
+If you call ``make run`` from a :ref:`parent project's build <bridge-project-and-docs-builds>`, pass the variable explicitly to the submake call to ensure it reaches the docs Makefile::
+
+  $(MAKE) -C docs run SPHINX_AUTOBUILD_OPTS="$(SPHINX_AUTOBUILD_OPTS)"
+
+This approach allows command-line overrides to work intuitively from the parent context.
+
 .. important::
    The :command:`run` target is very convenient while working on documentation updates.
 
