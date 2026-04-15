@@ -269,7 +269,7 @@ In the example project, the main build calls the targets like this:
    as command-line arguments (as shown above) rather than relying on variable inheritance.
    For example, if you need to customize ``SPHINX_AUTOBUILD_OPTS``, pass it like this:
 
-   .. code-block:: make
+    .. code-block::
 
       $(MAKE) -C docs run SPHINX_AUTOBUILD_OPTS="$(SPHINX_AUTOBUILD_OPTS)"
 
