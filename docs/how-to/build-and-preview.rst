@@ -105,7 +105,7 @@ If you need project-specific options for ``sphinx-autobuild`` such as ``--ignore
 
   make run SPHINX_AUTOBUILD_OPTS="--ignore '**/*.gen.rst' --watch ../data/"
 
-If you call ``make run`` from a :ref:`parent project's build <bridge-project-and-docs-builds>`, pass the variable explicitly to the submake call to ensure it reaches the docs Makefile::
+If you call ``make run`` from a :ref:`parent project's build <bridge-project-and-docs-builds>`, pass the variable explicitly to the sub-make call to ensure it reaches the docs Makefile::
 
   $(MAKE) -C docs run SPHINX_AUTOBUILD_OPTS="$(SPHINX_AUTOBUILD_OPTS)"
 

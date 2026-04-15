@@ -265,7 +265,7 @@ In the example project, the main build calls the targets like this:
     	$(MAKE) -C docs $(@:docs-%=%) --no-print-directory
 
 .. important::
-   When passing Make variables to submake calls with ``$(MAKE) -C``, pass them explicitly
+   When passing Make variables to sub-make calls with ``$(MAKE) -C``, pass them explicitly
    as command-line arguments (as shown above) rather than relying on variable inheritance.
    For example, if you need to customize ``SPHINX_AUTOBUILD_OPTS``, pass it like this:
 
