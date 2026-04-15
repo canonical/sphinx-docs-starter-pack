@@ -22,7 +22,6 @@ your documentation needs.
     configure-your-project
     build-and-preview
     publish-on-rtd
-    enable-google-analytics
     update-starter-packs/index.rst
     troubleshooting
 

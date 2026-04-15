@@ -11,6 +11,7 @@ This includes adding extensions, modifying the build process, and adding custom 
     :maxdepth: 1
 
     Bridge project and docs builds <bridge-project-and-docs-builds>
+    Enable Google Analytics <enable-google-analytics>
     Customise PDF output <customise-pdf>
     Use Spread to test commands in documentation <add-documentation-testing>
     Use custom HTML templates <custom-html-templates>
