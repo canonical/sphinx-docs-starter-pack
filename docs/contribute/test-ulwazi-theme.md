@@ -13,6 +13,9 @@ Ulwazi is a Sphinx theme built on Vanilla, with the base layout and functionalit
 
 This guide outlines the steps required to use the Ulwazi theme in your Sphinx documentation project.
 
+We recommend creating a new branch of your repository and testing Ulwazi in that branch.
+You can build the Ulwazi-themed documentation locally from the branch, or open a PR and use RTD's preview branch feature to build a preview of the new look.
+
 ## Update the dependencies
 
 In your project's Python requirements, replace the canonical-sphinx package with Ulwazi and its dependencies. The minimum set is:
@@ -37,7 +40,19 @@ ulwazi
 
 ## Update the configuration
 
-This is the most important and tricky part -- updating the project configuration. A reference `conf.py` with all the required configuration and TODO markers is provided in the Ulwazi repository as [`default-conf.py`](https://github.com/canonical/ulwazi/blob/main/docs/default-conf.py). Copy it as the starting point for a new documentation set, or use it as a checklist when migrating an existing one.
+Updating the project configuration is the most critical step in this process.
+
+The Ulwazi repository provides a reference [`default-conf.py`](https://github.com/canonical/ulwazi/blob/main/docs/default-conf.py) with all required configuration options and TODO markers.
+
+You can prepare the configuration in one of two ways:
+
+* **Start from scratch** — copy [`default-conf.py`](https://github.com/canonical/ulwazi/blob/main/docs/default-conf.py) and fill in the values for your documentation.
+* **Update your existing config** — edit your current `conf.py` to add all required values.
+
+We recommend starting from scratch with the default config, as it is the simpler path to getting initial results.
+If your documentation uses many custom configuration parameters, updating the existing config may be more practical.
+
+The following instructions will guide you through all necessary modifications.
 
 ### Set the theme
 
@@ -51,7 +66,7 @@ html_theme = "ulwazi"
 
 ### Update the extensions
 
-In the list of extensions, replace canonical-sphinx with Ulwazi, and its dependencies:
+In the list of extensions, replace `canonical-sphinx` with Ulwazi and its dependencies:
 
 ```{code-block} diff
 :caption: extensions in conf\.py
@@ -66,7 +81,9 @@ In the list of extensions, replace canonical-sphinx with Ulwazi, and its depende
 
 If you need PDF output, add `sphinx_modern_pdf_style` to the list.
 
-This is only a partial list. Your project may require additional extensions beyond those listed here.
+```{caution}
+Your project may require additional extensions beyond those listed here.
+```
 
 ### Add the required variables
 
@@ -225,7 +242,10 @@ The license information is now conveyed through the "license" key in "html_conte
 
 ## Test the documentation
 
-Once configuration is complete, review everything again and build it from scratch (cleaning out the existing build files first):
+Once configuration is complete, do a final review.
+Make sure all required extensions are listed in both the `extensions` list in `conf.py` and the `requirements.txt` file.
+
+Build the documentation from scratch by first cleaning out any existing build files:
 
 ```shell
 cd docs
@@ -233,6 +253,14 @@ make clean
 make run
 ```
 
-This will start a local server at http://127.0.0.1:8000. Open it in your browser to verify the pages render correctly.
+If the build fails, check the build logs to identify the cause.
+Common issues are:
+
+1. Missing extensions
+2. Missing required values in `conf.py`
+
+Fix any issues and rebuild.
+
+Once the build succeeds, a local server starts at http://127.0.0.1:8000. Open that URL in your browser to verify that the pages render correctly.
 
 Report issues or feature requests in the [Ulwazi GitHub repository](https://github.com/canonical/ulwazi/issues/new).
