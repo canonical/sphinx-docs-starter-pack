@@ -264,18 +264,16 @@ In the example project, the main build calls the targets like this:
     docs-%: docs-install
     	$(MAKE) -C docs $(@:docs-%=%) --no-print-directory
 
-.. important::
-   When passing Make variables to sub-make calls with ``$(MAKE) -C``, pass them explicitly
-   as command-line arguments (as shown above) rather than relying on variable inheritance.
-   For example, if you need to customize ``SPHINX_AUTOBUILD_OPTS``, pass it like this:
+.. admonition:: Variables and Makefiles
 
-    .. code-block::
+   When calling another Makefile with ``$(MAKE) -C``, also known as a sub-Make call, variables with default values in the child Makefile won't be overridden. To override them, you must set them explicitly with `export` or as as command-line arguments.
 
-      $(MAKE) -C docs run SPHINX_AUTOBUILD_OPTS="$(SPHINX_AUTOBUILD_OPTS)"
+   For example, within the main build, if you need to customize ``SPHINX_AUTOBUILD_OPTS``, pass it to the docs build like this:
 
-   This makes dependencies explicit and ensures variables are available regardless of how
-   the parent target is invoked from the command line.
+    .. code-block:: make
+        :caption: Makefile
 
+        $(MAKE) -C docs run SPHINX_AUTOBUILD_OPTS="$(SPHINX_AUTOBUILD_OPTS)"
 
 .. _how-to-bridge-project-builds-adjust-rtd-build:
 
