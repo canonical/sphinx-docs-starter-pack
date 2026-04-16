@@ -35,6 +35,7 @@ packaging
 sphinxcontrib-svg2pdfconverter[CairoSVG]
 sphinx-last-updated-by-git
 sphinx-sitemap
+sphinx-terminal
 ulwazi
 ```
 
@@ -72,14 +73,14 @@ In the list of extensions, replace `canonical-sphinx` with Ulwazi and its depend
 :caption: extensions in conf\.py
 
 -"canonical-sphinx~=0.6"
-+"ulwazi"
++"ulwazi",
 +"sphinx_terminal",
 +"canonical_sphinx_config",
 +"myst_parser",
 +"sphinxcontrib.jquery",
 ```
 
-If you need PDF output, add `sphinx_modern_pdf_style` to the list.
+If you need **PDF output**, add `sphinx_modern_pdf_style` to the extensions list and `sphinx-modern-pdf-style` to `requirements.txt`.
 
 ```{caution}
 Your project may require additional extensions beyond those listed here.
