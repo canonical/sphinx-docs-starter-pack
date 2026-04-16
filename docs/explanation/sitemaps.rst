@@ -1,3 +1,7 @@
+.. meta::
+    :description: An in-depth look at the sitemaps feature in the starter pack, 
+       including configuration, validation, and versioning.
+
 .. _sitemaps:
 
 Sitemaps
