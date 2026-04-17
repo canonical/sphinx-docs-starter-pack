@@ -128,19 +128,17 @@ In the example project, this is written as:
 Merged virtual environments
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To merge virtual environments, you make the main ``setup`` target handle both
-development and docs packages, and enumerate all docs packages in ``pyproject.toml``.
-
-By adding dependency groups, the docs packages, plus any custom Sphinx extensions, can
-be managed by the main build and stored in one virtual environment. The result will be
-three dependency groups in ``pyproject.toml``:
+To merge virtual environments, the ``setup`` target must handle both development and
+docs packages, and enumerate all docs packages in ``pyproject.toml``. Your project will
+also need dependency groups to organize the packages. The result will be one virtual
+environment fed by three dependency groups in ``pyproject.toml``:
 
 - ``dev`` for development builds
-- ``docs`` for extra docs packages that your project needs
 - ``docs-starter-pack`` for the core docs packages set by the starter pack
+- ``docs`` for extra docs packages that your project needs
 
-First, add these dependency groups, and make the docs dependencies include the
-starter pack packages:
+First, add the dependency groups. The docs group should depend on the Starter Pack
+group:
 
 .. code-block:: toml
     :caption: pyproject.toml
@@ -157,17 +155,18 @@ starter pack packages:
         # Core docs packages
     ]
 
-If you don't already have a ``dev`` dependency group, review the packages listed in the
-file's ``dependencies`` key, then move any non-runtime dependencies to the ``dev``
-dependency group.
+If your ``pyproject.toml`` didn't already have a ``dev`` dependency group, review the
+packages listed in the ``dependencies`` key, then move any non-runtime dependencies to
+the ``dev`` dependency group.
 
 If your project needs extra docs features, like the Mermaid or LaTeX Sphinx extensions,
 add their packages to the ``docs`` group.
 
 Copy the contents of ``docs/requirements.txt`` into the ``docs-starter-pack`` group.
 
-In the main build, override the docs installation target and make the project's
-``setup`` target depend on it. In the example project, it is written like this:
+In the main build, override the docs installation target to install the ``docs``
+dependency group, then make the project's ``setup`` target depend on the docs target. In
+the example project, it's written like this:
 
 .. tabs::
 
