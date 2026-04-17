@@ -2,22 +2,30 @@
 
 ## Upcoming
 
-* Separate default configuration for copyright and license statements.
+* Add an `AUTOBUILD_EXTRA_OPTS` variable to extend sphinx-autobuild options for `make run`.
+* Add default support for the sphinx-llm extension.
+
+### Changed
+
+* `docs/conf.py` [#590](https://github.com/canonical/sphinx-docs-starter-pack/pull/590)
+* `docs/Makefile` [#575](https://github.com/canonical/sphinx-docs-starter-pack/pull/575), [#590](https://github.com/canonical/sphinx-docs-starter-pack/pull/590)
+* `docs/requirements.txt` [#590]([#590](https://github.com/canonical/sphinx-docs-starter-pack/pull/590))
+
+## 1.6
+
 * Fix the handling of non-zero exit codes from pymarkdownlnt.
 * Add a how-to guide about testing the Ulwazi theme.
 * Move the Python virtual environment from `docs/.sphinx/venv` to `docs/.venv`.
 * Make rediraffe the default extension for page redirects
 * Add default templates for the Canonical cookie banner and Google Analytics.
-* Add an `AUTOBUILD_EXTRA_OPTS` variable to extend sphinx-autobuild options for `make run`.
 
 ### Changed
 
-* `docs/conf.py` [#562](https://github.com/canonical/sphinx-docs-starter-pack/pull/562)
 * `.github/workflows/check-removed-urls.yml` [#552](https://github.com/canonical/sphinx-docs-starter-pack/pull/552)
 * `.github/workflows/sphinx-python-dependency-build-checks.yml` [#552](https://github.com/canonical/sphinx-docs-starter-pack/pull/552)
 * `docs/.gitignore` [#552](https://github.com/canonical/sphinx-docs-starter-pack/pull/552)
 * `docs/.sphinx/.wordlist.txt` [#520](https://github.com/canonical/sphinx-docs-starter-pack/pull/520)
-* `docs/conf.py` [#549](https://github.com/canonical/sphinx-docs-starter-pack/pull/549), [#558](https://github.com/canonical/sphinx-docs-starter-pack/pull/558), [#552](https://github.com/canonical/sphinx-docs-starter-pack/pull/552), [#558](https://github.com/canonical/sphinx-docs-starter-pack/pull/558)
+* `docs/conf.py` [#549](https://github.com/canonical/sphinx-docs-starter-pack/pull/549), [#558](https://github.com/canonical/sphinx-docs-starter-pack/pull/558), [#552](https://github.com/canonical/sphinx-docs-starter-pack/pull/552), [#558](https://github.com/canonical/sphinx-docs-starter-pack/pull/558), [#562](https://github.com/canonical/sphinx-docs-starter-pack/pull/562)
 * `docs/Makefile` [#551](https://github.com/canonical/sphinx-docs-starter-pack/pull/551), [#552](https://github.com/canonical/sphinx-docs-starter-pack/pull/552)
 * `docs/redirects.txt` [#558](https://github.com/canonical/sphinx-docs-starter-pack/pull/558)
 * `docs/_templates/header.html` [#549](https://github.com/canonical/sphinx-docs-starter-pack/pull/549)
