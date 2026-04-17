@@ -62,6 +62,9 @@ These extensions are enabled in the Starter Pack by default.
 ``sphinx_last_updated_by_git``
    Fetches and displays the accurate 'last updated' date for pages by reading Git commit metadata.
 
+``sphinx_llm.txt``
+   Generates Markdown artifacts that improve readability for LLMs.
+
 ``sphinx_related_links``
    Generates and injects a list of related links into documentation pages.
 
