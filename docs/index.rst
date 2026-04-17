@@ -1,5 +1,5 @@
-Documentation Starter Pack
-==========================
+Sphinx Starter Pack documentation
+=================================
 
 The documentation Starter Pack helps you to quickly set up, build, and publish
 documentation with Sphinx.
