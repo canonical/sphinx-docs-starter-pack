@@ -20,12 +20,14 @@ Kompare
 lang
 LaTeX
 latexmk
+LLMs?
 Multipass
 otf
 plantuml
 PNG
 Pygments
 pymarkdown
+pymarkdownlnt
 QEMU
 Rockcraft
 readthedocs
@@ -74,7 +76,7 @@ sequenceDiagram
 Numpy
 openapi
 docstrings?
-Makefile
+Makefiles?
 rediraffe
 retrigger(ing)?
 Diátaxis
