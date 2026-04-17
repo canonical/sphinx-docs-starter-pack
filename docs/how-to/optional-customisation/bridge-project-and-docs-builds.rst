@@ -78,12 +78,12 @@ Set the build paths
 Where your main build sets environment variables, redeclare the docs environment
 variables that specify the build paths:
 
-- ``BUILDDIR`` is the destination for the docs. If you have special distribution needs
-  you can override this, but for most builds this can be left as-is.
-- ``VENVDIR`` is the virtual environment of the docs. If you're merging the virtual
+- ``DOCS_BUILDDIR`` is the destination for the docs. If you have special distribution
+  needs you can override this, but for most builds this can be left as-is.
+- ``DOCS_VENVDIR`` is the virtual environment of the docs. If you're merging the virtual
   environments, set this as a relative path from the docs directory to your project's
   virtual environment.
-- ``VALEDIR`` is the path to the Vale binary. The full path depends on the
+- ``VALE_DIR`` is the path to the Vale binary. The full path depends on the
   location of your virtual environment, so it's best to copy this as-is.
 
 In the example project, this looks like:
@@ -92,9 +92,9 @@ In the example project, this looks like:
     :caption: Makefile
 
     # Env vars for the docs build
-    export BUILDDIR ?= _build
-    export VENVDIR ?= ../.venv
-    export VALEDIR ?= $(VENVDIR)/lib/python*/site-packages/vale
+    export DOCS_BUILDDIR ?= _build
+    export DOCS_VENVDIR ?= ../.venv
+    export VALE_DIR ?= $(DOCS_VENVDIR)/lib/python*/site-packages/vale
 
 
 .. _how-to-bridge-project-builds-integrate-docs-setup:
@@ -250,7 +250,7 @@ In the example project, the main build calls the targets like this:
     # so we pass a temp dir instead.
     .PHONY: docs-clean
     docs-clean:
-    	VENVDIR=$(mktemp) $(MAKE) -C docs clean --no-print-directory
+    	DOCS_VENVDIR=$(mktemp) $(MAKE) -C docs clean --no-print-directory
 
     # Override for `help` target
     .PHONY: docs-help
@@ -277,7 +277,7 @@ same build targets that developers use locally.
 If you use an uncommon system, you might need to install it during the workflow's
 ``create_environment`` job.
 
-If you merged the virtual environments, make sure to set ``VENVDIR=${READTHEDOCS_VIRTUALENV_PATH}`` in all commands.
+If you merged the virtual environments, make sure to set ``DOCS_VENVDIR=${READTHEDOCS_VIRTUALENV_PATH}`` in all commands.
 
 Here's what it looks like in the example project:
 
@@ -295,10 +295,10 @@ Here's what it looks like in the example project:
         create_environment:
           - python3 -m venv "${READTHEDOCS_VIRTUALENV_PATH}"
         install:
-          - make docs-install VENVDIR="${READTHEDOCS_VIRTUALENV_PATH}"
+          - make docs-install DOCS_VENVDIR="${READTHEDOCS_VIRTUALENV_PATH}"
         build:
         html:
-          - make docs VENVDIR="${READTHEDOCS_VIRTUALENV_PATH}" BUILDDIR="$READTHEDOCS_OUTPUT/html/"
+          - make docs DOCS_VENVDIR="${READTHEDOCS_VIRTUALENV_PATH}" DOCS_BUILDDIR="$READTHEDOCS_OUTPUT/html/"
 
 
 .. _how-to-bridge-project-builds-adjust-doc-workflows:
