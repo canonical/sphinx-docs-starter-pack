@@ -12,7 +12,7 @@ Bridge project and documentation builds
 .. If more parent projects and build systems are tested, make the introduction general 
    and add tabs to each of the steps
 
-The starter pack can be used as a standalone docs repository, or embedded inside a
+The Starter Pack can be used as a standalone docs repository, or embedded inside a
 parent project. This guide demonstrates how to bridge the docs build with a Python
 project's main build. Once bridged, project contributors can install, build, and check
 the docs from the root of the project with the main build system.
@@ -34,7 +34,7 @@ capable of adding targets that call other systems. When shimmed, the docs target
 
 The bridge also **merges the virtual environments**, removing the need for a separate
 docs environment. This change is optional but recommended. To combine environments, your
-project must provide **Python 3.11** or higher to the starter pack. Any Python
+project must provide **Python 3.11** or higher to the Starter Pack. Any Python
 dependency manager will do, and this guide illustrates with three:
 
 - pip 25.1 and higher
@@ -134,8 +134,8 @@ also need dependency groups to organize the packages. The result will be one vir
 environment fed by three dependency groups in ``pyproject.toml``:
 
 - ``dev`` for development builds
-- ``docs-starter-pack`` for the core docs packages set by the starter pack
 - ``docs`` for extra docs packages that your project needs
+- ``docs-starter-pack`` for the core docs packages set by the starter pack
 
 First, add the dependency groups. The docs group should depend on the Starter Pack
 group:
@@ -263,6 +263,19 @@ In the example project, the main build calls the targets like this:
     docs-%: docs-install
     	$(MAKE) -C docs $(@:docs-%=%) --no-print-directory
 
+.. admonition:: Variables and Makefiles
+
+    When calling another Makefile with ``$(MAKE) -C``, also known as a sub-Make call,
+    variables with default values in the child Makefile won't be overridden. To override
+    them, you must set them explicitly with `export` or as as command-line arguments.
+
+    For example, within the main build, if you need to customize
+    ``SPHINX_AUTOBUILD_OPTS``, pass it to the docs build like this:
+
+    .. code-block:: make
+        :caption: Makefile
+
+    		$(MAKE) -C docs run SPHINX_AUTOBUILD_OPTS="$(SPHINX_AUTOBUILD_OPTS)"
 
 .. _how-to-bridge-project-builds-adjust-rtd-build:
 
@@ -270,7 +283,7 @@ Adjust the Read the Docs build
 ------------------------------
 
 With the Makefile in a different location than usual, and its being a separate process,
-it's simplest to override the Read The Docs build in ``.readthedocs.yaml`` to call the
+it's simplest to override the Read the Docs build in ``.readthedocs.yaml`` to call the
 same build targets that developers use locally.
 
 If you use an uncommon system, you might need to install it during the workflow's
@@ -305,7 +318,7 @@ Here's what it looks like in the example project:
 Adjust the doc workflows
 ------------------------
 
-If your project uses the starter pack's docs workflows *and* Make, adjust the workflows
+If your project uses the Starter Pack's docs workflows *and* Make, adjust the workflows
 to use the bridged targets.
 
 For the main checks, override the target names and paths through the `workflow inputs

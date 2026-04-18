@@ -74,7 +74,7 @@ sequenceDiagram
 Numpy
 openapi
 docstrings?
-Makefile
+Makefiles?
 rediraffe
 retrigger(ing)?
 Diátaxis

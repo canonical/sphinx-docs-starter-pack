@@ -1,20 +1,25 @@
+.. meta::
+   :description: How to configure project-specific parameters.
+
 .. _configure-your-project:
 
 Configure your project
 ======================
 
+While the Starter Pack provides default configuration values for most settings, you'll need to set project-specific parameters like the project name to ensure the documentation reflects your project accurately.
+
 .. important::
 
-   After setting up your repository with the starter pack, you should track the changes made to the starter pack.
+   After setting up your repository with the Starter Pack, you should track the changes made to the Starter Pack.
 
    Changes to the look and feel, as well as common functionality, will be automatically available through updates to the `Canonical Sphinx`_ extension.
 
-   Changes to files that are part of the starter pack, for example, :ref:`automatic-checks`, might require you to manually update your repository with the required files.
-   See the starter pack's `change log`_ for the most relevant (and of course all breaking) changes.
+   Changes to files that are part of the Starter Pack, for example, :ref:`automatic-checks`, might require you to manually update your repository with the required files.
+   See the Starter Pack's `change log`_ for the most relevant (and of course all breaking) changes.
 
-Configuration for a starter pack based documentation is set in the :file:`docs/conf.py` Sphinx configuration file.
+Configuration for a Starter Pack based documentation is set in the :file:`docs/conf.py` Sphinx configuration file.
 
-The starter pack's default configuration is prepared in a way that makes sense for most projects.
+The Starter Pack's default configuration is prepared in a way that makes sense for most projects.
 However, you must set some critical parameters that are unique for your project, like the project's name.
 
 In addition, you can find some optional parameters or add your own configuration parameters to the file.
@@ -46,12 +51,12 @@ You can leave the defaults for the website name and the preview image or specify
 Optional customisation
 ----------------------
 
-The starter pack contains several features that you can configure, or turn off if they aren't suitable for your documentation.
+The Starter Pack contains several features that you can configure, or turn off if they aren't suitable for your documentation.
 
 Modify the template
 ~~~~~~~~~~~~~~~~~~~
 
-The default starter pack templates provide an initial configuration for your documentation set, including:
+The default Starter Pack templates provide an initial configuration for your documentation set, including:
 
 - Header template - The top section of the page that contains your product's tag image and name, a link to your product's page (if available), and a drop-down menu for "More resources".
 - Footer template - The bottom section of the page that contains sequential navigation controls, copyright information, licensing details, and other relevant links.
@@ -64,7 +69,7 @@ See the :ref:`custom-html-templates` guide for details on how to do so.
 Deactivate the feedback button
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-By default, the starter pack includes a feedback button at the top of each page.
+By default, the Starter Pack includes a feedback button at the top of each page.
 This button redirects users to your GitHub issues page, and populates an issue for them with details of the page they were on when they clicked the button.
 
 If your project does not use GitHub issues, set the ``github_issues`` variable in the :file:`docs/conf.py` file to an empty value to disable both the feedback button and the issue link in the footer.
@@ -74,7 +79,7 @@ If you want to deactivate the feedback button, but keep the link in the footer, 
 Configure the contributor display
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-By default, the starter pack will display a list of contributors at the bottom of each page.
+By default, the Starter Pack will display a list of contributors at the bottom of each page.
 This requires the GitHub URL and folder to be configured.
 
 If you want to turn this contributor listing off, you can do so by setting the ``display_contributors`` variable in the :file:`docs/conf.py` file to ``False``.
@@ -104,10 +109,10 @@ Destination paths can also be external URLs.
 Configure included extensions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The starter pack includes a set of extensions that are useful for all documentation sets.
+The Starter Pack includes a set of extensions that are useful for all documentation sets.
 Some extensions are :ref:`enabled by default <reference-default-sphinx-extensions>` within the Starter Pack, but you can customize the selection in the  :file:`docs/conf.py` file.
 
-The ``canonical_sphinx`` extension is required for the starter pack and provides the Furo-based theme and custom templates.
+The ``canonical_sphinx`` extension is required for the Starter Pack and provides the Furo-based theme and custom templates.
 
 To add new extensions needed for your documentation set, add them to the ``extensions`` parameter in :file:`docs/conf.py`.
 

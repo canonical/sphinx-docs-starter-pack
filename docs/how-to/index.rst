@@ -8,12 +8,12 @@ How-to guides
 =============
 
 These guides will walk you through the processes involving setting up,
-maintaining, and contributing to the starter pack.
+maintaining, and contributing to the Starter Pack.
 
 Basic setup and maintenance
 ---------------------------
 
-Set up, configure, upgrade, and customize your project to keep it organized and aligned with 
+Set up, configure, update, and customize your project to keep it organized and aligned with 
 your documentation needs.
 
 .. toctree::
@@ -32,7 +32,7 @@ As your documentation grows, you may need more advanced features to support rich
 can include customising the build system, adding diagrams as code, rendering API references, interactive 
 tables, and custom HTML.
 
-While some of these features are available by default in the starter pack, others may require additional 
+While some of these features are available by default in the Starter Pack, others may require additional 
 extensions.
 
 The following guides will help you get started:

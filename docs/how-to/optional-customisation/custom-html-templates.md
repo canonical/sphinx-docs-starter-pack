@@ -1,14 +1,20 @@
+---
+myst:
+  html_meta:
+    description: How to extend or override default HTML templates to customize documentation structure and layout.
+---
+
 (custom-html-templates)=
 
 # Use custom HTML templates
 
-If the default template in the Starter Pack doesn't fully meet your needs -- whether you want a unique layout, a custom header or footer, or a specialized sidebar for certain pages -- you can create and use a custom template for your Sphinx project.
+If the default template in the Starter Pack doesn't fully meet your needs -- whether you want a unique layout, a custom header or footer, or a specialized sidebar for certain pages -- you can create and use a custom template for your project.
 
 This guide shows you how to extend or override the default templates in the Starter Pack to tailor the look and structure of your documentation.
 
 ```{note}
 Base template customizations can be made to your documentation.
-However, they are not officially supported by the team maintaining the starter pack.
+However, they are not officially supported by the team maintaining the Starter Pack.
 Use them at your own discretion.
 ```
 
@@ -16,7 +22,7 @@ Use them at your own discretion.
 
 First, create the {file}`docs/_templates` directory; all your custom templates will need to be stored in this folder.
 
-Then uncomment this line in {file}`docs/conf.py` so your Sphinx project will use local templates (where available):
+Then uncomment this line in {file}`docs/conf.py` so your project will use local templates (where available):
 
 ```{code-block} py
 :caption: conf\.py

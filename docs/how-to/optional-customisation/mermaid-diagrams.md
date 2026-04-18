@@ -1,3 +1,10 @@
+---
+myst:
+  html_meta:
+    description: How to create and embed diagrams in your documentation using Mermaid.
+relatedlinks: https://mermaid.js.org/intro/, https://mermaid.live/
+---
+
 (howto-diagram-as-code-mermaid)=
 
 # Create diagrams as code using Mermaid
@@ -9,7 +16,7 @@ Mermaid is a popular choice that allows diagrams to be created, maintained, and 
 This guide explains how to set up the {doc}`sphinxcontrib-mermaid <sphinxcontrib-mermaid:index>` extension and use Mermaid diagrams in your documentation, with examples included.
 
 ```{note}
-While there are many other tools and/or approaches for creating diagrams in visualizations in your documentation (e.g. [C4 model], [Dia], [PlantUML], [Structurizr], etc), we only provide support for `sphinxcontrib-mermaid` in the starter pack. 
+While there are many other tools and/or approaches for creating diagrams in visualizations in your documentation (e.g. [C4 model], [Dia], [PlantUML], [Structurizr], etc), we only provide support for `sphinxcontrib-mermaid` in the Starter Pack. 
 ```
 
 ## Installation and setup
@@ -102,11 +109,6 @@ Here are some Canonical projects that use Mermaid for diagramming in their docum
 - [Charmed MySQL K8s](https://canonical-charmed-mysql-k8s.readthedocs-hosted.com/8.0/explanation/flowcharts/)
 - [Ubuntu Pro](https://documentation.ubuntu.com/pro/support-overview/)
 
-## Related topics
-
-- See the [Official Mermaid documentation] for setup and configuration instructions, full syntax for the different types of Mermaid diagrams.
-- Try out the [Mermaid Live Editor] if you want a playground to work on your diagrams.
-
 % LINKS
 
 [Mermaid version]: https://unpkg.com/browse/mermaid/
@@ -120,3 +122,4 @@ Here are some Canonical projects that use Mermaid for diagramming in their docum
 [Dia]: http://dia-installer.de/
 [PlantUML]: https://plantuml.com/
 [Structurizr]: https://structurizr.com/
+

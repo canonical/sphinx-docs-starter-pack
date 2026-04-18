@@ -8,6 +8,7 @@
 * Move the Python virtual environment from `docs/.sphinx/venv` to `docs/.venv`.
 * Make rediraffe the default extension for page redirects
 * Add default templates for the Canonical cookie banner and Google Analytics.
+* Add an `AUTOBUILD_EXTRA_OPTS` variable to extend sphinx-autobuild options for `make run`.
 
 ### Changed
 

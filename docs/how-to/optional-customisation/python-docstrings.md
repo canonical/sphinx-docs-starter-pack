@@ -1,3 +1,9 @@
+---
+myst:
+  html_meta:
+    description: How to import Python docstrings automatically into your documentation using the Sphinx autodoc extension.
+---
+
 (sphinx-autodoc)=
 
 # Import docstrings with Sphinx `autodoc`

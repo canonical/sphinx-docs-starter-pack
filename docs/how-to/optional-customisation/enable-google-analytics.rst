@@ -1,3 +1,6 @@
+.. meta::
+   :description: How to enable Google Analytics in your project.
+
 .. _how-to-enable-google-analytics:
 
 Enable Google Analytics
