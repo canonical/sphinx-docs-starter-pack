@@ -4,6 +4,8 @@ myst:
     description: How to define redirects in your repository
 ---
 
+% Original author: [s-makin](https://github.com/s-makin)
+
 # Define redirects in your repository
 
 If a file in your documentation set is moved, deleted or renamed, it can no longer be found at its original location and users will be shown a “404 Not Found” page. This can be frustrating for users.
@@ -111,7 +113,7 @@ Inside your `redirects.txt` file, add your redirects in the following patterns:
 
 path/old-name/ path/new-name/			# To rename a file
 path/file-name/ new-path/file-name/		# To move a file
-path/old-name/ new-path/new-name/			# To move and rename a file
+path/old-name/ new-path/new-name/		# To move and rename a file
 ````
 
 Redirects are relative to the root of the `docs/` directory, so for simplicity, it’s best to put the redirects.txt file in the root directory. This is an [example of a working](https://github.com/canonical/ubuntu-server-documentation/blob/main/redirects.txt) `redirect.txt` file.
