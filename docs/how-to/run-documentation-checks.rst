@@ -152,9 +152,7 @@ To ignore a single instance of a word, wrap it in the ``:vale-ignore:`` role. En
 
 To ignore a word across your documentation, add it to your project's ``.custom_wordlist.txt`` file.
 
-.. admonition:: Capitalization
-
-    :class: note
+.. note::
 
    Entries in ``.custom-wordlist`` are case-sensitive only when the word is capitalized. For instance:
 
