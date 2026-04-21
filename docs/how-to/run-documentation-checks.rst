@@ -36,8 +36,6 @@ To check the accessibility of the documentation, run the following command from 
 
     make pa11y
 
-
-
 Configure
 ~~~~~~~~~
 

@@ -38,7 +38,7 @@ those defined in ``documentation-checks.yaml``:
 Input
 -----
 
-The table below lists the inputs for the `documentation-checks`.yaml workflow. If your project consumes the 
+The table below lists the inputs for the ``documentation-checks.yaml`` workflow. If your project consumes the 
 Starter Pack in a non-traditional way, declare any of the following inputs to customize the workflow as needed:
 
 .. list-table::
@@ -52,13 +52,13 @@ Starter Pack in a non-traditional way, declare any of the following inputs to cu
      - None
    * - ``python-version``
      - The Python interpreter to use for the workflow's jobs.
-     - ``'3.10'``
+     - The default Python version use. Example: ``'3.10'``
    * - ``fetch-depth``
      - The number of commits to fetch from your repository.
      - The full history is fetched.
    * - ``runs-on``
      - The host system for the workflow's runners.
-     - ``'["ubuntu-24.04"]'``
+     - The current Ubuntu LTS. Example: ``'["ubuntu-24.04"]'``
    * - ``makefile``
      - The Makefile that checks are invoked from.
      - ``'Makefile'``
@@ -81,8 +81,8 @@ Check for removed URLs
 
 .. versionadded:: 1.2.0
 
-The starter pack includes a GitHub action to identify when page URLs have been removed. This flags pages that have moved or been removed entirely.
+The Starter Pack includes a GitHub action to identify when page URLs have been removed. This flags pages that have moved or been removed entirely.
 
 This does not cover higher-level changes to URL paths, such as changes to the project name or URL slug pattern on RTD.
 
-This check ensures that redirects are implemented when pages are moved or appropriate information is provided when something is removed.
+This check ensures that redirects are implemented when pages are moved or that appropriate information is provided when something is removed.
