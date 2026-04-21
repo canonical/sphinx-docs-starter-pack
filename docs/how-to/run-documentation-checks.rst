@@ -52,6 +52,9 @@ The Starter Pack checks for inclusive language with a custom set of `Vale`_ rule
 
     make woke
 
+Configure
+~~~~~~~~~
+
 If you need to exempt single words or sections, follow the process in :ref:`vale_exemptions`. 
 
 .. _link_check:
@@ -98,6 +101,9 @@ The Starter Pack uses `Vale`_ to check the spelling in your documentation. It ig
 
     make spelling
 
+Configure
+~~~~~~~~~
+
 If you need to exempt single words or sections, follow the process in :ref:`vale_exemptions`. 
 
 .. _style_guide_linting:
@@ -125,6 +131,9 @@ You can use wildcards to lint globs of files. For example, to run against all Ma
 .. code-block:: bash
 
     make vale TARGET=*.md
+
+Configure
+~~~~~~~~~
 
 If you need to exempt single words or sections, follow the process in :ref:`vale_exemptions`. 
 
