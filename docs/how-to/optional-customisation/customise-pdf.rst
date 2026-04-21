@@ -118,7 +118,7 @@ The LaTeX template is a text file in the ``canonical-sphinx`` extension that pro
 
 Any additions or changes to the default settings of LaTeX elements in the PDF document requires overriding the default template.
 
-1. Download the default template file `latex_elements_template.txt <https://github.com/canonical/canonical-sphinx/blob/main/canonical_sphinx/theme/PDF/latex_elements_template.txt>`_ from the ``canonical/canonical-sphinx`` GitHub repository, and save it to your project directory. For example, at :file:`.sphinx/latex_elements_custom.txt`.
+1. Download the default template file `latex_elements_template.txt <https://github.com/canonical/canonical-sphinx/blob/main/canonical_sphinx/theme/PDF/latex_elements_template.txt>`_ from the ``canonical/canonical-sphinx`` GitHub repository, and save it to your documentation project directory. For example, at :file:`_utils/latex_elements_custom.txt`.
 
 2. In the Python dictionary, add or modify the LaTeX elements you want to change. Details of changing the dictionary are covered in the sub-sections below.
 
@@ -127,7 +127,7 @@ Any additions or changes to the default settings of LaTeX elements in the PDF do
 .. code-block:: python
 
    # Replace with the path to your local override file
-   latex_elements_file = ".sphinx/latex_elements_custom.txt"  
+   latex_elements_file = "_utils/latex_elements_custom.txt"  
    
    with open(latex_elements_file, "rt") as file:
       latex_config = file.read()

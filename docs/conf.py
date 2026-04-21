@@ -73,7 +73,7 @@ ogp_image = "https://assets.ubuntu.com/v1/cc828679-docs_illustration.svg"
 
 # TODO: To customise the favicon, uncomment and update as needed.
 
-# html_favicon = '.sphinx/_static/favicon.png'
+# html_favicon = '_static/favicon.png'
 
 
 # Dictionary of values to pass into the Sphinx context for all pages:
@@ -87,7 +87,7 @@ html_context = {
     #
     # TODO: If there's no such website,
     #       remove the {{ product_page }} link from the page header template
-    #       (usually .sphinx/_templates/header.html; also, see README.rst).
+    #       (usually _templates/header.html; also, see README.rst).
     "product_page": "documentation.ubuntu.com",
     # Product tag image; the orange part of your logo, shown in the page header
     #
@@ -211,8 +211,8 @@ sitemap_excludes = [
 # Template and asset locations #
 ################################
 
-# html_static_path = ["_static"]
-# templates_path = ["_templates"]
+#html_static_path = ["_static"]
+#templates_path = ["_templates"]
 
 
 #############
