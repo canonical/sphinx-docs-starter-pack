@@ -1,18 +1,18 @@
 ---
 myst:
   html_meta:
-    description: How to define redirects in your repository
+    description: How to redirect URLs in your documentation project. You can redirect a URL to a page inside your project, or to a page on another website.
 ---
 
 % Original author: [s-makin](https://github.com/s-makin)
 
 # Define redirects in your repository
 
-If a file in your documentation set is moved, deleted or renamed, it can no longer be found at its original location and users will be shown a “404 Not Found” page. This can be frustrating for users.
+If a file in your documentation set is moved, deleted or renamed, it can no longer be found at its original location and users will be shown a 404 Not Found page. This can be frustrating for users.
 
 To provide a better user experience, it is good practice to set up redirects to point to the new location, new file name, or to an alternative place where the information can be found. With documentation on Read the Docs, we can set up redirects [manually via the admin panel](https://docs.readthedocs.io/en/stable/guides/redirects.html). However, since this must be done separately, and *after* the file changes are made, this step can often be forgotten. 
 
-The **best practice** is to define redirects alongside the documentation in your repository, so that when a file is moved, renamed or deleted, you can create a redirect at the same time. In this way, redirects will always be in place when such changes go “live”, without needing to remember to do it (manually) afterwards. Redirects can either be **external**, meaning that they point to a URL outside your documentation, or **internal**, where you want to point to a new location within your documentation.
+The **best practice** is to define and track redirects in your project source, so that when a file is moved, renamed or deleted, you can create a redirect at the same time. In this way, redirects will always be in place when such changes go live. Redirects can either be **external**, meaning that they point to a URL outside your documentation, or **internal**, where you want to point to a new location within your documentation.
 
 There are two ways to do this:
 
@@ -25,7 +25,7 @@ When migrating from Discourse to Read the Docs, the entire redirects table can b
 
 ## Set up redirects in `conf.py`
 
-In the Starter Pack, the [reredirects Sphinx extension](https://documatt.com/sphinx-reredirects/usage/) is already installed. You can find the redirects section in your `conf.py` (or `custom_conf.py`) file, which looks something like this:
+In the Starter Pack, the [reredirects Sphinx extension](https://documatt.com/sphinx-reredirects/usage/) is already installed. You can find the redirects section in your `conf.py` file, which looks something like this:
 
 ````
 #############
@@ -41,7 +41,7 @@ In the Starter Pack, the [reredirects Sphinx extension](https://documatt.com/sph
 redirects = {}
 ````
 
-Any redirects you want to create are defined inside the “`redirects = {}`” variable. Inside this variable, add your redirects in the following patterns:
+Add to the `redirects` variable, following these patterns:
 
 ````
 redirects = {
@@ -65,7 +65,7 @@ See the [official reredirects documentation](https://documatt.com/sphinx-reredir
 
 ## Set up internal redirects (*in a separate file*)
 
-To add the extension to your setup, add `sphinxext-rediraffe` in your `docs-requirements.txt` file. The file may be in the `.sphinx` subdirectory, and may just be called `requirements.txt`.
+First, add `sphinxext-rediraffe` to your `requirements.txt` file.
 
 Then, in your `conf.py` file, add the extension to the `extensions` list:
 
@@ -76,9 +76,9 @@ extensions = [
 ]
 ````
 
-Create a file called `redirects.txt` in the same directory as your `conf.py` (or `custom_conf.py`) file, on the branch that generates your documentation. This file will host all of your redirects.
+Create a file called `redirects.txt` in the same directory as your `conf.py` file. This file will host all of your redirects.
 
-Next, in your `conf.py` (or `custom_conf.py`) file, add the `rediraffe_redirects` variable, which is the name of the redirects file you just created (include the file path if the file is not in the same directory as your conf.py):
+Next, in your `conf.py` file, declare `rediraffe_redirects` variable and assign it the path of the redirects file you just created relative to `conf.py`:
 
 ````
 # Add redirects, so they can be updated here to land alongside docs being moved
@@ -126,7 +126,7 @@ In Rediraffe, multiple files can be redirected to the same target:
 * B → D  
 * C → D
 
-In your redirects.txt file, this looks like:
+In your `redirects.txt` file, this looks like:
 
 ````
 installation tutorial/basic-installation/
