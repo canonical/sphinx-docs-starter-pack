@@ -14,7 +14,6 @@ import os
 # all documentation consistent and on brand:
 # https://github.com/canonical/canonical-sphinx
 
-
 #######################
 # Project information #
 #######################
@@ -37,24 +36,20 @@ html_title = project + " documentation"
 # Documentation website URL
 ogp_site_url = os.environ.get("READTHEDOCS_CANONICAL_URL", "/")
 
-
 # Preview name of the documentation website
 #
 # TODO: To use a different name for the project in previews, update the next line.
 ogp_site_name = project
-
 
 # Preview image URL
 #
 # TODO: To customise the preview image, update the next line.
 ogp_image = "https://assets.ubuntu.com/v1/cc828679-docs_illustration.svg"
 
-
 # Product favicon
 # 
 # TODO: To customise the favicon, uncomment and update the next line.
 # html_favicon = ".sphinx/_static/favicon.png"
-
 
 # Dictionary of values to pass into the Sphinx context for all pages:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-html_context
@@ -171,7 +166,6 @@ sitemap_excludes = [
 # html_static_path = ["_static"]
 # templates_path = ["_templates"]
 
-
 #############
 # Redirects #
 #############
@@ -187,7 +181,6 @@ rediraffe_redirects = "redirects.txt"
 # Strips '/index.html' from destination URLs when building with 'dirhtml'
 rediraffe_dir_only = True
 
-
 ###########################
 # Link checker exceptions #
 ###########################
@@ -201,7 +194,6 @@ linkcheck_ignore = [
     # SourceForge domains often block linkcheck
     r"https://.*\.sourceforge\.(net|io)/.*",
     ]
-
 
 # A regex list of URLs where anchors are ignored by 'make linkcheck'
 linkcheck_anchors_ignore_for_url = [r"https://github\.com/.*"]
@@ -222,7 +214,6 @@ linkcheck_retries = 3
 #   - linkify
 #
 # myst_enable_extensions = set()
-
 
 # Custom Sphinx extensions; see
 # https://www.sphinx-doc.org/en/master/usage/extensions/index.html
@@ -255,19 +246,15 @@ exclude_patterns = [
     ".venv*",
 ]
 
-# Adds custom CSS files, located under 'html_static_path'
-
+# Adds custom CSS files, located remotely or in 'html_static_path'.
 # html_css_files = [
 #     "https://assets.ubuntu.com/v1/d86746ef-cookie_banner.css",
 # ]
 
-
-# Adds custom JavaScript files, located under 'html_static_path'
-
+# Adds custom JavaScript files, located remotely or in 'html_static_path'.
 # html_js_files = [
 #     "https://assets.ubuntu.com/v1/287a5e8f-bundle.js",
 # ]
-
 
 # Specifies a reST snippet to be appended to each .rst file
 rst_epilog = """
@@ -275,12 +262,10 @@ rst_epilog = """
 .. include:: /reuse/substitutions.txt
 """
 
-
 # Feedback button at the top; enabled by default
 #
 # TODO: To disable the button, uncomment the next line.
 # disable_feedback_button = True
-
 
 # Your manpage URL
 #
