@@ -50,6 +50,7 @@ The Canonical Sphinx starter pack is an open source project that warmly welcomes
     :hidden:
     :maxdepth: 2
 
+    Home <self>
     Set up a new project <set-up-a-new-project>
     How-to guides <how-to/index>
     Reference <reference/index>

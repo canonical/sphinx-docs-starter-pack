@@ -1,5 +1,65 @@
-<header id="header" class="p-navigation">
+{% macro nav_logo() %}
+<div class="p-navigation__tagged-logo">
+  <a class="p-navigation__link" href="{{ logo_link_URL }}">
+    <div class="p-navigation__logo-tag">
+      <img class="p-navigation__logo-icon" src="{{ logo_img_URL }}" alt="">
+    </div>
+    <span class="p-navigation__logo-title">{{ logo_title }}</span>
+  </a>
+</div>
+<a href="#navigation" class="p-navigation__toggle--open" title="menu">Menu</a>
+<a href="#navigation-closed" class="p-navigation__toggle--close" title="close menu">Close menu</a>
+{% endmacro %}
 
+{% macro nav_items() %}
+<ul class="p-navigation__items">
+  <li class="p-navigation__item">
+    <a class="p-navigation__link" href="https://{{ product_page }}">{{ project }}</a>
+  </li>
+
+  {% if link1_name and link1_URL %}
+  <li class="p-navigation__item">
+    <a class="p-navigation__link" href="{{ link1_URL }}">{{ link1_name }}</a>
+  </li>
+  {% endif %}
+
+  {% if link2_name and link2_URL %}
+  <li class="p-navigation__item">
+    <a class="p-navigation__link" href="{{ link2_URL }}">{{ link2_name }}</a>
+  </li>
+  {% endif %}
+
+  <li class="p-navigation__item--dropdown-toggle" id="link-2">
+    <a href="#link-2-menu" aria-controls="link-2-menu" class="p-navigation__link">Resources</a>
+    <ul class="p-navigation__dropdown" id="link-2-menu" aria-hidden="true">
+      {% if discourse %}
+      <li>
+        <a href="{{ discourse }}" class="p-navigation__dropdown-item">Discourse</a>
+      </li>
+      {% endif %}
+
+      {% if mattermost %}
+      <li>
+        <a href="{{ mattermost }}" class="p-navigation__dropdown-item">Mattermost</a>
+      </li>
+      {% endif %}
+
+      {% if matrix %}
+      <li>
+        <a href="{{ matrix }}" class="p-navigation__dropdown-item">Matrix</a>
+      </li>
+      {% endif %}
+
+      {% if github_url %}
+      <li>
+        <a href="{{ github_url }}" class="p-navigation__dropdown-item">GitHub</a>
+      </li>
+      {% endif %}
+    </ul>
+  </li>
+</ul>
+{% endmacro %}
+<header id="navigation" class="p-navigation is-dark">
   <!-- Google Tag Manager -->
   <script>
     (function(w, d, s, l, i) {
@@ -8,65 +68,28 @@
         'gtm.start': new Date().getTime(),
         event: 'gtm.js'
       });
-      var f = d.getElementsByTagName(s)[0];
-      var j = d.createElement(s);
-      var dl = '';
-      if (l != 'dataLayer') {
-          dl = '&l=' + l;
-      }
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
       j.async = true;
-      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
       f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-KNX3CJC');
   </script>
-
-  <div class="p-navigation__nav" role="menubar">
-
-    <ul class="p-navigation__links" role="menu">
-
-      <li>
-        <a class="p-logo" href="https://{{ product_page }}" aria-current="page">
-          <img src="{{ pathto(product_tag,1) }}" alt="Logo" class="p-logo-image">
-          <div class="p-logo-text p-heading--4">{{ project }}
-          </div>
-        </a>
-      </li>
-
-      <li class="nav-ubuntu-com">
-        <a href="https://{{ product_page }}" class="p-navigation__link">{{ product_page }}</a>
-      </li>
-
-      <li>
-        <a href="#" class="p-navigation__link nav-more-links">More resources</a>
-        <ul class="more-links-dropdown">
-
-          {% if discourse %}
-          <li>
-            <a href="{{ discourse }}" class="p-navigation__sub-link p-dropdown__link">Discourse</a>
-          </li>
-          {% endif %}
-
-          {% if mattermost %}
-          <li>
-            <a href="{{ mattermost }}" class="p-navigation__sub-link p-dropdown__link">Mattermost</a>
-          </li>
-          {% endif %}
-
-          {% if matrix %}
-          <li>
-            <a href="{{ matrix }}" class="p-navigation__sub-link p-dropdown__link">Matrix</a>
-          </li>
-          {% endif %}
-
-          {% if github_url %}
-          <li>
-            <a href="{{ github_url }}" class="p-navigation__sub-link p-dropdown__link">GitHub</a>
-          </li>
-          {% endif %}
-
-        </ul>
-      </li>
-
-    </ul>
+  <a href="#content" class="p-link--skip">Jump to main content</a>
+  <div class="l-docs__subgrid">
+    <div class="l-docs__sidebar">
+      <div class="p-navigation__banner">
+        {{ nav_logo() }}
+      </div>
+    </div>
+    <div class="l-docs__main">
+      <div class="p-navigation__row u-fixed-width">
+        <nav class="p-navigation__nav" aria-label="Main">
+          {{ nav_items() }}
+        </nav>
+      </div>
+    </div>
   </div>
 </header>

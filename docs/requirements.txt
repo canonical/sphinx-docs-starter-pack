@@ -1,9 +1,16 @@
-# Canonical theme (still needed for Furo theme and custom templates)
-canonical-sphinx~=0.6
-
-# Extensions previously auto-loaded by canonical-sphinx
-myst-parser~=4.0    # v5.0.0 causes version conflicts
+# Core Sphinx dependencies
+sphinx
+build
 sphinx-autobuild
+
+# Ulwazi theme and config integration
+canonical-sphinx-config @ git+https://github.com/canonical/canonical-sphinx-config.git@main
+ulwazi
+sphinx-basic-ng
+beautifulsoup4
+
+# Extensions required by the theme and this docs set
+myst-parser~=4.0    # v5.0.0 causes version conflicts
 sphinx-design
 sphinx-notfound-page
 sphinx-reredirects
@@ -27,6 +34,7 @@ packaging
 sphinxcontrib-svg2pdfconverter[CairoSVG]
 sphinx-last-updated-by-git
 sphinx-sitemap
+sphinx_modern_pdf_style
 
 # Vale dependencies
 rst2html
