@@ -3,7 +3,7 @@ canonical-sphinx~=0.6
 
 # Extensions previously auto-loaded by canonical-sphinx
 myst-parser~=4.0    # v5.0.0 causes version conflicts
-sphinx-autobuild==2025.8.25
+sphinx-autobuild
 sphinx-design~=0.7
 sphinx-notfound-page~=1.1
 sphinx-reredirects~=1.1
@@ -29,5 +29,5 @@ sphinx-last-updated-by-git~=0.3
 sphinx-sitemap~=2.9
 
 # Vale dependencies
-rst2html==2020.7.4
+rst2html
 vale~=3.13
