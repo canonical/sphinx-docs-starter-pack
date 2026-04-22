@@ -135,7 +135,7 @@ environment fed by three dependency groups in ``pyproject.toml``:
 
 - ``dev`` for development builds
 - ``docs`` for extra docs packages that your project needs
-- ``docs-starter-pack`` for the core docs packages set by the starter pack
+- ``docs-starter-pack`` for the core docs packages set by the Starter Pack
 
 First, add the dependency groups. The docs group should depend on the Starter Pack
 group:
@@ -155,7 +155,7 @@ group:
         # Core docs packages
     ]
 
-If your ``pyproject.toml`` didn't already have a ``dev`` dependency group, review the
+If your ``pyproject.toml`` file didn't already have a ``dev`` dependency group, review the
 packages listed in the ``dependencies`` key, then move any non-runtime dependencies to
 the ``dev`` dependency group.
 
