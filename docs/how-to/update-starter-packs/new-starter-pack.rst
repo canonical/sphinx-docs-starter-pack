@@ -62,7 +62,7 @@ following changes:
     -   Ignored links
     -   Social links, etc.
 
--   Verify that the ``/static`` and ``/templates`` directories are located at the locations
+-   Verify that the ``/_static`` and ``/_templates`` directories are located at the locations
     specified by ``html_static_path`` and ``templates_path``, respectively, in the 
     new ``conf.py`` file. These should not be inside the ``/_dev`` directory.
 
