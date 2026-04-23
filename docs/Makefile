@@ -6,7 +6,7 @@
 # from the environment for the first two.
 
 DEV_DIR       ?= _dev
-SPHINX_OPTS      ?= -c . -j auto
+SPHINX_OPTS      ?= -c . -d $(DEV_DIR)/.doctrees -j auto
 SPHINX_BUILD     ?= $(DOCS_VENVDIR)/bin/sphinx-build
 SPHINX_HOST      ?= 127.0.0.1
 SPHINX_PORT      ?= 8000
