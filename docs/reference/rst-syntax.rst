@@ -309,7 +309,7 @@ Define the links in a shared file:
   To keep the text readable and links maintainable,
   put all link definitions in a file named :file:`reuse/links.txt`
   to include it in a custom ``rst_epilog`` directive
-  (see the `Sphinx documentation rst epilog <https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-rst_epilog>`_).
+  (see the `Sphinx documentation rst_epilog <https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-rst_epilog>`_).
 
   .. code-block:: python
      :caption: :spellexception:`conf.py`
@@ -758,7 +758,7 @@ define `substitutions <https://www.sphinx-doc.org/en/master/usage/restructuredte
 
 **Globally**, in a file named :file:`reuse/substitutions.txt`
 that is included in a custom ``rst_epilog`` directive
-(see the `Sphinx documentation rst epilog <https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-rst_epilog>`_):
+(see the `Sphinx documentation rst_epilog <https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-rst_epilog>`_):
 
 .. code-block:: python
    :caption: :spellexception:`conf.py`
