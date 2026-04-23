@@ -36,6 +36,6 @@ Look for accessibility issues in rendered documentation::
 Configure the accessibility check
 ---------------------------------
 
-The :file:`pa11y.json` file in the :file:`_utils` folder provides basic defaults.
+The :file:`pa11y.json` file in the :file:`_dev` folder provides basic defaults.
 
 To browse the available settings and options, see ``Pa11y``'s `README <Pa11y readme_>`_ on GitHub.

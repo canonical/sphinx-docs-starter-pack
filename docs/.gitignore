@@ -3,15 +3,15 @@
 .venv/
 
 # Sphinx
-_utils/warnings.txt
-_utils/.wordlist.dic
-_utils/.doctrees/
-_utils/update/
-_utils/node_modules/
+_dev/warnings.txt
+_dev/.wordlist.dic
+_dev/.doctrees/
+_dev/update/
+_dev/node_modules/
 
 # Vale
-_utils/styles/*
-_utils/vale.ini
+_dev/styles/*
+_dev/vale.ini
 
 # Build outputs
 _build

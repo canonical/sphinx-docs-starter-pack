@@ -5,7 +5,7 @@
 # You can set these variables from the command line, and also
 # from the environment for the first two.
 
-UTILS_DIR       ?= _utils
+UTILS_DIR       ?= _dev
 SPHINX_OPTS      ?= -c . -j auto
 SPHINX_BUILD     ?= $(DOCS_VENVDIR)/bin/sphinx-build
 SPHINX_HOST      ?= 127.0.0.1
@@ -183,7 +183,7 @@ pdf: pdf-prep
 	@echo
 
 update: install
-	@. $(DOCS_VENV); _utils/update_sp.py
+	@. $(DOCS_VENV); _dev/update_sp.py
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINX_OPTS).

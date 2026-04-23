@@ -18,4 +18,4 @@ Run the following command from within your documentation folder to lint your Mar
 Configure the lint check
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can update the linting rules to enforce in the :file:`_utils/.pymarkdown.json` file. Refer to `the pymarkdown rules documentation <https://pymarkdown.readthedocs.io/en/latest/rules/>`_ for all the available rules.
+You can update the linting rules to enforce in the :file:`_dev/.pymarkdown.json` file. Refer to `the pymarkdown rules documentation <https://pymarkdown.readthedocs.io/en/latest/rules/>`_ for all the available rules.
