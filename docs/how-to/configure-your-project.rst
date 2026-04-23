@@ -12,10 +12,10 @@ While the Starter Pack provides default configuration values for most settings, 
 
    After setting up your repository with the Starter Pack, you should track the changes made to the Starter Pack.
 
-   Changes to the look and feel, as well as common functionality, will be automatically available through updates to the `Canonical Sphinx`_ extension.
+   Changes to the look and feel, as well as common functionality, will be automatically available through updates to the `Canonical Sphinx <https://github.com/canonical/canonical-sphinx>`_ extension.
 
    Changes to files that are part of the Starter Pack, for example changes made during steps in :ref:`run-documentation-checks`, might require you to manually update your repository with the required files.
-   See the Starter Pack's `change log`_ for the most relevant (and of course all breaking) changes.
+   See the Starter Pack's `change log <https://github.com/canonical/sphinx-docs-starter-pack/wiki/Change-log>`_ for the most relevant (and of course all breaking) changes.
 
 Configuration for a Starter Pack based documentation is set in the :file:`docs/conf.py` Sphinx configuration file.
 
@@ -136,7 +136,7 @@ For example, you can configure whether to display Previous/Next buttons at the b
 
 You can then override this default setting for a specific page (for example, to turn off the Previous/Next buttons by default, but display them in a multi-page tutorial).
 
-To do so, add `file-wide metadata`_ at the top of a page.
+To do so, add `file-wide metadata <https://www.sphinx-doc.org/en/master/usage/restructuredtext/field-lists.html>`_ at the top of a page.
 See the following examples for how to enable Previous/Next buttons for one page:
 
 |RST|::
@@ -157,7 +157,7 @@ Possible values for the ``sequential_nav`` field are ``none``, ``prev``, ``next`
 See the :file:`docs/conf.py` file for more information.
 
 Another example for page-specific configuration is the ``hide-toc`` field (provided by `Furo <Furo documentation_>`_), which can be used to hide the page-internal table of content.
-See `Hiding Contents sidebar`_.
+See `Hiding Contents sidebar <https://pradyunsg.me/furo/customisation/toc/>`_.
 
 Add your own configuration
 --------------------------
@@ -166,9 +166,9 @@ Custom configuration parameters for your project can be used to extend or overri
 
 The following links can help you with additional configuration:
 
-- `Sphinx configuration`_
-- `Sphinx extensions`_
-- `Furo documentation`_ (Furo is the Sphinx theme we use as our base)
+- `Sphinx configuration <https://www.sphinx-doc.org/en/master/usage/configuration.html>`_
+- `Sphinx extensions <https://www.sphinx-doc.org/en/master/usage/extensions/index.html>`_
+- `Furo documentation <https://pradyunsg.me/furo/quickstart/>`_ (Furo is the Sphinx theme we use as our base)
 
 If you need additional Python packages for any custom processing you do in your documentation, add them to the :file:`docs/requirements.txt` file.
 
@@ -176,14 +176,3 @@ Disable failure on warning
 --------------------------
 
 The docs build (``make html``) is, by default, set to fail when a warning (``WARNING`` in the build log) is encountered. To disable this setting, remove the ``--failure-on-warning`` option from the command specified in the ``html`` target in the ``Makefile``.
-
-.. LINKS
-.. _Canonical Sphinx: https://github.com/canonical/canonical-sphinx
-.. _change log: https://github.com/canonical/sphinx-docs-starter-pack/wiki/Change-log
-.. _`file-wide metadata`: https://www.sphinx-doc.org/en/master/usage/restructuredtext/field-lists.html
-.. _`Furo documentation`: https://pradyunsg.me/furo/quickstart/
-.. _`Hiding Contents sidebar`: https://pradyunsg.me/furo/customisation/toc/
-.. _`Sphinx configuration`: https://www.sphinx-doc.org/en/master/usage/configuration.html
-.. _`Sphinx extensions`: https://www.sphinx-doc.org/en/master/usage/extensions/index.html
-
-

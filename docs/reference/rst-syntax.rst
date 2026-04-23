@@ -5,15 +5,15 @@
 reStructuredText syntax
 =======================
 
-The documentation files use `reStructuredText`_ (reST) syntax.
+The documentation files use `reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_ (reST) syntax.
 
 See the following sections for syntax help and conventions.
 
 .. note::
-   This guide assumes that you are using the `Sphinx documentation starter pack`_.
+   This guide assumes that you are using the `Sphinx documentation starter pack <https://github.com/canonical/sphinx-docs-starter-pack>`_.
    Some of the mentioned syntax requires Sphinx extensions (which are enabled in the starter pack).
 
-For general style conventions, see the `Canonical Documentation Style Guide`_.
+For general style conventions, see the `Canonical Documentation Style Guide <https://docs.ubuntu.com/styleguide/en>`_.
 
 Headings
 --------
@@ -94,7 +94,7 @@ In both cases, the code block must be surrounded by empty lines.
 
 When explicitly starting a code block, you can specify the code language to enforce a specific lexer, but in many cases, the default lexer works just fine.
 
-For a list of supported languages and their respective lexers, see the official `Pygments documentation`_.
+For a list of supported languages and their respective lexers, see the official `Pygments documentation <https://pygments.org/languages/>`_.
 
 .. list-table::
    :header-rows: 1
@@ -309,7 +309,7 @@ Define the links in a shared file:
   To keep the text readable and links maintainable,
   put all link definitions in a file named :file:`reuse/links.txt`
   to include it in a custom ``rst_epilog`` directive
-  (see the `Sphinx documentation <rst_epilog_>`_).
+  (see the `Sphinx documentation rst epilog <https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-rst_epilog>`_).
 
   .. code-block:: python
      :caption: :spellexception:`conf.py`
@@ -464,7 +464,7 @@ Navigation
 
 Every documentation page must be included as a sub-page to another page in the navigation.
 
-This is achieved with the `toctree`_ directive in the parent page::
+This is achieved with the `toctree <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree>`_ directive in the parent page::
 
   .. toctree::
      :hidden:
@@ -608,7 +608,7 @@ Both markups result in the following output:
 Grid tables
 ~~~~~~~~~~~
 
-See `grid tables`_ for reference.
+See `grid tables <https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#grid-tables>`_ for reference.
 
 .. code::
 
@@ -625,7 +625,7 @@ See `grid tables`_ for reference.
 List tables
 ~~~~~~~~~~~
 
-See `list tables`_ for reference.
+See `list tables <https://docutils.sourceforge.io/docs/ref/rst/directives.html#list-table>`_ for reference.
 
 .. code::
 
@@ -742,7 +742,7 @@ Adhere to the following conventions:
 - Use ``PNG`` format for screenshots and ``SVG`` format for graphics.
 - If producing multiple output formats, use ``*`` as the file extension to have
   Sphinx select the best image format for the output
-- See `Five golden rules for compliant alt text`_ for information about how to word the alt text.
+- See `Five golden rules for compliant alt text <https://abilitynet.org.uk/resources/digital-accessibility/five-golden-rules-compliant-alt-text>`_ for information about how to word the alt text.
 
 Reuse
 -----
@@ -754,11 +754,11 @@ Substitution
 
 To reuse sentences and entire paragraphs
 that have little markup or special formatting,
-define `substitutions`_ for them in two possible ways.
+define `substitutions <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#substitutions>`_ for them in two possible ways.
 
 **Globally**, in a file named :file:`reuse/substitutions.txt`
 that is included in a custom ``rst_epilog`` directive
-(see the `Sphinx documentation <rst_epilog_>`_):
+(see the `Sphinx documentation rst epilog <https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-rst_epilog>`_):
 
 .. code-block:: python
    :caption: :spellexception:`conf.py`
@@ -860,7 +860,7 @@ Adhere to the following conventions:
 Tabs
 ----
 
-The recommended way of creating tabs is to use the tabs that the `Sphinx design`_ extension provides.
+The recommended way of creating tabs is to use the tabs that the `Sphinx design <https://sphinx-design.readthedocs.io/en/latest/>`_ extension provides.
 
 .. list-table::
    :header-rows: 1
@@ -892,7 +892,7 @@ The recommended way of creating tabs is to use the tabs that the `Sphinx design`
 
             Content Tab 2
 
-Alternatively, you can use the `Sphinx tabs`_ extension, which is also enabled by default. This was previously recommended due to limitations in Sphinx Design that are now fixed.
+Alternatively, you can use the `Sphinx tabs <https://sphinx-tabs.readthedocs.io/en/latest/>`_ extension, which is also enabled by default. This was previously recommended due to limitations in Sphinx Design that are now fixed.
 
 .. list-table::
    :header-rows: 1
@@ -982,19 +982,4 @@ More useful markup
    * - ``:spellexception:`PurposelyWrong```
      - :spellexception:`PurposelyWrong`
      - Explicitly exempt a term from the spelling check.
-
-.. LINKS
-
-.. _substitutions: https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#substitutions
-.. _rst_epilog: https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-rst_epilog
-.. _Canonical Documentation Style Guide: https://docs.ubuntu.com/styleguide/en
-.. _Five golden rules for compliant alt text: https://abilitynet.org.uk/resources/digital-accessibility/five-golden-rules-compliant-alt-text
-.. _grid tables: https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#grid-tables
-.. _list tables: https://docutils.sourceforge.io/docs/ref/rst/directives.html#list-table
-.. _Pygments documentation: https://pygments.org/languages/
-.. _reStructuredText: https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html
-.. _Sphinx design: https://sphinx-design.readthedocs.io/en/latest/
-.. _Sphinx tabs: https://sphinx-tabs.readthedocs.io/en/latest/
-.. _toctree: https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree
-.. _Sphinx documentation starter pack: https://github.com/canonical/sphinx-docs-starter-pack
 

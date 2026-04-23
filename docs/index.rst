@@ -4,7 +4,7 @@ Documentation starter pack
 The documentation starter pack helps you to quickly set up, build, and publish
 documentation with Sphinx.
 
-It contains common styling and configuration through the `Canonical Sphinx`_ extension,
+It contains common styling and configuration through the `Canonical Sphinx <https://github.com/canonical/canonical-sphinx>`_ extension,
 supports both |RST| and Markdown, and includes automatic documentation checks.
 
 
@@ -60,6 +60,3 @@ The Canonical Sphinx starter pack is an open source project that warmly welcomes
 
     Release notes <release-notes/index>
     Contribute <contribute/index>
-
-.. LINKS
-.. _Canonical Sphinx: https://github.com/canonical/canonical-sphinx

@@ -328,6 +328,3 @@ You can (and should) run the same checks locally:
    make spelling
    make linkcheck
    make woke
-
-.. LINKS
-.. _Diátaxis: https://diataxis.fr/

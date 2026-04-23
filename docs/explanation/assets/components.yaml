@@ -1,3 +1,4 @@
+# This file contains the recipes for the Mermaid diagrams used in components.md
 documentation_architecture:
   - diagram_name: "Sphinx"
     description: "The core process of transforming source files into HTML using Sphinx."

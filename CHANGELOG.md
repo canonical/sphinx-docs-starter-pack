@@ -13,7 +13,7 @@
 
 ### Changed
 
-* `docs/reuse/*` [#576](https://github.com/canonical/sphinx-docs-starter-pack/pull/576)
+* `docs/reuse/` [#576](https://github.com/canonical/sphinx-docs-starter-pack/pull/576)
 * `docs/how-to/optional-customisation/interactive-tables.rst` [#576](https://github.com/canonical/sphinx-docs-starter-pack/pull/576)
 * `docs/how-to/optional-customisation/mermaid-diagrams.md` [#576](https://github.com/canonical/sphinx-docs-starter-pack/pull/576)
 * `docs/how-to/update-starter-packs/legacy-starter-pack.rst` [#576](https://github.com/canonical/sphinx-docs-starter-pack/pull/576)
