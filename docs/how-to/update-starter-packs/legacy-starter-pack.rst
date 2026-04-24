@@ -151,9 +151,9 @@ Assuming that all previous documentation files were in the ``docs/`` sub-directo
     .
     ├── .github
     │   └── workflows
-    │   │   ├── automatic-doc-checks.yml
-    │   │   └── markdown-style-checks.yml
-    │   ├── .sphinx                   # renamed to `docs/_dev`
+    │       ├── automatic-doc-checks.yml
+    │       └── markdown-style-checks.yml
+    ├── .sphinx                     # renamed to `docs/_dev`
     │   ├── fonts                   # removed, files are part of the extension
     │   │   ├── Ubuntu-B.ttf
     │   │   ├── ubuntu-font-licence-1.0.txt
