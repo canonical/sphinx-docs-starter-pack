@@ -272,7 +272,7 @@ In the example project, the main build calls the targets like this:
     For example, within the main build, if you need to customize
     ``SPHINX_AUTOBUILD_OPTS``, pass it to the docs build like this:
 
-    .. code-block::
+    .. code-block:: make
         :caption: Makefile
 
     		$(MAKE) -C docs run SPHINX_AUTOBUILD_OPTS="$(SPHINX_AUTOBUILD_OPTS)"
