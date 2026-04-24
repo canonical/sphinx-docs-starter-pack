@@ -1,6 +1,8 @@
 ---
 relatedlinks: https://github.com/canonical/canonical-sphinx-extensions, [reStructuredText&#32;Primer](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html), [Canonical&#32;Documentation&#32;Style&#32;Guide](https://docs.ubuntu.com/styleguide/en)
 myst:
+  html_meta:
+    description: Find examples of the MyST syntax used in Canonical documentation files.
   substitutions:
     advanced_reuse_key: "This is a substitution that includes a code block:
                        ```

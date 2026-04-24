@@ -1,3 +1,6 @@
+.. meta::
+    :description: Find examples of the reStructuredText syntax used in Canonical documentation files.
+
 :relatedlinks: https://github.com/canonical/lxd-sphinx-extensions, [reStructuredText&#32;Primer](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html), [Canonical&#32;Documentation&#32;Style&#32;Guide](https://docs.ubuntu.com/styleguide/en)
 
 .. _rst-syntax:

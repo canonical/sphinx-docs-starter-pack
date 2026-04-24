@@ -1,4 +1,7 @@
 ---
+myst:
+  html_meta:
+    description: Contribute to the documentation project with code, writing, or testing.
 orphan: true
 ---
 
