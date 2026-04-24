@@ -22,6 +22,7 @@ LaTeX
 latexmk
 LLMs?
 Multipass
+npm
 otf
 plantuml
 PNG

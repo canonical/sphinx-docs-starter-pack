@@ -14,7 +14,7 @@ While the Starter Pack provides default configuration values for most settings, 
 
    Changes to the look and feel, as well as common functionality, will be automatically available through updates to the `Canonical Sphinx`_ extension.
 
-   Changes to files that are part of the Starter Pack, for example, :ref:`automatic-checks`, might require you to manually update your repository with the required files.
+   Changes to files that are part of the Starter Pack, for example changes made during steps in :ref:`run-documentation-checks`, might require you to manually update your repository with the required files.
    See the Starter Pack's `change log`_ for the most relevant (and of course all breaking) changes.
 
 Configuration for a Starter Pack based documentation is set in the :file:`docs/conf.py` Sphinx configuration file.
