@@ -2,7 +2,7 @@
 
 ## Upcoming
 
-* Rename .sphinx directory to _dev
+* Rename `.sphinx/` directory to `_dev/`.
 * Separate default configuration for copyright and license statements.
 * Fix the handling of non-zero exit codes from pymarkdownlnt.
 * Add a how-to guide about testing the Ulwazi theme.

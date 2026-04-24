@@ -5,7 +5,7 @@
 # You can set these variables from the command line, and also
 # from the environment for the first two.
 
-DEV_DIR       ?= _dev
+DEV_DIR          ?= _dev
 SPHINX_OPTS      ?= -c . -d $(DEV_DIR)/.doctrees -j auto
 SPHINX_BUILD     ?= $(DOCS_VENVDIR)/bin/sphinx-build
 SPHINX_HOST      ?= 127.0.0.1
