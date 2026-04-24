@@ -1,3 +1,6 @@
+.. meta::
+    :description: Verify your documentation's spelling, links, and language with built-in checks.
+
 .. _run-documentation-checks :
 
 Run documentation checks
