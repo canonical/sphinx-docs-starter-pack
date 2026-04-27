@@ -1,13 +1,13 @@
+.. meta::
+   :description: How to add an OpenAPI integration to your project.
+
 .. _how-to-openapi:
 
 Add OpenAPI integration
 =======================
 
-Use this guide to add a minimal OpenAPI integration for the starter pack.
-This implementation uses `Swagger UI <https://swagger.io/tools/swagger-ui/>`_;
-it includes a basic specification and an opt-in tag toggle --
-based on a build-time environment variable --
-to keep the documentation clean by default.
+OpenAPI specifications provide a standardized way to document REST APIs.
+This guide demonstrates how to add a minimal OpenAPI integration to your project using `Swagger UI <https://swagger.io/tools/swagger-ui/>`_, including a basic specification and an opt-in tag toggle based on a build-time environment variable to keep the documentation clean by default.
 
 Locate the specification
 ------------------------

@@ -1,19 +1,19 @@
 .. meta::
-   :description: Learn how to update Sphinx starter pack projects that don't yet use the canonical-sphinx extension.
+   :description: Learn how to update Sphinx Starter Pack projects that don't yet use the canonical-sphinx extension.
 
 .. _update-legacy-starter-pack:
 
-Update the legacy starter pack 
+Update the legacy Starter Pack 
 ==============================
 
 This guide outlines the steps required to migrate a documentation project from the legacy Sphinx Documentation Starter Pack (*pre-extension* version) to the latest version that adopts the ``canonical-sphinx`` Sphinx extension.
 
-The extension-based documentation starter pack provides a set of features and configurations that are common across Canonical documentation projects. Key components, such as configuration and styling, are loaded as an add-on to your documentation project. It can significantly reduce maintenance concerns when managing your documentation.
+The extension-based documentation Starter Pack provides a set of features and configurations that are common across Canonical documentation projects. Key components, such as configuration and styling, are loaded as an add-on to your project. It can significantly reduce maintenance concerns when managing your documentation.
 
 .. note::
    If ``canonical-sphinx`` is included under ``extensions`` in your `conf.py`, 
    you are already using an extension-based starter-pack. Follow the guide on 
-   :ref:`updating the new starter pack <update-new-starter-pack>`.
+   :ref:`updating the new Starter Pack <update-new-starter-pack>`.
 
 Update to the last pre-extension version
 ----------------------------------------
@@ -45,7 +45,7 @@ Set up a new project
 
       If you proceed in the same directory, the following steps will overwrite some of the configuration files in the original project.
 
-2. Follow the steps in the :ref:`initial-setup` guide to initialise an empty project with the extension-based starter pack, at the original file path.
+2. Follow the steps in the :ref:`initial-setup` guide to initialise an empty project with the extension-based Starter Pack, at the original file path.
 
 3. Ensure the following files are at the root of your repository:
 
@@ -62,7 +62,7 @@ Set up a new project
 Migrate source files
 --------------------
 
-The documentation starter pack has undergone breaking changes with the introduction of the ``canonical-sphinx`` extension. This section guides you through:
+The documentation Starter Pack has undergone breaking changes with the introduction of the ``canonical-sphinx`` extension. This section guides you through:
 
 - Configuration file changes
 - Extension dependencies
@@ -73,7 +73,7 @@ For a complete list of the structural changes, refer to the `directory-structure
 Sphinx configuration
 ~~~~~~~~~~~~~~~~~~~~~
 
-A significant change in the new starter pack is the organisation of the configuration files, summarised in the following table:
+A significant change in the new Starter Pack is the organisation of the configuration files, summarised in the following table:
 
 .. list-table::
    :widths: 20 40 40
@@ -83,13 +83,13 @@ A significant change in the new starter pack is the organisation of the configur
      - Pre-extension 
      - Extension-based
    * - ``conf.py``
-     - Common configurations shared by all starter pack projects
+     - Common configurations shared by all Starter Pack projects
      - Project-specific configurations
    * - ``custom_conf.py``
      - Project-specific configuration
      - Merged into ``conf.py`` and removed
 
-In the new starter pack, many common configurations are provided by the extension and are loaded automatically when building the documentation. ``docs/conf.py`` is the only configuration file, and it contains all project-specific configuration. Sensible defaults are set for general configuration by inclusion of the `canonical-sphinx` extension.
+In the new Starter Pack, many common configurations are provided by the extension and are loaded automatically when building the documentation. ``docs/conf.py`` is the only configuration file, and it contains all project-specific configuration. Sensible defaults are set for general configuration by inclusion of the `canonical-sphinx` extension.
 
 Ensure that all the previous changes in the original ``custom_conf.py`` file are copied to the new ``conf.py`` file.  
 
@@ -101,7 +101,7 @@ If your project requires additional extensions beyond the default list, add the 
 Documentation source files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Remove the starter pack's documentation files (``index.rst`` and any files in the ``docs/**/*`` sub-directory).
+1. Remove the Starter Pack's documentation files (``index.rst`` and any files in the ``docs/**/*`` sub-directory).
 
 2. Copy all documentation source files from your original project to the new project, keeping their original structure. These file may include but are not limited to:
 
@@ -124,7 +124,7 @@ For general information on customising the extension configuration, see :ref:`co
 Static resources
 ~~~~~~~~~~~~~~~~
 
-The extension provides a set of static resources, such as images, fonts, CSS files, and HTML templates, that are used to style the documentation for Canonical-branded design. These resources are bundled with the extension and are no longer provided as source files in the new starter pack.
+The extension provides a set of static resources, such as images, fonts, CSS files, and HTML templates, that are used to style the documentation for Canonical-branded design. These resources are bundled with the extension and are no longer provided as source files in the new Starter Pack.
 
 If you have customised any of these resources in the original project, you need to manually migrate these changes to the new project. 
 

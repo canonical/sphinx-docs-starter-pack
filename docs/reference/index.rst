@@ -13,7 +13,7 @@ Contents
 .. toctree::
    :maxdepth: 1
 
-   automatic_checks
+   github-workflows
    default-extensions
    rst-syntax
    myst-syntax
