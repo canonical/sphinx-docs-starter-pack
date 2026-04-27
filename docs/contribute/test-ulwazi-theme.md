@@ -18,7 +18,7 @@ You can build the Ulwazi-themed documentation locally from the branch or open a 
 
 ## Update the dependencies
 
-In your project's Python requirements, replace the canonical-sphinx package with Ulwazi and its dependencies. The minimum set is:
+In your project's Python requirements, replace the Canonical Sphinx package with Ulwazi and its dependencies. The minimum set is:
 
 ```{code-block} text
 :caption: requirements.txt
@@ -39,21 +39,31 @@ sphinx-terminal
 ulwazi
 ```
 
-## Update the configuration
+Be ready to add any other missing extensions if you see errors about them.
+
+## Main configuration
 
 Updating the project configuration is the most critical step in this process.
 
-The Ulwazi repository provides a [reference configuration file](https://github.com/canonical/ulwazi/blob/main/docs/default-conf.py) with the required options.
+There are two main ways to do that:
 
-You can prepare the configuration in one of two ways:
+* Simple way -- Start from the [Default Ulwazi configuration](https://github.com/canonical/ulwazi/blob/main/docs/default-conf.py) and update the values for your specific documentation.
+* Hard way -- Start from the existing configuration and add all required values.
 
-* **Start from scratch** — copy [`default-conf.py`](https://github.com/canonical/ulwazi/blob/main/docs/default-conf.py) and fill in the values for your documentation.
-* **Update your existing config** — edit your current `conf.py` to add all required values.
+We strongly recommend trying the first option (The Simple way) first as it proved to be faster and less troublesome, yet enough for testing the theme.
 
-We recommend starting from scratch with the default config, as it is the simpler path to getting initial results.
-If your documentation uses many custom configuration parameters, updating the existing config may be more practical.
+## The simple way
 
-The following instructions will guide you through all necessary modifications.
+Here is the simple way of trying Ulwazi:
+
+1. Copy the [Default Ulwazi configuration](https://github.com/canonical/ulwazi/blob/main/docs/default-conf.py) file inside your documentation folder.
+2. Rename the old `conf.py` to some other name, like `old-conf.py`.
+3. Rename the Default Ulwazi configuration file to `conf.py`.
+4. Open them side by side and update variables in the default configuration file to have correct values for your documentation.
+
+## The hard way
+
+The following instructions will guide you through necessary modifications to support Ulwazi with your existing `conf.py` file.
 
 ### Set the theme
 
