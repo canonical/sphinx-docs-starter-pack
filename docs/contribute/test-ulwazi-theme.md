@@ -77,7 +77,7 @@ html_theme = "ulwazi"
 
 ### Update the extensions
 
-In the list of extensions, replace `canonical-sphinx` with Ulwazi and its dependencies:
+In the list of extensions, replace Canonical Sphinx with Ulwazi and its dependencies:
 
 ```{code-block} diff
 :caption: extensions in conf\.py
