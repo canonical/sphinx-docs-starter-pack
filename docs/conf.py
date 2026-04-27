@@ -244,7 +244,8 @@ llms_txt_description = textwrap.dedent(
 )
 
 # The base URL for references built by sphinx-markdown-builder.
-markdown_http_base = html_baseurl
+if os.environ.get("READTHEDOCS"):
+    markdown_http_base = html_baseurl
 
 ###########################
 # Link checker exceptions #
