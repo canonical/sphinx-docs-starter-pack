@@ -1,5 +1,6 @@
 import datetime
 import os
+import textwrap
 
 import yaml
 
@@ -233,12 +234,14 @@ rediraffe_dir_only = True
 # This description is included in llms.txt to provide some initial context for your
 # product docs.
 # TODO: Write one or two sentences that describe your documentation.
-llms_txt_description = """\
+llms_txt_description = textwrap.dedent(
+    """\
     This documentation describes Canonical's Sphinx Starter Pack, a template repository
     for Sphinx documentation projects. The Starter Pack provides a standard set of
     configuration files, Sphinx extensions, and Make targets to help users write,
     maintain, and publish documentation for their products.
     """
+)
 
 # The base URL for references built by sphinx-markdown-builder.
 markdown_http_base = html_baseurl
