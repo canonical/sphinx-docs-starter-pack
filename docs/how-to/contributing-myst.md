@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    description: Contribute to the documentation project with code, writing, or testing.
+    description: How to contribute code, documentation, and tests to the Starter Pack.
 orphan: true
 ---
 

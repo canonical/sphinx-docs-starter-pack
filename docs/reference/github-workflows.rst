@@ -1,5 +1,5 @@
 .. meta::
-    :description: The Starter Pack ships with GitHub workflows to check your documentation's spelling, links, and language in CI.
+    :description: Reference for the built-in GitHub workflows that check your documentation's spelling, links, and language.
 
 .. _github-workflows:
 
