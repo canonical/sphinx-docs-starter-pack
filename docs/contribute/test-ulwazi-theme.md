@@ -18,25 +18,26 @@ You can build the Ulwazi-themed documentation locally from the branch or open a 
 
 ## Update the dependencies
 
-In your project's Python requirements, replace the Canonical Sphinx package with Ulwazi and its dependencies. The minimum set is:
+In your project's Python requirements (`requirements.txt`), replace the Canonical Sphinx package with Ulwazi and its dependencies:
 
-```{code-block} text
+```{code-block} diff
 :caption: requirements.txt
 
-sphinx
-build
-sphinx-autobuild
-canonical-sphinx-config @ git+https://github.com/Canonical/canonical-sphinx-config.git@main
-myst-parser~=4.0
-sphinx-basic-ng
-sphinxcontrib-jquery
-beautifulsoup4
-packaging
-sphinxcontrib-svg2pdfconverter[CairoSVG]
-sphinx-last-updated-by-git
-sphinx-sitemap
-sphinx-terminal
-ulwazi
+- canonical-sphinx
++ sphinx
++ build
++ sphinx-autobuild
++ canonical-sphinx-config @ git+https://github.com/Canonical/canonical-sphinx-config.git@main
++ myst-parser~=4.0
++ sphinx-basic-ng
++ sphinxcontrib-jquery
++ beautifulsoup4
++ packaging
++ sphinxcontrib-svg2pdfconverter[CairoSVG]
++ sphinx-last-updated-by-git
++ sphinx-sitemap
++ sphinx-terminal
++ ulwazi
 ```
 
 Be ready to add any other missing extensions if you see errors about them.
@@ -50,7 +51,7 @@ There are two main ways to do that:
 * Simple way -- Start from the [Default Ulwazi configuration](https://github.com/canonical/ulwazi/blob/main/docs/default-conf.py) and update the values for your specific documentation.
 * Hard way -- Start from the existing configuration and add all required values.
 
-We strongly recommend trying the first option (The Simple way) first as it proved to be faster and less troublesome, yet enough for testing the theme.
+We strongly recommend trying the first option (the simple way) first as it proved to be faster and less troublesome, yet enough for testing the theme.
 
 ## The simple way
 
@@ -63,7 +64,8 @@ Here is the simple way of trying Ulwazi:
 
 ## The hard way
 
-The following instructions will guide you through necessary modifications to support Ulwazi with your existing `conf.py` file.
+The following instructions describe the modifications needed to support Ulwazi in an existing `conf.py` file.
+Use this approach if you want to preserve as much of your original `conf.py` as possible, for example in a heavily customised deployment or when troubleshooting a configuration issue.
 
 ### Set the theme
 
