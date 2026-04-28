@@ -2,8 +2,7 @@
 relatedlinks: https://github.com/canonical/canonical-sphinx-extensions, [reStructuredText&#32;Primer](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html), [Canonical&#32;Documentation&#32;Style&#32;Guide](https://docs.ubuntu.com/styleguide/en)
 myst:
   html_meta:
-    description: MyST Markdown syntax for use in Starter Pack projects, including 
-        headings, links, code blocks, directives, and reusable content patterns.
+    description: MyST Markdown syntax for use in Starter Pack projects, including headings, links, code blocks, directives, and reusable content patterns.
   substitutions:
     advanced_reuse_key: "This is a substitution that includes a code block:
                        ```
