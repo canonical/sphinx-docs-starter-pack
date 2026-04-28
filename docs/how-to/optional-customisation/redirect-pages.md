@@ -25,7 +25,6 @@ Next, in your `conf.py` file, declare the `rediraffe_redirects` variable and ass
 :caption: conf\.py
 
 # Add redirects, so they can be updated here to land alongside docs being moved
-rediraffe_branch = "main"
 rediraffe_redirects = "redirects.txt"
 ```
 
