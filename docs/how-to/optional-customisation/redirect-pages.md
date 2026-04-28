@@ -20,7 +20,7 @@ To enable handling redirects in your project repository, the Starter Pack provid
 In your `conf.py` file, add the extension to the `extensions` list:
 
 ```{code-block} python
-:caption: conf.py
+rerediraffe:caption: conf\.py
 
 # Add to the list of extensions
 extensions = [
@@ -33,7 +33,7 @@ Create a file called `redirects.txt` in the same directory as your `conf.py` fil
 Next, in your `conf.py` file, declare `rerediraffe_redirects` variable and assign it the path of the redirects file you just created relative to `conf.py`:
 
 ```{code-block} python
-:caption: conf.py
+rerediraffe:caption: conf\.py
 
 # Add redirects, so they can be updated here to land alongside docs being moved
 rerediraffe_branch = "main"
