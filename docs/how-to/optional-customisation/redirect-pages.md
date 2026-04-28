@@ -19,14 +19,14 @@ To enable handling redirects in your project repository, the Starter Pack comes 
 
 Create a file called `redirects.txt` in the same directory as your `conf.py` file. This file will host all of your redirects.
 
-Next, in your `conf.py` file, declare `rerediraffe_redirects` variable and assign it the path of the redirects file you just created relative to `conf.py`:
+Next, in your `conf.py` file, declare the `rediraffe_redirects` variable and assign it the path of the redirects file you just created relative to `conf.py`:
 
 ```{code-block} python
 :caption: conf\.py
 
 # Add redirects, so they can be updated here to land alongside docs being moved
-rerediraffe_branch = "main"
-rerediraffe_redirects = "redirects.txt"
+rediraffe_branch = "main"
+rediraffe_redirects = "redirects.txt"
 ```
 
 ## Define a redirect
