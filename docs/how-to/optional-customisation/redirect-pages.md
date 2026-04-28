@@ -2,7 +2,7 @@
 myst:
   html_meta:
     description: How to redirect URLs in your documentation project. You can redirect a URL to a page inside your project, or to a page on another website.
-relatedlinks: https://sphinxext-rerediraffe.readthedocs.io/en/latest/
+relatedlinks: https://github.com/jahn-junior/sphinx-rerediraffe/
 ---
 
 # Redirect pages
