@@ -61,7 +61,7 @@ difficulty:
 - Storing multiple virtual environments bloats the host system. It's reasonable for
   project maintainers to prefer a shared build environment.
 - The Starter Pack's update process can make changes to many files in the ``docs``
-  directory. Upgrading is potentially much simpler if the parent project modifies only
+  directory. Updating is potentially much simpler if the parent project modifies only
   a minimum of files in the directory.
 - With quality assurance and continuous integration, it's simpler if the project can use
   the same interface to run local and remote checks. More specifically, the parent build

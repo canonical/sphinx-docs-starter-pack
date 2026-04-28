@@ -46,7 +46,7 @@ Add ``sphinx_sitemap`` to ``extensions`` in your configuration file (:file:`docs
 Sitemap configuration
 ^^^^^^^^^^^^^^^^^^^^^
 
-The Sphinx Starter Pack's configuration file (:file:`docs/conf.py`) includes default sitemap configuration.
+The Starter Pack's configuration file (:file:`docs/conf.py`) includes default sitemap configuration.
 
 The ``sphinx-sitemap`` extension requires a ``html_baseurl`` variable to be configured.
 
