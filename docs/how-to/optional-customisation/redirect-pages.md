@@ -2,7 +2,7 @@
 myst:
   html_meta:
     description: How to redirect URLs in your documentation project. You can redirect a URL to a page inside your project, or to a page on another website.
-relatedlinks: https://sphinxext-rediraffe.readthedocs.io/en/latest/
+relatedlinks: https://sphinxext-rerediraffe.readthedocs.io/en/latest/
 ---
 
 # Redirect pages
@@ -13,43 +13,31 @@ To provide a better user experience, it is good practice to set up redirects to 
 
 The **best practice** is to define and track redirects in your project source, so that when a file is moved, renamed or deleted, you can create a redirect at the same time. In this way, redirects will always be in place when such changes go live. Redirects can either be **external**, meaning that they point to a URL outside your documentation, or **internal**, where you want to point to a new location within your documentation.
 
-To set up redirects in your project source, you can use the `sphinxext-rediraffe` extension that lets you store your redirects in a separate file (`redirects.txt`).
+To enable handling redirects in your project repository, the Starter Pack provides  the `sphinxext-rerediraffe` extension. This extension allows you to store redirects in a separate file (`redirects.txt`).
 
-## Add sphinxext-rediraffe
+## Configure sphinxext-rerediraffe
 
-`sphinxext-rediraffe` supports the `html` and `dirhtml` Sphinx builders. If you are using a different builder, change it in your `.readthedocs.yaml` file:
-
-```{code-block} yaml
-:caption: .readthedocs.yaml
-
-# Build documentation in the docs/ directory with Sphinx
-sphinx:
-  builder: dirhtml
-```
-
-Now add `sphinxext-rediraffe` to your `requirements.txt` file.
-
-Then, in your `conf.py` file, add the extension to the `extensions` list:
+In your `conf.py` file, add the extension to the `extensions` list:
 
 ```{code-block} python
 :caption: conf.py
 
 # Add to the list of extensions
 extensions = [
-	"sphinxext.rediraffe",
+	"sphinxext.rerediraffe",
 ]
 ```
 
 Create a file called `redirects.txt` in the same directory as your `conf.py` file. This file will host all of your redirects.
 
-Next, in your `conf.py` file, declare `rediraffe_redirects` variable and assign it the path of the redirects file you just created relative to `conf.py`:
+Next, in your `conf.py` file, declare `rerediraffe_redirects` variable and assign it the path of the redirects file you just created relative to `conf.py`:
 
 ```{code-block} python
 :caption: conf.py
 
 # Add redirects, so they can be updated here to land alongside docs being moved
-rediraffe_branch = "main"
-rediraffe_redirects = "redirects.txt"
+rerediraffe_branch = "main"
+rerediraffe_redirects = "redirects.txt"
 ```
 
 ## Define redirects in the file
@@ -80,7 +68,7 @@ Redirects are relative to the root of the `docs/` directory, so for simplicity, 
 
 ## Layering redirects
 
-In Rediraffe, multiple files can be redirected to the same target:
+In rerediraffe, multiple files can be redirected to the same target:
 
 * A → D  
 * B → D  
