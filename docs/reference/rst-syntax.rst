@@ -8,13 +8,13 @@
 reStructuredText syntax
 =======================
 
-The documentation files use `reStructuredText`_ (reST) syntax.
+The Starter Pack supports `reStructuredText`_ (reST).
 
 See the following sections for syntax help and conventions.
 
 .. note::
    This guide assumes that you are using the `Sphinx documentation starter pack`_.
-   Some of the mentioned syntax requires Sphinx extensions (which are enabled in the starter pack).
+   Some of the mentioned syntax requires Sphinx extensions (which are enabled in the Starter Pack).
 
 For general style conventions, see the `Canonical Documentation Style Guide`_.
 
@@ -687,7 +687,7 @@ Both markups result in the following output:
 Customize the column widths, character encoding, and so on, as described in the 
 `csv-table reference <https://docutils.sourceforge.io/docs/ref/rst/directives.html#csv-table>`_.
 
-The starter pack can also render interactive tables. See: :ref:`interactive-tables`.
+The Starter Pack can also render interactive tables. See: :ref:`interactive-tables`.
 
 Notes
 -----

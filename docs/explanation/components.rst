@@ -3,7 +3,7 @@
 
 .. _explanation-structure:
 
-Starter pack structure
+Starter Pack structure
 =======================
 
 The Starter Pack is a template `Sphinx <https://www.sphinx-doc.org/en/master/>`__

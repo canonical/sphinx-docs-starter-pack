@@ -79,6 +79,7 @@ openapi
 docstrings?
 Makefiles?
 rediraffe
+rerediraffe
 retrigger(ing)?
 Diátaxis
 preconfigured

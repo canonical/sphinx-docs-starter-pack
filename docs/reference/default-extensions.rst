@@ -1,5 +1,5 @@
 .. meta::
-    :description: A list of extensions included in the starter pack by default.
+    :description: A list of extensions included in the Starter Pack by default.
 
 .. _reference-default-sphinx-extensions:
 

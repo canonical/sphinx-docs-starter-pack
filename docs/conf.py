@@ -13,7 +13,7 @@ import yaml
 # A complete list of built-in Sphinx configuration values:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 #
-# Our starter pack uses the custom Canonical Sphinx extension
+# Our Starter Pack uses the custom Canonical Sphinx extension
 # to keep all documentation based on it consistent and on brand:
 # https://github.com/canonical/canonical-sphinx
 
@@ -26,7 +26,7 @@ import yaml
 #
 # TODO: Update with the official name of your project or product
 
-project = "Documentation starter pack"
+project = "Documentation Starter Pack"
 author = "Canonical Ltd."
 
 # The year in the copyright statement defaults to the current year, so
@@ -134,7 +134,8 @@ html_context = {
     "github_issues": "enabled",
     # Inherit the author value
     "author": author,
-    # The starter pack uses CC-BY-SA as the license
+
+    # The Starter Pack uses CC-BY-SA as the license
     #
     # TODO: If your docs need another license, specify it instead of 'CC-BY-SA'.
     # For the name, we recommend using the standard shorthand identifier from
@@ -288,7 +289,7 @@ linkcheck_retries = 3
 # Custom Sphinx extensions; see
 # https://www.sphinx-doc.org/en/master/usage/extensions/index.html
 
-# NOTE: The canonical_sphinx extension is required for the starter pack.
+# NOTE: The canonical_sphinx extension is required for the Starter Pack.
 
 extensions = [
     "canonical_sphinx",
