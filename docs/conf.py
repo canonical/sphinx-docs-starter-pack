@@ -233,13 +233,12 @@ rediraffe_dir_only = True
 
 # This description is included in llms.txt to provide some initial context for your
 # product docs.
-# TODO: Write one or two sentences that describe your documentation.
+# TODO: Add a description in the form "This is the documentation for <product name>,
+# <first sentence of home page>".
 llms_txt_description = textwrap.dedent(
     """\
-    This documentation describes Canonical's Sphinx Starter Pack, a template repository
-    for Sphinx documentation projects. The Starter Pack provides a standard set of
-    configuration files, Sphinx extensions, and Make targets to help users write,
-    maintain, and publish documentation for their products.
+    This is the documentation for the Sphinx Starter Pack, a template repository
+    that helps you set up, build, and publish Sphinx documentation.
     """
 )
 
