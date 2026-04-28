@@ -76,7 +76,7 @@ path/file-name/ new-path/file-name/		# To move a file
 path/old-name/ new-path/new-name/		# To move and rename a file
 ```
 
-Redirects are relative to the root of the `docs/` directory, so for simplicity, it’s best to put the redirects.txt file in the root directory. This is an [example of a working](https://github.com/canonical/ubuntu-server-documentation/blob/main/redirects.txt) `redirect.txt` file.
+Redirects are relative to the root of the `docs/` directory, so for simplicity, it’s best to put the redirects.txt file in the root directory. This is an [example of a working](https://github.com/canonical/ubuntu-server-documentation/blob/main/docs/redirects.txt) `redirect.txt` file.
 
 ## Layering redirects
 
