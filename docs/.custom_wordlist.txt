@@ -21,6 +21,7 @@ lang
 LaTeX
 latexmk
 Multipass
+npm
 otf
 plantuml
 PNG
@@ -74,7 +75,7 @@ sequenceDiagram
 Numpy
 openapi
 docstrings?
-Makefile
+Makefiles?
 rediraffe
 retrigger(ing)?
 Diátaxis

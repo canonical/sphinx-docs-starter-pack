@@ -1,9 +1,12 @@
+.. meta::
+   :description: How to troubleshoot common issues with the Sphinx Starter Pack and Read the Docs.
+
 .. _troubleshooting:
 
 Troubleshooting
 ===================
 
-This page provides guidance to resolve issues with the Starter Pack and ReadTheDocs
+This page provides guidance to resolve issues with the Starter Pack and Read the Docs
 that are difficult to identify or that we don't expect to be solved.
 
 

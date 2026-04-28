@@ -1,3 +1,6 @@
+.. meta::
+   :description: How to customize PDF output with LaTeX.
+
 .. _pdf-customise:
 
 Customise PDF output
@@ -6,14 +9,14 @@ Customise PDF output
 Overview
 --------
 
-The starter pack supports PDF output via LaTeX using the ``make pdf`` command. This build process relies on system packages, Sphinx configurations, and a LaTeX template from the ``canonical-sphinx`` extension.
+The Starter Pack supports PDF output via LaTeX using the ``make pdf`` command. This build process relies on system packages, Sphinx configurations, and a LaTeX template from the ``canonical-sphinx`` extension.
 
 Customising PDF output involves two levels of configuration:
 
 * **Sphinx configuration**: built-in options for configuring LaTeX build process in :file:`conf.py`, for example: the engine used to generate the PDF, output file name, and input file paths.
 * **LaTeX configuration**: the LaTeX packages, styling, and configuration for the PDF output, set through the :literalref:`latex_elements <https://www.sphinx-doc.org/en/master/latex.html#the-latex-elements-configuration-setting>` dictionary in the project :file:`conf.py`. In the starter-pack, a default set of LaTeX elements is provided by the ``canonical-sphinx`` extension. Changing the LaTeX configuration requires overriding the default values loaded from the extension.
 
-This guide covers common practices and tips for customising PDF output from your documentation project using the starter pack and the ``canonical-sphinx`` extension.
+This guide covers common practices and tips for customising PDF output from your project using the Starter Pack and the ``canonical-sphinx`` extension.
 
 For basic instructions about building the PDF, see :ref:`build-and-preview`.
 
@@ -115,7 +118,7 @@ The LaTeX template is a text file in the ``canonical-sphinx`` extension that pro
 
 Any additions or changes to the default settings of LaTeX elements in the PDF document requires overriding the default template.
 
-1. Download the default template file `latex_elements_template.txt <https://github.com/canonical/canonical-sphinx/blob/main/canonical_sphinx/theme/PDF/latex_elements_template.txt>`_ from the ``canonical/canonical-sphinx`` GitHub repository, and save it to your documentation project directory. For example, at :file:`.sphinx/latex_elements_custom.txt`.
+1. Download the default template file `latex_elements_template.txt <https://github.com/canonical/canonical-sphinx/blob/main/canonical_sphinx/theme/PDF/latex_elements_template.txt>`_ from the ``canonical/canonical-sphinx`` GitHub repository, and save it to your project directory. For example, at :file:`.sphinx/latex_elements_custom.txt`.
 
 2. In the Python dictionary, add or modify the LaTeX elements you want to change. Details of changing the dictionary are covered in the sub-sections below.
 

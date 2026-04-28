@@ -108,6 +108,7 @@ Add these new variables, including the top-level variables you declared earlier:
 "license": {
     "name": "Apache-2.0",          # TODO: set your license
     "url": github_repo + "/blob/main/LICENSE",
+}
 ```
 
 Add these entries so the theme can display the project name and author without duplicating them:

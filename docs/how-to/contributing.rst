@@ -1,3 +1,6 @@
+.. meta::
+   :description: How to contribute to the documentation project with code, writing, or testing.
+
 :orphan:
 
 .. TODO: Replace all mentions of ACME with your project name
@@ -294,7 +297,7 @@ Documentation
 -------------
 
 ACME's documentation is stored in the ``DOCDIR`` directory of the repository.
-It is based on the `Canonical starter pack
+It is based on the `Canonical Starter Pack
 <https://canonical-starter-pack.readthedocs-hosted.com/stable/>`_
 and hosted on `Read the Docs <https://about.readthedocs.com/>`_.
 

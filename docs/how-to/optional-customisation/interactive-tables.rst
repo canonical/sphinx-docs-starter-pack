@@ -1,11 +1,16 @@
+.. meta::
+   :description: How to add interactive data tables to your project with sorting and filtering capabilities.
+
 .. _interactive-tables:
 
 Add interactive data tables
 ===========================
 
-The `Sphinx DataTables`_ extension enables interactive tables. Users can sort columns and filter rows. For examples, see the extension's documentation.
+Data-heavy documentation often benefits from tables that users can explore interactively.
+The `Sphinx DataTables`_ extension provides interactive tables where users can sort columns and filter rows, making large datasets more navigable and useful.
+For examples, see the extension's documentation.
 
-The extension isn't available by default in the starter pack. To read more about table functionality that is available out of the box, see :ref:`Tables (MyST) <myst_style_guide_tables>` and :ref:`Tables (reST) <style-guide-tables>`.
+The extension isn't available by default in the Starter Pack. To read more about table functionality that is available out of the box, see :ref:`Tables (MyST) <myst_style_guide_tables>` and :ref:`Tables (reST) <style-guide-tables>`.
 
 Include the ``sphinx-datatables`` extension
 -------------------------------------------
