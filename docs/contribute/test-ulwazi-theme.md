@@ -49,9 +49,11 @@ Updating the project configuration is the most critical step in this process.
 There are two main ways to do that:
 
 * Simple way -- Start from the [Default Ulwazi configuration](https://github.com/canonical/ulwazi/blob/main/docs/default-conf.py) and update the values for your specific documentation.
-* Hard way -- Start from the existing configuration and add all required values.
+* Hard way -- Adapt your existing configuration by adding all required values.
 
 We strongly recommend trying the first option (the simple way) first as it proved to be faster and less troublesome, yet enough for testing the theme.
+Choose the hard way if your project already has significant `conf.py` customisation that would be difficult to recreate from the default Ulwazi configuration.
+ 
 
 ## The simple way
 
