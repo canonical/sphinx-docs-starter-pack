@@ -23,9 +23,7 @@ make run
 ```
 
 This will create a Python virtual environment, install necessary dependencies, build the
-documentation, and serve it in a local webserver.
-
-You can access it in your browser at http://127.0.0.1:8000.
+documentation, and serve it to http://127.0.0.1:8000.
 
 To learn more about how to install and configure the Sphinx Stack for your own project,
 see the [Set up a new
