@@ -1,28 +1,29 @@
 #! /usr/bin/env python
 
-# Initial update script for the starter pack.
+# Initial update script for the Sphinx Stack.
 #
 # Requires some manual intervention, but makes identifying updates and differences easier.
 #
 # For debugging, please run this script with DEBUGGING=1
-# e.g. user@device:~/git/Canonical/sphinx-docs-starter-pack/docs$ DEBUGGING=1 python .sphinx/update_sp.py
+# e.g. user@device:~/git/Canonical/sphinx-stack/docs$ DEBUGGING=1 python .sphinx/update_sp.py
 
 
 import glob
 import logging
 import os
-import requests
 import re
 import subprocess
 import sys
-from requests.exceptions import RequestException
+
+import requests
 from packaging.version import parse as parse_version
+from requests.exceptions import RequestException
 
 SPHINX_DIR = os.path.abspath(os.path.dirname(__file__))
-DOCS_DIR = os.path.abspath(os.path.join(SPHINX_DIR, '..'))
+DOCS_DIR = os.path.abspath(os.path.join(SPHINX_DIR, ".."))
 REQUIREMENTS = os.path.join(DOCS_DIR, "requirements.txt")
 SPHINX_UPDATE_DIR = os.path.join(SPHINX_DIR, "update")
-GITHUB_REPO = "canonical/sphinx-docs-starter-pack"
+GITHUB_REPO = "canonical/sphinx-stack"
 GITHUB_API_BASE = f"https://api.github.com/repos/{GITHUB_REPO}"
 GITHUB_API_SPHINX_DIR = f"{GITHUB_API_BASE}/contents/docs/.sphinx"
 GITHUB_RAW_BASE = f"https://raw.githubusercontent.com/{GITHUB_REPO}/main"
@@ -43,7 +44,7 @@ def main():
     except FileNotFoundError:
         print("WARNING\nWARNING\nWARNING")
         print(
-            "You need to update to at least version 1.0.0 of the starter pack to start using the update function."
+            "You need to update to at least version 1.0.0 of the Sphinx Stack to start using the update function."
         )
         print("You may experience issues using this functionality.")
         logging.debug("No local version found. Setting version to None")
@@ -61,7 +62,7 @@ def main():
     logging.debug("Comparing versions")
     if parse_version(local_version) < parse_version(latest_release):
         logging.debug("Local version is older than the release version.")
-        print("Starter pack is out of date.\n")
+        print("Sphinx Stack is out of date.\n")
 
         # Identify and download '.sphinx' dir files to '.sphinx/update'
         files_updated, new_files = update_static_files()
@@ -130,7 +131,7 @@ def main():
     except FileNotFoundError:
         print("requirements.txt not found")
         print(
-            "The updated starter pack has moved requirements.txt out of the '.sphinx' dir"
+            "The updated Sphinx Stack has moved requirements.txt out of the '.sphinx' dir"
         )
         print("requirements.txt not checked, please update your requirements manually")
 
@@ -142,7 +143,7 @@ def update_static_files():
 
     for item in query_api(GITHUB_API_SPHINX_DIR).json():
         logging.debug(f"Checking {item['name']}")
-        # Checks existing files in '.sphinx' starter pack static root for changed SHA
+        # Checks existing files in '.sphinx' Sphinx Stack static root for changed SHA
         if item["name"] in files and item["type"] == "file":
             index = files.index(item["name"])
             if item["sha"] != get_git_revision_hash(paths[index]):
@@ -189,7 +190,7 @@ def update_static_files():
                                 SPHINX_UPDATE_DIR, item["name"], nested_item["name"]
                             ),
                         )
-        # Downloads NEW files in '.sphinx' starter pack static root
+        # Downloads NEW files in '.sphinx' Sphinx Stack static root
         else:
             if item["type"] == "file":
                 logging.debug(f"No local version found of {item['name']}")

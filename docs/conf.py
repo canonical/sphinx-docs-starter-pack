@@ -105,7 +105,7 @@ html_context = {
 # - https://git.launchpad.net/example
 #
 # html_theme_options = {
-# 'source_edit_link': 'https://github.com/canonical/sphinx-docs-starter-pack',
+# 'source_edit_link': 'https://github.com/canonical/sphinx-stack',
 # }
 
 # Project slug
