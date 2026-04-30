@@ -174,8 +174,8 @@ linkcheck_ignore = [
 # A regex list of URLs where anchors are ignored by 'make linkcheck'
 linkcheck_anchors_ignore_for_url = [r"https://github\.com/.*"]
 
-# Give linkcheck multiple tries on failure.
-# TODO: Uncomment if links are frequently timing out.
+# How long the link checker will wait for a response for each request
+# TODO: Decrease to improve run time or increase if links frequently time out.
 # linkcheck_timeout = 30
 
 # Give linkcheck multiple tries on failure
