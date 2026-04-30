@@ -3,7 +3,10 @@
 GitHub workflows
 ================
 
-The primary documentation workflow checks spelling, links, and inclusive language in a documentation project; these are the same checks as described in :ref:`run-documentation-checks`. The ``documentation-checks.yaml`` workflow covers these three checks and can be added to a new or existing workflow's jobs with:
+The primary documentation workflow checks spelling, links, and inclusive language in a documentation project; 
+these are the same checks as described in :ref:`run-documentation-checks`.
+
+The ``documentation-checks.yaml`` workflow covers these three checks and can be added to a new or existing workflow's jobs with:
 
 .. code:: yaml
 
@@ -81,8 +84,12 @@ Check for removed URLs
 
 .. versionadded:: 1.2.0
 
-The Starter Pack includes a GitHub action to identify when page URLs have been removed. This flags pages that have moved or been removed entirely.
+The Starter Pack includes a GitHub action to identify when pages have been removed. 
+This includes moving pages to another path, or removing them completely.
 
 This does not cover higher-level changes to URL paths, such as changes to the project name or URL slug pattern on RTD.
 
-This check ensures that redirects are implemented when pages are moved or that appropriate information is provided when something is removed.
+This check ensures that redirects are implemented when pages are moved, or
+appropriate information is provided when anything is removed. It only runs
+on pull request builds.
+

@@ -4,7 +4,7 @@
 
 ## Description
 
-The Documentation starter pack includes:
+The Documentation Starter Pack includes:
 
 * A bundled [Sphinx] theme, configuration, and extensions
 * Support for both reStructuredText (reST) and MyST Markdown
@@ -19,7 +19,7 @@ This section outlines the structure of this repository, and some key files.
 
 ### `docs/`
 
-This directory contains the documentation for the starter pack itself.
+This directory contains the documentation for the Starter Pack itself.
 
 To view it in your browser, navigate to this directory and type `make run`.
 
@@ -27,7 +27,7 @@ To view it in your browser, navigate to this directory and type `make run`.
 
 This directory contains files used for documentation build checks via GitHub's CI.
 
-The file `test-starter-pack.yml` tests the functionality of the starter pack project.
+The file `test-starter-pack.yml` tests the functionality of the Starter Pack project.
 
 ## Contributing
 
