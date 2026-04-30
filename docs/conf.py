@@ -19,17 +19,16 @@ import os
 #######################
 
 # Project name
-#
-# TODO: Update with the official name of your project or product (e.g., "Ubuntu Server")_
+# TODO: Update with the official name of your project or product (e.g., "Ubuntu Server")
 project = ""
 
-author = "Canonical"
+# Author name; used in the default copyright statement in the page footer
+author = "Canonical Ltd."
 
 # The year in the copyright statement
 copyright = f"{datetime.date.today().year}"
 
 # Sidebar documentation title
-#
 # To disable the title, set it to an empty string.
 html_title = project + " documentation"
 
@@ -37,17 +36,14 @@ html_title = project + " documentation"
 ogp_site_url = os.environ.get("READTHEDOCS_CANONICAL_URL", "/")
 
 # Preview name of the documentation website
-#
 # TODO: To use a different name for the project in previews, update the next line.
 ogp_site_name = project
 
 # Preview image URL
-#
 # TODO: To customise the preview image, update the next line.
 ogp_image = "https://assets.ubuntu.com/v1/cc828679-docs_illustration.svg"
 
 # Product favicon
-# 
 # TODO: To customise the favicon, uncomment and update the next line.
 # html_favicon = ".sphinx/_static/favicon.png"
 
@@ -55,68 +51,47 @@ ogp_image = "https://assets.ubuntu.com/v1/cc828679-docs_illustration.svg"
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-html_context
 html_context = {
     # Product page URL; can be different from product docs URL
-    #
     # TODO: Change to your product website URL, dropping the 'https://' prefix (e.g.,
     #       'ubuntu.com/lxd').
-    #
     # TODO: If there's no such website, remove the {{ product_page }} link from the
     #       .sphinx/_templates/header.html file.
     "product_page": "",
-    
     # Product tag image; the orange part of your logo, shown in the page header
-    #
     # TODO: To add a tag image, uncomment and update as needed.
     # 'product_tag': '_static/tag.png',
-    
     # Your Discourse instance URL
-    #
     # TODO: Change to your Discourse instance URL or leave empty.
     "discourse": "",
-    
     # Your Mattermost channel URL
-    #
     # TODO: Change to your Mattermost channel URL or leave empty.
     "mattermost": "",
-    
     # Your Matrix channel URL
-    #
     # TODO: Change to your Matrix channel URL or leave empty.
     "matrix": "",
-    
     # Your documentation GitHub repository URL
-    #
     # TODO: Change to your documentation GitHub repository URL or leave empty.
-    #
     # NOTE: If set, links for viewing the documentation source files
     #       and creating GitHub issues are added at the bottom of each page.
     "github_url": "",
-    
     # Docs branch in the repo; used in links for viewing the source files
-    'repo_default_branch': 'main',
-    
+    "repo_default_branch": "main",
     # Docs location in the repo; used in links for viewing the source files
     "repo_folder": "/docs/",
-    
     # TODO: To enable or disable the Previous / Next buttons at the bottom of pages
     # Valid options: none, prev, next, both
     # "sequential_nav": "",
-
     # TODO: To enable listing contributors on individual pages, set to True
     "display_contributors": False,
-
-    # Required for feedback button    
-    'github_issues': 'enabled',
-
+    # Required for feedback button
+    "github_issues": "enabled",
     # Passes the top-level 'author' value to the theme
     "author": author,
-
     # Documentation license information
     "license": {
         # TODO: Specify your project's license.
         # For the name, we recommend using the standard shorthand identifier from
         # https://spdx.org/licenses
         "name": "",
-
         # TODO: Link directly to your project's license statement.
         "url": "",
     },
@@ -134,9 +109,8 @@ html_context = {
 # }
 
 # Project slug
-#
 # TODO: If your documentation is hosted on https://documentation.ubuntu.com/,
-#       uncomment and update as needed.
+#       uncomment and set to the RTD slug.
 # slug = ''
 
 #######################
@@ -147,16 +121,17 @@ html_context = {
 html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "/")
 
 # sphinx-sitemap uses html_baseurl to generate the full URL for each page:
-sitemap_url_scheme = '{link}'
+sitemap_url_scheme = "{link}"
 
 # Include `lastmod` dates in the sitemap:
 sitemap_show_lastmod = True
 
-# Exclude generated pages from the sitemap:
+# TODO: Exclude pages that aren't user-facing from the sitemap.
+# Pages excluded from the sitemap:
 sitemap_excludes = [
-    '404/',
-    'genindex/',
-    'search/',
+    "404/",
+    "genindex/",
+    "search/",
 ]
 
 ################################
@@ -193,10 +168,14 @@ linkcheck_ignore = [
     "https://example.com",
     # SourceForge domains often block linkcheck
     r"https://.*\.sourceforge\.(net|io)/.*",
-    ]
+]
 
 # A regex list of URLs where anchors are ignored by 'make linkcheck'
 linkcheck_anchors_ignore_for_url = [r"https://github\.com/.*"]
+
+# Give linkcheck multiple tries on failure.
+# TODO: Uncomment if links are frequently timing out.
+# linkcheck_timeout = 30
 
 # Give linkcheck multiple tries on failure
 linkcheck_retries = 3
@@ -207,12 +186,10 @@ linkcheck_retries = 3
 
 # Custom MyST syntax extensions; see
 # https://myst-parser.readthedocs.io/en/latest/syntax/optional.html
-#
 # NOTE: By default, the following MyST extensions are enabled:
 #   - substitution
 #   - deflist
 #   - linkify
-#
 # myst_enable_extensions = set()
 
 # Custom Sphinx extensions; see
@@ -263,19 +240,16 @@ rst_epilog = """
 """
 
 # Feedback button at the top; enabled by default
-#
-# TODO: To disable the button, uncomment the next line.
+# TODO: Disable the button if your project is unsuitable for public feedback.
 # disable_feedback_button = True
 
 # Your manpage URL
-#
 # TODO: To enable manpage links, uncomment and replace {codename} with required
 #       release, preferably an LTS release (e.g. noble). Do *not* substitute
 #       {section} or {page}; these will be replaced by sphinx at build time
 #
 # NOTE: If set, adding ':manpage:' to an .rst file
 #       adds a link to the corresponding man section at the bottom of the page.
-
 # manpages_url = 'https://manpages.ubuntu.com/manpages/{codename}/en/' + \
 #     'man{section}/{page}.{section}.html'
 
