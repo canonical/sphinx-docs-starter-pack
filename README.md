@@ -1,41 +1,65 @@
-# Canonical's Sphinx Starter Pack
+# Sphinx Stack
 
-*A pre-configured repository to build and publish documentation with Sphinx.*
+[![Sphinx Stack test](https://github.com/canonical/sphinx-stack/actions/workflows/test-sphinx-stack.yml/badge.svg)](https://github.com/canonical/sphinx-stack/actions/workflows/test-sphinx-stack.yml)
 
-## Description
+A standard set of tools for building and publishing Sphinx documentation.
 
-The Documentation starter pack includes:
+The Sphinx Stack contains a set of CLI commands and a default set of extensions,
+configuration options, and tests.
 
-* A bundled [Sphinx] theme, configuration, and extensions
-* Support for both reStructuredText (reST) and MyST Markdown
-* Build checks for links, spelling, and inclusive language
-* Customisation support layered over a core configuration
+## Basic usage
 
-See the full documentation: https://canonical-starter-pack.readthedocs-hosted.com/
+To try out the Sphinx Stack, clone it locally and navigate to the `/docs` directory:
 
-## Structure
+```shell
+git clone git@github.com:canonical/sphinx-stack.git
+cd docs
+```
 
-This section outlines the structure of this repository, and some key files.
+Then, run the command
 
-### `docs/`
+```shell
+make run
+```
 
-This directory contains the documentation for the starter pack itself.
+This will create a Python virtual environment, install necessary dependencies, build the
+documentation, and serve it in a local webserver.
 
-To view it in your browser, navigate to this directory and type `make run`.
+You can access it in your browser at http://127.0.0.1:8000.
 
-### `.github/workflows/`
+To learn more about how to install and configure the Sphinx Stack for your own project,
+see the [Set up a new
+project](https://canonical-sphinx-stack.readthedocs-hosted.com/stable/tutorial/set-up/)
+guide in the official documentation.
 
-This directory contains files used for documentation build checks via GitHub's CI.
+## Requirements and limitations
 
-The file `test-starter-pack.yml` tests the functionality of the starter pack project.
+The Sphinx Stack is designed for projects hosted on GitHub. This is necessary to run the
+automatic checks in .github/workflows, and to publish your documentation on Read the
+Docs.
 
-## Contributing
+If you have a project that is hosted on a different versioning platform, like Launchpad,
+[reach out to us](#reach-out).
 
-We welcome contributions to this project! If you have suggestions, bug fixes, or improvements, please open an issue or submit a pull request.
+## Community and support
 
-Please read and sign our [Contributor Licence Agreement (CLA)] before submitting any changes. The agreement grants Canonical permission to use your contributions. The author of a change remains the copyright owner of their code (no copyright assignment occurs).
+The Sphinx Stack is an open-source project that warmly welcomes community involvement.
 
-<!--Links-->
+If you’re new to the community, make sure to read through the [Ubuntu Code of
+Conduct](https://ubuntu.com/community/code-of-conduct) first.
 
-[Sphinx]: https://www.sphinx-doc.org/
-[Contributor Licence Agreement (CLA)]: https://ubuntu.com/legal/contributors
+### Reach out
+
+* Report an issue or make a suggestion via
+  [GitHub](https://github.com/canonical/sphinx-stack/issues)
+* Come chat with the Canonical Documentation team in our [public Matrix
+  channel](https://matrix.to/#/#documentation:ubuntu.com)
+
+### Contribute
+
+The Sphinx Stack provides a shared foundation for Sphinx documentation projects, and
+contributions help improve the documentation of all its users.
+
+* See [CONTRIBUTING.md](CONTRIBUTING.md) for more details on contributing to
+  development or documentation.
+* Check [open issues](https://github.com/canonical/sphinx-stack/issues)
