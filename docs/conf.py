@@ -234,11 +234,9 @@ exclude_patterns = [
 #     "https://assets.ubuntu.com/v1/287a5e8f-bundle.js",
 # ]
 
-# Specifies a reST snippet to be appended to each .rst file
-rst_epilog = """
-.. include:: /reuse/links.txt
-.. include:: /reuse/substitutions.txt
-"""
+# Appends extra markup to the end of every document written in reST
+#rst_epilog = """
+#"""
 
 # Feedback button at the top; enabled by default
 # TODO: Disable the button if your project is unsuitable for public feedback.
