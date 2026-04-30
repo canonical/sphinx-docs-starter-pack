@@ -48,12 +48,11 @@ Updating the project configuration is the most critical step in this process.
 
 There are two main ways to do that:
 
-* Simple way -- Start from the [Default Ulwazi configuration](https://github.com/canonical/ulwazi/blob/main/docs/default-conf.py) and update the values for your specific documentation.
+* Simple way -- Adapt the [Sample `conf.py` for Ulwazi](https://github.com/canonical/ulwazi/blob/main/docs/default-conf.py) by adjusting the values for your specific documentation.
 * Hard way -- Adapt your existing configuration by adding all required values.
 
 We strongly recommend trying the first option (the simple way) first as it proved to be faster and less troublesome, yet enough for testing the theme.
 Choose the hard way if your project already has significant `conf.py` customisation that would be difficult to recreate from the default Ulwazi configuration.
- 
 
 ## The simple way
 
@@ -62,12 +61,14 @@ Here is the simple way of trying Ulwazi:
 1. Copy the [Default Ulwazi configuration](https://github.com/canonical/ulwazi/blob/main/docs/default-conf.py) file inside your documentation folder.
 2. Rename the old `conf.py` to some other name, like `old-conf.py`.
 3. Rename the Default Ulwazi configuration file to `conf.py`.
-4. Open them side by side and update variables in the default configuration file to have correct values for your documentation.
+4. Open the old and new files side by side and update relevant values in the new configuration file for your specific product and documentation.
 
 ## The hard way
 
 The following instructions describe the modifications needed to support Ulwazi in an existing `conf.py` file.
 Use this approach if you want to preserve as much of your original `conf.py` as possible, for example in a heavily customised deployment or when troubleshooting a configuration issue.
+
+For an example of all the changes, see the [Charmed Apache Kafka Ulwazi PR](https://github.com/canonical/kafka-operator/pull/444/files#diff-85933aa74a2d66c3e4dcdf7a9ad8397f5a7971080d34ef1108296a7c6b69e7e3).
 
 ### Set the theme
 
@@ -126,7 +127,6 @@ If your project is written in reST, set `default_source_extension` to `".rst"`.
 ### Update the HTML context
 
 You need to make several updates to the `html_context` dictionary.
-For an example of all the changes, see the [Charmed Apache Kafka Ulwazi PR](https://github.com/canonical/kafka-operator/pull/444/files#diff-85933aa74a2d66c3e4dcdf7a9ad8397f5a7971080d34ef1108296a7c6b69e7e3).
 
 The code snippets in this section might not match the exact layout of `html_context` in your `conf.py`.
 
