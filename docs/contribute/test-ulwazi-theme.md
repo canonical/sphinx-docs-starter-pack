@@ -52,25 +52,25 @@ There are two main ways to do that:
 * Hard way -- Adapt your existing configuration by adding all required values.
 
 We strongly recommend trying the first option (the simple way) first as it proved to be faster and less troublesome, yet enough for testing the theme.
-Choose the hard way if your project already has significant `conf.py` customisation that would be difficult to recreate from the default Ulwazi configuration.
+Choose the hard way if your project already has significant `conf.py` customisation that would be difficult to recreate from the Sample `conf.py` for Ulwazi.
 
-## The simple way
+### The simple way
 
 Here is the simple way of trying Ulwazi:
 
-1. Copy the [Default Ulwazi configuration](https://github.com/canonical/ulwazi/blob/main/docs/default-conf.py) file inside your documentation folder.
+1. Copy the [Sample `conf.py` for Ulwazi](https://github.com/canonical/ulwazi/blob/main/docs/default-conf.py) file inside your documentation folder.
 2. Rename the old `conf.py` to some other name, like `old-conf.py`.
-3. Rename the Default Ulwazi configuration file to `conf.py`.
+3. Rename the sample configuration file to `conf.py`.
 4. Open the old and new files side by side and update relevant values in the new configuration file for your specific product and documentation.
 
-## The hard way
+### The hard way
 
 The following instructions describe the modifications needed to support Ulwazi in an existing `conf.py` file.
 Use this approach if you want to preserve as much of your original `conf.py` as possible, for example in a heavily customised deployment or when troubleshooting a configuration issue.
 
 For an example of all the changes, see the [Charmed Apache Kafka Ulwazi PR](https://github.com/canonical/kafka-operator/pull/444/files#diff-85933aa74a2d66c3e4dcdf7a9ad8397f5a7971080d34ef1108296a7c6b69e7e3).
 
-### Set the theme
+#### Set the theme
 
 Tell Sphinx to use Ulwazi as the theme:
 
@@ -80,7 +80,7 @@ Tell Sphinx to use Ulwazi as the theme:
 html_theme = "ulwazi"
 ```
 
-### Update the extensions
+#### Update the extensions
 
 In the list of extensions, replace Canonical Sphinx with Ulwazi and its dependencies:
 
@@ -101,7 +101,7 @@ If you need **PDF output**, add `sphinx_modern_pdf_style` to the extensions list
 Your project may require additional extensions beyond those listed here.
 ```
 
-### Add the required variables
+#### Add the required variables
 
 Add and fill the following variables immediately before `html_context = {`:
 
@@ -124,7 +124,7 @@ product_page = <link-to-product-website>
 
 If your project is written in reST, set `default_source_extension` to `".rst"`.
 
-### Update the HTML context
+#### Update the HTML context
 
 You need to make several updates to the `html_context` dictionary.
 
@@ -212,7 +212,7 @@ Add the following parameters for the footer.
 }
 ```
 
-### Add syntax highlighting
+#### Add syntax highlighting
 
 Add these syntax highlighting settings after the list of extensions:
 
@@ -223,7 +223,7 @@ highlight_language = "none"  # default
 pygments_style = "autumn"    # see https://pygments.org/styles for more
 ```
 
-### Configure the sitemap
+#### Configure the sitemap
 
 Add the lastmod setting to the sitemap section:
 
@@ -233,7 +233,7 @@ Add the lastmod setting to the sitemap section:
 sitemap_show_lastmod = True
 ```
 
-### Configure PDF output
+#### Configure PDF output
 
 If you need to render your docs to PDF, add the following at the end of the configuration:
 
@@ -243,7 +243,7 @@ If you need to render your docs to PDF, add the following at the end of the conf
 set_modern_pdf_config = True
 ```
 
-### Update the copyright
+#### Update the copyright
 
 The Ulwazi theme expects a plain year string rather than the older {spellexception}`CC-BY-SA` format.
 
