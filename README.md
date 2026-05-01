@@ -1,7 +1,5 @@
 # Sphinx Stack
 
-[![Sphinx Stack test](https://github.com/canonical/sphinx-stack/actions/workflows/test-sphinx-stack.yml/badge.svg)](https://github.com/canonical/sphinx-stack/actions/workflows/test-sphinx-stack.yml)
-
 A standard set of tools for building and publishing Sphinx documentation.
 
 The Sphinx Stack contains a set of CLI commands and a default set of extensions,
