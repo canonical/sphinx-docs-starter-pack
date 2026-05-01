@@ -131,7 +131,7 @@ If you have customised any of these resources in the original project, you need 
 For example, if you added customised styling in the original ``.sphinx/_static/custom.css`` file, follow the steps:
 
 1. Compare the changes between your customised file and the `default CSS file provided by the extension <https://github.com/canonical/canonical-sphinx/blob/main/canonical_sphinx/theme/static/custom.css>`_. This comparison helps you identify the changes that need to be migrated to the new project.
-2. Create a new CSS file under ``docs/.sphinx/_static``. You can choose any other file location in the project directory, but it's recommended to keep the file structure similar to the original project.
+2. Create a new CSS file under ``docs/_static``. You can choose any other file location in the project directory, but it's recommended to keep the file structure similar to the original project.
 3. Copy the additions and changes to the new empty file.
 4. In the ``conf.py``, add the new files into the pre-defined ``html_css_files`` list variable to overwrite the default settings.
 5. Build the documentation to verify that the customised styling is applied correctly.
@@ -153,7 +153,7 @@ Assuming that all previous documentation files were in the ``docs/`` sub-directo
     │   └── workflows
     │       ├── automatic-doc-checks.yml
     │       └── markdown-style-checks.yml
-    ├── .sphinx                     # moved to `docs/.sphinx`
+    ├── .sphinx                     # renamed to `docs/_dev`
     │   ├── fonts                   # removed, files are part of the extension
     │   │   ├── Ubuntu-B.ttf
     │   │   ├── ubuntu-font-licence-1.0.txt
@@ -201,7 +201,7 @@ Assuming that all previous documentation files were in the ``docs/`` sub-directo
     ├── .custom_wordlist.txt        # moved to `docs/.custom_wordlist.txt`
     ├── .gitignore
     ├── .readthedocs.yaml
-    ├── .wordlist.txt               # moved to `docs/.sphinx/.wordlist.txt`
+    ├── .wordlist.txt               # removed
     ├── .wokeignore                 # removed, check replaced by Vale
     ├── conf.py                     # removed, now part of the extension
     ├── custom_conf.py              # renamed and moved to `docs/conf.py`
