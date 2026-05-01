@@ -6,7 +6,7 @@ for the Starter Pack's GitHub workflows.
 
 Also see the following information:
 
-- `Sphinx documentation Starter Pack repository`_
+- `Canonical's Sphinx Starter Pack <https://github.com/canonical/sphinx-docs-starter-pack>`__
 
 Contents
 --------
@@ -18,4 +18,4 @@ Contents
    default-extensions
    rst-syntax
    myst-syntax
-   
+

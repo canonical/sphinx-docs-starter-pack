@@ -22,7 +22,7 @@ The starter pack comes with several tests and checks that you can (and should!) 
 Accessibility check
 -------------------
 
-The Starter Pack checks the accessibility of the documentation with `Pa11y`_. It's configured to check for Level AA conformity to the `Web Content Accessibility Guidelines (WCAG) 2.2`_.
+The Starter Pack checks the accessibility of the documentation with `Pa11y <https://pa11y.org/>`_. It's configured to check for Level AA conformity to the `Web Content Accessibility Guidelines (WCAG) 2.2 <https://www.w3.org/TR/WCAG22/>`_.
 
 This check is only available locally; it is not part of the Starter Pack's :ref:`github-workflows`.
 
@@ -42,14 +42,14 @@ To check the accessibility of the documentation, run the following command from 
 Configure
 ~~~~~~~~~
 
-The ``pa11y.json`` file in the ``.sphinx`` directory provides basic defaults expected to be used for all teams; refrain from removing any unless absolutely necessary. Additional settings and options are detailed in the ``Pa11y`` `README <https://github.com/pa11y/pa11y#command-line-configuration>`__ on GitHub.
+The ``pa11y.json`` file in the ``_dev`` directory provides basic defaults expected to be used for all teams; refrain from removing any unless absolutely necessary. Additional settings and options are detailed in the ``Pa11y`` `README <https://github.com/pa11y/pa11y#command-line-configuration>`__ on GitHub.
 
 .. _inclusive_lang_check:
 
 Inclusive language check
 ------------------------
 
-The Starter Pack checks for inclusive language with a custom set of `Vale`_ rules. To check for inclusive language violations, run:
+The Starter Pack checks for inclusive language with a custom set of `Vale <https://vale.sh/>`_ rules. To check for inclusive language violations, run:
 
 .. code-block:: bash
 
@@ -90,7 +90,7 @@ The Starter Pack checks standards and consistency in Markdown files with the Mar
 Configure
 ~~~~~~~~~
 
-You can update the linting rules in the ``.sphinx/.pymarkdown.json`` file. Refer to `the pymarkdown rules documentation <https://pymarkdown.readthedocs.io/en/latest/rules/>`_ for all the available rules.
+You can update the linting rules in the ``_dev/.pymarkdown.json`` file. Refer to `the pymarkdown rules documentation <https://pymarkdown.readthedocs.io/en/latest/rules/>`_ for all the available rules.
 
 
 .. _spelling_check:

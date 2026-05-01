@@ -1,3 +1,4 @@
+# This file contains the recipes for the Mermaid diagrams used in components.md
 documentation_architecture:
   - diagram_name: "Sphinx"
     description: "The core process of transforming source files into HTML using Sphinx."
@@ -6,7 +7,7 @@ documentation_architecture:
           A["Source Files<br/>(.rst or .md)"] -->|provides content to| C[Sphinx]
           B["Configuration<br/>(docs/conf.py)"] -->|provides settings to| C
           C -->|generates| D[Built HTML Pages]
-    rendered_image: "../explanation/assets/sphinx.png"
+    rendered_image: "sphinx.png"
 
   - diagram_name: "Python environment"
     description: "The relationship between the host system and the virtual environment."
@@ -23,7 +24,7 @@ documentation_architecture:
               end
               Sphinx -->|builds| HTML[HTML]
           end
-    rendered_image: "../explanation/assets/python-starter-pack.png"
+    rendered_image: "python-starter-pack.png"
 
   - diagram_name: "Extensions"
     description: "How built-in and third-party extensions are integrated and activated via requirements and conf.py."
@@ -38,7 +39,7 @@ documentation_architecture:
           end
           BuiltIn -->|are activated in| Conf[/"Project configuration file (docs/conf.py)"\]
           ThirdParty -->|are activated in| Conf
-    rendered_image: "../explanation/assets/extensions.png"
+    rendered_image: "extensions.png"
 
   - diagram_name: "Read the Docs"
     description: "Details the declaration of build logic in the RTD configuration file for hosting."
@@ -49,7 +50,7 @@ documentation_architecture:
           Python_Ver["Python version"] -->|is declared in| RTD_Conf
           RTD_Conf -->|defines the build logic for| RTD["Read the Docs (RTD)"]
           RTD -->|builds and hosts| HTML[/"HTML"\]
-    rendered_image: "../explanation/assets/rtd-build.png"
+    rendered_image: "rtd-build.png"
 
   - diagram_name: "Third-party extensions"
     description: "Focuses on the specific installation path for external dependencies via pip and requirements."
@@ -64,4 +65,4 @@ documentation_architecture:
         end
         Python -->|installs the contents of| Reqs
         Reqs -->|specifies| ThirdParty
-    rendered_image: "../explanation/assets/third-party-extensions.png"
+    rendered_image: "third-party-extensions.png"

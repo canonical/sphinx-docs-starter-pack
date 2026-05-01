@@ -64,7 +64,7 @@ Now that you've verified you can build and run the sample starter pack documenta
 The landing page is :file:`docs/index.rst`. Other pages are under one of the sub-directories under :file:`docs/`.
 
 The navigation menu structure is set by ``.. toctree::`` directives. These directives define the hierarchy of included content throughout the documentation.
-The :file:`index.rst` page's ``toctree`` block contains the top level navigation, which by default is the `Diátaxis`_ documentation structure.
+The :file:`index.rst` page's ``toctree`` block contains the top level navigation, which by default is the `Diátaxis <https://diataxis.fr/>`_ documentation structure.
 
 To add a new page to the documentation:    
 
@@ -116,9 +116,9 @@ Use `pre-commit <https://pre-commit.com/>`_ hooks with the starter pack
 to automate checks like spelling and inclusive language.
 
 The starter pack includes a ready-to-use :file:`.pre-commit-config.yaml` file
-under :file:`docs/.sphinx/`:
+under :file:`docs/_dev/`:
 
-.. literalinclude:: /.sphinx/.pre-commit-config.yaml
+.. literalinclude:: /_dev/.pre-commit-config.yaml
    :language: yaml
 
 For a new project, copy this file to your project's root directory;
@@ -127,7 +127,7 @@ add these hooks to your configuration.
 
 To apply the configuration, install the starter pack hooks, for instance::
 
-  pre-commit install --config docs/.sphinx/.pre-commit-config.yaml
+  pre-commit install --config docs/_dev/.pre-commit-config.yaml
 
 
 After that, you should see the checks running with every commit::

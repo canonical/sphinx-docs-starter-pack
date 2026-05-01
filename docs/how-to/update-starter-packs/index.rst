@@ -29,7 +29,7 @@ To update a new Starter Pack project to the latest version, see:
 - :ref:`update-new-starter-pack`
 
 .. note::
-   New Starter Pack releases use a semantic versioning scheme for minor and patch versions, which can be found in your project's :file:`.sphinx/version` file. 
+   New Starter Pack releases use a semantic versioning scheme for minor and patch versions, which can be found in your project's :file:`_dev/version` file. 
 
 Legacy Starter Pack
 ^^^^^^^^^^^^^^^^^^^^
