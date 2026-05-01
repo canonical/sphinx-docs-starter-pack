@@ -64,7 +64,7 @@ Now that you've verified you can build and run the sample starter pack documenta
 The landing page is :file:`docs/index.rst`. Other pages are under one of the sub-directories under :file:`docs/`.
 
 The navigation menu structure is set by ``.. toctree::`` directives. These directives define the hierarchy of included content throughout the documentation.
-The :file:`index.rst` page's ``toctree`` block contains the top level navigation, which by default is the `Diátaxis`_ documentation structure.
+The :file:`index.rst` page's ``toctree`` block contains the top level navigation, which by default is the `Diátaxis <https://diataxis.fr/>`_ documentation structure.
 
 To add a new page to the documentation:    
 
