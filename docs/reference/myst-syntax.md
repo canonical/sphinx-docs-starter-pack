@@ -1,6 +1,8 @@
 ---
 relatedlinks: https://github.com/canonical/canonical-sphinx-extensions, [reStructuredText&#32;Primer](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html), [Canonical&#32;Documentation&#32;Style&#32;Guide](https://docs.ubuntu.com/styleguide/en)
 myst:
+  html_meta:
+    description: MyST Markdown syntax for use in Starter Pack projects, including headings, links, code blocks, directives, and reusable content patterns.
   substitutions:
     advanced_reuse_key: "This is a substitution that includes a code block:
                        ```
@@ -12,13 +14,13 @@ myst:
 
 # MyST syntax
 
-The documentation files use a mixture of [Markdown](https://commonmark.org/) and [MyST](https://myst-parser.readthedocs.io/) syntax.
+The Starter Pack supports [Markdown](https://commonmark.org/) and [MyST](https://myst-parser.readthedocs.io/).
 
 See the following sections for syntax help and conventions.
 
 ```{note}
-This guide assumes that you are using the [Sphinx documentation starter pack](https://github.com/canonical/sphinx-docs-starter-pack).
-Some of the mentioned syntax requires Sphinx extensions (which are enabled in the starter pack).
+This guide assumes that you are using the [Sphinx documentation Starter Pack](https://github.com/canonical/sphinx-docs-starter-pack).
+Some of the mentioned syntax requires Sphinx extensions (which are enabled in the Starter Pack).
 ```
 
 For general style conventions, see the [Canonical Documentation Style Guide](https://docs.ubuntu.com/styleguide/en).
@@ -603,7 +605,7 @@ Both markups result in the following output:
 Customize the column widths, character encoding, and so on, as described in the 
 [`csv-table` reference](https://mystmd.org/guide/directives#directive-csv-table).
 
-The starter pack can also render interactive tables. See: {ref}`interactive-tables`.
+The Starter Pack can also render interactive tables. See: {ref}`interactive-tables`.
 
 ## Notes
 

@@ -11,7 +11,7 @@ import yaml
 # A complete list of built-in Sphinx configuration values:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 #
-# Our starter pack uses the custom Canonical Sphinx extension
+# Our Starter Pack uses the custom Canonical Sphinx extension
 # to keep all documentation based on it consistent and on brand:
 # https://github.com/canonical/canonical-sphinx
 
@@ -24,7 +24,7 @@ import yaml
 #
 # TODO: Update with the official name of your project or product
 
-project = "Documentation starter pack"
+project = "Documentation Starter Pack"
 author = "Canonical Ltd."
 
 # The year in the copyright statement defaults to the current year, so
@@ -73,7 +73,7 @@ ogp_image = "https://assets.ubuntu.com/v1/cc828679-docs_illustration.svg"
 
 # TODO: To customise the favicon, uncomment and update as needed.
 
-# html_favicon = '.sphinx/_static/favicon.png'
+# html_favicon = '_static/favicon.png'
 
 
 # Dictionary of values to pass into the Sphinx context for all pages:
@@ -87,7 +87,7 @@ html_context = {
     #
     # TODO: If there's no such website,
     #       remove the {{ product_page }} link from the page header template
-    #       (usually .sphinx/_templates/header.html; also, see README.rst).
+    #       (usually _templates/header.html; also, see README.rst).
     "product_page": "documentation.ubuntu.com",
     # Product tag image; the orange part of your logo, shown in the page header
     #
@@ -137,7 +137,7 @@ html_context = {
     # Inherit the author value
     "author": author,
 
-    # The starter pack uses CC-BY-SA as the license
+    # The Starter Pack uses CC-BY-SA as the license
     #
     # TODO: If your docs need another license, specify it instead of 'CC-BY-SA'.
     # For the name, we recommend using the standard shorthand identifier from
@@ -273,7 +273,7 @@ linkcheck_retries = 3
 # Custom Sphinx extensions; see
 # https://www.sphinx-doc.org/en/master/usage/extensions/index.html
 
-# NOTE: The canonical_sphinx extension is required for the starter pack.
+# NOTE: The canonical_sphinx extension is required for the Starter Pack.
 
 extensions = [
     "canonical_sphinx",

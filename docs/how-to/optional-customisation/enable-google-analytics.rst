@@ -24,7 +24,7 @@ The footer template provides a link for users to change their data collection
 preferences.
 
 The process for sourcing these files depends on your Starter Pack version. Check which
-version is listed in your project's ``docs/.sphinx/version`` file.
+version is listed in your project's ``docs/_dev/version`` file.
 
 
 On Starter Pack 1.6 or higher

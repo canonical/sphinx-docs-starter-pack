@@ -10,6 +10,7 @@ This includes adding extensions, modifying the build process, and adding custom 
 .. toctree::
     :maxdepth: 1
 
+    redirect-pages
     Bridge project and docs builds <bridge-project-and-docs-builds>
     Enable Google Analytics <enable-google-analytics>
     Customise PDF output <customise-pdf>
@@ -20,4 +21,5 @@ This includes adding extensions, modifying the build process, and adding custom 
     Add OpenAPI specifications <openapi-specifications>
     Add interactive tables <interactive-tables>
     external-referencing-intersphinx
+    
 

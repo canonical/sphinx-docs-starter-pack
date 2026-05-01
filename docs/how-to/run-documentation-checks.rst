@@ -39,7 +39,7 @@ To check the accessibility of the documentation, run the following command from 
 Configure
 ~~~~~~~~~
 
-The ``pa11y.json`` file in the ``.sphinx`` directory provides basic defaults expected to be used for all teams; refrain from removing any unless absolutely necessary. Additional settings and options are detailed in the ``Pa11y`` `README <https://github.com/pa11y/pa11y#command-line-configuration>`__ on GitHub.
+The ``pa11y.json`` file in the ``_dev`` directory provides basic defaults expected to be used for all teams; refrain from removing any unless absolutely necessary. Additional settings and options are detailed in the ``Pa11y`` `README <https://github.com/pa11y/pa11y#command-line-configuration>`__ on GitHub.
 
 .. _inclusive_lang_check:
 
@@ -87,7 +87,7 @@ The Starter Pack checks standards and consistency in Markdown files with the Mar
 Configure
 ~~~~~~~~~
 
-You can update the linting rules in the ``.sphinx/.pymarkdown.json`` file. Refer to `the pymarkdown rules documentation <https://pymarkdown.readthedocs.io/en/latest/rules/>`_ for all the available rules.
+You can update the linting rules in the ``_dev/.pymarkdown.json`` file. Refer to `the pymarkdown rules documentation <https://pymarkdown.readthedocs.io/en/latest/rules/>`_ for all the available rules.
 
 
 .. _spelling_check:

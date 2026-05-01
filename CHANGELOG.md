@@ -3,6 +3,7 @@
 ## Upcoming
 
 * Remove reuse directory
+* Rename `.sphinx/` directory to `_dev/`.
 * Separate default configuration for copyright and license statements.
 * Fix the handling of non-zero exit codes from pymarkdownlnt.
 * Add a how-to guide about testing the Ulwazi theme.
@@ -10,34 +11,23 @@
 * Make rediraffe the default extension for page redirects
 * Add default templates for the Canonical cookie banner and Google Analytics.
 * Add an `AUTOBUILD_EXTRA_OPTS` variable to extend sphinx-autobuild options for `make run`.
+* Pin dependencies to major versions.
 
 ### Changed
 
 * `docs/reuse/` [#576](https://github.com/canonical/sphinx-docs-starter-pack/pull/576)
-* `docs/how-to/optional-customisation/interactive-tables.rst` [#576](https://github.com/canonical/sphinx-docs-starter-pack/pull/576)
-* `docs/how-to/optional-customisation/mermaid-diagrams.md` [#576](https://github.com/canonical/sphinx-docs-starter-pack/pull/576)
-* `docs/how-to/update-starter-packs/legacy-starter-pack.rst` [#576](https://github.com/canonical/sphinx-docs-starter-pack/pull/576)
-* `docs/how-to/configure-your-project.rst` [#576](https://github.com/canonical/sphinx-docs-starter-pack/pull/576)
-* `docs/how-to/contributing.rst` [#576](https://github.com/canonical/sphinx-docs-starter-pack/pull/576)
-* `docs/how-to/publish-on-rtd.rst` [#576](https://github.com/canonical/sphinx-docs-starter-pack/pull/576)
-* `docs/reference/automatic_checks_accessibility.rst` [#576](https://github.com/canonical/sphinx-docs-starter-pack/pull/576)
-* `docs/reference/automatic_checks_inclusivelanguage.rst` [#576](https://github.com/canonical/sphinx-docs-starter-pack/pull/576)
-* `docs/reference/automatic_checks_styleguide.rst` [#576](https://github.com/canonical/sphinx-docs-starter-pack/pull/576)
-* `docs/reference/index.rst` [#576](https://github.com/canonical/sphinx-docs-starter-pack/pull/576)
-* `docs/reference/myst-syntax.md` [#576](https://github.com/canonical/sphinx-docs-starter-pack/pull/576)
-* `docs/reference/rst-syntax.rst` [#576](https://github.com/canonical/sphinx-docs-starter-pack/pull/576)
-* `docs/index.rst` [#576](https://github.com/canonical/sphinx-docs-starter-pack/pull/576)
-* `docs/set-up-a-new-project.rst` [#576](https://github.com/canonical/sphinx-docs-starter-pack/pull/576)
-* `docs/conf.py` [#562](https://github.com/canonical/sphinx-docs-starter-pack/pull/562)
+* `docs/.sphinx/` [#598](https://github.com/canonical/sphinx-docs-starter-pack/pull/598)
+* `docs/conf.py` [#562](https://github.com/canonical/sphinx-docs-starter-pack/pull/562), [#598](https://github.com/canonical/sphinx-docs-starter-pack/pull/598)
 * `.github/workflows/check-removed-urls.yml` [#552](https://github.com/canonical/sphinx-docs-starter-pack/pull/552)
 * `.github/workflows/sphinx-python-dependency-build-checks.yml` [#552](https://github.com/canonical/sphinx-docs-starter-pack/pull/552)
-* `docs/.gitignore` [#552](https://github.com/canonical/sphinx-docs-starter-pack/pull/552)
+* `docs/.gitignore` [#552](https://github.com/canonical/sphinx-docs-starter-pack/pull/552), [#598](https://github.com/canonical/sphinx-docs-starter-pack/pull/598)
 * `docs/.sphinx/.wordlist.txt` [#520](https://github.com/canonical/sphinx-docs-starter-pack/pull/520)
 * `docs/conf.py` [#549](https://github.com/canonical/sphinx-docs-starter-pack/pull/549), [#558](https://github.com/canonical/sphinx-docs-starter-pack/pull/558), [#552](https://github.com/canonical/sphinx-docs-starter-pack/pull/552), [#558](https://github.com/canonical/sphinx-docs-starter-pack/pull/558), [#576](https://github.com/canonical/sphinx-docs-starter-pack/pull/576)
 * `docs/Makefile` [#551](https://github.com/canonical/sphinx-docs-starter-pack/pull/551), [#552](https://github.com/canonical/sphinx-docs-starter-pack/pull/552)
-* `docs/redirects.txt` [#558](https://github.com/canonical/sphinx-docs-starter-pack/pull/558)
+* `docs/redirects.txt` [#558](https://github.com/canonical/sphinx-docs-starter-pack/pull/558), [#598](https://github.com/canonical/sphinx-docs-starter-pack/pull/598)
 * `docs/_templates/header.html` [#549](https://github.com/canonical/sphinx-docs-starter-pack/pull/549)
-* `docs/_templates/footer.html` [#549](https://github.com/canonical/sphinx-docs-starter-pack/pull/549)
+* `docs/_templates/footer.html` [#549](https://github.com/canonical/sphinx-docs-starter-pack/pull/549), [#594](https://github.com/canonical/sphinx-docs-starter-pack/pull/594)
+* `docs/requirements.txt` [#596](https://github.com/canonical/sphinx-docs-starter-pack/pull/596)
 
 ## 1.5
 

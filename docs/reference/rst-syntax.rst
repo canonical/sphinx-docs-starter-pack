@@ -1,3 +1,6 @@
+.. meta::
+  :description: reStructuredText syntax for use in Starter Pack projects, including headings, links, code blocks, and tables.
+
 :relatedlinks: https://github.com/canonical/lxd-sphinx-extensions, [reStructuredText&#32;Primer](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html), [Canonical&#32;Documentation&#32;Style&#32;Guide](https://docs.ubuntu.com/styleguide/en)
 
 .. _rst-syntax:
@@ -684,7 +687,7 @@ Both markups result in the following output:
 Customize the column widths, character encoding, and so on, as described in the 
 `csv-table reference <https://docutils.sourceforge.io/docs/ref/rst/directives.html#csv-table>`_.
 
-The starter pack can also render interactive tables. See: :ref:`interactive-tables`.
+The Starter Pack can also render interactive tables. See: :ref:`interactive-tables`.
 
 Notes
 -----

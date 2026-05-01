@@ -1,14 +1,17 @@
+.. meta::
+    :description: An in-depth look at the sitemaps feature in the Starter Pack, including configuration, validation, and versioning.
+
 .. _sitemaps:
 
 Sitemaps
 =========
 
-The latest version of the starter pack generates a sitemap for your documentation 
+The latest version of the Starter Pack generates a sitemap for your documentation 
 using the `sphinx-sitemap <https://sphinx-sitemap.readthedocs.io/en/latest/index.html>`_
 extension.
 
 This page goes over the nuances of configuring sitemaps, as well as how the 
-extension must be configured in your starter pack project.
+extension must be configured in your Starter Pack project.
 
 Read the Docs-generated sitemaps
 ---------------------------------
@@ -42,7 +45,7 @@ Add ``sphinx_sitemap`` to ``extensions`` in your configuration file (:file:`docs
 Sitemap configuration
 ^^^^^^^^^^^^^^^^^^^^^
 
-The Sphinx starter pack's configuration file (:file:`docs/conf.py`) includes default sitemap configuration.
+The Starter Pack's configuration file (:file:`docs/conf.py`) includes default sitemap configuration.
 
 The ``sphinx-sitemap`` extension requires a ``html_baseurl`` variable to be configured.
 

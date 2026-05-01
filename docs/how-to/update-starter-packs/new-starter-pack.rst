@@ -62,9 +62,9 @@ following changes:
     -   Ignored links
     -   Social links, etc.
 
--   Verify that the ``/static`` and ``/templates`` directories are located at the locations
+-   Verify that the ``/_static`` and ``/_templates`` directories are located at the locations
     specified by ``html_static_path`` and ``templates_path``, respectively, in the 
-    new ``conf.py`` file. These should not be inside the ``/.sphinx`` directory.
+    new ``conf.py`` file. These should not be inside the ``/_dev`` directory.
 
 For other customizations, consider need and compatibility before copying them to 
 the new file. If it's not obvious whether you should copy over a customization
@@ -79,14 +79,14 @@ to merge your customizations into the new files.
 If there are no project-specific customizations in your files but there are changes 
 in the new ones, you can just overwrite your existing files with the new ones.
 
-Update the ``.sphinx`` directory
---------------------------------
-In addition to the docs above, the ``/.sphinx`` directory is also likely to have some
+Update the ``_dev`` directory
+-----------------------------
+In addition to the docs above, the ``/_dev`` directory is also likely to have some
 changes in each update. These files are not intended to be modified by users. 
 
 Unless you intentionally customized files in this directory, you can simply delete 
-your project's ``/.sphinx`` directory and replace it with the Starter Pack's. If there 
-are modifications in your project's ``/.sphinx`` directory, it is recommended that 
+your project's ``/_dev`` directory and replace it with the Starter Pack's. If there 
+are modifications in your project's ``/_dev`` directory, it is recommended that 
 they transfer them out.
 
 Review the remaining files

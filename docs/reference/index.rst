@@ -1,7 +1,8 @@
 Reference
 =========
 
-These documents provide an overview of different features of the starter pack.
+Syntax guides, list of enabled sphinx extensions, and reference information 
+for the Starter Pack's GitHub workflows.
 
 Also see the following information:
 
