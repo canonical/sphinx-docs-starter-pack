@@ -21,6 +21,7 @@ lang
 LaTeX
 latexmk
 Multipass
+npm
 otf
 plantuml
 PNG
@@ -76,6 +77,7 @@ openapi
 docstrings?
 Makefiles?
 rediraffe
+rerediraffe
 retrigger(ing)?
 Diátaxis
 preconfigured

@@ -1,11 +1,12 @@
 Reference
 =========
 
-These documents provide an overview of different features of the starter pack.
+Syntax guides, list of enabled sphinx extensions, and reference information 
+for the Starter Pack's GitHub workflows.
 
 Also see the following information:
 
-- `Sphinx documentation starter pack repository`_
+- `Sphinx documentation Starter Pack repository`_
 
 Contents
 --------
@@ -13,7 +14,7 @@ Contents
 .. toctree::
    :maxdepth: 1
 
-   automatic_checks
+   github-workflows
    default-extensions
    rst-syntax
    myst-syntax

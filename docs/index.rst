@@ -1,7 +1,7 @@
-Documentation starter pack
-==========================
+Sphinx Starter Pack documentation
+=================================
 
-The documentation starter pack helps you to quickly set up, build, and publish
+The documentation Starter Pack helps you to quickly set up, build, and publish
 documentation with Sphinx.
 
 It contains common styling and configuration through the `Canonical Sphinx`_ extension,
@@ -17,7 +17,7 @@ In this documentation
         :link: /set-up-a-new-project
         :link-type: doc
 
-        Set up the Sphinx starter pack in your project for the first time.
+        Set up the Sphinx Starter Pack in your project for the first time.
 
     .. grid-item-card:: How-to guides
         :link: /how-to/index
@@ -37,13 +37,13 @@ In this documentation
         :link: /explanation/index
         :link-type: doc
 
-        **Concepts** - understand the design and architecture of the starter pack.
+        **Concepts** - understand the design and architecture of the Starter Pack.
 
 
 Project and community
 ----------------------
 
-The Canonical Sphinx starter pack is an open source project that warmly welcomes community contributions, suggestions, fixes and constructive feedback.
+The Canonical Sphinx Starter Pack is an open source project that warmly welcomes community contributions, suggestions, fixes and constructive feedback.
 
 
 .. toctree::

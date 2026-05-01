@@ -78,12 +78,12 @@ Set the build paths
 Where your main build sets environment variables, redeclare the docs environment
 variables that specify the build paths:
 
-- ``BUILDDIR`` is the destination for the docs. If you have special distribution needs
-  you can override this, but for most builds this can be left as-is.
-- ``VENVDIR`` is the virtual environment of the docs. If you're merging the virtual
+- ``DOCS_BUILDDIR`` is the destination for the docs. If you have special distribution
+  needs you can override this, but for most builds this can be left as-is.
+- ``DOCS_VENVDIR`` is the virtual environment of the docs. If you're merging the virtual
   environments, set this as a relative path from the docs directory to your project's
   virtual environment.
-- ``VALEDIR`` is the path to the Vale binary. The full path depends on the
+- ``VALE_DIR`` is the path to the Vale binary. The full path depends on the
   location of your virtual environment, so it's best to copy this as-is.
 
 In the example project, this looks like:
@@ -92,9 +92,9 @@ In the example project, this looks like:
     :caption: Makefile
 
     # Env vars for the docs build
-    export BUILDDIR ?= _build
-    export VENVDIR ?= ../.venv
-    export VALEDIR ?= $(VENVDIR)/lib/python*/site-packages/vale
+    export DOCS_BUILDDIR ?= _build
+    export DOCS_VENVDIR ?= ../.venv
+    export VALE_DIR ?= $(DOCS_VENVDIR)/lib/python*/site-packages/vale
 
 
 .. _how-to-bridge-project-builds-integrate-docs-setup:
@@ -128,19 +128,17 @@ In the example project, this is written as:
 Merged virtual environments
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To merge virtual environments, you make the main ``setup`` target handle both
-development and docs packages, and enumerate all docs packages in ``pyproject.toml``.
-
-By adding dependency groups, the docs packages, plus any custom Sphinx extensions, can
-be managed by the main build and stored in one virtual environment. The result will be
-three dependency groups in ``pyproject.toml``:
+To merge virtual environments, the ``setup`` target must handle both development and
+docs packages, and enumerate all docs packages in ``pyproject.toml``. Your project will
+also need dependency groups to organize the packages. The result will be one virtual
+environment fed by three dependency groups in ``pyproject.toml``:
 
 - ``dev`` for development builds
 - ``docs`` for extra docs packages that your project needs
 - ``docs-starter-pack`` for the core docs packages set by the Starter Pack
 
-First, add these dependency groups, and make the docs dependencies include the
-Starter Pack packages:
+First, add the dependency groups. The docs group should depend on the Starter Pack
+group:
 
 .. code-block:: toml
     :caption: pyproject.toml
@@ -157,17 +155,18 @@ Starter Pack packages:
         # Core docs packages
     ]
 
-If you don't already have a ``dev`` dependency group, review the packages listed in the
-file's ``dependencies`` key, then move any non-runtime dependencies to the ``dev``
-dependency group.
+If your ``pyproject.toml`` file didn't already have a ``dev`` dependency group, review the
+packages listed in the ``dependencies`` key, then move any non-runtime dependencies to
+the ``dev`` dependency group.
 
 If your project needs extra docs features, like the Mermaid or LaTeX Sphinx extensions,
 add their packages to the ``docs`` group.
 
 Copy the contents of ``docs/requirements.txt`` into the ``docs-starter-pack`` group.
 
-In the main build, override the docs installation target and make the project's
-``setup`` target depend on it. In the example project, it is written like this:
+In the main build, override the docs installation target to install the ``docs``
+dependency group, then make the project's ``setup`` target depend on the docs target. In
+the example project, it's written like this:
 
 .. tabs::
 
@@ -250,7 +249,7 @@ In the example project, the main build calls the targets like this:
     # so we pass a temp dir instead.
     .PHONY: docs-clean
     docs-clean:
-    	VENVDIR=$(mktemp) $(MAKE) -C docs clean --no-print-directory
+    	DOCS_VENVDIR=$(mktemp) $(MAKE) -C docs clean --no-print-directory
 
     # Override for `help` target
     .PHONY: docs-help
@@ -290,7 +289,7 @@ same build targets that developers use locally.
 If you use an uncommon system, you might need to install it during the workflow's
 ``create_environment`` job.
 
-If you merged the virtual environments, make sure to set ``VENVDIR=${READTHEDOCS_VIRTUALENV_PATH}`` in all commands.
+If you merged the virtual environments, make sure to set ``DOCS_VENVDIR=${READTHEDOCS_VIRTUALENV_PATH}`` in all commands.
 
 Here's what it looks like in the example project:
 
@@ -308,10 +307,10 @@ Here's what it looks like in the example project:
         create_environment:
           - python3 -m venv "${READTHEDOCS_VIRTUALENV_PATH}"
         install:
-          - make docs-install VENVDIR="${READTHEDOCS_VIRTUALENV_PATH}"
+          - make docs-install DOCS_VENVDIR="${READTHEDOCS_VIRTUALENV_PATH}"
         build:
         html:
-          - make docs VENVDIR="${READTHEDOCS_VIRTUALENV_PATH}" BUILDDIR="$READTHEDOCS_OUTPUT/html/"
+          - make docs DOCS_VENVDIR="${READTHEDOCS_VIRTUALENV_PATH}" DOCS_BUILDDIR="$READTHEDOCS_OUTPUT/html/"
 
 
 .. _how-to-bridge-project-builds-adjust-doc-workflows:

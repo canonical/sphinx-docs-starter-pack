@@ -22,7 +22,7 @@ different locations without changing the docs ``Makefile``.
 
 Being primarily a Python project, all dependencies are stored in a virtual environment,
 ``docs/.venv`` by default. The environment is ephemeral and subject to frequent change.
-Installing the starter pack initializes it, while cleaning and upgrading tears it
+Installing the Starter Pack initializes it, while cleaning and updating tears it
 down and rebuilds it.
 
 
@@ -31,7 +31,7 @@ down and rebuilds it.
 Parent projects and the build
 -----------------------------
 
-The starter pack is arranged as a standalone project. When it's used in a larger
+The Starter Pack is arranged as a standalone project. When it's used in a larger
 project, the docs are a subsystem among other components.
 
 If the parent project uses a build system, Make or otherwise, the doc build exists in
@@ -60,17 +60,17 @@ difficulty:
   or manually calling the docs Makefile with ``make -C docs <action>``.
 - Storing multiple virtual environments bloats the host system. It's reasonable for
   project maintainers to prefer a shared build environment.
-- The starter pack's upgrade process can make changes to many files in the ``docs``
-  directory. Upgrading is potentially much simpler if the parent project modifies only
+- The Starter Pack's update process can make changes to many files in the ``docs``
+  directory. Updating is potentially much simpler if the parent project modifies only
   a minimum of files in the directory.
 - With quality assurance and continuous integration, it's simpler if the project can use
   the same interface to run local and remote checks. More specifically, the parent build
-  system and CI need a way to call the starter pack's ``links``, ``spelling``, and
+  system and CI need a way to call the Starter Pack's ``links``, ``spelling``, and
   ``vale`` checks.
 
 One possible resolution is for the parent build to manually recreate the docs build,
 tightly coupling the parent build to the existing docs configuration. But this poses
-another challenge, because the docs ``Makefile`` might change during a starter pack
+another challenge, because the docs ``Makefile`` might change during a Starter Pack
 update, requiring a rewrite of the parent build recipes.
 
 The solution to these complications is to create a bridge between the two builds, from

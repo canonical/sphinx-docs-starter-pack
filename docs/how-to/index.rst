@@ -21,6 +21,7 @@ your documentation needs.
 
     configure-your-project
     build-and-preview
+    run-documentation-checks
     publish-on-rtd
     update-starter-packs/index.rst
     troubleshooting

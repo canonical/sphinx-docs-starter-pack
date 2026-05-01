@@ -3,7 +3,7 @@
 
 .. _explanation-structure:
 
-Starter pack structure
+Starter Pack structure
 =======================
 
 The Starter Pack is a template `Sphinx <https://www.sphinx-doc.org/en/master/>`__
@@ -115,7 +115,7 @@ linkcheck SOURCEDIR OUTPUTDIR`` command, you can use ``make linkcheck``.
 See :ref:`build` to learn how the local build process works.  
 
 Additionally, the Makefile provides commands to trigger third-party CLI tools, such as
-the Vale prose linter for :ref:`automatic-checks-styleguide`.
+the Vale prose linter for :ref:`Style guide linting <style_guide_linting>`.
 
 
 Read The Docs configuration file
