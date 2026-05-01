@@ -8,10 +8,11 @@
 * Remove `reuse/` directory
 * Rename `.sphinx/` directory to `_dev/`
 * Add default configuration for copyright and license statements
+* Remove docs and project-specific configuration
 
 ### Changed
 
-* `docs/conf.py`  [#562](https://github.com/canonical/sphinx-docs-starter-pack/pull/562), [#576](https://github.com/canonical/sphinx-docs-starter-pack/pull/576), [#590](https://github.com/canonical/sphinx-docs-starter-pack/pull/590), [#598](https://github.com/canonical/sphinx-docs-starter-pack/pull/598)
+* `docs/conf.py`  [#562](https://github.com/canonical/sphinx-docs-starter-pack/pull/562), [#576](https://github.com/canonical/sphinx-docs-starter-pack/pull/576), [#590](https://github.com/canonical/sphinx-docs-starter-pack/pull/590), [#595](https://github.com/canonical/sphinx-docs-starter-pack/pull/595), [#598](https://github.com/canonical/sphinx-docs-starter-pack/pull/598)
 * `docs/Makefile` [#575](https://github.com/canonical/sphinx-docs-starter-pack/pull/575), [#590](https://github.com/canonical/sphinx-docs-starter-pack/pull/590)
 * `docs/requirements.txt` [#590]([#590](https://github.com/canonical/sphinx-docs-starter-pack/pull/590))
 * `docs/reuse/` [#576](https://github.com/canonical/sphinx-docs-starter-pack/pull/576)
@@ -19,6 +20,8 @@
 * `docs/_templates/footer.html` [#594](https://github.com/canonical/sphinx-docs-starter-pack/pull/594)
 * `docs/requirements.txt` [#596](https://github.com/canonical/sphinx-docs-starter-pack/pull/596)
 * `docs/redirects.txt` [#598](https://github.com/canonical/sphinx-docs-starter-pack/pull/598)
+* `docs/.sphinx/update_sp.py` [#595](https://github.com/canonical/sphinx-docs-starter-pack/pull/595)
+* `.github/workflows/test-sphinx-stack.yml` [#595](https://github.com/canonical/sphinx-docs-starter-pack/pull/595)
 
 ## 1.6
 

@@ -1,7 +1,7 @@
-# This workflow tests the starter pack.
-# Don't run this workflow on any repos that use the starter pack.
+# This workflow tests the Sphinx Stack.
+# Don't run this workflow on any repos that use the Sphinx Stack.
 
-name: Test starter pack
+name: Test Sphinx Stack
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
 
 jobs:
   test-docs:
-    name: Test on docs folder
+    name: Test on docs directory
     runs-on: ubuntu-latest
     steps:
     - name: Check out repo
