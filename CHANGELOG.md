@@ -9,6 +9,7 @@
 * Make rediraffe the default extension for page redirects
 * Add default templates for the Canonical cookie banner and Google Analytics.
 * Add an `AUTOBUILD_EXTRA_OPTS` variable to extend sphinx-autobuild options for `make run`.
+* Pin dependencies to major versions.
 
 ### Changed
 
@@ -21,7 +22,8 @@
 * `docs/Makefile` [#551](https://github.com/canonical/sphinx-docs-starter-pack/pull/551), [#552](https://github.com/canonical/sphinx-docs-starter-pack/pull/552)
 * `docs/redirects.txt` [#558](https://github.com/canonical/sphinx-docs-starter-pack/pull/558)
 * `docs/_templates/header.html` [#549](https://github.com/canonical/sphinx-docs-starter-pack/pull/549)
-* `docs/_templates/footer.html` [#549](https://github.com/canonical/sphinx-docs-starter-pack/pull/549), [#594](https://github.com/canonical/sphinx-docs-starter-pack/pull/94)
+* `docs/_templates/footer.html` [#549](https://github.com/canonical/sphinx-docs-starter-pack/pull/549), [#594](https://github.com/canonical/sphinx-docs-starter-pack/pull/594)
+* `docs/requirements.txt` [#596](https://github.com/canonical/sphinx-docs-starter-pack/pull/596)
 
 ## 1.5
 
