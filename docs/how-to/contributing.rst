@@ -1,5 +1,5 @@
 .. meta::
-   :description: How to contribute to the documentation project with code, writing, or testing.
+    :description: How to contribute code, documentation, and tests to the Starter Pack.
 
 :orphan:
 

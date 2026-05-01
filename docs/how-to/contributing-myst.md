@@ -1,4 +1,7 @@
 ---
+myst:
+  html_meta:
+    description: How to contribute code, documentation, and tests to the Starter Pack.
 orphan: true
 ---
 

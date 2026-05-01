@@ -1,5 +1,7 @@
 import datetime
 import os
+import textwrap
+
 import yaml
 
 # Configuration for the Sphinx documentation builder.
@@ -118,11 +120,9 @@ html_context = {
     # Docs branch in the repo; used in links for viewing the source files
     #
     # TODO: To customise the branch, uncomment and update as needed.
-    'repo_default_branch': 'main',
+    "repo_default_branch": "main",
     # Docs location in the repo; used in links for viewing the source files
     #
-
-
     # TODO: To customise the directory, uncomment and update as needed.
     "repo_folder": "/docs/",
     # TODO: To enable or disable the Previous / Next buttons at the bottom of pages
@@ -130,13 +130,10 @@ html_context = {
     # "sequential_nav": "both",
     # TODO: To enable listing contributors on individual pages, set to True
     "display_contributors": False,
-
-    # Required for feedback button   
-    'github_issues': 'enabled',
-
+    # Required for feedback button
+    "github_issues": "enabled",
     # Inherit the author value
     "author": author,
-
     # The Starter Pack uses CC-BY-SA as the license
     #
     # TODO: If your docs need another license, specify it instead of 'CC-BY-SA'.
@@ -148,7 +145,6 @@ html_context = {
     #
     # TODO: If your documentation is a part of the code repository of your project,
     #       it inherits the code license instead; specify it instead of 'CC-BY-SA'.
-
     "license": {
         "name": "CC-BY-SA-3.0",
         "url": "https://github.com/canonical/sphinx-docs-starter-pack/blob/main/LICENSE",
@@ -190,7 +186,7 @@ html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "/")
 
 # sphinx-sitemap uses html_baseurl to generate the full URL for each page:
 
-sitemap_url_scheme = '{link}'
+sitemap_url_scheme = "{link}"
 
 # Include `lastmod` dates in the sitemap:
 
@@ -199,9 +195,9 @@ sitemap_show_lastmod = True
 # Exclude generated pages from the sitemap:
 
 sitemap_excludes = [
-    '404/',
-    'genindex/',
-    'search/',
+    "404/",
+    "genindex/",
+    "search/",
 ]
 
 # TODO: Add more pages to sitemap_excludes if needed. Wildcards are supported.
@@ -231,6 +227,25 @@ rediraffe_redirects = "redirects.txt"
 rediraffe_dir_only = True
 
 
+############################
+# sphinx-llm configuration #
+############################
+
+# This description is included in llms.txt to provide some initial context for your
+# product docs.
+# TODO: Add a description in the form "This is the documentation for <product name>,
+# <first sentence of home page>".
+llms_txt_description = textwrap.dedent(
+    """\
+    This is the documentation for the Sphinx Starter Pack, a template repository
+    that helps you set up, build, and publish Sphinx documentation.
+    """
+)
+
+# The base URL for references built by sphinx-markdown-builder.
+if os.environ.get("READTHEDOCS"):
+    markdown_http_base = html_baseurl
+
 ###########################
 # Link checker exceptions #
 ###########################
@@ -246,7 +261,7 @@ linkcheck_ignore = [
     "https://example.com",
     # SourceForge domains often block linkcheck
     r"https://.*\.sourceforge\.(net|io)/.*",
-    ]
+]
 
 
 # A regex list of URLs where anchors are ignored by 'make linkcheck'
@@ -287,6 +302,7 @@ extensions = [
     "sphinx_config_options",
     "sphinx_contributor_listing",
     "sphinx_filtered_toctree",
+    "sphinx_llm.txt",
     "sphinx_related_links",
     "sphinx_roles",
     "sphinx_terminal",
@@ -378,8 +394,8 @@ if "discourse_prefix" not in html_context and "discourse" in html_context:
 # If the user has a reuse/substitutions.yaml file, load from there.
 # Otherwise, use the manual definitions below.
 
-if os.path.exists('./reuse/substitutions.yaml'):
-    with open('./reuse/substitutions.yaml', 'r') as fd:
+if os.path.exists("./reuse/substitutions.yaml"):
+    with open("./reuse/substitutions.yaml", "r") as fd:
         myst_substitutions = yaml.safe_load(fd.read())
 else:
     myst_substitutions = {
@@ -391,5 +407,8 @@ else:
 # Add configuration for intersphinx mapping
 # Map only the Sphinx documentation sets that you need to link to from your docs set.
 intersphinx_mapping = {
-    'sphinxcontrib-mermaid': ('https://sphinxcontrib-mermaid-demo.readthedocs.io/en/latest', None)
+    "sphinxcontrib-mermaid": (
+        "https://sphinxcontrib-mermaid-demo.readthedocs.io/en/latest",
+        None,
+    )
 }

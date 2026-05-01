@@ -1,3 +1,6 @@
+.. meta::
+    :description: Reference for the built-in GitHub workflows that check your documentation's spelling, links, and language.
+
 .. _github-workflows:
 
 GitHub workflows
