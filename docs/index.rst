@@ -1,5 +1,5 @@
-<Product name>
-==============
+Project
+=======
 
 
 In this documentation

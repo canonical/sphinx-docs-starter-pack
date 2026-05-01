@@ -20,7 +20,7 @@ import os
 
 # Project name
 # TODO: Update with the official name of your project or product (e.g., "Ubuntu Server")
-project = ""
+project = "Project"
 
 # Author name; used in the default copyright statement in the page footer
 author = "Canonical Ltd."
