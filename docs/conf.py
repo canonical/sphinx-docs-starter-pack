@@ -1,5 +1,6 @@
 import datetime
 import os
+import textwrap
 
 # Configuration for the Sphinx documentation builder.
 # All configuration specific to your project should be done in this file.
@@ -43,7 +44,7 @@ ogp_site_name = project
 # TODO: To customise the preview image, update the next line.
 ogp_image = "https://assets.ubuntu.com/v1/cc828679-docs_illustration.svg"
 
-# Product favicon
+# Product favicon; shown in bookmarks, browser tabs, etc.
 # TODO: To customise the favicon, uncomment and update the next line.
 # html_favicon = ".sphinx/_static/favicon.png"
 
@@ -52,9 +53,8 @@ ogp_image = "https://assets.ubuntu.com/v1/cc828679-docs_illustration.svg"
 html_context = {
     # Product page URL; can be different from product docs URL
     # TODO: Change to your product website URL, dropping the 'https://' prefix (e.g.,
-    #       'ubuntu.com/lxd').
-    # TODO: If there's no such website, remove the {{ product_page }} link from the
-    #       .sphinx/_templates/header.html file.
+    #       'ubuntu.com/lxd'). If there's no such website, remove the {{ product_page }}
+    #       link from the _templates/header.html file.
     "product_page": "",
     # Product tag image; the orange part of your logo, shown in the page header
     # TODO: To add a tag image, uncomment and update as needed.
@@ -68,10 +68,10 @@ html_context = {
     # Your Matrix channel URL
     # TODO: Change to your Matrix channel URL or leave empty.
     "matrix": "",
-    # Your documentation GitHub repository URL
+    # Your documentation GitHub repository URL If set, links for viewing the
+    # documentation source files and creating GitHub issues are added at the bottom of
+    # each page.
     # TODO: Change to your documentation GitHub repository URL or leave empty.
-    # NOTE: If set, links for viewing the documentation source files
-    #       and creating GitHub issues are added at the bottom of each page.
     "github_url": "",
     # Docs branch in the repo; used in links for viewing the source files
     "repo_default_branch": "main",
@@ -157,6 +157,26 @@ rediraffe_redirects = "redirects.txt"
 # Strips '/index.html' from destination URLs when building with 'dirhtml'
 rediraffe_dir_only = True
 
+
+############################
+# sphinx-llm configuration #
+############################
+
+# This description is included in llms.txt to provide some initial context for your
+# product docs.
+# TODO: Add a description in the form "This is the documentation for <product name>,
+# <first sentence of home page>".
+llms_txt_description = textwrap.dedent(
+    """\
+    This is the documentation for the Sphinx Stack, a template repository that helps you
+    set up, build, and publish Sphinx documentation.
+    """
+)
+
+# The base URL for references built by sphinx-markdown-builder.
+if os.environ.get("READTHEDOCS"):
+    markdown_http_base = html_baseurl
+
 ###########################
 # Link checker exceptions #
 ###########################
@@ -207,6 +227,7 @@ extensions = [
     "sphinx_config_options",
     "sphinx_contributor_listing",
     "sphinx_filtered_toctree",
+    "sphinx_llm.txt",
     "sphinx_related_links",
     "sphinx_roles",
     "sphinx_terminal",
@@ -235,8 +256,8 @@ exclude_patterns = [
 # ]
 
 # Appends extra markup to the end of every document written in reST
-#rst_epilog = """
-#"""
+# rst_epilog = """
+# """
 
 # Feedback button at the top; enabled by default
 # TODO: Disable the button if your project is unsuitable for public feedback.
@@ -252,7 +273,6 @@ exclude_patterns = [
 # manpages_url = 'https://manpages.ubuntu.com/manpages/{codename}/en/' + \
 #     'man{section}/{page}.{section}.html'
 
-
 # Specifies a reST snippet to be prepended to each .rst file
 # This defines a :center: role that centers table cell content.
 # This defines a :h2: role that styles content for use with PDF generation.
@@ -267,7 +287,7 @@ rst_prolog = """
     :class: vale-ignore
 """
 
-# Configuration for Intersphinx mapping
+# Configuration for Intersphinx projects
 #
 # intersphinx_mapping = {
 #     "snap": ("https://snapcraft.io/docs/", None),

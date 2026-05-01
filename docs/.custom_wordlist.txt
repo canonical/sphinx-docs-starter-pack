@@ -20,6 +20,7 @@ Kompare
 lang
 LaTeX
 latexmk
+LLMs?
 Multipass
 npm
 otf
@@ -27,6 +28,7 @@ plantuml
 PNG
 Pygments
 pymarkdown
+pymarkdownlnt
 QEMU
 Rockcraft
 readthedocs

@@ -25,7 +25,7 @@ REQUIREMENTS = os.path.join(DOCS_DIR, "requirements.txt")
 SPHINX_UPDATE_DIR = os.path.join(SPHINX_DIR, "update")
 GITHUB_REPO = "canonical/sphinx-stack"
 GITHUB_API_BASE = f"https://api.github.com/repos/{GITHUB_REPO}"
-GITHUB_API_SPHINX_DIR = f"{GITHUB_API_BASE}/contents/docs/.sphinx"
+GITHUB_API_DEV_DIR = f"{GITHUB_API_BASE}/contents/docs/_dev"
 GITHUB_RAW_BASE = f"https://raw.githubusercontent.com/{GITHUB_REPO}/main"
 
 TIMEOUT = 10  # seconds
@@ -64,13 +64,13 @@ def main():
         logging.debug("Local version is older than the release version.")
         print("Sphinx Stack is out of date.\n")
 
-        # Identify and download '.sphinx' dir files to '.sphinx/update'
+        # Identify and download '_dev' dir files to '_dev/update'
         files_updated, new_files = update_static_files()
 
-        # Write new version to file to '.sphinx/update'
+        # Write new version to file to '_dev/update'
 
         download_file(
-            GITHUB_RAW_BASE + "/docs/.sphinx/version",
+            GITHUB_RAW_BASE + "/docs/_dev/version",
             os.path.join(SPHINX_UPDATE_DIR, "version"),
         )
 
@@ -85,8 +85,8 @@ def main():
         if files_updated:
             logging.debug("Updated files found and downloaded")
             print("Differences have been identified in static files.")
-            print("Updated files have been downloaded to '.sphinx/update'.")
-            print("Validate and move these files into your '.sphinx/' directory.")
+            print("Updated files have been downloaded to '_dev/update'.")
+            print("Validate and move these files into your '_dev/' directory.")
         else:
             logging.debug("No files found to update")
         # Provide information on NEW files
@@ -95,7 +95,7 @@ def main():
             print(
                 "NOTE: New files have been downloaded\n",
                 "See 'NEWFILES.txt' for all downloaded files\n",
-                "Validate and merge these files into your '.sphinx/' directory",
+                "Validate and merge these files into your '_dev/' directory",
             )
         else:
             logging.debug("No new files found to download")
@@ -131,19 +131,19 @@ def main():
     except FileNotFoundError:
         print("requirements.txt not found")
         print(
-            "The updated Sphinx Stack has moved requirements.txt out of the '.sphinx' dir"
+            "The updated Sphinx Stack has moved requirements.txt out of the '_dev' dir"
         )
         print("requirements.txt not checked, please update your requirements manually")
 
 
 def update_static_files():
-    """Checks local files against remote for new and different files, downloads to '.sphinx/updates'"""
+    """Checks local files against remote for new and different files, downloads to '_dev/updates'"""
     files, paths = get_local_files_and_paths()
     new_file_list = []
 
-    for item in query_api(GITHUB_API_SPHINX_DIR).json():
+    for item in query_api(GITHUB_API_DEV_DIR).json():
         logging.debug(f"Checking {item['name']}")
-        # Checks existing files in '.sphinx' Sphinx Stack static root for changed SHA
+        # Checks existing files in '_dev' Sphinx Stack static root for changed SHA
         if item["name"] in files and item["type"] == "file":
             index = files.index(item["name"])
             if item["sha"] != get_git_revision_hash(paths[index]):
@@ -155,17 +155,15 @@ def update_static_files():
                     # Indicate update script needs to be updated and re-run
                     print("WARNING")
                     print(
-                        "THIS UPDATE SCRIPT IS OUT OF DATE. YOU MAY NEED TO RUN ANOTHER UPDATE AFTER UPDATING TO THE FILE IN '.sphinx/updates'."
+                        "THIS UPDATE SCRIPT IS OUT OF DATE. YOU MAY NEED TO RUN ANOTHER UPDATE AFTER UPDATING TO THE FILE IN '_dev/updates'."
                     )
                     print("WARNING\n")
             else:
                 logging.debug("File hashes are equal")
-        # Checks nested files '.sphinx/**/**.*' for changed SHA (single level of depth)
+        # Checks nested files '_dev/**/**.*' for changed SHA (single level of depth)
         elif item["type"] == "dir":
             logging.debug(item["name"] + " is a directory")
-            for nested_item in query_api(
-                f"{GITHUB_API_SPHINX_DIR}/{item['name']}"
-            ).json():
+            for nested_item in query_api(f"{GITHUB_API_DEV_DIR}/{item['name']}").json():
                 logging.debug(f"Checking {nested_item['name']}")
                 if nested_item["name"] in files:
                     index = files.index(nested_item["name"])
@@ -190,7 +188,7 @@ def update_static_files():
                                 SPHINX_UPDATE_DIR, item["name"], nested_item["name"]
                             ),
                         )
-        # Downloads NEW files in '.sphinx' Sphinx Stack static root
+        # Downloads NEW files in '_dev' Sphinx Stack static root
         else:
             if item["type"] == "file":
                 logging.debug(f"No local version found of {item['name']}")
@@ -226,7 +224,7 @@ def get_git_revision_hash(file) -> str:
 
 # Examines local files
 def get_local_files_and_paths():
-    """Identify '.sphinx' local files and paths"""
+    """Identify '_dev' local files and paths"""
     logging.debug("Checking local files and paths")
     try:
         files = []
