@@ -27,7 +27,7 @@ documentation, and serve it to http://127.0.0.1:8000.
 
 To learn more about how to install and configure the Sphinx Stack for your own project,
 see the [Set up a new
-project](https://canonical-sphinx-stack.readthedocs-hosted.com/stable/tutorial/set-up/)
+project](https://canonical-sphinx-stack.readthedocs-hosted.com/latest/set-up-a-new-project/)
 guide in the official documentation.
 
 ## Requirements and limitations
