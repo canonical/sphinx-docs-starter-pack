@@ -1,4 +1,4 @@
-# sphinx-docs-starter-pack changelog
+# sphinx-stack changelog
 
 ## Upcoming
 
