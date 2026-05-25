@@ -1,8 +1,17 @@
-# sphinx-docs-starter-pack changelog
+# sphinx-stack changelog
 
 ## Upcoming
 
+* Prevent Vale from processing Markdown files in the build directory
 * Update link to documenation in README
+
+### Changed
+
+* `docs/Makefile` [#605](https://github.com/canonical/sphinx-stack/pull/605)
+* `README.md` [#603](https://github.com/canonical/sphinx-stack/pull/603)
+
+## 2.0
+
 * Add an `AUTOBUILD_EXTRA_OPTS` variable to extend sphinx-autobuild options for `make run`
 * Add default support for the sphinx-llm extension
 * Pin dependencies to major versions
@@ -13,7 +22,6 @@
 
 ### Changed
 
-* `README.md` [#603](https://github.com/canonical/sphinx-stack/pull/603)
 * `docs/conf.py`  [#562](https://github.com/canonical/sphinx-docs-starter-pack/pull/562), [#576](https://github.com/canonical/sphinx-docs-starter-pack/pull/576), [#590](https://github.com/canonical/sphinx-docs-starter-pack/pull/590), [#595](https://github.com/canonical/sphinx-docs-starter-pack/pull/595), [#598](https://github.com/canonical/sphinx-docs-starter-pack/pull/598)
 * `docs/Makefile` [#575](https://github.com/canonical/sphinx-docs-starter-pack/pull/575), [#590](https://github.com/canonical/sphinx-docs-starter-pack/pull/590)
 * `docs/requirements.txt` [#590]([#590](https://github.com/canonical/sphinx-docs-starter-pack/pull/590))
