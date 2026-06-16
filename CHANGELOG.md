@@ -7,7 +7,7 @@
 
 ### Changed
 
-* `docs/Makefile` [#605](https://github.com/canonical/sphinx-stack/pull/605)
+* `docs/Makefile` [#605](https://github.com/canonical/sphinx-stack/pull/605), [#610](https://github.com/canonical/sphinx-stack/pull/610)
 * `README.md` [#603](https://github.com/canonical/sphinx-stack/pull/603)
 * `.github/workflows/cla-check.yml` [#606](https://github.com/canonical/sphinx-stack/pull/606)
 
