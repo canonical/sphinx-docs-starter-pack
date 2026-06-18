@@ -2,6 +2,13 @@ name: Check for removed URLs
 
 on:
   workflow_call:
+    inputs:
+      base_ref:
+        required: false
+        type: string
+      base_repo:
+        required: false
+        type: string
   pull_request:
     branches: [main]
 
@@ -21,8 +28,8 @@ jobs:
       - name: Checkout base branch
         uses: actions/checkout@v5
         with:
-          ref: ${{ github.event.pull_request.base.ref }}
-          repository: ${{ github.event.pull_request.base.repo.full_name }}
+          ref: ${{ inputs.base_ref || github.event.pull_request.base.ref }}
+          repository: ${{ inputs.base_repo || github.event.pull_request.base.repo.full_name }}
           fetch-depth: 0
           path: base
       - uses: actions/setup-python@v6
@@ -36,20 +43,96 @@ jobs:
       - name: Generate current URLs list
         run: |
           for dir in compare base; do
-            pushd ${dir}/docs
-            find ./_build/ -name '*.html' \
-            | sed 's|/_build||;s|/index.html$|/|;s|.html$||' \
-            | sort > urls.txt
-            popd
+            build_dir="${dir}/docs/_build"
+            urls_file="${dir}/docs/urls.txt"
+
+            if [ ! -d "${build_dir}" ]; then
+              echo "Expected docs build directory not found: ${build_dir}"
+              exit 1
+            fi
+
+            find "${build_dir}" -name '*.html' \
+              | sed "s|^${build_dir}||;s|^/html||;s|/index.html$|/|;s|.html$||" \
+              | sort > "${urls_file}"
           done
       - name: Compare URLs
         run: |
-          BASE_URLS_PATH="base/docs/urls.txt"
-          COMPARE_URLS_PATH="compare/docs/urls.txt"
-          removed=$(comm -23 ${BASE_URLS_PATH} ${COMPARE_URLS_PATH} )
-          if [ -n "$removed" ]; then
-            echo "The following URLs were removed:"
-            echo "$removed"
-            echo "Please ensure removed pages are redirected"
-            exit 1
-          fi
+          python3 - <<'PY'
+          from pathlib import Path
+          import csv
+          import io
+
+          base_urls_path = Path("base/docs/urls.txt")
+          compare_urls_path = Path("compare/docs/urls.txt")
+          redirects_path = Path("compare/docs/redirects.txt")
+
+          def read_urls(path):
+              return {
+                  line.strip()
+                  for line in path.read_text(encoding="utf-8").splitlines()
+                  if line.strip()
+              }
+
+          def read_redirect_sources(path):
+              sources = set()
+
+              if not path.exists():
+                  return sources
+
+              for raw_line in path.read_text(encoding="utf-8").splitlines():
+                  line = raw_line.strip()
+                  if not line or line.startswith("#"):
+                      continue
+
+                  fields = next(
+                      csv.reader(
+                          io.StringIO(line),
+                          delimiter=" ",
+                          quotechar='"',
+                          skipinitialspace=True,
+                      ),
+                      [],
+                  )
+                  if fields:
+                      sources.add(fields[0])
+
+              return sources
+
+          def source_candidates_for_url(url):
+              clean_path = url.strip()
+              clean_path = clean_path.removeprefix("./")
+              clean_path = clean_path.removeprefix("/")
+              clean_path = clean_path.removesuffix(".html")
+              clean_path = clean_path.rstrip("/")
+
+              if not clean_path:
+                  return {"index.md"}
+
+              # A removed dirhtml URL can map back to either a page file or an
+              # index file. Directory-level redirects are stored with a trailing
+              # slash, so include that form too.
+              return {
+                  f"{clean_path}.md",
+                  f"{clean_path}/index.md",
+                  f"{clean_path}/",
+              }
+
+          removed_urls = sorted(read_urls(base_urls_path) - read_urls(compare_urls_path))
+          redirect_sources = read_redirect_sources(redirects_path)
+
+          missing_redirects = [
+              url
+              for url in removed_urls
+              if source_candidates_for_url(url).isdisjoint(redirect_sources)
+          ]
+
+          if missing_redirects:
+              print("The following URLs were removed without redirects:")
+              print("\n".join(missing_redirects))
+              print("Please ensure removed pages are redirected")
+              raise SystemExit(1)
+
+          if removed_urls:
+              print("Removed URLs have redirects:")
+              print("\n".join(removed_urls))
+          PY
