@@ -2,8 +2,9 @@
 
 ## Upcoming
 
+* Update redirects.txt information text 
 * Prevent Vale from processing Markdown files in the build directory
-* Update link to documenation in README
+* Update link to documentation in README
 
 ### Changed
 
