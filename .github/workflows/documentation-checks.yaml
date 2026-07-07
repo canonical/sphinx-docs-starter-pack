@@ -65,8 +65,8 @@ permissions:
   contents: read
 
 jobs:
-  build-docs:
-    name: Build docs (html)
+  setup-venv:
+    name: Set up virtual environment
     runs-on: ${{ fromJson(inputs.runs-on || '["ubuntu-24.04"]') }}
     defaults:
       run:
@@ -80,15 +80,18 @@ jobs:
         with:
           python-version: ${{ inputs.python-version || '3.10' }}
 
-      - name: Install documentation tooling
-        run: make ${{ inputs.install-target || 'install' }}
+      - name: Cache virtual environment
+        uses: actions/cache@v4
+        with:
+          path: ${{ inputs.working-directory || 'docs' }}/.venv
+          key: docs-venv-${{ runner.os }}-py${{ inputs.python-version || '3.10' }}-${{ hashFiles(format('{0}/requirements.txt', inputs.working-directory || 'docs')) }}
 
-      - name: Build documentation
-        run: make html
+      - name: Set up virtual environment
+        run: make ${{ inputs.install-target || 'install' }}
 
   checks:
     name: ${{ matrix.check.name }}
-    needs: build-docs
+    needs: setup-venv
     runs-on: ${{ fromJson(inputs.runs-on || '["ubuntu-24.04"]') }}
     strategy:
       fail-fast: false
@@ -133,9 +136,12 @@ jobs:
         with:
           python-version: ${{ inputs.python-version || '3.10' }}
 
-      - name: Install documentation tooling
+      - name: Restore cached virtual environment
         if: ${{ steps.gate.outputs.run_check == 'true' }}
-        run: make ${{ inputs.install-target || 'install' }}
+        uses: actions/cache@v4
+        with:
+          path: ${{ inputs.working-directory || 'docs' }}/.venv
+          key: docs-venv-${{ runner.os }}-py${{ inputs.python-version || '3.10' }}-${{ hashFiles(format('{0}/requirements.txt', inputs.working-directory || 'docs')) }}
 
       - name: Run selected check
         if: ${{ steps.gate.outputs.run_check == 'true' }}
