@@ -96,35 +96,49 @@ jobs:
         check:
           - key: spelling
             name: Spelling check
-            target_input: spelling-target
-            enabled: ${{ inputs.include-spelling || true }}
           - key: linkcheck
             name: Link check
-            target_input: linkcheck-target
-            enabled: ${{ inputs.include-linkcheck || true }}
           - key: inclusive-language
             name: Inclusive language check
-            target_input: inclusive-language-target
-            enabled: ${{ inputs.include-inclusive-language || true }}
 
-    if: ${{ matrix.check.enabled }}
     defaults:
       run:
         working-directory: ${{ inputs.working-directory || 'docs' }}
 
     steps:
+      - name: Decide whether to run this check
+        id: gate
+        run: |
+          run_check=false
+          case "${{ matrix.check.key }}" in
+            spelling)
+              run_check="${{ inputs.include-spelling }}"
+              ;;
+            linkcheck)
+              run_check="${{ inputs.include-linkcheck }}"
+              ;;
+            inclusive-language)
+              run_check="${{ inputs.include-inclusive-language }}"
+              ;;
+          esac
+          echo "run_check=$run_check" >> "$GITHUB_OUTPUT"
+
       - name: Checkout
+        if: ${{ steps.gate.outputs.run_check == 'true' }}
         uses: actions/checkout@v4
 
       - name: Set up Python
+        if: ${{ steps.gate.outputs.run_check == 'true' }}
         uses: actions/setup-python@v5
         with:
           python-version: ${{ inputs.python-version || '3.10' }}
 
       - name: Install documentation tooling
+        if: ${{ steps.gate.outputs.run_check == 'true' }}
         run: make ${{ inputs.install-target || 'install' }}
 
       - name: Run selected check
+        if: ${{ steps.gate.outputs.run_check == 'true' }}
         run: |
           case "${{ matrix.check.key }}" in
             spelling)
@@ -141,3 +155,7 @@ jobs:
               exit 1
               ;;
           esac
+
+      - name: Mark skipped check
+        if: ${{ steps.gate.outputs.run_check != 'true' }}
+        run: echo "Skipping ${{ matrix.check.key }} by workflow input."
