@@ -1,0 +1,143 @@
+name: Documentation checks
+
+on:
+  workflow_call:
+    inputs:
+      working-directory:
+        description: Working directory containing documentation Makefile
+        required: false
+        type: string
+        default: docs
+      python-version:
+        description: Version of the Python interpreter to use
+        required: false
+        type: string
+        default: "3.10"
+      runs-on:
+        description: GitHub runners (JSON array)
+        required: false
+        type: string
+        default: '["ubuntu-24.04"]'
+      install-target:
+        description: Make target used to install required tools
+        required: false
+        type: string
+        default: install
+      spelling-target:
+        description: Make target for spelling check
+        required: false
+        type: string
+        default: spelling
+      linkcheck-target:
+        description: Make target for link check
+        required: false
+        type: string
+        default: linkcheck
+      inclusive-language-target:
+        description: Make target for inclusive language check
+        required: false
+        type: string
+        default: woke
+      include-spelling:
+        description: Whether to run spelling check
+        required: false
+        type: boolean
+        default: true
+      include-linkcheck:
+        description: Whether to run link check
+        required: false
+        type: boolean
+        default: true
+      include-inclusive-language:
+        description: Whether to run inclusive language check
+        required: false
+        type: boolean
+        default: true
+
+  push:
+    branches: [ main ]
+
+  pull_request:
+    paths:
+      - "docs/**"
+
+permissions:
+  contents: read
+
+jobs:
+  build-docs:
+    name: Build docs (html)
+    runs-on: ${{ fromJson(inputs.runs-on || '["ubuntu-24.04"]') }}
+    defaults:
+      run:
+        working-directory: ${{ inputs.working-directory || 'docs' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ inputs.python-version || '3.10' }}
+
+      - name: Install documentation tooling
+        run: make ${{ inputs.install-target || 'install' }}
+
+      - name: Build documentation
+        run: make html
+
+  checks:
+    name: ${{ matrix.check.name }}
+    needs: build-docs
+    runs-on: ${{ fromJson(inputs.runs-on || '["ubuntu-24.04"]') }}
+    strategy:
+      fail-fast: false
+      matrix:
+        check:
+          - key: spelling
+            name: Spelling check
+            target_input: spelling-target
+            enabled: ${{ inputs.include-spelling || true }}
+          - key: linkcheck
+            name: Link check
+            target_input: linkcheck-target
+            enabled: ${{ inputs.include-linkcheck || true }}
+          - key: inclusive-language
+            name: Inclusive language check
+            target_input: inclusive-language-target
+            enabled: ${{ inputs.include-inclusive-language || true }}
+
+    if: ${{ matrix.check.enabled }}
+    defaults:
+      run:
+        working-directory: ${{ inputs.working-directory || 'docs' }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ inputs.python-version || '3.10' }}
+
+      - name: Install documentation tooling
+        run: make ${{ inputs.install-target || 'install' }}
+
+      - name: Run selected check
+        run: |
+          case "${{ matrix.check.key }}" in
+            spelling)
+              make ${{ inputs.spelling-target || 'spelling' }}
+              ;;
+            linkcheck)
+              make ${{ inputs.linkcheck-target || 'linkcheck' }}
+              ;;
+            inclusive-language)
+              make ${{ inputs.inclusive-language-target || 'woke' }}
+              ;;
+            *)
+              echo "Unknown check '${{ matrix.check.key }}'" >&2
+              exit 1
+              ;;
+          esac
