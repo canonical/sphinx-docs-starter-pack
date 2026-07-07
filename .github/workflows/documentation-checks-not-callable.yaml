@@ -1,0 +1,89 @@
+name: Documentation checks
+
+on:
+  push:
+    branches: [ main ]
+
+  pull_request:
+    paths:
+      - "docs/**"
+
+permissions:
+  contents: read
+
+jobs:
+  setup-venv:
+    name: Set up virtual environment
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: docs
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Cache virtual environment
+        uses: actions/cache@v4
+        with:
+          path: docs/.venv
+          key: docs-venv-${{ runner.os }}-py3.10-${{ hashFiles('docs/requirements.txt') }}
+
+      - name: Set up virtual environment
+        run: make install
+
+  checks:
+    name: ${{ matrix.check.name }}
+    needs: setup-venv
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        check:
+          - key: spelling
+            name: Spelling check
+          - key: linkcheck
+            name: Link check
+          - key: inclusive-language
+            name: Inclusive language check
+
+    defaults:
+      run:
+        working-directory: docs
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Restore cached virtual environment
+        uses: actions/cache@v4
+        with:
+          path: docs/.venv
+          key: docs-venv-${{ runner.os }}-py3.10-${{ hashFiles('docs/requirements.txt') }}
+
+      - name: Run selected check
+        run: |
+          case "${{ matrix.check.key }}" in
+            spelling)
+              make spelling
+              ;;
+            linkcheck)
+              make linkcheck
+              ;;
+            inclusive-language)
+              make woke
+              ;;
+            *)
+              echo "Unknown check '${{ matrix.check.key }}'" >&2
+              exit 1
+              ;;
+          esac
