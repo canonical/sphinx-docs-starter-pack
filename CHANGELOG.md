@@ -2,11 +2,12 @@
 
 ## Upcoming
 
-* Prevent Vale from processing Markdown files in the build directory
-* Update link to documenation in README
+* Exclude utility directories from builds and checks
+* Update link to documentation in README
 
 ### Changed
 
+* `docs/conf.py` [#610](https://github.com/canonical/sphinx-stack/pull/610)
 * `docs/Makefile` [#605](https://github.com/canonical/sphinx-stack/pull/605), [#610](https://github.com/canonical/sphinx-stack/pull/610)
 * `README.md` [#603](https://github.com/canonical/sphinx-stack/pull/603)
 * `.github/workflows/cla-check.yml` [#606](https://github.com/canonical/sphinx-stack/pull/606)
