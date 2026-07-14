@@ -15,6 +15,7 @@ _dev/vale.ini
 
 # Build outputs
 _build
+_dev
 
 # Node.js
 package*.json
