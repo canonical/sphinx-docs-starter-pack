@@ -24,8 +24,6 @@ DOCS_BUILDDIR="_build"
 SPHINX_AUTOBUILD_OPTS="-D llms_txt_enabled=0"
 DOCS_VOCAB="${DEV_DIR}/styles/config/vocabularies/Canonical"
 VALE_CONFIG="${DEV_DIR}/vale.ini"
-PA11Y_BIN="${DEV_DIR}/node_modules/pa11y/bin/pa11y.js"
-PA11Y_CONFIG="${DEV_DIR}/pa11y.json"
 DOCS_PDFPACKAGES=(
     latexmk fonts-freefont-otf texlive-latex-recommended
     texlive-latex-extra texlive-fonts-recommended texlive-font-utils
@@ -40,10 +38,6 @@ _run() {
         echo "+" "$@" >&2
     fi
     "$@"
-}
-
-_deprecated() {
-    echo "Warning: './sp ${1}' is deprecated, use './sp ${2}' instead." >&2
 }
 
 _ensure_venv() {
@@ -88,8 +82,6 @@ _vale_setup() {
     if [ ! -f "$VALE_CONFIG" ]; then
         "$DOCS_VENVDIR/bin/python3" "$DEV_DIR/get_vale_conf.py"
     fi
-    echo '.Name=="Canonical.400-Enforce-inclusive-terms"' \
-        > "$DEV_DIR/styles/woke.filter"
     echo '.Level=="error" and .Name!="Canonical.500-Repeated-words" and .Name!="Canonical.000-US-spellcheck"' \
         > "$DEV_DIR/styles/error.filter"
     echo '.Name=="Canonical.000-US-spellcheck"' \
@@ -99,15 +91,6 @@ _vale_setup() {
     if [ -n "$vale_dir" ]; then
         find "$vale_dir/vale_bin" -size 195c \
             -exec "$DOCS_VENVDIR/bin/vale" --version \;
-    fi
-}
-
-_pa11y_setup() {
-    if [ ! -f "$PA11Y_BIN" ]; then
-        echo "Installing \"pa11y\" from npm..."
-        echo
-        mkdir -p "$DEV_DIR/node_modules/"
-        _run npm install --prefix "$DEV_DIR" pa11y
     fi
 }
 
@@ -131,6 +114,8 @@ _restore_vocab() {
 _vale_run() {
     local filter="$1"
     local check_path="$2"
+    # Prepend venv bin (absolute) so vale can find rst2html (from docutils)
+    local PATH="$SCRIPT_DIR/$DOCS_VENVDIR/bin:$PATH"
     cp "$DOCS_VOCAB/accept.txt" "$DOCS_VOCAB/accept_backup.txt"
     trap '_restore_vocab' EXIT
     cat "$DOCS_SOURCEDIR/.custom_wordlist.txt" >> "$DOCS_VOCAB/accept.txt"
@@ -160,10 +145,13 @@ _pdf_prep() {
             echo "Package $packageName is installed"
         else
             echo
-            echo "PDF generation requires the installation of the following packages: ${DOCS_PDFPACKAGES[*]}"
+            echo "PDF generation requires the installation of the following packages:"
+            echo "  ${DOCS_PDFPACKAGES[*]}"
             echo ""
             echo "Install them with:"
-            echo "  sudo apt-get install --no-install-recommends -y ${DOCS_PDFPACKAGES[*]}"
+            printf "  sudo apt-get install --no-install-recommends -y"
+            printf " \\\\\n    %s" "${DOCS_PDFPACKAGES[@]}"
+            printf "\n"
             echo ""
             echo "Please be aware these packages will be installed to your system."
             exit 1
@@ -194,15 +182,17 @@ _build_html() {
 }
 
 _build_pdf() {
+    local dest="${1:-$DOCS_BUILDDIR}"
     _pdf_prep
     # shellcheck disable=SC2086
     _run "$SPHINX_BUILD" -M latexpdf "$DOCS_SOURCEDIR" "$DOCS_BUILDDIR" $SPHINX_OPTS
     rm -f "$DOCS_BUILDDIR/latex/front-page-light.pdf"
     rm -f "$DOCS_BUILDDIR/latex/normal-page-footer.pdf"
-    find "$DOCS_BUILDDIR/latex" -name '*.pdf' -exec mv -t "$DOCS_BUILDDIR" {} +
+    mkdir -p "$dest"
+    find "$DOCS_BUILDDIR/latex" -name '*.pdf' -exec mv -t "$dest" {} +
     rm -r "$DOCS_BUILDDIR/latex"
     echo
-    echo "Output can be found in ./$DOCS_BUILDDIR"
+    echo "Output can be found in ./$dest"
     echo
 }
 
@@ -212,8 +202,6 @@ _check_style() {
     check_path="${CHECK_PATH:-$(_get_check_path)}"
     echo "Running Vale style check against $check_path. To change target set CHECK_PATH= with sp command"
     _vale_run "$DEV_DIR/styles/error.filter" "$check_path"
-    echo "Running Vale inclusive-language check against $check_path."
-    _vale_run "$DEV_DIR/styles/woke.filter" "$check_path"
     echo "Running Vale spelling check against $check_path."
     _vale_run "$DEV_DIR/styles/spelling.filter" "$check_path"
 }
@@ -251,34 +239,58 @@ _check_links() {
         }
 }
 
-_check_accessibility() {
-    _pa11y_setup
-    _build_html
-    if [ "$VERBOSE" -eq 1 ]; then
-        echo "+ find \"$DOCS_BUILDDIR\" -name '*.html' -print0 | xargs -n 1 -0 \"$PA11Y_BIN\" --config \"$PA11Y_CONFIG\"" >&2
-    fi
-    find "$DOCS_BUILDDIR" -name '*.html' -print0 \
-        | xargs -n 1 -0 "$PA11Y_BIN" --config "$PA11Y_CONFIG"
-}
-
 # ─── Commands ─────────────────────────────────────────────────────────────────
 
 cmd_build() {
-    local subcmd="" clean=0
+    local subcmd="" clean=0 pdf_path="" expect_path=0
     for arg in "$@"; do
+        if [ "$expect_path" -eq 1 ]; then
+            pdf_path="$arg"
+            expect_path=0
+            continue
+        fi
         case "$arg" in
-            --clean)   clean=1 ;;
-            --verbose) VERBOSE=1 ;;
-            html|pdf)  subcmd="$arg" ;;
-            "")        ;;
+            --help)
+                echo "Usage:"
+                echo "    ./sp build <mode> [<option>...]"
+                echo
+                echo "Render the docs. Three output types are available:"
+                echo
+                echo "- 'run' (default) hosts the docs in a local server you can view in the web browser."
+                echo "  When you save a change to a source file, the server updates the doc in real time."
+                echo "- 'html' renders the docs as a static set of HTML pages"
+                echo "- 'pdf' renders the docs as a PDF file"
+                echo
+                echo "Positional arguments:"
+                echo "            mode  Output type, either 'run' (default), 'html', or 'pdf'"
+                echo
+                echo "Options:"
+                echo "            --clean  Clean the built docs and temporary files before building"
+                echo "            --path  Destination path for PDF builds"
+                echo
+                echo "Global options:"
+                echo "            --verbose  Show more commands in the terminal"
+                echo "            --help  Show this help"
+                return 0 ;;
+            --clean)       clean=1 ;;
+            --verbose)     VERBOSE=1 ;;
+            --path)        expect_path=1 ;;
+            run|html|pdf)  subcmd="$arg" ;;
+            "")            ;;
             *) echo "Unknown build option: $arg" >&2; exit 1 ;;
         esac
     done
+    if [ "$expect_path" -eq 1 ]; then
+        echo "--path requires a value" >&2; exit 1
+    fi
+    if [ -n "$pdf_path" ] && [ "$subcmd" != "pdf" ]; then
+        echo "--path can only be used with 'pdf' mode" >&2; exit 1
+    fi
     [ "$clean" -eq 1 ] && _clean_doc
     case "$subcmd" in
-        html) _build_html ;;
-        pdf)  _build_pdf ;;
-        "")   _build_watch ;;
+        html)    _build_html ;;
+        pdf)     _build_pdf "$pdf_path" ;;
+        run|"")  _build_watch ;;
     esac
 }
 
@@ -286,9 +298,31 @@ cmd_check() {
     local subcmd=""
     for arg in "$@"; do
         case "$arg" in
-            --verbose)                           VERBOSE=1 ;;
-            style|markdown|links|accessibility)  subcmd="$arg" ;;
-            "")                                  ;;
+            --help)
+                echo "Usage:"
+                echo "    ./sp check <type> [<option>...]"
+                echo
+                echo "Check for problems in the documentation. Several checks are available:"
+                echo
+                echo "- 'style' checks for spelling and style concerns"
+                echo "- 'markdown' looks for Markdown formatting issues"
+                echo "- 'links' checks for valid external hyperlinks"
+                echo
+                echo "Positional arguments:"
+                echo "            type  The check to run, either 'all' (default), 'style',"
+                echo "                  'markdown', or 'links'"
+                echo
+                echo "Environment variables:"
+                echo "            CHECK_PATH  Limit style checks to a specific path instead of"
+                echo "                  the entire source tree (e.g. CHECK_PATH=tutorials ./sp check style)"
+                echo
+                echo "Global options:"
+                echo "            --verbose  Show more commands in the terminal"
+                echo "            --help  Show this help"
+                return 0 ;;
+            --verbose)                  VERBOSE=1 ;;
+            style|markdown|links)  subcmd="$arg" ;;
+            "")                    ;;
             *) echo "Unknown check option: $arg" >&2; exit 1 ;;
         esac
     done
@@ -296,98 +330,107 @@ cmd_check() {
         style)         _check_style ;;
         markdown)      _check_markdown ;;
         links)         _check_links ;;
-        accessibility) _check_accessibility ;;
         "")
             _check_style
             _check_markdown
             _check_links
-            _check_accessibility
             ;;
     esac
 }
 
 cmd_clean() {
-    _clean_doc
-}
-
-cmd_setup() {
-    local refresh=0
+    local purge=0
     for arg in "$@"; do
         case "$arg" in
-            --refresh) refresh=1 ;;
-            *) echo "Unknown setup option: $arg" >&2; exit 1 ;;
+            --help)
+                echo "Usage:"
+                echo "    ./sp clean [<option>...]"
+                echo
+                echo "Remove all built docs and temporary files. Sometimes, stale files can cause"
+                echo "build failures, and the only solution is to clear the previous builds."
+                echo
+                echo "Options:"
+                echo "            --purge  Also remove the docs environment (.venv) and downloaded"
+                echo "                     style files. Use this to fully reset the environment,"
+                echo "                     for example when switching branches or updating"
+                echo "                     dependencies."
+                echo
+                echo "Global options:"
+                echo "            --verbose  Show more commands in the terminal"
+                echo "            --help  Show this help"
+                return 0 ;;
+            --purge) purge=1 ;;
+            *) echo "Unknown clean option: $arg" >&2; exit 1 ;;
         esac
     done
-    [ "$refresh" -eq 1 ] && cmd_remove
-    _ensure_venv
-}
-
-cmd_remove() {
     _clean_doc
-    if [ -e "$DOCS_VENVDIR" ]; then
-        if ! [ -d "$DOCS_VENVDIR" ] || [[ "$DOCS_VENVDIR" == /* ]]; then
-            echo "Refusing to remove '$DOCS_VENVDIR': not a relative directory path." >&2
-            exit 1
+    if [ "$purge" -eq 1 ]; then
+        if [ -e "$DOCS_VENVDIR" ]; then
+            if ! [ -d "$DOCS_VENVDIR" ] || [[ "$DOCS_VENVDIR" == /* ]]; then
+                echo "Refusing to remove '$DOCS_VENVDIR': not a relative directory path." >&2
+                exit 1
+            fi
+            echo "Removing $DOCS_VENVDIR"
+            rm -rf "$DOCS_VENVDIR"
         fi
-        rm -rf "$DOCS_VENVDIR"
+        if [ -e "$DEV_DIR/styles" ]; then
+            echo "Removing $DEV_DIR/styles"
+            rm -rf "$DEV_DIR/styles"
+        fi
+        if [ -e "$VALE_CONFIG" ]; then
+            echo "Removing $VALE_CONFIG"
+            rm -rf "$VALE_CONFIG"
+        fi
     fi
-    rm -rf "$DEV_DIR/node_modules/"
-    rm -rf "$DEV_DIR/styles"
-    rm -rf "$VALE_CONFIG"
 }
 
 cmd_update() {
+    for arg in "$@"; do
+        case "$arg" in
+            --help)
+                echo "Usage:"
+                echo "    ./sp update [<option>...]"
+                echo
+                echo "Update the docs base. The foundation of the docs come from Canonical's"
+                echo "Starter Pack. This command syncs with that project, pulling in new file"
+                echo "structure, requirements, and templates."
+                echo
+                echo "Global options:"
+                echo "            --verbose  Show more commands in the terminal"
+                echo "            --help  Show this help"
+                return 0 ;;
+        esac
+    done
     _ensure_venv
     _run "$DOCS_VENVDIR/bin/python3" "$DEV_DIR/update_sp.py"
 }
 
 usage() {
+    echo "Run './sp help <command>' to view a command's usage."
     echo
-    echo "-------------------------------------------------------------"
-    echo "* watch, build and serve the documentation:  ./sp build"
-    echo "* build HTML to disk:                        ./sp build html"
-    echo "* build a PDF:                               ./sp build pdf"
-    echo "* run all checks:                            ./sp check"
-    echo "* check spelling and style:                  ./sp check style"
-    echo "* check Markdown formatting:                 ./sp check markdown"
-    echo "* check hyperlinks:                          ./sp check links"
-    echo "* check web accessibility:                   ./sp check accessibility"
-    echo "* clean built doc files:                     ./sp clean"
-    echo "* set up the docs environment:               ./sp setup"
-    echo "* remove the docs environment:               ./sp remove"
-    echo "* update the docs base:                      ./sp update"
-    echo ""
-    echo "Flags:  --clean   (build)        remove cached files before building"
-    echo "        --verbose (build/check)  print each command as it runs"
-    echo "        --refresh (setup)        remove old environment first"
-    echo "        CHECK_PATH=<dir>         scope style checks to a path"
-    echo "-------------------------------------------------------------"
+    echo "Main commands:"
+    echo "             build  Render the docs"
+    echo "             check  Check for problems in the documentation"
+    echo "             clean  Remove built docs and temporary files"
+    echo "             help  View help for the commands"
     echo
+    echo "Sphinx Stack infra commands:"
+    echo "             update  Update the docs base"
+
+    echo
+    echo "Global options:"
+    echo "             --verbose  Show more commands in the terminal"
+    echo "             --help  Show this help"
 }
 
 # ─── Routing ──────────────────────────────────────────────────────────────────
 
 main() {
     case "${1:-help}" in
-        # Primary commands (and silent aliases)
-        build|run|auto|serve|server)  cmd_build "${@:2}" ;;
-        check|lint)                   cmd_check "${@:2}" ;;
-        clean)                        cmd_clean ;;
-        setup|install)                cmd_setup "${@:2}" ;;
-        remove)                       cmd_remove ;;
-        update)                       cmd_update ;;
-
-        # Deprecated aliases — warn then route to new command
-        html)       _deprecated "html"        "build html";          cmd_build html ;;
-        pdf)        _deprecated "pdf"         "build pdf";           cmd_build pdf ;;
-        vale)       _deprecated "vale"        "check style";         cmd_check style ;;
-        woke)       _deprecated "woke"        "check style";         cmd_check style ;;
-        spelling)   _deprecated "spelling"    "check style";         cmd_check style ;;
-        spellcheck) _deprecated "spellcheck"  "check style";         cmd_check style ;;
-        linkcheck)  _deprecated "linkcheck"   "check links";         cmd_check links ;;
-        lint-md)    _deprecated "lint-md"     "check markdown";      cmd_check markdown ;;
-        pa11y)      _deprecated "pa11y"       "check accessibility"; cmd_check accessibility ;;
-        clean-doc)  _deprecated "clean-doc"   "clean";               cmd_clean ;;
+        build)   cmd_build "${@:2}" ;;
+        check)   cmd_check "${@:2}" ;;
+        clean)   cmd_clean "${@:2}" ;;
+        update)  cmd_update "${@:2}" ;;
 
         help|--help|-h)  usage ;;
         *)
