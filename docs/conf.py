@@ -36,6 +36,7 @@ html_title = project + " documentation"
 # Documentation website URL
 ogp_site_url = os.environ.get("READTHEDOCS_CANONICAL_URL", "/")
 
+
 # Preview name of the documentation website
 # TODO: To use a different name for the project in previews, update the next line.
 ogp_site_name = project
@@ -72,16 +73,16 @@ html_context = {
     # documentation source files and creating GitHub issues are added at the bottom of
     # each page.
     # TODO: Change to your documentation GitHub repository URL or leave empty.
-    "github_url": "",
+    "github_url": "github.com/a-velasco/sphinx-stack-testing",
     # Docs branch in the repo; used in links for viewing the source files
     "repo_default_branch": "main",
     # Docs location in the repo; used in links for viewing the source files
-    "repo_folder": "/docs/",
+    "github_folder": "/docs/",
     # TODO: To enable or disable the Previous / Next buttons at the bottom of pages
     # Valid options: none, prev, next, both
     # "sequential_nav": "",
     # TODO: To enable listing contributors on individual pages, set to True
-    "display_contributors": False,
+    "display_contributors": True,
     # Required for feedback button
     "github_issues": "enabled",
     # Passes the top-level 'author' value to the theme
@@ -140,7 +141,7 @@ sitemap_excludes = [
 ################################
 
 # html_static_path = ["_static"]
-# templates_path = ["_templates"]
+templates_path = ["_templates"]
 
 #############
 # Redirects #
@@ -157,6 +158,8 @@ rediraffe_redirects = "redirects.txt"
 # Strips '/index.html' from destination URLs when building with 'dirhtml'
 rediraffe_dir_only = True
 
+# Redirects via the sphinx_reredirects extension:
+redirects = {"test-reredirects": "../canary-page"}
 
 ############################
 # sphinx-llm configuration #
@@ -243,8 +246,10 @@ extensions = [
 exclude_patterns = [
     "doc-cheat-sheet*",
     ".venv*",
-    "_dev",
 ]
+
+# Excludes files from toctree
+toc_filter_exclude = ["exclude"]
 
 # Adds custom CSS files, located remotely or in 'html_static_path'.
 # html_css_files = [
@@ -288,8 +293,8 @@ rst_prolog = """
     :class: vale-ignore
 """
 
-# Configuration for Intersphinx projects
-#
-# intersphinx_mapping = {
-#     "snap": ("https://snapcraft.io/docs/", None),
-# }
+#Configuration for Intersphinx projects
+
+intersphinx_mapping = {
+    "sphinx-stack-docs": ("https://documentation.ubuntu.com/sphinx-stack/latest/", None),
+}
