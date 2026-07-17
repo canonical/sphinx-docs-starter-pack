@@ -192,6 +192,8 @@ linkcheck_ignore = [
     "https://example.com",
     # SourceForge domains often block linkcheck
     r"https://.*\.sourceforge\.(net|io)/.*",
+    # Example broken link used in canary page
+    "https://documentation.ubuntu.com/sphinx-stack/a"
 ]
 
 # A regex list of URLs where anchors are ignored by 'make linkcheck'

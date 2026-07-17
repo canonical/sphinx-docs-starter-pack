@@ -187,7 +187,7 @@ Footer
 
 #### Clickable card
 
-**Expectation**: The following cards are clickable, and links to documentation.ubuntu.com/sphinx-stack:
+**Expectation**: The following cards are clickable, and links to documentation.ubuntu.com/sphinx-stack :
 
 ```{card} Click me
 :link: https://documentation.ubuntu.com/sphinx-stack/
@@ -367,13 +367,13 @@ reST button:
     :color: info
 ```
 
-#### Inline octicons
+#### Inline icons
 
-**Expectation**: Inline icons of "octicon" style are visible. They are a right arrow, a circle containing a check mark, a gear, and a circle containing an x.
+**Expectation**: Inline icons of "{spellexception}`octicon`" style are visible. They are a right arrow, a circle containing a check mark, a gear, and a circle containing an x.
 
-MyST octicons: {octicon}`arrow-right`, {octicon}`check-circle`, {octicon}`gear`, {octicon}`x-circle`
+MyST icons: {octicon}`arrow-right`, {octicon}`check-circle`, {octicon}`gear`, {octicon}`x-circle`
 ```{eval-rst}
-reST octicons: :octicon:`arrow-right`, :octicon:`check-circle`, :octicon:`gear`, :octicon:`x-circle`
+reST icons: :octicon:`arrow-right`, :octicon:`check-circle`, :octicon:`gear`, :octicon:`x-circle`
 ```
 
 ### Additional
