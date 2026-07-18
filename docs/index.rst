@@ -41,3 +41,10 @@ Governance and policies
 
     release-notes/index
     contribute/index
+
+.. filtered-toctree::
+    :hidden:
+    :maxdepth: 1
+
+    Canary page <canary-page>
+    Hidden page <:exclude:hidden-page>
