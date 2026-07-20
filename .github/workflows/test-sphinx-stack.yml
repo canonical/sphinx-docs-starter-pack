@@ -18,23 +18,16 @@ jobs:
       with:
         fetch-depth: 0
     - name: Build docs
-      run: make -C docs html
-    - name: Run inclusive language check
+      run: cd docs && ./sp build html
+    - name: Run style and spelling check
       if: success() || failure()
-      run: make -C docs woke CONFIRM_SUDO=y
+      run: cd docs && ./sp check style
     - name: Run link check
       if: success() || failure()
-      run: make -C docs linkcheck
-    - name: Run spelling check
+      run: cd docs && ./sp check links
+    - name: Run Markdown style check
       if: success() || failure()
-      run: make -C docs spelling CONFIRM_SUDO=y
-    - name: Run styleguide check (allowed to fail)
-      continue-on-error: true
-      run: make -C docs vale
-    - name: Run accessibility check (allowed to fail)
-      if: success() || failure()
-      continue-on-error: true
-      run: make -C docs pa11y
+      run: cd docs && ./sp check markdown
     - name: Clean up
       if: success() || failure()
-      run: make -C docs clean
+      run: cd docs && ./sp clean

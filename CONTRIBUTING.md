@@ -104,8 +104,7 @@ Install dependencies and verify the build:
 
 ```bash
 cd docs
-make install
-make html
+./sp build html
 ```
 
 ## Contribute a change
@@ -229,21 +228,19 @@ Build and run the checks locally before submitting:
 
 ```bash
 cd docs
-make html
+./sp build html
 ```
 
 ```bash
-make spelling      # Check spelling
-make linkcheck     # Validate links
-make woke          # Check inclusive language
-make lint-md       # Check Markdown style
-make vale          # Check style guide compliance (optional)
+./sp check style     # Check spelling and style
+./sp check links     # Validate links
+./sp check markdown  # Check Markdown style
 ```
 
 To preview locally with live reload at `http://127.0.0.1:8000`, run:
 
 ```bash
-make run
+./sp build
 ```
 
 ### Document the change

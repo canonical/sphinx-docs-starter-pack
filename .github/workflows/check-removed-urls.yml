@@ -30,7 +30,7 @@ jobs:
         run: |
           for dir in compare base; do
             pushd ${dir}/docs
-            make html
+            ./sp build html
             popd
           done
       - name: Generate current URLs list
