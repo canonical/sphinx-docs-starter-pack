@@ -79,7 +79,7 @@ pymarkdownlnt-install: install
 install: $(DOCS_VENVDIR)
 
 run: install
-	. $(DOCS_VENV); $(DOCS_VENVDIR)/bin/sphinx-autobuild -b dirhtml --host $(SPHINX_HOST) --port $(SPHINX_PORT) "$(DOCS_SOURCEDIR)" "$(DOCS_BUILDDIR)" $(SPHINX_OPTS) $(SPHINX_AUTOBUILD_OPTS)
+	. $(DOCS_VENV); $(DOCS_VENVDIR)/bin/sphinx-autobuild -b dirhtml --host $(SPHINX_HOST) --port $(SPHINX_PORT) "$(DOCS_SOURCEDIR)" "$(DOCS_BUILDDIR)" $(SPHINX_OPTS) $(SPHINX_AUTOBUILD_OPTS) & PID=$$!; trap "kill -9 $$PID 2>/dev/null; exit 0" INT; wait $$PID
 
 # Does not depend on $(DOCS_BUILDDIR) to rebuild properly at every run.
 html: install
