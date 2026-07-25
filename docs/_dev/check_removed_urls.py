@@ -2,11 +2,14 @@
 
 """Check for removed URLs and verify if redirects exist."""
 
-import argparse
 import csv
 import io
 import sys
 from pathlib import Path
+
+BASE_URLS = Path("base/docs/urls.txt")
+COMPARE_URLS = Path("compare/docs/urls.txt")
+REDIRECTS = Path("compare/docs/redirects.txt")
 
 
 def read_urls(path):
@@ -64,40 +67,15 @@ def source_candidates_for_url(url):
 
 
 def main():
-    parser = argparse.ArgumentParser(
-        description="Check for removed URLs and verify if redirects exist."
-    )
-    parser.add_argument(
-        "--base-urls",
-        type=Path,
-        default=Path("base/docs/urls.txt"),
-        help="Path to base branch URLs file",
-    )
-    parser.add_argument(
-        "--compare-urls",
-        type=Path,
-        default=Path("compare/docs/urls.txt"),
-        help="Path to compare branch URLs file",
-    )
-    parser.add_argument(
-        "--redirects",
-        type=Path,
-        default=Path("compare/docs/redirects.txt"),
-        help="Path to redirects.txt file",
-    )
-    args = parser.parse_args()
-
-    if not args.base_urls.exists():
-        print(f"Error: Base URLs file not found at {args.base_urls}")
+    if not BASE_URLS.exists():
+        print(f"Error: Base URLs file not found at {BASE_URLS}")
         sys.exit(1)
-    if not args.compare_urls.exists():
-        print(f"Error: Compare URLs file not found at {args.compare_urls}")
+    if not COMPARE_URLS.exists():
+        print(f"Error: Compare URLs file not found at {COMPARE_URLS}")
         sys.exit(1)
 
-    removed_urls = sorted(
-        read_urls(args.base_urls) - read_urls(args.compare_urls)
-    )
-    redirect_sources = read_redirect_sources(args.redirects)
+    removed_urls = sorted(read_urls(BASE_URLS) - read_urls(COMPARE_URLS))
+    redirect_sources = read_redirect_sources(REDIRECTS)
 
     missing_redirects = [
         url
