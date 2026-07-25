@@ -2,13 +2,6 @@ name: Check for removed URLs
 
 on:
   workflow_call:
-    inputs:
-      base_ref:
-        required: false
-        type: string
-      base_repo:
-        required: false
-        type: string
   pull_request:
     branches: [main]
 
@@ -28,8 +21,8 @@ jobs:
       - name: Checkout base branch
         uses: actions/checkout@v5
         with:
-          ref: ${{ inputs.base_ref || github.event.pull_request.base.ref }}
-          repository: ${{ inputs.base_repo || github.event.pull_request.base.repo.full_name }}
+          ref: ${{ github.event.pull_request.base.ref }}
+          repository: ${{ github.event.pull_request.base.repo.full_name }}
           fetch-depth: 0
           path: base
       - uses: actions/setup-python@v6
