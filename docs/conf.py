@@ -157,6 +157,8 @@ rediraffe_redirects = "redirects.txt"
 # Strips '/index.html' from destination URLs when building with 'dirhtml'
 rediraffe_dir_only = True
 
+# Run sphinx-llm markdown generation sequentially to prevent race conditions
+llms_txt_build_parallel = False
 
 ############################
 # sphinx-llm configuration #
