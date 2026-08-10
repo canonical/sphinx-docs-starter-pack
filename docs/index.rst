@@ -32,7 +32,6 @@ Governance and policies
 
     tutorials/index
     how-to/index
-    reference/index
     explanation/index
 
 .. toctree::
@@ -40,4 +39,3 @@ Governance and policies
     :maxdepth: 1
 
     release-notes/index
-    contribute/index
