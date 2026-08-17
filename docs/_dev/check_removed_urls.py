@@ -7,10 +7,6 @@ import io
 import sys
 from pathlib import Path
 
-BASE_URLS = Path("base/docs/urls.txt")
-COMPARE_URLS = Path("compare/docs/urls.txt")
-REDIRECTS = Path("compare/docs/redirects.txt")
-
 
 def read_urls(path):
     return {
@@ -67,15 +63,19 @@ def source_candidates_for_url(url):
 
 
 def main():
-    if not BASE_URLS.exists():
-        print(f"Error: Base URLs file not found at {BASE_URLS}")
+    base_urls = Path("base/docs/urls.txt")
+    compare_urls = Path("compare/docs/urls.txt")
+    redirects = Path("compare/docs/redirects.txt")
+
+    if not base_urls.exists():
+        print(f"Error: Base URLs file not found at {base_urls}")
         sys.exit(1)
-    if not COMPARE_URLS.exists():
-        print(f"Error: Compare URLs file not found at {COMPARE_URLS}")
+    if not compare_urls.exists():
+        print(f"Error: Compare URLs file not found at {compare_urls}")
         sys.exit(1)
 
-    removed_urls = sorted(read_urls(BASE_URLS) - read_urls(COMPARE_URLS))
-    redirect_sources = read_redirect_sources(REDIRECTS)
+    removed_urls = sorted(read_urls(base_urls) - read_urls(compare_urls))
+    redirect_sources = read_redirect_sources(redirects)
 
     missing_redirects = [
         url
