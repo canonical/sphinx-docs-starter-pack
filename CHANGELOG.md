@@ -2,8 +2,6 @@
 
 ## Upcoming
 
-* Prevent Vale from processing Markdown files in the build directory
-* Update link to documenation in README
 * Make removed URL check redirect-aware and add support for reusable workflow contexts
 * Exclude utility directories from builds and checks
 * Update link to documentation in README
@@ -14,7 +12,7 @@
 * `docs/Makefile` [#605](https://github.com/canonical/sphinx-stack/pull/605), [#610](https://github.com/canonical/sphinx-stack/pull/610)
 * `README.md` [#603](https://github.com/canonical/sphinx-stack/pull/603)
 * `.github/workflows/cla-check.yml` [#606](https://github.com/canonical/sphinx-stack/pull/606)
-* `.github/workflows/check-removed-urls.yml` [#PR_NUMBER](https://github.com/canonical/sphinx-stack/pull/#PR_NUMBER)
+* `.github/workflows/check-removed-urls.yml` [#612](https://github.com/canonical/sphinx-stack/pull/#612)
 
 ## 2.0
 
