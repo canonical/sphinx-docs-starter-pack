@@ -25,6 +25,11 @@ jobs:
           repository: ${{ github.event.pull_request.base.repo.full_name }}
           fetch-depth: 0
           path: base
+      - name: Checkout sphinx-stack
+        uses: actions/checkout@v5
+        with:
+          repository: canonical/sphinx-stack
+          path: sphinx-stack
       - uses: actions/setup-python@v6
       - name: Build docs
         run: |
@@ -36,20 +41,17 @@ jobs:
       - name: Generate current URLs list
         run: |
           for dir in compare base; do
-            pushd ${dir}/docs
-            find ./_build/ -name '*.html' \
-            | sed 's|/_build||;s|/index.html$|/|;s|.html$||' \
-            | sort > urls.txt
-            popd
+            build_dir="${dir}/docs/_build"
+            urls_file="${dir}/docs/urls.txt"
+
+            if [ ! -d "${build_dir}" ]; then
+              echo "Expected docs build directory not found: ${build_dir}"
+              exit 1
+            fi
+
+            find "${build_dir}" -name '*.html' \
+              | sed "s|^${build_dir}||;s|^/html||;s|/index.html$|/|;s|.html$||" \
+              | sort > "${urls_file}"
           done
       - name: Compare URLs
-        run: |
-          BASE_URLS_PATH="base/docs/urls.txt"
-          COMPARE_URLS_PATH="compare/docs/urls.txt"
-          removed=$(comm -23 ${BASE_URLS_PATH} ${COMPARE_URLS_PATH} )
-          if [ -n "$removed" ]; then
-            echo "The following URLs were removed:"
-            echo "$removed"
-            echo "Please ensure removed pages are redirected"
-            exit 1
-          fi
+        run: python3 sphinx-stack/docs/_dev/check_removed_urls.py
