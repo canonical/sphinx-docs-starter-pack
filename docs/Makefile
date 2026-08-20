@@ -67,7 +67,7 @@ $(DOCS_VENVDIR):
 	@touch $(DOCS_VENVDIR)
 
 pa11y-install:
-	@command -v $(firstword $(PA11Y_CMD)) >/dev/null || { \
+	@test -x $(firstword $(PA11Y_CMD)) >/dev/null || { \
 			echo "Installing \"pa11y\" from npm..."; echo; \
 			mkdir -p $(DEV_DIR)/node_modules/ ; \
 			npm install --prefix $(DEV_DIR) pa11y; \
