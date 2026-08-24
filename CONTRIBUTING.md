@@ -21,7 +21,7 @@ issue or even contribute a fix.
 
 ## Review the project expectations
 
-Review these three documents before contributing:
+Review these documents before contributing:
 
 ### Ubuntu Code of Conduct
 
@@ -42,6 +42,20 @@ and choose to sign it, your work can be incorporated into the repository.
 ### Open source license
 
 The Sphinx Stack is licensed under [GPL-3.0](LICENSE).
+
+### Breaking changes 
+
+A breaking change is any change to the project that will make it incompatible with 
+previous versions (for example, removing a CLI command or dropping support for a 
+dependency). In order to minimize disruptions, the user impact of a breaking 
+change must be assessed before implementation and there should be a migration path 
+provided where possible. The Sphinx Stack project aims to deprecate features being 
+removed at least one cycle prior to removal. Project maintainers must approve any 
+breaking change before implementation.
+
+In cases where there is a need to address a serious security vulnerability or critical 
+product bug, we may merge a breaking change without prior notice. Project maintainers 
+will assess this on a case-by-case basis and communicate the changes in the release notes.
 
 ## Report an issue or open a request
 
@@ -113,7 +127,7 @@ make html
 ### Research the topic
 
 All significant work should be tied to an existing issue. Before starting, comment on
-the issue to have it assigned to you.
+the issue to have it assigned to you. 
 
 #### Minor changes
 
@@ -147,6 +161,9 @@ Follow these guidelines:
 - Use separate commits for each logical change, and for changes to different components
 - Keep the Sphinx Stack minimal by default; optional features are best implemented
   by the projects using the Sphinx Stack rather than the Sphinx Stack itself
+- If your change is a user-facing or immediately observable breaking change (a CLI
+  command or workflow, for example), add a deprecation notice to its output during
+  the deprecation cycle
 
 ### Commit a change
 
@@ -186,7 +203,7 @@ All commits require cryptographic signatures ([DCO
 `git commit` command from the previous section, for example:
 
 ```bash
-git commit -S -m "feat: add logging levels to updage script"
+git commit -S -m "feat: add logging levels to update script"
 ```
 
 Signed commits display a "Verified" badge in GitHub. Set up signing via [GitHub Docs -
@@ -259,7 +276,7 @@ change](#test-the-change).
 
 #### Changelog guidance
 
-Ensure that feature changes and fixes are documented in the relevant release notes.
+Ensure that feature changes and fixes are documented in the relevant release notes. Add breaking changes to the dedicated *Breaking changes* section of the release notes.
 
 ### Push the branch and open a PR
 
@@ -279,6 +296,7 @@ Your PR should include the following details:
 - Relevant issues: [Link related issues and PRs](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls)
 - Testing: How reviewers can verify the change or test the fix
 - Reversibility: For costly-to-reverse decisions, explain reasoning and reversal steps
+- Labels: If your PR introduces a breaking change, label it with `Breaking change`.
 
 ## CI/CD pipeline
 
@@ -358,3 +376,7 @@ Reviewers may request:
 - Cross-references: Use proper reST or MyST syntax
 - Examples: Start minimal, then show options; include verification steps
 - Theme compatibility: Test in both light and dark modes
+
+### Breaking changes 
+
+Once PRs that introduce a breaking change are reviewed and approved, the `Awaiting release` label is added. Merges are held until the next major release.
