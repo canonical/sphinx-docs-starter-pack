@@ -29,7 +29,7 @@
 
 * `docs/conf.py`  [#562](https://github.com/canonical/sphinx-docs-starter-pack/pull/562), [#576](https://github.com/canonical/sphinx-docs-starter-pack/pull/576), [#590](https://github.com/canonical/sphinx-docs-starter-pack/pull/590), [#595](https://github.com/canonical/sphinx-docs-starter-pack/pull/595), [#598](https://github.com/canonical/sphinx-docs-starter-pack/pull/598)
 * `docs/Makefile` [#575](https://github.com/canonical/sphinx-docs-starter-pack/pull/575), [#590](https://github.com/canonical/sphinx-docs-starter-pack/pull/590)
-* `docs/requirements.txt` [#590]([#590](https://github.com/canonical/sphinx-docs-starter-pack/pull/590))
+* `docs/requirements.txt` [#590]([https://github.com/canonical/sphinx-docs-starter-pack/pull/590), [#630]([https://github.com/canonical/sphinx-docs-starter-pack/pull/630)
 * `docs/reuse/` [#576](https://github.com/canonical/sphinx-docs-starter-pack/pull/576)
 * `docs/.sphinx/` [#598](https://github.com/canonical/sphinx-docs-starter-pack/pull/598)
 * `docs/_templates/footer.html` [#594](https://github.com/canonical/sphinx-docs-starter-pack/pull/594)
